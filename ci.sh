@@ -6,22 +6,21 @@ db=raw_reports.db3
 
 # 重新生成数据（目前不考虑支持历史数据)
 rm $db -f
-rm $ui
+rm $ui -rf
 mkdir -p $ui
 
-echo "准备存储 test_raw_reports.json 数据到 $db"
-sqlite3 $db <$sql/read-json.sql
-echo "成功存储 JSON 数据到 $db"
-
-f1=user-repo-package-count
-echo "运行 $f1.sql"
-sqlite3 -json $db <$sql/$f1.sql >$ui/$f1.json
-sqlite3 -table $db <$sql/$f1.sql
-
-f2=user-repo-package-file-count
-echo "运行 $f2.sql"
-sqlite3 -json $db <$sql/$f2.sql >$ui/$f2.json
-sqlite3 -table $db <$sql/$f2.sql
+sql_files=($(ls $sql))
+for item in "${sql_files[@]}"; do
+  in_sql="$sql/$item"
+  out_json=$(echo $item | sed -E "s/[0-9]+_(.*)\.sql/$ui\/\1.json/")
+  echo "正在运行 $in_sql"
+  sqlite3 -table $db <$in_sql
+  if [[ ! $item =~ ^0 ]]; then
+    # 避免重复录入数据
+    sqlite3 -json $db <$in_sql >$out_json
+    echo "成功运行 $in_sql 并保留数据到 $out_json：$(ls -alh $out_json)"
+  fi
+done
 
 # 不保留数据库文件
 rm $db -f
