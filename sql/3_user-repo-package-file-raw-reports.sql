@@ -11,6 +11,7 @@ FROM
   report,
   json_each (reports);
 
+CREATE VIEW IF NOT EXISTS file_raw AS
 With
   files AS (
     -- 如果使用 *，那么正式查询时无法通过 table.col 指定，因此必须在这使用别名；
@@ -35,6 +36,11 @@ With
       AND file.file=count_on_file.file
   )
 SELECT
+  *
+FROM
+  files;
+
+SELECT
   user,
   repo,
   package,
@@ -44,7 +50,7 @@ SELECT
   clippy_warn,
   clippy_error
 FROM
-  files
+  file_raw
 ORDER BY
   count DESC,
   c_clippy_error DESC,
