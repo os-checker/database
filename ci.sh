@@ -4,9 +4,13 @@
 
 jq -f home.jq $UI_JSON >ui/home.json
 
+git status
 git add .
+echo "正在提交：$(git status --porcelain)"
 git commit -m "[bot] update $UI_JSON and friends from WebUI repo"
-git push⋅
+echo "提交成功，正在推送到 database 仓库"
+git push
+echo "成功推送到 database 仓库"
 
 # # 检查是否有未暂存的更改
 # git_status_output=$(git status --porcelain)
