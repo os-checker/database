@@ -58,6 +58,23 @@ def zero: {
 # 由于 sort_by 只能指定字段排序，因此从数组转换到对象
 def gen_sorting_keys: . | map(zero + {(.kind): .count}) | add;
 
+def add_key:
+# 给数组的每个元素添加位置数字索引 key_repo，它代表了保持原来的顺序（group_by 有自己的顺序)，也表示一个仓库
+. | to_entries | map(.value + {key_repo: .key}) | map(
+  . as {data: $a, key_repo: $key_repo} # 提取 a，因为需要把 a 复制进数组 b 的每个元素作为键
+    | .children       # 提取数组 b
+    | map(. + {key_repo: $key_repo, tag: 2, a: $a}) # 对数组 b 的每个元素添加聚合键
+    | [{a: $a, key_repo: $key_repo, tag: 1}] + .    # 将 a 插入到数组 b 的开头，并给 a 添加聚合键
+  ) # 此时是完全基于 b 的二维数组
+  | flatten(2) # 展开成一维数组
+  | to_entries | map(.value + { key }) # 添加位置索引：这是整个函数最重要的信息
+  | group_by(.key_repo) # 按照仓库键聚合
+  | map(group_by(.tag)) # 按照 tag 的值聚合
+  | map(. as [[$a], $b] | { # 解构聚合后的数组：我们知道 a 只有一个
+     key: $a.key, data: $a.a, children: $b | map({ key, data })
+  }) # 删除聚合键，并恢复源数据结构，但保留了 key
+;
+
 # 重新排列字段，以及按照计数排序
 def epilogue: . | map({
   data: { user, repo, total_count, kinds },
@@ -72,7 +89,7 @@ def epilogue: . | map({
     },
     sorting: .kinds | gen_sorting_keys
   }) | sort_by_count
-}) | sort_by_count;
+}) | sort_by_count | add_key;
 
 . | extract_kind_count | group_by_package | group_by_repo | epilogue
 
