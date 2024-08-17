@@ -3,12 +3,20 @@
 # 如果 jq 或者 git 命令执行出错，则马上退出
 set +e
 
+if [ -z "$UI_JSON" ]; then
+  export UI_JSON=ui.json
+fi
+
 echo "jq: $(which jq) | version: $(jq --version)"
 
 gen1="jq -f home.jq $UI_JSON >ui/home.json"
 echo "执行 \"$gen1\""
 # 包含重定向符号，因此不能直接使用 $gen1
 eval "$gen1"
+
+gen2="jq -f file-tree.jq $UI_JSON >ui/file-tree.json"
+echo "执行 \"$gen2\""
+eval "$gen2"
 
 if [ -n "$BOT" ]; then
   echo "bot!"
