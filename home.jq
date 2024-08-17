@@ -40,8 +40,8 @@ def group_by_repo: . | group_by(.key2) | map({
 );
 
 # 所有计数按照降序排列；先按照总计数，如果相同，按照指定的字段的值来比较先后顺序
-def sort_by_count(x): . | sort_by(
-  -x, # -.data.total_count,
+def sort_by_count: . | sort_by(
+  -.data.total_count,
   -.sorting["Clippy(Error)"],
   -.sorting["Clippy(Warn)"],
   -.sorting["Unformatted"]
@@ -63,14 +63,16 @@ def epilogue: . | map({
   data: { user, repo, total_count, kinds },
   sorting: .kinds | gen_sorting_keys,
   children: .children | map({
-    user: .key1.user,
-    repo: .key1.repo,
-    package: .key1.package,
-    total_count,
-    kinds,
+    data: {
+      user: .key1.user,
+      repo: .key1.repo,
+      package: .key1.package,
+      total_count,
+      kinds,
+    },
     sorting: .kinds | gen_sorting_keys
-  }) | sort_by_count(.total_count)
-}) | sort_by_count(.data.total_count);
+  }) | sort_by_count
+}) | sort_by_count;
 
 . | extract_kind_count | group_by_package | group_by_repo | epilogue
 
