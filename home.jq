@@ -75,6 +75,16 @@ def add_key:
   }) # 删除聚合键，并恢复源数据结构，但保留了 key
 ;
 
+def merge_kinds: .kinds | map({(.kind): .count}) | add;
+
+def flatten_kinds:
+. as $x
+| map(.data |= . + merge_kinds)
+| map(.data |= del(.kinds))
+| map(.children |= map(.data |= . + merge_kinds))
+| map(.children |= map(.data |= del(.kinds)))
+;
+
 # 重新排列字段，以及按照计数排序
 def epilogue: . | map({
   data: { user, repo, total_count, kinds },
@@ -89,7 +99,7 @@ def epilogue: . | map({
     },
     sorting: .kinds | gen_sorting_keys
   }) | sort_by_count
-}) | sort_by_count | add_key;
+}) | sort_by_count | add_key | flatten_kinds;
 
 . | extract_kind_count | group_by_package | group_by_repo | epilogue
 
