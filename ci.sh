@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 如果 jq 或者 git 命令执行出错，则马上退出
+set +e
+
 gen1="jq -f home.jq $UI_JSON >ui/home.json"
 echo "执行 \"$gen1\""
 # 包含重定向符号，因此不能直接使用 $gen1
