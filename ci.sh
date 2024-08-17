@@ -1,17 +1,24 @@
 #!/bin/bash
 
+gen1="jq -f home.jq $UI_JSON >ui/home.json"
+echo "执行 \"$gen1\""
+# 包含重定向符号，因此不能直接使用 $gen1
+eval "$gen1"
+
+if [ -n "$BOT" ]; then
+  echo "bot!"
+  git status
+  git add .
+  echo "正在提交：$(git status --porcelain)"
+  git commit -m "[bot] update $UI_JSON and friends from WebUI repo"
+  echo "提交成功，正在推送到 database 仓库"
+  git push
+  echo "成功推送到 database 仓库"
+fi
+
+echo 🎇
+
 # 注意：如果检查结果和上次一样，那么无法提交（也不应该提交）
-
-jq -f home.jq $UI_JSON >ui/home.json
-
-git status
-git add .
-echo "正在提交：$(git status --porcelain)"
-git commit -m "[bot] update $UI_JSON and friends from WebUI repo"
-echo "提交成功，正在推送到 database 仓库"
-git push
-echo "成功推送到 database 仓库"
-
 # # 检查是否有未暂存的更改
 # git_status_output=$(git status --porcelain)
 #
