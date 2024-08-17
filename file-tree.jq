@@ -34,9 +34,8 @@ def basic:
     })
   })
 | map(.raw_reports |= (map(
-      { file, count: .arr | map(.raw | length) | add }
+      { file, count: .arr | map(.raw | length) | add, arr }
       + { sorting: .arr | map({kind, count: .raw | length} | zero + {(.kind): .count}) | add } # 用于内部排序
-      + (.arr | map({(.kind): .raw}) | add)
     ) | sort_by_kind_count)
   )
 | map(
