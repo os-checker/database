@@ -46,4 +46,7 @@ def basic:
   )
 | sort_by_count;
 
-. | basic 
+# 诊断类别的顺序
+def kinds_order: .env.kinds.order;
+
+. as $x | basic | { kinds_order: $x | kinds_order, data: . }
