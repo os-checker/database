@@ -21,7 +21,7 @@ def sort_by_kind_count: . | sort_by(
 def zero(x): x | .env.kinds.order | map({(.): 0}) | add;
 # 为了方便前端避免处理空值，这里填充空数组来避免空值
 # e.g. { "Clippy(Error)": [], "Clippy(Warn)": [], "Unformatted": [] }
-def empty(x): x | .env.kinds.order | map({(.): []}) | add;
+# def empty(x): x | .env.kinds.order | map({(.): []}) | add;
 
 # 抽取骨架
 def basic:
@@ -36,7 +36,7 @@ def basic:
   })
 | map(.raw_reports |= (map(
       { file, count: .arr | map(.raw | length) | add }
-      + { kinds: .arr | (empty($x) + (map({(.kind): .raw}) | add)) }
+      + { kinds: .arr | map({(.kind): .raw}) }
       + { sorting: .arr | map({kind, count: .raw | length} | zero($x) + {(.kind): .count}) | add } # 用于内部排序
     ) | sort_by_kind_count)
   )
