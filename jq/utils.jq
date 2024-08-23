@@ -8,3 +8,10 @@ def zero(x): x | .env.kinds.order | map({(.): 0}) | add;
 # e.g. { "Clippy(Error)": [], "Clippy(Warn)": [], "Unformatted": [] }
 # def empty(x): x | .env.kinds.order | map({(.): []}) | add;
 
+# 所有计数按照降序排列；先按照总计数，如果相同，按照指定的字段的值来比较先后顺序
+def sort_by_kind_count(x): sort_by(
+  -x,
+  -.sorting["Clippy(Error)"],
+  -.sorting["Clippy(Warn)"],
+  -.sorting["Unformatted"]
+) | map(del(.sorting)); # 最后删除排序键

@@ -41,14 +41,6 @@ def group_by_repo: . | group_by(.key2) | map({
   }
 );
 
-# 所有计数按照降序排列；先按照总计数，如果相同，按照指定的字段的值来比较先后顺序
-def sort_by_count: . | sort_by(
-  -.data.total_count,
-  -.sorting["Clippy(Error)"],
-  -.sorting["Clippy(Warn)"],
-  -.sorting["Unformatted"]
-) | map(del(.sorting)); # 最后删除排序键
-
 # 由于 sort_by 只能指定字段排序，因此从数组转换到对象
 def gen_sorting_keys(x): . | map(utils::zero(x) + {(.kind): .count}) | add;
 
@@ -92,8 +84,8 @@ def epilogue(x): . | map({
       kinds,
     },
     sorting: .kinds | gen_sorting_keys(x)
-  }) | sort_by_count
-}) | sort_by_count | add_key | flatten_kinds;
+  }) | utils::sort_by_kind_count(.data.total_count)
+}) | utils::sort_by_kind_count(.data.total_count) | add_key | flatten_kinds;
 
 . as $x | extract_kind_count | group_by_package | group_by_repo | epilogue($x)
 

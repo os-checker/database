@@ -9,12 +9,6 @@ def gen_pkg(x): x.env.packages[.pkg_idx] | {
 
 # 按照 package 和 file count 降序
 def sort_by_count: . | sort_by(-.count);
-def sort_by_kind_count: . | sort_by(
-  -.count,
-  -.sorting["Clippy(Error)"],
-  -.sorting["Clippy(Warn)"],
-  -.sorting["Unformatted"]
-) | map(del(.sorting)); # 最后删除排序键
 
 # 抽取骨架
 def basic:
@@ -31,7 +25,7 @@ def basic:
       { file, count: .arr | map(.raw | length) | add }
       + { kinds: .arr | map({(.kind): .raw}) | add }
       + { sorting: .arr | map({kind, count: .raw | length} | utils::zero($x) + {(.kind): .count}) | add } # 用于内部排序
-    ) | sort_by_kind_count)
+    ) | utils::sort_by_kind_count(.count) )
   )
 | map(
     (. | gen_pkg($x))
