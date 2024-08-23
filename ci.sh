@@ -9,13 +9,11 @@ fi
 
 echo "jq: $(which jq) | version: $(jq --version)"
 
-gen1="jq -f home.jq $UI_JSON >ui/home.json"
-echo "执行 \"$gen1\""
-# 包含重定向符号，因此不能直接使用 $gen1
-eval "$gen1"
+sh ./home/run.sh
 
 gen2="jq -f file-tree.jq $UI_JSON >ui/file-tree.json"
 echo "执行 \"$gen2\""
+# 包含重定向符号，因此不能直接使用 $gen1
 eval "$gen2"
 
 if [ -n "$BOT" ]; then
