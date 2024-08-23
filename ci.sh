@@ -9,6 +9,9 @@ fi
 
 echo "jq: $(which jq) | version: $(jq --version)"
 
+echo "生成目标架构：ui/target-triple.json"
+jq -fc target-triples.jq $UI_JSON >ui/target-triple.json
+
 sh ./home/run.sh
 sh ./file-tree/run.sh
 
