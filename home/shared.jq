@@ -13,6 +13,7 @@ def extract_kind_count: . as $x | .data | map({key: {cmd_idx, kind}}) | group_by
         package: .pkg.name,
       },
       kind: .key.kind,
+      target_triple: .cmd.target_triple,
       count,
     }
 );
@@ -86,6 +87,4 @@ def epilogue(x): . | map({
     sorting: .kinds | gen_sorting_keys(x)
   }) | utils::sort_by_kind_count(.data.total_count)
 }) | utils::sort_by_kind_count(.data.total_count) | add_key | flatten_kinds;
-
-. as $x | extract_kind_count | group_by_package | group_by_repo | epilogue($x)
 
