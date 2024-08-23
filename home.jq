@@ -1,3 +1,5 @@
+import "./jq/utils" as utils;
+
 def extract_kind_count: . as $x | .data | map({key: {cmd_idx, kind}}) | group_by(.key) # 按诊断类型分组
 | map({
     key: .[0].key,
@@ -47,16 +49,8 @@ def sort_by_count: . | sort_by(
   -.sorting["Unformatted"]
 ) | map(del(.sorting)); # 最后删除排序键
 
-# 由于 sort_by 不允许对 null 值排序，所以给默认值；
-# 必须放置在已有值之前，并通过 + 连接，因为 + 会让右边的键覆盖左边的键
-def zero: {
-  "Clippy(Error)": 0,
-  "Clippy(Warn)": 0,
-  Unformatted: 0,
-};
-
 # 由于 sort_by 只能指定字段排序，因此从数组转换到对象
-def gen_sorting_keys: . | map(zero + {(.kind): .count}) | add;
+def gen_sorting_keys(x): . | map(utils::zero(x) + {(.kind): .count}) | add;
 
 def add_key:
 # 给数组的每个元素添加位置数字索引 key_repo，它代表了保持原来的顺序（group_by 有自己的顺序)，也表示一个仓库
@@ -86,9 +80,9 @@ def flatten_kinds:
 ;
 
 # 重新排列字段，以及按照计数排序
-def epilogue: . | map({
+def epilogue(x): . | map({
   data: { user, repo, total_count, kinds },
-  sorting: .kinds | gen_sorting_keys,
+  sorting: .kinds | gen_sorting_keys(x),
   children: .children | map({
     data: {
       user: .key1.user,
@@ -97,9 +91,9 @@ def epilogue: . | map({
       total_count,
       kinds,
     },
-    sorting: .kinds | gen_sorting_keys
+    sorting: .kinds | gen_sorting_keys(x)
   }) | sort_by_count
 }) | sort_by_count | add_key | flatten_kinds;
 
-. | extract_kind_count | group_by_package | group_by_repo | epilogue
+. as $x | extract_kind_count | group_by_package | group_by_repo | epilogue($x)
 
