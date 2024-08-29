@@ -62,7 +62,9 @@ def add_key:
   }) # 删除聚合键，并恢复源数据结构，但保留了 key
 ;
 
-def merge_kinds: .kinds | map({(.kind): .count}) | add;
+# 由于在未对 target_triple 聚合的情况下，数组内会出现相同 kind 的元素，需要聚合一下
+# TODO: 由于这在最后一步合并 kinds，需要考虑按 kind 排序之前合并 kind
+def merge_kinds: .kinds | group_by(.kind) | map({(.[0].kind): map(.count) | add}) | add;
 
 def flatten_kinds:
 . as $x
