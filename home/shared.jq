@@ -21,7 +21,9 @@ def extract_kind_count: . as $x | .data | map({key: {cmd_idx, kind}}) | group_by
 def group_by_package: . | group_by(.key) | map({
   key1: .[0].key,
   total_count: map(.count) | add,
-  kinds: map({kind, count})
+  kinds: map({kind, count}) 
+        # 由于在未对 target_triple 聚合的情况下，数组内会出现相同 kind 的元素，需要聚合一下
+        | group_by(.kind) | map({kind: (.[0].kind), count: map(.count) | add})
 } # + (map({kind, count} | {(.kind): .count}) | add) 
   | . + { key2: { user: .key1.user, repo: .key1.repo } }
 );
@@ -62,9 +64,7 @@ def add_key:
   }) # 删除聚合键，并恢复源数据结构，但保留了 key
 ;
 
-# 由于在未对 target_triple 聚合的情况下，数组内会出现相同 kind 的元素，需要聚合一下
-# TODO: 由于这在最后一步合并 kinds，需要考虑按 kind 排序之前合并 kind
-def merge_kinds: .kinds | group_by(.kind) | map({(.[0].kind): map(.count) | add}) | add;
+def merge_kinds: .kinds | map({(.kind): .count}) | add;
 
 def flatten_kinds:
 . as $x
