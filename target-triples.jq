@@ -3,9 +3,7 @@ def colname(order):
 order
 | map({(.): .}) 
 | add 
-| { # total_count 在所有 kinds 之前
-    total_count: "报告数量"
-  } + . + { # 覆盖 kinds 的名称
+| . + { # 覆盖 kinds 的名称
     Unformatted: "未格式化"
   }
 | to_entries
