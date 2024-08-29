@@ -13,7 +13,10 @@ order
   })
 ;
 
-. as $x | .cmd | map(.target_triple) | {
-  targets: . | unique,
+. as $x | .cmd | group_by(.target_triple) | {
+  targets: . | map({
+      triple: .[0].target_triple,
+      count: map(.count) | add,
+    }),
   kinds: ($x.env.kinds + {columns: colname($x.env.kinds.order) }),
 }
