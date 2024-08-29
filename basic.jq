@@ -13,10 +13,14 @@ order
   })
 ;
 
-. as $x | .cmd | group_by(.target_triple) | {
-  targets: . | map({
-      triple: .[0].target_triple,
-      count: map(.count) | add,
-    }),
-  kinds: ($x.env.kinds + {columns: colname($x.env.kinds.order) }),
-}
+. as $x
+| .cmd
+| group_by(.target_triple)
+| {
+    targets: . | map({
+        triple: .[0].target_triple,
+        count: map(.count) | add,
+      }) | sort_by(-.count),
+    kinds: ($x.env.kinds + {columns: colname($x.env.kinds.order) }),
+  }
+| .targets |= [{triple: "All Targets", count: map(.count) | add }] + . # 把 All Targets 放到最前面
