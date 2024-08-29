@@ -4,8 +4,8 @@ set +e
 
 mkdir -p ui/file-tree/split/
 
-echo "jq -f file-tree/0_all-target-triples.jq $UI_JSON >ui/file-tree/all-target-triples.json"
-jq -f file-tree/0_all-target-triples.jq "$UI_JSON" >ui/file-tree/all-target-triples.json
+echo "jq -f file-tree/0_All-Targets.jq $UI_JSON >ui/file-tree/All-Targets.json"
+jq -f file-tree/0_All-Targets.jq "$UI_JSON" >ui/file-tree/All-Targets.json
 
 echo "jq -f file-tree/1_array-of-target-triples.jq $UI_JSON >ui/file-tree/array-of-target-triples.json"
 jq -f file-tree/1_array-of-target-triples.jq "$UI_JSON" >ui/file-tree/array-of-target-triples.json

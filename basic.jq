@@ -23,4 +23,4 @@ order
       }) | sort_by(-.count),
     kinds: ($x.env.kinds + {columns: colname($x.env.kinds.order) }),
   }
-| .targets |= [{triple: "All Targets", count: map(.count) | add }] + . # 把 All Targets 放到最前面
+| .targets |= [{triple: "All-Targets", count: map(.count) | add }] + . # 把 All-Targets 放到最前面

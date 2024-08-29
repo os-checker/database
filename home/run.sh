@@ -4,8 +4,8 @@ set +e
 
 mkdir -p ui/home/split/
 
-echo "jq -f home/0_all-target-triples.jq $UI_JSON >ui/home/all-target-triples.json"
-jq -f home/0_all-target-triples.jq "$UI_JSON" >ui/home/all-target-triples.json
+echo "jq -f home/0_All-Targets.jq $UI_JSON >ui/home/All-Targets.json"
+jq -f home/0_All-Targets.jq "$UI_JSON" >ui/home/All-Targets.json
 
 echo "jq -f home/1_array-of-target-triples.jq $UI_JSON >ui/home/array-of-target-triples.json"
 jq -f home/1_array-of-target-triples.jq "$UI_JSON" >ui/home/array-of-target-triples.json
