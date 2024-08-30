@@ -21,66 +21,66 @@
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/cmd_parser.rs:82:50\n   |\n82 |     check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n   |                                                  ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
             ],
             "Unformatted": [
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 1 to 2)\n-use std::{fs, path::Path};\n-use clap::{Arg, ArgAction, Command};\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 4 to 4)\n+use clap::{Arg, ArgAction, Command};\n+use std::{fs, path::Path};\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 10 to 10)\n-\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 18 to 18)\n-            Arg::new(\"no-default\").short('d').long(\"no-default\").action(ArgAction::SetFalse)\n+            Arg::new(\"no-default\")\n+                .short('d')\n+                .long(\"no-default\")\n+                .action(ArgAction::SetFalse),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 21 to 21)\n-            Arg::new(\"features\").short('f').long(\"name\").action(ArgAction::Append)\n+            Arg::new(\"features\")\n+                .short('f')\n+                .long(\"name\")\n+                .action(ArgAction::Append),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 24 to 24)\n-            Arg::new(\"format\").short('o').long(\"format\").default_value(\"mermaid\")\n+            Arg::new(\"format\")\n+                .short('o')\n+                .long(\"format\")\n+                .default_value(\"mermaid\"),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 26 to 26)\n+        .arg(Arg::new(\"target\").short('t').long(\"target\").required(true))\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 27 to 27)\n-            Arg::new(\"target\").short('t').long(\"target\").required(true)\n+            Arg::new(\"save-path\")\n+                .short('s')\n+                .long(\"save-path\")\n+                .default_value(\"out.txt\"),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 29 to 31)\n-        .arg(\n-            Arg::new(\"save-path\").short('s').long(\"save-path\").default_value(\"out.txt\")\n-        )\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 35 to 35)\n-    let features = matches.get_many::<String>(\"features\").unwrap_or_default()\n+    let features = matches\n+        .get_many::<String>(\"features\")\n+        .unwrap_or_default()\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 40 to 40)\n-        _ => GraphFormat::Mermaid\n+        _ => GraphFormat::Mermaid,\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 59 to 59)\n-fn gen_config(is_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n+fn gen_config(\n+    is_default: bool,\n+    features: Vec<String>,\n+    format: GraphFormat,\n+    loc: String,\n+    output_loc: String,\n+) -> Config {\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 65 to 65)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 70 to 70)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 82 to 82)\n-    check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n+    check_crate_name(&name)\n+        || check_module_name(&name)\n+        || check_app_name(name)\n+        || check_lib_name(name)\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 1 to 2)\n-use std::{fs, path::Path};\n-use clap::{Arg, ArgAction, Command};\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 4 to 4)\n+use clap::{Arg, ArgAction, Command};\n+use std::{fs, path::Path};\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 10 to 10)\n-\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 18 to 18)\n-            Arg::new(\"no-default\").short('d').long(\"no-default\").action(ArgAction::SetFalse)\n+            Arg::new(\"no-default\")\n+                .short('d')\n+                .long(\"no-default\")\n+                .action(ArgAction::SetFalse),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 21 to 21)\n-            Arg::new(\"features\").short('f').long(\"name\").action(ArgAction::Append)\n+            Arg::new(\"features\")\n+                .short('f')\n+                .long(\"name\")\n+                .action(ArgAction::Append),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 24 to 24)\n-            Arg::new(\"format\").short('o').long(\"format\").default_value(\"mermaid\")\n+            Arg::new(\"format\")\n+                .short('o')\n+                .long(\"format\")\n+                .default_value(\"mermaid\"),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 26 to 26)\n+        .arg(Arg::new(\"target\").short('t').long(\"target\").required(true))\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 27 to 27)\n-            Arg::new(\"target\").short('t').long(\"target\").required(true)\n+            Arg::new(\"save-path\")\n+                .short('s')\n+                .long(\"save-path\")\n+                .default_value(\"out.txt\"),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 29 to 31)\n-        .arg(\n-            Arg::new(\"save-path\").short('s').long(\"save-path\").default_value(\"out.txt\")\n-        )\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 35 to 35)\n-    let features = matches.get_many::<String>(\"features\").unwrap_or_default()\n+    let features = matches\n+        .get_many::<String>(\"features\")\n+        .unwrap_or_default()\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 40 to 40)\n-        _ => GraphFormat::Mermaid\n+        _ => GraphFormat::Mermaid,\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 59 to 59)\n-fn gen_config(is_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n+fn gen_config(\n+    is_default: bool,\n+    features: Vec<String>,\n+    format: GraphFormat,\n+    loc: String,\n+    output_loc: String,\n+) -> Config {\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 65 to 65)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 70 to 70)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 82 to 82)\n-    check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n+    check_crate_name(&name)\n+        || check_module_name(&name)\n+        || check_app_name(name)\n+        || check_lib_name(name)\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 1 to 2)\n-use std::{fs, path::Path};\n-use clap::{Arg, ArgAction, Command};\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 4 to 4)\n+use clap::{Arg, ArgAction, Command};\n+use std::{fs, path::Path};\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 10 to 10)\n-\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 18 to 18)\n-            Arg::new(\"no-default\").short('d').long(\"no-default\").action(ArgAction::SetFalse)\n+            Arg::new(\"no-default\")\n+                .short('d')\n+                .long(\"no-default\")\n+                .action(ArgAction::SetFalse),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 21 to 21)\n-            Arg::new(\"features\").short('f').long(\"name\").action(ArgAction::Append)\n+            Arg::new(\"features\")\n+                .short('f')\n+                .long(\"name\")\n+                .action(ArgAction::Append),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 24 to 24)\n-            Arg::new(\"format\").short('o').long(\"format\").default_value(\"mermaid\")\n+            Arg::new(\"format\")\n+                .short('o')\n+                .long(\"format\")\n+                .default_value(\"mermaid\"),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 26 to 26)\n+        .arg(Arg::new(\"target\").short('t').long(\"target\").required(true))\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 27 to 27)\n-            Arg::new(\"target\").short('t').long(\"target\").required(true)\n+            Arg::new(\"save-path\")\n+                .short('s')\n+                .long(\"save-path\")\n+                .default_value(\"out.txt\"),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 29 to 31)\n-        .arg(\n-            Arg::new(\"save-path\").short('s').long(\"save-path\").default_value(\"out.txt\")\n-        )\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 35 to 35)\n-    let features = matches.get_many::<String>(\"features\").unwrap_or_default()\n+    let features = matches\n+        .get_many::<String>(\"features\")\n+        .unwrap_or_default()\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 40 to 40)\n-        _ => GraphFormat::Mermaid\n+        _ => GraphFormat::Mermaid,\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 59 to 59)\n-fn gen_config(is_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n+fn gen_config(\n+    is_default: bool,\n+    features: Vec<String>,\n+    format: GraphFormat,\n+    loc: String,\n+    output_loc: String,\n+) -> Config {\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 65 to 65)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 70 to 70)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 82 to 82)\n-    check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n+    check_crate_name(&name)\n+        || check_module_name(&name)\n+        || check_app_name(name)\n+        || check_lib_name(name)\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 1 to 2)\n-use std::{fs, path::Path};\n-use clap::{Arg, ArgAction, Command};\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 4 to 4)\n+use clap::{Arg, ArgAction, Command};\n+use std::{fs, path::Path};\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 10 to 10)\n-\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 18 to 18)\n-            Arg::new(\"no-default\").short('d').long(\"no-default\").action(ArgAction::SetFalse)\n+            Arg::new(\"no-default\")\n+                .short('d')\n+                .long(\"no-default\")\n+                .action(ArgAction::SetFalse),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 21 to 21)\n-            Arg::new(\"features\").short('f').long(\"name\").action(ArgAction::Append)\n+            Arg::new(\"features\")\n+                .short('f')\n+                .long(\"name\")\n+                .action(ArgAction::Append),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 24 to 24)\n-            Arg::new(\"format\").short('o').long(\"format\").default_value(\"mermaid\")\n+            Arg::new(\"format\")\n+                .short('o')\n+                .long(\"format\")\n+                .default_value(\"mermaid\"),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 26 to 26)\n+        .arg(Arg::new(\"target\").short('t').long(\"target\").required(true))\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 27 to 27)\n-            Arg::new(\"target\").short('t').long(\"target\").required(true)\n+            Arg::new(\"save-path\")\n+                .short('s')\n+                .long(\"save-path\")\n+                .default_value(\"out.txt\"),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 29 to 31)\n-        .arg(\n-            Arg::new(\"save-path\").short('s').long(\"save-path\").default_value(\"out.txt\")\n-        )\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 35 to 35)\n-    let features = matches.get_many::<String>(\"features\").unwrap_or_default()\n+    let features = matches\n+        .get_many::<String>(\"features\")\n+        .unwrap_or_default()\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 40 to 40)\n-        _ => GraphFormat::Mermaid\n+        _ => GraphFormat::Mermaid,\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 59 to 59)\n-fn gen_config(is_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n+fn gen_config(\n+    is_default: bool,\n+    features: Vec<String>,\n+    format: GraphFormat,\n+    loc: String,\n+    output_loc: String,\n+) -> Config {\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 65 to 65)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 70 to 70)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_parser.rs (original lines from 82 to 82)\n-    check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n+    check_crate_name(&name)\n+        || check_module_name(&name)\n+        || check_app_name(name)\n+        || check_lib_name(name)\n"
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 1 to 2)\n-use std::{fs, path::Path};\n-use clap::{Arg, ArgAction, Command};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 4 to 4)\n+use clap::{Arg, ArgAction, Command};\n+use std::{fs, path::Path};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 10 to 10)\n-\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 18 to 18)\n-            Arg::new(\"no-default\").short('d').long(\"no-default\").action(ArgAction::SetFalse)\n+            Arg::new(\"no-default\")\n+                .short('d')\n+                .long(\"no-default\")\n+                .action(ArgAction::SetFalse),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 21 to 21)\n-            Arg::new(\"features\").short('f').long(\"name\").action(ArgAction::Append)\n+            Arg::new(\"features\")\n+                .short('f')\n+                .long(\"name\")\n+                .action(ArgAction::Append),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 24 to 24)\n-            Arg::new(\"format\").short('o').long(\"format\").default_value(\"mermaid\")\n+            Arg::new(\"format\")\n+                .short('o')\n+                .long(\"format\")\n+                .default_value(\"mermaid\"),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 26 to 26)\n+        .arg(Arg::new(\"target\").short('t').long(\"target\").required(true))\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 27 to 27)\n-            Arg::new(\"target\").short('t').long(\"target\").required(true)\n+            Arg::new(\"save-path\")\n+                .short('s')\n+                .long(\"save-path\")\n+                .default_value(\"out.txt\"),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 29 to 31)\n-        .arg(\n-            Arg::new(\"save-path\").short('s').long(\"save-path\").default_value(\"out.txt\")\n-        )\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 35 to 35)\n-    let features = matches.get_many::<String>(\"features\").unwrap_or_default()\n+    let features = matches\n+        .get_many::<String>(\"features\")\n+        .unwrap_or_default()\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 40 to 40)\n-        _ => GraphFormat::Mermaid\n+        _ => GraphFormat::Mermaid,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 59 to 59)\n-fn gen_config(is_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n+fn gen_config(\n+    is_default: bool,\n+    features: Vec<String>,\n+    format: GraphFormat,\n+    loc: String,\n+    output_loc: String,\n+) -> Config {\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 65 to 65)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 70 to 70)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 82 to 82)\n-    check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n+    check_crate_name(&name)\n+        || check_module_name(&name)\n+        || check_app_name(name)\n+        || check_lib_name(name)\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 1 to 2)\n-use std::{fs, path::Path};\n-use clap::{Arg, ArgAction, Command};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 4 to 4)\n+use clap::{Arg, ArgAction, Command};\n+use std::{fs, path::Path};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 10 to 10)\n-\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 18 to 18)\n-            Arg::new(\"no-default\").short('d').long(\"no-default\").action(ArgAction::SetFalse)\n+            Arg::new(\"no-default\")\n+                .short('d')\n+                .long(\"no-default\")\n+                .action(ArgAction::SetFalse),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 21 to 21)\n-            Arg::new(\"features\").short('f').long(\"name\").action(ArgAction::Append)\n+            Arg::new(\"features\")\n+                .short('f')\n+                .long(\"name\")\n+                .action(ArgAction::Append),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 24 to 24)\n-            Arg::new(\"format\").short('o').long(\"format\").default_value(\"mermaid\")\n+            Arg::new(\"format\")\n+                .short('o')\n+                .long(\"format\")\n+                .default_value(\"mermaid\"),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 26 to 26)\n+        .arg(Arg::new(\"target\").short('t').long(\"target\").required(true))\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 27 to 27)\n-            Arg::new(\"target\").short('t').long(\"target\").required(true)\n+            Arg::new(\"save-path\")\n+                .short('s')\n+                .long(\"save-path\")\n+                .default_value(\"out.txt\"),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 29 to 31)\n-        .arg(\n-            Arg::new(\"save-path\").short('s').long(\"save-path\").default_value(\"out.txt\")\n-        )\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 35 to 35)\n-    let features = matches.get_many::<String>(\"features\").unwrap_or_default()\n+    let features = matches\n+        .get_many::<String>(\"features\")\n+        .unwrap_or_default()\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 40 to 40)\n-        _ => GraphFormat::Mermaid\n+        _ => GraphFormat::Mermaid,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 59 to 59)\n-fn gen_config(is_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n+fn gen_config(\n+    is_default: bool,\n+    features: Vec<String>,\n+    format: GraphFormat,\n+    loc: String,\n+    output_loc: String,\n+) -> Config {\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 65 to 65)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 70 to 70)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 82 to 82)\n-    check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n+    check_crate_name(&name)\n+        || check_module_name(&name)\n+        || check_app_name(name)\n+        || check_lib_name(name)\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 1 to 2)\n-use std::{fs, path::Path};\n-use clap::{Arg, ArgAction, Command};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 4 to 4)\n+use clap::{Arg, ArgAction, Command};\n+use std::{fs, path::Path};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 10 to 10)\n-\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 18 to 18)\n-            Arg::new(\"no-default\").short('d').long(\"no-default\").action(ArgAction::SetFalse)\n+            Arg::new(\"no-default\")\n+                .short('d')\n+                .long(\"no-default\")\n+                .action(ArgAction::SetFalse),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 21 to 21)\n-            Arg::new(\"features\").short('f').long(\"name\").action(ArgAction::Append)\n+            Arg::new(\"features\")\n+                .short('f')\n+                .long(\"name\")\n+                .action(ArgAction::Append),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 24 to 24)\n-            Arg::new(\"format\").short('o').long(\"format\").default_value(\"mermaid\")\n+            Arg::new(\"format\")\n+                .short('o')\n+                .long(\"format\")\n+                .default_value(\"mermaid\"),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 26 to 26)\n+        .arg(Arg::new(\"target\").short('t').long(\"target\").required(true))\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 27 to 27)\n-            Arg::new(\"target\").short('t').long(\"target\").required(true)\n+            Arg::new(\"save-path\")\n+                .short('s')\n+                .long(\"save-path\")\n+                .default_value(\"out.txt\"),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 29 to 31)\n-        .arg(\n-            Arg::new(\"save-path\").short('s').long(\"save-path\").default_value(\"out.txt\")\n-        )\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 35 to 35)\n-    let features = matches.get_many::<String>(\"features\").unwrap_or_default()\n+    let features = matches\n+        .get_many::<String>(\"features\")\n+        .unwrap_or_default()\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 40 to 40)\n-        _ => GraphFormat::Mermaid\n+        _ => GraphFormat::Mermaid,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 59 to 59)\n-fn gen_config(is_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n+fn gen_config(\n+    is_default: bool,\n+    features: Vec<String>,\n+    format: GraphFormat,\n+    loc: String,\n+    output_loc: String,\n+) -> Config {\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 65 to 65)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 70 to 70)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 82 to 82)\n-    check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n+    check_crate_name(&name)\n+        || check_module_name(&name)\n+        || check_app_name(name)\n+        || check_lib_name(name)\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 1 to 2)\n-use std::{fs, path::Path};\n-use clap::{Arg, ArgAction, Command};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 4 to 4)\n+use clap::{Arg, ArgAction, Command};\n+use std::{fs, path::Path};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 10 to 10)\n-\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 18 to 18)\n-            Arg::new(\"no-default\").short('d').long(\"no-default\").action(ArgAction::SetFalse)\n+            Arg::new(\"no-default\")\n+                .short('d')\n+                .long(\"no-default\")\n+                .action(ArgAction::SetFalse),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 21 to 21)\n-            Arg::new(\"features\").short('f').long(\"name\").action(ArgAction::Append)\n+            Arg::new(\"features\")\n+                .short('f')\n+                .long(\"name\")\n+                .action(ArgAction::Append),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 24 to 24)\n-            Arg::new(\"format\").short('o').long(\"format\").default_value(\"mermaid\")\n+            Arg::new(\"format\")\n+                .short('o')\n+                .long(\"format\")\n+                .default_value(\"mermaid\"),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 26 to 26)\n+        .arg(Arg::new(\"target\").short('t').long(\"target\").required(true))\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 27 to 27)\n-            Arg::new(\"target\").short('t').long(\"target\").required(true)\n+            Arg::new(\"save-path\")\n+                .short('s')\n+                .long(\"save-path\")\n+                .default_value(\"out.txt\"),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 29 to 31)\n-        .arg(\n-            Arg::new(\"save-path\").short('s').long(\"save-path\").default_value(\"out.txt\")\n-        )\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 35 to 35)\n-    let features = matches.get_many::<String>(\"features\").unwrap_or_default()\n+    let features = matches\n+        .get_many::<String>(\"features\")\n+        .unwrap_or_default()\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 40 to 40)\n-        _ => GraphFormat::Mermaid\n+        _ => GraphFormat::Mermaid,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 59 to 59)\n-fn gen_config(is_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n+fn gen_config(\n+    is_default: bool,\n+    features: Vec<String>,\n+    format: GraphFormat,\n+    loc: String,\n+    output_loc: String,\n+) -> Config {\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 65 to 65)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 70 to 70)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_parser.rs (original lines from 82 to 82)\n-    check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n+    check_crate_name(&name)\n+        || check_module_name(&name)\n+        || check_app_name(name)\n+        || check_lib_name(name)\n"
             ]
           }
         },
@@ -93,66 +93,66 @@
               "warning: writing `&String` instead of `&str` involves a new object where a slice will do\n  --> src/lib.rs:55:21\n   |\n55 | fn parse_deps(deps: &String) -> Vec<(i32, String)> {\n   |                     ^^^^^^^ help: change this to: `&str`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n   = note: `#[warn(clippy::ptr_arg)]` on by default\n\n"
             ],
             "Unformatted": [
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 1 to 1)\n-mod cmd_parser;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 3 to 3)\n-mod mermaid_generator;\n+mod cmd_parser;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 5 to 5)\n+mod mermaid_generator;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 6 to 6)\n-use std::process::Command;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 9 to 9)\n+use std::process::Command;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 11 to 11)\n-pub use cmd_parser::{parse_cmd, build_loc};\n+pub use cmd_parser::{build_loc, parse_cmd};\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 17 to 18)\n-   Mermaid,\n-   D2,\n+    Mermaid,\n+    D2,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 25 to 25)\n-    pub features: Vec::<String>,\n+    pub features: Vec<String>,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 27 to 27)\n-    output_loc: String\n+    output_loc: String,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 31 to 32)\n-    pub fn build(no_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n-        Config { no_default, format, features, loc, output_loc }\n+    pub fn build(\n+        no_default: bool,\n+        features: Vec<String>,\n+        format: GraphFormat,\n+        loc: String,\n+        output_loc: String,\n+    ) -> Config {\n+        Config {\n+            no_default,\n+            format,\n+            features,\n+            loc,\n+            output_loc,\n+        }\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 41 to 43)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 46 to 48)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 56 to 56)\n-    let mut rst = vec!();\n+    let mut rst = vec![];\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 83 to 83)\n-        _ => generate_mermaid(config)\n+        _ => generate_mermaid(config),\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 97 to 98)\n-        Ok(()) => {},\n-        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error)\n+        Ok(()) => {}\n+        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error),\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 1 to 1)\n-mod cmd_parser;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 3 to 3)\n-mod mermaid_generator;\n+mod cmd_parser;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 5 to 5)\n+mod mermaid_generator;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 6 to 6)\n-use std::process::Command;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 9 to 9)\n+use std::process::Command;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 11 to 11)\n-pub use cmd_parser::{parse_cmd, build_loc};\n+pub use cmd_parser::{build_loc, parse_cmd};\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 17 to 18)\n-   Mermaid,\n-   D2,\n+    Mermaid,\n+    D2,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 25 to 25)\n-    pub features: Vec::<String>,\n+    pub features: Vec<String>,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 27 to 27)\n-    output_loc: String\n+    output_loc: String,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 31 to 32)\n-    pub fn build(no_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n-        Config { no_default, format, features, loc, output_loc }\n+    pub fn build(\n+        no_default: bool,\n+        features: Vec<String>,\n+        format: GraphFormat,\n+        loc: String,\n+        output_loc: String,\n+    ) -> Config {\n+        Config {\n+            no_default,\n+            format,\n+            features,\n+            loc,\n+            output_loc,\n+        }\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 41 to 43)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 46 to 48)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 56 to 56)\n-    let mut rst = vec!();\n+    let mut rst = vec![];\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 83 to 83)\n-        _ => generate_mermaid(config)\n+        _ => generate_mermaid(config),\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 97 to 98)\n-        Ok(()) => {},\n-        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error)\n+        Ok(()) => {}\n+        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error),\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 1 to 1)\n-mod cmd_parser;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 3 to 3)\n-mod mermaid_generator;\n+mod cmd_parser;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 5 to 5)\n+mod mermaid_generator;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 6 to 6)\n-use std::process::Command;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 9 to 9)\n+use std::process::Command;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 11 to 11)\n-pub use cmd_parser::{parse_cmd, build_loc};\n+pub use cmd_parser::{build_loc, parse_cmd};\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 17 to 18)\n-   Mermaid,\n-   D2,\n+    Mermaid,\n+    D2,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 25 to 25)\n-    pub features: Vec::<String>,\n+    pub features: Vec<String>,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 27 to 27)\n-    output_loc: String\n+    output_loc: String,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 31 to 32)\n-    pub fn build(no_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n-        Config { no_default, format, features, loc, output_loc }\n+    pub fn build(\n+        no_default: bool,\n+        features: Vec<String>,\n+        format: GraphFormat,\n+        loc: String,\n+        output_loc: String,\n+    ) -> Config {\n+        Config {\n+            no_default,\n+            format,\n+            features,\n+            loc,\n+            output_loc,\n+        }\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 41 to 43)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 46 to 48)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 56 to 56)\n-    let mut rst = vec!();\n+    let mut rst = vec![];\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 83 to 83)\n-        _ => generate_mermaid(config)\n+        _ => generate_mermaid(config),\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 97 to 98)\n-        Ok(()) => {},\n-        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error)\n+        Ok(()) => {}\n+        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error),\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 1 to 1)\n-mod cmd_parser;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 3 to 3)\n-mod mermaid_generator;\n+mod cmd_parser;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 5 to 5)\n+mod mermaid_generator;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 6 to 6)\n-use std::process::Command;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 9 to 9)\n+use std::process::Command;\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 11 to 11)\n-pub use cmd_parser::{parse_cmd, build_loc};\n+pub use cmd_parser::{build_loc, parse_cmd};\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 17 to 18)\n-   Mermaid,\n-   D2,\n+    Mermaid,\n+    D2,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 25 to 25)\n-    pub features: Vec::<String>,\n+    pub features: Vec<String>,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 27 to 27)\n-    output_loc: String\n+    output_loc: String,\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 31 to 32)\n-    pub fn build(no_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n-        Config { no_default, format, features, loc, output_loc }\n+    pub fn build(\n+        no_default: bool,\n+        features: Vec<String>,\n+        format: GraphFormat,\n+        loc: String,\n+        output_loc: String,\n+    ) -> Config {\n+        Config {\n+            no_default,\n+            format,\n+            features,\n+            loc,\n+            output_loc,\n+        }\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 41 to 43)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 46 to 48)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 56 to 56)\n-    let mut rst = vec!();\n+    let mut rst = vec![];\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 83 to 83)\n-        _ => generate_mermaid(config)\n+        _ => generate_mermaid(config),\n",
-              "file: /ci/arceos/tools/deptool/src/lib.rs (original lines from 97 to 98)\n-        Ok(()) => {},\n-        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error)\n+        Ok(()) => {}\n+        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error),\n"
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 1 to 1)\n-mod cmd_parser;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 3 to 3)\n-mod mermaid_generator;\n+mod cmd_parser;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 5 to 5)\n+mod mermaid_generator;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 6 to 6)\n-use std::process::Command;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 9 to 9)\n+use std::process::Command;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 11 to 11)\n-pub use cmd_parser::{parse_cmd, build_loc};\n+pub use cmd_parser::{build_loc, parse_cmd};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 17 to 18)\n-   Mermaid,\n-   D2,\n+    Mermaid,\n+    D2,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 25 to 25)\n-    pub features: Vec::<String>,\n+    pub features: Vec<String>,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 27 to 27)\n-    output_loc: String\n+    output_loc: String,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 31 to 32)\n-    pub fn build(no_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n-        Config { no_default, format, features, loc, output_loc }\n+    pub fn build(\n+        no_default: bool,\n+        features: Vec<String>,\n+        format: GraphFormat,\n+        loc: String,\n+        output_loc: String,\n+    ) -> Config {\n+        Config {\n+            no_default,\n+            format,\n+            features,\n+            loc,\n+            output_loc,\n+        }\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 41 to 43)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 46 to 48)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 56 to 56)\n-    let mut rst = vec!();\n+    let mut rst = vec![];\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 83 to 83)\n-        _ => generate_mermaid(config)\n+        _ => generate_mermaid(config),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 97 to 98)\n-        Ok(()) => {},\n-        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error)\n+        Ok(()) => {}\n+        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 1 to 1)\n-mod cmd_parser;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 3 to 3)\n-mod mermaid_generator;\n+mod cmd_parser;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 5 to 5)\n+mod mermaid_generator;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 6 to 6)\n-use std::process::Command;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 9 to 9)\n+use std::process::Command;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 11 to 11)\n-pub use cmd_parser::{parse_cmd, build_loc};\n+pub use cmd_parser::{build_loc, parse_cmd};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 17 to 18)\n-   Mermaid,\n-   D2,\n+    Mermaid,\n+    D2,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 25 to 25)\n-    pub features: Vec::<String>,\n+    pub features: Vec<String>,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 27 to 27)\n-    output_loc: String\n+    output_loc: String,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 31 to 32)\n-    pub fn build(no_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n-        Config { no_default, format, features, loc, output_loc }\n+    pub fn build(\n+        no_default: bool,\n+        features: Vec<String>,\n+        format: GraphFormat,\n+        loc: String,\n+        output_loc: String,\n+    ) -> Config {\n+        Config {\n+            no_default,\n+            format,\n+            features,\n+            loc,\n+            output_loc,\n+        }\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 41 to 43)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 46 to 48)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 56 to 56)\n-    let mut rst = vec!();\n+    let mut rst = vec![];\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 83 to 83)\n-        _ => generate_mermaid(config)\n+        _ => generate_mermaid(config),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 97 to 98)\n-        Ok(()) => {},\n-        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error)\n+        Ok(()) => {}\n+        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 1 to 1)\n-mod cmd_parser;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 3 to 3)\n-mod mermaid_generator;\n+mod cmd_parser;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 5 to 5)\n+mod mermaid_generator;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 6 to 6)\n-use std::process::Command;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 9 to 9)\n+use std::process::Command;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 11 to 11)\n-pub use cmd_parser::{parse_cmd, build_loc};\n+pub use cmd_parser::{build_loc, parse_cmd};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 17 to 18)\n-   Mermaid,\n-   D2,\n+    Mermaid,\n+    D2,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 25 to 25)\n-    pub features: Vec::<String>,\n+    pub features: Vec<String>,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 27 to 27)\n-    output_loc: String\n+    output_loc: String,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 31 to 32)\n-    pub fn build(no_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n-        Config { no_default, format, features, loc, output_loc }\n+    pub fn build(\n+        no_default: bool,\n+        features: Vec<String>,\n+        format: GraphFormat,\n+        loc: String,\n+        output_loc: String,\n+    ) -> Config {\n+        Config {\n+            no_default,\n+            format,\n+            features,\n+            loc,\n+            output_loc,\n+        }\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 41 to 43)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 46 to 48)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 56 to 56)\n-    let mut rst = vec!();\n+    let mut rst = vec![];\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 83 to 83)\n-        _ => generate_mermaid(config)\n+        _ => generate_mermaid(config),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 97 to 98)\n-        Ok(()) => {},\n-        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error)\n+        Ok(()) => {}\n+        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 1 to 1)\n-mod cmd_parser;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 3 to 3)\n-mod mermaid_generator;\n+mod cmd_parser;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 5 to 5)\n+mod mermaid_generator;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 6 to 6)\n-use std::process::Command;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 9 to 9)\n+use std::process::Command;\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 11 to 11)\n-pub use cmd_parser::{parse_cmd, build_loc};\n+pub use cmd_parser::{build_loc, parse_cmd};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 17 to 18)\n-   Mermaid,\n-   D2,\n+    Mermaid,\n+    D2,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 25 to 25)\n-    pub features: Vec::<String>,\n+    pub features: Vec<String>,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 27 to 27)\n-    output_loc: String\n+    output_loc: String,\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 31 to 32)\n-    pub fn build(no_default: bool, features: Vec::<String>, format: GraphFormat, loc: String, output_loc: String) -> Config {\n-        Config { no_default, format, features, loc, output_loc }\n+    pub fn build(\n+        no_default: bool,\n+        features: Vec<String>,\n+        format: GraphFormat,\n+        loc: String,\n+        output_loc: String,\n+    ) -> Config {\n+        Config {\n+            no_default,\n+            format,\n+            features,\n+            loc,\n+            output_loc,\n+        }\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 41 to 43)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 46 to 48)\n-                .args(cmds)\n-                .output()\n-                .expect(\"failed to execute process\")\n+            .args(cmds)\n+            .output()\n+            .expect(\"failed to execute process\")\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 56 to 56)\n-    let mut rst = vec!();\n+    let mut rst = vec![];\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 83 to 83)\n-        _ => generate_mermaid(config)\n+        _ => generate_mermaid(config),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/lib.rs (original lines from 97 to 98)\n-        Ok(()) => {},\n-        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error)\n+        Ok(()) => {}\n+        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error),\n"
             ]
           }
         },
@@ -161,14 +161,14 @@
           "count": 8,
           "kinds": {
             "Unformatted": [
-              "file: /ci/arceos/tools/deptool/src/cmd_builder.rs (original lines from 6 to 6)\n-        false => \"--no-default-features\"\n+        false => \"--no-default-features\",\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_builder.rs (original lines from 11 to 11)\n-        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str()\n+        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str(),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_builder.rs (original lines from 6 to 6)\n-        false => \"--no-default-features\"\n+        false => \"--no-default-features\",\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_builder.rs (original lines from 11 to 11)\n-        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str()\n+        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str(),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_builder.rs (original lines from 6 to 6)\n-        false => \"--no-default-features\"\n+        false => \"--no-default-features\",\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_builder.rs (original lines from 11 to 11)\n-        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str()\n+        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str(),\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_builder.rs (original lines from 6 to 6)\n-        false => \"--no-default-features\"\n+        false => \"--no-default-features\",\n",
-              "file: /ci/arceos/tools/deptool/src/cmd_builder.rs (original lines from 11 to 11)\n-        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str()\n+        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str(),\n"
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_builder.rs (original lines from 6 to 6)\n-        false => \"--no-default-features\"\n+        false => \"--no-default-features\",\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_builder.rs (original lines from 11 to 11)\n-        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str()\n+        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str(),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_builder.rs (original lines from 6 to 6)\n-        false => \"--no-default-features\"\n+        false => \"--no-default-features\",\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_builder.rs (original lines from 11 to 11)\n-        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str()\n+        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str(),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_builder.rs (original lines from 6 to 6)\n-        false => \"--no-default-features\"\n+        false => \"--no-default-features\",\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_builder.rs (original lines from 11 to 11)\n-        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str()\n+        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str(),\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_builder.rs (original lines from 6 to 6)\n-        false => \"--no-default-features\"\n+        false => \"--no-default-features\",\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/cmd_builder.rs (original lines from 11 to 11)\n-        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str()\n+        _ => \"-F \".to_string() + cfg.features.join(\" \").as_str(),\n"
             ]
           }
         },
@@ -182,10 +182,10 @@
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/d2_generator.rs:34:32\n   |\n34 |             parsed_crates.push(&name);\n   |                                ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
             ],
             "Unformatted": [
-              "file: /ci/arceos/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
-              "file: /ci/arceos/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
-              "file: /ci/arceos/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
-              "file: /ci/arceos/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
+              "file: /home/runner/check/arceos/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
             ]
           }
         },
@@ -199,10 +199,10 @@
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/mermaid_generator.rs:32:32\n   |\n32 |             parsed_crates.push(&name);\n   |                                ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
             ],
             "Unformatted": [
-              "file: /ci/arceos/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
-              "file: /ci/arceos/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
-              "file: /ci/arceos/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
-              "file: /ci/arceos/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
+              "file: /home/runner/check/arceos/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
             ]
           }
         },
@@ -211,10 +211,96 @@
           "count": 4,
           "kinds": {
             "Unformatted": [
-              "file: /ci/arceos/tools/deptool/src/main.rs (original lines from 1 to 1)\n-use deptool::{run, parse_cmd};\n+use deptool::{parse_cmd, run};\n",
-              "file: /ci/arceos/tools/deptool/src/main.rs (original lines from 1 to 1)\n-use deptool::{run, parse_cmd};\n+use deptool::{parse_cmd, run};\n",
-              "file: /ci/arceos/tools/deptool/src/main.rs (original lines from 1 to 1)\n-use deptool::{run, parse_cmd};\n+use deptool::{parse_cmd, run};\n",
-              "file: /ci/arceos/tools/deptool/src/main.rs (original lines from 1 to 1)\n-use deptool::{run, parse_cmd};\n+use deptool::{parse_cmd, run};\n"
+              "file: /home/runner/check/arceos/tools/deptool/src/main.rs (original lines from 1 to 1)\n-use deptool::{run, parse_cmd};\n+use deptool::{parse_cmd, run};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/main.rs (original lines from 1 to 1)\n-use deptool::{run, parse_cmd};\n+use deptool::{parse_cmd, run};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/main.rs (original lines from 1 to 1)\n-use deptool::{run, parse_cmd};\n+use deptool::{parse_cmd, run};\n",
+              "file: /home/runner/check/arceos/tools/deptool/src/main.rs (original lines from 1 to 1)\n-use deptool::{run, parse_cmd};\n+use deptool::{parse_cmd, run};\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "arceos",
+      "package": "arceos_posix_api",
+      "count": 20,
+      "raw_reports": [
+        {
+          "file": "modules/axhal/src/platform/aarch64_common/boot.rs",
+          "count": 6,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> modules/axhal/src/platform/aarch64_common/boot.rs:101:27\n    |\n101 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\n",
+              "error[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> modules/axhal/src/platform/aarch64_common/boot.rs:140:38\n    |\n140 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\n",
+              "error[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> modules/axhal/src/platform/aarch64_common/boot.rs:101:27\n    |\n101 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\n",
+              "error[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> modules/axhal/src/platform/aarch64_common/boot.rs:140:38\n    |\n140 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: unused import: `PhysAddr`\n --> modules/axhal/src/platform/aarch64_common/boot.rs:3:23\n  |\n3 | use memory_addr::{pa, PhysAddr};\n  |                       ^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
+              "warning: unused import: `PhysAddr`\n --> modules/axhal/src/platform/aarch64_common/boot.rs:3:23\n  |\n3 | use memory_addr::{pa, PhysAddr};\n  |                       ^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "modules/axhal/src/platform/aarch64_common/psci.rs",
+          "count": 4,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0425]: cannot find value `PSCI_METHOD` in crate `axconfig`\n  --> modules/axhal/src/platform/aarch64_common/psci.rs:82:31\n   |\n82 |     let ret = match axconfig::PSCI_METHOD {\n   |                               ^^^^^^^^^^^ not found in `axconfig`\n\n",
+              "error[E0425]: cannot find value `PSCI_METHOD` in crate `axconfig`\n  --> modules/axhal/src/platform/aarch64_common/psci.rs:85:58\n   |\n85 |         _ => panic!(\"Unknown PSCI method: {}\", axconfig::PSCI_METHOD),\n   |                                                          ^^^^^^^^^^^ not found in `axconfig`\n\n",
+              "error[E0425]: cannot find value `PSCI_METHOD` in crate `axconfig`\n  --> modules/axhal/src/platform/aarch64_common/psci.rs:82:31\n   |\n82 |     let ret = match axconfig::PSCI_METHOD {\n   |                               ^^^^^^^^^^^ not found in `axconfig`\n\n",
+              "error[E0425]: cannot find value `PSCI_METHOD` in crate `axconfig`\n  --> modules/axhal/src/platform/aarch64_common/psci.rs:85:58\n   |\n85 |         _ => panic!(\"Unknown PSCI method: {}\", axconfig::PSCI_METHOD),\n   |                                                          ^^^^^^^^^^^ not found in `axconfig`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "Not supported to display yet.",
+          "count": 4,
+          "kinds": {
+            "Lockbud": [
+              "[2024-08-30T07:24:25Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T07:24:25Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
+              "[2024-08-30T07:24:25Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T07:24:25Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
+              "[2024-08-30T07:24:25Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T07:24:25Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
+              "[2024-08-30T07:24:25Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T07:24:25Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "modules/axhal/src/platform/aarch64_common/pl011.rs",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0425]: cannot find value `UART_PADDR` in crate `axconfig`\n --> modules/axhal/src/platform/aarch64_common/pl011.rs:9:43\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::UART_PADDR);\n  |                                           ^^^^^^^^^^ not found in `axconfig`\n\n",
+              "error[E0425]: cannot find value `UART_PADDR` in crate `axconfig`\n --> modules/axhal/src/platform/aarch64_common/pl011.rs:9:43\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::UART_PADDR);\n  |                                           ^^^^^^^^^^ not found in `axconfig`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "modules/axhal/src/arch/aarch64/trap.rs",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unused import: `VirtAddr`\n --> modules/axhal/src/arch/aarch64/trap.rs:4:23\n  |\n4 | use memory_addr::{va, VirtAddr};\n  |                       ^^^^^^^^\n\n",
+              "warning: unused import: `VirtAddr`\n --> modules/axhal/src/arch/aarch64/trap.rs:4:23\n  |\n4 | use memory_addr::{va, VirtAddr};\n  |                       ^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "modules/axhal/src/arch/riscv/trap.rs",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unused import: `VirtAddr`\n --> modules/axhal/src/arch/riscv/trap.rs:1:23\n  |\n1 | use memory_addr::{va, VirtAddr};\n  |                       ^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "modules/axhal/src/arch/x86_64/trap.rs",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unused import: `VirtAddr`\n --> modules/axhal/src/arch/x86_64/trap.rs:1:23\n  |\n1 | use memory_addr::{va, VirtAddr};\n  |                       ^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
             ]
           }
         }
@@ -317,8 +403,8 @@
     {
       "user": "arceos-org",
       "repo": "arceos",
-      "package": "arceos_posix_api",
-      "count": 19,
+      "package": "axlibc",
+      "count": 20,
       "raw_reports": [
         {
           "file": "modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -353,10 +439,10 @@
           "count": 4,
           "kinds": {
             "Lockbud": [
-              "[2024-08-30T03:44:03Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T03:44:03Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
-              "[2024-08-30T03:44:03Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T03:44:03Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
-              "[2024-08-30T03:44:03Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T03:44:03Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
-              "[2024-08-30T03:44:03Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T03:44:03Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+              "[2024-08-30T07:27:23Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T07:27:23Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
+              "[2024-08-30T07:27:23Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T07:27:23Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
+              "[2024-08-30T07:27:23Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T07:27:23Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
+              "[2024-08-30T07:27:23Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T07:27:23Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
             ]
           }
         },
@@ -386,74 +472,6 @@
           "kinds": {
             "Clippy(Warn)": [
               "warning: unused import: `VirtAddr`\n --> modules/axhal/src/arch/riscv/trap.rs:1:23\n  |\n1 | use memory_addr::{va, VirtAddr};\n  |                       ^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "arceos-org",
-      "repo": "arceos",
-      "package": "axlibc",
-      "count": 19,
-      "raw_reports": [
-        {
-          "file": "modules/axhal/src/platform/aarch64_common/boot.rs",
-          "count": 6,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> modules/axhal/src/platform/aarch64_common/boot.rs:101:27\n    |\n101 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\n",
-              "error[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> modules/axhal/src/platform/aarch64_common/boot.rs:140:38\n    |\n140 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\n",
-              "error[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> modules/axhal/src/platform/aarch64_common/boot.rs:101:27\n    |\n101 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\n",
-              "error[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> modules/axhal/src/platform/aarch64_common/boot.rs:140:38\n    |\n140 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: unused import: `PhysAddr`\n --> modules/axhal/src/platform/aarch64_common/boot.rs:3:23\n  |\n3 | use memory_addr::{pa, PhysAddr};\n  |                       ^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
-              "warning: unused import: `PhysAddr`\n --> modules/axhal/src/platform/aarch64_common/boot.rs:3:23\n  |\n3 | use memory_addr::{pa, PhysAddr};\n  |                       ^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
-            ]
-          }
-        },
-        {
-          "file": "modules/axhal/src/platform/aarch64_common/psci.rs",
-          "count": 4,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0425]: cannot find value `PSCI_METHOD` in crate `axconfig`\n  --> modules/axhal/src/platform/aarch64_common/psci.rs:82:31\n   |\n82 |     let ret = match axconfig::PSCI_METHOD {\n   |                               ^^^^^^^^^^^ not found in `axconfig`\n\n",
-              "error[E0425]: cannot find value `PSCI_METHOD` in crate `axconfig`\n  --> modules/axhal/src/platform/aarch64_common/psci.rs:85:58\n   |\n85 |         _ => panic!(\"Unknown PSCI method: {}\", axconfig::PSCI_METHOD),\n   |                                                          ^^^^^^^^^^^ not found in `axconfig`\n\n",
-              "error[E0425]: cannot find value `PSCI_METHOD` in crate `axconfig`\n  --> modules/axhal/src/platform/aarch64_common/psci.rs:82:31\n   |\n82 |     let ret = match axconfig::PSCI_METHOD {\n   |                               ^^^^^^^^^^^ not found in `axconfig`\n\n",
-              "error[E0425]: cannot find value `PSCI_METHOD` in crate `axconfig`\n  --> modules/axhal/src/platform/aarch64_common/psci.rs:85:58\n   |\n85 |         _ => panic!(\"Unknown PSCI method: {}\", axconfig::PSCI_METHOD),\n   |                                                          ^^^^^^^^^^^ not found in `axconfig`\n\n"
-            ]
-          }
-        },
-        {
-          "file": "Not supported to display yet.",
-          "count": 4,
-          "kinds": {
-            "Lockbud": [
-              "[2024-08-30T03:47:40Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T03:47:40Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
-              "[2024-08-30T03:47:40Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T03:47:40Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
-              "[2024-08-30T03:47:40Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T03:47:40Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }",
-              "[2024-08-30T03:47:40Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:402:25: 402:59 (#0)\",\n            \"atomic_writer\": \"/root/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.3.6/src/util/pool.rs:404:17: 404:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-08-30T03:47:40Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
-            ]
-          }
-        },
-        {
-          "file": "modules/axhal/src/platform/aarch64_common/pl011.rs",
-          "count": 2,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0425]: cannot find value `UART_PADDR` in crate `axconfig`\n --> modules/axhal/src/platform/aarch64_common/pl011.rs:9:43\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::UART_PADDR);\n  |                                           ^^^^^^^^^^ not found in `axconfig`\n\n",
-              "error[E0425]: cannot find value `UART_PADDR` in crate `axconfig`\n --> modules/axhal/src/platform/aarch64_common/pl011.rs:9:43\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::UART_PADDR);\n  |                                           ^^^^^^^^^^ not found in `axconfig`\n\n"
-            ]
-          }
-        },
-        {
-          "file": "modules/axhal/src/arch/aarch64/trap.rs",
-          "count": 2,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: unused import: `VirtAddr`\n --> modules/axhal/src/arch/aarch64/trap.rs:4:23\n  |\n4 | use memory_addr::{va, VirtAddr};\n  |                       ^^^^^^^^\n\n",
-              "warning: unused import: `VirtAddr`\n --> modules/axhal/src/arch/aarch64/trap.rs:4:23\n  |\n4 | use memory_addr::{va, VirtAddr};\n  |                       ^^^^^^^^\n\n"
             ]
           }
         },
