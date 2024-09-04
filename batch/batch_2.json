@@ -37,11 +37,11 @@
         ]
       },
       "os_checker": {
-        "start": 1725460892698,
-        "finish": 1725460900905,
-        "duration_ms": 8207,
-        "git_time": "2024-09-04 22:30:46 +0800",
-        "git_sha": "e717c78a87a967dbe081887c8356cb14febbe5cc"
+        "start": 1725462259295,
+        "finish": 1725462311000,
+        "duration_ms": 51705,
+        "git_time": "2024-09-04 22:45:40 +0800",
+        "git_sha": "5301d69d01f38a4ed58775b734a29b3715c34c80"
       }
     },
     "kinds": {
@@ -72,59 +72,116 @@
     },
     "repos": [
       {
-        "user": "os-checker",
-        "repo": "os-checker-test-suite",
+        "user": "kern-crates",
+        "repo": "CSpace",
         "rust_toolchain_idxs": []
       },
       {
-        "user": "shilei-massclouds",
-        "repo": "axdtb",
+        "user": "kern-crates",
+        "repo": "allocator",
+        "rust_toolchain_idxs": []
+      },
+      {
+        "user": "kern-crates",
+        "repo": "arceos_api",
+        "rust_toolchain_idxs": []
+      },
+      {
+        "user": "kern-crates",
+        "repo": "arceos_posix_api",
+        "rust_toolchain_idxs": []
+      },
+      {
+        "user": "kern-crates",
+        "repo": "arm_gic",
+        "rust_toolchain_idxs": []
+      },
+      {
+        "user": "kern-crates",
+        "repo": "arm_pl011",
+        "rust_toolchain_idxs": []
+      },
+      {
+        "user": "kern-crates",
+        "repo": "axalloc",
+        "rust_toolchain_idxs": []
+      },
+      {
+        "user": "kern-crates",
+        "repo": "axbacktrace",
         "rust_toolchain_idxs": []
       }
     ],
     "packages": [
       {
-        "name": "buildrs-failure",
+        "name": "cspace",
         "repo": {
           "repo_idx": 0,
-          "user": "os-checker",
-          "repo": "os-checker-test-suite"
+          "user": "kern-crates",
+          "repo": "CSpace"
         },
         "rust_toolchain_idx": null
       },
       {
-        "name": "lockbud-checks-this",
-        "repo": {
-          "repo_idx": 0,
-          "user": "os-checker",
-          "repo": "os-checker-test-suite"
-        },
-        "rust_toolchain_idx": null
-      },
-      {
-        "name": "os-checker-test-suite",
-        "repo": {
-          "repo_idx": 0,
-          "user": "os-checker",
-          "repo": "os-checker-test-suite"
-        },
-        "rust_toolchain_idx": null
-      },
-      {
-        "name": "axdtb",
+        "name": "allocator",
         "repo": {
           "repo_idx": 1,
-          "user": "shilei-massclouds",
-          "repo": "axdtb"
+          "user": "kern-crates",
+          "repo": "allocator"
         },
         "rust_toolchain_idx": null
       },
       {
-        "name": "rt_axdtb",
+        "name": "arceos_api",
         "repo": {
-          "repo_idx": 1,
-          "user": "shilei-massclouds",
-          "repo": "axdtb"
+          "repo_idx": 2,
+          "user": "kern-crates",
+          "repo": "arceos_api"
+        },
+        "rust_toolchain_idx": null
+      },
+      {
+        "name": "arceos_posix_api",
+        "repo": {
+          "repo_idx": 3,
+          "user": "kern-crates",
+          "repo": "arceos_posix_api"
+        },
+        "rust_toolchain_idx": null
+      },
+      {
+        "name": "arm_gic",
+        "repo": {
+          "repo_idx": 4,
+          "user": "kern-crates",
+          "repo": "arm_gic"
+        },
+        "rust_toolchain_idx": null
+      },
+      {
+        "name": "arm_pl011",
+        "repo": {
+          "repo_idx": 5,
+          "user": "kern-crates",
+          "repo": "arm_pl011"
+        },
+        "rust_toolchain_idx": null
+      },
+      {
+        "name": "axalloc",
+        "repo": {
+          "repo_idx": 6,
+          "user": "kern-crates",
+          "repo": "axalloc"
+        },
+        "rust_toolchain_idx": null
+      },
+      {
+        "name": "axbacktrace",
+        "repo": {
+          "repo_idx": 7,
+          "user": "kern-crates",
+          "repo": "axbacktrace"
         },
         "rust_toolchain_idx": null
       }
@@ -134,9 +191,9 @@
     {
       "package_idx": 0,
       "tool": "fmt",
-      "cmd": "cargo fmt -p buildrs-failure -- --emit=json",
-      "count": 0,
-      "duration_ms": 155,
+      "cmd": "cargo fmt -p cspace -- --emit=json",
+      "count": 98,
+      "duration_ms": 275,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain_idx": 0,
@@ -147,8 +204,8 @@
       "package_idx": 0,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 246,
+      "count": 59,
+      "duration_ms": 16804,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain_idx": 0,
@@ -157,58 +214,10 @@
     },
     {
       "package_idx": 0,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
-      "count": 0,
-      "duration_ms": 952,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "cargo",
-      "cmd": "VRITUAL=1 cargo",
-      "count": 2,
-      "duration_ms": 1198,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo fmt -p lockbud-checks-this -- --emit=json",
-      "count": 0,
-      "duration_ms": 150,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 711,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
-      "duration_ms": 783,
+      "duration_ms": 20270,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain_idx": 0,
@@ -216,47 +225,95 @@
       "flags": []
     },
     {
-      "package_idx": 2,
-      "tool": "fmt",
-      "cmd": "cargo fmt -p os-checker-test-suite -- --emit=json",
-      "count": 4,
-      "duration_ms": 151,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
-      "count": 2,
-      "duration_ms": 670,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
-      "count": 0,
-      "duration_ms": 187,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
+      "package_idx": 0,
       "tool": "cargo",
       "cmd": "VRITUAL=1 cargo",
       "count": 1,
-      "duration_ms": 670,
+      "duration_ms": 16804,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo fmt -p allocator -- --emit=json",
+      "count": 0,
+      "duration_ms": 598,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 2,
+      "duration_ms": 4497,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 240,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "fmt",
+      "cmd": "cargo fmt -p arceos_api -- --emit=json",
+      "count": 0,
+      "duration_ms": 331,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 1,
+      "duration_ms": 11442,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 24858,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "cargo",
+      "cmd": "VRITUAL=1 cargo",
+      "count": 2,
+      "duration_ms": 36300,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain_idx": 0,
@@ -266,23 +323,11 @@
     {
       "package_idx": 3,
       "tool": "fmt",
-      "cmd": "cargo fmt -p axdtb -- --emit=json",
-      "count": 26,
-      "duration_ms": 158,
+      "cmd": "cargo fmt -p arceos_posix_api -- --emit=json",
+      "count": 0,
+      "duration_ms": 668,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "fmt",
-      "cmd": "cargo fmt -p axdtb -- --emit=json",
-      "count": 26,
-      "duration_ms": 149,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain_idx": 0,
       "features": [],
       "flags": []
@@ -291,22 +336,10 @@
       "package_idx": 3,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 956,
+      "count": 1,
+      "duration_ms": 5547,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 898,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain_idx": 0,
       "features": [],
       "flags": []
@@ -316,21 +349,9 @@
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
-      "duration_ms": 781,
+      "duration_ms": 9777,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
-      "count": 0,
-      "duration_ms": 823,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain_idx": 0,
       "features": [],
       "flags": []
@@ -339,8 +360,8 @@
       "package_idx": 3,
       "tool": "cargo",
       "cmd": "VRITUAL=1 cargo",
-      "count": 4,
-      "duration_ms": 3458,
+      "count": 2,
+      "duration_ms": 15324,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain_idx": 0,
@@ -350,33 +371,9 @@
     {
       "package_idx": 4,
       "tool": "fmt",
-      "cmd": "cargo fmt -p rt_axdtb -- --emit=json",
-      "count": 5,
-      "duration_ms": 138,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 4,
-      "tool": "fmt",
-      "cmd": "cargo fmt -p rt_axdtb -- --emit=json",
-      "count": 5,
-      "duration_ms": 138,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain_idx": 0,
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 4,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "cmd": "cargo fmt -p arm_gic -- --emit=json",
       "count": 0,
-      "duration_ms": 1028,
+      "duration_ms": 265,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain_idx": 0,
@@ -386,11 +383,11 @@
     {
       "package_idx": 4,
       "tool": "clippy",
-      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 855,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 2,
+      "duration_ms": 18186,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain_idx": 0,
       "features": [],
       "flags": []
@@ -400,7 +397,7 @@
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
-      "duration_ms": 773,
+      "duration_ms": 12367,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain_idx": 0,
@@ -409,22 +406,130 @@
     },
     {
       "package_idx": 4,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
-      "count": 0,
-      "duration_ms": 817,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
+      "tool": "cargo",
+      "cmd": "VRITUAL=1 cargo",
+      "count": 1,
+      "duration_ms": 12367,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain_idx": 0,
       "features": [],
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
+      "tool": "fmt",
+      "cmd": "cargo fmt -p arm_pl011 -- --emit=json",
+      "count": 0,
+      "duration_ms": 536,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 5,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 0,
+      "duration_ms": 1476,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 5,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 885,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 6,
+      "tool": "fmt",
+      "cmd": "cargo fmt -p axalloc -- --emit=json",
+      "count": 0,
+      "duration_ms": 283,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 6,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 1,
+      "duration_ms": 11261,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 6,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 19654,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 6,
       "tool": "cargo",
       "cmd": "VRITUAL=1 cargo",
-      "count": 4,
-      "duration_ms": 3473,
+      "count": 2,
+      "duration_ms": 30915,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 7,
+      "tool": "fmt",
+      "cmd": "cargo fmt -p axbacktrace -- --emit=json",
+      "count": 22,
+      "duration_ms": 499,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 7,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 0,
+      "duration_ms": 1163,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain_idx": 0,
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 7,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 1063,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain_idx": 0,
@@ -434,484 +539,1174 @@
   ],
   "data": [
     {
+      "cmd_idx": 0,
+      "file": "src/cap/endpoint.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/endpoint.rs (original lines from 1 to 1)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/endpoint.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/endpoint.rs (original lines from 4 to 4)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/endpoint.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/endpoint.rs (original lines from 6 to 6)\n-pub fn cap_endpoint_cap_get_capCanGrantReply(cap: & cap_t) -> usize {\n+pub fn cap_endpoint_cap_get_capCanGrantReply(cap: &cap_t) -> usize {\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/endpoint.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/endpoint.rs (original lines from 9 to 9)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/endpoint.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/endpoint.rs (original lines from 30 to 30)\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 1 to 1)\n-use common::{sel4_config::*, MASK, utils::pageBitsForSize, plus_define_bitfield};\n+use common::{plus_define_bitfield, sel4_config::*, utils::pageBitsForSize, MASK};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 48 to 48)\n-    CapASIDPoolCap = 13\n+    CapASIDPoolCap = 13,\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 160 to 160)\n-            _ => { self.clone() }\n+            _ => self.clone(),\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 165 to 167)\n-        unsafe {\n-            core::mem::transmute::<u8, CapTag>(self.get_type() as u8)\n-        }\n+        unsafe { core::mem::transmute::<u8, CapTag>(self.get_type() as u8) }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 181 to 183)\n-            _ => {\n-                0\n-            }\n+            _ => 0,\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 201 to 202)\n-            CapTag::CapUntypedCap | CapTag::CapEndpointCap | CapTag::CapNotificationCap | CapTag::CapCNodeCap | CapTag::CapFrameCap | CapTag::CapASIDPoolCap |\n-            CapTag::CapPageTableCap | CapTag::CapZombieCap | CapTag::CapThreadCap => true,\n+            CapTag::CapUntypedCap\n+            | CapTag::CapEndpointCap\n+            | CapTag::CapNotificationCap\n+            | CapTag::CapCNodeCap\n+            | CapTag::CapFrameCap\n+            | CapTag::CapASIDPoolCap\n+            | CapTag::CapPageTableCap\n+            | CapTag::CapZombieCap\n+            | CapTag::CapThreadCap => true,\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 234 to 234)\n-            false \n+            false\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 236 to 237)\n-        CapTag::CapEndpointCap | CapTag::CapNotificationCap | CapTag::CapPageTableCap | CapTag::CapASIDPoolCap \n-            | CapTag::CapThreadCap => {\n+        CapTag::CapEndpointCap\n+        | CapTag::CapNotificationCap\n+        | CapTag::CapPageTableCap\n+        | CapTag::CapASIDPoolCap\n+        | CapTag::CapThreadCap => {\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 256 to 263)\n-        CapTag::CapIrqControlCap => {\n-            match cap2.get_cap_type() {\n-                CapTag::CapIrqControlCap | CapTag::CapIrqHandlerCap => {\n-                    true\n-                }\n-                _ => false\n-            }\n-        }\n+        CapTag::CapIrqControlCap => match cap2.get_cap_type() {\n+            CapTag::CapIrqControlCap | CapTag::CapIrqHandlerCap => true,\n+            _ => false,\n+        },\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 281 to 281)\n-    if cap1.get_cap_type() == CapTag::CapIrqControlCap && cap2.get_cap_type() == CapTag::CapIrqHandlerCap {\n+    if cap1.get_cap_type() == CapTag::CapIrqControlCap\n+        && cap2.get_cap_type() == CapTag::CapIrqHandlerCap\n+    {\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 294 to 294)\n-            && (cap1.get_frame_is_device() == 0) == (cap2.get_frame_is_device() == 0)\n+            && (cap1.get_frame_is_device() == 0) == (cap2.get_frame_is_device() == 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 322 to 323)\n-        \n-        _ => false\n+\n+        _ => false,\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/mod.rs (original lines from 326 to 326)\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/notification.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/notification.rs (original lines from 3 to 3)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/notification.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/notification.rs (original lines from 8 to 8)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/notification.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/notification.rs (original lines from 14 to 14)\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/reply.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/reply.rs (original lines from 4 to 4)\n-pub fn cap_reply_cap_new(capReplyCanGrant: usize, capReplyMaster: usize, capTCBPtr: usize) -> cap_t {\n+pub fn cap_reply_cap_new(\n+    capReplyCanGrant: usize,\n+    capReplyMaster: usize,\n+    capTCBPtr: usize,\n+) -> cap_t {\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/reply.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/reply.rs (original lines from 27 to 27)\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/zombie.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/zombie.rs (original lines from 3 to 3)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/zombie.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/zombie.rs (original lines from 40 to 40)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap/zombie.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap/zombie.rs (original lines from 64 to 64)\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap_rights.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap_rights.rs (original lines from 1 to 1)\n-use common::{MASK, plus_define_bitfield};\n+use common::{plus_define_bitfield, MASK};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap_rights.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap_rights.rs (original lines from 15 to 15)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cap_rights.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cap_rights.rs (original lines from 19 to 21)\n-        Self {\n-            words: [word]\n-        }\n+        Self { words: [word] }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 1 to 3)\n-\n-\n-use crate::{cap::{CapTag, cap_t}, interface::{cte_t, cte_insert}, cte::deriveCap_ret};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 5 to 6)\n-  cap_endpoint_cap_get_capCanGrant, cap_endpoint_cap_get_capCanGrantReply, cap_endpoint_cap_get_capCanReceive,\n-  cap_endpoint_cap_get_capCanSend, cap_endpoint_cap_get_capEPPtr,\n+    cap_endpoint_cap_get_capCanGrant, cap_endpoint_cap_get_capCanGrantReply,\n+    cap_endpoint_cap_get_capCanReceive, cap_endpoint_cap_get_capCanSend,\n+    cap_endpoint_cap_get_capEPPtr,\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 8 to 11)\n-\n-pub use super::cap::zombie::{\n-  Zombie_new,\n-  ZombieType_ZombieTCB\n+use crate::{\n+    cap::{cap_t, CapTag},\n+    cte::deriveCap_ret,\n+    interface::{cte_insert, cte_t},\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 14 to 14)\n+pub use super::cap::zombie::{ZombieType_ZombieTCB, Zombie_new};\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 15 to 16)\n-  cap_reply_cap_get_capReplyCanGrant, cap_reply_cap_get_capReplyMaster, cap_reply_cap_get_capTCBPtr, cap_reply_cap_new,\n-  cap_reply_cap_set_capReplyCanGrant,\n+    cap_reply_cap_get_capReplyCanGrant, cap_reply_cap_get_capReplyMaster,\n+    cap_reply_cap_get_capTCBPtr, cap_reply_cap_new, cap_reply_cap_set_capReplyCanGrant,\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 20 to 21)\n-  cap_notification_cap_get_capNtfnCanSend,\n-  cap_notification_cap_get_capNtfnPtr,\n+    cap_notification_cap_get_capNtfnCanSend, cap_notification_cap_get_capNtfnPtr,\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 24 to 24)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 27 to 27)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 53 to 53)\n-  panic!(\"should not be invoked!\")\n+    panic!(\"should not be invoked!\")\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 56 to 56)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 59 to 61)\n-    unsafe {\n-        cte_insert(newCap, &mut *srcSlot, &mut *destSlot)\n-    }\n+    unsafe { cte_insert(newCap, &mut *srcSlot, &mut *destSlot) }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 67 to 69)\n-    unsafe {\n-        (&mut *slot).derive_cap(cap)\n-    }\n+    unsafe { (&mut *slot).derive_cap(cap) }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 71 to 71)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/compatibility.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/compatibility.rs (original lines from 77 to 77)\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 1 to 1)\n-use core::intrinsics::{unlikely, likely};\n+use core::intrinsics::{likely, unlikely};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 3 to 3)\n-use common::{structures::exception_t, utils::{convert_to_type_ref, convert_to_mut_type_ref}, MASK, sel4_config::wordRadix};\n+use common::{\n+    sel4_config::wordRadix,\n+    structures::exception_t,\n+    utils::{convert_to_mut_type_ref, convert_to_type_ref},\n+    MASK,\n+};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 5 to 7)\n-use crate::{cap::{cap_t, CapTag, same_region_as, same_object_as, is_cap_revocable, zombie::capCyclicZombie}, mdb::mdb_node_t,\n-    utils::{MAX_FREE_INDEX, resolveAddressBits_ret_t}, structures::finaliseSlot_ret,\n-    deps::{finaliseCap, preemptionPoint, post_cap_deletion}};\n+use crate::{\n+    cap::{\n+        cap_t, is_cap_revocable, same_object_as, same_region_as, zombie::capCyclicZombie, CapTag,\n+    },\n+    deps::{finaliseCap, post_cap_deletion, preemptionPoint},\n+    mdb::mdb_node_t,\n+    structures::finaliseSlot_ret,\n+    utils::{resolveAddressBits_ret_t, MAX_FREE_INDEX},\n+};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 123 to 124)\n-                return badge == next.cap.get_ep_badge() &&\n-                    !(next.cteMDBNode.get_first_badged() != 0);\n+                return badge == next.cap.get_ep_badge()\n+                    && !(next.cteMDBNode.get_first_badged() != 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 132 to 133)\n-                return badge == next.cap.get_nf_badge() &&\n-                    !(next.cteMDBNode.get_first_badged() != 0);\n+                return badge == next.cap.get_nf_badge()\n+                    && !(next.cteMDBNode.get_first_badged() != 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 135 to 135)\n-            _ => true\n+            _ => true,\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 204 to 204)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 206 to 206)\n-    \n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 222 to 222)\n-                cap_removable(&fc_ret.remainder, self) && fc_ret.cleanupInfo.get_cap_type() == CapTag::CapNullCap\n+                cap_removable(&fc_ret.remainder, self)\n+                    && fc_ret.cleanupInfo.get_cap_type() == CapTag::CapNullCap\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 237 to 237)\n-    \n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 241 to 241)\n-                let first_badged = ((next_node.cteMDBNode.get_first_badged() != 0) || (mdb_node.get_first_badged() != 0)) as usize;\n+                let first_badged = ((next_node.cteMDBNode.get_first_badged() != 0)\n+                    || (mdb_node.get_first_badged() != 0))\n+                    as usize;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 269 to 269)\n-                    if ptr == ptr2 && self.cap.get_zombie_number() == n && self.cap.get_zombie_type() == zombie_type {\n+                    if ptr == ptr2\n+                        && self.cap.get_zombie_number() == n\n+                        && self.cap.get_zombie_type() == zombie_type\n+                    {\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 273 to 273)\n-                        \n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 293 to 293)\n-       let mut next_ptr = self.cteMDBNode.get_next();\n+        let mut next_ptr = self.cteMDBNode.get_next();\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 318 to 318)\n-/// \n+///\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 335 to 335)\n-    \n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 338 to 338)\n-    src_slot.cteMDBNode.set_next(dest_slot as *const cte_t as usize);\n+    src_slot\n+        .cteMDBNode\n+        .set_next(dest_slot as *const cte_t as usize);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 341 to 341)\n-        cte_ref.cteMDBNode.set_prev(dest_slot as *const cte_t as usize);\n+        cte_ref\n+            .cteMDBNode\n+            .set_prev(dest_slot as *const cte_t as usize);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 348 to 349)\n-    slot.cteMDBNode = mdb_node_t::new(next as usize, 1usize, 1usize,\n-        parent as *const cte_t as usize);\n+    slot.cteMDBNode = mdb_node_t::new(\n+        next as usize,\n+        1usize,\n+        1usize,\n+        parent as *const cte_t as usize,\n+    );\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 358 to 358)\n-/// \n+///\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 364 to 367)\n-    assert!(\n-        dest_slot.cteMDBNode.get_next() == 0\n-            && dest_slot.cteMDBNode.get_prev() == 0\n-    );\n+    assert!(dest_slot.cteMDBNode.get_next() == 0 && dest_slot.cteMDBNode.get_prev() == 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 377 to 377)\n-        prev_ref.cteMDBNode.set_next(dest_slot as *const cte_t as usize);\n+        prev_ref\n+            .cteMDBNode\n+            .set_next(dest_slot as *const cte_t as usize);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 382 to 382)\n-        next_ref.cteMDBNode.set_prev(dest_slot as *const cte_t as usize);\n+        next_ref\n+            .cteMDBNode\n+            .set_prev(dest_slot as *const cte_t as usize);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 393 to 393)\n-            convert_to_mut_type_ref::<cte_t>(prev_ptr).cteMDBNode.set_next(slot2 as *const cte_t as usize);\n+            convert_to_mut_type_ref::<cte_t>(prev_ptr)\n+                .cteMDBNode\n+                .set_next(slot2 as *const cte_t as usize);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 397 to 397)\n-            convert_to_mut_type_ref::<cte_t>(next_ptr).cteMDBNode.set_prev(slot2 as *const cte_t as usize);\n+            convert_to_mut_type_ref::<cte_t>(next_ptr)\n+                .cteMDBNode\n+                .set_prev(slot2 as *const cte_t as usize);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 410 to 410)\n-            convert_to_mut_type_ref::<cte_t>(prev_ptr).cteMDBNode.set_next(slot1 as *const cte_t as usize);\n+            convert_to_mut_type_ref::<cte_t>(prev_ptr)\n+                .cteMDBNode\n+                .set_next(slot1 as *const cte_t as usize);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 414 to 414)\n-            convert_to_mut_type_ref::<cte_t>(next_ptr).cteMDBNode.set_prev(slot1 as *const cte_t as usize);\n+            convert_to_mut_type_ref::<cte_t>(next_ptr)\n+                .cteMDBNode\n+                .set_prev(slot1 as *const cte_t as usize);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 419 to 419)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 438 to 438)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 447 to 449)\n-            srcSlot.cap.set_untyped_free_index(\n-                MAX_FREE_INDEX(srcCap.get_untyped_block_size())\n-            );\n+            srcSlot\n+                .cap\n+                .set_untyped_free_index(MAX_FREE_INDEX(srcCap.get_untyped_block_size()));\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 455 to 455)\n-/// \n+///\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 458 to 458)\n-pub fn resolve_address_bits(node_cap: &cap_t, cap_ptr: usize, _n_bits: usize) -> resolveAddressBits_ret_t {\n+pub fn resolve_address_bits(\n+    node_cap: &cap_t,\n+    cap_ptr: usize,\n+    _n_bits: usize,\n+) -> resolveAddressBits_ret_t {\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 503 to 504)\n-\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 507 to 509)\n-    unsafe {\n-        (*slot).delete_one()\n-    }\n+    unsafe { (*slot).delete_one() }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/cte.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/cte.rs (original lines from 511 to 511)\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/deps.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/deps.rs (original lines from 25 to 25)\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/interface.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/interface.rs (original lines from 1 to 1)\n-\n+pub use crate::cap::CapTag;\n+pub use crate::cap::{cap_t, same_object_as};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/interface.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/interface.rs (original lines from 4 to 5)\n-pub use crate::cap::{cap_t, same_object_as};\n-pub use crate::cap::CapTag;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/interface.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/interface.rs (original lines from 7 to 7)\n+pub use super::cte::{cte_insert, cte_move, cte_swap, cte_t, insert_new_cap, resolve_address_bits};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/interface.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/interface.rs (original lines from 8 to 8)\n-pub use super::cte::{resolve_address_bits, cte_insert, cte_t, cte_move, cte_swap, insert_new_cap};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/lib.rs (original lines from 33 to 33)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/lib.rs (original lines from 36 to 38)\n-mod utils;\n-mod mdb;\n-mod cte;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/lib.rs (original lines from 40 to 40)\n+mod cte;\n+mod mdb;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/lib.rs (original lines from 41 to 41)\n+mod utils;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/lib.rs (original lines from 42 to 44)\n-\n-/// 暴露给外部的接口\n-pub mod interface;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/lib.rs (original lines from 47 to 47)\n+/// 暴露给外部的接口\n+pub mod interface;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/lib.rs (original lines from 50 to 50)\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/mdb.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/mdb.rs (original lines from 3 to 3)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/mdb.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/mdb.rs (original lines from 5 to 5)\n-/// \n+///\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/mdb.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/mdb.rs (original lines from 7 to 7)\n-/// \n+///\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/structures.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/structures.rs (original lines from 5 to 5)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/structures.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/structures.rs (original lines from 23 to 23)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/structures.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/structures.rs (original lines from 40 to 40)\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/utils.rs (original lines from 1 to 1)\n-use common::{sel4_config::seL4_MinUntypedBits, BIT, structures::exception_t};\n+use common::{sel4_config::seL4_MinUntypedBits, structures::exception_t, BIT};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/CSpace/src/utils.rs (original lines from 4 to 4)\n-\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/lib.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the feature `core_intrinsics` is internal to the compiler or standard library\n --> src/lib.rs:1:12\n  |\n1 | #![feature(core_intrinsics)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: using it is strongly discouraged\n  = note: `#[warn(internal_features)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unused doc comment\n  --> src/cap/mod.rs:51:1\n   |\n51 | / /// cap_t 表示一个capability，由两个机器字组成，包含了类型、对象元数据以及指向内核对象的指针。\n52 | | /// 每个类型的capability的每个字段都实现了get和set方法。\n   | |_-------------------------------------------------------^\n   |   |\n   |   rustdoc does not generate documentation for macro invocations\n   |\n   = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion\n   = note: `#[warn(unused_doc_comments)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/mdb.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unused doc comment\n --> src/mdb.rs:4:1\n  |\n4 | / /// 两个机器字组成，维护一个双向链表，其中还有revocable和firstbadged两个标志位字段。\n5 | | /// \n6 | | /// revocable：可以在不通知对象持有者的情况下被删除或撤销。\n7 | | /// \n8 | | /// firstbadged：表示此能力是否是具有相同对象和相同类型的一组能力中的第一个被赋予badge的能力。\n  | |_---------------------------------------------------------------------------------------------^\n  |   |\n  |   rustdoc does not generate documentation for macro invocations\n  |\n  = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this `else { if .. }` block can be collapsed\n   --> src/cte.rs:150:16\n    |\n150 |           } else {\n    |  ________________^\n151 | |             if mdb.get_next() == 0 {\n152 | |                 true\n153 | |             } else {\n...   |\n156 | |             }\n157 | |         }\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\n    = note: `#[warn(clippy::collapsible_else_if)]` on by default\nhelp: collapse nested if block\n    |\n150 ~         } else if mdb.get_next() == 0 {\n151 +             true\n152 +         } else {\n153 +             let next = convert_to_type_ref::<cte_t>(mdb.get_next());\n154 +             return !same_object_as(&self.cap, &next.cap);\n155 +         }\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/zombie.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n  --> src/cap/zombie.rs:19:9\n   |\n19 |         return ZombieType_ZombieCNode(_type);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n   = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n   |\n19 -         return ZombieType_ZombieCNode(_type);\n19 +         ZombieType_ZombieCNode(_type)\n   |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/zombie.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n  --> src/cap/zombie.rs:25:9\n   |\n25 |         return self.get_zombie_id() & !MASK!(radix + 1);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n25 -         return self.get_zombie_id() & !MASK!(radix + 1);\n25 +         self.get_zombie_id() & !MASK!(radix + 1)\n   |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/zombie.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n  --> src/cap/zombie.rs:31:9\n   |\n31 |         return self.get_zombie_id() & MASK!(radix + 1);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n31 -         return self.get_zombie_id() & MASK!(radix + 1);\n31 +         self.get_zombie_id() & MASK!(radix + 1)\n   |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/zombie.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n  --> src/cap/zombie.rs:51:5\n   |\n51 |     return cap_t::new_zombie_cap((ptr & !mask) | (number & mask), _type);\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n51 -     return cap_t::new_zombie_cap((ptr & !mask) | (number & mask), _type);\n51 +     cap_t::new_zombie_cap((ptr & !mask) | (number & mask), _type)\n   |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/zombie.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded late initialization\n  --> src/cap/zombie.rs:45:5\n   |\n45 |     let mask: usize;\n   |     ^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_late_init\n   = note: `#[warn(clippy::needless_late_init)]` on by default\nhelp: move the declaration `mask` here and remove the assignments from the branches\n   |\n45 ~     \n46 ~     let mask: usize = if _type == ZombieType_ZombieTCB {\n47 ~         MASK!(TCB_CNODE_RADIX + 1)\n48 |     } else {\n49 ~         MASK!(_type + 1)\n50 ~     };\n   |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/zombie.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n  --> src/cap/zombie.rs:55:5\n   |\n55 |     return n & MASK!(wordRadix);\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n55 -     return n & MASK!(wordRadix);\n55 +     n & MASK!(wordRadix)\n   |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cap/mod.rs:125:20\n    |\n125 |             return self.clone();\n    |                    ^^^^^^^^^^^^ help: try dereferencing it: `*self`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n    = note: `#[warn(clippy::clone_on_copy)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cap/mod.rs:130:39\n    |\n130 |                     let mut new_cap = self.clone();\n    |                                       ^^^^^^^^^^^^ help: try dereferencing it: `*self`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cap/mod.rs:140:39\n    |\n140 |                     let mut new_cap = self.clone();\n    |                                       ^^^^^^^^^^^^ help: try dereferencing it: `*self`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cap/mod.rs:155:35\n    |\n155 |                 let mut new_cap = self.clone();\n    |                                   ^^^^^^^^^^^^ help: try dereferencing it: `*self`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cap/mod.rs:160:20\n    |\n160 |             _ => { self.clone() }\n    |                    ^^^^^^^^^^^^ help: try dereferencing it: `*self`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: match expression looks like `matches!` macro\n   --> src/cap/mod.rs:200:9\n    |\n200 | / ...   match self.get_cap_type() {\n201 | | ...       CapTag::CapUntypedCap | CapTag::CapEndpointCap | CapTag::CapNotificationCap | CapTag::CapCNodeCap | CapTag::CapFrameCap | CapTa...\n202 | | ...       CapTag::CapPageTableCap | CapTag::CapZombieCap | CapTag::CapThreadCap => true,\n203 | | ...       _ => false,\n204 | | ...   }\n    | |_______^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#match_like_matches_macro\n    = note: `#[warn(clippy::match_like_matches_macro)]` on by default\nhelp: try\n    |\n200 ~         matches!(self.get_cap_type(), CapTag::CapUntypedCap | CapTag::CapEndpointCap | CapTag::CapNotificationCap | CapTag::CapCNodeCap | CapTag::CapFrameCap | CapTag::CapASIDPoolCap |\n201 +             CapTag::CapPageTableCap | CapTag::CapZombieCap | CapTag::CapThreadCap)\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cap/mod.rs:224:13\n    |\n224 |             return false;\n    |             ^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n224 -             return false;\n224 +             false\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cap/mod.rs:271:13\n    |\n271 |             return false;\n    |             ^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n271 -             return false;\n271 +             false\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: match expression looks like `matches!` macro\n   --> src/cap/mod.rs:257:13\n    |\n257 | /             match cap2.get_cap_type() {\n258 | |                 CapTag::CapIrqControlCap | CapTag::CapIrqHandlerCap => {\n259 | |                     true\n260 | |                 }\n261 | |                 _ => false\n262 | |             }\n    | |_____________^ help: try: `matches!(cap2.get_cap_type(), CapTag::CapIrqControlCap | CapTag::CapIrqHandlerCap)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#match_like_matches_macro\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cap/mod.rs:307:13\n    |\n307 |             return derived_cap.get_ep_badge() != src_cap.get_ep_badge();\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n307 -             return derived_cap.get_ep_badge() != src_cap.get_ep_badge();\n307 +             derived_cap.get_ep_badge() != src_cap.get_ep_badge()\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cap/mod.rs:312:13\n    |\n312 |             return derived_cap.get_nf_badge() != src_cap.get_nf_badge();\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n312 -             return derived_cap.get_nf_badge() != src_cap.get_nf_badge();\n312 +             derived_cap.get_nf_badge() != src_cap.get_nf_badge()\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cap/mod.rs:316:13\n    |\n316 |             return src_cap.get_cap_type() == CapTag::CapIrqControlCap;\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n316 -             return src_cap.get_cap_type() == CapTag::CapIrqControlCap;\n316 +             src_cap.get_cap_type() == CapTag::CapIrqControlCap\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cap/mod.rs:320:13\n    |\n320 |             return true;\n    |             ^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n320 -             return true;\n320 +             true\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/utils.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: `0 as *mut _` detected\n  --> src/utils.rs:22:19\n   |\n22 |             slot: 0 as *mut cte_t,\n   |                   ^^^^^^^^^^^^^^^ help: try: `core::ptr::null_mut::<cte_t>()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#zero_ptr\n   = note: `#[warn(clippy::zero_ptr)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n  --> src/cte.rs:51:31\n   |\n51 |                     ret.cap = cap.clone();\n   |                               ^^^^^^^^^^^ help: try dereferencing it: `*cap`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n  --> src/cte.rs:61:27\n   |\n61 |                 ret.cap = cap.clone();\n   |                           ^^^^^^^^^^^ help: try dereferencing it: `*cap`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n  --> src/cte.rs:75:31\n   |\n75 |                     ret.cap = cap.clone();\n   |                               ^^^^^^^^^^^ help: try dereferencing it: `*cap`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n  --> src/cte.rs:83:34\n   |\n83 |                 let mut newCap = cap.clone();\n   |                                  ^^^^^^^^^^^ help: try dereferencing it: `*cap`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n  --> src/cte.rs:89:27\n   |\n89 |                 ret.cap = cap.clone();\n   |                           ^^^^^^^^^^^ help: try dereferencing it: `*cap`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cte.rs:105:9\n    |\n105 |         return exception_t::EXCEPTION_NONE;\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n105 -         return exception_t::EXCEPTION_NONE;\n105 +         exception_t::EXCEPTION_NONE\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this boolean expression can be simplified\n   --> src/cte.rs:109:12\n    |\n109 |         if !(self.cteMDBNode.get_revocable() != 0) {\n    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `self.cteMDBNode.get_revocable() == 0`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#nonminimal_bool\n    = note: `#[warn(clippy::nonminimal_bool)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this boolean expression can be simplified\n   --> src/cte.rs:124:21\n    |\n124 |                     !(next.cteMDBNode.get_first_badged() != 0);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `next.cteMDBNode.get_first_badged() == 0`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#nonminimal_bool\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this boolean expression can be simplified\n   --> src/cte.rs:133:21\n    |\n133 |                     !(next.cteMDBNode.get_first_badged() != 0);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `next.cteMDBNode.get_first_badged() == 0`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#nonminimal_bool\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cte.rs:123:17\n    |\n123 | /                 return badge == next.cap.get_ep_badge() &&\n124 | |                     !(next.cteMDBNode.get_first_badged() != 0);\n    | |______________________________________________________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n123 ~                 badge == next.cap.get_ep_badge() &&\n124 ~                     !(next.cteMDBNode.get_first_badged() != 0)\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cte.rs:132:17\n    |\n132 | /                 return badge == next.cap.get_nf_badge() &&\n133 | |                     !(next.cteMDBNode.get_first_badged() != 0);\n    | |______________________________________________________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n132 ~                 badge == next.cap.get_nf_badge() &&\n133 ~                     !(next.cteMDBNode.get_first_badged() != 0)\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cte.rs:155:17\n    |\n155 |                 return !same_object_as(&self.cap, &next.cap);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n155 -                 return !same_object_as(&self.cap, &next.cap);\n155 +                 !same_object_as(&self.cap, &next.cap)\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: match expression looks like `matches!` macro\n   --> src/cte.rs:164:9\n    |\n164 | /         match self.cap.get_cap_type() {\n165 | |             CapTag::CapThreadCap | CapTag::CapZombieCap | CapTag::CapCNodeCap => true,\n166 | |             _ => false,\n167 | |         }\n    | |_________^ help: try: `matches!(self.cap.get_cap_type(), CapTag::CapThreadCap | CapTag::CapZombieCap | CapTag::CapCNodeCap)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#match_like_matches_macro\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cte.rs:215:9\n    |\n215 |         return exception_t::EXCEPTION_NONE;\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n215 -         return exception_t::EXCEPTION_NONE;\n215 +         exception_t::EXCEPTION_NONE\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cte.rs:313:9\n    |\n313 |         return exception_t::EXCEPTION_NONE;\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n313 -         return exception_t::EXCEPTION_NONE;\n313 +         exception_t::EXCEPTION_NONE\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `mdb_node_t` which implements the `Copy` trait\n   --> src/cte.rs:323:22\n    |\n323 |     let mut newMDB = srcMDB.clone();\n    |                      ^^^^^^^^^^^^^^ help: try dereferencing it: `*srcMDB`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cte.rs:336:24\n    |\n336 |     (*dest_slot).cap = new_cap.clone();\n    |                        ^^^^^^^^^^^^^^^ help: try dereferencing it: `*new_cap`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: deref which would be done by auto-deref\n   --> src/cte.rs:336:5\n    |\n336 |     (*dest_slot).cap = new_cap.clone();\n    |     ^^^^^^^^^^^^ help: try: `dest_slot`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n    = note: `#[warn(clippy::explicit_auto_deref)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: deref which would be done by auto-deref\n   --> src/cte.rs:337:5\n    |\n337 |     (*dest_slot).cteMDBNode = newMDB;\n    |     ^^^^^^^^^^^^ help: try: `dest_slot`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cte.rs:347:16\n    |\n347 |     slot.cap = cap.clone();\n    |                ^^^^^^^^^^^ help: try dereferencing it: `*cap`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n   --> src/cte.rs:348:39\n    |\n348 |     slot.cteMDBNode = mdb_node_t::new(next as usize, 1usize, 1usize,\n    |                                       ^^^^^^^^^^^^^ help: try: `next`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cte.rs:369:21\n    |\n369 |     dest_slot.cap = new_cap.clone();\n    |                     ^^^^^^^^^^^^^^^ help: try dereferencing it: `*new_cap`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cte.rs:401:17\n    |\n401 |     slot1.cap = cap2.clone();\n    |                 ^^^^^^^^^^^^ help: try dereferencing it: `*cap2`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cte.rs:404:17\n    |\n404 |     slot2.cap = cap1.clone();\n    |                 ^^^^^^^^^^^^ help: try dereferencing it: `*cap1`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cte.rs:424:13\n    |\n424 |             return true;\n    |             ^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n424 -             return true;\n424 +             true\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unneeded `return` statement\n   --> src/cte.rs:430:13\n    |\n430 |             return n == 0 || (n == 1 && slot == z_slot);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n430 -             return n == 0 || (n == 1 && slot == z_slot);\n430 +             n == 0 || (n == 1 && slot == z_slot)\n    |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cte.rs:462:23\n    |\n462 |     let mut nodeCap = node_cap.clone();\n    |                       ^^^^^^^^^^^^^^^^ help: try dereferencing it: `*node_cap`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `clone` on type `cap_t` which implements the `Copy` trait\n   --> src/cte.rs:493:28\n    |\n493 |         nodeCap = unsafe { (*slot).cap.clone() };\n    |                            ^^^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `(*slot).cap`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cte.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: this public function might dereference a raw pointer but is not marked `unsafe`\n   --> src/cte.rs:508:11\n    |\n508 |         (*slot).delete_one()\n    |           ^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#not_unsafe_ptr_arg_deref\n    = note: `#[deny(clippy::not_unsafe_ptr_arg_deref)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/cap_rights.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n  --> src/cap_rights.rs:26:9\n   |\n26 |         self.words[0] as usize & MASK!(seL4_CapRightsBits)\n   |         ^^^^^^^^^^^^^^^^^^^^^^ help: try: `self.words[0]`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/structures.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this `impl` can be derived\n  --> src/structures.rs:32:1\n   |\n32 | / impl Default for finaliseCap_ret {\n33 | |     fn default() -> Self {\n34 | |         finaliseCap_ret {\n35 | |             remainder: cap_t::default(),\n...  |\n38 | |     }\n39 | | }\n   | |_^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#derivable_impls\n   = note: `#[warn(clippy::derivable_impls)]` on by default\n   = help: remove the manual implementation...\nhelp: ...and instead derive it\n   |\n27 + #[derive(Default)]\n28 | pub struct finaliseCap_ret {\n   |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/compatibility.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: this public function might dereference a raw pointer but is not marked `unsafe`\n  --> src/compatibility.rs:60:34\n   |\n60 |         cte_insert(newCap, &mut *srcSlot, &mut *destSlot)\n   |                                  ^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#not_unsafe_ptr_arg_deref\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/compatibility.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: this public function might dereference a raw pointer but is not marked `unsafe`\n  --> src/compatibility.rs:60:49\n   |\n60 |         cte_insert(newCap, &mut *srcSlot, &mut *destSlot)\n   |                                                 ^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#not_unsafe_ptr_arg_deref\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/compatibility.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: this public function might dereference a raw pointer but is not marked `unsafe`\n  --> src/compatibility.rs:68:16\n   |\n68 |         (&mut *slot).derive_cap(cap)\n   |                ^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#not_unsafe_ptr_arg_deref\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/compatibility.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this expression borrows a value the compiler would automatically borrow\n  --> src/compatibility.rs:68:9\n   |\n68 |         (&mut *slot).derive_cap(cap)\n   |         ^^^^^^^^^^^^ help: change this to: `(*slot)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n   = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 2,
+      "file": "Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
+      "raw": "[2024-09-04T15:04:54Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.7/src/util/pool.rs:525:25: 525:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.7/src/util/pool.rs:530:17: 530:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-09-04T15:04:54Z WARN  lockbud::callbacks] crate riscv_target contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
       "cmd_idx": 3,
       "file": "clippy",
       "kind": "Cargo",
-      "raw": "// pkg_name=buildrs-failure, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/os-checker/os-checker-test-suite/buildrs-failure\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n   Compiling buildrs-failure v0.1.0 (/home/runner/check/batch_2/os-checker/os-checker-test-suite/buildrs-failure)\nerror: failed to run custom build command for `buildrs-failure v0.1.0 (/home/runner/check/batch_2/os-checker/os-checker-test-suite/buildrs-failure)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_2/os-checker/os-checker-test-suite/target/debug/build/buildrs-failure-cbaf576da3545279/build-script-build` (exit status: 101)\n  --- stderr\n  thread 'main' panicked at buildrs-failure/build.rs:2:5:\n  Test as a failure in build script.\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
+      "raw": "// pkg_name=cspace, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/kern-crates/CSpace\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Updating git repository `https://github.com/CtrlZ233/rel4_comm.git`\n    Updating crates.io index\n    Updating git repository `https://gitee.com/rcore-os/riscv`\n    Blocking waiting for file lock on package cache\n     Locking 16 packages to latest compatible versions\n      Adding bare-metal v0.2.5 (latest: v1.0.0)\n      Adding bitflags v1.3.2 (latest: v2.6.0)\n      Adding rustc_version v0.2.3 (latest: v0.4.1)\n      Adding semver v0.9.0 (latest: v1.0.23)\n      Adding semver-parser v0.7.0 (latest: v0.10.2)\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n   Compiling memchr v2.7.4\n   Compiling regex-syntax v0.8.4\n   Compiling semver-parser v0.7.0\n   Compiling lazy_static v1.5.0\n   Compiling semver v0.9.0\n    Checking log v0.4.22\n   Compiling aho-corasick v1.1.3\n    Checking bit_field v0.10.2\n    Checking bitflags v1.3.2\n   Compiling rustc_version v0.2.3\n   Compiling bare-metal v0.2.5\n   Compiling regex-automata v0.4.7\n   Compiling regex v1.10.6\n   Compiling riscv-target v0.1.2\n   Compiling riscv v0.6.0 (https://gitee.com/rcore-os/riscv#11d43cf7)\n    Checking common v0.1.0 (https://github.com/CtrlZ233/rel4_comm.git?branch=main#74acf0cc)\n    Checking cspace v0.1.0 (/home/runner/check/batch_2/kern-crates/CSpace)\nerror: could not compile `cspace` (lib) due to 5 previous errors; 55 warnings emitted\n"
     },
     {
-      "cmd_idx": 3,
-      "file": "lockbud",
-      "kind": "Cargo",
-      "raw": "// pkg_name=buildrs-failure, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/os-checker/os-checker-test-suite/buildrs-failure\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n    Blocking waiting for file lock on package cache\n   Compiling buildrs-failure v0.1.0 (/home/runner/check/batch_2/os-checker/os-checker-test-suite/buildrs-failure)\nerror: failed to run custom build command for `buildrs-failure v0.1.0 (/home/runner/check/batch_2/os-checker/os-checker-test-suite/buildrs-failure)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_2/os-checker/os-checker-test-suite/target/debug/build/buildrs-failure-b6dc1f6b857b62c6/build-script-build` (exit status: 101)\n  --- stderr\n  thread 'main' panicked at buildrs-failure/build.rs:2:5:\n  Test as a failure in build script.\n  stack backtrace:\n     0:     0x5645a8aea915 - std::backtrace_rs::backtrace::libunwind::trace::h5b560bab72e6154b\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/libunwind.rs:105:5\n     1:     0x5645a8aea915 - std::backtrace_rs::backtrace::trace_unsynchronized::h4ee8ec99b43d8706\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/mod.rs:66:5\n     2:     0x5645a8aea915 - std::sys_common::backtrace::_print_fmt::h6e8289aafa4fb13e\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:68:5\n     3:     0x5645a8aea915 - <std::sys_common::backtrace::_print::DisplayBacktrace as core::fmt::Display>::fmt::hed32d0ff2aa0fdf1\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:44:22\n     4:     0x5645a8b08a1b - core::fmt::rt::Argument::fmt::hca3a538408b6d3ca\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/rt.rs:165:63\n     5:     0x5645a8b08a1b - core::fmt::write::h0c46818975380aad\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/mod.rs:1169:21\n     6:     0x5645a8ae883f - std::io::Write::write_fmt::h5ea3db9efd501baa\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/io/mod.rs:1835:15\n     7:     0x5645a8aea6ee - std::sys_common::backtrace::_print::h27ff758d37d9e119\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:47:5\n     8:     0x5645a8aea6ee - std::sys_common::backtrace::print::hafc6b0d8efbd24ba\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:34:9\n     9:     0x5645a8aeba59 - std::panicking::default_hook::{{closure}}::ha573ac73171c717b\n    10:     0x5645a8aeb79d - std::panicking::default_hook::h8ed95b009f156527\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:298:9\n    11:     0x5645a8aebf13 - std::panicking::rust_panic_with_hook::h086afbf37fa35871\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:795:13\n    12:     0x5645a8aebdbb - std::panicking::begin_panic_handler::{{closure}}::ha322428a7efae35f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:656:13\n    13:     0x5645a8aeadd9 - std::sys_common::backtrace::__rust_end_short_backtrace::hfc043f4d06966d4a\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:171:18\n    14:     0x5645a8aebb27 - rust_begin_unwind\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:652:5\n    15:     0x5645a8b07c43 - core::panicking::panic_fmt::h6d75522ebd7efdf2\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/panicking.rs:72:14\n    16:     0x5645a8ad06d2 - build_script_build::main::hf4decbdbc8d11168\n                                 at /home/runner/check/batch_2/os-checker/os-checker-test-suite/buildrs-failure/build.rs:2:5\n    17:     0x5645a8ad063b - core::ops::function::FnOnce::call_once::h92e512ce7bee2ef5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:250:5\n    18:     0x5645a8ad04de - std::sys_common::backtrace::__rust_begin_short_backtrace::hf7abc9272a435240\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:155:18\n    19:     0x5645a8ad0551 - std::rt::lang_start::{{closure}}::hc4a88c97cc645181\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:159:18\n    20:     0x5645a8ae6acd - core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once::hc45caadc31f12bbc\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:284:13\n    21:     0x5645a8ae6acd - std::panicking::try::do_call::h2817e8d187fb4046\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    22:     0x5645a8ae6acd - std::panicking::try::hd725b8f33b0955ec\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    23:     0x5645a8ae6acd - std::panic::catch_unwind::h393b56b2db7d8348\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    24:     0x5645a8ae6acd - std::rt::lang_start_internal::{{closure}}::h346fefab85a8f29f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:48\n    25:     0x5645a8ae6acd - std::panicking::try::do_call::hff9d5ed939b97486\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    26:     0x5645a8ae6acd - std::panicking::try::h1e2d653a69031472\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    27:     0x5645a8ae6acd - std::panic::catch_unwind::h843eea8cbc130396\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    28:     0x5645a8ae6acd - std::rt::lang_start_internal::h3d73f751252cfec5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:20\n    29:     0x5645a8ad052a - std::rt::lang_start::he6aea475bde28aeb\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:158:17\n    30:     0x5645a8ad06fe - main\n    31:     0x7f8567029d90 - <unknown>\n    32:     0x7f8567029e40 - __libc_start_main\n    33:     0x5645a8ad0405 - _start\n    34:                0x0 - <unknown>\n"
-    },
-    {
-      "cmd_idx": 6,
-      "file": "Not supported to display yet.",
-      "kind": "Lockbud(Possibly)",
-      "raw": "[2024-09-04T14:41:36Z WARN  lockbud::callbacks] [\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at lockbud-checks-this/src/lib.rs:7:13: 7:26 (#0) after dropped at lockbud-checks-this/src/lib.rs:5:5: 5:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      },\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at lockbud-checks-this/src/lib.rs:8:28: 8:32 (#5) after dropped at lockbud-checks-this/src/lib.rs:5:5: 5:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      }\n    ]\n[2024-09-04T14:41:36Z WARN  lockbud::callbacks] crate lockbud_checks_this contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 2 }"
-    },
-    {
-      "cmd_idx": 7,
-      "file": "examples/need-clippy-fix.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/os-checker/os-checker-test-suite/examples/need-clippy-fix.rs (original lines from 2 to 2)\n-    _ = (123); \n+    _ = (123);\n"
-    },
-    {
-      "cmd_idx": 7,
-      "file": "examples/need-fmt.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/os-checker/os-checker-test-suite/examples/need-fmt.rs (original lines from 1 to 1)\n-fn main() {    println!(\"from example\");\n+fn main() {\n+    println!(\"from example\");\n"
-    },
-    {
-      "cmd_idx": 7,
-      "file": "src/main.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/os-checker/os-checker-test-suite/src/main.rs (original lines from 4 to 5)\n- \n-println!(\"Hello, world!\");\n+    println!(\"Hello, world!\");\n"
-    },
-    {
-      "cmd_idx": 7,
-      "file": "tests/need-fmt.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/os-checker/os-checker-test-suite/tests/need-fmt.rs (original lines from 1 to 2)\n-fn main () {\n-  }\n+fn main() {}\n"
-    },
-    {
-      "cmd_idx": 8,
-      "file": "src/main.rs",
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
       "kind": "Clippy(Warn)",
-      "raw": "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
+      "raw": "warning: function `align_down` is never used\n   --> src/lib.rs:126:10\n    |\n126 | const fn align_down(pos: usize, align: usize) -> usize {\n    |          ^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: function `align_up` is never used\n   --> src/lib.rs:131:10\n    |\n131 | const fn align_up(pos: usize, align: usize) -> usize {\n    |          ^^^^^^^^\n\n"
     },
     {
       "cmd_idx": 8,
-      "file": "src/main.rs",
+      "file": "/home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/ecfc417/build.rs",
       "kind": "Clippy(Error)",
-      "raw": "error: approximate value of `f{32, 64}::consts::PI` found\n --> src/main.rs:2:13\n  |\n2 |     let a = 3.14;\n  |             ^^^^\n  |\n  = help: consider using the constant directly\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#approx_constant\n  = note: `#[deny(clippy::approx_constant)]` on by default\n\n"
+      "raw": "error: environment variable `AX_WORK_DIR` not defined at compile time\n --> /home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/ecfc417/build.rs:6:34\n  |\n6 |     let root_dir = PathBuf::from(std::env!(\"AX_WORK_DIR\"));\n  |                                  ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_WORK_DIR\")` to read the variable at run time\n  = note: this error originates in the macro `std::env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
     },
     {
       "cmd_idx": 10,
       "file": "clippy",
       "kind": "Cargo",
-      "raw": "// pkg_name=os-checker-test-suite, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/os-checker/os-checker-test-suite\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Blocking waiting for file lock on package cache\n    Checking os-checker-test-suite v0.1.0 (/home/runner/check/batch_2/os-checker/os-checker-test-suite)\nerror: could not compile `os-checker-test-suite` (bin \"os-checker-test-suite\") due to 2 previous errors; 1 warning emitted\n"
+      "raw": "// pkg_name=arceos_api, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/kern-crates/arceos_api\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Blocking waiting for file lock on package cache\n    Updating git repository `https://github.com/Starry-OS/axalloc.git`\n    Updating git repository `https://github.com/Starry-OS/axconfig.git`\n    Updating git repository `https://github.com/Starry-OS/axdisplay.git`\n    Updating git repository `https://github.com/Starry-OS/axerrno.git`\n    Updating git repository `https://github.com/Starry-OS/axfeat.git`\n    Updating git repository `https://github.com/Starry-OS/axfs.git`\n    Updating git repository `https://github.com/Starry-OS/axhal.git`\n    Updating git repository `https://github.com/Starry-OS/axio.git`\n    Updating git repository `https://github.com/Starry-OS/axlog.git`\n    Updating git repository `https://github.com/Starry-OS/axnet.git`\n    Updating git repository `https://github.com/Starry-OS/axruntime.git`\n    Updating git repository `https://github.com/Starry-OS/axtask.git`\n    Updating git repository `https://github.com/Starry-OS/allocator.git`\n    Updating crates.io index\n    Updating git repository `https://github.com/Starry-OS/memory_addr.git`\n    Updating git repository `https://github.com/Starry-OS/spinlock.git`\n    Updating git repository `https://github.com/Starry-OS/axdriver.git`\n    Updating git repository `https://github.com/Starry-OS/axsync.git`\n    Updating git repository `https://github.com/Starry-OS/driver_display.git`\n    Updating git repository `https://github.com/Starry-OS/lazy_init.git`\n    Updating git repository `https://github.com/Starry-OS/axfs_devfs.git`\n    Updating git repository `https://github.com/Starry-OS/axfs_ramfs.git`\n    Updating git repository `https://github.com/Starry-OS/axfs_vfs.git`\n    Updating git repository `https://github.com/Starry-OS/capability.git`\n    Updating git repository `https://github.com/Starry-OS/driver_block.git`\n    Updating git repository `https://github.com/rafalh/rust-fatfs`\n    Updating git repository `https://github.com/Starry-OS/crate_interface.git`\n    Updating git repository `https://github.com/Starry-OS/handler_table.git`\n    Updating git repository `https://github.com/Starry-OS/kernel_guard.git`\n    Updating git repository `https://github.com/Starry-OS/of.git`\n    Updating git repository `https://github.com/Starry-OS/page_table_entry.git`\n    Updating git repository `https://github.com/Starry-OS/percpu.git`\n    Updating git repository `https://github.com/Starry-OS/ratio.git`\n    Updating git repository `https://github.com/Starry-OS/taskctx.git`\n    Updating git repository `https://github.com/Starry-OS/arm_gic.git`\n    Updating git repository `https://github.com/Starry-OS/arm_pl011.git`\n    Updating git repository `https://github.com/Starry-OS/dw_apb_uart.git`\n    Updating git repository `https://github.com/Starry-OS/driver_net.git`\n    Updating git repository `https://github.com/rcore-os/smoltcp.git`\n    Updating git repository `https://github.com/kern-crates/axbacktrace.git`\n    Updating git repository `https://github.com/Starry-OS/axsignal.git`\n    Updating git repository `https://github.com/Starry-OS/linked_list.git`\n    Updating git repository `https://github.com/mexus/numeric-enum-macro`\n    Updating git repository `https://github.com/Starry-OS/scheduler.git`\n    Updating git repository `https://github.com/Starry-OS/timer_list.git`\n    Updating git repository `https://github.com/rcore-os/bitmap-allocator.git`\n    Updating git repository `https://github.com/Starry-OS/driver_common.git`\n    Updating git repository `https://github.com/Starry-OS/driver_pci.git`\n    Updating git repository `https://github.com/Starry-OS/driver_virtio.git`\n    Updating git repository `https://github.com/Starry-OS/page_table.git`\n    Updating git repository `https://github.com/Starry-OS/percpu_macros.git`\n    Blocking waiting for file lock on package cache\n     Locking 119 packages to latest compatible versions\n      Adding base64 v0.13.1 (latest: v0.22.1)\n      Adding bitflags v1.3.2 (latest: v2.6.0)\n      Adding raw-cpuid v10.7.0 (latest: v11.1.0)\n      Adding syn v1.0.109 (latest: v2.0.77)\n      Adding tock-registers v0.8.1 (latest: v0.9.0)\n      Adding volatile v0.4.6 (latest: v0.6.1)\n      Adding x86_64 v0.14.12 (latest: v0.15.1)\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n   Compiling serde v1.0.209\n   Compiling equivalent v1.0.1\n   Compiling hashbrown v0.14.5\n   Compiling winnow v0.6.18\n   Compiling toml_datetime v0.6.8\n    Checking bit_field v0.10.2\n   Compiling proc-macro2 v1.0.86\n   Compiling indexmap v2.5.0\n    Checking bitflags v1.3.2\n   Compiling toml_edit v0.22.20\n    Checking raw-cpuid v10.7.0\n   Compiling autocfg v1.3.0\n   Compiling x86 v0.52.0\n    Checking log v0.4.22\n   Compiling unicode-ident v1.0.12\n   Compiling lock_api v0.4.12\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#ecfc4170)\n    Checking cfg-if v1.0.0\nerror: could not compile `axconfig` (build script) due to 2 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
     },
     {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 3 to 3)\n-use core::str;\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 5 to 5)\n+use core::str;\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 12 to 12)\n-const MAGIC_NUMBER     : u32 = 0xd00dfeed;\n+const MAGIC_NUMBER: u32 = 0xd00dfeed;\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 14 to 16)\n-const OF_DT_BEGIN_NODE : u32 = 0x00000001;\n-const OF_DT_END_NODE   : u32 = 0x00000002;\n-const OF_DT_PROP       : u32 = 0x00000003;\n+const OF_DT_BEGIN_NODE: u32 = 0x00000001;\n+const OF_DT_END_NODE: u32 = 0x00000002;\n+const OF_DT_PROP: u32 = 0x00000003;\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 38 to 40)\n-        let buf = unsafe {\n-            core::slice::from_raw_parts(ptr as *const u8, 24)\n-        };\n+        let buf = unsafe { core::slice::from_raw_parts(ptr as *const u8, 24) };\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 43 to 43)\n-            return Err(DeviceTreeError::BadMagicNumber)\n+            return Err(DeviceTreeError::BadMagicNumber);\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 53 to 55)\n-        Ok(\n-            Self {ptr, totalsize, off_struct, off_strings}\n-        )\n+        Ok(Self {\n+            ptr,\n+            totalsize,\n+            off_struct,\n+            off_strings,\n+        })\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 61 to 61)\n-        &self, mut pos: usize,\n+        &self,\n+        mut pos: usize,\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 64 to 64)\n-        cb: &mut dyn FnMut(String, usize, usize, Vec<(String, Vec<u8>)>)\n+        cb: &mut dyn FnMut(String, usize, usize, Vec<(String, Vec<u8>)>),\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 66 to 68)\n-        let buf = unsafe {\n-            core::slice::from_raw_parts(self.ptr as *const u8, self.totalsize)\n-        };\n+        let buf = unsafe { core::slice::from_raw_parts(self.ptr as *const u8, self.totalsize) };\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 72 to 72)\n-            return Err(DeviceTreeError::ParseError(pos))\n+            return Err(DeviceTreeError::ParseError(pos));\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 82 to 83)\n-            let val_size = buf.read_be_u32(pos+4)? as usize;\n-            let name_offset = buf.read_be_u32(pos+8)? as usize;\n+            let val_size = buf.read_be_u32(pos + 4)? as usize;\n+            let name_offset = buf.read_be_u32(pos + 8)? as usize;\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 115 to 115)\n-            return Err(DeviceTreeError::ParseError(pos))\n+            return Err(DeviceTreeError::ParseError(pos));\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 131 to 131)\n-where F: FnMut(String, usize, usize, Vec<(String, Vec<u8>)>)\n+where\n+    F: FnMut(String, usize, usize, Vec<(String, Vec<u8>)>),\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 1 to 1)\n-use crate::{DeviceTreeResult, DeviceTreeError};\n+use crate::{DeviceTreeError, DeviceTreeResult};\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 13 to 14)\n-        if ! (pos+4 <= self.len()) {\n-            return Err(DeviceTreeError::SliceReadError)\n+        if !(pos + 4 <= self.len()) {\n+            return Err(DeviceTreeError::SliceReadError);\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 17 to 22)\n-        Ok(\n-            (self[pos] as u32) << 24\n-            | (self[pos+1] as u32) << 16\n-            | (self[pos+2] as u32) << 8\n-            | (self[pos+3] as u32)\n-        )\n+        Ok((self[pos] as u32) << 24\n+            | (self[pos + 1] as u32) << 16\n+            | (self[pos + 2] as u32) << 8\n+            | (self[pos + 3] as u32))\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 26 to 26)\n-        let lo: u64 = self.read_be_u32(pos+4)?.into();\n+        let lo: u64 = self.read_be_u32(pos + 4)?.into();\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 33 to 33)\n-                return Ok(&self[pos..cur])\n+                return Ok(&self[pos..cur]);\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 40 to 41)\n-        if ! (end < self.len()) {\n-            return Err(DeviceTreeError::SliceReadError)\n+        if !(end < self.len()) {\n+            return Err(DeviceTreeError::SliceReadError);\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 1 to 2)\n-use std::str;\n-use std::io::Read;\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 4 to 4)\n+use std::io::Read;\n+use std::str;\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 11 to 18)\n-    let mut cb = |name: String, addr_cells: usize, size_cells: usize, props: Vec<(String, Vec<u8>)>| {\n-        match name.as_str() {\n-            \"\" => {\n-                assert_eq!(addr_cells, 2);\n-                assert_eq!(size_cells, 2);\n-                for prop in &props {\n-                    if prop.0.as_str() == \"compatible\" {\n-                        assert_eq!(str::from_utf8(&(prop.1)), Ok(\"riscv-virtio\\0\"));\n+    let mut cb =\n+        |name: String, addr_cells: usize, size_cells: usize, props: Vec<(String, Vec<u8>)>| {\n+            match name.as_str() {\n+                \"\" => {\n+                    assert_eq!(addr_cells, 2);\n+                    assert_eq!(size_cells, 2);\n+                    for prop in &props {\n+                        if prop.0.as_str() == \"compatible\" {\n+                            assert_eq!(str::from_utf8(&(prop.1)), Ok(\"riscv-virtio\\0\"));\n+                        }\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 21 to 27)\n-            },\n-            \"soc\" => {\n-                assert_eq!(addr_cells, 2);\n-                assert_eq!(size_cells, 2);\n-                for prop in &props {\n-                    if prop.0.as_str() == \"compatible\" {\n-                        assert_eq!(str::from_utf8(&(prop.1)), Ok(\"simple-bus\\0\"));\n+                \"soc\" => {\n+                    assert_eq!(addr_cells, 2);\n+                    assert_eq!(size_cells, 2);\n+                    for prop in &props {\n+                        if prop.0.as_str() == \"compatible\" {\n+                            assert_eq!(str::from_utf8(&(prop.1)), Ok(\"simple-bus\\0\"));\n+                        }\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 30 to 40)\n-            },\n-            \"virtio_mmio@10001000\" => {\n-                assert_eq!(addr_cells, 2);\n-                assert_eq!(size_cells, 2);\n-                for prop in &props {\n-                    if prop.0.as_str() == \"compatible\" {\n-                        assert_eq!(str::from_utf8(&(prop.1)), Ok(\"virtio,mmio\\0\"));\n-                    } else if prop.0.as_str() == \"reg\" {\n-                        let reg = &(prop.1);\n-                        assert_eq!(reg.as_slice().read_be_u64(0).unwrap(), 0x10001000);\n-                        assert_eq!(reg.as_slice().read_be_u64(8).unwrap(), 0x1000);\n+                \"virtio_mmio@10001000\" => {\n+                    assert_eq!(addr_cells, 2);\n+                    assert_eq!(size_cells, 2);\n+                    for prop in &props {\n+                        if prop.0.as_str() == \"compatible\" {\n+                            assert_eq!(str::from_utf8(&(prop.1)), Ok(\"virtio,mmio\\0\"));\n+                        } else if prop.0.as_str() == \"reg\" {\n+                            let reg = &(prop.1);\n+                            assert_eq!(reg.as_slice().read_be_u64(0).unwrap(), 0x10001000);\n+                            assert_eq!(reg.as_slice().read_be_u64(8).unwrap(), 0x1000);\n+                        }\n"
-    },
-    {
-      "cmd_idx": 11,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 43 to 46)\n-            },\n-            _ => {}\n-        }\n-    };\n+                _ => {}\n+            }\n+        };\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 3 to 3)\n-use core::str;\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 5 to 5)\n+use core::str;\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 12 to 12)\n-const MAGIC_NUMBER     : u32 = 0xd00dfeed;\n+const MAGIC_NUMBER: u32 = 0xd00dfeed;\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 14 to 16)\n-const OF_DT_BEGIN_NODE : u32 = 0x00000001;\n-const OF_DT_END_NODE   : u32 = 0x00000002;\n-const OF_DT_PROP       : u32 = 0x00000003;\n+const OF_DT_BEGIN_NODE: u32 = 0x00000001;\n+const OF_DT_END_NODE: u32 = 0x00000002;\n+const OF_DT_PROP: u32 = 0x00000003;\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 38 to 40)\n-        let buf = unsafe {\n-            core::slice::from_raw_parts(ptr as *const u8, 24)\n-        };\n+        let buf = unsafe { core::slice::from_raw_parts(ptr as *const u8, 24) };\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 43 to 43)\n-            return Err(DeviceTreeError::BadMagicNumber)\n+            return Err(DeviceTreeError::BadMagicNumber);\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 53 to 55)\n-        Ok(\n-            Self {ptr, totalsize, off_struct, off_strings}\n-        )\n+        Ok(Self {\n+            ptr,\n+            totalsize,\n+            off_struct,\n+            off_strings,\n+        })\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 61 to 61)\n-        &self, mut pos: usize,\n+        &self,\n+        mut pos: usize,\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 64 to 64)\n-        cb: &mut dyn FnMut(String, usize, usize, Vec<(String, Vec<u8>)>)\n+        cb: &mut dyn FnMut(String, usize, usize, Vec<(String, Vec<u8>)>),\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 66 to 68)\n-        let buf = unsafe {\n-            core::slice::from_raw_parts(self.ptr as *const u8, self.totalsize)\n-        };\n+        let buf = unsafe { core::slice::from_raw_parts(self.ptr as *const u8, self.totalsize) };\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 72 to 72)\n-            return Err(DeviceTreeError::ParseError(pos))\n+            return Err(DeviceTreeError::ParseError(pos));\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 82 to 83)\n-            let val_size = buf.read_be_u32(pos+4)? as usize;\n-            let name_offset = buf.read_be_u32(pos+8)? as usize;\n+            let val_size = buf.read_be_u32(pos + 4)? as usize;\n+            let name_offset = buf.read_be_u32(pos + 8)? as usize;\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 115 to 115)\n-            return Err(DeviceTreeError::ParseError(pos))\n+            return Err(DeviceTreeError::ParseError(pos));\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/lib.rs (original lines from 131 to 131)\n-where F: FnMut(String, usize, usize, Vec<(String, Vec<u8>)>)\n+where\n+    F: FnMut(String, usize, usize, Vec<(String, Vec<u8>)>),\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 1 to 1)\n-use crate::{DeviceTreeResult, DeviceTreeError};\n+use crate::{DeviceTreeError, DeviceTreeResult};\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 13 to 14)\n-        if ! (pos+4 <= self.len()) {\n-            return Err(DeviceTreeError::SliceReadError)\n+        if !(pos + 4 <= self.len()) {\n+            return Err(DeviceTreeError::SliceReadError);\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 17 to 22)\n-        Ok(\n-            (self[pos] as u32) << 24\n-            | (self[pos+1] as u32) << 16\n-            | (self[pos+2] as u32) << 8\n-            | (self[pos+3] as u32)\n-        )\n+        Ok((self[pos] as u32) << 24\n+            | (self[pos + 1] as u32) << 16\n+            | (self[pos + 2] as u32) << 8\n+            | (self[pos + 3] as u32))\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 26 to 26)\n-        let lo: u64 = self.read_be_u32(pos+4)?.into();\n+        let lo: u64 = self.read_be_u32(pos + 4)?.into();\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 33 to 33)\n-                return Ok(&self[pos..cur])\n+                return Ok(&self[pos..cur]);\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "src/util.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/src/util.rs (original lines from 40 to 41)\n-        if ! (end < self.len()) {\n-            return Err(DeviceTreeError::SliceReadError)\n+        if !(end < self.len()) {\n+            return Err(DeviceTreeError::SliceReadError);\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 1 to 2)\n-use std::str;\n-use std::io::Read;\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 4 to 4)\n+use std::io::Read;\n+use std::str;\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 11 to 18)\n-    let mut cb = |name: String, addr_cells: usize, size_cells: usize, props: Vec<(String, Vec<u8>)>| {\n-        match name.as_str() {\n-            \"\" => {\n-                assert_eq!(addr_cells, 2);\n-                assert_eq!(size_cells, 2);\n-                for prop in &props {\n-                    if prop.0.as_str() == \"compatible\" {\n-                        assert_eq!(str::from_utf8(&(prop.1)), Ok(\"riscv-virtio\\0\"));\n+    let mut cb =\n+        |name: String, addr_cells: usize, size_cells: usize, props: Vec<(String, Vec<u8>)>| {\n+            match name.as_str() {\n+                \"\" => {\n+                    assert_eq!(addr_cells, 2);\n+                    assert_eq!(size_cells, 2);\n+                    for prop in &props {\n+                        if prop.0.as_str() == \"compatible\" {\n+                            assert_eq!(str::from_utf8(&(prop.1)), Ok(\"riscv-virtio\\0\"));\n+                        }\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 21 to 27)\n-            },\n-            \"soc\" => {\n-                assert_eq!(addr_cells, 2);\n-                assert_eq!(size_cells, 2);\n-                for prop in &props {\n-                    if prop.0.as_str() == \"compatible\" {\n-                        assert_eq!(str::from_utf8(&(prop.1)), Ok(\"simple-bus\\0\"));\n+                \"soc\" => {\n+                    assert_eq!(addr_cells, 2);\n+                    assert_eq!(size_cells, 2);\n+                    for prop in &props {\n+                        if prop.0.as_str() == \"compatible\" {\n+                            assert_eq!(str::from_utf8(&(prop.1)), Ok(\"simple-bus\\0\"));\n+                        }\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 30 to 40)\n-            },\n-            \"virtio_mmio@10001000\" => {\n-                assert_eq!(addr_cells, 2);\n-                assert_eq!(size_cells, 2);\n-                for prop in &props {\n-                    if prop.0.as_str() == \"compatible\" {\n-                        assert_eq!(str::from_utf8(&(prop.1)), Ok(\"virtio,mmio\\0\"));\n-                    } else if prop.0.as_str() == \"reg\" {\n-                        let reg = &(prop.1);\n-                        assert_eq!(reg.as_slice().read_be_u64(0).unwrap(), 0x10001000);\n-                        assert_eq!(reg.as_slice().read_be_u64(8).unwrap(), 0x1000);\n+                \"virtio_mmio@10001000\" => {\n+                    assert_eq!(addr_cells, 2);\n+                    assert_eq!(size_cells, 2);\n+                    for prop in &props {\n+                        if prop.0.as_str() == \"compatible\" {\n+                            assert_eq!(str::from_utf8(&(prop.1)), Ok(\"virtio,mmio\\0\"));\n+                        } else if prop.0.as_str() == \"reg\" {\n+                            let reg = &(prop.1);\n+                            assert_eq!(reg.as_slice().read_be_u64(0).unwrap(), 0x10001000);\n+                            assert_eq!(reg.as_slice().read_be_u64(8).unwrap(), 0x1000);\n+                        }\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "tests/test_dtb.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb/tests/test_dtb.rs (original lines from 43 to 46)\n-            },\n-            _ => {}\n-        }\n-    };\n+                _ => {}\n+            }\n+        };\n"
-    },
-    {
-      "cmd_idx": 17,
-      "file": "clippy",
-      "kind": "Cargo",
-      "raw": "// pkg_name=axdtb, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Updating git repository `ssh://git@github.com/shilei-massclouds/axtype.git`\nerror: failed to get `axtype` as a dependency of package `axdtb v0.1.0 (/home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb)`\n\nCaused by:\n  failed to load source for dependency `axtype`\n\nCaused by:\n  Unable to update ssh://git@github.com/shilei-massclouds/axtype.git\n\nCaused by:\n  failed to fetch into: /home/runner/.cargo/git/db/axtype-5d4f3cfbafdc70ef\n\nCaused by:\n  failed to authenticate when downloading repository\n\n  * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n  if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n  https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\nCaused by:\n  no authentication methods succeeded\n"
-    },
-    {
-      "cmd_idx": 17,
-      "file": "clippy",
-      "kind": "Cargo",
-      "raw": "// pkg_name=axdtb, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=riscv64gc-unknown-none-elf\n// pkg_dir=/home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json\n    Updating git repository `ssh://git@github.com/shilei-massclouds/axtype.git`\nerror: failed to get `axtype` as a dependency of package `axdtb v0.1.0 (/home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb)`\n\nCaused by:\n  failed to load source for dependency `axtype`\n\nCaused by:\n  Unable to update ssh://git@github.com/shilei-massclouds/axtype.git\n\nCaused by:\n  failed to fetch into: /home/runner/.cargo/git/db/axtype-5d4f3cfbafdc70ef\n\nCaused by:\n  failed to authenticate when downloading repository\n\n  * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n  if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n  https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\nCaused by:\n  no authentication methods succeeded\n"
-    },
-    {
-      "cmd_idx": 17,
+      "cmd_idx": 10,
       "file": "lockbud",
       "kind": "Cargo",
-      "raw": "// pkg_name=axdtb, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n    Updating git repository `ssh://git@github.com/shilei-massclouds/axtype.git`\nerror: failed to get `axtype` as a dependency of package `axdtb v0.1.0 (/home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb)`\n\nCaused by:\n  failed to load source for dependency `axtype`\n\nCaused by:\n  Unable to update ssh://git@github.com/shilei-massclouds/axtype.git\n\nCaused by:\n  failed to fetch into: /home/runner/.cargo/git/db/axtype-5d4f3cfbafdc70ef\n\nCaused by:\n  failed to authenticate when downloading repository\n\n  * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n  if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n  https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\nCaused by:\n  no authentication methods succeeded\n"
+      "raw": "// pkg_name=arceos_api, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/kern-crates/arceos_api\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n   Compiling equivalent v1.0.1\n   Compiling hashbrown v0.14.5\n   Compiling serde v1.0.209\n   Compiling winnow v0.6.18\n   Compiling toml_datetime v0.6.8\n   Compiling bit_field v0.10.2\n   Compiling bitflags v1.3.2\n   Compiling proc-macro2 v1.0.86\n   Compiling indexmap v2.5.0\n   Compiling raw-cpuid v10.7.0\n   Compiling x86 v0.52.0\n   Compiling log v0.4.22\n   Compiling unicode-ident v1.0.12\n   Compiling autocfg v1.3.0\n   Compiling toml_edit v0.22.20\n   Compiling lock_api v0.4.12\n   Compiling cfg-if v1.0.0\n   Compiling rustversion v1.0.17\n   Compiling quote v1.0.37\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#8a3436e3)\n   Compiling bitflags v2.6.0\n   Compiling memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n   Compiling scopeguard v1.2.0\n   Compiling syn v2.0.77\n   Compiling static_assertions v1.1.0\n   Compiling volatile v0.4.6\n   Compiling numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n   Compiling spin v0.9.8\n   Compiling paste v1.0.15\n   Compiling percpu v0.1.0 (https://github.com/Starry-OS/percpu.git#85e6d8a7)\n   Compiling tock-registers v0.8.1\n   Compiling aarch64-cpu v9.4.0\n   Compiling lazy_static v1.5.0\n   Compiling x86_64 v0.15.1\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#ecfc4170)\nerror: environment variable `AX_WORK_DIR` not defined at compile time\n --> /home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/ecfc417/build.rs:6:34\n  |\n6 |     let root_dir = PathBuf::from(std::env!(\"AX_WORK_DIR\"));\n  |                                  ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_WORK_DIR\")` to read the variable at run time\n  = note: this error originates in the macro `std::env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nerror: could not compile `axconfig` (build script) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
     },
     {
-      "cmd_idx": 17,
-      "file": "lockbud",
-      "kind": "Cargo",
-      "raw": "// pkg_name=axdtb, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=riscv64gc-unknown-none-elf\n// pkg_dir=/home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf\n    Updating git repository `ssh://git@github.com/shilei-massclouds/axtype.git`\nerror: failed to get `axtype` as a dependency of package `axdtb v0.1.0 (/home/runner/check/batch_2/shilei-massclouds/axdtb/axdtb)`\n\nCaused by:\n  failed to load source for dependency `axtype`\n\nCaused by:\n  Unable to update ssh://git@github.com/shilei-massclouds/axtype.git\n\nCaused by:\n  failed to fetch into: /home/runner/.cargo/git/db/axtype-5d4f3cfbafdc70ef\n\nCaused by:\n  failed to authenticate when downloading repository\n\n  * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n  if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n  https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\nCaused by:\n  no authentication methods succeeded\n"
+      "cmd_idx": 12,
+      "file": "/home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/ecfc417/build.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: environment variable `AX_WORK_DIR` not defined at compile time\n --> /home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/ecfc417/build.rs:6:34\n  |\n6 |     let root_dir = PathBuf::from(std::env!(\"AX_WORK_DIR\"));\n  |                                  ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_WORK_DIR\")` to read the variable at run time\n  = note: this error originates in the macro `std::env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
     },
     {
-      "cmd_idx": 18,
-      "file": "src/main.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb/src/main.rs (original lines from 27 to 41)\n-    let mut cb = |name: String,\n-                  _addr_cells: usize,\n-                  _size_cells: usize,\n-                  props: Vec<(String, Vec<u8>)>| {\n-        match name.as_str() {\n-            \"chosen\" => {\n-                for prop in props {\n-                    match prop.0.as_str() {\n-                        \"bootargs\" => {\n-                            if let Ok(cmd) = core::str::from_utf8(&prop.1) {\n-                                let cmd = cmd.trim_end_matches(char::from(0));\n-                                assert!(cmd.len() > 0);\n-                                assert!(cmd.starts_with(\"init=\"));\n-                                let cmd = cmd.strip_prefix(\"init=\").unwrap();\n-                                assert!(cmd == \"/sbin/init\" || cmd == \"/btp/sbin/hello\");\n+    let mut cb =\n+        |name: String, _addr_cells: usize, _size_cells: usize, props: Vec<(String, Vec<u8>)>| {\n+            match name.as_str() {\n+                \"chosen\" => {\n+                    for prop in props {\n+                        match prop.0.as_str() {\n+                            \"bootargs\" => {\n+                                if let Ok(cmd) = core::str::from_utf8(&prop.1) {\n+                                    let cmd = cmd.trim_end_matches(char::from(0));\n+                                    assert!(cmd.len() > 0);\n+                                    assert!(cmd.starts_with(\"init=\"));\n+                                    let cmd = cmd.strip_prefix(\"init=\").unwrap();\n+                                    assert!(cmd == \"/sbin/init\" || cmd == \"/btp/sbin/hello\");\n+                                }\n"
-    },
-    {
-      "cmd_idx": 18,
-      "file": "src/main.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb/src/main.rs (original lines from 43 to 43)\n+                            _ => (),\n"
-    },
-    {
-      "cmd_idx": 18,
-      "file": "src/main.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb/src/main.rs (original lines from 44 to 44)\n-                        _ => (),\n"
-    },
-    {
-      "cmd_idx": 18,
-      "file": "src/main.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb/src/main.rs (original lines from 47 to 50)\n-            },\n-            _ => (),\n-        }\n-    };\n+                _ => (),\n+            }\n+        };\n"
-    },
-    {
-      "cmd_idx": 18,
-      "file": "src/main.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb/src/main.rs (original lines from 56 to 57)\n-fn test_dtb(_dtb_pa: usize) {\n-}\n+fn test_dtb(_dtb_pa: usize) {}\n"
-    },
-    {
-      "cmd_idx": 19,
-      "file": "src/main.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb/src/main.rs (original lines from 27 to 41)\n-    let mut cb = |name: String,\n-                  _addr_cells: usize,\n-                  _size_cells: usize,\n-                  props: Vec<(String, Vec<u8>)>| {\n-        match name.as_str() {\n-            \"chosen\" => {\n-                for prop in props {\n-                    match prop.0.as_str() {\n-                        \"bootargs\" => {\n-                            if let Ok(cmd) = core::str::from_utf8(&prop.1) {\n-                                let cmd = cmd.trim_end_matches(char::from(0));\n-                                assert!(cmd.len() > 0);\n-                                assert!(cmd.starts_with(\"init=\"));\n-                                let cmd = cmd.strip_prefix(\"init=\").unwrap();\n-                                assert!(cmd == \"/sbin/init\" || cmd == \"/btp/sbin/hello\");\n+    let mut cb =\n+        |name: String, _addr_cells: usize, _size_cells: usize, props: Vec<(String, Vec<u8>)>| {\n+            match name.as_str() {\n+                \"chosen\" => {\n+                    for prop in props {\n+                        match prop.0.as_str() {\n+                            \"bootargs\" => {\n+                                if let Ok(cmd) = core::str::from_utf8(&prop.1) {\n+                                    let cmd = cmd.trim_end_matches(char::from(0));\n+                                    assert!(cmd.len() > 0);\n+                                    assert!(cmd.starts_with(\"init=\"));\n+                                    let cmd = cmd.strip_prefix(\"init=\").unwrap();\n+                                    assert!(cmd == \"/sbin/init\" || cmd == \"/btp/sbin/hello\");\n+                                }\n"
-    },
-    {
-      "cmd_idx": 19,
-      "file": "src/main.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb/src/main.rs (original lines from 43 to 43)\n+                            _ => (),\n"
-    },
-    {
-      "cmd_idx": 19,
-      "file": "src/main.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb/src/main.rs (original lines from 44 to 44)\n-                        _ => (),\n"
-    },
-    {
-      "cmd_idx": 19,
-      "file": "src/main.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb/src/main.rs (original lines from 47 to 50)\n-            },\n-            _ => (),\n-        }\n-    };\n+                _ => (),\n+            }\n+        };\n"
-    },
-    {
-      "cmd_idx": 19,
-      "file": "src/main.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb/src/main.rs (original lines from 56 to 57)\n-fn test_dtb(_dtb_pa: usize) {\n-}\n+fn test_dtb(_dtb_pa: usize) {}\n"
-    },
-    {
-      "cmd_idx": 24,
+      "cmd_idx": 14,
       "file": "clippy",
       "kind": "Cargo",
-      "raw": "// pkg_name=rt_axdtb, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Updating git repository `ssh://git@github.com/shilei-massclouds/arch_boot`\nerror: failed to get `arch_boot` as a dependency of package `rt_axdtb v0.1.0 (/home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb)`\n\nCaused by:\n  failed to load source for dependency `arch_boot`\n\nCaused by:\n  Unable to update ssh://git@github.com/shilei-massclouds/arch_boot\n\nCaused by:\n  failed to fetch into: /home/runner/.cargo/git/db/arch_boot-1cecf4eba2e647a6\n\nCaused by:\n  failed to authenticate when downloading repository\n\n  * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n  if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n  https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\nCaused by:\n  no authentication methods succeeded\n"
+      "raw": "// pkg_name=arceos_posix_api, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/kern-crates/arceos_posix_api\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Updating git repository `https://github.com/Starry-OS/axalloc.git`\n    Updating git repository `https://github.com/Starry-OS/axconfig.git`\n    Updating git repository `https://github.com/Starry-OS/axerrno.git`\n    Updating git repository `https://github.com/Starry-OS/axfeat.git`\n    Updating git repository `https://github.com/Starry-OS/axfs.git`\n    Updating git repository `https://github.com/Starry-OS/axhal.git`\n    Updating git repository `https://github.com/Starry-OS/axio.git`\n    Updating git repository `https://github.com/Starry-OS/axlog.git`\n    Updating git repository `https://github.com/Starry-OS/axnet.git`\n    Updating git repository `https://github.com/Starry-OS/axruntime.git`\n    Updating git repository `https://github.com/Starry-OS/axsync.git`\n    Updating git repository `https://github.com/Starry-OS/axtask.git`\n    Updating git repository `https://github.com/Starry-OS/flatten_objects.git`\n    Updating crates.io index\n    Updating git repository `https://github.com/Starry-OS/allocator.git`\n    Updating git repository `https://github.com/Starry-OS/memory_addr.git`\n    Updating git repository `https://github.com/Starry-OS/spinlock.git`\n    Updating git repository `https://github.com/Starry-OS/axdriver.git`\n    Updating git repository `https://github.com/Starry-OS/axfs_devfs.git`\n    Updating git repository `https://github.com/Starry-OS/axfs_ramfs.git`\n    Updating git repository `https://github.com/Starry-OS/axfs_vfs.git`\n    Updating git repository `https://github.com/Starry-OS/capability.git`\n    Updating git repository `https://github.com/Starry-OS/driver_block.git`\n    Updating git repository `https://github.com/rafalh/rust-fatfs`\n    Updating git repository `https://github.com/Starry-OS/lazy_init.git`\n    Updating git repository `https://github.com/Starry-OS/crate_interface.git`\n    Updating git repository `https://github.com/Starry-OS/handler_table.git`\n    Updating git repository `https://github.com/Starry-OS/kernel_guard.git`\n    Updating git repository `https://github.com/Starry-OS/of.git`\n    Updating git repository `https://github.com/Starry-OS/page_table_entry.git`\n    Updating git repository `https://github.com/Starry-OS/percpu.git`\n    Updating git repository `https://github.com/Starry-OS/ratio.git`\n    Updating git repository `https://github.com/Starry-OS/taskctx.git`\n    Updating git repository `https://github.com/Starry-OS/arm_gic.git`\n    Updating git repository `https://github.com/Starry-OS/arm_pl011.git`\n    Updating git repository `https://github.com/Starry-OS/dw_apb_uart.git`\n    Updating git repository `https://github.com/Starry-OS/driver_net.git`\n    Updating git repository `https://github.com/rcore-os/smoltcp.git`\n    Updating git repository `https://github.com/kern-crates/axbacktrace.git`\n    Updating git repository `https://github.com/Starry-OS/axsignal.git`\n    Updating git repository `https://github.com/Starry-OS/linked_list.git`\n    Updating git repository `https://github.com/mexus/numeric-enum-macro`\n    Updating git repository `https://github.com/Starry-OS/scheduler.git`\n    Updating git repository `https://github.com/Starry-OS/timer_list.git`\n    Updating git repository `https://github.com/rcore-os/bitmap-allocator.git`\n    Updating git repository `https://github.com/Starry-OS/driver_common.git`\n    Updating git repository `https://github.com/Starry-OS/driver_pci.git`\n    Updating git repository `https://github.com/Starry-OS/driver_virtio.git`\n    Updating git repository `https://github.com/Starry-OS/page_table.git`\n    Updating git repository `https://github.com/Starry-OS/percpu_macros.git`\n    Blocking waiting for file lock on package cache\n     Locking 151 packages to latest compatible versions\n      Adding base64 v0.13.1 (latest: v0.22.1)\n      Adding bindgen v0.66.1 (latest: v0.70.1)\n      Adding bitflags v1.3.2 (latest: v2.6.0)\n      Adding linux-raw-sys v0.4.14 (latest: v0.6.5)\n      Adding peeking_take_while v0.1.2 (latest: v1.0.0)\n      Adding raw-cpuid v10.7.0 (latest: v11.1.0)\n      Adding rustc-hash v1.1.0 (latest: v2.0.0)\n      Adding syn v1.0.109 (latest: v2.0.77)\n      Adding tock-registers v0.8.1 (latest: v0.9.0)\n      Adding volatile v0.4.6 (latest: v0.6.1)\n      Adding which v4.4.2 (latest: v6.0.3)\n      Adding windows-sys v0.52.0 (latest: v0.59.0)\n      Adding x86_64 v0.14.12 (latest: v0.15.1)\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n Downloading crates ...\n  Downloaded peeking_take_while v0.1.2\n  Downloaded bindgen v0.66.1\n  Downloaded prettyplease v0.2.22\n   Compiling equivalent v1.0.1\n   Compiling hashbrown v0.14.5\n   Compiling serde v1.0.209\n   Compiling winnow v0.6.18\n   Compiling toml_datetime v0.6.8\n   Compiling indexmap v2.5.0\n   Compiling proc-macro2 v1.0.86\n   Compiling unicode-ident v1.0.12\n   Compiling toml_edit v0.22.20\n    Checking bit_field v0.10.2\n    Checking bitflags v1.3.2\n   Compiling x86 v0.52.0\n    Checking raw-cpuid v10.7.0\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#ecfc4170)\n   Compiling quote v1.0.37\n    Checking log v0.4.22\nerror: could not compile `axconfig` (build script) due to 2 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
     },
     {
-      "cmd_idx": 24,
+      "cmd_idx": 14,
+      "file": "lockbud",
+      "kind": "Cargo",
+      "raw": "// pkg_name=arceos_posix_api, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/kern-crates/arceos_posix_api\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n   Compiling hashbrown v0.14.5\n   Compiling serde v1.0.209\n   Compiling equivalent v1.0.1\n   Compiling proc-macro2 v1.0.86\n   Compiling winnow v0.6.18\n   Compiling toml_datetime v0.6.8\n   Compiling unicode-ident v1.0.12\n   Compiling indexmap v2.5.0\n   Compiling bit_field v0.10.2\n   Compiling quote v1.0.37\n   Compiling bitflags v1.3.2\n   Compiling raw-cpuid v10.7.0\n   Compiling syn v2.0.77\n   Compiling toml_edit v0.22.20\n   Compiling log v0.4.22\n   Compiling x86 v0.52.0\n   Compiling autocfg v1.3.0\n   Compiling cfg-if v1.0.0\n   Compiling rustversion v1.0.17\n   Compiling lock_api v0.4.12\n   Compiling bitflags v2.6.0\n   Compiling scopeguard v1.2.0\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#8a3436e3)\n   Compiling memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n   Compiling static_assertions v1.1.0\n   Compiling volatile v0.4.6\n   Compiling numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n   Compiling spin v0.9.8\n   Compiling paste v1.0.15\n   Compiling tock-registers v0.8.1\n   Compiling percpu v0.1.0 (https://github.com/Starry-OS/percpu.git#85e6d8a7)\n   Compiling aarch64-cpu v9.4.0\n   Compiling lazy_static v1.5.0\n   Compiling x86_64 v0.15.1\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#ecfc4170)\nerror: environment variable `AX_WORK_DIR` not defined at compile time\n --> /home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/ecfc417/build.rs:6:34\n  |\n6 |     let root_dir = PathBuf::from(std::env!(\"AX_WORK_DIR\"));\n  |                                  ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_WORK_DIR\")` to read the variable at run time\n  = note: this error originates in the macro `std::env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nerror: could not compile `axconfig` (build script) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 16,
+      "file": "src/lib.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: doc list item without indentation\n  --> src/lib.rs:11:5\n   |\n11 | //! Please contact the developer if you need this function\n   |     ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n11 | //!    Please contact the developer if you need this function\n   |     +++\n\n"
+    },
+    {
+      "cmd_idx": 16,
+      "file": "src/lib.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: first doc comment paragraph is too long\n   --> src/lib.rs:174:1\n    |\n174 | / /// [`GenericArmGic`].\n175 | | /// It is used to implement the interface abstraction that the interrupt chip\n176 | | /// driver should provide to the outside world.\n177 | | /// I hope that the versatility of the driver interface should support more chip architectures.\n    | |_\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_long_first_doc_paragraph\n    = note: `#[warn(clippy::too_long_first_doc_paragraph)]` on by default\nhelp: add an empty line\n    |\n174 ~ /// [`GenericArmGic`].\n175 + ///\n    |\n\n"
+    },
+    {
+      "cmd_idx": 18,
+      "file": "lockbud",
+      "kind": "Cargo",
+      "raw": "// pkg_name=arm_gic, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/kern-crates/arm_gic\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n   Compiling tock-registers v0.8.1\n   Compiling bitflags v2.6.0\n   Compiling cfg-if v1.0.0\n   Compiling aarch64-cpu v9.4.0\n   Compiling arm_gic v0.1.0 (/home/runner/check/batch_2/kern-crates/arm_gic)\nerror: invalid instruction mnemonic 'msr'\n  --> src/sysregs.rs:22:17\n   |\n22 |                 concat!(\"msr \", ::core::stringify!($name), \", {value}\"),\n   |                 ^\n   |\nnote: instantiated into assembly here\n  --> <inline asm>:2:2\n   |\n2  |     msr icc_sre_el1, rax\n   |     ^^^\n\nerror: invalid instruction mnemonic 'msr'\n  --> src/sysregs.rs:22:17\n   |\n22 |                 concat!(\"msr \", ::core::stringify!($name), \", {value}\"),\n   |                 ^\n   |\nnote: instantiated into assembly here\n  --> <inline asm>:2:2\n   |\n2  |     msr icc_pmr_el1, rax\n   |     ^^^\n\nerror: invalid instruction mnemonic 'msr'\n  --> src/sysregs.rs:22:17\n   |\n22 |                 concat!(\"msr \", ::core::stringify!($name), \", {value}\"),\n   |                 ^\n   |\nnote: instantiated into assembly here\n  --> <inline asm>:2:2\n   |\n2  |     msr icc_ctlr_el1, rax\n   |     ^^^\n\nerror: invalid instruction mnemonic 'msr'\n  --> src/sysregs.rs:22:17\n   |\n22 |                 concat!(\"msr \", ::core::stringify!($name), \", {value}\"),\n   |                 ^\n   |\nnote: instantiated into assembly here\n  --> <inline asm>:2:2\n   |\n2  |     msr icc_igrpen1_el1, rax\n   |     ^^^\n\nerror: invalid instruction mnemonic 'mrs'\n --> src/sysregs.rs:6:17\n  |\n6 |                 concat!(\"mrs {value}, \", ::core::stringify!($name)),\n  |                 ^\n  |\nnote: instantiated into assembly here\n --> <inline asm>:2:2\n  |\n2 |     mrs rax, icc_iar1_el1\n  |     ^^^\n\nerror: invalid instruction mnemonic 'msr'\n  --> src/sysregs.rs:22:17\n   |\n22 |                 concat!(\"msr \", ::core::stringify!($name), \", {value}\"),\n   |                 ^\n   |\nnote: instantiated into assembly here\n  --> <inline asm>:2:2\n   |\n2  |     msr icc_eoir1_el1, rsi\n   |     ^^^\n\nerror: could not compile `arm_gic` (lib) due to 6 previous errors\n"
+    },
+    {
+      "cmd_idx": 23,
+      "file": "/home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/ecfc417/build.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: environment variable `AX_WORK_DIR` not defined at compile time\n --> /home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/ecfc417/build.rs:6:34\n  |\n6 |     let root_dir = PathBuf::from(std::env!(\"AX_WORK_DIR\"));\n  |                                  ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_WORK_DIR\")` to read the variable at run time\n  = note: this error originates in the macro `std::env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+    },
+    {
+      "cmd_idx": 25,
       "file": "clippy",
       "kind": "Cargo",
-      "raw": "// pkg_name=rt_axdtb, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=riscv64gc-unknown-none-elf\n// pkg_dir=/home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json\n    Updating git repository `ssh://git@github.com/shilei-massclouds/arch_boot`\nerror: failed to get `arch_boot` as a dependency of package `rt_axdtb v0.1.0 (/home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb)`\n\nCaused by:\n  failed to load source for dependency `arch_boot`\n\nCaused by:\n  Unable to update ssh://git@github.com/shilei-massclouds/arch_boot\n\nCaused by:\n  failed to fetch into: /home/runner/.cargo/git/db/arch_boot-1cecf4eba2e647a6\n\nCaused by:\n  failed to authenticate when downloading repository\n\n  * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n  if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n  https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\nCaused by:\n  no authentication methods succeeded\n"
+      "raw": "// pkg_name=axalloc, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/kern-crates/axalloc\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Blocking waiting for file lock on package cache\n    Updating git repository `https://github.com/Starry-OS/allocator.git`\n    Updating git repository `https://github.com/Starry-OS/axerrno.git`\n    Updating crates.io index\n    Updating git repository `https://github.com/Starry-OS/memory_addr.git`\n    Updating git repository `https://github.com/Starry-OS/spinlock.git`\n    Updating git repository `https://github.com/rcore-os/bitmap-allocator.git`\n    Updating git repository `https://github.com/arceos-org/slab_allocator.git`\n    Updating git repository `https://github.com/Starry-OS/kernel_guard.git`\n    Updating git repository `https://github.com/Starry-OS/taskctx.git`\n    Updating git repository `https://github.com/Starry-OS/axconfig.git`\n    Updating git repository `https://github.com/mexus/numeric-enum-macro`\n    Blocking waiting for file lock on package cache\n     Locking 41 packages to latest compatible versions\n      Adding base64 v0.13.1 (latest: v0.22.1)\n      Adding bitflags v1.3.2 (latest: v2.6.0)\n      Adding buddy_system_allocator v0.9.1 (latest: v0.10.0)\n      Adding raw-cpuid v10.7.0 (latest: v11.1.0)\n      Adding syn v1.0.109 (latest: v2.0.77)\n      Adding tock-registers v0.8.1 (latest: v0.9.0)\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n    Blocking waiting for file lock on package cache\n   Compiling hashbrown v0.14.5\n   Compiling equivalent v1.0.1\n   Compiling serde v1.0.209\n   Compiling proc-macro2 v1.0.86\n   Compiling toml_datetime v0.6.8\n   Compiling winnow v0.6.18\n   Compiling indexmap v2.5.0\n    Checking bit_field v0.10.2\n   Compiling unicode-ident v1.0.12\n   Compiling toml_edit v0.22.20\n    Checking bitflags v1.3.2\n    Checking cfg-if v1.0.0\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#ecfc4170)\n   Compiling x86 v0.52.0\nerror: could not compile `axconfig` (build script) due to 2 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
     },
     {
-      "cmd_idx": 24,
+      "cmd_idx": 25,
       "file": "lockbud",
       "kind": "Cargo",
-      "raw": "// pkg_name=rt_axdtb, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n    Updating git repository `ssh://git@github.com/shilei-massclouds/arch_boot`\nerror: failed to get `arch_boot` as a dependency of package `rt_axdtb v0.1.0 (/home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb)`\n\nCaused by:\n  failed to load source for dependency `arch_boot`\n\nCaused by:\n  Unable to update ssh://git@github.com/shilei-massclouds/arch_boot\n\nCaused by:\n  failed to fetch into: /home/runner/.cargo/git/db/arch_boot-1cecf4eba2e647a6\n\nCaused by:\n  failed to authenticate when downloading repository\n\n  * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n  if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n  https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\nCaused by:\n  no authentication methods succeeded\n"
+      "raw": "// pkg_name=axalloc, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_2/kern-crates/axalloc\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n   Compiling equivalent v1.0.1\n   Compiling hashbrown v0.14.5\n   Compiling serde v1.0.209\n   Compiling toml_datetime v0.6.8\n   Compiling proc-macro2 v1.0.86\n   Compiling winnow v0.6.18\n   Compiling unicode-ident v1.0.12\n   Compiling bit_field v0.10.2\n   Compiling indexmap v2.5.0\n   Compiling cfg-if v1.0.0\n   Compiling syn v1.0.109\n   Compiling bitflags v1.3.2\n   Compiling x86 v0.52.0\n   Compiling raw-cpuid v10.7.0\n   Compiling quote v1.0.37\n   Compiling toml_edit v0.22.20\n   Compiling libc v0.2.158\n   Compiling log v0.4.22\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#8a3436e3)\n   Compiling memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n   Compiling unicode-width v0.1.13\n   Compiling base64 v0.13.1\n   Compiling static_assertions v1.1.0\n   Compiling numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n   Compiling const-default v1.0.0\n   Compiling axerrno v0.1.0 (https://github.com/Starry-OS/axerrno.git#3e2372cd)\n   Compiling bitmap-allocator v0.1.0 (https://github.com/rcore-os/bitmap-allocator.git?rev=88e871a#88e871a5)\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#ecfc4170)\nerror: environment variable `AX_WORK_DIR` not defined at compile time\n --> /home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/ecfc417/build.rs:6:34\n  |\n6 |     let root_dir = PathBuf::from(std::env!(\"AX_WORK_DIR\"));\n  |                                  ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_WORK_DIR\")` to read the variable at run time\n  = note: this error originates in the macro `std::env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nerror: could not compile `axconfig` (build script) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
     },
     {
-      "cmd_idx": 24,
-      "file": "lockbud",
-      "kind": "Cargo",
-      "raw": "// pkg_name=rt_axdtb, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu (default), target=riscv64gc-unknown-none-elf\n// pkg_dir=/home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf\n    Updating git repository `ssh://git@github.com/shilei-massclouds/arch_boot`\nerror: failed to get `arch_boot` as a dependency of package `rt_axdtb v0.1.0 (/home/runner/check/batch_2/shilei-massclouds/axdtb/rt_axdtb)`\n\nCaused by:\n  failed to load source for dependency `arch_boot`\n\nCaused by:\n  Unable to update ssh://git@github.com/shilei-massclouds/arch_boot\n\nCaused by:\n  failed to fetch into: /home/runner/.cargo/git/db/arch_boot-1cecf4eba2e647a6\n\nCaused by:\n  failed to authenticate when downloading repository\n\n  * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n  if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n  https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\nCaused by:\n  no authentication methods succeeded\n"
+      "cmd_idx": 26,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/aarch64.rs (original lines from 1 to 1)\n-use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/aarch64.rs (original lines from 3 to 3)\n+use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/aarch64.rs (original lines from 5 to 5)\n-    init_curr: bool, \n+    init_curr: bool,\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/aarch64.rs (original lines from 39 to 39)\n-\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/aarch64.rs (original lines from 53 to 53)\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/aarch64.rs (original lines from 56 to 57)\n-    fn new(pc:usize, fp:usize, stack_info: StackInfo) -> Self {\n-        Unwind{init_curr: false, pc,fp,stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/aarch64.rs (original lines from 69 to 69)\n-            error!(\"unwind init fp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init fp: {:#016x} is invalid\", self.fp);\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/lib.rs (original lines from 27 to 27)\n-        Self {low, high}\n+        Self { low, high }\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/lib.rs (original lines from 31 to 31)\n-         fp < self.high && fp > self.low\n+        fp < self.high && fp > self.low\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/lib.rs (original lines from 37 to 37)\n-    fn new(pc:usize, fp:usize, stack_info: StackInfo) -> Self;\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self;\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/riscv.rs (original lines from 1 to 1)\n-use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/riscv.rs (original lines from 3 to 3)\n+use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/riscv.rs (original lines from 35 to 36)\n-            let stack: *const StackFrame = \n-                (self.fp as *const StackFrame).sub(1);\n+            let stack: *const StackFrame = (self.fp as *const StackFrame).sub(1);\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/riscv.rs (original lines from 44 to 46)\n-            let stack: *const StackFrame = \n-                (self.fp as *const StackFrame).sub(1);\n-            self.pc = (*stack).ra;   \n+            let stack: *const StackFrame = (self.fp as *const StackFrame).sub(1);\n+            self.pc = (*stack).ra;\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/riscv.rs (original lines from 64 to 66)\n-    fn new(pc:usize, fp: usize, stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: false, pc, fp, stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/riscv.rs (original lines from 69 to 71)\n-    fn new_from_cur_ctx(stack_info: StackInfo) \n-        -> Self {\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+    fn new_from_cur_ctx(stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/riscv.rs (original lines from 83 to 83)\n-            error!(\"unwind init sp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init sp: {:#016x} is invalid\", self.fp);\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/x86.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/x86.rs (original lines from 1 to 1)\n-use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/x86.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/x86.rs (original lines from 3 to 3)\n+use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/x86.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/x86.rs (original lines from 66 to 68)\n-    fn new(pc:usize, fp: usize, stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: false, pc, fp, stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/x86.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/x86.rs (original lines from 71 to 73)\n-    fn new_from_cur_ctx(stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+    fn new_from_cur_ctx(stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 26,
+      "file": "src/x86.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_2/kern-crates/axbacktrace/src/x86.rs (original lines from 85 to 85)\n-            error!(\"unwind init sp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init sp: {:#016x} is invalid\", self.fp);\n"
     }
   ]
 }
