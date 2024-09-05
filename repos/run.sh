@@ -13,10 +13,10 @@ for file in "$split"/*; do
     awk -F\\t '{
       repos = ENVIRON["repos"]
       json = ENVIRON["target"]
-      dir = repos "/" $1 "/" $2
+      dir = repos "/" $1
       system("mkdir -p " dir)
-      print $3 > dir "/" json
-      print "成功生成   \033[3m" $1 "/" $2 "\033[0m" "/" json
+      print $2 > dir "/" json
+      print "成功生成   \033[3m" $1 "\033[0m" "/" json
     }'
 done
 
