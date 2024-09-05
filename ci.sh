@@ -15,6 +15,9 @@ jq -fc basic.jq $UI_JSON >ui/basic.json
 sh ./home/run.sh
 sh ./file-tree/run.sh
 
+# 从 file-tree 的结果中生成仓库级别的信息
+sh ./repos/run.sh
+
 if [ -n "$BOT" ]; then
   echo "bot!"
   git status
