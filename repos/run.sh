@@ -23,7 +23,9 @@ done
 jq -frc repos/basic.jq ui.json |
   awk -F\\t '{
     repos = ENVIRON["repos"]
-    path = repos "/" $1 "/basic.json"
+    dir = repos "/" $1
+    system("mkdir -p " dir)
+    path = dir "/basic.json"
     print $2 > path 
     print "生成 " path
   }'
