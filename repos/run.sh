@@ -19,3 +19,11 @@ for file in "$split"/*; do
       print "成功生成   \033[3m" $1 "/" $2 "\033[0m" "/" json
     }'
 done
+
+jq -frc repos/basic.jq ui.json |
+  awk -F\\t '{
+    repos = ENVIRON["repos"]
+    path = repos "/" $1 "/basic.json"
+    print $2 > path 
+    print "生成 " path
+  }'
