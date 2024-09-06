@@ -1,7 +1,7 @@
 use crate::utils::{
     group_by, new_map_with_cap, pkg_cmdidx, target_cmdidx, IndexMap, UserRepo, UserRepoPkg,
 };
-use camino::Utf8Path;
+use camino::{Utf8Path, Utf8PathBuf};
 use os_checker_types::{Data as RawData, JsonOutput, Kind};
 use serde::Serialize;
 
@@ -105,4 +105,10 @@ pub struct FileTreeRepo<'a> {
     repo: UserRepo<'a>,
     data: Vec<&'a Data<'a>>,
     kinds_order: &'a [Kind],
+}
+
+impl<'a> FileTreeRepo<'a> {
+    pub fn dir(&self) -> Utf8PathBuf {
+        Utf8PathBuf::from_iter(["repos", self.repo.user, self.repo.repo, "filetree"])
+    }
 }
