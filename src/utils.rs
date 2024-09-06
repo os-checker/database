@@ -1,11 +1,30 @@
 use os_checker_types::JsonOutput;
+use serde::{Deserialize, Serialize};
 
 pub type Result<T, E = Box<dyn std::error::Error>> = std::result::Result<T, E>;
+pub type IndexMap<K, V> = indexmap::IndexMap<K, V, ahash::RandomState>;
 
-#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq, PartialOrd, Ord)]
+pub fn new_map<K, V>() -> IndexMap<K, V> {
+    IndexMap::<_, _>::with_hasher(ahash::RandomState::new())
+}
+
+pub fn new_map_with_cap<K, V>(cap: usize) -> IndexMap<K, V> {
+    IndexMap::<_, _>::with_capacity_and_hasher(cap, ahash::RandomState::new())
+}
+
+pub fn grou_by<K, V, I, F>(iter: I, f: F) -> std::collections::HashMap<K, Vec<V>>
+where
+    K: std::hash::Hash + Eq,
+    I: IntoIterator<Item = V>,
+    F: FnMut(&V) -> K,
+{
+    itertools::Itertools::into_group_map_by(iter.into_iter(), f)
+}
+
+#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
 pub struct UserRepo<'a> {
-    user: &'a str,
-    repo: &'a str,
+    pub user: &'a str,
+    pub repo: &'a str,
 }
 
 impl<'a> UserRepo<'a> {
@@ -15,11 +34,41 @@ impl<'a> UserRepo<'a> {
     }
 }
 
-pub fn user_repo(json: &JsonOutput, pkg_idx: usize) -> UserRepo {
+pub fn user_repo_pkgidx(json: &JsonOutput, pkg_idx: usize) -> UserRepo {
     let repo = &json.env.packages[pkg_idx].repo;
     UserRepo {
         user: &repo.user,
         repo: &repo.repo,
+    }
+}
+
+#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+pub struct UserRepoPkg<'a> {
+    pub user: &'a str,
+    pub repo: &'a str,
+    pub pkg: &'a str,
+}
+
+impl<'a> UserRepoPkg<'a> {
+    pub fn print(self) {
+        let Self { user, repo, pkg } = self;
+        println!("{user}/{repo}#{pkg}");
+    }
+
+    pub fn into_repo(self) -> UserRepo<'a> {
+        let Self { user, repo, .. } = self;
+        UserRepo { user, repo }
+    }
+}
+
+pub fn pkg_cmdidx(json: &JsonOutput, cmd_idx: usize) -> UserRepoPkg {
+    let pkg_idx = json.cmd[cmd_idx].package_idx;
+    let package_repo = &json.env.packages[pkg_idx];
+    let repo = &package_repo.repo;
+    UserRepoPkg {
+        user: &repo.user,
+        repo: &repo.repo,
+        pkg: &package_repo.name,
     }
 }
 

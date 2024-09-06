@@ -1,4 +1,4 @@
-use crate::utils::{user_repo, UserRepo};
+use crate::utils::{user_repo_pkgidx, UserRepo};
 use indexmap::IndexMap;
 use itertools::Itertools;
 use os_checker_types::{Cmd, JsonOutput, Kind};
@@ -34,7 +34,7 @@ pub fn by_repo(json: &JsonOutput) -> Vec<(UserRepo, Basic)> {
     let map = json
         .cmd
         .iter()
-        .into_group_map_by(|cmd| user_repo(json, cmd.package_idx));
+        .into_group_map_by(|cmd| user_repo_pkgidx(json, cmd.package_idx));
     let mut v = Vec::<(UserRepo, Basic)>::with_capacity(map.len());
 
     for (user_repo, cmds) in map {
