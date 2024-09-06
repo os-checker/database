@@ -1,6 +1,6 @@
 use indexmap::IndexMap;
 use itertools::Itertools;
-use os_checker_types::{JsonOutput, Kind};
+use os_checker_types::{Cmd, JsonOutput, Kind};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -20,17 +20,62 @@ pub fn home(json: &JsonOutput) -> Basic {
     let mut targets = Targets::with_capacity(map.len());
 
     for (triple, cmds) in map {
-        let target = Target {
-            triple: triple.to_owned(),
-            count: cmds.iter().map(|c| c.count).sum(),
-        };
-        targets.push(target);
+        targets.push(triple, &cmds);
     }
 
-    let kinds = Kinds {
-        columns: columns(&json.env.kinds.order),
-    };
+    let kinds = Kinds::new(json);
     Basic { targets, kinds }
+}
+
+pub fn repos(json: &JsonOutput) -> Vec<(UserRepo, Basic)> {
+    let kinds = Kinds::new(json);
+    let map = json
+        .cmd
+        .iter()
+        .into_group_map_by(|cmd| user_repo(json, cmd.package_idx));
+    let mut v = Vec::<(UserRepo, Basic)>::with_capacity(map.len());
+
+    for (user_repo, cmds) in map {
+        let map_target = cmds
+            .into_iter()
+            .into_group_map_by(|cmd| &*cmd.target_triple);
+        let mut targets = Targets::with_capacity(map_target.len());
+
+        for (triple, cmds) in map_target {
+            targets.push(triple, &cmds);
+        }
+
+        v.push((
+            user_repo,
+            Basic {
+                targets,
+                kinds: kinds.clone(),
+            },
+        ));
+    }
+
+    v
+}
+
+#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq, PartialOrd, Ord)]
+pub struct UserRepo<'a> {
+    user: &'a str,
+    repo: &'a str,
+}
+
+impl<'a> UserRepo<'a> {
+    pub fn print(self) {
+        let Self { user, repo } = self;
+        println!("{user}/{repo}");
+    }
+}
+
+fn user_repo(json: &JsonOutput, pkg_idx: usize) -> UserRepo {
+    let repo = &json.env.packages[pkg_idx].repo;
+    UserRepo {
+        user: &repo.user,
+        repo: &repo.repo,
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -46,7 +91,8 @@ impl Targets {
         Targets { inner }
     }
 
-    pub fn push(&mut self, target: Target) {
+    pub fn push(&mut self, triple: &str, cmds: &[&Cmd]) {
+        let target = Target::new(triple, cmds);
         self.inner[0].count += target.count;
         self.inner.push(target);
     }
@@ -65,16 +111,31 @@ impl Target {
             count: 0,
         }
     }
+
+    fn new(triple: &str, cmds: &[&Cmd]) -> Self {
+        Target {
+            triple: triple.to_owned(),
+            count: cmds.iter().map(|c| c.count).sum(),
+        }
+    }
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Kinds {
     // #[serde(flatten)]
     // pub raw: RawKinds,
     pub columns: Vec<Column>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+impl Kinds {
+    fn new(json: &JsonOutput) -> Self {
+        Kinds {
+            columns: columns(&json.env.kinds.order),
+        }
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Column {
     pub field: Kind,
     pub header: String,

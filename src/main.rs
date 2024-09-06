@@ -11,6 +11,10 @@ fn main() -> Result<()> {
     let json: JsonOutput = serde_json::from_reader(BufReader::new(file))?;
 
     basic::home(&json).print();
+    basic::repos(&json).iter().for_each(|(r, b)| {
+        r.print();
+        b.print()
+    });
 
     Ok(())
 }
