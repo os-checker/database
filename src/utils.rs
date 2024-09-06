@@ -58,6 +58,10 @@ pub fn pkg_cmdidx(json: &JsonOutput, cmd_idx: usize) -> UserRepoPkg {
     }
 }
 
+pub fn target_cmdidx(json: &JsonOutput, cmd_idx: usize) -> &str {
+    &json.cmd[cmd_idx].target_triple
+}
+
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
 pub struct UserRepoPkg<'a> {
     pub user: &'a str,

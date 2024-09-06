@@ -27,19 +27,30 @@
 // ]
 
 use crate::utils::{
-    group_by, new_map_with_cap, pkg_cmdidx, repo_cmdidx, IndexMap, UserRepo, UserRepoPkg,
+    group_by, new_map_with_cap, pkg_cmdidx, repo_cmdidx, target_cmdidx, IndexMap, UserRepo,
+    UserRepoPkg,
 };
-use os_checker_types::{JsonOutput, Kind};
+use os_checker_types::{Data as RawData, JsonOutput, Kind};
 use serde::Serialize;
 
 #[cfg(test)]
 mod tests;
 
-pub fn nodes(json: &JsonOutput) -> Vec<NodeRepo> {
+pub fn split_by_target(json: &JsonOutput) -> Vec<(&str, Vec<NodeRepo>)> {
+    let group_by_target = group_by(&json.data, |d| target_cmdidx(json, d.cmd_idx));
+    let mut v = Vec::with_capacity(group_by_target.len());
+
+    for (target, data) in group_by_target {
+        v.push((target, inner(json, &data)));
+    }
+    v
+}
+
+fn inner<'a>(json: &'a JsonOutput, data: &[&RawData]) -> Vec<NodeRepo<'a>> {
     let mut key = 0;
 
     // 按照 repo 分组
-    let group_by_repo = group_by(&json.data, |d| repo_cmdidx(json, d.cmd_idx));
+    let group_by_repo = group_by(data, |d| repo_cmdidx(json, d.cmd_idx));
     let mut nodes = Vec::with_capacity(group_by_repo.len());
 
     for (repo, data_repo) in group_by_repo {
@@ -82,12 +93,16 @@ pub fn nodes(json: &JsonOutput) -> Vec<NodeRepo> {
             },
             children,
         };
-        println!("{}", serde_json::to_string_pretty(&node).unwrap());
         nodes.push(node);
         key += 1;
     }
 
     nodes
+}
+
+pub fn all_targets(json: &JsonOutput) -> Vec<NodeRepo> {
+    let data: Vec<_> = json.data.iter().collect();
+    inner(json, &data)
 }
 
 #[derive(Debug, Serialize)]

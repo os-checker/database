@@ -23,7 +23,7 @@ fn main() -> Result<()> {
         b.print()
     });
 
-    print(&home::nodes(&json));
+    print(&home::all_targets(&json));
 
     let file_tree_all = file_tree::all(&json);
     print(&file_tree_all);
@@ -33,5 +33,5 @@ fn main() -> Result<()> {
 }
 
 fn print(t: &impl serde::Serialize) {
-    serde_json::to_writer_pretty(std::io::stdout(), t).unwrap();
+    println!("{}", serde_json::to_string_pretty(t).unwrap());
 }
