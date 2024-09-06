@@ -1,12 +1,32 @@
-use crate::utils::{group_by, new_map_with_cap, pkg_cmdidx, IndexMap, UserRepo, UserRepoPkg};
+use crate::utils::{
+    group_by, new_map_with_cap, pkg_cmdidx, target_cmdidx, IndexMap, UserRepo, UserRepoPkg,
+};
 use camino::Utf8Path;
-use os_checker_types::{JsonOutput, Kind};
+use os_checker_types::{Data as RawData, JsonOutput, Kind};
 use serde::Serialize;
 
-pub fn all(json: &JsonOutput) -> FileTree {
+#[cfg(test)]
+mod tests;
+
+pub fn all_targets(json: &JsonOutput) -> FileTree {
+    let data: Vec<_> = json.data.iter().collect();
+    inner(json, &data)
+}
+
+pub fn split_by_target(json: &JsonOutput) -> Vec<(&str, FileTree)> {
+    let group_by_target = group_by(&json.data, |d| target_cmdidx(json, d.cmd_idx));
+    let mut v = Vec::with_capacity(group_by_target.len());
+
+    for (target, data) in group_by_target {
+        v.push((target, inner(json, &data)));
+    }
+    v
+}
+
+fn inner<'a>(json: &'a JsonOutput, data: &[&'a RawData]) -> FileTree<'a> {
     let kinds_order = &json.env.kinds.order;
 
-    let group_by_pkg = group_by(&json.data, |d| pkg_cmdidx(json, d.cmd_idx));
+    let group_by_pkg = group_by(data, |d| pkg_cmdidx(json, d.cmd_idx));
     let mut v = Vec::with_capacity(group_by_pkg.len());
 
     for (pkg, data) in group_by_pkg {
