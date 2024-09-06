@@ -4,9 +4,11 @@ use std::io::BufReader;
 /// 架构下拉框之类每个页面的基础信息
 mod basic;
 
-mod utils;
+/// 主页表格
+mod home;
 
-type Result<T, E = Box<dyn std::error::Error>> = std::result::Result<T, E>;
+mod utils;
+pub use utils::Result;
 
 fn main() -> Result<()> {
     let file = std::fs::File::open("ui.json")?;

@@ -1,3 +1,4 @@
+use crate::utils::{user_repo, UserRepo};
 use indexmap::IndexMap;
 use itertools::Itertools;
 use os_checker_types::{Cmd, JsonOutput, Kind};
@@ -52,27 +53,6 @@ pub fn by_repo(json: &JsonOutput) -> Vec<(UserRepo, Basic)> {
     }
 
     v
-}
-
-#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq, PartialOrd, Ord)]
-pub struct UserRepo<'a> {
-    user: &'a str,
-    repo: &'a str,
-}
-
-impl<'a> UserRepo<'a> {
-    pub fn print(self) {
-        let Self { user, repo } = self;
-        println!("{user}/{repo}");
-    }
-}
-
-fn user_repo(json: &JsonOutput, pkg_idx: usize) -> UserRepo {
-    let repo = &json.env.packages[pkg_idx].repo;
-    UserRepo {
-        user: &repo.user,
-        repo: &repo.repo,
-    }
 }
 
 #[derive(Debug, Serialize, Deserialize)]
