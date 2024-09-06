@@ -1,6 +1,5 @@
-use crate::utils::{user_repo_pkgidx, UserRepo};
+use crate::utils::{group_by, repo_pkgidx, UserRepo};
 use indexmap::IndexMap;
-use itertools::Itertools;
 use os_checker_types::{Cmd, JsonOutput, Kind};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
@@ -23,7 +22,7 @@ impl Basic {
 /// 所有仓库的架构统计
 pub fn all(json: &JsonOutput) -> Basic {
     let kinds = Kinds::new(json);
-    let map = json.cmd.iter().into_group_map_by(|cmd| &*cmd.target_triple);
+    let map = group_by(&json.cmd, |cmd| &*cmd.target_triple);
     let targets = Targets::from_map(map);
     Basic { targets, kinds }
 }
@@ -31,16 +30,11 @@ pub fn all(json: &JsonOutput) -> Basic {
 /// 按仓库的架构统计
 pub fn by_repo(json: &JsonOutput) -> Vec<(UserRepo, Basic)> {
     let kinds = Kinds::new(json);
-    let map = json
-        .cmd
-        .iter()
-        .into_group_map_by(|cmd| user_repo_pkgidx(json, cmd.package_idx));
+    let map = group_by(&json.cmd, |cmd| repo_pkgidx(json, cmd.package_idx));
     let mut v = Vec::<(UserRepo, Basic)>::with_capacity(map.len());
 
     for (user_repo, cmds) in map {
-        let map_target = cmds
-            .into_iter()
-            .into_group_map_by(|cmd| &*cmd.target_triple);
+        let map_target = group_by(cmds, |cmd| &*cmd.target_triple);
         let targets = Targets::from_map(map_target);
 
         v.push((

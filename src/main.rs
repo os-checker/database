@@ -20,5 +20,7 @@ fn main() -> Result<()> {
         b.print()
     });
 
+    home::nodes(&json);
+
     Ok(())
 }

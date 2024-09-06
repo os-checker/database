@@ -12,7 +12,7 @@ pub fn new_map_with_cap<K, V>(cap: usize) -> IndexMap<K, V> {
     IndexMap::<_, _>::with_capacity_and_hasher(cap, ahash::RandomState::new())
 }
 
-pub fn grou_by<K, V, I, F>(iter: I, f: F) -> std::collections::HashMap<K, Vec<V>>
+pub fn group_by<K, V, I, F>(iter: I, f: F) -> std::collections::HashMap<K, Vec<V>>
 where
     K: std::hash::Hash + Eq,
     I: IntoIterator<Item = V>,
@@ -34,11 +34,27 @@ impl<'a> UserRepo<'a> {
     }
 }
 
-pub fn user_repo_pkgidx(json: &JsonOutput, pkg_idx: usize) -> UserRepo {
+pub fn repo_pkgidx(json: &JsonOutput, pkg_idx: usize) -> UserRepo {
     let repo = &json.env.packages[pkg_idx].repo;
     UserRepo {
         user: &repo.user,
         repo: &repo.repo,
+    }
+}
+
+pub fn repo_cmdidx(json: &JsonOutput, cmd_idx: usize) -> UserRepo {
+    let pkg_idx = json.cmd[cmd_idx].package_idx;
+    repo_pkgidx(json, pkg_idx)
+}
+
+pub fn pkg_cmdidx(json: &JsonOutput, cmd_idx: usize) -> UserRepoPkg {
+    let pkg_idx = json.cmd[cmd_idx].package_idx;
+    let package_repo = &json.env.packages[pkg_idx];
+    let repo = &package_repo.repo;
+    UserRepoPkg {
+        user: &repo.user,
+        repo: &repo.repo,
+        pkg: &package_repo.name,
     }
 }
 
@@ -58,17 +74,6 @@ impl<'a> UserRepoPkg<'a> {
     pub fn into_repo(self) -> UserRepo<'a> {
         let Self { user, repo, .. } = self;
         UserRepo { user, repo }
-    }
-}
-
-pub fn pkg_cmdidx(json: &JsonOutput, cmd_idx: usize) -> UserRepoPkg {
-    let pkg_idx = json.cmd[cmd_idx].package_idx;
-    let package_repo = &json.env.packages[pkg_idx];
-    let repo = &package_repo.repo;
-    UserRepoPkg {
-        user: &repo.user,
-        repo: &repo.repo,
-        pkg: &package_repo.name,
     }
 }
 
