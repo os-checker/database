@@ -25,7 +25,9 @@ fn main() -> Result<()> {
 
     print(&home::nodes(&json));
 
-    print(&file_tree::all(&json));
+    let file_tree_all = file_tree::all(&json);
+    print(&file_tree_all);
+    print(&file_tree_all.split_by_repo());
 
     Ok(())
 }
