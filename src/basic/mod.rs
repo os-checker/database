@@ -4,6 +4,9 @@ use os_checker_types::{Cmd, JsonOutput, Kind};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
+#[cfg(test)]
+mod tests;
+
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Basic {
     targets: Targets,
