@@ -55,18 +55,28 @@ pub fn nodes(json: &JsonOutput) -> Vec<NodeRepo> {
             map.sort_unstable_by(|_, a, _, b| b.cmp(a));
             key += 1;
             let count = Count::new(map);
+            let total_count = count.total_count();
             let node_pkg = NodePkg {
                 key,
-                data: NodePkgData { pkg, count },
+                data: NodePkgData {
+                    pkg,
+                    total_count,
+                    count,
+                },
             };
             children.push(node_pkg);
         }
 
         let mut count = Count::empty();
         count.update(children.iter().map(|c| &c.data.count));
+        let total_count = count.total_count();
         let node = NodeRepo {
             key: repo_key,
-            data: NodeRepoData { repo, count },
+            data: NodeRepoData {
+                repo,
+                total_count,
+                count,
+            },
             children,
         };
         println!("{}", serde_json::to_string_pretty(&node).unwrap());
@@ -88,6 +98,7 @@ pub struct NodeRepo<'a> {
 struct NodeRepoData<'a> {
     #[serde(flatten)]
     repo: UserRepo<'a>,
+    total_count: usize,
     #[serde(flatten)]
     count: Count,
 }
@@ -102,6 +113,7 @@ struct NodePkg<'a> {
 struct NodePkgData<'a> {
     #[serde(flatten)]
     pkg: UserRepoPkg<'a>,
+    total_count: usize,
     #[serde(flatten)]
     count: Count,
 }
@@ -140,5 +152,9 @@ impl Count {
         Iter: Iterator<Item = &'a Self>,
     {
         iter.for_each(|c| self.merge(c));
+    }
+
+    fn total_count(&self) -> usize {
+        self.map.values().sum()
     }
 }
