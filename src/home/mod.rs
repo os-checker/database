@@ -32,6 +32,9 @@ use crate::utils::{
 use os_checker_types::{JsonOutput, Kind};
 use serde::Serialize;
 
+#[cfg(test)]
+mod tests;
+
 pub fn nodes(json: &JsonOutput) -> Vec<NodeRepo> {
     let mut key = 0;
 
