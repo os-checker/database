@@ -7,6 +7,9 @@ mod basic;
 /// 主页表格
 mod home;
 
+/// 文件树
+mod file_tree;
+
 mod utils;
 pub use utils::Result;
 
@@ -20,7 +23,13 @@ fn main() -> Result<()> {
         b.print()
     });
 
-    home::nodes(&json);
+    print(&home::nodes(&json));
+
+    print(&file_tree::all(&json));
 
     Ok(())
+}
+
+fn print(t: &impl serde::Serialize) {
+    serde_json::to_writer_pretty(std::io::stdout(), t).unwrap();
 }
