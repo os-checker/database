@@ -33,16 +33,16 @@ fn main() -> Result<()> {
     }
 
     // Write home JSON
-    write_to_file("home", ALL_TARGETS, &home::all_targets(&json))?;
+    write_to_file(HOME_DIR, ALL_TARGETS, &home::all_targets(&json))?;
     for (target, nodes) in home::split_by_target(&json) {
-        write_to_file("home", target, &nodes)?;
+        write_to_file(HOME_DIR, target, &nodes)?;
     }
 
     // Write file tree JSON
     let file_tree_all = file_tree::all_targets(&json);
-    write_to_file("filetree", ALL_TARGETS, &file_tree_all)?;
+    write_to_file(FILETREE_DIR, ALL_TARGETS, &file_tree_all)?;
     for (target, filetree) in file_tree::split_by_target(&json) {
-        write_to_file("filetree", target, &filetree)?;
+        write_to_file(FILETREE_DIR, target, &filetree)?;
     }
     for filetree in file_tree_all.split_by_repo() {
         write_to_file(filetree.dir().as_str(), ALL_TARGETS, &filetree)?;
@@ -57,6 +57,8 @@ fn print(t: &impl Serialize) {
 }
 
 const BASE_DIR: &str = "new_ui";
+const HOME_DIR: &str = "home/split"; // FIXME: 去除 split
+const FILETREE_DIR: &str = "filetree/split"; // FIXME: 去除 split
 const ALL_TARGETS: &str = "All-Targets";
 
 fn write_to_file<T: Serialize>(dir: &str, target: &str, t: &T) -> Result<()> {
