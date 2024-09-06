@@ -19,14 +19,16 @@ impl Basic {
     }
 }
 
-pub fn home(json: &JsonOutput) -> Basic {
+/// 所有仓库的架构统计
+pub fn all(json: &JsonOutput) -> Basic {
     let kinds = Kinds::new(json);
     let map = json.cmd.iter().into_group_map_by(|cmd| &*cmd.target_triple);
     let targets = Targets::from_map(map);
     Basic { targets, kinds }
 }
 
-pub fn repos(json: &JsonOutput) -> Vec<(UserRepo, Basic)> {
+/// 按仓库的架构统计
+pub fn by_repo(json: &JsonOutput) -> Vec<(UserRepo, Basic)> {
     let kinds = Kinds::new(json);
     let map = json
         .cmd

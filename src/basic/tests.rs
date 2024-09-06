@@ -5,8 +5,8 @@ use crate::Result;
 fn print() -> Result<()> {
     let json = crate::utils::ui_json();
 
-    home(&json).print();
-    repos(&json).iter().for_each(|(r, b)| {
+    all(&json).print();
+    by_repo(&json).iter().for_each(|(r, b)| {
         r.print();
         b.print();
     });

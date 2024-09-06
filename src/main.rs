@@ -12,8 +12,8 @@ fn main() -> Result<()> {
     let file = std::fs::File::open("ui.json")?;
     let json: JsonOutput = serde_json::from_reader(BufReader::new(file))?;
 
-    basic::home(&json).print();
-    basic::repos(&json).iter().for_each(|(r, b)| {
+    basic::all(&json).print();
+    basic::by_repo(&json).iter().for_each(|(r, b)| {
         r.print();
         b.print()
     });
