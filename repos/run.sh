@@ -20,6 +20,9 @@ for file in "$split"/*; do
     }'
 done
 
+# NOTE:
+# 这对 0 计数的仓库，也会生成 basic.json
+# WebUI 目前需要这个假设来区分仓库页面是因为无诊断还是不被检查。
 jq -frc repos/basic.jq ui.json |
   awk -F\\t '{
     repos = ENVIRON["repos"]
