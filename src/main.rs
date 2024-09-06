@@ -1,7 +1,10 @@
 use camino::Utf8PathBuf;
 use os_checker_types::JsonOutput;
 use serde::Serialize;
-use std::io::{BufReader, BufWriter};
+use std::{
+    fs,
+    io::{BufReader, BufWriter},
+};
 
 /// 架构下拉框之类每个页面的基础信息
 mod basic;
@@ -16,8 +19,12 @@ mod utils;
 pub use utils::Result;
 
 fn main() -> Result<()> {
-    let file = std::fs::File::open("ui.json")?;
+    let file = fs::File::open("ui.json")?;
     let json: JsonOutput = serde_json::from_reader(BufReader::new(file))?;
+
+    // Clear old data
+    fs::remove_dir_all(BASE_DIR)?;
+    println!("清理 {BASE_DIR}");
 
     // Write basic JSON
     write_to_file("", "basic", &basic::all(&json))?;
@@ -49,16 +56,15 @@ fn print(t: &impl Serialize) {
     println!("{}", serde_json::to_string_pretty(t).unwrap());
 }
 
+const BASE_DIR: &str = "new_ui";
 const ALL_TARGETS: &str = "All-Targets";
 
 fn write_to_file<T: Serialize>(dir: &str, target: &str, t: &T) -> Result<()> {
-    const BASE_DIR: &str = "new_ui";
-
     let mut path = Utf8PathBuf::from_iter([BASE_DIR, dir]);
-    std::fs::create_dir_all(&path)?;
+    fs::create_dir_all(&path)?;
 
     path.push(format!("{target}.json"));
-    let file = std::fs::File::create(&path)?;
+    let file = fs::File::create(&path)?;
     serde_json::to_writer(BufWriter::new(file), t)?;
 
     println!("{path} 写入成功");
