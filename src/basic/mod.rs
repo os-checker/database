@@ -2,11 +2,12 @@ use indexmap::IndexMap;
 use itertools::Itertools;
 use os_checker_types::{Cmd, JsonOutput, Kind};
 use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Basic {
-    pub targets: Targets,
-    pub kinds: Kinds,
+    targets: Targets,
+    kinds: Kinds,
 }
 
 impl Basic {
@@ -16,14 +17,9 @@ impl Basic {
 }
 
 pub fn home(json: &JsonOutput) -> Basic {
-    let map = json.cmd.iter().into_group_map_by(|cmd| &*cmd.target_triple);
-    let mut targets = Targets::with_capacity(map.len());
-
-    for (triple, cmds) in map {
-        targets.push(triple, &cmds);
-    }
-
     let kinds = Kinds::new(json);
+    let map = json.cmd.iter().into_group_map_by(|cmd| &*cmd.target_triple);
+    let targets = Targets::from_map(map);
     Basic { targets, kinds }
 }
 
@@ -39,11 +35,7 @@ pub fn repos(json: &JsonOutput) -> Vec<(UserRepo, Basic)> {
         let map_target = cmds
             .into_iter()
             .into_group_map_by(|cmd| &*cmd.target_triple);
-        let mut targets = Targets::with_capacity(map_target.len());
-
-        for (triple, cmds) in map_target {
-            targets.push(triple, &cmds);
-        }
+        let targets = Targets::from_map(map_target);
 
         v.push((
             user_repo,
@@ -80,26 +72,34 @@ fn user_repo(json: &JsonOutput, pkg_idx: usize) -> UserRepo {
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(transparent)]
-pub struct Targets {
+struct Targets {
     inner: Vec<Target>,
 }
 
 impl Targets {
-    pub fn with_capacity(cap: usize) -> Self {
+    fn with_capacity(cap: usize) -> Self {
         let mut inner = Vec::<Target>::with_capacity(cap + 1);
         inner.push(Target::all_targets_with_0count());
         Targets { inner }
     }
 
-    pub fn push(&mut self, triple: &str, cmds: &[&Cmd]) {
+    fn push(&mut self, triple: &str, cmds: &[&Cmd]) {
         let target = Target::new(triple, cmds);
         self.inner[0].count += target.count;
         self.inner.push(target);
     }
+
+    fn from_map(map: HashMap<&str, Vec<&Cmd>>) -> Self {
+        let mut targets = Targets::with_capacity(map.len());
+        for (triple, cmds) in map {
+            targets.push(triple, &cmds);
+        }
+        targets
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Target {
+struct Target {
     pub triple: String,
     pub count: usize,
 }
@@ -121,7 +121,7 @@ impl Target {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Kinds {
+struct Kinds {
     // #[serde(flatten)]
     // pub raw: RawKinds,
     pub columns: Vec<Column>,
@@ -136,7 +136,7 @@ impl Kinds {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Column {
+struct Column {
     pub field: Kind,
     pub header: String,
 }
