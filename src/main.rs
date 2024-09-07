@@ -1,3 +1,4 @@
+#![allow(unused)]
 use camino::Utf8PathBuf;
 use os_checker_types::JsonOutput;
 use serde::Serialize;
@@ -18,6 +19,12 @@ mod file_tree;
 mod utils;
 pub use utils::Result;
 
+#[cfg(feature = "batch")]
+fn main() -> Result<()> {
+    Ok(())
+}
+
+#[cfg(feature = "single")]
 fn main() -> Result<()> {
     let file = fs::File::open("ui.json")?;
     let json: JsonOutput = serde_json::from_reader(BufReader::new(file))?;
