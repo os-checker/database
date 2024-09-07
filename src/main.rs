@@ -35,6 +35,16 @@ fn main() -> Result<()> {
         write_batch_basic_home(json, batch)?;
     }
 
+    // 把 batch config 合并
+    {
+        let src_dir = &Utf8PathBuf::from_iter([BASE_DIR, "batch", "basic"]);
+        let target_dir = &Utf8PathBuf::from_iter([BASE_DIR]);
+        if !target_dir.exists() {
+            fs::create_dir_all(target_dir)?;
+        }
+        basic::write_batch(src_dir, target_dir)?;
+    }
+
     // 把 batch home 合并
     {
         let home_dir = &Utf8PathBuf::from_iter([BASE_DIR, "batch", HOME_DIR]);
