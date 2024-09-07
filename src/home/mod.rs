@@ -81,6 +81,11 @@ fn inner<'a>(json: &'a JsonOutput, data: &[&RawData]) -> Vec<NodeRepo<'a>> {
             children.push(node_pkg);
         }
 
+        // children 按照计数降序排列
+        children.sort_unstable_by(|a, b| {
+            (b.data.total_count, b.data.pkg.pkg).cmp(&(a.data.total_count, a.data.pkg.pkg))
+        });
+
         let mut count = Count::empty();
         count.update(children.iter().map(|c| &c.data.count));
         let total_count = count.total_count();
@@ -97,6 +102,10 @@ fn inner<'a>(json: &'a JsonOutput, data: &[&RawData]) -> Vec<NodeRepo<'a>> {
         key += 1;
     }
 
+    // 仓库按照计数降序排列
+    nodes.sort_unstable_by(|a, b| {
+        (b.data.total_count, b.data.repo).cmp(&(a.data.total_count, a.data.repo))
+    });
     nodes
 }
 
