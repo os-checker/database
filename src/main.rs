@@ -1,5 +1,5 @@
 #![allow(unused)]
-use camino::Utf8PathBuf;
+use camino::{Utf8Path, Utf8PathBuf};
 use os_checker_types::JsonOutput;
 use serde::Serialize;
 use std::{
@@ -21,17 +21,49 @@ pub use utils::Result;
 
 #[cfg(feature = "batch")]
 fn main() -> Result<()> {
+    use itertools::Itertools;
+
+    let paths = Utf8Path::new("batch")
+        .read_dir_utf8()?
+        .filter_map(|entry| {
+            if let Ok(e) = entry {
+                if e.file_type().ok()?.is_file() && e.path().extension() == Some("json") {
+                    return Some(e.into_path());
+                }
+            }
+            None
+        })
+        .sorted()
+        .collect_vec();
+
+    clear_base_dir()?;
+
+    for path in &paths {
+        dbg!(path);
+        let json = &read_json(path)?;
+        write_filetree(json)?;
+    }
+
+    Ok(())
+}
+
+fn read_json(path: &Utf8Path) -> Result<JsonOutput> {
+    let file = fs::File::open(path)?;
+    Ok(serde_json::from_reader(BufReader::new(file))?)
+}
+
+/// Clear old data
+fn clear_base_dir() -> Result<()> {
+    fs::remove_dir_all(BASE_DIR)?;
+    println!("清理 {BASE_DIR}");
     Ok(())
 }
 
 #[cfg(feature = "single")]
 fn main() -> Result<()> {
-    let file = fs::File::open("ui.json")?;
-    let json: JsonOutput = serde_json::from_reader(BufReader::new(file))?;
+    let json = read_json("ui.json")?;
 
-    // Clear old data
-    fs::remove_dir_all(BASE_DIR)?;
-    println!("清理 {BASE_DIR}");
+    clear_base_dir()?;
 
     // Write basic JSON
     write_to_file("", "basic", &basic::all(&json))?;
@@ -45,13 +77,19 @@ fn main() -> Result<()> {
         write_to_file(HOME_DIR, target, &nodes)?;
     }
 
-    // Write file tree JSON
-    let file_tree_all = file_tree::all_targets(&json);
+    write_filetree(&json)?;
+
+    Ok(())
+}
+
+/// 写入 filetree 和 repos 的 filetree 数据；这无需聚合
+fn write_filetree(json: &JsonOutput) -> Result<()> {
+    let file_tree_all = file_tree::all_targets(json);
     write_to_file(FILETREE_DIR, ALL_TARGETS, &file_tree_all)?;
     for filetree in file_tree_all.split_by_repo() {
         write_to_file(filetree.dir().as_str(), ALL_TARGETS, &filetree)?;
     }
-    for (target, filetree) in file_tree::split_by_target(&json) {
+    for (target, filetree) in file_tree::split_by_target(json) {
         write_to_file(FILETREE_DIR, target, &filetree)?;
 
         // repo & targets
@@ -59,7 +97,6 @@ fn main() -> Result<()> {
             write_to_file(ftree.dir().as_str(), target, &ftree)?;
         }
     }
-
     Ok(())
 }
 
