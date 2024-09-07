@@ -176,9 +176,9 @@ fn print(t: &impl Serialize) {
     println!("{}", serde_json::to_string_pretty(t).unwrap());
 }
 
-const BASE_DIR: &str = "new_ui";
+const BASE_DIR: &str = "ui";
 const HOME_DIR: &str = "home/split"; // FIXME: 去除 split
-const FILETREE_DIR: &str = "filetree/split"; // FIXME: 去除 split
+const FILETREE_DIR: &str = "file-tree/split"; // FIXME: 去除 split
 const ALL_TARGETS: &str = "All-Targets";
 
 fn write_to_file<T: Serialize>(dir: &str, target: &str, t: &T) -> Result<()> {

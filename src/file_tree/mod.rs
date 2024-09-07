@@ -109,6 +109,6 @@ pub struct FileTreeRepo<'a> {
 
 impl<'a> FileTreeRepo<'a> {
     pub fn dir(&self) -> Utf8PathBuf {
-        Utf8PathBuf::from_iter(["repos", self.repo.user, self.repo.repo, "filetree"])
+        Utf8PathBuf::from_iter(["repos", self.repo.user, self.repo.repo])
     }
 }
