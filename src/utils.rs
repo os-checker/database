@@ -1,7 +1,8 @@
 use os_checker_types::JsonOutput;
 use serde::{Deserialize, Serialize};
 
-pub type Result<T, E = Box<dyn std::error::Error>> = std::result::Result<T, E>;
+// pub type Result<T, E = Box<dyn std::error::Error>> = std::result::Result<T, E>;
+pub use eyre::Result;
 pub type IndexMap<K, V> = indexmap::IndexMap<K, V, ahash::RandomState>;
 
 pub fn new_map<K, V>() -> IndexMap<K, V> {

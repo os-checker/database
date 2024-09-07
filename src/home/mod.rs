@@ -152,10 +152,11 @@ pub fn write_batch(src_dir: &Utf8Path, target_dir: &Utf8Path) -> Result<()> {
     update_key(&mut batch_nodes);
 
     let name = src_dir.file_name().unwrap();
-    let file = std::fs::File::open(target_dir.join(format!("{name}.json")))?;
+    let file = std::fs::File::create(target_dir.join(format!("{name}.json")))?;
     let writer = std::io::BufWriter::new(file);
     serde_json::to_writer(writer, &batch_nodes)?;
 
+    println!("成功把 batch home 合并: src_dir={src_dir} target_dir={target_dir}");
     Ok(())
 }
 
