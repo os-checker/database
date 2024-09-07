@@ -21,9 +21,25 @@ pub use utils::Result;
 
 #[cfg(feature = "batch")]
 fn main() -> Result<()> {
-    use itertools::Itertools;
+    let paths = json_paths("batch")?;
 
-    let paths = Utf8Path::new("batch")
+    clear_base_dir()?;
+
+    for path in &paths {
+        dbg!(path);
+        let json = &read_json(path)?;
+        write_filetree(json)?;
+
+        let batch = dbg!(path.file_stem().unwrap());
+        write_batch_basic_home(json, batch)?;
+    }
+
+    Ok(())
+}
+
+fn json_paths(dir: &str) -> Result<Vec<Utf8PathBuf>> {
+    use itertools::Itertools;
+    Ok(Utf8Path::new(dir)
         .read_dir_utf8()?
         .filter_map(|entry| {
             if let Ok(e) = entry {
@@ -34,14 +50,23 @@ fn main() -> Result<()> {
             None
         })
         .sorted()
-        .collect_vec();
+        .collect_vec())
+}
 
-    clear_base_dir()?;
+fn write_batch_basic_home(json: &JsonOutput, batch: &str) -> Result<()> {
+    // Write basic JSON
+    write_to_file("batch/basic", batch, &basic::all(json))?;
+    for (repo, b) in basic::by_repo(json) {
+        // 仓库的 basic 数据不参与聚合
+        write_to_file(&format!("repos/{}/{}", repo.user, repo.repo), "basic", &b)?;
+    }
 
-    for path in &paths {
-        dbg!(path);
-        let json = &read_json(path)?;
-        write_filetree(json)?;
+    // Write home JSON
+    let mut home = Utf8PathBuf::from_iter(["batch", HOME_DIR, ALL_TARGETS]);
+    write_to_file(home.as_str(), batch, &home::all_targets(json))?;
+    for (target, nodes) in home::split_by_target(json) {
+        home.set_file_name(target);
+        write_to_file(home.as_str(), batch, &nodes)?;
     }
 
     Ok(())
