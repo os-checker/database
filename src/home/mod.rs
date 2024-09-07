@@ -47,15 +47,11 @@ pub fn split_by_target(json: &JsonOutput) -> Vec<(&str, Vec<NodeRepo>)> {
 }
 
 fn inner<'a>(json: &'a JsonOutput, data: &[&RawData]) -> Vec<NodeRepo<'a>> {
-    let mut key = 0;
-
     // 按照 repo 分组
     let group_by_repo = group_by(data, |d| repo_cmdidx(json, d.cmd_idx));
     let mut nodes = Vec::with_capacity(group_by_repo.len());
 
     for (repo, data_repo) in group_by_repo {
-        let repo_key = key;
-
         // 按照 pkg 分组
         let group_by_pkg = group_by(data_repo, |d| pkg_cmdidx(json, d.cmd_idx));
         let mut children = Vec::with_capacity(group_by_pkg.len());
@@ -67,11 +63,10 @@ fn inner<'a>(json: &'a JsonOutput, data: &[&RawData]) -> Vec<NodeRepo<'a>> {
             map.extend(group_by_kind.into_iter().map(|(kind, v)| (kind, v.len())));
             // 按照 count 降序排序
             map.sort_unstable_by(|_, a, _, b| b.cmp(a));
-            key += 1;
             let count = Count::new(map);
             let total_count = count.total_count();
             let node_pkg = NodePkg {
-                key,
+                key: 0,
                 data: NodePkgData {
                     pkg,
                     total_count,
@@ -90,7 +85,7 @@ fn inner<'a>(json: &'a JsonOutput, data: &[&RawData]) -> Vec<NodeRepo<'a>> {
         count.update(children.iter().map(|c| &c.data.count));
         let total_count = count.total_count();
         let node = NodeRepo {
-            key: repo_key,
+            key: 0,
             data: NodeRepoData {
                 repo,
                 total_count,
@@ -99,14 +94,36 @@ fn inner<'a>(json: &'a JsonOutput, data: &[&RawData]) -> Vec<NodeRepo<'a>> {
             children,
         };
         nodes.push(node);
-        key += 1;
     }
 
-    // 仓库按照计数降序排列
+    sort_by_count(&mut nodes);
+    update_key(&mut nodes);
+
+    nodes
+}
+
+// 仓库按照计数降序排列。
+// 此函数适用于单个 ui.json，也适用于合并 batch。
+fn sort_by_count(nodes: &mut [NodeRepo]) {
     nodes.sort_unstable_by(|a, b| {
         (b.data.total_count, b.data.repo).cmp(&(a.data.total_count, a.data.repo))
     });
-    nodes
+}
+
+/// 设置 repo 和 pkg 的 key。
+/// 这个函数是必要的，因为重新按照 count 排序导致无法在创建节点实例的时候按顺序确定 key；
+/// 此外，在合并 batch 的时候，key 需要重新生成。
+fn update_key(nodes: &mut [NodeRepo]) {
+    let mut key = 0;
+    for repo in nodes {
+        repo.key = key;
+        key += 1;
+
+        for pkg in &mut repo.children {
+            pkg.key = key;
+            key += 1;
+        }
+    }
 }
 
 pub fn all_targets(json: &JsonOutput) -> Vec<NodeRepo> {
