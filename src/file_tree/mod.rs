@@ -54,6 +54,14 @@ fn inner<'a>(json: &'a JsonOutput, data: &[&'a RawData]) -> FileTree<'a> {
         });
     }
 
+    // 对 pkg 的计数排序
+    v.sort_unstable_by(|a, b| b.count.cmp(&a.count));
+    // 对文件的计数排序
+    for pkg in &mut v {
+        pkg.raw_reports
+            .sort_unstable_by(|a, b| b.count.cmp(&a.count));
+    }
+
     FileTree {
         data: v,
         kinds_order,
