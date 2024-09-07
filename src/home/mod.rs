@@ -31,7 +31,7 @@ use crate::utils::{
     UserRepoPkg,
 };
 use os_checker_types::{Data as RawData, JsonOutput, Kind};
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
 #[cfg(test)]
 mod tests;
@@ -114,31 +114,35 @@ pub fn all_targets(json: &JsonOutput) -> Vec<NodeRepo> {
     inner(json, &data)
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct NodeRepo<'a> {
     key: usize,
+    #[serde(borrow)]
     data: NodeRepoData<'a>,
     children: Vec<NodePkg<'a>>,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 struct NodeRepoData<'a> {
     #[serde(flatten)]
+    #[serde(borrow)]
     repo: UserRepo<'a>,
     total_count: usize,
     #[serde(flatten)]
     count: Count,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 struct NodePkg<'a> {
     key: usize,
+    #[serde(borrow)]
     data: NodePkgData<'a>,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 struct NodePkgData<'a> {
     #[serde(flatten)]
+    #[serde(borrow)]
     pkg: UserRepoPkg<'a>,
     total_count: usize,
     #[serde(flatten)]
@@ -147,7 +151,7 @@ struct NodePkgData<'a> {
 
 type CountInner = IndexMap<Kind, usize>;
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 #[serde(transparent)]
 struct Count {
     map: CountInner,
