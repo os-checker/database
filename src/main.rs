@@ -57,6 +57,14 @@ fn main() -> Result<()> {
         }
     }
 
+    #[cfg(feature = "clear_batch")]
+    {
+        let batch_dir = Utf8PathBuf::from_iter([BASE_DIR, "batch"]);
+        println!("正在清除 {batch_dir}");
+        fs::remove_dir_all(&batch_dir)?;
+        println!("已清除 {batch_dir}");
+    }
+
     Ok(())
 }
 
