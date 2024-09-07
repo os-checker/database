@@ -26,15 +26,24 @@
 //   }
 // ]
 
-use crate::utils::{
-    group_by, new_map_with_cap, pkg_cmdidx, repo_cmdidx, target_cmdidx, IndexMap, UserRepo,
-    UserRepoPkg,
+use crate::{
+    utils::{
+        group_by, new_map_with_cap, pkg_cmdidx, repo_cmdidx, target_cmdidx, IndexMap, UserRepo,
+        UserRepoPkg,
+    },
+    Result,
 };
+use camino::Utf8Path;
 use os_checker_types::{Data as RawData, JsonOutput, Kind};
 use serde::{Deserialize, Serialize};
 
 #[cfg(test)]
 mod tests;
+
+pub fn all_targets(json: &JsonOutput) -> Vec<NodeRepo> {
+    let data: Vec<_> = json.data.iter().collect();
+    inner(json, &data)
+}
 
 pub fn split_by_target(json: &JsonOutput) -> Vec<(&str, Vec<NodeRepo>)> {
     let group_by_target = group_by(&json.data, |d| target_cmdidx(json, d.cmd_idx));
@@ -126,9 +135,28 @@ fn update_key(nodes: &mut [NodeRepo]) {
     }
 }
 
-pub fn all_targets(json: &JsonOutput) -> Vec<NodeRepo> {
-    let data: Vec<_> = json.data.iter().collect();
-    inner(json, &data)
+/// 读取 src_dir 的所有 JSON，合并成一个新的 JSON，并写到 target_dir。
+/// 新 JSON 的文件名取自 src_dir 的目录名。
+pub fn write_batch(src_dir: &Utf8Path, target_dir: &Utf8Path) -> Result<()> {
+    let vec_bytes = crate::json_paths(src_dir.as_str())?
+        .into_iter()
+        .map(std::fs::read)
+        .collect::<Result<Vec<_>, _>>()?;
+
+    let mut batch_nodes = Vec::<NodeRepo>::with_capacity(128);
+    for bytes in &vec_bytes {
+        batch_nodes.extend(serde_json::from_slice::<Vec<NodeRepo>>(bytes)?);
+    }
+
+    sort_by_count(&mut batch_nodes);
+    update_key(&mut batch_nodes);
+
+    let name = src_dir.file_name().unwrap();
+    let file = std::fs::File::open(target_dir.join(format!("{name}.json")))?;
+    let writer = std::io::BufWriter::new(file);
+    serde_json::to_writer(writer, &batch_nodes)?;
+
+    Ok(())
 }
 
 #[derive(Debug, Serialize, Deserialize)]

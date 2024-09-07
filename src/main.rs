@@ -1,5 +1,6 @@
 #![allow(unused)]
 use camino::{Utf8Path, Utf8PathBuf};
+use itertools::Itertools;
 use os_checker_types::JsonOutput;
 use serde::Serialize;
 use std::{
@@ -34,16 +35,44 @@ fn main() -> Result<()> {
         write_batch_basic_home(json, batch)?;
     }
 
+    // 把 batch home 合并
+    {
+        let home_dir = &Utf8PathBuf::from_iter([BASE_DIR, "batch", HOME_DIR]);
+        let target_dir = &Utf8PathBuf::from_iter([BASE_DIR, HOME_DIR]);
+        if !target_dir.exists() {
+            fs::create_dir_all(target_dir)?;
+        }
+        for src_dir in subdir_paths(home_dir.as_str())? {
+            home::write_batch(&src_dir, target_dir)?;
+        }
+    }
+
     Ok(())
 }
 
+/// 查找某个目录下面的 json 文件（不递归）
 fn json_paths(dir: &str) -> Result<Vec<Utf8PathBuf>> {
-    use itertools::Itertools;
     Ok(Utf8Path::new(dir)
         .read_dir_utf8()?
         .filter_map(|entry| {
             if let Ok(e) = entry {
                 if e.file_type().ok()?.is_file() && e.path().extension() == Some("json") {
+                    return Some(e.into_path());
+                }
+            }
+            None
+        })
+        .sorted()
+        .collect_vec())
+}
+
+/// 查找某个目录下面的目录（不递归）
+fn subdir_paths(dir: &str) -> Result<Vec<Utf8PathBuf>> {
+    Ok(Utf8Path::new(dir)
+        .read_dir_utf8()?
+        .filter_map(|entry| {
+            if let Ok(e) = entry {
+                if e.file_type().ok()?.is_dir() {
                     return Some(e.into_path());
                 }
             }
