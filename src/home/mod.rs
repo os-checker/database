@@ -85,9 +85,9 @@ fn inner<'a>(json: &'a JsonOutput, data: &[&RawData]) -> Vec<NodeRepo<'a>> {
             children.push(node_pkg);
         }
 
-        // children 按照计数降序排列
+        // children 按照计数降序、pkg 升序排列（我们知道这里的 user 和 repo 是一定相同的）
         children.sort_unstable_by(|a, b| {
-            (b.data.total_count, b.data.pkg.pkg).cmp(&(a.data.total_count, a.data.pkg.pkg))
+            (b.data.total_count, a.data.pkg.pkg).cmp(&(a.data.total_count, b.data.pkg.pkg))
         });
 
         let mut count = Count::empty();
@@ -111,11 +111,11 @@ fn inner<'a>(json: &'a JsonOutput, data: &[&RawData]) -> Vec<NodeRepo<'a>> {
     nodes
 }
 
-// 仓库按照计数降序排列。
+// 仓库按照计数降序、user/repo 升序排列。
 // 此函数适用于单个 ui.json，也适用于合并 batch。
 fn sort_by_count(nodes: &mut [NodeRepo]) {
     nodes.sort_unstable_by(|a, b| {
-        (b.data.total_count, b.data.repo).cmp(&(a.data.total_count, a.data.repo))
+        (b.data.total_count, a.data.repo).cmp(&(a.data.total_count, b.data.repo))
     });
 }
 
