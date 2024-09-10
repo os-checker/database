@@ -126,7 +126,9 @@ fn read_json(path: &Utf8Path) -> Result<JsonOutput> {
 
 /// Clear old data
 fn clear_base_dir() -> Result<()> {
-    fs::remove_dir_all(BASE_DIR)?;
+    if let Err(err) = fs::remove_dir_all(BASE_DIR) {
+        eprintln!("{err:?}");
+    }
     println!("清理 {BASE_DIR}");
     Ok(())
 }
