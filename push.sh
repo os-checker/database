@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e
+
 if [ -n "$BOT" ]; then
   echo "更新 ui 目录"
   cargo r -F clear_batch
