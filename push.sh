@@ -1,10 +1,15 @@
+#!/bin/bash
+
+set -e
+
 if [ -n "$BOT" ]; then
   echo "更新 ui 目录"
-  cargo r -F clear_batch
+  os-checker-database
 
   export branch=$(git branch --show-current)
 
   echo "bot!"
+
   git status
   git add .
   echo "正在提交：$(git status --porcelain)"
