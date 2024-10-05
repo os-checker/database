@@ -27,15 +27,29 @@
             "toml_path": "/home/runner/check",
             "need_install_clippy": false,
             "peculiar_targets": null
+          },
+          {
+            "channel": "nightly-2024-01-31",
+            "profile": "minimal",
+            "targets": [
+              "riscv64gc-unknown-none-elf"
+            ],
+            "components": [
+              "rustfmt",
+              "llvm-tools-preview"
+            ],
+            "toml_path": "/home/runner/check/batch_1/elliott10/lwext4_rust/examples/rust-toolchain.toml",
+            "need_install_clippy": false,
+            "peculiar_targets": null
           }
         ]
       },
       "os_checker": {
-        "start": 1728095937536,
-        "finish": 1728095987223,
-        "duration_ms": 49687,
-        "git_time": "2024-10-05 10:36:09 +0800",
-        "git_sha": "8201d0a58e8ff00617519b835d4d8b5cccc873d8"
+        "start": 1728096270593,
+        "finish": 1728096349648,
+        "duration_ms": 79055,
+        "git_time": "2024-10-05 10:42:38 +0800",
+        "git_sha": "63d8b6718d9a5c21e865736bd09154974da25c12"
       }
     },
     "kinds": {
@@ -70,15 +84,35 @@
     },
     "repos": [
       {
+        "user": "elliott10",
+        "repo": "lwext4_rust"
+      },
+      {
         "user": "os-checker",
         "repo": "os-checker-test-suite"
       }
     ],
     "packages": [
       {
-        "name": "buildrs-failure",
+        "name": "lwext4_rust",
         "repo": {
           "repo_idx": 0,
+          "user": "elliott10",
+          "repo": "lwext4_rust"
+        }
+      },
+      {
+        "name": "lwext4_rust_examples",
+        "repo": {
+          "repo_idx": 0,
+          "user": "elliott10",
+          "repo": "lwext4_rust"
+        }
+      },
+      {
+        "name": "buildrs-failure",
+        "repo": {
+          "repo_idx": 1,
           "user": "os-checker",
           "repo": "os-checker-test-suite"
         }
@@ -86,7 +120,7 @@
       {
         "name": "lockbud-checks-this",
         "repo": {
-          "repo_idx": 0,
+          "repo_idx": 1,
           "user": "os-checker",
           "repo": "os-checker-test-suite"
         }
@@ -94,7 +128,7 @@
       {
         "name": "mirai-checks-this",
         "repo": {
-          "repo_idx": 0,
+          "repo_idx": 1,
           "user": "os-checker",
           "repo": "os-checker-test-suite"
         }
@@ -102,7 +136,7 @@
       {
         "name": "os-checker-test-suite",
         "repo": {
-          "repo_idx": 0,
+          "repo_idx": 1,
           "user": "os-checker",
           "repo": "os-checker-test-suite"
         }
@@ -113,9 +147,33 @@
     {
       "package_idx": 0,
       "tool": "fmt",
-      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p buildrs-failure -- --emit=json",
-      "count": 0,
-      "duration_ms": 1005,
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p lwext4_rust -- --emit=json",
+      "count": 18,
+      "duration_ms": 164,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p lwext4_rust -- --emit=json",
+      "count": 18,
+      "duration_ms": 120,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 5,
+      "duration_ms": 1290,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-10-04",
@@ -125,11 +183,11 @@
     {
       "package_idx": 0,
       "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 198,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
+      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
+      "count": 5,
+      "duration_ms": 488,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain": "nightly-2024-10-04",
       "features": [],
       "flags": []
@@ -139,7 +197,7 @@
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
-      "duration_ms": 418,
+      "duration_ms": 892,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-10-04",
@@ -150,8 +208,32 @@
       "package_idx": 0,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
-      "count": 0,
-      "duration_ms": 157,
+      "count": 1,
+      "duration_ms": 745,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
+      "count": 1,
+      "duration_ms": 582,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=clippy cargo",
+      "count": 1,
+      "duration_ms": 1290,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-10-04",
@@ -163,9 +245,9 @@
       "tool": "cargo",
       "cmd": "VRITUAL=clippy cargo",
       "count": 1,
-      "duration_ms": 198,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
+      "duration_ms": 488,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain": "nightly-2024-10-04",
       "features": [],
       "flags": []
@@ -175,7 +257,7 @@
       "tool": "cargo",
       "cmd": "VRITUAL=mirai cargo",
       "count": 1,
-      "duration_ms": 418,
+      "duration_ms": 892,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-10-04",
@@ -187,6 +269,234 @@
       "tool": "cargo",
       "cmd": "VRITUAL=lockbud cargo",
       "count": 1,
+      "duration_ms": 745,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=lockbud cargo",
+      "count": 1,
+      "duration_ms": 582,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p lwext4_rust_examples -- --emit=json",
+      "count": 17,
+      "duration_ms": 104,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
+      "count": 0,
+      "duration_ms": 5750,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
+      "count": 1,
+      "duration_ms": 3331,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "cargo",
+      "cmd": "VRITUAL=clippy cargo",
+      "count": 1,
+      "duration_ms": 5750,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "cargo",
+      "cmd": "VRITUAL=lockbud cargo",
+      "count": 1,
+      "duration_ms": 3331,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p buildrs-failure -- --emit=json",
+      "count": 0,
+      "duration_ms": 92,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 0,
+      "duration_ms": 194,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 0,
+      "duration_ms": 291,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 153,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "cargo",
+      "cmd": "VRITUAL=clippy cargo",
+      "count": 1,
+      "duration_ms": 194,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "cargo",
+      "cmd": "VRITUAL=mirai cargo",
+      "count": 1,
+      "duration_ms": 291,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "cargo",
+      "cmd": "VRITUAL=lockbud cargo",
+      "count": 1,
+      "duration_ms": 153,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 3,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p lockbud-checks-this -- --emit=json",
+      "count": 0,
+      "duration_ms": 93,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 3,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 0,
+      "duration_ms": 160,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 3,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 0,
+      "duration_ms": 245,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 3,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 1,
+      "duration_ms": 127,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 4,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p mirai-checks-this -- --emit=json",
+      "count": 0,
+      "duration_ms": 93,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-04",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 4,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 0,
       "duration_ms": 157,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
@@ -195,35 +505,11 @@
       "flags": []
     },
     {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p lockbud-checks-this -- --emit=json",
-      "count": 0,
-      "duration_ms": 94,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-04",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 168,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-04",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
+      "package_idx": 4,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
-      "count": 0,
-      "duration_ms": 253,
+      "count": 1,
+      "duration_ms": 219,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-10-04",
@@ -231,11 +517,11 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 4,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
-      "count": 1,
-      "duration_ms": 135,
+      "count": 0,
+      "duration_ms": 151,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-10-04",
@@ -243,10 +529,10 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 5,
       "tool": "fmt",
-      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p mirai-checks-this -- --emit=json",
-      "count": 0,
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p os-checker-test-suite -- --emit=json",
+      "count": 4,
       "duration_ms": 95,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
@@ -255,59 +541,11 @@
       "flags": []
     },
     {
-      "package_idx": 2,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 164,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-04",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "mirai",
-      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
-      "count": 1,
-      "duration_ms": 227,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-04",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
-      "count": 0,
-      "duration_ms": 296,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-04",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p os-checker-test-suite -- --emit=json",
-      "count": 4,
-      "duration_ms": 106,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-04",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
+      "package_idx": 5,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 2,
-      "duration_ms": 409,
+      "duration_ms": 158,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-10-04",
@@ -315,11 +553,11 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 5,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 2,
-      "duration_ms": 459,
+      "duration_ms": 438,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-10-04",
@@ -327,11 +565,11 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 5,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
-      "duration_ms": 163,
+      "duration_ms": 153,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-10-04",
@@ -339,11 +577,11 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 5,
       "tool": "cargo",
       "cmd": "VRITUAL=clippy cargo",
       "count": 1,
-      "duration_ms": 409,
+      "duration_ms": 158,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-10-04",
@@ -353,85 +591,523 @@
   ],
   "data": [
     {
-      "cmd_idx": 4,
+      "cmd_idx": 0,
+      "file": "examples/src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 4 to 7)\n-fn panic(info: &PanicInfo) -> !{\n-\tprintln!(\"{}\", info);\n-\tcrate::boot::sbi::shutdown();\n-\tunreachable!()\n+fn panic(info: &PanicInfo) -> ! {\n+    println!(\"{}\", info);\n+    crate::boot::sbi::shutdown();\n+    unreachable!()\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 11 to 12)\n-pub extern \"C\" fn abort() -> !{\n-\tpanic!(\"abort!\");\n+pub extern \"C\" fn abort() -> ! {\n+    panic!(\"abort!\");\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 14 to 14)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 3 to 4)\n-pub fn console_putchar(ch: usize){\n-\tsbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n+pub fn console_putchar(ch: usize) {\n+    sbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 8 to 8)\n-\treturn sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n+    return sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 11 to 23)\n-pub fn console_putchar_u8(ch: u8){\n-\tlet ret: isize;\n-\t//let arg0: char = ch as char;\n-\tlet arg0: u8 = ch;\n-\tlet arg1: usize = 0;\n-\tlet arg2: usize = 0;\n-\tlet which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n-\tunsafe{\n-\t\tasm!(\"ecall\",\n-\t\t     lateout(\"x10\") ret,\n-\t\t     in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-             );\n-\t}\n+pub fn console_putchar_u8(ch: u8) {\n+    let ret: isize;\n+    //let arg0: char = ch as char;\n+    let arg0: u8 = ch;\n+    let arg1: usize = 0;\n+    let arg2: usize = 0;\n+    let which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n+    unsafe {\n+        asm!(\"ecall\",\n+        lateout(\"x10\") ret,\n+        in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 26 to 28)\n-fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize{\n-\tlet ret: isize;\n-\tunsafe{\n+fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize {\n+    let ret: isize;\n+    unsafe {\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 30 to 34)\n-             lateout(\"x10\") ret,\n-             in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-            );\n-\t}\n-\tret\n+         lateout(\"x10\") ret,\n+         in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n+    ret\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 37 to 39)\n-pub fn set_timer(stime_value: u64){\n-\t#[cfg(target_pointer_width = \"32\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n+pub fn set_timer(stime_value: u64) {\n+    #[cfg(target_pointer_width = \"32\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 41 to 42)\n-\t#[cfg(target_pointer_width = \"64\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n+    #[cfg(target_pointer_width = \"64\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 44 to 45)\n-pub fn clear_ipi(){\n-\tsbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n+pub fn clear_ipi() {\n+    sbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 48 to 49)\n-pub fn send_ipi(sipi_value: usize){\n-\tsbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n+pub fn send_ipi(sipi_value: usize) {\n+    sbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 52 to 53)\n-pub fn set_s_insn(entry: usize){\n-\tsbi_call(SBI_SET_SINSN, entry, 0, 0);\n+pub fn set_s_insn(entry: usize) {\n+    sbi_call(SBI_SET_SINSN, entry, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 56 to 57)\n-pub fn shutdown(){\n-\tsbi_call(SBI_SHUTDOWN, 0, 0, 0);\n+pub fn shutdown() {\n+    sbi_call(SBI_SHUTDOWN, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/ext4fs.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/ext4fs.rs (original lines from 96 to 96)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/pci_impl.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/pci_impl.rs (original lines from 2 to 2)\n-use pci::{PortOps, CSpaceAccessMethod};\n+use pci::{CSpaceAccessMethod, PortOps};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/pci_impl.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/pci_impl.rs (original lines from 9 to 9)\n-pub const PCI_COMMAND_INTX_DISABLE:u16 = 0x400;\n+pub const PCI_COMMAND_INTX_DISABLE: u16 = 0x400;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/src/lib.rs (original lines from 5 to 5)\n-\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 4 to 7)\n-fn panic(info: &PanicInfo) -> !{\n-\tprintln!(\"{}\", info);\n-\tcrate::boot::sbi::shutdown();\n-\tunreachable!()\n+fn panic(info: &PanicInfo) -> ! {\n+    println!(\"{}\", info);\n+    crate::boot::sbi::shutdown();\n+    unreachable!()\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 11 to 12)\n-pub extern \"C\" fn abort() -> !{\n-\tpanic!(\"abort!\");\n+pub extern \"C\" fn abort() -> ! {\n+    panic!(\"abort!\");\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 14 to 14)\n-\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 3 to 4)\n-pub fn console_putchar(ch: usize){\n-\tsbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n+pub fn console_putchar(ch: usize) {\n+    sbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 8 to 8)\n-\treturn sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n+    return sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 11 to 23)\n-pub fn console_putchar_u8(ch: u8){\n-\tlet ret: isize;\n-\t//let arg0: char = ch as char;\n-\tlet arg0: u8 = ch;\n-\tlet arg1: usize = 0;\n-\tlet arg2: usize = 0;\n-\tlet which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n-\tunsafe{\n-\t\tasm!(\"ecall\",\n-\t\t     lateout(\"x10\") ret,\n-\t\t     in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-             );\n-\t}\n+pub fn console_putchar_u8(ch: u8) {\n+    let ret: isize;\n+    //let arg0: char = ch as char;\n+    let arg0: u8 = ch;\n+    let arg1: usize = 0;\n+    let arg2: usize = 0;\n+    let which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n+    unsafe {\n+        asm!(\"ecall\",\n+        lateout(\"x10\") ret,\n+        in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 26 to 28)\n-fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize{\n-\tlet ret: isize;\n-\tunsafe{\n+fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize {\n+    let ret: isize;\n+    unsafe {\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 30 to 34)\n-             lateout(\"x10\") ret,\n-             in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-            );\n-\t}\n-\tret\n+         lateout(\"x10\") ret,\n+         in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n+    ret\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 37 to 39)\n-pub fn set_timer(stime_value: u64){\n-\t#[cfg(target_pointer_width = \"32\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n+pub fn set_timer(stime_value: u64) {\n+    #[cfg(target_pointer_width = \"32\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 41 to 42)\n-\t#[cfg(target_pointer_width = \"64\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n+    #[cfg(target_pointer_width = \"64\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 44 to 45)\n-pub fn clear_ipi(){\n-\tsbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n+pub fn clear_ipi() {\n+    sbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 48 to 49)\n-pub fn send_ipi(sipi_value: usize){\n-\tsbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n+pub fn send_ipi(sipi_value: usize) {\n+    sbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 52 to 53)\n-pub fn set_s_insn(entry: usize){\n-\tsbi_call(SBI_SET_SINSN, entry, 0, 0);\n+pub fn set_s_insn(entry: usize) {\n+    sbi_call(SBI_SET_SINSN, entry, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 56 to 57)\n-pub fn shutdown(){\n-\tsbi_call(SBI_SHUTDOWN, 0, 0, 0);\n+pub fn shutdown() {\n+    sbi_call(SBI_SHUTDOWN, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/ext4fs.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/ext4fs.rs (original lines from 96 to 96)\n-\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/pci_impl.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/pci_impl.rs (original lines from 2 to 2)\n-use pci::{PortOps, CSpaceAccessMethod};\n+use pci::{CSpaceAccessMethod, PortOps};\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "examples/src/pci_impl.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/pci_impl.rs (original lines from 9 to 9)\n-pub const PCI_COMMAND_INTX_DISABLE:u16 = 0x400;\n+pub const PCI_COMMAND_INTX_DISABLE: u16 = 0x400;\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/src/lib.rs (original lines from 5 to 5)\n-\n"
+    },
+    {
+      "cmd_idx": 2,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:16:19\n   |\n16 |             .args(&[\"submodule\", \"update\", \"--init\", \"--recursive\"])\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: change this to: `[\"submodule\", \"update\", \"--init\", \"--recursive\"]`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\n   = note: `#[warn(clippy::needless_borrows_for_generic_args)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 2,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: spawned process is never `wait()`ed on\n  --> build.rs:22:9\n   |\n22 | /         Command::new(\"git\")\n23 | |             .args(&[\"apply\", lwext4_patch.to_str().unwrap()])\n24 | |             .current_dir(c_path.clone())\n25 | |             .spawn()\n26 | |             .expect(\"failed to execute process: git apply patch\");\n   | |                                                                 ^- help: try: `.wait()`\n   | |_________________________________________________________________|\n   |\n   |\n   = note: not doing so might leave behind zombie processes\n   = note: see https://doc.rust-lang.org/stable/std/process/struct.Child.html#warning\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#zombie_processes\n   = note: `#[warn(clippy::zombie_processes)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 2,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:23:19\n   |\n23 |             .args(&[\"apply\", lwext4_patch.to_str().unwrap()])\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: change this to: `[\"apply\", lwext4_patch.to_str().unwrap()]`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\n\n"
+    },
+    {
+      "cmd_idx": 2,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:40:19\n   |\n40 |               .args(&[\n   |  ___________________^\n41 | |                 \"musl-generic\",\n42 | |                 \"-C\",\n43 | |                 c_path.to_str().expect(\"invalid path of lwext4\"),\n44 | |             ])\n   | |_____________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\nhelp: change this to\n   |\n40 ~             .args([\n41 +                 \"musl-generic\",\n42 +                 \"-C\",\n43 +                 c_path.to_str().expect(\"invalid path of lwext4\"),\n44 ~             ])\n   |\n\n"
+    },
+    {
+      "cmd_idx": 2,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:45:18\n   |\n45 |             .arg(&format!(\"ARCH={}\", arch))\n   |                  ^^^^^^^^^^^^^^^^^^^^^^^^^ help: change this to: `format!(\"ARCH={}\", arch)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\n\n"
+    },
+    {
+      "cmd_idx": 3,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:16:19\n   |\n16 |             .args(&[\"submodule\", \"update\", \"--init\", \"--recursive\"])\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: change this to: `[\"submodule\", \"update\", \"--init\", \"--recursive\"]`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\n   = note: `#[warn(clippy::needless_borrows_for_generic_args)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 3,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: spawned process is never `wait()`ed on\n  --> build.rs:22:9\n   |\n22 | /         Command::new(\"git\")\n23 | |             .args(&[\"apply\", lwext4_patch.to_str().unwrap()])\n24 | |             .current_dir(c_path.clone())\n25 | |             .spawn()\n26 | |             .expect(\"failed to execute process: git apply patch\");\n   | |                                                                 ^- help: try: `.wait()`\n   | |_________________________________________________________________|\n   |\n   |\n   = note: not doing so might leave behind zombie processes\n   = note: see https://doc.rust-lang.org/stable/std/process/struct.Child.html#warning\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#zombie_processes\n   = note: `#[warn(clippy::zombie_processes)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 3,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:23:19\n   |\n23 |             .args(&[\"apply\", lwext4_patch.to_str().unwrap()])\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: change this to: `[\"apply\", lwext4_patch.to_str().unwrap()]`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\n\n"
+    },
+    {
+      "cmd_idx": 3,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:40:19\n   |\n40 |               .args(&[\n   |  ___________________^\n41 | |                 \"musl-generic\",\n42 | |                 \"-C\",\n43 | |                 c_path.to_str().expect(\"invalid path of lwext4\"),\n44 | |             ])\n   | |_____________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\nhelp: change this to\n   |\n40 ~             .args([\n41 +                 \"musl-generic\",\n42 +                 \"-C\",\n43 +                 c_path.to_str().expect(\"invalid path of lwext4\"),\n44 ~             ])\n   |\n\n"
+    },
+    {
+      "cmd_idx": 3,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:45:18\n   |\n45 |             .arg(&format!(\"ARCH={}\", arch))\n   |                  ^^^^^^^^^^^^^^^^^^^^^^^^^ help: change this to: `format!(\"ARCH={}\", arch)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\n\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
+      "raw": "[2024-10-05T02:45:34Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-10-05T02:45:34Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
+      "raw": "[2024-10-05T02:45:35Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-10-05T02:45:35Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "(virtual) clippy",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/elliott10/lwext4_rust\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Updating crates.io index\n Downloading crates ...\n  Downloaded printf-compat v0.1.1\n  Downloaded either v1.10.0\n  Downloaded cstr_core v0.2.6\n  Downloaded bitflags v1.3.2\n  Downloaded log v0.4.21\n  Downloaded cty v0.2.2\n  Downloaded memchr v2.7.2\n  Downloaded itertools v0.9.0\n    Checking cty v0.2.2\n    Checking memchr v2.7.2\n    Checking either v1.10.0\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)\n    Checking bitflags v1.3.2\n    Checking log v0.4.21\n    Checking itertools v0.9.0\n    Checking cstr_core v0.2.6\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/elliott10/lwext4_rust/target/debug/build/lwext4_rust-22c51495e4231bf5/build-script-build` (exit status: 101)\n  --- stdout\n  Retrieve lwext4 source code\n  To patch lwext4 src\n  make: Entering directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      x86_64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n  thread 'main' panicked at build.rs:48:9:\n  assertion failed: status.success()\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "(virtual) clippy",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// pkg_dir=/home/runner/check/batch_1/elliott10/lwext4_rust\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json\n    Checking cty v0.2.2\n    Checking either v1.10.0\n    Checking memchr v2.7.2\n    Checking bitflags v1.3.2\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)\n    Checking log v0.4.21\n    Checking itertools v0.9.0\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/elliott10/lwext4_rust/target/debug/build/lwext4_rust-22c51495e4231bf5/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n  thread 'main' panicked at build.rs:48:9:\n  assertion failed: status.success()\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 9,
+      "file": "(virtual) mirai",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust, checker=Mirai\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/elliott10/lwext4_rust\n// cmd=cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json\n    Checking either v1.10.0\n    Checking cty v0.2.2\n    Checking memchr v2.7.2\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)\n    Checking bitflags v1.3.2\n    Checking log v0.4.21\n    Checking itertools v0.9.0\n    Checking cstr_core v0.2.6\n    Checking printf-compat v0.1.1\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/elliott10/lwext4_rust/target/debug/build/lwext4_rust-909890d5bbd2200e/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      x86_64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n  thread 'main' panicked at build.rs:48:9:\n  assertion failed: status.success()\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "(virtual) lockbud",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/elliott10/lwext4_rust\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n   Compiling cty v0.2.2\n   Compiling memchr v2.7.2\n   Compiling either v1.10.0\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)\n   Compiling bitflags v1.3.2\n   Compiling log v0.4.21\n   Compiling itertools v0.9.0\n[2024-10-05T02:45:34Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-10-05T02:45:34Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/elliott10/lwext4_rust/target/debug/build/lwext4_rust-909890d5bbd2200e/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      x86_64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n  thread 'main' panicked at build.rs:48:9:\n  assertion failed: status.success()\n  stack backtrace:\n     0:     0x55d30fd76e65 - std::backtrace_rs::backtrace::libunwind::trace::h5b560bab72e6154b\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/libunwind.rs:105:5\n     1:     0x55d30fd76e65 - std::backtrace_rs::backtrace::trace_unsynchronized::h4ee8ec99b43d8706\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/mod.rs:66:5\n     2:     0x55d30fd76e65 - std::sys_common::backtrace::_print_fmt::h6e8289aafa4fb13e\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:68:5\n     3:     0x55d30fd76e65 - <std::sys_common::backtrace::_print::DisplayBacktrace as core::fmt::Display>::fmt::hed32d0ff2aa0fdf1\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:44:22\n     4:     0x55d30fd9977b - core::fmt::rt::Argument::fmt::hca3a538408b6d3ca\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/rt.rs:165:63\n     5:     0x55d30fd9977b - core::fmt::write::h0c46818975380aad\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/mod.rs:1169:21\n     6:     0x55d30fd7473f - std::io::Write::write_fmt::h5ea3db9efd501baa\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/io/mod.rs:1835:15\n     7:     0x55d30fd76c3e - std::sys_common::backtrace::_print::h27ff758d37d9e119\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:47:5\n     8:     0x55d30fd76c3e - std::sys_common::backtrace::print::hafc6b0d8efbd24ba\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:34:9\n     9:     0x55d30fd77fa9 - std::panicking::default_hook::{{closure}}::ha573ac73171c717b\n    10:     0x55d30fd77ced - std::panicking::default_hook::h8ed95b009f156527\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:298:9\n    11:     0x55d30fd78463 - std::panicking::rust_panic_with_hook::h086afbf37fa35871\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:795:13\n    12:     0x55d30fd7830b - std::panicking::begin_panic_handler::{{closure}}::ha322428a7efae35f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:656:13\n    13:     0x55d30fd77329 - std::sys_common::backtrace::__rust_end_short_backtrace::hfc043f4d06966d4a\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:171:18\n    14:     0x55d30fd78077 - rust_begin_unwind\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:652:5\n    15:     0x55d30fd98913 - core::panicking::panic_fmt::h6d75522ebd7efdf2\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/panicking.rs:72:14\n    16:     0x55d30fd989bc - core::panicking::panic::h6eb78686f8ac2d4f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/panicking.rs:146:5\n    17:     0x55d30fd56dc9 - build_script_build::main::hb79145acecc10057\n                                 at /home/runner/check/batch_1/elliott10/lwext4_rust/build.rs:48:9\n    18:     0x55d30fd4efab - core::ops::function::FnOnce::call_once::h84e42131003e39e5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:250:5\n    19:     0x55d30fd528ee - std::sys_common::backtrace::__rust_begin_short_backtrace::h19d6e1177e7662f4\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:155:18\n    20:     0x55d30fd53011 - std::rt::lang_start::{{closure}}::hc791113ae1b869f5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:159:18\n    21:     0x55d30fd715fd - core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once::hc45caadc31f12bbc\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:284:13\n    22:     0x55d30fd715fd - std::panicking::try::do_call::h2817e8d187fb4046\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    23:     0x55d30fd715fd - std::panicking::try::hd725b8f33b0955ec\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    24:     0x55d30fd715fd - std::panic::catch_unwind::h393b56b2db7d8348\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    25:     0x55d30fd715fd - std::rt::lang_start_internal::{{closure}}::h346fefab85a8f29f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:48\n    26:     0x55d30fd715fd - std::panicking::try::do_call::hff9d5ed939b97486\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    27:     0x55d30fd715fd - std::panicking::try::h1e2d653a69031472\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    28:     0x55d30fd715fd - std::panic::catch_unwind::h843eea8cbc130396\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    29:     0x55d30fd715fd - std::rt::lang_start_internal::h3d73f751252cfec5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:20\n    30:     0x55d30fd52fea - std::rt::lang_start::h456336f111e3970b\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:158:17\n    31:     0x55d30fd5764e - main\n    32:     0x7fbcd2429d90 - <unknown>\n    33:     0x7fbcd2429e40 - __libc_start_main\n    34:     0x55d30fd4d5a5 - _start\n    35:                0x0 - <unknown>\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 11,
+      "file": "(virtual) lockbud",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// pkg_dir=/home/runner/check/batch_1/elliott10/lwext4_rust\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf\n   Compiling memchr v2.7.2\n   Compiling either v1.10.0\n   Compiling cty v0.2.2\n   Compiling bitflags v1.3.2\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)\n   Compiling log v0.4.21\n[2024-10-05T02:45:35Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-10-05T02:45:35Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling itertools v0.9.0\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/elliott10/lwext4_rust/target/debug/build/lwext4_rust-909890d5bbd2200e/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n  thread 'main' panicked at build.rs:48:9:\n  assertion failed: status.success()\n  stack backtrace:\n     0:     0x55ae29c1ee65 - std::backtrace_rs::backtrace::libunwind::trace::h5b560bab72e6154b\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/libunwind.rs:105:5\n     1:     0x55ae29c1ee65 - std::backtrace_rs::backtrace::trace_unsynchronized::h4ee8ec99b43d8706\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/mod.rs:66:5\n     2:     0x55ae29c1ee65 - std::sys_common::backtrace::_print_fmt::h6e8289aafa4fb13e\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:68:5\n     3:     0x55ae29c1ee65 - <std::sys_common::backtrace::_print::DisplayBacktrace as core::fmt::Display>::fmt::hed32d0ff2aa0fdf1\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:44:22\n     4:     0x55ae29c4177b - core::fmt::rt::Argument::fmt::hca3a538408b6d3ca\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/rt.rs:165:63\n     5:     0x55ae29c4177b - core::fmt::write::h0c46818975380aad\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/mod.rs:1169:21\n     6:     0x55ae29c1c73f - std::io::Write::write_fmt::h5ea3db9efd501baa\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/io/mod.rs:1835:15\n     7:     0x55ae29c1ec3e - std::sys_common::backtrace::_print::h27ff758d37d9e119\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:47:5\n     8:     0x55ae29c1ec3e - std::sys_common::backtrace::print::hafc6b0d8efbd24ba\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:34:9\n     9:     0x55ae29c1ffa9 - std::panicking::default_hook::{{closure}}::ha573ac73171c717b\n    10:     0x55ae29c1fced - std::panicking::default_hook::h8ed95b009f156527\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:298:9\n    11:     0x55ae29c20463 - std::panicking::rust_panic_with_hook::h086afbf37fa35871\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:795:13\n    12:     0x55ae29c2030b - std::panicking::begin_panic_handler::{{closure}}::ha322428a7efae35f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:656:13\n    13:     0x55ae29c1f329 - std::sys_common::backtrace::__rust_end_short_backtrace::hfc043f4d06966d4a\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:171:18\n    14:     0x55ae29c20077 - rust_begin_unwind\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:652:5\n    15:     0x55ae29c40913 - core::panicking::panic_fmt::h6d75522ebd7efdf2\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/panicking.rs:72:14\n    16:     0x55ae29c409bc - core::panicking::panic::h6eb78686f8ac2d4f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/panicking.rs:146:5\n    17:     0x55ae29bfedc9 - build_script_build::main::hb79145acecc10057\n                                 at /home/runner/check/batch_1/elliott10/lwext4_rust/build.rs:48:9\n    18:     0x55ae29bf6fab - core::ops::function::FnOnce::call_once::h84e42131003e39e5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:250:5\n    19:     0x55ae29bfa8ee - std::sys_common::backtrace::__rust_begin_short_backtrace::h19d6e1177e7662f4\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:155:18\n    20:     0x55ae29bfb011 - std::rt::lang_start::{{closure}}::hc791113ae1b869f5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:159:18\n    21:     0x55ae29c195fd - core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once::hc45caadc31f12bbc\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:284:13\n    22:     0x55ae29c195fd - std::panicking::try::do_call::h2817e8d187fb4046\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    23:     0x55ae29c195fd - std::panicking::try::hd725b8f33b0955ec\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    24:     0x55ae29c195fd - std::panic::catch_unwind::h393b56b2db7d8348\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    25:     0x55ae29c195fd - std::rt::lang_start_internal::{{closure}}::h346fefab85a8f29f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:48\n    26:     0x55ae29c195fd - std::panicking::try::do_call::hff9d5ed939b97486\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    27:     0x55ae29c195fd - std::panicking::try::h1e2d653a69031472\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    28:     0x55ae29c195fd - std::panic::catch_unwind::h843eea8cbc130396\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    29:     0x55ae29c195fd - std::rt::lang_start_internal::h3d73f751252cfec5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:20\n    30:     0x55ae29bfafea - std::rt::lang_start::h456336f111e3970b\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:158:17\n    31:     0x55ae29bff64e - main\n    32:     0x7f8be2229d90 - <unknown>\n    33:     0x7f8be2229e40 - __libc_start_main\n    34:     0x55ae29bf55a5 - _start\n    35:                0x0 - <unknown>\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 4 to 7)\n-fn panic(info: &PanicInfo) -> !{\n-\tprintln!(\"{}\", info);\n-\tcrate::boot::sbi::shutdown();\n-\tunreachable!()\n+fn panic(info: &PanicInfo) -> ! {\n+    println!(\"{}\", info);\n+    crate::boot::sbi::shutdown();\n+    unreachable!()\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 11 to 12)\n-pub extern \"C\" fn abort() -> !{\n-\tpanic!(\"abort!\");\n+pub extern \"C\" fn abort() -> ! {\n+    panic!(\"abort!\");\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 14 to 14)\n-\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 3 to 4)\n-pub fn console_putchar(ch: usize){\n-\tsbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n+pub fn console_putchar(ch: usize) {\n+    sbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 8 to 8)\n-\treturn sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n+    return sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 11 to 23)\n-pub fn console_putchar_u8(ch: u8){\n-\tlet ret: isize;\n-\t//let arg0: char = ch as char;\n-\tlet arg0: u8 = ch;\n-\tlet arg1: usize = 0;\n-\tlet arg2: usize = 0;\n-\tlet which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n-\tunsafe{\n-\t\tasm!(\"ecall\",\n-\t\t     lateout(\"x10\") ret,\n-\t\t     in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-             );\n-\t}\n+pub fn console_putchar_u8(ch: u8) {\n+    let ret: isize;\n+    //let arg0: char = ch as char;\n+    let arg0: u8 = ch;\n+    let arg1: usize = 0;\n+    let arg2: usize = 0;\n+    let which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n+    unsafe {\n+        asm!(\"ecall\",\n+        lateout(\"x10\") ret,\n+        in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 26 to 28)\n-fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize{\n-\tlet ret: isize;\n-\tunsafe{\n+fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize {\n+    let ret: isize;\n+    unsafe {\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 30 to 34)\n-             lateout(\"x10\") ret,\n-             in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-            );\n-\t}\n-\tret\n+         lateout(\"x10\") ret,\n+         in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n+    ret\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 37 to 39)\n-pub fn set_timer(stime_value: u64){\n-\t#[cfg(target_pointer_width = \"32\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n+pub fn set_timer(stime_value: u64) {\n+    #[cfg(target_pointer_width = \"32\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 41 to 42)\n-\t#[cfg(target_pointer_width = \"64\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n+    #[cfg(target_pointer_width = \"64\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 44 to 45)\n-pub fn clear_ipi(){\n-\tsbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n+pub fn clear_ipi() {\n+    sbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 48 to 49)\n-pub fn send_ipi(sipi_value: usize){\n-\tsbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n+pub fn send_ipi(sipi_value: usize) {\n+    sbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 52 to 53)\n-pub fn set_s_insn(entry: usize){\n-\tsbi_call(SBI_SET_SINSN, entry, 0, 0);\n+pub fn set_s_insn(entry: usize) {\n+    sbi_call(SBI_SET_SINSN, entry, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 56 to 57)\n-pub fn shutdown(){\n-\tsbi_call(SBI_SHUTDOWN, 0, 0, 0);\n+pub fn shutdown() {\n+    sbi_call(SBI_SHUTDOWN, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/ext4fs.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/ext4fs.rs (original lines from 96 to 96)\n-\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/pci_impl.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/pci_impl.rs (original lines from 2 to 2)\n-use pci::{PortOps, CSpaceAccessMethod};\n+use pci::{CSpaceAccessMethod, PortOps};\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "src/pci_impl.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/elliott10/lwext4_rust/examples/src/pci_impl.rs (original lines from 9 to 9)\n-pub const PCI_COMMAND_INTX_DISABLE:u16 = 0x400;\n+pub const PCI_COMMAND_INTX_DISABLE: u16 = 0x400;\n"
+    },
+    {
+      "cmd_idx": 14,
+      "file": "Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
+      "raw": "[2024-10-05T02:45:42Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-10-05T02:45:42Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
+      "cmd_idx": 15,
+      "file": "(virtual) clippy",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust_examples, checker=Clippy\n// toolchain=nightly-2024-01-31, target=riscv64gc-unknown-none-elf\n// pkg_dir=/home/runner/check/batch_1/elliott10/lwext4_rust/examples\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json\n    Updating crates.io index\n    Updating git repository `https://github.com/rcore-os/device_tree-rs`\n    Updating git repository `https://github.com/elliott10/pci-rs.git`\n    Updating git repository `https://github.com/rcore-os/virtio-drivers.git`\n Downloading crates ...\n  Downloaded byteorder v1.5.0\n  Downloaded scopeguard v1.2.0\n  Downloaded nb v1.1.0\n  Downloaded zerocopy-derive v0.7.35\n  Downloaded lock_api v0.4.12\n  Downloaded bit_field v0.10.2\n  Downloaded spinning_top v0.2.5\n  Downloaded zerocopy v0.7.35\n  Downloaded spin v0.9.8\n  Downloaded nb v0.1.3\n  Downloaded linked_list_allocator v0.10.5\n  Downloaded bitflags v2.6.0\n  Downloaded bare-metal v1.0.0\n  Downloaded void v1.0.2\n  Downloaded embedded-hal v0.2.7\n  Downloaded riscv v0.8.0\n   Compiling proc-macro2 v1.0.86\n   Compiling unicode-ident v1.0.13\n   Compiling autocfg v1.4.0\n    Checking log v0.4.22\n    Checking nb v1.1.0\n    Checking memchr v2.7.4\n    Checking bitflags v1.3.2\n    Checking cty v0.2.2\n    Checking either v1.13.0\n    Checking scopeguard v1.2.0\n    Checking itertools v0.9.0\n    Checking cstr_core v0.2.6\n    Checking nb v0.1.3\n   Compiling riscv v0.8.0\n   Compiling lock_api v0.4.12\n    Checking void v1.0.2\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)\n    Checking byteorder v1.5.0\n   Compiling quote v1.0.37\n   Compiling syn v2.0.79\n    Checking spinning_top v0.2.5\n    Checking printf-compat v0.1.1\n    Checking embedded-hal v0.2.7\n    Checking bit_field v0.10.2\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/elliott10/lwext4_rust/examples/target/debug/build/lwext4_rust-c7b17cf11163458d/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n  thread 'main' panicked at /home/runner/check/batch_1/elliott10/lwext4_rust/build.rs:48:9:\n  assertion failed: status.success()\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 16,
+      "file": "(virtual) lockbud",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust_examples, checker=Lockbud\n// toolchain=nightly-2024-01-31, target=riscv64gc-unknown-none-elf\n// pkg_dir=/home/runner/check/batch_1/elliott10/lwext4_rust/examples\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf\nwarning: `/home/runner/check/batch_1/elliott10/lwext4_rust/examples/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nwarning: `/home/runner/check/batch_1/elliott10/lwext4_rust/examples/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\n   Compiling proc-macro2 v1.0.86\n   Compiling unicode-ident v1.0.13\n   Compiling autocfg v1.4.0\n   Compiling scopeguard v1.2.0\n   Compiling either v1.13.0\n   Compiling memchr v2.7.4\n   Compiling log v0.4.22\n[2024-10-05T02:45:42Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-10-05T02:45:42Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling bitflags v1.3.2\n   Compiling cty v0.2.2\n   Compiling nb v1.1.0\n   Compiling nb v0.1.3\n   Compiling cstr_core v0.2.6\n   Compiling itertools v0.9.0\n   Compiling lock_api v0.4.12\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)\n   Compiling quote v1.0.37\n   Compiling syn v2.0.79\n   Compiling void v1.0.2\n   Compiling byteorder v1.5.0\n   Compiling riscv v0.8.0\n   Compiling spinning_top v0.2.5\n   Compiling embedded-hal v0.2.7\n   Compiling printf-compat v0.1.1\n   Compiling spin v0.9.8\n   Compiling bitflags v2.6.0\n   Compiling bare-metal v1.0.0\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_1/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/elliott10/lwext4_rust/examples/target/debug/build/lwext4_rust-c7b17cf11163458d/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_1/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n  thread 'main' panicked at /home/runner/check/batch_1/elliott10/lwext4_rust/build.rs:48:9:\n  assertion failed: status.success()\n  stack backtrace:\n     0:     0x558038c4ee95 - std::backtrace_rs::backtrace::libunwind::trace::h5b560bab72e6154b\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/libunwind.rs:105:5\n     1:     0x558038c4ee95 - std::backtrace_rs::backtrace::trace_unsynchronized::h4ee8ec99b43d8706\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/mod.rs:66:5\n     2:     0x558038c4ee95 - std::sys_common::backtrace::_print_fmt::h6e8289aafa4fb13e\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:68:5\n     3:     0x558038c4ee95 - <std::sys_common::backtrace::_print::DisplayBacktrace as core::fmt::Display>::fmt::hed32d0ff2aa0fdf1\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:44:22\n     4:     0x558038c717ab - core::fmt::rt::Argument::fmt::hca3a538408b6d3ca\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/rt.rs:165:63\n     5:     0x558038c717ab - core::fmt::write::h0c46818975380aad\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/mod.rs:1169:21\n     6:     0x558038c4c76f - std::io::Write::write_fmt::h5ea3db9efd501baa\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/io/mod.rs:1835:15\n     7:     0x558038c4ec6e - std::sys_common::backtrace::_print::h27ff758d37d9e119\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:47:5\n     8:     0x558038c4ec6e - std::sys_common::backtrace::print::hafc6b0d8efbd24ba\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:34:9\n     9:     0x558038c4ffd9 - std::panicking::default_hook::{{closure}}::ha573ac73171c717b\n    10:     0x558038c4fd1d - std::panicking::default_hook::h8ed95b009f156527\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:298:9\n    11:     0x558038c50493 - std::panicking::rust_panic_with_hook::h086afbf37fa35871\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:795:13\n    12:     0x558038c5033b - std::panicking::begin_panic_handler::{{closure}}::ha322428a7efae35f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:656:13\n    13:     0x558038c4f359 - std::sys_common::backtrace::__rust_end_short_backtrace::hfc043f4d06966d4a\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:171:18\n    14:     0x558038c500a7 - rust_begin_unwind\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:652:5\n    15:     0x558038c70943 - core::panicking::panic_fmt::h6d75522ebd7efdf2\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/panicking.rs:72:14\n    16:     0x558038c709ec - core::panicking::panic::h6eb78686f8ac2d4f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/panicking.rs:146:5\n    17:     0x558038c2edf9 - build_script_build::main::hcb4eff35aeae8522\n                                 at /home/runner/check/batch_1/elliott10/lwext4_rust/build.rs:48:9\n    18:     0x558038c26f6b - core::ops::function::FnOnce::call_once::h51c68e994c853273\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:250:5\n    19:     0x558038c2a91e - std::sys_common::backtrace::__rust_begin_short_backtrace::h8a9d9b28fe7b1f4d\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:155:18\n    20:     0x558038c2b041 - std::rt::lang_start::{{closure}}::h5566b19375be2fcd\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:159:18\n    21:     0x558038c4962d - core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once::hc45caadc31f12bbc\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:284:13\n    22:     0x558038c4962d - std::panicking::try::do_call::h2817e8d187fb4046\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    23:     0x558038c4962d - std::panicking::try::hd725b8f33b0955ec\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    24:     0x558038c4962d - std::panic::catch_unwind::h393b56b2db7d8348\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    25:     0x558038c4962d - std::rt::lang_start_internal::{{closure}}::h346fefab85a8f29f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:48\n    26:     0x558038c4962d - std::panicking::try::do_call::hff9d5ed939b97486\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    27:     0x558038c4962d - std::panicking::try::h1e2d653a69031472\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    28:     0x558038c4962d - std::panic::catch_unwind::h843eea8cbc130396\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    29:     0x558038c4962d - std::rt::lang_start_internal::h3d73f751252cfec5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:20\n    30:     0x558038c2b01a - std::rt::lang_start::hf69640528cfe7f6c\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:158:17\n    31:     0x558038c2f67e - main\n    32:     0x7f63b9c29d90 - <unknown>\n    33:     0x7f63b9c29e40 - __libc_start_main\n    34:     0x558038c255d5 - _start\n    35:                0x0 - <unknown>\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 21,
       "file": "(virtual) clippy",
       "kind": "Cargo",
       "raw": "// pkg_name=buildrs-failure, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n   Compiling buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)\nerror: failed to run custom build command for `buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/os-checker/os-checker-test-suite/target/debug/build/buildrs-failure-cbaf576da3545279/build-script-build` (exit status: 101)\n  --- stderr\n  thread 'main' panicked at buildrs-failure/build.rs:2:5:\n  Test as a failure in build script.\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
     },
     {
-      "cmd_idx": 5,
+      "cmd_idx": 22,
       "file": "(virtual) mirai",
       "kind": "Cargo",
       "raw": "// pkg_name=buildrs-failure, checker=Mirai\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure\n// cmd=cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json\n   Compiling buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)\nerror: failed to run custom build command for `buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/os-checker/os-checker-test-suite/target/debug/build/buildrs-failure-b6dc1f6b857b62c6/build-script-build` (exit status: 101)\n  --- stderr\n  thread 'main' panicked at buildrs-failure/build.rs:2:5:\n  Test as a failure in build script.\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
     },
     {
-      "cmd_idx": 6,
+      "cmd_idx": 23,
       "file": "(virtual) lockbud",
       "kind": "Cargo",
-      "raw": "// pkg_name=buildrs-failure, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n   Compiling buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)\nerror: failed to run custom build command for `buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/os-checker/os-checker-test-suite/target/debug/build/buildrs-failure-b6dc1f6b857b62c6/build-script-build` (exit status: 101)\n  --- stderr\n  thread 'main' panicked at buildrs-failure/build.rs:2:5:\n  Test as a failure in build script.\n  stack backtrace:\n     0:     0x55d47c34f915 - std::backtrace_rs::backtrace::libunwind::trace::h5b560bab72e6154b\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/libunwind.rs:105:5\n     1:     0x55d47c34f915 - std::backtrace_rs::backtrace::trace_unsynchronized::h4ee8ec99b43d8706\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/mod.rs:66:5\n     2:     0x55d47c34f915 - std::sys_common::backtrace::_print_fmt::h6e8289aafa4fb13e\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:68:5\n     3:     0x55d47c34f915 - <std::sys_common::backtrace::_print::DisplayBacktrace as core::fmt::Display>::fmt::hed32d0ff2aa0fdf1\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:44:22\n     4:     0x55d47c36da1b - core::fmt::rt::Argument::fmt::hca3a538408b6d3ca\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/rt.rs:165:63\n     5:     0x55d47c36da1b - core::fmt::write::h0c46818975380aad\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/mod.rs:1169:21\n     6:     0x55d47c34d83f - std::io::Write::write_fmt::h5ea3db9efd501baa\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/io/mod.rs:1835:15\n     7:     0x55d47c34f6ee - std::sys_common::backtrace::_print::h27ff758d37d9e119\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:47:5\n     8:     0x55d47c34f6ee - std::sys_common::backtrace::print::hafc6b0d8efbd24ba\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:34:9\n     9:     0x55d47c350a59 - std::panicking::default_hook::{{closure}}::ha573ac73171c717b\n    10:     0x55d47c35079d - std::panicking::default_hook::h8ed95b009f156527\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:298:9\n    11:     0x55d47c350f13 - std::panicking::rust_panic_with_hook::h086afbf37fa35871\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:795:13\n    12:     0x55d47c350dbb - std::panicking::begin_panic_handler::{{closure}}::ha322428a7efae35f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:656:13\n    13:     0x55d47c34fdd9 - std::sys_common::backtrace::__rust_end_short_backtrace::hfc043f4d06966d4a\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:171:18\n    14:     0x55d47c350b27 - rust_begin_unwind\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:652:5\n    15:     0x55d47c36cc43 - core::panicking::panic_fmt::h6d75522ebd7efdf2\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/panicking.rs:72:14\n    16:     0x55d47c3356d2 - build_script_build::main::hf4decbdbc8d11168\n                                 at /home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure/build.rs:2:5\n    17:     0x55d47c33563b - core::ops::function::FnOnce::call_once::h92e512ce7bee2ef5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:250:5\n    18:     0x55d47c3354de - std::sys_common::backtrace::__rust_begin_short_backtrace::hf7abc9272a435240\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:155:18\n    19:     0x55d47c335551 - std::rt::lang_start::{{closure}}::hc4a88c97cc645181\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:159:18\n    20:     0x55d47c34bacd - core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once::hc45caadc31f12bbc\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:284:13\n    21:     0x55d47c34bacd - std::panicking::try::do_call::h2817e8d187fb4046\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    22:     0x55d47c34bacd - std::panicking::try::hd725b8f33b0955ec\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    23:     0x55d47c34bacd - std::panic::catch_unwind::h393b56b2db7d8348\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    24:     0x55d47c34bacd - std::rt::lang_start_internal::{{closure}}::h346fefab85a8f29f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:48\n    25:     0x55d47c34bacd - std::panicking::try::do_call::hff9d5ed939b97486\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    26:     0x55d47c34bacd - std::panicking::try::h1e2d653a69031472\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    27:     0x55d47c34bacd - std::panic::catch_unwind::h843eea8cbc130396\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    28:     0x55d47c34bacd - std::rt::lang_start_internal::h3d73f751252cfec5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:20\n    29:     0x55d47c33552a - std::rt::lang_start::he6aea475bde28aeb\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:158:17\n    30:     0x55d47c3356fe - main\n    31:     0x7f7353229d90 - <unknown>\n    32:     0x7f7353229e40 - __libc_start_main\n    33:     0x55d47c335405 - _start\n    34:                0x0 - <unknown>\n"
+      "raw": "// pkg_name=buildrs-failure, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n   Compiling buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)\nerror: failed to run custom build command for `buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/os-checker/os-checker-test-suite/target/debug/build/buildrs-failure-b6dc1f6b857b62c6/build-script-build` (exit status: 101)\n  --- stderr\n  thread 'main' panicked at buildrs-failure/build.rs:2:5:\n  Test as a failure in build script.\n  stack backtrace:\n     0:     0x5631049ac915 - std::backtrace_rs::backtrace::libunwind::trace::h5b560bab72e6154b\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/libunwind.rs:105:5\n     1:     0x5631049ac915 - std::backtrace_rs::backtrace::trace_unsynchronized::h4ee8ec99b43d8706\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/mod.rs:66:5\n     2:     0x5631049ac915 - std::sys_common::backtrace::_print_fmt::h6e8289aafa4fb13e\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:68:5\n     3:     0x5631049ac915 - <std::sys_common::backtrace::_print::DisplayBacktrace as core::fmt::Display>::fmt::hed32d0ff2aa0fdf1\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:44:22\n     4:     0x5631049caa1b - core::fmt::rt::Argument::fmt::hca3a538408b6d3ca\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/rt.rs:165:63\n     5:     0x5631049caa1b - core::fmt::write::h0c46818975380aad\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/mod.rs:1169:21\n     6:     0x5631049aa83f - std::io::Write::write_fmt::h5ea3db9efd501baa\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/io/mod.rs:1835:15\n     7:     0x5631049ac6ee - std::sys_common::backtrace::_print::h27ff758d37d9e119\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:47:5\n     8:     0x5631049ac6ee - std::sys_common::backtrace::print::hafc6b0d8efbd24ba\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:34:9\n     9:     0x5631049ada59 - std::panicking::default_hook::{{closure}}::ha573ac73171c717b\n    10:     0x5631049ad79d - std::panicking::default_hook::h8ed95b009f156527\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:298:9\n    11:     0x5631049adf13 - std::panicking::rust_panic_with_hook::h086afbf37fa35871\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:795:13\n    12:     0x5631049addbb - std::panicking::begin_panic_handler::{{closure}}::ha322428a7efae35f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:656:13\n    13:     0x5631049acdd9 - std::sys_common::backtrace::__rust_end_short_backtrace::hfc043f4d06966d4a\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:171:18\n    14:     0x5631049adb27 - rust_begin_unwind\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:652:5\n    15:     0x5631049c9c43 - core::panicking::panic_fmt::h6d75522ebd7efdf2\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/panicking.rs:72:14\n    16:     0x5631049926d2 - build_script_build::main::hf4decbdbc8d11168\n                                 at /home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure/build.rs:2:5\n    17:     0x56310499263b - core::ops::function::FnOnce::call_once::h92e512ce7bee2ef5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:250:5\n    18:     0x5631049924de - std::sys_common::backtrace::__rust_begin_short_backtrace::hf7abc9272a435240\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:155:18\n    19:     0x563104992551 - std::rt::lang_start::{{closure}}::hc4a88c97cc645181\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:159:18\n    20:     0x5631049a8acd - core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once::hc45caadc31f12bbc\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:284:13\n    21:     0x5631049a8acd - std::panicking::try::do_call::h2817e8d187fb4046\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    22:     0x5631049a8acd - std::panicking::try::hd725b8f33b0955ec\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    23:     0x5631049a8acd - std::panic::catch_unwind::h393b56b2db7d8348\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    24:     0x5631049a8acd - std::rt::lang_start_internal::{{closure}}::h346fefab85a8f29f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:48\n    25:     0x5631049a8acd - std::panicking::try::do_call::hff9d5ed939b97486\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    26:     0x5631049a8acd - std::panicking::try::h1e2d653a69031472\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    27:     0x5631049a8acd - std::panic::catch_unwind::h843eea8cbc130396\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    28:     0x5631049a8acd - std::rt::lang_start_internal::h3d73f751252cfec5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:20\n    29:     0x56310499252a - std::rt::lang_start::he6aea475bde28aeb\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:158:17\n    30:     0x5631049926fe - main\n    31:     0x7fbaa6029d90 - <unknown>\n    32:     0x7fbaa6029e40 - __libc_start_main\n    33:     0x563104992405 - _start\n    34:                0x0 - <unknown>\n"
     },
     {
-      "cmd_idx": 10,
+      "cmd_idx": 27,
       "file": "Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-10-05T02:39:43Z WARN  lockbud::callbacks] [\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at lockbud-checks-this/src/lib.rs:7:13: 7:26 (#0) after dropped at lockbud-checks-this/src/lib.rs:5:5: 5:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      },\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at lockbud-checks-this/src/lib.rs:8:28: 8:32 (#5) after dropped at lockbud-checks-this/src/lib.rs:5:5: 5:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      }\n    ]\n[2024-10-05T02:39:43Z WARN  lockbud::callbacks] crate lockbud_checks_this contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 2 }"
+      "raw": "[2024-10-05T02:45:48Z WARN  lockbud::callbacks] [\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at lockbud-checks-this/src/lib.rs:7:13: 7:26 (#0) after dropped at lockbud-checks-this/src/lib.rs:5:5: 5:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      },\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at lockbud-checks-this/src/lib.rs:8:28: 8:32 (#5) after dropped at lockbud-checks-this/src/lib.rs:5:5: 5:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      }\n    ]\n[2024-10-05T02:45:48Z WARN  lockbud::callbacks] crate lockbud_checks_this contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 2 }"
     },
     {
-      "cmd_idx": 13,
+      "cmd_idx": 30,
       "file": "mirai-checks-this/src/main.rs",
       "kind": "Mirai",
       "raw": "warning: attempt to add with overflow\n  --> mirai-checks-this/src/main.rs:26:10\n   |\n26 |     dbg!(a + b());\n   |          ^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 15,
+      "cmd_idx": 32,
       "file": "examples/need-clippy-fix.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_1/os-checker/os-checker-test-suite/examples/need-clippy-fix.rs (original lines from 2 to 2)\n-    _ = (123); \n+    _ = (123);\n"
     },
     {
-      "cmd_idx": 15,
+      "cmd_idx": 32,
       "file": "examples/need-fmt.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_1/os-checker/os-checker-test-suite/examples/need-fmt.rs (original lines from 1 to 1)\n-fn main() {    println!(\"from example\");\n+fn main() {\n+    println!(\"from example\");\n"
     },
     {
-      "cmd_idx": 15,
+      "cmd_idx": 32,
       "file": "src/main.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_1/os-checker/os-checker-test-suite/src/main.rs (original lines from 4 to 5)\n- \n-println!(\"Hello, world!\");\n+    println!(\"Hello, world!\");\n"
     },
     {
-      "cmd_idx": 15,
+      "cmd_idx": 32,
       "file": "tests/need-fmt.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_1/os-checker/os-checker-test-suite/tests/need-fmt.rs (original lines from 1 to 2)\n-fn main () {\n-  }\n+fn main() {}\n"
     },
     {
-      "cmd_idx": 16,
+      "cmd_idx": 33,
       "file": "src/main.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
     },
     {
-      "cmd_idx": 16,
+      "cmd_idx": 33,
       "file": "src/main.rs",
       "kind": "Clippy(Error)",
       "raw": "error: approximate value of `f{32, 64}::consts::PI` found\n --> src/main.rs:2:13\n  |\n2 |     let a = 3.14;\n  |             ^^^^\n  |\n  = help: consider using the constant directly\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#approx_constant\n  = note: `#[deny(clippy::approx_constant)]` on by default\n\n"
     },
     {
-      "cmd_idx": 17,
+      "cmd_idx": 34,
       "file": "src/main.rs",
       "kind": "Mirai",
       "raw": "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
     },
     {
-      "cmd_idx": 17,
+      "cmd_idx": 34,
       "file": "src/main.rs",
       "kind": "Mirai",
       "raw": "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
     },
     {
-      "cmd_idx": 19,
+      "cmd_idx": 36,
       "file": "(virtual) clippy",
       "kind": "Cargo",
       "raw": "// pkg_name=os-checker-test-suite, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/os-checker/os-checker-test-suite\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Checking os-checker-test-suite v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite)\nerror: could not compile `os-checker-test-suite` (bin \"os-checker-test-suite\") due to 1 previous error; 1 warning emitted\n"
