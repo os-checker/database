@@ -1,0 +1,2440 @@
+{
+  "env": {
+    "tools": {
+      "rust_toolchains": {
+        "host": {
+          "version": "1.83.0-nightly (1bc403daa 2024-10-11)",
+          "commit_hash": "1bc403daadbebb553ccc211a0a8eebb73989665f",
+          "commit_date": "2024-10-11",
+          "host": "x86_64-unknown-linux-gnu",
+          "release": "1.83.0-nightly",
+          "llvm_version": "19.1.1"
+        },
+        "installed": [
+          {
+            "channel": "nightly-x86_64-unknown-linux-gnu",
+            "profile": null,
+            "targets": [
+              "x86_64-unknown-linux-gnu"
+            ],
+            "components": [
+              "cargo-x86_64-unknown-linux-gnu",
+              "clippy-x86_64-unknown-linux-gnu",
+              "rust-std-x86_64-unknown-linux-gnu",
+              "rustc-x86_64-unknown-linux-gnu",
+              "rustfmt-x86_64-unknown-linux-gnu"
+            ],
+            "toml_path": "/home/runner/check",
+            "need_install_clippy": false,
+            "peculiar_targets": null
+          },
+          {
+            "channel": "nightly-2022-08-08",
+            "profile": "minimal",
+            "targets": [
+              "riscv64imac-unknown-none-elf"
+            ],
+            "components": [
+              "rust-src",
+              "llvm-tools-preview",
+              "rustfmt",
+              "clippy"
+            ],
+            "toml_path": "/home/runner/check/batch_1/Byte-OS/lose-net-stack/example/rust-toolchain.toml",
+            "need_install_clippy": false,
+            "peculiar_targets": null
+          }
+        ]
+      },
+      "os_checker": {
+        "start": 1728737623869,
+        "finish": 1728737743449,
+        "duration_ms": 119580,
+        "git_time": "2024-10-12 20:51:12 +0800",
+        "git_sha": "09d14323829cff360b4616bdfed33e2555ee7f56"
+      }
+    },
+    "kinds": {
+      "order": [
+        "Cargo",
+        "Clippy(Error)",
+        "Clippy(Warn)",
+        "Audit",
+        "Mirai",
+        "Lockbud(Probably)",
+        "Lockbud(Possibly)",
+        "Unformatted"
+      ],
+      "mapping": {
+        "cargo": [
+          "Cargo"
+        ],
+        "clippy": [
+          "Clippy(Error)",
+          "Clippy(Warn)"
+        ],
+        "audit": [
+          "Audit"
+        ],
+        "mirai": [
+          "Mirai"
+        ],
+        "lockbud": [
+          "Lockbud(Probably)",
+          "Lockbud(Possibly)"
+        ],
+        "fmt": [
+          "Unformatted"
+        ]
+      }
+    },
+    "repos": [
+      {
+        "user": "Byte-OS",
+        "repo": "lose-net-stack"
+      },
+      {
+        "user": "os-checker",
+        "repo": "os-checker"
+      },
+      {
+        "user": "os-checker",
+        "repo": "os-checker-test-suite"
+      }
+    ],
+    "packages": [
+      {
+        "name": "example",
+        "repo": {
+          "repo_idx": 0,
+          "user": "Byte-OS",
+          "repo": "lose-net-stack"
+        }
+      },
+      {
+        "name": "lose-net-stack",
+        "repo": {
+          "repo_idx": 0,
+          "user": "Byte-OS",
+          "repo": "lose-net-stack"
+        }
+      },
+      {
+        "name": "os-checker",
+        "repo": {
+          "repo_idx": 1,
+          "user": "os-checker",
+          "repo": "os-checker"
+        }
+      },
+      {
+        "name": "os-checker-database",
+        "repo": {
+          "repo_idx": 1,
+          "user": "os-checker",
+          "repo": "os-checker"
+        }
+      },
+      {
+        "name": "os-checker-types",
+        "repo": {
+          "repo_idx": 1,
+          "user": "os-checker",
+          "repo": "os-checker"
+        }
+      },
+      {
+        "name": "buildrs-failure",
+        "repo": {
+          "repo_idx": 2,
+          "user": "os-checker",
+          "repo": "os-checker-test-suite"
+        }
+      },
+      {
+        "name": "lockbud-checks-this",
+        "repo": {
+          "repo_idx": 2,
+          "user": "os-checker",
+          "repo": "os-checker-test-suite"
+        }
+      },
+      {
+        "name": "mirai-checks-this",
+        "repo": {
+          "repo_idx": 2,
+          "user": "os-checker",
+          "repo": "os-checker-test-suite"
+        }
+      },
+      {
+        "name": "os-checker-test-suite",
+        "repo": {
+          "repo_idx": 2,
+          "user": "os-checker",
+          "repo": "os-checker-test-suite"
+        }
+      }
+    ]
+  },
+  "cmd": [
+    {
+      "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p example -- --emit=json",
+      "count": 10,
+      "duration_ms": 583,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2022-08-08",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target riscv64imac-unknown-none-elf --no-deps --message-format=json",
+      "count": 11,
+      "duration_ms": 5629,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2022-08-08",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64imac-unknown-none-elf",
+      "count": 1,
+      "duration_ms": 938,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2022-08-08",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=lockbud cargo",
+      "count": 1,
+      "duration_ms": 938,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2022-08-08",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p lose-net-stack -- --emit=json",
+      "count": 100,
+      "duration_ms": 102,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p lose-net-stack -- --emit=json",
+      "count": 100,
+      "duration_ms": 101,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 13,
+      "duration_ms": 318,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target riscv64imac-unknown-none-elf --no-deps --message-format=json",
+      "count": 13,
+      "duration_ms": 288,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 12,
+      "duration_ms": 2008,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 279,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64imac-unknown-none-elf",
+      "count": 0,
+      "duration_ms": 261,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "cargo",
+      "cmd": "VRITUAL=clippy cargo",
+      "count": 1,
+      "duration_ms": 318,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "cargo",
+      "cmd": "VRITUAL=clippy cargo",
+      "count": 1,
+      "duration_ms": 288,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p os-checker -- --emit=json",
+      "count": 0,
+      "duration_ms": 160,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 0,
+      "duration_ms": 26566,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "audit",
+      "cmd": "cargo audit",
+      "count": 1,
+      "duration_ms": 470,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 0,
+      "duration_ms": 279,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 153,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 3,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p os-checker-database -- --emit=json",
+      "count": 0,
+      "duration_ms": 109,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 3,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 6,
+      "duration_ms": 4011,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 3,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 0,
+      "duration_ms": 270,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 3,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 146,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 4,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p os-checker-types -- --emit=json",
+      "count": 0,
+      "duration_ms": 102,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 4,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 0,
+      "duration_ms": 3088,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 4,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 0,
+      "duration_ms": 260,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 4,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 134,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 5,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p buildrs-failure -- --emit=json",
+      "count": 0,
+      "duration_ms": 94,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 5,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 0,
+      "duration_ms": 197,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 5,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 0,
+      "duration_ms": 299,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 5,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 161,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 5,
+      "tool": "cargo",
+      "cmd": "VRITUAL=clippy cargo",
+      "count": 1,
+      "duration_ms": 197,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 5,
+      "tool": "cargo",
+      "cmd": "VRITUAL=mirai cargo",
+      "count": 1,
+      "duration_ms": 299,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 5,
+      "tool": "cargo",
+      "cmd": "VRITUAL=lockbud cargo",
+      "count": 1,
+      "duration_ms": 161,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 6,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p lockbud-checks-this -- --emit=json",
+      "count": 0,
+      "duration_ms": 93,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 6,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 0,
+      "duration_ms": 163,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 6,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 0,
+      "duration_ms": 265,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 6,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 1,
+      "duration_ms": 133,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 7,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p mirai-checks-this -- --emit=json",
+      "count": 0,
+      "duration_ms": 93,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 7,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 0,
+      "duration_ms": 161,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 7,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 1,
+      "duration_ms": 233,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 7,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 160,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 8,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-x86_64-unknown-linux-gnu fmt -p os-checker-test-suite -- --emit=json",
+      "count": 4,
+      "duration_ms": 94,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 8,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 2,
+      "duration_ms": 161,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 8,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 2,
+      "duration_ms": 459,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 8,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 164,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 8,
+      "tool": "cargo",
+      "cmd": "VRITUAL=clippy cargo",
+      "count": 1,
+      "duration_ms": 161,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-11",
+      "features": [],
+      "flags": []
+    }
+  ],
+  "data": [
+    {
+      "cmd_idx": 0,
+      "file": "src/dns.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/dns.rs (original lines from 1 to 1)\n+\n+\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/main.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/main.rs (original lines from 15 to 15)\n-mod net;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/main.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/main.rs (original lines from 17 to 17)\n+mod net;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/main.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/main.rs (original lines from 20 to 20)\n-/// \n+///\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/main.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/main.rs (original lines from 24 to 24)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/main.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/main.rs (original lines from 26 to 26)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/net.rs (original lines from 167 to 167)\n-    if tcp_packet.data_len > 10 && tcp_packet.data[..4] == [0x47,0x45,0x54, 0x20] {\n+    if tcp_packet.data_len > 10 && tcp_packet.data[..4] == [0x47, 0x45, 0x54, 0x20] {\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/net.rs (original lines from 180 to 180)\n-            net.send(&reply_packet.build_data()).expect(\"can't send reply packet\");\n+            net.send(&reply_packet.build_data())\n+                .expect(\"can't send reply packet\");\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/net.rs (original lines from 187 to 187)\n-        net.send(&reply_packet.build_data()).expect(\"can't send reply packet\");\n+        net.send(&reply_packet.build_data())\n+            .expect(\"can't send reply packet\");\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/virtio_impls.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/virtio_impls.rs (original lines from 51 to 51)\n+\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "/home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unused `#[macro_use]` import\n  --> /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs:13:1\n   |\n13 | #[macro_use]\n   | ^^^^^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "/home/runner/check/batch_1/Byte-OS/lose-net-stack/src/consts.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: constant `ARP_PTYPE_ETHTYPE_IP` is never used\n  --> /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/consts.rs:10:18\n   |\n10 | pub(crate) const ARP_PTYPE_ETHTYPE_IP: u16 = 0x0800;\n   |                  ^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "/home/runner/check/batch_1/Byte-OS/lose-net-stack/src/consts.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: constant `IP_PROTOCAL_IGMP` is never used\n  --> /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/consts.rs:17:18\n   |\n17 | pub(crate) const IP_PROTOCAL_IGMP: u8 = 2;\n   |                  ^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: using `println!(\"\")`\n   --> src/net.rs:146:9\n    |\n146 |         println!(\"\");\n    |         ^^^^^^^^^^^^ help: replace it with: `println!()`\n    |\n    = note: `#[warn(clippy::println_empty_string)]` on by default\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#println_empty_string\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this call to `as_ref` does nothing\n  --> src/net.rs:58:45\n   |\n58 |                     String::from_utf8_lossy(udp_packet.data.as_ref())\n   |                                             ^^^^^^^^^^^^^^^^^^^^^^^^ help: try this: `udp_packet.data`\n   |\n   = note: `#[warn(clippy::useless_asref)]` on by default\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_asref\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this call to `as_ref` does nothing\n  --> src/net.rs:60:25\n   |\n60 |                 hexdump(udp_packet.data.as_ref());\n   |                         ^^^^^^^^^^^^^^^^^^^^^^^^ help: try this: `udp_packet.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_asref\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this call to `as_ref` does nothing\n  --> src/net.rs:62:44\n   |\n62 |                 if String::from_utf8_lossy(udp_packet.data.as_ref()) == \"this is a ping!\" {\n   |                                            ^^^^^^^^^^^^^^^^^^^^^^^^ help: try this: `udp_packet.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_asref\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/net.rs:76:30\n   |\n76 |                     net.send(&reply_data).expect(\"can't send to net\");\n   |                              ^^^^^^^^^^^ help: change this to: `reply_data`\n   |\n   = note: `#[warn(clippy::needless_borrow)]` on by default\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this call to `as_ref` does nothing\n   --> src/net.rs:100:49\n    |\n100 |                         String::from_utf8_lossy(tcp_packet.data.as_ref())\n    |                                                 ^^^^^^^^^^^^^^^^^^^^^^^^ help: try this: `tcp_packet.data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_asref\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this call to `as_ref` does nothing\n   --> src/net.rs:103:29\n    |\n103 |                     hexdump(tcp_packet.data.as_ref());\n    |                             ^^^^^^^^^^^^^^^^^^^^^^^^ help: try this: `tcp_packet.data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_asref\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: manual `RangeInclusive::contains` implementation\n   --> src/net.rs:136:20\n    |\n136 |                 if c >= 0x20 && c <= 0x7e {\n    |                    ^^^^^^^^^^^^^^^^^^^^^^ help: use: `(0x20..=0x7e).contains(&c)`\n    |\n    = note: `#[warn(clippy::manual_range_contains)]` on by default\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_range_contains\n\n"
+    },
+    {
+      "cmd_idx": 2,
+      "file": "Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
+      "raw": "[2024-10-12T12:54:57Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.17/src/lib.rs:1522:11: 1522:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.17/src/lib.rs:1525:13: 1525:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-10-12T12:54:57Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
+      "cmd_idx": 3,
+      "file": "(virtual) lockbud",
+      "kind": "Cargo",
+      "raw": "// pkg_name=example, checker=Lockbud\n// toolchain=nightly-2022-08-08, target=riscv64imac-unknown-none-elf\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/lose-net-stack/example\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64imac-unknown-none-elf\nwarning: `/home/runner/check/batch_1/Byte-OS/lose-net-stack/example/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nwarning: `/home/runner/check/batch_1/Byte-OS/lose-net-stack/example/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\n   Compiling autocfg v1.1.0\n   Compiling proc-macro2 v1.0.51\n   Compiling unicode-ident v1.0.6\n   Compiling quote v1.0.23\n   Compiling log v0.4.17\n   Compiling scopeguard v1.1.0\n   Compiling syn v1.0.109\n   Compiling cfg-if v1.0.0\n[2024-10-12T12:54:57Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.17/src/lib.rs:1522:11: 1522:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.17/src/lib.rs:1525:13: 1525:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-10-12T12:54:57Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\nerror[E0635]: unknown feature `proc_macro_span_shrink`\n  --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-1.0.51/src/lib.rs:92:30\n   |\n92 |     feature(proc_macro_span, proc_macro_span_shrink)\n   |                              ^^^^^^^^^^^^^^^^^^^^^^\n\n   Compiling bitflags v1.3.2\n   Compiling lock_api v0.4.9\n   Compiling byteorder v1.4.3\n   Compiling spin v0.5.2\n   Compiling lazy_static v1.4.0\n   Compiling lose-net-stack v0.1.0 (/home/runner/check/batch_1/Byte-OS/lose-net-stack)\nFor more information about this error, try `rustc --explain E0635`.\nerror: could not compile `proc-macro2` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nwarning: unused `#[macro_use]` import\n  --> /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs:13:1\n   |\n13 | #[macro_use]\n   | ^^^^^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\nwarning: variable does not need to be mutable\n  --> /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs:55:13\n   |\n55 |         let mut eth_header = unsafe{ data_ptr_iter.next_mut::<Eth>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n   |\n   = note: `#[warn(unused_mut)]` on by default\n\nwarning: variable does not need to be mutable\n  --> /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs:61:13\n   |\n61 |         let mut arp_header = unsafe { data_ptr_iter.next_mut::<Arp>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n\nwarning: constant `ARP_PTYPE_ETHTYPE_IP` is never used\n  --> /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/consts.rs:10:18\n   |\n10 | pub(crate) const ARP_PTYPE_ETHTYPE_IP: u16 = 0x0800;\n   |                  ^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\nwarning: constant `IP_PROTOCAL_IGMP` is never used\n  --> /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/consts.rs:17:18\n   |\n17 | pub(crate) const IP_PROTOCAL_IGMP: u8 = 2;\n   |                  ^^^^^^^^^^^^^^^^\n\nwarning: `lose-net-stack` (lib) generated 5 warnings (run `cargo fix --lib -p lose-net-stack` to apply 2 suggestions)\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 1 to 1)\n-use core::fmt::{Display, Debug};\n+use core::fmt::{Debug, Display};\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 3 to 3)\n-use alloc::{string::String, format};\n+use alloc::{format, string::String};\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 18 to 18)\n-        format!(\"{}.{}.{}.{}\", (self.0 >> 24) & 0xff, (self.0 >> 16) & 0xff, (self.0 >> 8) & 0xff, self.0 & 0xff)\n+        format!(\n+            \"{}.{}.{}.{}\",\n+            (self.0 >> 24) & 0xff,\n+            (self.0 >> 16) & 0xff,\n+            (self.0 >> 8) & 0xff,\n+            self.0 & 0xff\n+        )\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 50 to 50)\n-        format!(\"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\", self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5])\n+        format!(\n+            \"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\",\n+            self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5]\n+        )\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 62 to 62)\n-        f.debug_tuple(\"MacAddress\").field(&self.to_string()).finish()\n+        f.debug_tuple(\"MacAddress\")\n+            .field(&self.to_string())\n+            .finish()\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 65 to 65)\n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/consts.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/consts.rs (original lines from 5 to 5)\n-pub(crate) const ETH_RTYPE_IP: u16 =  0x0800; // Internet protocol\n+pub(crate) const ETH_RTYPE_IP: u16 = 0x0800; // Internet protocol\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/consts.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/consts.rs (original lines from 24 to 24)\n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 3 to 3)\n-mod net;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 6 to 6)\n+mod net;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 20 to 20)\n-pub use net::TcpFlags;\n+use consts::*;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 24 to 24)\n+pub use net::TcpFlags;\n+use net::IP_LEN;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 27 to 27)\n-use net::IP_LEN;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 32 to 32)\n-use consts::*;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 37 to 38)\n-    pub ip:  IPv4,\n-    pub mac: MacAddress\n+    pub ip: IPv4,\n+    pub mac: MacAddress,\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 43 to 46)\n-        Self {\n-            ip,\n-            mac\n-        }\n+        Self { ip, mac }\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 49 to 51)\n-    fn analysis_udp(&self, mut data_ptr_iter: UnsafeRefIter, ip_header: &Ip, eth_header: &Eth) -> Packet {\n-        let udp_header = unsafe{data_ptr_iter.next::<UDP>()}.unwrap();\n-        let data = unsafe{data_ptr_iter.get_curr_arr()};\n+    fn analysis_udp(\n+        &self,\n+        mut data_ptr_iter: UnsafeRefIter,\n+        ip_header: &Ip,\n+        eth_header: &Eth,\n+    ) -> Packet {\n+        let udp_header = unsafe { data_ptr_iter.next::<UDP>() }.unwrap();\n+        let data = unsafe { data_ptr_iter.get_curr_arr() };\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 54 to 62)\n-        Packet::UDP(packets::udp::UDPPacket { \n-            source_ip: IPv4::from_u32(ip_header.src.to_be()), \n-            source_mac: MacAddress::new(eth_header.shost), \n-            source_port: udp_header.sport.to_be(), \n-            dest_ip: IPv4::from_u32(ip_header.dst.to_be()), \n-            dest_mac: MacAddress::new(eth_header.dhost), \n-            dest_port: udp_header.dport.to_be(), \n-            data_len, \n-            data: &data[..data_len]\n+        Packet::UDP(packets::udp::UDPPacket {\n+            source_ip: IPv4::from_u32(ip_header.src.to_be()),\n+            source_mac: MacAddress::new(eth_header.shost),\n+            source_port: udp_header.sport.to_be(),\n+            dest_ip: IPv4::from_u32(ip_header.dst.to_be()),\n+            dest_mac: MacAddress::new(eth_header.dhost),\n+            dest_port: udp_header.dport.to_be(),\n+            data_len,\n+            data: &data[..data_len],\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 66 to 67)\n-    fn analysis_tcp(&self, mut data_ptr_iter: UnsafeRefIter, ip_header: &Ip, eth_header: &Eth) -> Packet {\n-        let tcp_header = unsafe{data_ptr_iter.next::<TCP>()}.unwrap();\n+    fn analysis_tcp(\n+        &self,\n+        mut data_ptr_iter: UnsafeRefIter,\n+        ip_header: &Ip,\n+        eth_header: &Eth,\n+    ) -> Packet {\n+        let tcp_header = unsafe { data_ptr_iter.next::<TCP>() }.unwrap();\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 69 to 69)\n-        let data = &unsafe{data_ptr_iter.get_curr_arr()}[offset..];\n+        let data = &unsafe { data_ptr_iter.get_curr_arr() }[offset..];\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 73 to 78)\n-            source_ip: IPv4::from_u32(ip_header.src.to_be()), \n-            source_mac: MacAddress::new(eth_header.shost), \n-            source_port: tcp_header.sport.to_be(), \n-            dest_ip: IPv4::from_u32(ip_header.dst.to_be()), \n-            dest_mac: MacAddress::new(eth_header.dhost), \n-            dest_port: tcp_header.dport.to_be(), \n+            source_ip: IPv4::from_u32(ip_header.src.to_be()),\n+            source_mac: MacAddress::new(eth_header.shost),\n+            source_port: tcp_header.sport.to_be(),\n+            dest_ip: IPv4::from_u32(ip_header.dst.to_be()),\n+            dest_mac: MacAddress::new(eth_header.dhost),\n+            dest_port: tcp_header.dport.to_be(),\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 89 to 90)\n-    fn analysis_icmp(&self, data_ptr_iter: UnsafeRefIter, _ip_header: &Ip, _eth_header: &Eth) -> Packet {\n-        let _data = unsafe{data_ptr_iter.get_curr_arr()};\n+    fn analysis_icmp(\n+        &self,\n+        data_ptr_iter: UnsafeRefIter,\n+        _ip_header: &Ip,\n+        _eth_header: &Eth,\n+    ) -> Packet {\n+        let _data = unsafe { data_ptr_iter.get_curr_arr() };\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 96 to 96)\n-        let ip_header = unsafe{data_ptr_iter.next::<Ip>()}.unwrap();\n+        let ip_header = unsafe { data_ptr_iter.next::<Ip>() }.unwrap();\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 99 to 99)\n-            return Packet::None\n+            return Packet::None;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 103 to 103)\n-            return Packet::None\n+            return Packet::None;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 115 to 115)\n-        let arp_header = unsafe{data_ptr_iter.next::<Arp>()}.unwrap();\n+        let arp_header = unsafe { data_ptr_iter.next::<Arp>() }.unwrap();\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 122 to 126)\n-                IPv4::from_u32(arp_header.spa.to_be()), \n-                MacAddress::new(arp_header.sha), \n-                IPv4::from_u32(arp_header.tpa.to_be()), \n-                MacAddress::new(arp_header.tha), \n-                rtype\n+                IPv4::from_u32(arp_header.spa.to_be()),\n+                MacAddress::new(arp_header.sha),\n+                IPv4::from_u32(arp_header.tpa.to_be()),\n+                MacAddress::new(arp_header.tha),\n+                rtype,\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 133 to 133)\n-        let eth_header = unsafe{data_ptr_iter.next::<Eth>()}.unwrap();\n+        let eth_header = unsafe { data_ptr_iter.next::<Eth>() }.unwrap();\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 137 to 137)\n-            _ => Packet::None // Unsupported type\n+            _ => Packet::None, // Unsupported type\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 3 to 3)\n-\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 9 to 9)\n-    pub(crate) rtype: u16      // packet type, arp or ip\n+    pub(crate) rtype: u16,     // packet type, arp or ip\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 15 to 23)\n-    pub(crate) httype: u16, // Hardware type\n-    pub(crate) pttype: u16, // Protocol type, For IPv4, this has the value 0x0800.\n-    pub(crate) hlen: u8,    // Hardware length: Ethernet address length is 6.\n-    pub(crate) plen: u8,    // Protocol length: IPv4 address length is 4.\n-    pub(crate) op: u16,     // Operation: 1 for request, 2 for reply.\n-    pub(crate) sha: [u8; 6],// Sender hardware address\n-    pub(crate) spa: u32,    // Sender protocol address\n-    pub(crate) tha: [u8; 6],// Target hardware address\n-    pub(crate) tpa: u32     // Target protocol address\n+    pub(crate) httype: u16,  // Hardware type\n+    pub(crate) pttype: u16,  // Protocol type, For IPv4, this has the value 0x0800.\n+    pub(crate) hlen: u8,     // Hardware length: Ethernet address length is 6.\n+    pub(crate) plen: u8,     // Protocol length: IPv4 address length is 4.\n+    pub(crate) op: u16,      // Operation: 1 for request, 2 for reply.\n+    pub(crate) sha: [u8; 6], // Sender hardware address\n+    pub(crate) spa: u32,     // Sender protocol address\n+    pub(crate) tha: [u8; 6], // Target hardware address\n+    pub(crate) tpa: u32,     // Target protocol address\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 30 to 39)\n-    pub(crate) vhl: u8,    // version << 4 | header length >> 2\n-    pub(crate) tos: u8,    // type of service\n-    pub(crate) len: u16,   // total length, packet length\n-    pub(crate) id: u16,    // identification, can combine all packets\n-    pub(crate) off: u16,   // fragment offset field, packet from\n-    pub(crate) ttl: u8,    // time to live\n-    pub(crate) pro: u8,    // protocol， ICMP(1)、IGMP(2)、TCP(6)、UDP(17)\n-    pub(crate) sum: u16,   // checksum,\n-    pub(crate) src: u32,   // souce ip\n-    pub(crate) dst: u32    // destination ip\n+    pub(crate) vhl: u8,  // version << 4 | header length >> 2\n+    pub(crate) tos: u8,  // type of service\n+    pub(crate) len: u16, // total length, packet length\n+    pub(crate) id: u16,  // identification, can combine all packets\n+    pub(crate) off: u16, // fragment offset field, packet from\n+    pub(crate) ttl: u8,  // time to live\n+    pub(crate) pro: u8,  // protocol， ICMP(1)、IGMP(2)、TCP(6)、UDP(17)\n+    pub(crate) sum: u16, // checksum,\n+    pub(crate) src: u32, // souce ip\n+    pub(crate) dst: u32, // destination ip\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 49 to 49)\n-    pub(crate) sum: u16    // checksum\n+    pub(crate) sum: u16,   // checksum\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 69 to 73)\n-    pub(crate) sport: u16, // souce port\n-    pub(crate) dport: u16, // destination port\n-    pub(crate) seq: u32, // sequence number\n-    pub(crate) ack: u32, // acknowledgement number\n-    pub(crate) offset: u8, // offset, first 4 bytes are tcp header length\n+    pub(crate) sport: u16,      // souce port\n+    pub(crate) dport: u16,      // destination port\n+    pub(crate) seq: u32,        // sequence number\n+    pub(crate) ack: u32,        // acknowledgement number\n+    pub(crate) offset: u8,      // offset, first 4 bytes are tcp header length\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 75 to 77)\n-    pub(crate) win: u16,    // window size\n-    pub(crate) sum: u16,    // checksum\n-    pub(crate) urg: u16,    // urgent pointer\n+    pub(crate) win: u16,        // window size\n+    pub(crate) sum: u16,        // checksum\n+    pub(crate) urg: u16,        // urgent pointer\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 93 to 93)\n-pub(crate) const IP_LEN:  usize = size_of::<Ip>();\n+pub(crate) const IP_LEN: usize = size_of::<Ip>();\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 102 to 102)\n-00 00 00 00 00 00 0a 00 02 0f                         ..........                  \n+00 00 00 00 00 00 0a 00 02 0f                         ..........\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 108 to 108)\n-52 55 0a 00 02 02 0a 00 02 02                         RU........                  \n+52 55 0a 00 02 02 0a 00 02 02                         RU........\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 117 to 117)\n-73 20 61 20 70 69 6e 67 21                            s a ping!                     \n+73 20 61 20 70 69 6e 67 21                            s a ping!\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 121 to 121)\n-74 68 69 73 20 69 73 20 61 20 70 69 6e 67 21          this is a ping!   \n+74 68 69 73 20 69 73 20 61 20 70 69 6e 67 21          this is a ping!\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 125 to 125)\n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 3 to 3)\n+use crate::consts::{\n+    ARP_ETHADDR_LEN, ARP_HRD_ETHER, ARP_OP_REPLY, ARP_OP_REQUEST, BROADCAST_MAC, ETH_RTYPE_ARP,\n+    ETH_RTYPE_IP,\n+};\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 5 to 7)\n-use crate::consts::{ARP_OP_REQUEST, ARP_OP_REPLY, ARP_HRD_ETHER, ETH_RTYPE_IP, ARP_ETHADDR_LEN, ETH_RTYPE_ARP, BROADCAST_MAC};\n-use crate::MacAddress;\n-use crate::IPv4;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 9 to 9)\n+use crate::IPv4;\n+use crate::MacAddress;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 14 to 14)\n-    Unsupported\n+    Unsupported,\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 22 to 22)\n-            _ => ArpType::Unsupported\n+            _ => ArpType::Unsupported,\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 41 to 41)\n-    pub rtype: ArpType\n+    pub rtype: ArpType,\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 45 to 46)\n-    pub fn new(sender_ip: IPv4, sender_mac: MacAddress, target_ip: IPv4, target_mac: MacAddress, rtype: ArpType) -> Self {\n-        ArpPacket { sender_ip, sender_mac, target_ip, target_mac, rtype }\n+    pub fn new(\n+        sender_ip: IPv4,\n+        sender_mac: MacAddress,\n+        target_ip: IPv4,\n+        target_mac: MacAddress,\n+        rtype: ArpType,\n+    ) -> Self {\n+        ArpPacket {\n+            sender_ip,\n+            sender_mac,\n+            target_ip,\n+            target_mac,\n+            rtype,\n+        }\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 55 to 55)\n-        let mut eth_header = unsafe{ data_ptr_iter.next_mut::<Eth>() }.unwrap();\n+        let mut eth_header = unsafe { data_ptr_iter.next_mut::<Eth>() }.unwrap();\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 64 to 65)\n-        arp_header.hlen = ARP_ETHADDR_LEN as u8;    // mac address len\n-        arp_header.plen = 4;    // ipv4\n+        arp_header.hlen = ARP_ETHADDR_LEN as u8; // mac address len\n+        arp_header.plen = 4; // ipv4\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 67 to 67)\n-        \n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 70 to 70)\n-    \n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 76 to 76)\n-    pub fn reply_packet(&self, local_ip: IPv4, local_mac: MacAddress) -> Result<Self, NetStackErrors> {\n+    pub fn reply_packet(\n+        &self,\n+        local_ip: IPv4,\n+        local_mac: MacAddress,\n+    ) -> Result<Self, NetStackErrors> {\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 80 to 84)\n-                    local_ip, \n-                    local_mac, \n-                    self.sender_ip, \n-                    self.sender_mac, \n-                    ArpType::Reply\n+                    local_ip,\n+                    local_mac,\n+                    self.sender_ip,\n+                    self.sender_mac,\n+                    ArpType::Reply,\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 89 to 89)\n-            _ => Err(NetStackErrors::NotRequiredReplyArp)\n+            _ => Err(NetStackErrors::NotRequiredReplyArp),\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 93 to 93)\n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/mod.rs (original lines from 1 to 1)\n-pub mod udp;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/mod.rs (original lines from 4 to 4)\n+pub mod udp;\n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 4 to 4)\n-use crate::utils::{UnsafeRefIter, check_sum};\n+use crate::net::{Eth, Ip, TcpFlags, ETH_LEN, IP_LEN, TCP, TCP_LEN};\n+use crate::utils::{check_sum, UnsafeRefIter};\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 7 to 7)\n-use crate::net::{TCP_LEN, IP_LEN, ETH_LEN, Eth, Ip, TCP, TcpFlags};\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 19 to 24)\n-    pub seq: u32,           // sequence number\n-    pub ack: u32,           // acknowledgement number\n-    pub flags: TcpFlags,    // flags, last 6 are flags(U, A, P, R, S, F)\n-    pub win: u16,           // window size\n-    pub urg: u16,           // urgent pointer\n-    pub data: &'a [u8]      // data buffer\n+    pub seq: u32,        // sequence number\n+    pub ack: u32,        // acknowledgement number\n+    pub flags: TcpFlags, // flags, last 6 are flags(U, A, P, R, S, F)\n+    pub win: u16,        // window size\n+    pub urg: u16,        // urgent pointer\n+    pub data: &'a [u8],  // data buffer\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 27 to 27)\n-impl<'a> TCPPacket<'a>  {\n+impl<'a> TCPPacket<'a> {\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 33 to 36)\n-        let eth_header = unsafe{data_ptr_iter.next_mut::<Eth>()}.unwrap();\n-        let ip_header = unsafe{data_ptr_iter.next_mut::<Ip>()}.unwrap();\n-        let tcp_header = unsafe{data_ptr_iter.next_mut::<TCP>()}.unwrap();\n-        let tcp_data = unsafe {data_ptr_iter.get_curr_arr_mut()};\n+        let eth_header = unsafe { data_ptr_iter.next_mut::<Eth>() }.unwrap();\n+        let ip_header = unsafe { data_ptr_iter.next_mut::<Ip>() }.unwrap();\n+        let tcp_header = unsafe { data_ptr_iter.next_mut::<TCP>() }.unwrap();\n+        let tcp_data = unsafe { data_ptr_iter.get_curr_arr_mut() };\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 38 to 38)\n-\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 42 to 42)\n-        \n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 48 to 48)\n-        ip_header.id  = 0; // packet identified, use 0 as default\n+        ip_header.id = 0; // packet identified, use 0 as default\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 64 to 64)\n-        \n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 69 to 69)\n-        tcp_header.sum = check_sum(tcp_header as *mut _ as *mut u8, (TCP_LEN + self.data_len) as _, sum); // tcp checksum. zero means no checksum is provided.\n+        tcp_header.sum = check_sum(\n+            tcp_header as *mut _ as *mut u8,\n+            (TCP_LEN + self.data_len) as _,\n+            sum,\n+        ); // tcp checksum. zero means no checksum is provided.\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 74 to 74)\n-    pub fn reply(&self, data: &'a[u8]) -> Self {\n+    pub fn reply(&self, data: &'a [u8]) -> Self {\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 90 to 90)\n-        \n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 108 to 108)\n-            data: TCP_EMPTY_DATA\n+            data: TCP_EMPTY_DATA,\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 112 to 112)\n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 3 to 4)\n-use crate::consts::{ETH_RTYPE_IP, IP_PROTOCAL_UDP, IP_HEADER_VHL};\n-use crate::net::{UDP, Eth, Ip, UDP_LEN, IP_LEN, ETH_LEN};\n+use crate::consts::{ETH_RTYPE_IP, IP_HEADER_VHL, IP_PROTOCAL_UDP};\n+use crate::net::{Eth, Ip, ETH_LEN, IP_LEN, UDP, UDP_LEN};\n+use crate::utils::{check_sum, UnsafeRefIter};\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 7 to 7)\n-use crate::utils::{UnsafeRefIter, check_sum};\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 18 to 18)\n-    pub data: &'a [u8]\n+    pub data: &'a [u8],\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 22 to 24)\n-    pub fn new(source_ip: IPv4, source_mac: MacAddress, source_port: u16, \n-        dest_ip: IPv4, dest_mac: MacAddress, dest_port: u16, \n-        data_len: usize, data: &'a [u8]) -> Self {\n+    pub fn new(\n+        source_ip: IPv4,\n+        source_mac: MacAddress,\n+        source_port: u16,\n+        dest_ip: IPv4,\n+        dest_mac: MacAddress,\n+        dest_port: u16,\n+        data_len: usize,\n+        data: &'a [u8],\n+    ) -> Self {\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 33 to 33)\n-            data\n+            data,\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 42 to 45)\n-        let eth_header = unsafe{data_ptr_iter.next_mut::<Eth>()}.unwrap();\n-        let ip_header = unsafe{data_ptr_iter.next_mut::<Ip>()}.unwrap();\n-        let udp_header = unsafe{data_ptr_iter.next_mut::<UDP>()}.unwrap();\n-        let udp_data = unsafe {data_ptr_iter.get_curr_arr_mut()};\n+        let eth_header = unsafe { data_ptr_iter.next_mut::<Eth>() }.unwrap();\n+        let ip_header = unsafe { data_ptr_iter.next_mut::<Ip>() }.unwrap();\n+        let udp_header = unsafe { data_ptr_iter.next_mut::<UDP>() }.unwrap();\n+        let udp_data = unsafe { data_ptr_iter.get_curr_arr_mut() };\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 47 to 47)\n-\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 51 to 51)\n-        \n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 57 to 57)\n-        ip_header.id  = 0; // packet identified, use 0 as default\n+        ip_header.id = 0; // packet identified, use 0 as default\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 65 to 66)\n-        udp_header.sum   = 0; // udp checksum   zero means no checksum is provided.\n-        udp_header.ulen  = ((self.data_len + UDP_LEN) as u16).to_be();\n+        udp_header.sum = 0; // udp checksum   zero means no checksum is provided.\n+        udp_header.ulen = ((self.data_len + UDP_LEN) as u16).to_be();\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 75 to 82)\n-            self.dest_ip, \n-            self.dest_mac, \n-            self.dest_port, \n-            self.source_ip, \n-            self.source_mac, \n-            self.source_port, \n-            data.len(), \n-            data\n+            self.dest_ip,\n+            self.dest_mac,\n+            self.dest_port,\n+            self.source_ip,\n+            self.source_mac,\n+            self.source_port,\n+            data.len(),\n+            data,\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 86 to 86)\n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/results.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/results.rs (original lines from 1 to 1)\n-use crate::packets::{udp::UDPPacket, arp::ArpPacket, tcp::TCPPacket};\n+use crate::packets::{arp::ArpPacket, tcp::TCPPacket, udp::UDPPacket};\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/results.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/results.rs (original lines from 11 to 11)\n-    None\n+    None,\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/results.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/results.rs (original lines from 18 to 18)\n+\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 5 to 5)\n-    end: usize\n+    end: usize,\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 11 to 13)\n-        Self { \n-            ptr: data.as_ptr() as usize, \n-            end: data.as_ptr() as usize + data.len()\n+        Self {\n+            ptr: data.as_ptr() as usize,\n+            end: data.as_ptr() as usize + data.len(),\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 40 to 40)\n-    pub unsafe fn get_curr_arr(&self) -> &'static [u8]{\n+    pub unsafe fn get_curr_arr(&self) -> &'static [u8] {\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 45 to 45)\n-    pub unsafe fn get_curr_arr_mut(&self) -> &'static mut [u8]{\n+    pub unsafe fn get_curr_arr_mut(&self) -> &'static mut [u8] {\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 51 to 52)\n-pub fn check_sum(addr:*mut u8, len:u32, sum: u32) -> u16 {\n-    let mut sum:u32 = sum;\n+pub fn check_sum(addr: *mut u8, len: u32, sum: u32) -> u16 {\n+    let mut sum: u32 = sum;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 55 to 57)\n-    \n-     while nleft > 1 {\n-        sum += unsafe{ *w as u32 };\n+\n+    while nleft > 1 {\n+        sum += unsafe { *w as u32 };\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 65 to 65)\n-     }\n+    }\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 67 to 69)\n-     if nleft == 1 {\n-        sum += unsafe { *(w as *const u8) as u32};\n-     }\n+    if nleft == 1 {\n+        sum += unsafe { *(w as *const u8) as u32 };\n+    }\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 71 to 71)\n+    sum = (sum & 0xFFFF) + (sum >> 16);\n+    sum = sum + (sum >> 16);\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 72 to 73)\n-     sum = (sum & 0xFFFF) + (sum >> 16);\n-     sum = sum + (sum >> 16);\n+    let answer: u16 = !sum as u16;\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 75 to 77)\n-     let answer:u16 = !sum as u16;\n-\n-     answer\n+    answer\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 79 to 79)\n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 1 to 1)\n-use core::fmt::{Display, Debug};\n+use core::fmt::{Debug, Display};\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 3 to 3)\n-use alloc::{string::String, format};\n+use alloc::{format, string::String};\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 18 to 18)\n-        format!(\"{}.{}.{}.{}\", (self.0 >> 24) & 0xff, (self.0 >> 16) & 0xff, (self.0 >> 8) & 0xff, self.0 & 0xff)\n+        format!(\n+            \"{}.{}.{}.{}\",\n+            (self.0 >> 24) & 0xff,\n+            (self.0 >> 16) & 0xff,\n+            (self.0 >> 8) & 0xff,\n+            self.0 & 0xff\n+        )\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 50 to 50)\n-        format!(\"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\", self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5])\n+        format!(\n+            \"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\",\n+            self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5]\n+        )\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 62 to 62)\n-        f.debug_tuple(\"MacAddress\").field(&self.to_string()).finish()\n+        f.debug_tuple(\"MacAddress\")\n+            .field(&self.to_string())\n+            .finish()\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/addr.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 65 to 65)\n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/consts.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/consts.rs (original lines from 5 to 5)\n-pub(crate) const ETH_RTYPE_IP: u16 =  0x0800; // Internet protocol\n+pub(crate) const ETH_RTYPE_IP: u16 = 0x0800; // Internet protocol\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/consts.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/consts.rs (original lines from 24 to 24)\n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 3 to 3)\n-mod net;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 6 to 6)\n+mod net;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 20 to 20)\n-pub use net::TcpFlags;\n+use consts::*;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 24 to 24)\n+pub use net::TcpFlags;\n+use net::IP_LEN;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 27 to 27)\n-use net::IP_LEN;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 32 to 32)\n-use consts::*;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 37 to 38)\n-    pub ip:  IPv4,\n-    pub mac: MacAddress\n+    pub ip: IPv4,\n+    pub mac: MacAddress,\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 43 to 46)\n-        Self {\n-            ip,\n-            mac\n-        }\n+        Self { ip, mac }\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 49 to 51)\n-    fn analysis_udp(&self, mut data_ptr_iter: UnsafeRefIter, ip_header: &Ip, eth_header: &Eth) -> Packet {\n-        let udp_header = unsafe{data_ptr_iter.next::<UDP>()}.unwrap();\n-        let data = unsafe{data_ptr_iter.get_curr_arr()};\n+    fn analysis_udp(\n+        &self,\n+        mut data_ptr_iter: UnsafeRefIter,\n+        ip_header: &Ip,\n+        eth_header: &Eth,\n+    ) -> Packet {\n+        let udp_header = unsafe { data_ptr_iter.next::<UDP>() }.unwrap();\n+        let data = unsafe { data_ptr_iter.get_curr_arr() };\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 54 to 62)\n-        Packet::UDP(packets::udp::UDPPacket { \n-            source_ip: IPv4::from_u32(ip_header.src.to_be()), \n-            source_mac: MacAddress::new(eth_header.shost), \n-            source_port: udp_header.sport.to_be(), \n-            dest_ip: IPv4::from_u32(ip_header.dst.to_be()), \n-            dest_mac: MacAddress::new(eth_header.dhost), \n-            dest_port: udp_header.dport.to_be(), \n-            data_len, \n-            data: &data[..data_len]\n+        Packet::UDP(packets::udp::UDPPacket {\n+            source_ip: IPv4::from_u32(ip_header.src.to_be()),\n+            source_mac: MacAddress::new(eth_header.shost),\n+            source_port: udp_header.sport.to_be(),\n+            dest_ip: IPv4::from_u32(ip_header.dst.to_be()),\n+            dest_mac: MacAddress::new(eth_header.dhost),\n+            dest_port: udp_header.dport.to_be(),\n+            data_len,\n+            data: &data[..data_len],\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 66 to 67)\n-    fn analysis_tcp(&self, mut data_ptr_iter: UnsafeRefIter, ip_header: &Ip, eth_header: &Eth) -> Packet {\n-        let tcp_header = unsafe{data_ptr_iter.next::<TCP>()}.unwrap();\n+    fn analysis_tcp(\n+        &self,\n+        mut data_ptr_iter: UnsafeRefIter,\n+        ip_header: &Ip,\n+        eth_header: &Eth,\n+    ) -> Packet {\n+        let tcp_header = unsafe { data_ptr_iter.next::<TCP>() }.unwrap();\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 69 to 69)\n-        let data = &unsafe{data_ptr_iter.get_curr_arr()}[offset..];\n+        let data = &unsafe { data_ptr_iter.get_curr_arr() }[offset..];\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 73 to 78)\n-            source_ip: IPv4::from_u32(ip_header.src.to_be()), \n-            source_mac: MacAddress::new(eth_header.shost), \n-            source_port: tcp_header.sport.to_be(), \n-            dest_ip: IPv4::from_u32(ip_header.dst.to_be()), \n-            dest_mac: MacAddress::new(eth_header.dhost), \n-            dest_port: tcp_header.dport.to_be(), \n+            source_ip: IPv4::from_u32(ip_header.src.to_be()),\n+            source_mac: MacAddress::new(eth_header.shost),\n+            source_port: tcp_header.sport.to_be(),\n+            dest_ip: IPv4::from_u32(ip_header.dst.to_be()),\n+            dest_mac: MacAddress::new(eth_header.dhost),\n+            dest_port: tcp_header.dport.to_be(),\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 89 to 90)\n-    fn analysis_icmp(&self, data_ptr_iter: UnsafeRefIter, _ip_header: &Ip, _eth_header: &Eth) -> Packet {\n-        let _data = unsafe{data_ptr_iter.get_curr_arr()};\n+    fn analysis_icmp(\n+        &self,\n+        data_ptr_iter: UnsafeRefIter,\n+        _ip_header: &Ip,\n+        _eth_header: &Eth,\n+    ) -> Packet {\n+        let _data = unsafe { data_ptr_iter.get_curr_arr() };\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 96 to 96)\n-        let ip_header = unsafe{data_ptr_iter.next::<Ip>()}.unwrap();\n+        let ip_header = unsafe { data_ptr_iter.next::<Ip>() }.unwrap();\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 99 to 99)\n-            return Packet::None\n+            return Packet::None;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 103 to 103)\n-            return Packet::None\n+            return Packet::None;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 115 to 115)\n-        let arp_header = unsafe{data_ptr_iter.next::<Arp>()}.unwrap();\n+        let arp_header = unsafe { data_ptr_iter.next::<Arp>() }.unwrap();\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 122 to 126)\n-                IPv4::from_u32(arp_header.spa.to_be()), \n-                MacAddress::new(arp_header.sha), \n-                IPv4::from_u32(arp_header.tpa.to_be()), \n-                MacAddress::new(arp_header.tha), \n-                rtype\n+                IPv4::from_u32(arp_header.spa.to_be()),\n+                MacAddress::new(arp_header.sha),\n+                IPv4::from_u32(arp_header.tpa.to_be()),\n+                MacAddress::new(arp_header.tha),\n+                rtype,\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 133 to 133)\n-        let eth_header = unsafe{data_ptr_iter.next::<Eth>()}.unwrap();\n+        let eth_header = unsafe { data_ptr_iter.next::<Eth>() }.unwrap();\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 137 to 137)\n-            _ => Packet::None // Unsupported type\n+            _ => Packet::None, // Unsupported type\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 3 to 3)\n-\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 9 to 9)\n-    pub(crate) rtype: u16      // packet type, arp or ip\n+    pub(crate) rtype: u16,     // packet type, arp or ip\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 15 to 23)\n-    pub(crate) httype: u16, // Hardware type\n-    pub(crate) pttype: u16, // Protocol type, For IPv4, this has the value 0x0800.\n-    pub(crate) hlen: u8,    // Hardware length: Ethernet address length is 6.\n-    pub(crate) plen: u8,    // Protocol length: IPv4 address length is 4.\n-    pub(crate) op: u16,     // Operation: 1 for request, 2 for reply.\n-    pub(crate) sha: [u8; 6],// Sender hardware address\n-    pub(crate) spa: u32,    // Sender protocol address\n-    pub(crate) tha: [u8; 6],// Target hardware address\n-    pub(crate) tpa: u32     // Target protocol address\n+    pub(crate) httype: u16,  // Hardware type\n+    pub(crate) pttype: u16,  // Protocol type, For IPv4, this has the value 0x0800.\n+    pub(crate) hlen: u8,     // Hardware length: Ethernet address length is 6.\n+    pub(crate) plen: u8,     // Protocol length: IPv4 address length is 4.\n+    pub(crate) op: u16,      // Operation: 1 for request, 2 for reply.\n+    pub(crate) sha: [u8; 6], // Sender hardware address\n+    pub(crate) spa: u32,     // Sender protocol address\n+    pub(crate) tha: [u8; 6], // Target hardware address\n+    pub(crate) tpa: u32,     // Target protocol address\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 30 to 39)\n-    pub(crate) vhl: u8,    // version << 4 | header length >> 2\n-    pub(crate) tos: u8,    // type of service\n-    pub(crate) len: u16,   // total length, packet length\n-    pub(crate) id: u16,    // identification, can combine all packets\n-    pub(crate) off: u16,   // fragment offset field, packet from\n-    pub(crate) ttl: u8,    // time to live\n-    pub(crate) pro: u8,    // protocol， ICMP(1)、IGMP(2)、TCP(6)、UDP(17)\n-    pub(crate) sum: u16,   // checksum,\n-    pub(crate) src: u32,   // souce ip\n-    pub(crate) dst: u32    // destination ip\n+    pub(crate) vhl: u8,  // version << 4 | header length >> 2\n+    pub(crate) tos: u8,  // type of service\n+    pub(crate) len: u16, // total length, packet length\n+    pub(crate) id: u16,  // identification, can combine all packets\n+    pub(crate) off: u16, // fragment offset field, packet from\n+    pub(crate) ttl: u8,  // time to live\n+    pub(crate) pro: u8,  // protocol， ICMP(1)、IGMP(2)、TCP(6)、UDP(17)\n+    pub(crate) sum: u16, // checksum,\n+    pub(crate) src: u32, // souce ip\n+    pub(crate) dst: u32, // destination ip\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 49 to 49)\n-    pub(crate) sum: u16    // checksum\n+    pub(crate) sum: u16,   // checksum\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 69 to 73)\n-    pub(crate) sport: u16, // souce port\n-    pub(crate) dport: u16, // destination port\n-    pub(crate) seq: u32, // sequence number\n-    pub(crate) ack: u32, // acknowledgement number\n-    pub(crate) offset: u8, // offset, first 4 bytes are tcp header length\n+    pub(crate) sport: u16,      // souce port\n+    pub(crate) dport: u16,      // destination port\n+    pub(crate) seq: u32,        // sequence number\n+    pub(crate) ack: u32,        // acknowledgement number\n+    pub(crate) offset: u8,      // offset, first 4 bytes are tcp header length\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 75 to 77)\n-    pub(crate) win: u16,    // window size\n-    pub(crate) sum: u16,    // checksum\n-    pub(crate) urg: u16,    // urgent pointer\n+    pub(crate) win: u16,        // window size\n+    pub(crate) sum: u16,        // checksum\n+    pub(crate) urg: u16,        // urgent pointer\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 93 to 93)\n-pub(crate) const IP_LEN:  usize = size_of::<Ip>();\n+pub(crate) const IP_LEN: usize = size_of::<Ip>();\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 102 to 102)\n-00 00 00 00 00 00 0a 00 02 0f                         ..........                  \n+00 00 00 00 00 00 0a 00 02 0f                         ..........\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 108 to 108)\n-52 55 0a 00 02 02 0a 00 02 02                         RU........                  \n+52 55 0a 00 02 02 0a 00 02 02                         RU........\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 117 to 117)\n-73 20 61 20 70 69 6e 67 21                            s a ping!                     \n+73 20 61 20 70 69 6e 67 21                            s a ping!\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 121 to 121)\n-74 68 69 73 20 69 73 20 61 20 70 69 6e 67 21          this is a ping!   \n+74 68 69 73 20 69 73 20 61 20 70 69 6e 67 21          this is a ping!\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/net.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/net.rs (original lines from 125 to 125)\n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 3 to 3)\n+use crate::consts::{\n+    ARP_ETHADDR_LEN, ARP_HRD_ETHER, ARP_OP_REPLY, ARP_OP_REQUEST, BROADCAST_MAC, ETH_RTYPE_ARP,\n+    ETH_RTYPE_IP,\n+};\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 5 to 7)\n-use crate::consts::{ARP_OP_REQUEST, ARP_OP_REPLY, ARP_HRD_ETHER, ETH_RTYPE_IP, ARP_ETHADDR_LEN, ETH_RTYPE_ARP, BROADCAST_MAC};\n-use crate::MacAddress;\n-use crate::IPv4;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 9 to 9)\n+use crate::IPv4;\n+use crate::MacAddress;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 14 to 14)\n-    Unsupported\n+    Unsupported,\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 22 to 22)\n-            _ => ArpType::Unsupported\n+            _ => ArpType::Unsupported,\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 41 to 41)\n-    pub rtype: ArpType\n+    pub rtype: ArpType,\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 45 to 46)\n-    pub fn new(sender_ip: IPv4, sender_mac: MacAddress, target_ip: IPv4, target_mac: MacAddress, rtype: ArpType) -> Self {\n-        ArpPacket { sender_ip, sender_mac, target_ip, target_mac, rtype }\n+    pub fn new(\n+        sender_ip: IPv4,\n+        sender_mac: MacAddress,\n+        target_ip: IPv4,\n+        target_mac: MacAddress,\n+        rtype: ArpType,\n+    ) -> Self {\n+        ArpPacket {\n+            sender_ip,\n+            sender_mac,\n+            target_ip,\n+            target_mac,\n+            rtype,\n+        }\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 55 to 55)\n-        let mut eth_header = unsafe{ data_ptr_iter.next_mut::<Eth>() }.unwrap();\n+        let mut eth_header = unsafe { data_ptr_iter.next_mut::<Eth>() }.unwrap();\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 64 to 65)\n-        arp_header.hlen = ARP_ETHADDR_LEN as u8;    // mac address len\n-        arp_header.plen = 4;    // ipv4\n+        arp_header.hlen = ARP_ETHADDR_LEN as u8; // mac address len\n+        arp_header.plen = 4; // ipv4\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 67 to 67)\n-        \n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 70 to 70)\n-    \n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 76 to 76)\n-    pub fn reply_packet(&self, local_ip: IPv4, local_mac: MacAddress) -> Result<Self, NetStackErrors> {\n+    pub fn reply_packet(\n+        &self,\n+        local_ip: IPv4,\n+        local_mac: MacAddress,\n+    ) -> Result<Self, NetStackErrors> {\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 80 to 84)\n-                    local_ip, \n-                    local_mac, \n-                    self.sender_ip, \n-                    self.sender_mac, \n-                    ArpType::Reply\n+                    local_ip,\n+                    local_mac,\n+                    self.sender_ip,\n+                    self.sender_mac,\n+                    ArpType::Reply,\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 89 to 89)\n-            _ => Err(NetStackErrors::NotRequiredReplyArp)\n+            _ => Err(NetStackErrors::NotRequiredReplyArp),\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/arp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 93 to 93)\n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/mod.rs (original lines from 1 to 1)\n-pub mod udp;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/mod.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/mod.rs (original lines from 4 to 4)\n+pub mod udp;\n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 4 to 4)\n-use crate::utils::{UnsafeRefIter, check_sum};\n+use crate::net::{Eth, Ip, TcpFlags, ETH_LEN, IP_LEN, TCP, TCP_LEN};\n+use crate::utils::{check_sum, UnsafeRefIter};\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 7 to 7)\n-use crate::net::{TCP_LEN, IP_LEN, ETH_LEN, Eth, Ip, TCP, TcpFlags};\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 19 to 24)\n-    pub seq: u32,           // sequence number\n-    pub ack: u32,           // acknowledgement number\n-    pub flags: TcpFlags,    // flags, last 6 are flags(U, A, P, R, S, F)\n-    pub win: u16,           // window size\n-    pub urg: u16,           // urgent pointer\n-    pub data: &'a [u8]      // data buffer\n+    pub seq: u32,        // sequence number\n+    pub ack: u32,        // acknowledgement number\n+    pub flags: TcpFlags, // flags, last 6 are flags(U, A, P, R, S, F)\n+    pub win: u16,        // window size\n+    pub urg: u16,        // urgent pointer\n+    pub data: &'a [u8],  // data buffer\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 27 to 27)\n-impl<'a> TCPPacket<'a>  {\n+impl<'a> TCPPacket<'a> {\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 33 to 36)\n-        let eth_header = unsafe{data_ptr_iter.next_mut::<Eth>()}.unwrap();\n-        let ip_header = unsafe{data_ptr_iter.next_mut::<Ip>()}.unwrap();\n-        let tcp_header = unsafe{data_ptr_iter.next_mut::<TCP>()}.unwrap();\n-        let tcp_data = unsafe {data_ptr_iter.get_curr_arr_mut()};\n+        let eth_header = unsafe { data_ptr_iter.next_mut::<Eth>() }.unwrap();\n+        let ip_header = unsafe { data_ptr_iter.next_mut::<Ip>() }.unwrap();\n+        let tcp_header = unsafe { data_ptr_iter.next_mut::<TCP>() }.unwrap();\n+        let tcp_data = unsafe { data_ptr_iter.get_curr_arr_mut() };\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 38 to 38)\n-\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 42 to 42)\n-        \n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 48 to 48)\n-        ip_header.id  = 0; // packet identified, use 0 as default\n+        ip_header.id = 0; // packet identified, use 0 as default\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 64 to 64)\n-        \n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 69 to 69)\n-        tcp_header.sum = check_sum(tcp_header as *mut _ as *mut u8, (TCP_LEN + self.data_len) as _, sum); // tcp checksum. zero means no checksum is provided.\n+        tcp_header.sum = check_sum(\n+            tcp_header as *mut _ as *mut u8,\n+            (TCP_LEN + self.data_len) as _,\n+            sum,\n+        ); // tcp checksum. zero means no checksum is provided.\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 74 to 74)\n-    pub fn reply(&self, data: &'a[u8]) -> Self {\n+    pub fn reply(&self, data: &'a [u8]) -> Self {\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 90 to 90)\n-        \n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 108 to 108)\n-            data: TCP_EMPTY_DATA\n+            data: TCP_EMPTY_DATA,\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/tcp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 112 to 112)\n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 3 to 4)\n-use crate::consts::{ETH_RTYPE_IP, IP_PROTOCAL_UDP, IP_HEADER_VHL};\n-use crate::net::{UDP, Eth, Ip, UDP_LEN, IP_LEN, ETH_LEN};\n+use crate::consts::{ETH_RTYPE_IP, IP_HEADER_VHL, IP_PROTOCAL_UDP};\n+use crate::net::{Eth, Ip, ETH_LEN, IP_LEN, UDP, UDP_LEN};\n+use crate::utils::{check_sum, UnsafeRefIter};\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 7 to 7)\n-use crate::utils::{UnsafeRefIter, check_sum};\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 18 to 18)\n-    pub data: &'a [u8]\n+    pub data: &'a [u8],\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 22 to 24)\n-    pub fn new(source_ip: IPv4, source_mac: MacAddress, source_port: u16, \n-        dest_ip: IPv4, dest_mac: MacAddress, dest_port: u16, \n-        data_len: usize, data: &'a [u8]) -> Self {\n+    pub fn new(\n+        source_ip: IPv4,\n+        source_mac: MacAddress,\n+        source_port: u16,\n+        dest_ip: IPv4,\n+        dest_mac: MacAddress,\n+        dest_port: u16,\n+        data_len: usize,\n+        data: &'a [u8],\n+    ) -> Self {\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 33 to 33)\n-            data\n+            data,\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 42 to 45)\n-        let eth_header = unsafe{data_ptr_iter.next_mut::<Eth>()}.unwrap();\n-        let ip_header = unsafe{data_ptr_iter.next_mut::<Ip>()}.unwrap();\n-        let udp_header = unsafe{data_ptr_iter.next_mut::<UDP>()}.unwrap();\n-        let udp_data = unsafe {data_ptr_iter.get_curr_arr_mut()};\n+        let eth_header = unsafe { data_ptr_iter.next_mut::<Eth>() }.unwrap();\n+        let ip_header = unsafe { data_ptr_iter.next_mut::<Ip>() }.unwrap();\n+        let udp_header = unsafe { data_ptr_iter.next_mut::<UDP>() }.unwrap();\n+        let udp_data = unsafe { data_ptr_iter.get_curr_arr_mut() };\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 47 to 47)\n-\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 51 to 51)\n-        \n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 57 to 57)\n-        ip_header.id  = 0; // packet identified, use 0 as default\n+        ip_header.id = 0; // packet identified, use 0 as default\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 65 to 66)\n-        udp_header.sum   = 0; // udp checksum   zero means no checksum is provided.\n-        udp_header.ulen  = ((self.data_len + UDP_LEN) as u16).to_be();\n+        udp_header.sum = 0; // udp checksum   zero means no checksum is provided.\n+        udp_header.ulen = ((self.data_len + UDP_LEN) as u16).to_be();\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 75 to 82)\n-            self.dest_ip, \n-            self.dest_mac, \n-            self.dest_port, \n-            self.source_ip, \n-            self.source_mac, \n-            self.source_port, \n-            data.len(), \n-            data\n+            self.dest_ip,\n+            self.dest_mac,\n+            self.dest_port,\n+            self.source_ip,\n+            self.source_mac,\n+            self.source_port,\n+            data.len(),\n+            data,\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/packets/udp.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 86 to 86)\n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/results.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/results.rs (original lines from 1 to 1)\n-use crate::packets::{udp::UDPPacket, arp::ArpPacket, tcp::TCPPacket};\n+use crate::packets::{arp::ArpPacket, tcp::TCPPacket, udp::UDPPacket};\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/results.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/results.rs (original lines from 11 to 11)\n-    None\n+    None,\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/results.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/results.rs (original lines from 18 to 18)\n+\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 5 to 5)\n-    end: usize\n+    end: usize,\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 11 to 13)\n-        Self { \n-            ptr: data.as_ptr() as usize, \n-            end: data.as_ptr() as usize + data.len()\n+        Self {\n+            ptr: data.as_ptr() as usize,\n+            end: data.as_ptr() as usize + data.len(),\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 40 to 40)\n-    pub unsafe fn get_curr_arr(&self) -> &'static [u8]{\n+    pub unsafe fn get_curr_arr(&self) -> &'static [u8] {\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 45 to 45)\n-    pub unsafe fn get_curr_arr_mut(&self) -> &'static mut [u8]{\n+    pub unsafe fn get_curr_arr_mut(&self) -> &'static mut [u8] {\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 51 to 52)\n-pub fn check_sum(addr:*mut u8, len:u32, sum: u32) -> u16 {\n-    let mut sum:u32 = sum;\n+pub fn check_sum(addr: *mut u8, len: u32, sum: u32) -> u16 {\n+    let mut sum: u32 = sum;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 55 to 57)\n-    \n-     while nleft > 1 {\n-        sum += unsafe{ *w as u32 };\n+\n+    while nleft > 1 {\n+        sum += unsafe { *w as u32 };\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 65 to 65)\n-     }\n+    }\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 67 to 69)\n-     if nleft == 1 {\n-        sum += unsafe { *(w as *const u8) as u32};\n-     }\n+    if nleft == 1 {\n+        sum += unsafe { *(w as *const u8) as u32 };\n+    }\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 71 to 71)\n+    sum = (sum & 0xFFFF) + (sum >> 16);\n+    sum = sum + (sum >> 16);\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 72 to 73)\n-     sum = (sum & 0xFFFF) + (sum >> 16);\n-     sum = sum + (sum >> 16);\n+    let answer: u16 = !sum as u16;\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 75 to 77)\n-     let answer:u16 = !sum as u16;\n-\n-     answer\n+    answer\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/utils.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/utils.rs (original lines from 79 to 79)\n+\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/packets/arp.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: variable does not need to be mutable\n  --> src/packets/arp.rs:55:13\n   |\n55 |         let mut eth_header = unsafe{ data_ptr_iter.next_mut::<Eth>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n   |\n   = note: `#[warn(unused_mut)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/packets/arp.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: variable does not need to be mutable\n  --> src/packets/arp.rs:61:13\n   |\n61 |         let mut arp_header = unsafe { data_ptr_iter.next_mut::<Arp>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/consts.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: constant `ARP_PTYPE_ETHTYPE_IP` is never used\n  --> src/consts.rs:10:18\n   |\n10 | pub(crate) const ARP_PTYPE_ETHTYPE_IP: u16 = 0x0800;\n   |                  ^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/consts.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: constant `IP_PROTOCAL_IGMP` is never used\n  --> src/consts.rs:17:18\n   |\n17 | pub(crate) const IP_PROTOCAL_IGMP: u8 = 2;\n   |                  ^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: name `UDP` contains a capitalized acronym\n  --> src/net.rs:45:12\n   |\n45 | pub struct UDP {\n   |            ^^^ help: consider making the acronym lowercase, except the initial letter: `Udp`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#upper_case_acronyms\n   = note: `#[warn(clippy::upper_case_acronyms)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-1.3.2/src/lib.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: &-masking with zero\n  --> src/net.rs:52:1\n   |\n52 | / bitflags! {\n53 | |     // #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]\n54 | |     pub struct TcpFlags: u8 {\n55 | |         const NONE = 0;\n...  |\n62 | |     }\n63 | | }\n   | |_^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n   = note: `#[deny(clippy::bad_bit_mask)]` on by default\n   = note: this error originates in the macro `__impl_bitflags` which comes from the expansion of the macro `bitflags` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: name `TCP` contains a capitalized acronym\n  --> src/net.rs:68:12\n   |\n68 | pub struct TCP {\n   |            ^^^ help: consider making the acronym lowercase, except the initial letter: `Tcp`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#upper_case_acronyms\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: name `ICMP` contains a capitalized acronym\n  --> src/net.rs:83:12\n   |\n83 | pub struct ICMP {\n   |            ^^^^ help: consider making the acronym lowercase, except the initial letter: `Icmp`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#upper_case_acronyms\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/addr.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: type `addr::IPv4` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:17:5\n   |\n17 | /     pub fn to_string(&self) -> String {\n18 | |         format!(\"{}.{}.{}.{}\", (self.0 >> 24) & 0xff, (self.0 >> 16) & 0xff, (self.0 >> 8) & 0xff, self.0 & 0xff)\n19 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::IPv4`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n   = note: `#[deny(clippy::inherent_to_string_shadow_display)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/addr.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: type `addr::MacAddress` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:49:5\n   |\n49 | /     pub fn to_string(&self) -> String {\n50 | |         format!(\"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\", self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5])\n51 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::MacAddress`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/packets/udp.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this function has too many arguments (8/7)\n  --> src/packets/udp.rs:22:5\n   |\n22 | /     pub fn new(source_ip: IPv4, source_mac: MacAddress, source_port: u16, \n23 | |         dest_ip: IPv4, dest_mac: MacAddress, dest_port: u16, \n24 | |         data_len: usize, data: &'a [u8]) -> Self {\n   | |________________________________________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n   = note: `#[warn(clippy::too_many_arguments)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/packets/udp.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/packets/udp.rs:68:34\n   |\n68 |         udp_data.copy_from_slice(&self.data);\n   |                                  ^^^^^^^^^^ help: change this to: `self.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n   = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/packets/tcp.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/packets/tcp.rs:63:34\n   |\n63 |         tcp_data.copy_from_slice(&self.data);\n   |                                  ^^^^^^^^^^ help: change this to: `self.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/packets/arp.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: variable does not need to be mutable\n  --> src/packets/arp.rs:55:13\n   |\n55 |         let mut eth_header = unsafe{ data_ptr_iter.next_mut::<Eth>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n   |\n   = note: `#[warn(unused_mut)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/packets/arp.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: variable does not need to be mutable\n  --> src/packets/arp.rs:61:13\n   |\n61 |         let mut arp_header = unsafe { data_ptr_iter.next_mut::<Arp>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/consts.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: constant `ARP_PTYPE_ETHTYPE_IP` is never used\n  --> src/consts.rs:10:18\n   |\n10 | pub(crate) const ARP_PTYPE_ETHTYPE_IP: u16 = 0x0800;\n   |                  ^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/consts.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: constant `IP_PROTOCAL_IGMP` is never used\n  --> src/consts.rs:17:18\n   |\n17 | pub(crate) const IP_PROTOCAL_IGMP: u8 = 2;\n   |                  ^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: name `UDP` contains a capitalized acronym\n  --> src/net.rs:45:12\n   |\n45 | pub struct UDP {\n   |            ^^^ help: consider making the acronym lowercase, except the initial letter: `Udp`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#upper_case_acronyms\n   = note: `#[warn(clippy::upper_case_acronyms)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-1.3.2/src/lib.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: &-masking with zero\n  --> src/net.rs:52:1\n   |\n52 | / bitflags! {\n53 | |     // #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]\n54 | |     pub struct TcpFlags: u8 {\n55 | |         const NONE = 0;\n...  |\n62 | |     }\n63 | | }\n   | |_^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n   = note: `#[deny(clippy::bad_bit_mask)]` on by default\n   = note: this error originates in the macro `__impl_bitflags` which comes from the expansion of the macro `bitflags` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: name `TCP` contains a capitalized acronym\n  --> src/net.rs:68:12\n   |\n68 | pub struct TCP {\n   |            ^^^ help: consider making the acronym lowercase, except the initial letter: `Tcp`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#upper_case_acronyms\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/net.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: name `ICMP` contains a capitalized acronym\n  --> src/net.rs:83:12\n   |\n83 | pub struct ICMP {\n   |            ^^^^ help: consider making the acronym lowercase, except the initial letter: `Icmp`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#upper_case_acronyms\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/addr.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: type `addr::IPv4` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:17:5\n   |\n17 | /     pub fn to_string(&self) -> String {\n18 | |         format!(\"{}.{}.{}.{}\", (self.0 >> 24) & 0xff, (self.0 >> 16) & 0xff, (self.0 >> 8) & 0xff, self.0 & 0xff)\n19 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::IPv4`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n   = note: `#[deny(clippy::inherent_to_string_shadow_display)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/addr.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: type `addr::MacAddress` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:49:5\n   |\n49 | /     pub fn to_string(&self) -> String {\n50 | |         format!(\"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\", self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5])\n51 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::MacAddress`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/packets/udp.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this function has too many arguments (8/7)\n  --> src/packets/udp.rs:22:5\n   |\n22 | /     pub fn new(source_ip: IPv4, source_mac: MacAddress, source_port: u16, \n23 | |         dest_ip: IPv4, dest_mac: MacAddress, dest_port: u16, \n24 | |         data_len: usize, data: &'a [u8]) -> Self {\n   | |________________________________________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n   = note: `#[warn(clippy::too_many_arguments)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/packets/udp.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/packets/udp.rs:68:34\n   |\n68 |         udp_data.copy_from_slice(&self.data);\n   |                                  ^^^^^^^^^^ help: change this to: `self.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n   = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/packets/tcp.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/packets/tcp.rs:63:34\n   |\n63 |         tcp_data.copy_from_slice(&self.data);\n   |                                  ^^^^^^^^^^ help: change this to: `self.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/packets/arp.rs",
+      "kind": "Mirai",
+      "raw": "warning: variable does not need to be mutable\n  --> src/packets/arp.rs:55:13\n   |\n55 |         let mut eth_header = unsafe{ data_ptr_iter.next_mut::<Eth>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n   |\n   = note: `#[warn(unused_mut)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/packets/arp.rs",
+      "kind": "Mirai",
+      "raw": "warning: variable does not need to be mutable\n  --> src/packets/arp.rs:61:13\n   |\n61 |         let mut arp_header = unsafe { data_ptr_iter.next_mut::<Arp>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/consts.rs",
+      "kind": "Mirai",
+      "raw": "warning: constant `ARP_PTYPE_ETHTYPE_IP` is never used\n  --> src/consts.rs:10:18\n   |\n10 | pub(crate) const ARP_PTYPE_ETHTYPE_IP: u16 = 0x0800;\n   |                  ^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/consts.rs",
+      "kind": "Mirai",
+      "raw": "warning: constant `IP_PROTOCAL_IGMP` is never used\n  --> src/consts.rs:17:18\n   |\n17 | pub(crate) const IP_PROTOCAL_IGMP: u8 = 2;\n   |                  ^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/packets/udp.rs",
+      "kind": "Mirai",
+      "raw": "warning: possible attempt to add with overflow\n  --> src/packets/udp.rs:60:27\n   |\n60 |         ip_header.len = ((self.data_len + UDP_LEN + IP_LEN) as u16).to_be(); // toal len\n   |                           ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/packets/arp.rs",
+      "kind": "Mirai",
+      "raw": "warning: possible called `Option::unwrap()` on a `None` value\n  --> src/packets/arp.rs:55:30\n   |\n55 |         let mut eth_header = unsafe{ data_ptr_iter.next_mut::<Eth>() }.unwrap();\n   |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/packets/arp.rs",
+      "kind": "Mirai",
+      "raw": "warning: possible called `Option::unwrap()` on a `None` value\n  --> src/packets/arp.rs:61:30\n   |\n61 |         let mut arp_header = unsafe { data_ptr_iter.next_mut::<Arp>() }.unwrap();\n   |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/packets/tcp.rs",
+      "kind": "Mirai",
+      "raw": "warning: possible attempt to add with overflow\n  --> src/packets/tcp.rs:51:27\n   |\n51 |         ip_header.len = ((self.data_len + TCP_LEN + IP_LEN) as u16).to_be(); // toal len\n   |                           ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/utils.rs",
+      "kind": "Mirai",
+      "raw": "warning: possible attempt to add with overflow\n  --> src/utils.rs:57:9\n   |\n57 |         sum += unsafe{ *w as u32 };\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/utils.rs",
+      "kind": "Mirai",
+      "raw": "warning: possible attempt to add with overflow\n  --> src/utils.rs:62:19\n   |\n62 |             sum = (sum & 0xFFFF) + (sum >> 16);\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/utils.rs",
+      "kind": "Mirai",
+      "raw": "warning: possible attempt to add with overflow\n  --> src/utils.rs:63:19\n   |\n63 |             sum = sum + (sum >> 16);\n   |                   ^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "src/utils.rs",
+      "kind": "Mirai",
+      "raw": "warning: possible attempt to add with overflow\n  --> src/utils.rs:68:9\n   |\n68 |         sum += unsafe { *(w as *const u8) as u32};\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 11,
+      "file": "(virtual) clippy",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lose-net-stack, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/lose-net-stack\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Checking bitflags v1.3.2\n    Checking lose-net-stack v0.1.0 (/home/runner/check/batch_1/Byte-OS/lose-net-stack)\nerror: could not compile `lose-net-stack` (lib) due to 3 previous errors; 10 warnings emitted\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "(virtual) clippy",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lose-net-stack, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/lose-net-stack\n// cmd=cargo clippy --target riscv64imac-unknown-none-elf --no-deps --message-format=json\n    Checking bitflags v1.3.2\n    Checking lose-net-stack v0.1.0 (/home/runner/check/batch_1/Byte-OS/lose-net-stack)\nerror: could not compile `lose-net-stack` (lib) due to 3 previous errors; 10 warnings emitted\n"
+    },
+    {
+      "cmd_idx": 15,
+      "file": "Cargo.lock",
+      "kind": "Audit",
+      "raw": "    Fetching advisory database from `https://github.com/RustSec/advisory-db.git`\n      Loaded 663 security advisories (from /home/runner/.cargo/advisory-db)\n    Updating crates.io index\n    Scanning Cargo.lock for vulnerabilities (156 crate dependencies)\nCrate:     futures-util\nVersion:   0.3.30\nWarning:   yanked\nDependency tree:\nfutures-util 0.3.30\n└── yash-syntax 0.12.0\n    └── os-checker 0.3.0\n\nwarning: 1 allowed warning found\n\n{\n  \"database\": {\n    \"advisory-count\": 663,\n    \"last-commit\": \"acb7ce45817b13dd34cb32540ff18be4e1f3ba09\",\n    \"last-updated\": \"2024-10-09T00:13:59+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 156\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"yanked\": [\n      {\n        \"kind\": \"yanked\",\n        \"package\": {\n          \"name\": \"futures-util\",\n          \"version\": \"0.3.30\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"3d6401deb83407ab3da39eba7e33987a73c3df0c82b4bb5813ee871c19c41d48\",\n          \"dependencies\": [\n            {\n              \"name\": \"futures-core\",\n              \"version\": \"0.3.30\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"futures-macro\",\n              \"version\": \"0.3.30\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"futures-task\",\n              \"version\": \"0.3.30\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"pin-project-lite\",\n              \"version\": \"0.2.14\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"pin-utils\",\n              \"version\": \"0.1.0\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"slab\",\n              \"version\": \"0.4.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": null,\n        \"affected\": null,\n        \"versions\": null\n      }\n    ]\n  }\n}"
+    },
+    {
+      "cmd_idx": 19,
+      "file": "os-checker-database/src/file_tree/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the following explicit lifetimes could be elided: 'a\n  --> os-checker-database/src/file_tree/mod.rs:77:6\n   |\n77 | impl<'a> FileTree<'a> {\n   |      ^^           ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n   = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n   |\n77 - impl<'a> FileTree<'a> {\n77 + impl FileTree<'_> {\n   |\n\n"
+    },
+    {
+      "cmd_idx": 19,
+      "file": "os-checker-database/src/file_tree/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the following explicit lifetimes could be elided: 'a\n  --> os-checker-database/src/file_tree/mod.rs:77:6\n   |\n77 | impl<'a> FileTree<'a> {\n   |      ^^           ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n   = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n   |\n77 - impl<'a> FileTree<'a> {\n77 + impl FileTree<'_> {\n   |\n\n"
+    },
+    {
+      "cmd_idx": 19,
+      "file": "os-checker-database/src/file_tree/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> os-checker-database/src/file_tree/mod.rs:118:6\n    |\n118 | impl<'a> FileTreeRepo<'a> {\n    |      ^^               ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n118 - impl<'a> FileTreeRepo<'a> {\n118 + impl FileTreeRepo<'_> {\n    |\n\n"
+    },
+    {
+      "cmd_idx": 19,
+      "file": "os-checker-database/src/file_tree/mod.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> os-checker-database/src/file_tree/mod.rs:118:6\n    |\n118 | impl<'a> FileTreeRepo<'a> {\n    |      ^^               ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n118 - impl<'a> FileTreeRepo<'a> {\n118 + impl FileTreeRepo<'_> {\n    |\n\n"
+    },
+    {
+      "cmd_idx": 19,
+      "file": "os-checker-database/src/utils.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the following explicit lifetimes could be elided: 'a\n  --> os-checker-database/src/utils.rs:31:6\n   |\n31 | impl<'a> UserRepo<'a> {\n   |      ^^           ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n   |\n31 - impl<'a> UserRepo<'a> {\n31 + impl UserRepo<'_> {\n   |\n\n"
+    },
+    {
+      "cmd_idx": 19,
+      "file": "os-checker-database/src/utils.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the following explicit lifetimes could be elided: 'a\n  --> os-checker-database/src/utils.rs:31:6\n   |\n31 | impl<'a> UserRepo<'a> {\n   |      ^^           ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n   |\n31 - impl<'a> UserRepo<'a> {\n31 + impl UserRepo<'_> {\n   |\n\n"
+    },
+    {
+      "cmd_idx": 30,
+      "file": "(virtual) clippy",
+      "kind": "Cargo",
+      "raw": "// pkg_name=buildrs-failure, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n   Compiling buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)\nerror: failed to run custom build command for `buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/os-checker/os-checker-test-suite/target/debug/build/buildrs-failure-cbaf576da3545279/build-script-build` (exit status: 101)\n  --- stderr\n  thread 'main' panicked at buildrs-failure/build.rs:2:5:\n  Test as a failure in build script.\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
+    },
+    {
+      "cmd_idx": 31,
+      "file": "(virtual) mirai",
+      "kind": "Cargo",
+      "raw": "// pkg_name=buildrs-failure, checker=Mirai\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure\n// cmd=cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json\n   Compiling buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)\nerror: failed to run custom build command for `buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/os-checker/os-checker-test-suite/target/debug/build/buildrs-failure-b6dc1f6b857b62c6/build-script-build` (exit status: 101)\n  --- stderr\n  thread 'main' panicked at buildrs-failure/build.rs:2:5:\n  Test as a failure in build script.\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
+    },
+    {
+      "cmd_idx": 32,
+      "file": "(virtual) lockbud",
+      "kind": "Cargo",
+      "raw": "// pkg_name=buildrs-failure, checker=Lockbud\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n   Compiling buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)\nerror: failed to run custom build command for `buildrs-failure v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/os-checker/os-checker-test-suite/target/debug/build/buildrs-failure-b6dc1f6b857b62c6/build-script-build` (exit status: 101)\n  --- stderr\n  thread 'main' panicked at buildrs-failure/build.rs:2:5:\n  Test as a failure in build script.\n  stack backtrace:\n     0:     0x55b0843cb915 - std::backtrace_rs::backtrace::libunwind::trace::h5b560bab72e6154b\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/libunwind.rs:105:5\n     1:     0x55b0843cb915 - std::backtrace_rs::backtrace::trace_unsynchronized::h4ee8ec99b43d8706\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/../../backtrace/src/backtrace/mod.rs:66:5\n     2:     0x55b0843cb915 - std::sys_common::backtrace::_print_fmt::h6e8289aafa4fb13e\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:68:5\n     3:     0x55b0843cb915 - <std::sys_common::backtrace::_print::DisplayBacktrace as core::fmt::Display>::fmt::hed32d0ff2aa0fdf1\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:44:22\n     4:     0x55b0843e9a1b - core::fmt::rt::Argument::fmt::hca3a538408b6d3ca\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/rt.rs:165:63\n     5:     0x55b0843e9a1b - core::fmt::write::h0c46818975380aad\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/fmt/mod.rs:1169:21\n     6:     0x55b0843c983f - std::io::Write::write_fmt::h5ea3db9efd501baa\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/io/mod.rs:1835:15\n     7:     0x55b0843cb6ee - std::sys_common::backtrace::_print::h27ff758d37d9e119\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:47:5\n     8:     0x55b0843cb6ee - std::sys_common::backtrace::print::hafc6b0d8efbd24ba\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:34:9\n     9:     0x55b0843cca59 - std::panicking::default_hook::{{closure}}::ha573ac73171c717b\n    10:     0x55b0843cc79d - std::panicking::default_hook::h8ed95b009f156527\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:298:9\n    11:     0x55b0843ccf13 - std::panicking::rust_panic_with_hook::h086afbf37fa35871\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:795:13\n    12:     0x55b0843ccdbb - std::panicking::begin_panic_handler::{{closure}}::ha322428a7efae35f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:656:13\n    13:     0x55b0843cbdd9 - std::sys_common::backtrace::__rust_end_short_backtrace::hfc043f4d06966d4a\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:171:18\n    14:     0x55b0843ccb27 - rust_begin_unwind\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:652:5\n    15:     0x55b0843e8c43 - core::panicking::panic_fmt::h6d75522ebd7efdf2\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/panicking.rs:72:14\n    16:     0x55b0843b16d2 - build_script_build::main::hf4decbdbc8d11168\n                                 at /home/runner/check/batch_1/os-checker/os-checker-test-suite/buildrs-failure/build.rs:2:5\n    17:     0x55b0843b163b - core::ops::function::FnOnce::call_once::h92e512ce7bee2ef5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:250:5\n    18:     0x55b0843b14de - std::sys_common::backtrace::__rust_begin_short_backtrace::hf7abc9272a435240\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/sys_common/backtrace.rs:155:18\n    19:     0x55b0843b1551 - std::rt::lang_start::{{closure}}::hc4a88c97cc645181\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:159:18\n    20:     0x55b0843c7acd - core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once::hc45caadc31f12bbc\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/core/src/ops/function.rs:284:13\n    21:     0x55b0843c7acd - std::panicking::try::do_call::h2817e8d187fb4046\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    22:     0x55b0843c7acd - std::panicking::try::hd725b8f33b0955ec\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    23:     0x55b0843c7acd - std::panic::catch_unwind::h393b56b2db7d8348\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    24:     0x55b0843c7acd - std::rt::lang_start_internal::{{closure}}::h346fefab85a8f29f\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:48\n    25:     0x55b0843c7acd - std::panicking::try::do_call::hff9d5ed939b97486\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:559:40\n    26:     0x55b0843c7acd - std::panicking::try::h1e2d653a69031472\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panicking.rs:523:19\n    27:     0x55b0843c7acd - std::panic::catch_unwind::h843eea8cbc130396\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/panic.rs:149:14\n    28:     0x55b0843c7acd - std::rt::lang_start_internal::h3d73f751252cfec5\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:141:20\n    29:     0x55b0843b152a - std::rt::lang_start::he6aea475bde28aeb\n                                 at /rustc/b92758a9aef1cef7b79e2b72c3d8ba113e547f89/library/std/src/rt.rs:158:17\n    30:     0x55b0843b16fe - main\n    31:     0x7fbbe0029d90 - <unknown>\n    32:     0x7fbbe0029e40 - __libc_start_main\n    33:     0x55b0843b1405 - _start\n    34:                0x0 - <unknown>\n"
+    },
+    {
+      "cmd_idx": 36,
+      "file": "Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
+      "raw": "[2024-10-12T09:14:51Z WARN  lockbud::callbacks] [\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at lockbud-checks-this/src/lib.rs:7:13: 7:26 (#0) after dropped at lockbud-checks-this/src/lib.rs:5:5: 5:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      },\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at lockbud-checks-this/src/lib.rs:8:28: 8:32 (#5) after dropped at lockbud-checks-this/src/lib.rs:5:5: 5:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      }\n    ]\n[2024-10-12T09:14:51Z WARN  lockbud::callbacks] crate lockbud_checks_this contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 2 }"
+    },
+    {
+      "cmd_idx": 39,
+      "file": "mirai-checks-this/src/main.rs",
+      "kind": "Mirai",
+      "raw": "warning: attempt to add with overflow\n  --> mirai-checks-this/src/main.rs:26:10\n   |\n26 |     dbg!(a + b());\n   |          ^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 41,
+      "file": "examples/need-clippy-fix.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/os-checker/os-checker-test-suite/examples/need-clippy-fix.rs (original lines from 2 to 2)\n-    _ = (123); \n+    _ = (123);\n"
+    },
+    {
+      "cmd_idx": 41,
+      "file": "examples/need-fmt.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/os-checker/os-checker-test-suite/examples/need-fmt.rs (original lines from 1 to 1)\n-fn main() {    println!(\"from example\");\n+fn main() {\n+    println!(\"from example\");\n"
+    },
+    {
+      "cmd_idx": 41,
+      "file": "src/main.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/os-checker/os-checker-test-suite/src/main.rs (original lines from 4 to 5)\n- \n-println!(\"Hello, world!\");\n+    println!(\"Hello, world!\");\n"
+    },
+    {
+      "cmd_idx": 41,
+      "file": "tests/need-fmt.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_1/os-checker/os-checker-test-suite/tests/need-fmt.rs (original lines from 1 to 2)\n-fn main () {\n-  }\n+fn main() {}\n"
+    },
+    {
+      "cmd_idx": 42,
+      "file": "src/main.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 42,
+      "file": "src/main.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: approximate value of `f{32, 64}::consts::PI` found\n --> src/main.rs:2:13\n  |\n2 |     let a = 3.14;\n  |             ^^^^\n  |\n  = help: consider using the constant directly\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#approx_constant\n  = note: `#[deny(clippy::approx_constant)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 43,
+      "file": "src/main.rs",
+      "kind": "Mirai",
+      "raw": "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 43,
+      "file": "src/main.rs",
+      "kind": "Mirai",
+      "raw": "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 45,
+      "file": "(virtual) clippy",
+      "kind": "Cargo",
+      "raw": "// pkg_name=os-checker-test-suite, checker=Clippy\n// toolchain=nightly-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_1/os-checker/os-checker-test-suite\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Checking os-checker-test-suite v0.1.0 (/home/runner/check/batch_1/os-checker/os-checker-test-suite)\nerror: could not compile `os-checker-test-suite` (bin \"os-checker-test-suite\") due to 1 previous error; 1 warning emitted\n"
+    }
+  ]
+}
