@@ -15,12 +15,18 @@
             "channel": "nightly-2024-10-24-x86_64-unknown-linux-gnu",
             "profile": null,
             "targets": [
-              "x86_64-unknown-linux-gnu"
+              "aarch64-unknown-none",
+              "riscv64gc-unknown-none-elf",
+              "x86_64-unknown-linux-gnu",
+              "x86_64-unknown-none"
             ],
             "components": [
               "cargo-x86_64-unknown-linux-gnu",
               "clippy-x86_64-unknown-linux-gnu",
+              "rust-std-aarch64-unknown-none",
+              "rust-std-riscv64gc-unknown-none-elf",
               "rust-std-x86_64-unknown-linux-gnu",
+              "rust-std-x86_64-unknown-none",
               "rustc-x86_64-unknown-linux-gnu",
               "rustfmt-x86_64-unknown-linux-gnu"
             ],
@@ -31,11 +37,11 @@
         ]
       },
       "os_checker": {
-        "start": 1730525403216,
-        "finish": 1730525406981,
-        "duration_ms": 3764,
-        "git_time": "2024-11-02 13:26:03 +0800",
-        "git_sha": "a31ccb67f1c25c27a66dcdbb5848128191209c17"
+        "start": 1730609668744,
+        "finish": 1730609672191,
+        "duration_ms": 3446,
+        "git_time": "2024-11-03 12:49:36 +0800",
+        "git_sha": "fa6e82947d3ae60ef3dafb03934f3412c7963f83"
       }
     },
     "kinds": {
@@ -91,6 +97,10 @@
     "repos": [
       {
         "user": "kern-crates",
+        "repo": "linked_list_r4l-9"
+      },
+      {
+        "user": "kern-crates",
         "repo": "loongArch64"
       },
       {
@@ -116,17 +126,21 @@
       {
         "user": "kern-crates",
         "repo": "pconst"
-      },
-      {
-        "user": "kern-crates",
-        "repo": "percpu"
       }
     ],
     "packages": [
       {
-        "name": "loongArch64",
+        "name": "linked_list_r4l",
         "repo": {
           "repo_idx": 0,
+          "user": "kern-crates",
+          "repo": "linked_list_r4l-9"
+        }
+      },
+      {
+        "name": "loongArch64",
+        "repo": {
+          "repo_idx": 1,
           "user": "kern-crates",
           "repo": "loongArch64"
         }
@@ -134,7 +148,7 @@
       {
         "name": "lwext4-mkfs",
         "repo": {
-          "repo_idx": 1,
+          "repo_idx": 2,
           "user": "kern-crates",
           "repo": "lwext4"
         }
@@ -142,7 +156,7 @@
       {
         "name": "lwext4-rs",
         "repo": {
-          "repo_idx": 1,
+          "repo_idx": 2,
           "user": "kern-crates",
           "repo": "lwext4"
         }
@@ -150,7 +164,7 @@
       {
         "name": "lwext4-sys",
         "repo": {
-          "repo_idx": 1,
+          "repo_idx": 2,
           "user": "kern-crates",
           "repo": "lwext4"
         }
@@ -158,7 +172,7 @@
       {
         "name": "memory_set",
         "repo": {
-          "repo_idx": 2,
+          "repo_idx": 3,
           "user": "kern-crates",
           "repo": "memory_set"
         }
@@ -166,7 +180,7 @@
       {
         "name": "of",
         "repo": {
-          "repo_idx": 3,
+          "repo_idx": 4,
           "user": "kern-crates",
           "repo": "of"
         }
@@ -174,7 +188,7 @@
       {
         "name": "page_table_entry",
         "repo": {
-          "repo_idx": 4,
+          "repo_idx": 5,
           "user": "kern-crates",
           "repo": "page_table_multiarch"
         }
@@ -182,7 +196,7 @@
       {
         "name": "page_table_multiarch",
         "repo": {
-          "repo_idx": 4,
+          "repo_idx": 5,
           "user": "kern-crates",
           "repo": "page_table_multiarch"
         }
@@ -190,7 +204,7 @@
       {
         "name": "pager",
         "repo": {
-          "repo_idx": 5,
+          "repo_idx": 6,
           "user": "kern-crates",
           "repo": "pager"
         }
@@ -198,25 +212,9 @@
       {
         "name": "pconst",
         "repo": {
-          "repo_idx": 6,
+          "repo_idx": 7,
           "user": "kern-crates",
           "repo": "pconst"
-        }
-      },
-      {
-        "name": "percpu",
-        "repo": {
-          "repo_idx": 7,
-          "user": "kern-crates",
-          "repo": "percpu"
-        }
-      },
-      {
-        "name": "percpu_macros",
-        "repo": {
-          "repo_idx": 7,
-          "user": "kern-crates",
-          "repo": "percpu"
         }
       }
     ]
@@ -224,6 +222,246 @@
   "cmd": [
     {
       "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p linked_list_r4l -- --emit=json",
+      "count": 0,
+      "duration_ms": 100,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p linked_list_r4l -- --emit=json",
+      "count": 0,
+      "duration_ms": 102,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p linked_list_r4l -- --emit=json",
+      "count": 0,
+      "duration_ms": 101,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p linked_list_r4l -- --emit=json",
+      "count": 0,
+      "duration_ms": 100,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 3,
+      "duration_ms": 235,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
+      "count": 3,
+      "duration_ms": 211,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
+      "count": 3,
+      "duration_ms": 207,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
+      "count": 3,
+      "duration_ms": 211,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 0,
+      "duration_ms": 47,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 0,
+      "duration_ms": 154,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
+      "count": 0,
+      "duration_ms": 121,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
+      "count": 0,
+      "duration_ms": 120,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
+      "count": 0,
+      "duration_ms": 122,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rap",
+      "cmd": "cargo +nightly-2024-06-30 rap -F -M",
+      "count": 1,
+      "duration_ms": 745,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rudra",
+      "cmd": "cargo +nightly-2021-10-21 rudra",
+      "count": 0,
+      "duration_ms": 249,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 62,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 62,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 62,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 61,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "geiger",
+      "cmd": "cargo geiger --output-format Ascii",
+      "count": 0,
+      "duration_ms": 103,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p loongArch64 -- --emit=json",
       "count": 4,
@@ -235,7 +473,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 9,
@@ -247,7 +485,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -259,7 +497,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
@@ -271,7 +509,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -283,7 +521,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -295,7 +533,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -307,7 +545,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -319,7 +557,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "cargo",
       "cmd": "VRITUAL=clippy cargo",
       "count": 1,
@@ -331,7 +569,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "cargo",
       "cmd": "VRITUAL=lockbud cargo",
       "count": 1,
@@ -343,7 +581,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "cargo",
       "cmd": "VRITUAL=rap cargo",
       "count": 1,
@@ -355,7 +593,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p lwext4-mkfs -- --emit=json",
       "count": 0,
@@ -367,7 +605,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 1,
@@ -379,7 +617,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -391,7 +629,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -403,7 +641,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 1,
@@ -415,7 +653,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -427,7 +665,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -439,7 +677,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -451,7 +689,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p lwext4-rs -- --emit=json",
       "count": 0,
@@ -463,7 +701,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 30,
@@ -475,7 +713,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -487,7 +725,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -499,7 +737,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 1,
@@ -511,7 +749,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -523,7 +761,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -535,7 +773,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -547,7 +785,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "cargo",
       "cmd": "VRITUAL=clippy cargo",
       "count": 1,
@@ -559,7 +797,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p lwext4-sys -- --emit=json",
       "count": 0,
@@ -571,7 +809,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
@@ -583,7 +821,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -595,7 +833,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -607,7 +845,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -619,7 +857,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -631,7 +869,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -643,7 +881,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -655,7 +893,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_set -- --emit=json",
       "count": 0,
@@ -667,7 +905,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_set -- --emit=json",
       "count": 0,
@@ -679,7 +917,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_set -- --emit=json",
       "count": 0,
@@ -691,7 +929,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_set -- --emit=json",
       "count": 0,
@@ -703,7 +941,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 2,
@@ -715,7 +953,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 2,
@@ -727,7 +965,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 2,
@@ -739,7 +977,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 2,
@@ -751,7 +989,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -763,7 +1001,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
@@ -775,7 +1013,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 0,
@@ -787,7 +1025,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 0,
@@ -799,7 +1037,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 0,
@@ -811,7 +1049,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -823,7 +1061,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -835,7 +1073,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -847,7 +1085,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -859,7 +1097,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -871,7 +1109,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -883,7 +1121,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -895,7 +1133,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p of -- --emit=json",
       "count": 0,
@@ -907,7 +1145,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
@@ -919,7 +1157,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -931,7 +1169,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
@@ -943,7 +1181,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -955,7 +1193,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -967,7 +1205,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -979,7 +1217,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -991,7 +1229,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p page_table_entry -- --emit=json",
       "count": 0,
@@ -1003,7 +1241,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p page_table_entry -- --emit=json",
       "count": 0,
@@ -1015,7 +1253,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p page_table_entry -- --emit=json",
       "count": 0,
@@ -1027,7 +1265,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p page_table_entry -- --emit=json",
       "count": 0,
@@ -1039,7 +1277,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
@@ -1051,7 +1289,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -1063,7 +1301,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 0,
@@ -1075,7 +1313,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -1087,7 +1325,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -1099,7 +1337,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
@@ -1111,7 +1349,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 0,
@@ -1123,7 +1361,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 0,
@@ -1135,7 +1373,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 0,
@@ -1147,7 +1385,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -1159,7 +1397,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -1171,7 +1409,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1183,7 +1421,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1195,7 +1433,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1207,7 +1445,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1219,7 +1457,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -1231,7 +1469,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p page_table_multiarch -- --emit=json",
       "count": 0,
@@ -1243,7 +1481,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p page_table_multiarch -- --emit=json",
       "count": 0,
@@ -1255,7 +1493,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p page_table_multiarch -- --emit=json",
       "count": 0,
@@ -1267,7 +1505,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p page_table_multiarch -- --emit=json",
       "count": 0,
@@ -1279,7 +1517,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
@@ -1291,7 +1529,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -1303,7 +1541,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 1,
@@ -1315,7 +1553,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -1327,7 +1565,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -1339,7 +1577,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 1,
@@ -1351,7 +1589,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 1,
@@ -1363,7 +1601,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 1,
@@ -1375,7 +1613,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -1387,7 +1625,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -1399,7 +1637,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -1411,7 +1649,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1423,7 +1661,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1435,7 +1673,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1447,7 +1685,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1459,7 +1697,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -1471,7 +1709,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p pager -- --emit=json",
       "count": 1,
@@ -1483,7 +1721,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 3,
@@ -1495,7 +1733,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -1507,7 +1745,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -1519,7 +1757,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -1531,7 +1769,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -1543,7 +1781,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1555,7 +1793,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -1567,7 +1805,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p pconst -- --emit=json",
       "count": 0,
@@ -1579,7 +1817,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 12,
@@ -1591,7 +1829,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -1603,7 +1841,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
@@ -1615,7 +1853,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -1627,7 +1865,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -1639,7 +1877,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1651,7 +1889,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -1663,7 +1901,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "cargo",
       "cmd": "VRITUAL=clippy cargo",
       "count": 1,
@@ -1673,1154 +1911,590 @@
       "rust_toolchain": "nightly-2024-10-23",
       "features": [],
       "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p percpu -- --emit=json",
-      "count": 0,
-      "duration_ms": 98,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p percpu -- --emit=json",
-      "count": 0,
-      "duration_ms": 99,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p percpu -- --emit=json",
-      "count": 0,
-      "duration_ms": 97,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p percpu -- --emit=json",
-      "count": 0,
-      "duration_ms": 97,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
-      "count": 6,
-      "duration_ms": 3585,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
-      "count": 6,
-      "duration_ms": 1218,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
-      "count": 6,
-      "duration_ms": 168,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
-      "count": 6,
-      "duration_ms": 172,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "mirai",
-      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
-      "count": 0,
-      "duration_ms": 47,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
-      "count": 0,
-      "duration_ms": 4507,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
-      "count": 0,
-      "duration_ms": 127,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
-      "count": 0,
-      "duration_ms": 131,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
-      "count": 0,
-      "duration_ms": 1744,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "rap",
-      "cmd": "cargo +nightly-2024-06-30 rap -F -M",
-      "count": 0,
-      "duration_ms": 3833,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "rudra",
-      "cmd": "cargo +nightly-2021-10-21 rudra",
-      "count": 0,
-      "duration_ms": 88,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 63,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 64,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 63,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 62,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "geiger",
-      "cmd": "cargo geiger --output-format Ascii",
-      "count": 0,
-      "duration_ms": 115,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "cargo",
-      "cmd": "VRITUAL=rap cargo",
-      "count": 1,
-      "duration_ms": 3833,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p percpu_macros -- --emit=json",
-      "count": 0,
-      "duration_ms": 97,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p percpu_macros -- --emit=json",
-      "count": 0,
-      "duration_ms": 98,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p percpu_macros -- --emit=json",
-      "count": 0,
-      "duration_ms": 98,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p percpu_macros -- --emit=json",
-      "count": 0,
-      "duration_ms": 98,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 1747,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 97,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 96,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
-      "count": 0,
-      "duration_ms": 96,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "mirai",
-      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
-      "count": 0,
-      "duration_ms": 47,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
-      "count": 0,
-      "duration_ms": 31,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
-      "count": 0,
-      "duration_ms": 29,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
-      "count": 0,
-      "duration_ms": 29,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
-      "count": 0,
-      "duration_ms": 30,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "rap",
-      "cmd": "cargo +nightly-2024-06-30 rap -F -M",
-      "count": 0,
-      "duration_ms": 2012,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "rudra",
-      "cmd": "cargo +nightly-2021-10-21 rudra",
-      "count": 0,
-      "duration_ms": 88,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 62,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 63,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 62,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 62,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 11,
-      "tool": "geiger",
-      "cmd": "cargo geiger --output-format Ascii",
-      "count": 0,
-      "duration_ms": 115,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
     }
   ],
   "data": [
     {
-      "cmd_idx": 0,
+      "cmd_idx": 4,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: you should consider adding a `Default` implementation for `RawList<G>`\n   --> src/raw_list.rs:99:5\n    |\n99  | /     pub const fn new() -> Self {\n100 | |         Self { head: None }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n97  + impl<G: GetLinks> Default for RawList<G> {\n98  +     fn default() -> Self {\n99  +         Self::new()\n100 +     }\n101 + }\n    |\n\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:186:5\n    |\n186 |     pub unsafe fn push_back(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:195:5\n    |\n195 |     pub unsafe fn push_front(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: you should consider adding a `Default` implementation for `RawList<G>`\n   --> src/raw_list.rs:99:5\n    |\n99  | /     pub const fn new() -> Self {\n100 | |         Self { head: None }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n97  + impl<G: GetLinks> Default for RawList<G> {\n98  +     fn default() -> Self {\n99  +         Self::new()\n100 +     }\n101 + }\n    |\n\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:186:5\n    |\n186 |     pub unsafe fn push_back(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:195:5\n    |\n195 |     pub unsafe fn push_front(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: you should consider adding a `Default` implementation for `RawList<G>`\n   --> src/raw_list.rs:99:5\n    |\n99  | /     pub const fn new() -> Self {\n100 | |         Self { head: None }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n97  + impl<G: GetLinks> Default for RawList<G> {\n98  +     fn default() -> Self {\n99  +         Self::new()\n100 +     }\n101 + }\n    |\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:186:5\n    |\n186 |     pub unsafe fn push_back(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:195:5\n    |\n195 |     pub unsafe fn push_front(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: you should consider adding a `Default` implementation for `RawList<G>`\n   --> src/raw_list.rs:99:5\n    |\n99  | /     pub const fn new() -> Self {\n100 | |         Self { head: None }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n97  + impl<G: GetLinks> Default for RawList<G> {\n98  +     fn default() -> Self {\n99  +         Self::new()\n100 +     }\n101 + }\n    |\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:186:5\n    |\n186 |     pub unsafe fn push_back(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:195:5\n    |\n195 |     pub unsafe fn push_front(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+    },
+    {
+      "cmd_idx": 13,
+      "file": "[rap] Not supported to display yet.",
+      "kind": "Rap",
+      "raw": "pkg=linked_list_r4l, checker=Rap\ntoolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\npkg_dir=/home/runner/check/batch_7/kern-crates/linked_list_r4l-9\ncmd=cargo +nightly-2024-06-30 rap -F -M\n\n00:30:47|RAP|WARN|: RCanary: Leak Function: Unsat DefId(0:24 ~ linked_list_r4l[81d2]::linked_list::{impl#0}::into_pointer) src/linked_list.rs:35:5: 37:6 (#0)\n00:30:47|RAP|WARN|: RCanary: LeakItem Candidates: _3 = linked_list::alloc::boxed::Box::<T>::into_raw(move _4) -> [return: bb1, unwind: bb4], src/linked_list.rs:36:22: 36:41 (#0)\n"
+    },
+    {
+      "cmd_idx": 20,
       "file": "src/lib.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_7/kern-crates/loongArch64/src/lib.rs (original lines from 5 to 5)\n+pub mod consts;\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 20,
       "file": "src/lib.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_7/kern-crates/loongArch64/src/lib.rs (original lines from 10 to 10)\n-pub mod consts;\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 20,
       "file": "src/register/base/ecfg.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_7/kern-crates/loongArch64/src/register/base/ecfg.rs (original lines from 1 to 1)\n-use core::fmt::Debug;\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 20,
       "file": "src/register/base/ecfg.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_7/kern-crates/loongArch64/src/register/base/ecfg.rs (original lines from 5 to 5)\n+use core::fmt::Debug;\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/lib.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: the feature `asm_const` has been stable since 1.82.0 and no longer requires an attribute to enable\n --> src/lib.rs:2:12\n  |\n2 | #![feature(asm_const)]\n  |            ^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/iocsr.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: formatting may not be suitable for sub-register argument\n --> src/iocsr.rs:6:25\n  |\n6 |         asm!(\"iocsrwr.w {},{}\", in(reg) value, in(reg) reg);\n  |                         ^^              ----- for this argument\n  |\n  = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n  = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n  = note: `#[warn(asm_sub_register)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/iocsr.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: formatting may not be suitable for sub-register argument\n  --> src/iocsr.rs:18:25\n   |\n18 |         asm!(\"iocsrwr.h {},{}\", in(reg) value, in(reg) reg);\n   |                         ^^              ----- for this argument\n   |\n   = help: use `{0:x}` to have the register formatted as `ax` (for 16-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/iocsr.rs",
       "kind": "Clippy(Error)",
       "raw": "error: type `u8` cannot be used with this register class\n  --> src/iocsr.rs:24:41\n   |\n24 |         asm!(\"iocsrwr.b {},{}\", in(reg) value, in(reg) reg);\n   |                                         ^^^^^\n   |\n   = note: register class `reg` supports these types: i16, i32, i64, f16, f32, f64\n   = help: consider using the `reg_byte` register class instead\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/iocsr.rs",
       "kind": "Clippy(Error)",
       "raw": "error: type `u8` cannot be used with this register class\n  --> src/iocsr.rs:32:41\n   |\n32 |         asm!(\"iocsrrd.b {},{}\",out(reg) val, in(reg) reg);\n   |                                         ^^^\n   |\n   = note: register class `reg` supports these types: i16, i32, i64, f16, f32, f64\n   = help: consider using the `reg_byte` register class instead\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/iocsr.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: formatting may not be suitable for sub-register argument\n  --> src/iocsr.rs:41:25\n   |\n41 |         asm!(\"iocsrrd.h {},{}\",out(reg) val, in(reg) reg);\n   |                         ^^              --- for this argument\n   |\n   = help: use `{0:x}` to have the register formatted as `ax` (for 16-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/iocsr.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: formatting may not be suitable for sub-register argument\n  --> src/iocsr.rs:50:25\n   |\n50 |         asm!(\"iocsrrd.w {},{}\",out(reg) val, in(reg) reg);\n   |                         ^^              --- for this argument\n   |\n   = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/ipi.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: formatting may not be suitable for sub-register argument\n --> src/ipi.rs:7:25\n  |\n7 |         asm!(\"iocsrwr.w {},{}\", in(reg) value,in(reg) addr);\n  |                         ^^              ----- for this argument\n  |\n  = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n  = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/ipi.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: formatting may not be suitable for sub-register argument\n  --> src/ipi.rs:13:25\n   |\n13 |         asm!(\"iocsrrd.w {},{}\", out(reg) value, in(reg) addr);\n   |                         ^^               ----- for this argument\n   |\n   = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\n"
     },
     {
-      "cmd_idx": 8,
+      "cmd_idx": 28,
       "file": "(virtual) clippy",
       "kind": "Cargo",
       "raw": "// pkg_name=loongArch64, checker=Clippy\n// toolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_7/kern-crates/loongArch64\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Checking bitflags v1.3.2\n    Checking bit_field v0.10.2\n    Checking loongArch64 v0.2.4 (/home/runner/check/batch_7/kern-crates/loongArch64)\nerror: could not compile `loongArch64` (lib) due to 2 previous errors; 7 warnings emitted\n"
     },
     {
-      "cmd_idx": 9,
+      "cmd_idx": 29,
       "file": "(virtual) lockbud",
       "kind": "Cargo",
       "raw": "// pkg_name=loongArch64, checker=Lockbud\n// toolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_7/kern-crates/loongArch64\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n   Compiling bitflags v1.3.2\n   Compiling bit_field v0.10.2\n   Compiling loongArch64 v0.2.4 (/home/runner/check/batch_7/kern-crates/loongArch64)\nwarning: formatting may not be suitable for sub-register argument\n --> src/iocsr.rs:6:25\n  |\n6 |         asm!(\"iocsrwr.w {},{}\", in(reg) value, in(reg) reg);\n  |                         ^^              ----- for this argument\n  |\n  = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n  = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n  = note: `#[warn(asm_sub_register)]` on by default\n\nwarning: formatting may not be suitable for sub-register argument\n  --> src/iocsr.rs:18:25\n   |\n18 |         asm!(\"iocsrwr.h {},{}\", in(reg) value, in(reg) reg);\n   |                         ^^              ----- for this argument\n   |\n   = help: use `{0:x}` to have the register formatted as `ax` (for 16-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\nerror: type `u8` cannot be used with this register class\n  --> src/iocsr.rs:24:41\n   |\n24 |         asm!(\"iocsrwr.b {},{}\", in(reg) value, in(reg) reg);\n   |                                         ^^^^^\n   |\n   = note: register class `reg` supports these types: i16, i32, i64, f32, f64\n   = help: consider using the `reg_byte` register class instead\n\nerror: type `u8` cannot be used with this register class\n  --> src/iocsr.rs:32:41\n   |\n32 |         asm!(\"iocsrrd.b {},{}\",out(reg) val, in(reg) reg);\n   |                                         ^^^\n   |\n   = note: register class `reg` supports these types: i16, i32, i64, f32, f64\n   = help: consider using the `reg_byte` register class instead\n\nwarning: formatting may not be suitable for sub-register argument\n  --> src/iocsr.rs:41:25\n   |\n41 |         asm!(\"iocsrrd.h {},{}\",out(reg) val, in(reg) reg);\n   |                         ^^              --- for this argument\n   |\n   = help: use `{0:x}` to have the register formatted as `ax` (for 16-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\nwarning: formatting may not be suitable for sub-register argument\n  --> src/iocsr.rs:50:25\n   |\n50 |         asm!(\"iocsrrd.w {},{}\",out(reg) val, in(reg) reg);\n   |                         ^^              --- for this argument\n   |\n   = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\nwarning: formatting may not be suitable for sub-register argument\n --> src/ipi.rs:7:25\n  |\n7 |         asm!(\"iocsrwr.w {},{}\", in(reg) value,in(reg) addr);\n  |                         ^^              ----- for this argument\n  |\n  = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n  = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\nwarning: formatting may not be suitable for sub-register argument\n  --> src/ipi.rs:13:25\n   |\n13 |         asm!(\"iocsrrd.w {},{}\", out(reg) value, in(reg) addr);\n   |                         ^^               ----- for this argument\n   |\n   = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\nwarning: `loongArch64` (lib) generated 6 warnings\nerror: could not compile `loongArch64` (lib) due to 2 previous errors; 6 warnings emitted\n"
     },
     {
-      "cmd_idx": 10,
+      "cmd_idx": 30,
       "file": "(virtual) rap",
       "kind": "Cargo",
       "raw": "// pkg_name=loongArch64, checker=Rap\n// toolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_7/kern-crates/loongArch64\n// cmd=cargo +nightly-2024-06-30 rap -F -M\n    Checking bit_field v0.10.2\n    Checking bitflags v1.3.2\n    Checking loongArch64 v0.2.4 (/home/runner/check/batch_7/kern-crates/loongArch64)\nwarning: formatting may not be suitable for sub-register argument\n --> src/iocsr.rs:6:25\n  |\n6 |         asm!(\"iocsrwr.w {},{}\", in(reg) value, in(reg) reg);\n  |                         ^^              ----- for this argument\n  |\n  = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n  = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n  = note: `#[warn(asm_sub_register)]` on by default\n\nwarning: formatting may not be suitable for sub-register argument\n  --> src/iocsr.rs:18:25\n   |\n18 |         asm!(\"iocsrwr.h {},{}\", in(reg) value, in(reg) reg);\n   |                         ^^              ----- for this argument\n   |\n   = help: use `{0:x}` to have the register formatted as `ax` (for 16-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\nerror: type `u8` cannot be used with this register class\n  --> src/iocsr.rs:24:41\n   |\n24 |         asm!(\"iocsrwr.b {},{}\", in(reg) value, in(reg) reg);\n   |                                         ^^^^^\n   |\n   = note: register class `reg` supports these types: i16, i32, i64, f16, f32, f64\n   = help: consider using the `reg_byte` register class instead\n\nerror: type `u8` cannot be used with this register class\n  --> src/iocsr.rs:32:41\n   |\n32 |         asm!(\"iocsrrd.b {},{}\",out(reg) val, in(reg) reg);\n   |                                         ^^^\n   |\n   = note: register class `reg` supports these types: i16, i32, i64, f16, f32, f64\n   = help: consider using the `reg_byte` register class instead\n\nwarning: formatting may not be suitable for sub-register argument\n  --> src/iocsr.rs:41:25\n   |\n41 |         asm!(\"iocsrrd.h {},{}\",out(reg) val, in(reg) reg);\n   |                         ^^              --- for this argument\n   |\n   = help: use `{0:x}` to have the register formatted as `ax` (for 16-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\nwarning: formatting may not be suitable for sub-register argument\n  --> src/iocsr.rs:50:25\n   |\n50 |         asm!(\"iocsrrd.w {},{}\",out(reg) val, in(reg) reg);\n   |                         ^^              --- for this argument\n   |\n   = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\nwarning: formatting may not be suitable for sub-register argument\n --> src/ipi.rs:7:25\n  |\n7 |         asm!(\"iocsrwr.w {},{}\", in(reg) value,in(reg) addr);\n  |                         ^^              ----- for this argument\n  |\n  = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n  = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\nwarning: formatting may not be suitable for sub-register argument\n  --> src/ipi.rs:13:25\n   |\n13 |         asm!(\"iocsrrd.w {},{}\", out(reg) value, in(reg) addr);\n   |                         ^^               ----- for this argument\n   |\n   = help: use `{0:e}` to have the register formatted as `eax` (for 32-bit values)\n   = help: or use `{0:r}` to keep the default formatting of `rax` (for 64-bit values)\n\nwarning: `loongArch64` (lib) generated 6 warnings\nerror: could not compile `loongArch64` (lib) due to 2 previous errors; 6 warnings emitted\n00:30:51|RAP|ERROR|: Finished with non-zero exit code.\n"
     },
     {
-      "cmd_idx": 12,
+      "cmd_idx": 32,
       "file": "lwext4-rs/src/lib.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: the feature `error_in_core` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> lwext4-rs/src/lib.rs:2:12\n  |\n2 | #![feature(error_in_core)]\n  |            ^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
     },
     {
-      "cmd_idx": 14,
+      "cmd_idx": 34,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T04:25:38Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:25:38Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T04:25:41Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:25:41Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T04:25:43Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.8/src/util/pool.rs:525:25: 525:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.8/src/util/pool.rs:530:17: 530:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:25:43Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 15,
+      "cmd_idx": 35,
       "file": "[rap] Not supported to display yet.",
       "kind": "Rap",
       "raw": "pkg=lwext4-mkfs, checker=Rap\ntoolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\npkg_dir=/home/runner/check/batch_8/kern-crates/lwext4/lwext4-mkfs\ncmd=cargo +nightly-2024-06-30 rap -F -M\n\n04:26:15|RAP|WARN|: RCanary: Leak Function: Unsat DefId(0:35 ~ lwext4_rs[ef94]::block::{impl#0}::new) lwext4-rs/src/block.rs:26:5: 59:6 (#0)\n04:26:15|RAP|WARN|: RCanary: LeakItem Candidates: _17 = std::boxed::Box::<T>::leak::<'_>(move _18) -> [return: bb3, unwind: bb13], lwext4-rs/src/block.rs:41:35: 41:65 (#0)\n04:26:15|RAP|WARN|: RCanary: LeakItem Candidates: _22 = std::boxed::Box::<lwext4_sys::ext4::ext4_blockdev_iface>::leak::<'_>(move _23) -> [return: bb5, unwind: bb13], lwext4-rs/src/block.rs:44:23: 44:57 (#0)\n04:26:15|RAP|WARN|: RCanary: Leak Function: Unsat DefId(0:90 ~ lwext4_rs[ef94]::block::{impl#9}::open) lwext4-rs/src/block.rs:232:5: 243:6 (#0)\n04:26:15|RAP|WARN|: RCanary: LeakItem Candidates: _21 = std::vec::Vec::<u8>::leak::<'_>(move _22) -> [return: bb9, unwind terminate(abi)], lwext4-rs/src/block.rs:238:42: 238:86 (#0)\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/lib.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: the feature `error_in_core` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> lwext4-rs/src/lib.rs:2:12\n  |\n2 | #![feature(error_in_core)]\n  |            ^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a reference to a pointer\n  --> lwext4-rs/src/block.rs:41:25\n   |\n41 |                 p_user: transmute(Box::leak(Box::new(interface))),\n   |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Box::leak(Box::new(interface)) as *mut T as *mut std::ffi::c_void`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_transmute\n   = note: `#[warn(clippy::useless_transmute)]` on by default\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a pointer type (`*mut std::ffi::c_void`) to a reference type (`&T`)\n  --> lwext4-rs/src/block.rs:81:18\n   |\n81 |         unsafe { transmute((*self.raw.bdif).p_user) }\n   |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `&*((*self.raw.bdif).p_user as *const T)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#transmute_ptr_to_ref\n   = note: `#[warn(clippy::transmute_ptr_to_ref)]` on by default\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a pointer type (`*mut std::ffi::c_void`) to a reference type (`&mut T`)\n  --> lwext4-rs/src/block.rs:86:18\n   |\n86 |         unsafe { transmute((*self.raw.bdif).p_user) }\n   |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `&mut *((*self.raw.bdif).p_user as *mut T)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#transmute_ptr_to_ref\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a reference to a pointer\n   --> lwext4-rs/src/block.rs:120:50\n    |\n120 |             errno_to_result(ext4_device_register(transmute(&bdev.raw), c_name.as_ptr()))?;\n    |                                                  ^^^^^^^^^^^^^^^^^^^^ help: try: `&bdev.raw as *const lwext4_sys::ext4::ext4_blockdev as *mut lwext4_sys::ext4::ext4_blockdev`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_transmute\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a pointer type (`*mut lwext4_sys::ext4::ext4_blockdev`) to a reference type (`&mut block::BlockDevice<T>`)\n   --> lwext4-rs/src/block.rs:234:47\n    |\n234 |             let device: &mut BlockDevice<T> = transmute(bdev);\n    |                                               ^^^^^^^^^^^^^^^ help: try: `&mut *(bdev as *mut block::BlockDevice<T>)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#transmute_ptr_to_ref\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a pointer type (`*mut lwext4_sys::ext4::ext4_blockdev`) to a reference type (`&mut block::BlockDevice<T>`)\n   --> lwext4-rs/src/block.rs:252:47\n    |\n252 |             let device: &mut BlockDevice<T> = transmute(bdev);\n    |                                               ^^^^^^^^^^^^^^^ help: try: `&mut *(bdev as *mut block::BlockDevice<T>)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#transmute_ptr_to_ref\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute used without annotations\n   --> lwext4-rs/src/block.rs:256:36\n    |\n256 |                 from_raw_parts_mut(transmute(buf), (blk_cnt * bsize) as usize),\n    |                                    ^^^^^^^^^ help: consider adding missing annotations: `transmute::<*mut std::ffi::c_void, *mut u8>`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_transmute_annotations\n    = note: `#[warn(clippy::missing_transmute_annotations)]` on by default\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a pointer type (`*mut lwext4_sys::ext4::ext4_blockdev`) to a reference type (`&mut block::BlockDevice<T>`)\n   --> lwext4-rs/src/block.rs:271:47\n    |\n271 |             let device: &mut BlockDevice<T> = transmute(bdev);\n    |                                               ^^^^^^^^^^^^^^^ help: try: `&mut *(bdev as *mut block::BlockDevice<T>)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#transmute_ptr_to_ref\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute used without annotations\n   --> lwext4-rs/src/block.rs:275:32\n    |\n275 |                 from_raw_parts(transmute(buf), (blk_cnt * bsize) as usize),\n    |                                ^^^^^^^^^ help: consider adding missing annotations: `transmute::<*const std::ffi::c_void, *const u8>`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_transmute_annotations\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a pointer type (`*mut lwext4_sys::ext4::ext4_blockdev`) to a reference type (`&mut block::BlockDevice<T>`)\n   --> lwext4-rs/src/block.rs:285:47\n    |\n285 |             let device: &mut BlockDevice<T> = transmute(bdev);\n    |                                               ^^^^^^^^^^^^^^^ help: try: `&mut *(bdev as *mut block::BlockDevice<T>)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#transmute_ptr_to_ref\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a pointer type (`*mut lwext4_sys::ext4::ext4_blockdev`) to a reference type (`&mut block::BlockDevice<T>`)\n   --> lwext4-rs/src/block.rs:293:47\n    |\n293 |             let device: &mut BlockDevice<T> = transmute(bdev);\n    |                                               ^^^^^^^^^^^^^^^ help: try: `&mut *(bdev as *mut block::BlockDevice<T>)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#transmute_ptr_to_ref\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/block.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a pointer type (`*mut lwext4_sys::ext4::ext4_blockdev`) to a reference type (`&mut block::BlockDevice<T>`)\n   --> lwext4-rs/src/block.rs:301:47\n    |\n301 |             let device: &mut BlockDevice<T> = transmute(bdev);\n    |                                               ^^^^^^^^^^^^^^^ help: try: `&mut *(bdev as *mut block::BlockDevice<T>)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#transmute_ptr_to_ref\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/dir.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: using `clone` on type `ext4_file` which implements the `Copy` trait\n  --> lwext4-rs/src/dir.rs:37:19\n   |\n37 |         File::new(self.raw.f.clone(), self.path.clone())\n   |                   ^^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `self.raw.f`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n   = note: `#[warn(clippy::clone_on_copy)]` on by default\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/dir.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: using `clone` on type `ext4_direntry` which implements the `Copy` trait\n   --> lwext4-rs/src/dir.rs:108:26\n    |\n108 |                     raw: (*transmute::<_, &ext4_direntry>(result)).clone(),\n    |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `(*transmute::<_, &ext4_direntry>(result))`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/dir.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a pointer type (`*const lwext4_sys::ext4::ext4_direntry`) to a reference type (`&lwext4_sys::ext4::ext4_direntry`)\n   --> lwext4-rs/src/dir.rs:108:28\n    |\n108 |                     raw: (*transmute::<_, &ext4_direntry>(result)).clone(),\n    |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `&*result.cast::<ext4_direntry>()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#transmute_ptr_to_ref\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/dir.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute used without annotations\n   --> lwext4-rs/src/dir.rs:108:28\n    |\n108 |                     raw: (*transmute::<_, &ext4_direntry>(result)).clone(),\n    |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider adding missing annotations: `transmute::<*const lwext4_sys::ext4::ext4_direntry, &lwext4_sys::ext4::ext4_direntry>`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_transmute_annotations\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/error.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: an implementation of `From` is preferred since it gives you `Into<_>` for free where the reverse isn't true\n   --> lwext4-rs/src/error.rs:103:1\n    |\n103 | impl Into<std::io::Error> for Error {\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: `impl From<Local> for Foreign` is allowed by the orphan rules, for more information see\n            https://doc.rust-lang.org/reference/items/implementations.html#trait-implementation-coherence\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#from_over_into\n    = note: `#[warn(clippy::from_over_into)]` on by default\nhelp: replace the `Into` implementation with `From<error::Error>`\n    |\n103 ~ impl From<Error> for std::io::Error {\n104 ~     fn from(val: Error) -> Self {\n105 ~         std::io::Error::from_raw_os_error(val as i32)\n    |\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/standard.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> lwext4-rs/src/standard.rs:28:27\n   |\n28 |         self.0.read_exact(&mut buf).unwrap();\n   |                           ^^^^^^^^ help: change this to: `buf`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n   = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/fs.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: length comparison to zero\n   --> lwext4-rs/src/fs.rs:230:16\n    |\n230 |             if x.len() > 0 {\n    |                ^^^^^^^^^^^ help: using `!is_empty` is clearer and more explicit: `!x.is_empty()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_zero\n    = note: `#[warn(clippy::len_zero)]` on by default\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/mkfs.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a reference to a pointer\n  --> lwext4-rs/src/mkfs.rs:68:27\n   |\n68 |                     bdev: transmute(&bdev.raw),\n   |                           ^^^^^^^^^^^^^^^^^^^^ help: try: `&bdev.raw as *const lwext4_sys::ext4::ext4_blockdev as *mut lwext4_sys::ext4::ext4_blockdev`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_transmute\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/mkfs.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `FsBuilder`\n   --> lwext4-rs/src/mkfs.rs:181:5\n    |\n181 | /     pub fn new() -> Self {\n182 | |         Self {\n183 | |             block_size: 1024,\n184 | |             ty: None,\n...   |\n187 | |         }\n188 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n180 + impl Default for FsBuilder {\n181 +     fn default() -> Self {\n182 +         Self::new()\n183 +     }\n184 + }\n    |\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/mkfs.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a reference to a pointer\n   --> lwext4-rs/src/mkfs.rs:251:17\n    |\n251 |                 transmute(&fs.device.raw),\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `&fs.device.raw as *const lwext4_sys::ext4::ext4_blockdev as *mut lwext4_sys::ext4::ext4_blockdev`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_transmute\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/mkfs.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a reference to a pointer\n   --> lwext4-rs/src/mkfs.rs:267:17\n    |\n267 |                 transmute(&self.device.raw),\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `&self.device.raw as *const lwext4_sys::ext4::ext4_blockdev as *mut lwext4_sys::ext4::ext4_blockdev`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_transmute\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/mkfs.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: transmute from a reference to a pointer\n   --> lwext4-rs/src/mkfs.rs:268:17\n    |\n268 |                 transmute(&self.raw_info),\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `&self.raw_info as *const lwext4_sys::ext4::ext4_mkfs_info as *mut lwext4_sys::ext4::ext4_mkfs_info`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_transmute\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/types.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: methods with the following characteristics: (`to_*` and `self` type is `Copy`) usually take `self` by value\n   --> lwext4-rs/src/types.rs:102:27\n    |\n102 |     pub(super) fn to_ext4(&self) -> u8 {\n    |                           ^^^^^\n    |\n    = help: consider choosing a less ambiguous name\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#wrong_self_convention\n    = note: `#[warn(clippy::wrong_self_convention)]` on by default\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/types.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `MountStats`\n   --> lwext4-rs/src/types.rs:121:5\n    |\n121 | /     pub fn new() -> Self {\n122 | |         Self(ext4_mount_stats {\n123 | |             inodes_count: 0,\n124 | |             free_inodes_count: 0,\n...   |\n132 | |         })\n133 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n    |\n120 + impl Default for MountStats {\n121 +     fn default() -> Self {\n122 +         Self::new()\n123 +     }\n124 + }\n    |\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-1.3.2/src/lib.rs",
       "kind": "Clippy(Error)",
       "raw": "error: &-masking with zero\n   --> lwext4-rs/src/types.rs:166:1\n    |\n166 | / bitflags! {\n167 | |     pub struct OpenFlags:u32{\n168 | |         const RDONLY = O_RDONLY;\n169 | |         const WRONLY = O_WRONLY;\n...   |\n175 | |     }\n176 | | }\n    | |_^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n    = note: this error originates in the macro `__impl_bitflags` which comes from the expansion of the macro `bitflags` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/types.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: struct `Metadata` has a public `len` method, but no `is_empty` method\n   --> lwext4-rs/src/types.rs:379:5\n    |\n379 |     pub fn len(&self) -> u64 {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_without_is_empty\n    = note: `#[warn(clippy::len_without_is_empty)]` on by default\n\n"
     },
     {
-      "cmd_idx": 20,
+      "cmd_idx": 40,
       "file": "lwext4-rs/src/types.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: an implementation of `From` is preferred since it gives you `Into<_>` for free where the reverse isn't true\n   --> lwext4-rs/src/types.rs:517:1\n    |\n517 | impl Into<u32> for Time {\n    | ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: `impl From<Local> for Foreign` is allowed by the orphan rules, for more information see\n            https://doc.rust-lang.org/reference/items/implementations.html#trait-implementation-coherence\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#from_over_into\nhelp: replace the `Into` implementation with `From<types::Time>`\n    |\n517 ~ impl From<Time> for u32 {\n518 ~     fn from(val: Time) -> Self {\n519 ~         val.epoch_secs as u32\n    |\n\n"
     },
     {
-      "cmd_idx": 22,
+      "cmd_idx": 42,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T04:25:38Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:25:38Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T04:25:43Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.8/src/util/pool.rs:525:25: 525:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.8/src/util/pool.rs:530:17: 530:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:25:43Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T04:25:41Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:25:41Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 23,
+      "cmd_idx": 43,
       "file": "[rap] Not supported to display yet.",
       "kind": "Rap",
       "raw": "pkg=lwext4-rs, checker=Rap\ntoolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\npkg_dir=/home/runner/check/batch_8/kern-crates/lwext4/lwext4-rs\ncmd=cargo +nightly-2024-06-30 rap -F -M\n\n04:26:30|RAP|WARN|: RCanary: Leak Function: Unsat DefId(0:35 ~ lwext4_rs[ef94]::block::{impl#0}::new) lwext4-rs/src/block.rs:26:5: 59:6 (#0)\n04:26:30|RAP|WARN|: RCanary: LeakItem Candidates: _17 = std::boxed::Box::<T>::leak::<'_>(move _18) -> [return: bb3, unwind: bb13], lwext4-rs/src/block.rs:41:35: 41:65 (#0)\n04:26:30|RAP|WARN|: RCanary: LeakItem Candidates: _22 = std::boxed::Box::<lwext4_sys::ext4::ext4_blockdev_iface>::leak::<'_>(move _23) -> [return: bb5, unwind: bb13], lwext4-rs/src/block.rs:44:23: 44:57 (#0)\n04:26:30|RAP|WARN|: RCanary: Leak Function: Unsat DefId(0:90 ~ lwext4_rs[ef94]::block::{impl#9}::open) lwext4-rs/src/block.rs:232:5: 243:6 (#0)\n04:26:30|RAP|WARN|: RCanary: LeakItem Candidates: _21 = std::vec::Vec::<u8>::leak::<'_>(move _22) -> [return: bb9, unwind terminate(abi)], lwext4-rs/src/block.rs:238:42: 238:86 (#0)\n"
     },
     {
-      "cmd_idx": 27,
+      "cmd_idx": 47,
       "file": "(virtual) clippy",
       "kind": "Cargo",
       "raw": "// pkg_name=lwext4-rs, checker=Clippy\n// toolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_8/kern-crates/lwext4/lwext4-rs\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n   Compiling lwext4-sys v0.1.0 (/home/runner/check/batch_8/kern-crates/lwext4/lwext4-sys)\n    Checking lwext4-rs v0.1.0 (/home/runner/check/batch_8/kern-crates/lwext4/lwext4-rs)\nerror: could not compile `lwext4-rs` (lib) due to 1 previous error; 29 warnings emitted\n"
     },
     {
-      "cmd_idx": 31,
+      "cmd_idx": 51,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T04:25:38Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:25:38Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T04:25:43Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.8/src/util/pool.rs:525:25: 525:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.8/src/util/pool.rs:530:17: 530:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:25:43Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 40,
+      "cmd_idx": 60,
       "file": "src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<F, P, B>`\n  --> src/set.rs:15:5\n   |\n15 | /     pub const fn new() -> Self {\n16 | |         Self {\n17 | |             areas: BTreeMap::new(),\n18 | |         }\n19 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n13 + impl<F: Copy, P, B: MappingBackend<F, P>> Default for MemorySet<F, P, B> {\n14 +     fn default() -> Self {\n15 +         Self::new()\n16 +     }\n17 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 40,
+      "cmd_idx": 60,
       "file": "src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: explicit call to `.into_iter()` in function argument accepting `IntoIterator`\n   --> src/set.rs:245:27\n    |\n245 |         self.areas.extend(to_insert.into_iter());\n    |                           ^^^^^^^^^^^^^^^^^^^^^ help: consider removing the `.into_iter()`: `to_insert`\n    |\nnote: this parameter accepts any `IntoIterator`, so you don't need to call `.into_iter()`\n   --> /rustc/4f2f477fded0a47b21ed3f6aeddeafa5db8bf518/library/core/src/iter/traits/collect.rs:450:18\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n    = note: `#[warn(clippy::useless_conversion)]` on by default\n\n"
     },
     {
-      "cmd_idx": 41,
+      "cmd_idx": 61,
       "file": "src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<F, P, B>`\n  --> src/set.rs:15:5\n   |\n15 | /     pub const fn new() -> Self {\n16 | |         Self {\n17 | |             areas: BTreeMap::new(),\n18 | |         }\n19 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n13 + impl<F: Copy, P, B: MappingBackend<F, P>> Default for MemorySet<F, P, B> {\n14 +     fn default() -> Self {\n15 +         Self::new()\n16 +     }\n17 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 41,
+      "cmd_idx": 61,
       "file": "src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: explicit call to `.into_iter()` in function argument accepting `IntoIterator`\n   --> src/set.rs:245:27\n    |\n245 |         self.areas.extend(to_insert.into_iter());\n    |                           ^^^^^^^^^^^^^^^^^^^^^ help: consider removing the `.into_iter()`: `to_insert`\n    |\nnote: this parameter accepts any `IntoIterator`, so you don't need to call `.into_iter()`\n   --> /rustc/4f2f477fded0a47b21ed3f6aeddeafa5db8bf518/library/core/src/iter/traits/collect.rs:450:18\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n    = note: `#[warn(clippy::useless_conversion)]` on by default\n\n"
     },
     {
-      "cmd_idx": 42,
+      "cmd_idx": 62,
       "file": "src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<F, P, B>`\n  --> src/set.rs:15:5\n   |\n15 | /     pub const fn new() -> Self {\n16 | |         Self {\n17 | |             areas: BTreeMap::new(),\n18 | |         }\n19 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n13 + impl<F: Copy, P, B: MappingBackend<F, P>> Default for MemorySet<F, P, B> {\n14 +     fn default() -> Self {\n15 +         Self::new()\n16 +     }\n17 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 42,
+      "cmd_idx": 62,
       "file": "src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: explicit call to `.into_iter()` in function argument accepting `IntoIterator`\n   --> src/set.rs:245:27\n    |\n245 |         self.areas.extend(to_insert.into_iter());\n    |                           ^^^^^^^^^^^^^^^^^^^^^ help: consider removing the `.into_iter()`: `to_insert`\n    |\nnote: this parameter accepts any `IntoIterator`, so you don't need to call `.into_iter()`\n   --> /rustc/4f2f477fded0a47b21ed3f6aeddeafa5db8bf518/library/core/src/iter/traits/collect.rs:450:18\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n    = note: `#[warn(clippy::useless_conversion)]` on by default\n\n"
     },
     {
-      "cmd_idx": 43,
+      "cmd_idx": 63,
       "file": "src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<F, P, B>`\n  --> src/set.rs:15:5\n   |\n15 | /     pub const fn new() -> Self {\n16 | |         Self {\n17 | |             areas: BTreeMap::new(),\n18 | |         }\n19 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n13 + impl<F: Copy, P, B: MappingBackend<F, P>> Default for MemorySet<F, P, B> {\n14 +     fn default() -> Self {\n15 +         Self::new()\n16 +     }\n17 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 43,
+      "cmd_idx": 63,
       "file": "src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: explicit call to `.into_iter()` in function argument accepting `IntoIterator`\n   --> src/set.rs:245:27\n    |\n245 |         self.areas.extend(to_insert.into_iter());\n    |                           ^^^^^^^^^^^^^^^^^^^^^ help: consider removing the `.into_iter()`: `to_insert`\n    |\nnote: this parameter accepts any `IntoIterator`, so you don't need to call `.into_iter()`\n   --> /rustc/4f2f477fded0a47b21ed3f6aeddeafa5db8bf518/library/core/src/iter/traits/collect.rs:450:18\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n    = note: `#[warn(clippy::useless_conversion)]` on by default\n\n"
     },
     {
-      "cmd_idx": 90,
+      "cmd_idx": 110,
       "file": "page_table_multiarch/src/arch/riscv.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: useless conversion to the same type: `memory_addr::VirtAddr`\n  --> page_table_multiarch/src/arch/riscv.rs:26:43\n   |\n26 |         riscv_flush_tlb(vaddr.map(|vaddr| vaddr.into()))\n   |                                           ^^^^^^^^^^^^ help: consider removing `.into()`: `vaddr`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\n\n"
     },
     {
-      "cmd_idx": 93,
+      "cmd_idx": 113,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T04:27:02Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:27:02Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 94,
+      "cmd_idx": 114,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T04:27:04Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:27:04Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 95,
+      "cmd_idx": 115,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T04:27:04Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:27:04Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 96,
+      "cmd_idx": 116,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T04:27:04Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:27:04Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 104,
+      "cmd_idx": 124,
       "file": "src/bitmap.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_8/kern-crates/pager/src/bitmap.rs (original lines from 213 to 213)\n-        }else {\n+        } else {\n"
     },
     {
-      "cmd_idx": 105,
+      "cmd_idx": 125,
       "file": "src/bitmap.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: doc list item without indentation\n  --> src/bitmap.rs:21:5\n   |\n21 | /// If the number of physical pages is less than 4096*8, space may be wasted\n   |     ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n21 | ///    If the number of physical pages is less than 4096*8, space may be wasted\n   |     +++\n\n"
     },
     {
-      "cmd_idx": 105,
+      "cmd_idx": 125,
       "file": "src/bitmap.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: manually reimplementing `div_ceil`\n   --> src/bitmap.rs:197:32\n    |\n197 |             let bitmap_pages = (self.max + 4096 * 8 - 1) / (4096 * 8);\n    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `self.max.div_ceil((4096 * 8))`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n    = note: `#[warn(clippy::manual_div_ceil)]` on by default\n\n"
     },
     {
-      "cmd_idx": 105,
+      "cmd_idx": 125,
       "file": "src/buddy.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `Zone<MAX_ORDER>`\n  --> src/buddy.rs:78:5\n   |\n78 | /     pub const fn new() -> Self {\n79 | |         Self {\n80 | |             manage_pages: 0,\n81 | |             start_page: 0,\n82 | |             free_areas: [FreeArea::new(); MAX_ORDER],\n83 | |         }\n84 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n76 + impl<const MAX_ORDER: usize> Default for Zone<MAX_ORDER> {\n77 +     fn default() -> Self {\n78 +         Self::new()\n79 +     }\n80 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 107,
+      "cmd_idx": 127,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T04:27:14Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:27:14Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "src/io.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: this `impl` can be derived\n   --> src/io.rs:93:1\n    |\n93  | / impl Default for FsStat {\n94  | |     fn default() -> Self {\n95  | |         Self {\n96  | |             f_type: 0,\n...   |\n109 | |     }\n110 | | }\n    | |_^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#derivable_impls\n    = note: `#[warn(clippy::derivable_impls)]` on by default\n    = help: remove the manual implementation...\nhelp: ...and instead derive it\n    |\n66  + #[derive(Default)]\n67  | pub struct FsStat {\n    |\n\n"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-1.3.2/src/lib.rs",
       "kind": "Clippy(Error)",
       "raw": "error: &-masking with zero\n   --> src/io.rs:176:1\n    |\n176 | / bitflags! {\n177 | |     pub struct FaccessatMode: u32 {\n178 | |         const F_OK = 0;\n179 | |         const R_OK = 4;\n...   |\n186 | |     }\n187 | | }\n    | |_^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n    = note: this error originates in the macro `__impl_bitflags` which comes from the expansion of the macro `bitflags` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-1.3.2/src/lib.rs",
       "kind": "Clippy(Error)",
       "raw": "error: &-masking with zero\n   --> src/io.rs:345:1\n    |\n345 | / bitflags::bitflags! {\n346 | |     pub struct OpenFlags: usize {\n347 | |         // reserve 3 bits for the access mode\n348 | |         const O_RDONLY      = 0;\n...   |\n371 | |     }\n372 | | }\n    | |_^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: this error originates in the macro `__impl_bitflags` which comes from the expansion of the macro `bitflags::bitflags` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "src/io.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: struct `Dirent64` has a public `len` method, but no `is_empty` method\n   --> src/io.rs:456:5\n    |\n456 |     pub fn len(&self) -> usize {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_without_is_empty\n    = note: `#[warn(clippy::len_without_is_empty)]` on by default\n\n"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-1.3.2/src/lib.rs",
       "kind": "Clippy(Error)",
       "raw": "error: &-masking with zero\n   --> src/io.rs:612:1\n    |\n612 | / bitflags! {\n613 | |      /// renameat flag\n614 | |     pub struct Renameat2Flags: u32 {\n615 | |         /// Go back to renameat\n...   |\n623 | |     }\n624 | | }\n    | |_^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: this error originates in the macro `__impl_bitflags` which comes from the expansion of the macro `bitflags` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-1.3.2/src/lib.rs",
       "kind": "Clippy(Error)",
       "raw": "error: &-masking with zero\n   --> src/io.rs:625:1\n    |\n625 | / bitflags! {\n626 | |     pub struct ProtFlags: u32 {\n627 | |         const PROT_NONE = 0x0;\n628 | |         const PROT_READ = 0x1;\n...   |\n631 | |     }\n632 | | }\n    | |_^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: this error originates in the macro `__impl_bitflags` which comes from the expansion of the macro `bitflags` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "src/signal/mod.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `SignalHandlers`\n  --> src/signal/mod.rs:30:5\n   |\n30 | /     pub fn new() -> Self {\n31 | |         Self {\n32 | |             actions: [None; SIGSET_SIZE_IN_BIT],\n33 | |         }\n34 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n28 + impl Default for SignalHandlers {\n29 +     fn default() -> Self {\n30 +         Self::new()\n31 +     }\n32 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "src/signal/mod.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: this lifetime isn't used in the function definition\n  --> src/signal/mod.rs:44:23\n   |\n44 |     pub fn get_action<'a>(&self, signum: usize, action_pos: &mut SigAction) {\n   |                       ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#extra_unused_lifetimes\n   = note: `#[warn(clippy::extra_unused_lifetimes)]` on by default\n\n"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "src/signal/mod.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `SignalReceivers`\n  --> src/signal/mod.rs:80:5\n   |\n80 | /     pub fn new() -> Self {\n81 | |         Self {\n82 | |             mask: SimpleBitSet::default(),\n83 | |             sig_received: SimpleBitSet::default(),\n84 | |         }\n85 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n   |\n78 + impl Default for SignalReceivers {\n79 +     fn default() -> Self {\n80 +         Self::new()\n81 +     }\n82 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "src/signal/mod.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: an implementation of `From` is preferred since it gives you `Into<_>` for free where the reverse isn't true\n   --> src/signal/mod.rs:165:1\n    |\n165 | impl Into<Vec<SignalNumber>> for SimpleBitSet {\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: `impl From<Local> for Foreign` is allowed by the orphan rules, for more information see\n            https://doc.rust-lang.org/reference/items/implementations.html#trait-implementation-coherence\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#from_over_into\n    = note: `#[warn(clippy::from_over_into)]` on by default\nhelp: replace the `Into` implementation with `From<signal::SimpleBitSet>`\n    |\n165 ~ impl From<SimpleBitSet> for Vec<SignalNumber> {\n166 ~     fn from(val: SimpleBitSet) -> Self {\n167 |         let mut ans = Vec::new();\n168 |         for i in 0..64 {\n169 ~             if val.0 & (1 << i) != 0 {\n    |\n\n"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "src/signal/mod.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: suspicious use of `|` in `Add` impl\n   --> src/signal/mod.rs:201:21\n    |\n201 |         Self(self.0 | rhs.0)\n    |                     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#suspicious_arithmetic_impl\n    = note: `#[warn(clippy::suspicious_arithmetic_impl)]` on by default\n\n"
     },
     {
-      "cmd_idx": 113,
+      "cmd_idx": 133,
       "file": "src/signal/mod.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: suspicious use of `|` in `AddAssign` impl\n   --> src/signal/mod.rs:207:16\n    |\n207 |         self.0 |= rhs.0;\n    |                ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#suspicious_op_assign_impl\n    = note: `#[warn(clippy::suspicious_op_assign_impl)]` on by default\n\n"
     },
     {
-      "cmd_idx": 120,
+      "cmd_idx": 140,
       "file": "(virtual) clippy",
       "kind": "Cargo",
       "raw": "// pkg_name=pconst, checker=Clippy\n// toolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_8/kern-crates/pconst\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n   Compiling proc-macro2 v1.0.89\n   Compiling unicode-ident v1.0.13\n   Compiling version_check v0.9.5\n   Compiling syn v1.0.109\n   Compiling yansi v1.0.1\n    Checking bitflags v1.3.2\n   Compiling proc-macro2-diagnostics v0.10.1\n   Compiling int-enum v1.1.2\n   Compiling quote v1.0.37\n   Compiling syn v2.0.86\n   Compiling pod-derive v0.1.0 (https://github.com/asterinas/pod?rev=d7dba56#d7dba56c)\n    Checking pod v0.1.0 (https://github.com/asterinas/pod?rev=d7dba56#d7dba56c)\n    Checking pconst v0.1.0 (/home/runner/check/batch_8/kern-crates/pconst)\nerror: could not compile `pconst` (lib) due to 4 previous errors; 8 warnings emitted\n"
-    },
-    {
-      "cmd_idx": 125,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:53:1\n   |\n53 | just a global variable, architecture-specific thread pointer register is\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n53 |   just a global variable, architecture-specific thread pointer register is\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 125,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:54:1\n   |\n54 | not used.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n54 |   not used.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 125,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:56:1\n   |\n56 | preemption when accessing per-CPU data. Otherwise, the data may be corrupted\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n56 |   preemption when accessing per-CPU data. Otherwise, the data may be corrupted\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 125,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:57:1\n   |\n57 | when it's being accessing and the current thread happens to be preempted.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n57 |   when it's being accessing and the current thread happens to be preempted.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 125,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:59:1\n   |\n59 | In this case, we use `TPIDR_EL2` instead of `TPIDR_EL1`\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n59 |   In this case, we use `TPIDR_EL2` instead of `TPIDR_EL1`\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 125,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:60:1\n   |\n60 | to store the base address of per-CPU data area.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n60 |   to store the base address of per-CPU data area.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 126,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:53:1\n   |\n53 | just a global variable, architecture-specific thread pointer register is\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n53 |   just a global variable, architecture-specific thread pointer register is\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 126,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:54:1\n   |\n54 | not used.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n54 |   not used.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 126,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:56:1\n   |\n56 | preemption when accessing per-CPU data. Otherwise, the data may be corrupted\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n56 |   preemption when accessing per-CPU data. Otherwise, the data may be corrupted\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 126,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:57:1\n   |\n57 | when it's being accessing and the current thread happens to be preempted.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n57 |   when it's being accessing and the current thread happens to be preempted.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 126,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:59:1\n   |\n59 | In this case, we use `TPIDR_EL2` instead of `TPIDR_EL1`\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n59 |   In this case, we use `TPIDR_EL2` instead of `TPIDR_EL1`\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 126,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:60:1\n   |\n60 | to store the base address of per-CPU data area.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n60 |   to store the base address of per-CPU data area.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 127,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:53:1\n   |\n53 | just a global variable, architecture-specific thread pointer register is\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n53 |   just a global variable, architecture-specific thread pointer register is\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 127,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:54:1\n   |\n54 | not used.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n54 |   not used.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 127,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:56:1\n   |\n56 | preemption when accessing per-CPU data. Otherwise, the data may be corrupted\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n56 |   preemption when accessing per-CPU data. Otherwise, the data may be corrupted\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 127,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:57:1\n   |\n57 | when it's being accessing and the current thread happens to be preempted.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n57 |   when it's being accessing and the current thread happens to be preempted.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 127,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:59:1\n   |\n59 | In this case, we use `TPIDR_EL2` instead of `TPIDR_EL1`\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n59 |   In this case, we use `TPIDR_EL2` instead of `TPIDR_EL1`\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 127,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:60:1\n   |\n60 | to store the base address of per-CPU data area.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n60 |   to store the base address of per-CPU data area.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 128,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:53:1\n   |\n53 | just a global variable, architecture-specific thread pointer register is\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n53 |   just a global variable, architecture-specific thread pointer register is\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 128,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:54:1\n   |\n54 | not used.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n54 |   not used.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 128,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:56:1\n   |\n56 | preemption when accessing per-CPU data. Otherwise, the data may be corrupted\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n56 |   preemption when accessing per-CPU data. Otherwise, the data may be corrupted\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 128,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:57:1\n   |\n57 | when it's being accessing and the current thread happens to be preempted.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n57 |   when it's being accessing and the current thread happens to be preempted.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 128,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:59:1\n   |\n59 | In this case, we use `TPIDR_EL2` instead of `TPIDR_EL1`\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n59 |   In this case, we use `TPIDR_EL2` instead of `TPIDR_EL1`\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 128,
-      "file": "percpu/src/../README.md",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n  --> percpu/src/../README.md:60:1\n   |\n60 | to store the base address of per-CPU data area.\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n60 |   to store the base address of per-CPU data area.\n   | ++\n\n"
-    },
-    {
-      "cmd_idx": 141,
-      "file": "(virtual) rap",
-      "kind": "Cargo",
-      "raw": "// pkg_name=percpu, checker=Rap\n// toolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_8/kern-crates/percpu/percpu\n// cmd=cargo +nightly-2024-06-30 rap -F -M\n   Compiling proc-macro2 v1.0.89\n   Compiling unicode-ident v1.0.13\n   Compiling autocfg v1.4.0\n   Compiling x86 v0.52.0\n    Checking scopeguard v1.2.0\n    Checking bitflags v1.3.2\n   Compiling percpu v0.1.5 (/home/runner/check/batch_8/kern-crates/percpu/percpu)\n    Checking raw-cpuid v10.7.0\n    Checking bit_field v0.10.2\n   Compiling lock_api v0.4.12\n    Checking cfg-if v1.0.0\n   Compiling quote v1.0.37\n    Checking spin v0.9.8\n   Compiling syn v2.0.86\n   Compiling percpu_macros v0.1.5 (/home/runner/check/batch_8/kern-crates/percpu/percpu_macros)\nerror: linking with `cc` failed: exit status: 1\n  |\n  = note: LC_ALL=\"C\" PATH=\"/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/self-contained:/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/self-contained:/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin:/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/self-contained:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin\" VSLANG=\"1033\" \"cc\" \"-Wl,--version-script=/tmp/rustcodTzOR/list\" \"-Wl,--no-undefined-version\" \"-m64\" \"/tmp/rustcodTzOR/symbols.o\" \"/home/runner/check/batch_8/kern-crates/percpu/target/debug/deps/percpu_macros-65f2d137761ec0d9.percpu_macros.d29aabebeceaceda-cgu.0.rcgu.o\" \"/home/runner/check/batch_8/kern-crates/percpu/target/debug/deps/percpu_macros-65f2d137761ec0d9.percpu_macros.d29aabebeceaceda-cgu.1.rcgu.o\" \"/home/runner/check/batch_8/kern-crates/percpu/target/debug/deps/percpu_macros-65f2d137761ec0d9.percpu_macros.d29aabebeceaceda-cgu.2.rcgu.o\" \"/home/runner/check/batch_8/kern-crates/percpu/target/debug/deps/percpu_macros-65f2d137761ec0d9.6ylxwy32tdt8lnz7g03yaoo6v.rcgu.rmeta\" \"/home/runner/check/batch_8/kern-crates/percpu/target/debug/deps/percpu_macros-65f2d137761ec0d9.ch02wjd3dw25r9wse4s4j3wzb.rcgu.o\" \"-Wl,--as-needed\" \"-L\" \"/home/runner/check/batch_8/kern-crates/percpu/target/debug/deps\" \"-L\" \"/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib\" \"-Wl,-Bstatic\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"-Wl,-Bdynamic\" \"-lgcc_s\" \"-lutil\" \"-lrt\" \"-lpthread\" \"-lm\" \"-ldl\" \"-lc\" \"-B/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/gcc-ld\" \"-B/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/gcc-ld\" \"-B/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/gcc-ld\" \"-fuse-ld=lld\" \"-Wl,--eh-frame-hdr\" \"-Wl,-z,noexecstack\" \"-L\" \"/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib\" \"-L\" \"/home/runner/.rustup/toolchains/nightly-2024-06-30-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib/self-contained\" \"-o\" \"/home/runner/check/batch_8/kern-crates/percpu/target/debug/deps/libpercpu_macros-65f2d137761ec0d9.so\" \"-Wl,--gc-sections\" \"-shared\" \"-Wl,-z,relro,-z,now\" \"-nodefaultlibs\"\n  = note: rust-lld: error: undefined hidden symbol: __rdl_dealloc\n          >>> referenced by ch02wjd3dw25r9wse4s4j3wzb\n          >>>               /home/runner/check/batch_8/kern-crates/percpu/target/debug/deps/percpu_macros-65f2d137761ec0d9.ch02wjd3dw25r9wse4s4j3wzb.rcgu.o:(__rust_dealloc)\n          collect2: error: ld returned 1 exit status\n          \n\nerror: could not compile `percpu_macros` (lib) due to 1 previous error\n04:28:11|RAP|ERROR|: Finished with non-zero exit code.\n"
     }
   ]
 }
