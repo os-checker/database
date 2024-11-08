@@ -15,18 +15,12 @@
             "channel": "nightly-2024-10-24-x86_64-unknown-linux-gnu",
             "profile": null,
             "targets": [
-              "aarch64-unknown-none",
-              "riscv64gc-unknown-none-elf",
-              "x86_64-unknown-linux-gnu",
-              "x86_64-unknown-none"
+              "x86_64-unknown-linux-gnu"
             ],
             "components": [
               "cargo-x86_64-unknown-linux-gnu",
               "clippy-x86_64-unknown-linux-gnu",
-              "rust-std-aarch64-unknown-none",
-              "rust-std-riscv64gc-unknown-none-elf",
               "rust-std-x86_64-unknown-linux-gnu",
-              "rust-std-x86_64-unknown-none",
               "rustc-x86_64-unknown-linux-gnu",
               "rustfmt-x86_64-unknown-linux-gnu"
             ],
@@ -37,11 +31,11 @@
         ]
       },
       "os_checker": {
-        "start": 1730609593414,
-        "finish": 1730609596797,
-        "duration_ms": 3383,
-        "git_time": "2024-11-03 12:49:36 +0800",
-        "git_sha": "fa6e82947d3ae60ef3dafb03934f3412c7963f83"
+        "start": 1731053681909,
+        "finish": 1731053687383,
+        "duration_ms": 5473,
+        "git_time": "2024-11-08 16:11:32 +0800",
+        "git_sha": "9b4972ea7225c3c6b6e0705db8a3b9c5c3576e6b"
       }
     },
     "kinds": {
@@ -97,6 +91,10 @@
     "repos": [
       {
         "user": "kern-crates",
+        "repo": "axerrno"
+      },
+      {
+        "user": "kern-crates",
         "repo": "axfs_crates"
       },
       {
@@ -122,17 +120,21 @@
       {
         "user": "kern-crates",
         "repo": "cap_access"
-      },
-      {
-        "user": "kern-crates",
-        "repo": "cpumask"
       }
     ],
     "packages": [
       {
-        "name": "axfs_devfs",
+        "name": "axerrno",
         "repo": {
           "repo_idx": 0,
+          "user": "kern-crates",
+          "repo": "axerrno"
+        }
+      },
+      {
+        "name": "axfs_devfs",
+        "repo": {
+          "repo_idx": 1,
           "user": "kern-crates",
           "repo": "axfs_crates"
         }
@@ -140,7 +142,7 @@
       {
         "name": "axfs_ramfs",
         "repo": {
-          "repo_idx": 0,
+          "repo_idx": 1,
           "user": "kern-crates",
           "repo": "axfs_crates"
         }
@@ -148,7 +150,7 @@
       {
         "name": "axfs_vfs",
         "repo": {
-          "repo_idx": 0,
+          "repo_idx": 1,
           "user": "kern-crates",
           "repo": "axfs_crates"
         }
@@ -156,7 +158,7 @@
       {
         "name": "axio",
         "repo": {
-          "repo_idx": 1,
+          "repo_idx": 2,
           "user": "kern-crates",
           "repo": "axio"
         }
@@ -164,7 +166,7 @@
       {
         "name": "memory_addr",
         "repo": {
-          "repo_idx": 2,
+          "repo_idx": 3,
           "user": "kern-crates",
           "repo": "axmm_crates"
         }
@@ -172,7 +174,7 @@
       {
         "name": "memory_set",
         "repo": {
-          "repo_idx": 2,
+          "repo_idx": 3,
           "user": "kern-crates",
           "repo": "axmm_crates"
         }
@@ -180,7 +182,7 @@
       {
         "name": "axprocess",
         "repo": {
-          "repo_idx": 3,
+          "repo_idx": 4,
           "user": "kern-crates",
           "repo": "axprocess"
         }
@@ -188,7 +190,7 @@
       {
         "name": "axvcpu",
         "repo": {
-          "repo_idx": 4,
+          "repo_idx": 5,
           "user": "kern-crates",
           "repo": "axvcpu"
         }
@@ -196,7 +198,7 @@
       {
         "name": "axvm",
         "repo": {
-          "repo_idx": 5,
+          "repo_idx": 6,
           "user": "kern-crates",
           "repo": "axvm"
         }
@@ -204,17 +206,9 @@
       {
         "name": "cap_access",
         "repo": {
-          "repo_idx": 6,
-          "user": "kern-crates",
-          "repo": "cap_access"
-        }
-      },
-      {
-        "name": "cpumask",
-        "repo": {
           "repo_idx": 7,
           "user": "kern-crates",
-          "repo": "cpumask"
+          "repo": "cap_access"
         }
       }
     ]
@@ -222,6 +216,246 @@
   "cmd": [
     {
       "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axerrno -- --emit=json",
+      "count": 0,
+      "duration_ms": 105,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axerrno -- --emit=json",
+      "count": 0,
+      "duration_ms": 103,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axerrno -- --emit=json",
+      "count": 0,
+      "duration_ms": 101,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axerrno -- --emit=json",
+      "count": 0,
+      "duration_ms": 101,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
+      "count": 2,
+      "duration_ms": 372,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
+      "count": 2,
+      "duration_ms": 248,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
+      "count": 2,
+      "duration_ms": 245,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
+      "count": 2,
+      "duration_ms": 252,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
+      "count": 0,
+      "duration_ms": 47,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
+      "count": 1,
+      "duration_ms": 323,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
+      "count": 1,
+      "duration_ms": 210,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
+      "count": 1,
+      "duration_ms": 229,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
+      "count": 1,
+      "duration_ms": 218,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rap",
+      "cmd": "cargo +nightly-2024-06-30 rap -F -M",
+      "count": 0,
+      "duration_ms": 1378,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rudra",
+      "cmd": "cargo +nightly-2021-10-21 rudra",
+      "count": 0,
+      "duration_ms": 260,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 65,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 65,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 65,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 65,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "geiger",
+      "cmd": "cargo geiger --output-format Ascii",
+      "count": 0,
+      "duration_ms": 113,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2024-10-23",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_devfs -- --emit=json",
       "count": 0,
@@ -233,7 +467,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_devfs -- --emit=json",
       "count": 0,
@@ -245,7 +479,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_devfs -- --emit=json",
       "count": 0,
@@ -257,7 +491,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_devfs -- --emit=json",
       "count": 0,
@@ -269,7 +503,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
@@ -281,7 +515,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -293,7 +527,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 0,
@@ -305,7 +539,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -317,7 +551,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -329,7 +563,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -341,7 +575,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 1,
@@ -353,7 +587,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 1,
@@ -365,7 +599,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 1,
@@ -377,7 +611,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 1,
@@ -389,7 +623,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -401,7 +635,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -413,7 +647,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -425,7 +659,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -437,7 +671,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -449,7 +683,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -461,7 +695,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_ramfs -- --emit=json",
       "count": 0,
@@ -473,7 +707,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_ramfs -- --emit=json",
       "count": 0,
@@ -485,7 +719,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_ramfs -- --emit=json",
       "count": 0,
@@ -497,7 +731,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_ramfs -- --emit=json",
       "count": 0,
@@ -509,7 +743,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
@@ -521,7 +755,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -533,7 +767,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 0,
@@ -545,7 +779,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -557,7 +791,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -569,7 +803,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -581,7 +815,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 1,
@@ -593,7 +827,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 1,
@@ -605,7 +839,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 1,
@@ -617,7 +851,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 1,
@@ -629,7 +863,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -641,7 +875,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -653,7 +887,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -665,7 +899,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -677,7 +911,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -689,7 +923,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -701,7 +935,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_vfs -- --emit=json",
       "count": 0,
@@ -713,7 +947,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_vfs -- --emit=json",
       "count": 0,
@@ -725,7 +959,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_vfs -- --emit=json",
       "count": 0,
@@ -737,7 +971,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axfs_vfs -- --emit=json",
       "count": 0,
@@ -749,7 +983,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
@@ -761,7 +995,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -773,7 +1007,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 0,
@@ -785,7 +1019,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -797,7 +1031,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -809,7 +1043,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 1,
@@ -821,7 +1055,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 1,
@@ -833,7 +1067,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 1,
@@ -845,7 +1079,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -857,7 +1091,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -869,7 +1103,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -881,7 +1115,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -893,7 +1127,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -905,7 +1139,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -917,7 +1151,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -929,7 +1163,7 @@
       "flags": []
     },
     {
-      "package_idx": 2,
+      "package_idx": 3,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -941,7 +1175,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axio -- --emit=json",
       "count": 0,
@@ -953,7 +1187,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axio -- --emit=json",
       "count": 0,
@@ -965,7 +1199,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axio -- --emit=json",
       "count": 0,
@@ -977,7 +1211,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axio -- --emit=json",
       "count": 0,
@@ -989,7 +1223,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
@@ -1001,7 +1235,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -1013,7 +1247,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 0,
@@ -1025,7 +1259,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -1037,7 +1271,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -1049,7 +1283,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -1061,7 +1295,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 1,
@@ -1073,7 +1307,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 1,
@@ -1085,7 +1319,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 1,
@@ -1097,7 +1331,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -1109,7 +1343,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -1121,7 +1355,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1133,7 +1367,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1145,7 +1379,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1157,7 +1391,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1169,7 +1403,7 @@
       "flags": []
     },
     {
-      "package_idx": 3,
+      "package_idx": 4,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -1181,7 +1415,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_addr -- --emit=json",
       "count": 0,
@@ -1193,7 +1427,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_addr -- --emit=json",
       "count": 0,
@@ -1205,7 +1439,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_addr -- --emit=json",
       "count": 0,
@@ -1217,7 +1451,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_addr -- --emit=json",
       "count": 0,
@@ -1229,7 +1463,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
@@ -1241,7 +1475,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -1253,7 +1487,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 0,
@@ -1265,7 +1499,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -1277,7 +1511,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -1289,7 +1523,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
@@ -1301,7 +1535,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 0,
@@ -1313,7 +1547,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 0,
@@ -1325,7 +1559,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 0,
@@ -1337,7 +1571,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -1349,7 +1583,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -1361,7 +1595,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1373,7 +1607,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1385,7 +1619,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1397,7 +1631,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1409,7 +1643,7 @@
       "flags": []
     },
     {
-      "package_idx": 4,
+      "package_idx": 5,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -1421,7 +1655,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_set -- --emit=json",
       "count": 0,
@@ -1433,7 +1667,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_set -- --emit=json",
       "count": 0,
@@ -1445,7 +1679,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_set -- --emit=json",
       "count": 0,
@@ -1457,7 +1691,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p memory_set -- --emit=json",
       "count": 0,
@@ -1469,7 +1703,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 1,
@@ -1481,7 +1715,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 1,
@@ -1493,7 +1727,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 1,
@@ -1505,7 +1739,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 1,
@@ -1517,7 +1751,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -1529,7 +1763,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 0,
@@ -1541,7 +1775,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 0,
@@ -1553,7 +1787,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 0,
@@ -1565,7 +1799,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
@@ -1577,7 +1811,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -1589,7 +1823,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -1601,7 +1835,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1613,7 +1847,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1625,7 +1859,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1637,7 +1871,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1649,7 +1883,7 @@
       "flags": []
     },
     {
-      "package_idx": 5,
+      "package_idx": 6,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -1661,7 +1895,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axprocess -- --emit=json",
       "count": 3,
@@ -1673,7 +1907,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 1,
@@ -1685,7 +1919,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -1697,7 +1931,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -1709,7 +1943,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -1721,7 +1955,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -1733,7 +1967,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1745,7 +1979,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -1757,7 +1991,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "cargo",
       "cmd": "VRITUAL=clippy cargo",
       "count": 1,
@@ -1769,7 +2003,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "cargo",
       "cmd": "VRITUAL=lockbud cargo",
       "count": 1,
@@ -1781,7 +2015,7 @@
       "flags": []
     },
     {
-      "package_idx": 6,
+      "package_idx": 7,
       "tool": "cargo",
       "cmd": "VRITUAL=rap cargo",
       "count": 1,
@@ -1793,7 +2027,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axvcpu -- --emit=json",
       "count": 0,
@@ -1805,7 +2039,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axvcpu -- --emit=json",
       "count": 0,
@@ -1817,7 +2051,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axvcpu -- --emit=json",
       "count": 0,
@@ -1829,7 +2063,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axvcpu -- --emit=json",
       "count": 0,
@@ -1841,7 +2075,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
@@ -1853,7 +2087,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -1865,7 +2099,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 0,
@@ -1877,7 +2111,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -1889,7 +2123,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -1901,7 +2135,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -1913,7 +2147,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 1,
@@ -1925,7 +2159,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 1,
@@ -1937,7 +2171,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 1,
@@ -1949,7 +2183,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -1961,7 +2195,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -1973,7 +2207,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1985,7 +2219,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -1997,7 +2231,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -2009,7 +2243,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -2021,7 +2255,7 @@
       "flags": []
     },
     {
-      "package_idx": 7,
+      "package_idx": 8,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -2033,7 +2267,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axvm -- --emit=json",
       "count": 0,
@@ -2045,7 +2279,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axvm -- --emit=json",
       "count": 0,
@@ -2057,7 +2291,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axvm -- --emit=json",
       "count": 0,
@@ -2069,7 +2303,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axvm -- --emit=json",
       "count": 0,
@@ -2081,7 +2315,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p axvm -- --emit=json",
       "count": 0,
@@ -2093,7 +2327,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 1,
@@ -2105,7 +2339,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none-softfloat --no-deps --message-format=json",
       "count": 1,
@@ -2117,7 +2351,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 1,
@@ -2129,7 +2363,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 2,
@@ -2141,7 +2375,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 2,
@@ -2153,7 +2387,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -2165,7 +2399,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 1,
@@ -2177,7 +2411,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 1,
@@ -2189,7 +2423,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 1,
@@ -2201,7 +2435,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
@@ -2213,7 +2447,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none-softfloat",
       "count": 1,
@@ -2225,7 +2459,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -2237,7 +2471,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -2249,7 +2483,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -2261,7 +2495,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -2273,7 +2507,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -2285,7 +2519,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -2297,7 +2531,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -2309,7 +2543,7 @@
       "flags": []
     },
     {
-      "package_idx": 8,
+      "package_idx": 9,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -2321,7 +2555,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p cap_access -- --emit=json",
       "count": 0,
@@ -2333,7 +2567,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p cap_access -- --emit=json",
       "count": 0,
@@ -2345,7 +2579,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p cap_access -- --emit=json",
       "count": 0,
@@ -2357,7 +2591,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p cap_access -- --emit=json",
       "count": 0,
@@ -2369,7 +2603,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
@@ -2381,7 +2615,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -2393,7 +2627,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
       "count": 0,
@@ -2405,7 +2639,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
       "count": 0,
@@ -2417,7 +2651,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "mirai",
       "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 0,
@@ -2429,7 +2663,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
@@ -2441,7 +2675,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
       "count": 0,
@@ -2453,7 +2687,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
       "count": 0,
@@ -2465,7 +2699,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
       "count": 0,
@@ -2477,7 +2711,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "rap",
       "cmd": "cargo +nightly-2024-06-30 rap -F -M",
       "count": 0,
@@ -2489,7 +2723,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
@@ -2501,7 +2735,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -2513,7 +2747,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -2525,7 +2759,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -2537,7 +2771,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "outdated",
       "cmd": "cargo outdated -R --exit-code=2",
       "count": 0,
@@ -2549,7 +2783,7 @@
       "flags": []
     },
     {
-      "package_idx": 9,
+      "package_idx": 10,
       "tool": "geiger",
       "cmd": "cargo geiger --output-format Ascii",
       "count": 0,
@@ -2559,278 +2793,80 @@
       "rust_toolchain": "nightly-2024-10-23",
       "features": [],
       "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p cpumask -- --emit=json",
-      "count": 0,
-      "duration_ms": 98,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p cpumask -- --emit=json",
-      "count": 0,
-      "duration_ms": 98,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p cpumask -- --emit=json",
-      "count": 0,
-      "duration_ms": 97,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2024-10-24-x86_64-unknown-linux-gnu fmt -p cpumask -- --emit=json",
-      "count": 0,
-      "duration_ms": 98,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
-      "count": 4,
-      "duration_ms": 516,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-none --no-deps --message-format=json",
-      "count": 4,
-      "duration_ms": 490,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf --no-deps --message-format=json",
-      "count": 4,
-      "duration_ms": 480,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target aarch64-unknown-none --no-deps --message-format=json",
-      "count": 4,
-      "duration_ms": 489,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "mirai",
-      "cmd": "cargo +nightly-2023-12-30 mirai --target x86_64-unknown-linux-gnu --message-format=json",
-      "count": 0,
-      "duration_ms": 47,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu",
-      "count": 0,
-      "duration_ms": 545,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-none",
-      "count": 0,
-      "duration_ms": 521,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target riscv64gc-unknown-none-elf",
-      "count": 0,
-      "duration_ms": 505,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-05-21 lockbud -k all -- --target aarch64-unknown-none",
-      "count": 0,
-      "duration_ms": 520,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "rap",
-      "cmd": "cargo +nightly-2024-06-30 rap -F -M",
-      "count": 0,
-      "duration_ms": 1714,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "rudra",
-      "cmd": "cargo +nightly-2021-10-21 rudra",
-      "count": 0,
-      "duration_ms": 252,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 62,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 61,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 62,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "outdated",
-      "cmd": "cargo outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 62,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 10,
-      "tool": "geiger",
-      "cmd": "cargo geiger --output-format Ascii",
-      "count": 0,
-      "duration_ms": 104,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2024-10-23",
-      "features": [],
-      "flags": []
     }
   ],
   "data": [
     {
+      "cmd_idx": 4,
+      "file": "src/../README.md",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: doc list item without indentation\n  --> src/../README.md:12:1\n   |\n12 | [`std::io::ErrorKind`].\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n12 |   [`std::io::ErrorKind`].\n   | ++\n\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/../README.md",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: doc list item without indentation\n  --> src/../README.md:14:1\n   |\n14 | `errno.h`. It can be converted from [`AxError`].\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n14 |   `errno.h`. It can be converted from [`AxError`].\n   | ++\n\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/../README.md",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: doc list item without indentation\n  --> src/../README.md:12:1\n   |\n12 | [`std::io::ErrorKind`].\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n12 |   [`std::io::ErrorKind`].\n   | ++\n\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/../README.md",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: doc list item without indentation\n  --> src/../README.md:14:1\n   |\n14 | `errno.h`. It can be converted from [`AxError`].\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n14 |   `errno.h`. It can be converted from [`AxError`].\n   | ++\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/../README.md",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: doc list item without indentation\n  --> src/../README.md:12:1\n   |\n12 | [`std::io::ErrorKind`].\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n12 |   [`std::io::ErrorKind`].\n   | ++\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/../README.md",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: doc list item without indentation\n  --> src/../README.md:14:1\n   |\n14 | `errno.h`. It can be converted from [`AxError`].\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n14 |   `errno.h`. It can be converted from [`AxError`].\n   | ++\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/../README.md",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: doc list item without indentation\n  --> src/../README.md:12:1\n   |\n12 | [`std::io::ErrorKind`].\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n12 |   [`std::io::ErrorKind`].\n   | ++\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/../README.md",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: doc list item without indentation\n  --> src/../README.md:14:1\n   |\n14 | `errno.h`. It can be converted from [`AxError`].\n   | ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n   |\n14 |   `errno.h`. It can be converted from [`AxError`].\n   | ++\n\n"
+    },
+    {
       "cmd_idx": 9,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:31:00Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:00Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+      "raw": "[2024-11-02T04:35:05Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:35:05Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
       "cmd_idx": 10,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:31:01Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:01Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+      "raw": "[2024-11-02T04:35:05Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:35:05Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
       "cmd_idx": 11,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:31:02Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:02Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+      "raw": "[2024-11-02T04:35:05Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:35:05Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
       "cmd_idx": 12,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:31:02Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:02Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
-    },
-    {
-      "cmd_idx": 13,
-      "file": "[rap] Not supported to display yet.",
-      "kind": "Rap",
-      "raw": "pkg=axfs_devfs, checker=Rap\ntoolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\npkg_dir=/home/runner/check/batch_4/kern-crates/axfs_crates/axfs_devfs\ncmd=cargo +nightly-2024-06-30 rap -F -M\n\n00:31:06|RAP|WARN|: Dangling pointer detected in function \"parent\"!!! \n"
+      "raw": "[2024-11-02T04:35:05Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T04:35:05Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
       "cmd_idx": 29,
@@ -2860,13 +2896,13 @@
       "cmd_idx": 33,
       "file": "[rap] Not supported to display yet.",
       "kind": "Rap",
-      "raw": "pkg=axfs_ramfs, checker=Rap\ntoolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\npkg_dir=/home/runner/check/batch_4/kern-crates/axfs_crates/axfs_ramfs\ncmd=cargo +nightly-2024-06-30 rap -F -M\n\n00:31:07|RAP|WARN|: Dangling pointer detected in function \"parent\"!!! \n"
+      "raw": "pkg=axfs_devfs, checker=Rap\ntoolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\npkg_dir=/home/runner/check/batch_4/kern-crates/axfs_crates/axfs_devfs\ncmd=cargo +nightly-2024-06-30 rap -F -M\n\n00:31:06|RAP|WARN|: Dangling pointer detected in function \"parent\"!!! \n"
     },
     {
       "cmd_idx": 49,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:31:02Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:02Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+      "raw": "[2024-11-02T00:31:00Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:00Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
       "cmd_idx": 50,
@@ -2884,295 +2920,229 @@
       "cmd_idx": 52,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:31:00Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:00Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+      "raw": "[2024-11-02T00:31:02Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:02Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
+      "cmd_idx": 53,
+      "file": "[rap] Not supported to display yet.",
+      "kind": "Rap",
+      "raw": "pkg=axfs_ramfs, checker=Rap\ntoolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\npkg_dir=/home/runner/check/batch_4/kern-crates/axfs_crates/axfs_ramfs\ncmd=cargo +nightly-2024-06-30 rap -F -M\n\n00:31:07|RAP|WARN|: Dangling pointer detected in function \"parent\"!!! \n"
     },
     {
       "cmd_idx": 69,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:31:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+      "raw": "[2024-11-02T00:31:02Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:02Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
       "cmd_idx": 70,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:31:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+      "raw": "[2024-11-02T00:31:01Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:01Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
       "cmd_idx": 71,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:31:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+      "raw": "[2024-11-02T00:31:02Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:02Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
       "cmd_idx": 72,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
+      "raw": "[2024-11-02T00:31:00Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:00Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
+      "cmd_idx": 89,
+      "file": "[lockbud] Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
+      "raw": "[2024-11-02T00:31:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
+      "cmd_idx": 90,
+      "file": "[lockbud] Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
+      "raw": "[2024-11-02T00:31:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
+      "cmd_idx": 91,
+      "file": "[lockbud] Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
+      "raw": "[2024-11-02T00:31:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
+      "cmd_idx": 92,
+      "file": "[lockbud] Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T00:31:13Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:13Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 104,
+      "cmd_idx": 124,
       "file": "memory_set/src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<B>`\n  --> memory_set/src/set.rs:17:5\n   |\n17 | /     pub const fn new() -> Self {\n18 | |         Self {\n19 | |             areas: BTreeMap::new(),\n20 | |         }\n21 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n15 + impl<B: MappingBackend> Default for MemorySet<B> {\n16 +     fn default() -> Self {\n17 +         Self::new()\n18 +     }\n19 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 105,
+      "cmd_idx": 125,
       "file": "memory_set/src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<B>`\n  --> memory_set/src/set.rs:17:5\n   |\n17 | /     pub const fn new() -> Self {\n18 | |         Self {\n19 | |             areas: BTreeMap::new(),\n20 | |         }\n21 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n15 + impl<B: MappingBackend> Default for MemorySet<B> {\n16 +     fn default() -> Self {\n17 +         Self::new()\n18 +     }\n19 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 106,
+      "cmd_idx": 126,
       "file": "memory_set/src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<B>`\n  --> memory_set/src/set.rs:17:5\n   |\n17 | /     pub const fn new() -> Self {\n18 | |         Self {\n19 | |             areas: BTreeMap::new(),\n20 | |         }\n21 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n15 + impl<B: MappingBackend> Default for MemorySet<B> {\n16 +     fn default() -> Self {\n17 +         Self::new()\n18 +     }\n19 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 107,
+      "cmd_idx": 127,
       "file": "memory_set/src/set.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<B>`\n  --> memory_set/src/set.rs:17:5\n   |\n17 | /     pub const fn new() -> Self {\n18 | |         Self {\n19 | |             areas: BTreeMap::new(),\n20 | |         }\n21 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n15 + impl<B: MappingBackend> Default for MemorySet<B> {\n16 +     fn default() -> Self {\n17 +         Self::new()\n18 +     }\n19 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 120,
+      "cmd_idx": 140,
       "file": "src/api.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_4/kern-crates/axprocess/src/api.rs (original lines from 22 to 22)\n-use axtask::{current, yield_now, AxTaskRef, CurrentTask, TaskId, TaskState,current_processor};\n+use axtask::{current, current_processor, yield_now, AxTaskRef, CurrentTask, TaskId, TaskState};\n"
     },
     {
-      "cmd_idx": 120,
+      "cmd_idx": 140,
       "file": "src/api.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_4/kern-crates/axprocess/src/api.rs (original lines from 46 to 47)\n-    kernel_process.tasks.lock().push(Arc::clone(\n-        current_processor().idle_task()));\n+    kernel_process\n+        .tasks\n+        .lock()\n+        .push(Arc::clone(current_processor().idle_task()));\n"
     },
     {
-      "cmd_idx": 120,
+      "cmd_idx": 140,
       "file": "src/process.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_4/kern-crates/axprocess/src/process.rs (original lines from 19 to 19)\n-use axtask::{current, new_task, AxTaskRef, TaskId, Processor};\n+use axtask::{current, new_task, AxTaskRef, Processor, TaskId};\n"
     },
     {
-      "cmd_idx": 121,
+      "cmd_idx": 141,
       "file": "/home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/d8f8f2d/build.rs",
       "kind": "Clippy(Error)",
       "raw": "error: environment variable `AX_WORK_DIR` not defined at compile time\n --> /home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/d8f8f2d/build.rs:6:34\n  |\n6 |     let root_dir = PathBuf::from(std::env!(\"AX_WORK_DIR\"));\n  |                                  ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_WORK_DIR\")` to read the variable at run time\n  = note: this error originates in the macro `std::env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
     },
     {
-      "cmd_idx": 123,
+      "cmd_idx": 143,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T00:31:41Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:41Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 128,
+      "cmd_idx": 148,
       "file": "(virtual) clippy",
       "kind": "Cargo",
       "raw": "// pkg_name=axprocess, checker=Clippy\n// toolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_4/kern-crates/axprocess\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n    Checking log v0.4.22\n   Compiling proc-macro2 v1.0.89\n   Compiling unicode-ident v1.0.13\n    Checking bit_field v0.10.2\n   Compiling serde v1.0.214\n   Compiling hashbrown v0.15.0\n    Checking bitflags v2.6.0\n   Compiling equivalent v1.0.1\n   Compiling toml_datetime v0.6.8\n   Compiling winnow v0.6.20\n   Compiling indexmap v2.6.0\n   Compiling quote v1.0.37\n    Checking cfg-if v1.0.0\n   Compiling axerrno v0.1.0 (https://github.com/Starry-OS/axerrno.git#3e2372cd)\n   Compiling syn v2.0.86\n   Compiling autocfg v1.4.0\n   Compiling toml_edit v0.22.22\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n   Compiling lock_api v0.4.12\n    Checking memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n   Compiling x86 v0.52.0\n   Compiling rustversion v1.0.18\n    Checking scopeguard v1.2.0\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#3c3ad2fb)\n   Compiling syn v1.0.109\n    Checking volatile v0.4.6\n    Checking spin v0.9.8\n    Checking static_assertions v1.1.0\n    Checking numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n   Compiling libc v0.2.161\n   Compiling unicode-width v0.1.14\n   Compiling base64 v0.13.1\n    Checking tock-registers v0.8.1\n    Checking aarch64-cpu v9.4.0\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#d8f8f2d4)\nerror: could not compile `axconfig` (build script) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
     },
     {
-      "cmd_idx": 129,
+      "cmd_idx": 149,
       "file": "(virtual) lockbud",
       "kind": "Cargo",
       "raw": "// pkg_name=axprocess, checker=Lockbud\n// toolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_4/kern-crates/axprocess\n// cmd=cargo +nightly-2024-05-21 lockbud -k all -- --target x86_64-unknown-linux-gnu\n   Compiling proc-macro2 v1.0.89\n   Compiling log v0.4.22\n   Compiling unicode-ident v1.0.13\n   Compiling bit_field v0.10.2\n   Compiling serde v1.0.214\n   Compiling equivalent v1.0.1\n[2024-11-02T00:31:41Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:31:41Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling hashbrown v0.15.0\n   Compiling bitflags v2.6.0\n   Compiling winnow v0.6.20\n   Compiling toml_datetime v0.6.8\n   Compiling indexmap v2.6.0\n   Compiling quote v1.0.37\n   Compiling cfg-if v1.0.0\n   Compiling syn v2.0.86\n   Compiling bitflags v1.3.2\n   Compiling autocfg v1.4.0\n   Compiling toml_edit v0.22.22\n   Compiling axerrno v0.1.0 (https://github.com/Starry-OS/axerrno.git#3e2372cd)\n   Compiling lock_api v0.4.12\n   Compiling raw-cpuid v10.7.0\n   Compiling x86 v0.52.0\n   Compiling memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n   Compiling rustversion v1.0.18\n   Compiling scopeguard v1.2.0\n   Compiling volatile v0.4.6\n   Compiling syn v1.0.109\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#3c3ad2fb)\n   Compiling spin v0.9.8\n   Compiling libc v0.2.161\n   Compiling numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n   Compiling static_assertions v1.1.0\n   Compiling base64 v0.13.1\n   Compiling unicode-width v0.1.14\n   Compiling tock-registers v0.8.1\n   Compiling aarch64-cpu v9.4.0\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#d8f8f2d4)\nerror: environment variable `AX_WORK_DIR` not defined at compile time\n --> /home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/d8f8f2d/build.rs:6:34\n  |\n6 |     let root_dir = PathBuf::from(std::env!(\"AX_WORK_DIR\"));\n  |                                  ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_WORK_DIR\")` to read the variable at run time\n  = note: this error originates in the macro `std::env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nerror: could not compile `axconfig` (build script) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
     },
     {
-      "cmd_idx": 130,
+      "cmd_idx": 150,
       "file": "(virtual) rap",
       "kind": "Cargo",
       "raw": "// pkg_name=axprocess, checker=Rap\n// toolchain=nightly-2024-10-24-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_4/kern-crates/axprocess\n// cmd=cargo +nightly-2024-06-30 rap -F -M\n   Compiling proc-macro2 v1.0.89\n    Checking log v0.4.22\n   Compiling unicode-ident v1.0.13\n    Checking bit_field v0.10.2\n    Checking bitflags v2.6.0\n   Compiling hashbrown v0.15.0\n   Compiling equivalent v1.0.1\n   Compiling serde v1.0.214\n   Compiling winnow v0.6.20\n   Compiling toml_datetime v0.6.8\n   Compiling indexmap v2.6.0\n   Compiling quote v1.0.37\n    Checking cfg-if v1.0.0\n   Compiling syn v2.0.86\n   Compiling axerrno v0.1.0 (https://github.com/Starry-OS/axerrno.git#3e2372cd)\n    Checking bitflags v1.3.2\n   Compiling autocfg v1.4.0\n   Compiling toml_edit v0.22.22\n   Compiling lock_api v0.4.12\n    Checking raw-cpuid v10.7.0\n   Compiling x86 v0.52.0\n   Compiling rustversion v1.0.18\n    Checking memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n    Checking scopeguard v1.2.0\n    Checking volatile v0.4.6\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#3c3ad2fb)\n   Compiling syn v1.0.109\n    Checking spin v0.9.8\n   Compiling libc v0.2.161\n    Checking static_assertions v1.1.0\n    Checking numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#d8f8f2d4)\nerror: environment variable `AX_WORK_DIR` not defined at compile time\n --> /home/runner/.cargo/git/checkouts/axconfig-a375f0c4fb0314cc/d8f8f2d/build.rs:6:34\n  |\n6 |     let root_dir = PathBuf::from(std::env!(\"AX_WORK_DIR\"));\n  |                                  ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_WORK_DIR\")` to read the variable at run time\n  = note: this error originates in the macro `std::env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nerror: could not compile `axconfig` (build script) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n00:31:58|RAP|ERROR|: Finished with non-zero exit code.\n"
     },
     {
-      "cmd_idx": 140,
+      "cmd_idx": 160,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T00:32:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:32:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 141,
+      "cmd_idx": 161,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T00:32:16Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:32:16Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 142,
-      "file": "[lockbud] Not supported to display yet.",
-      "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:32:19Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:32:19Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
-    },
-    {
-      "cmd_idx": 143,
-      "file": "[lockbud] Not supported to display yet.",
-      "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:32:19Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:32:19Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
-    },
-    {
-      "cmd_idx": 156,
-      "file": "src/vm.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: usage of an `Arc` that is not `Send` and `Sync`\n  --> src/vm.rs:83:32\n   |\n83 |                   vcpu_list.push(Arc::new(VCpu::new(\n   |  ________________________________^\n84 | |                     vcpu_id,\n85 | |                     0, // Currently not used.\n86 | |                     phys_cpu_set,\n87 | |                     arch_config,\n88 | |                 )?));\n   | |___________________^\n   |\n   = note: `Arc<AxVCpu<Aarch64VCpu>>` is not `Send` and `Sync` as `AxVCpu<Aarch64VCpu>` is not `Sync`\n   = help: if the `Arc` will not used be across threads replace it with an `Rc`\n   = help: otherwise make `AxVCpu<Aarch64VCpu>` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n   = note: `#[warn(clippy::arc_with_non_send_sync)]` on by default\n\n"
-    },
-    {
-      "cmd_idx": 157,
-      "file": "src/vm.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: usage of an `Arc` that is not `Send` and `Sync`\n  --> src/vm.rs:83:32\n   |\n83 |                   vcpu_list.push(Arc::new(VCpu::new(\n   |  ________________________________^\n84 | |                     vcpu_id,\n85 | |                     0, // Currently not used.\n86 | |                     phys_cpu_set,\n87 | |                     arch_config,\n88 | |                 )?));\n   | |___________________^\n   |\n   = note: `Arc<AxVCpu<Aarch64VCpu>>` is not `Send` and `Sync` as `AxVCpu<Aarch64VCpu>` is not `Sync`\n   = help: if the `Arc` will not used be across threads replace it with an `Rc`\n   = help: otherwise make `AxVCpu<Aarch64VCpu>` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n   = note: `#[warn(clippy::arc_with_non_send_sync)]` on by default\n\n"
-    },
-    {
-      "cmd_idx": 158,
-      "file": "src/vm.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: usage of an `Arc` that is not `Send` and `Sync`\n  --> src/vm.rs:83:32\n   |\n83 |                   vcpu_list.push(Arc::new(VCpu::new(\n   |  ________________________________^\n84 | |                     vcpu_id,\n85 | |                     0, // Currently not used.\n86 | |                     phys_cpu_set,\n87 | |                     arch_config,\n88 | |                 )?));\n   | |___________________^\n   |\n   = note: `Arc<AxVCpu<RISCVVCpu>>` is not `Send` and `Sync` as `AxVCpu<RISCVVCpu>` is not `Sync`\n   = help: if the `Arc` will not used be across threads replace it with an `Rc`\n   = help: otherwise make `AxVCpu<RISCVVCpu>` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n   = note: `#[warn(clippy::arc_with_non_send_sync)]` on by default\n\n"
-    },
-    {
-      "cmd_idx": 159,
-      "file": "src/vm.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: this let-binding has unit value\n  --> src/vm.rs:81:17\n   |\n81 |                 let arch_config = AxVCpuCreateConfig::default();\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_unit_value\n   = note: `#[warn(clippy::let_unit_value)]` on by default\nhelp: omit the `let` binding\n   |\n81 |                 AxVCpuCreateConfig::default();\n   |\nhelp: variable `arch_config` of type `()` can be replaced with explicit `()`\n   |\n87 |                     (),\n   |                     ~~\n\n"
-    },
-    {
-      "cmd_idx": 159,
-      "file": "src/vm.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: usage of an `Arc` that is not `Send` and `Sync`\n  --> src/vm.rs:83:32\n   |\n83 |                   vcpu_list.push(Arc::new(VCpu::new(\n   |  ________________________________^\n84 | |                     vcpu_id,\n85 | |                     0, // Currently not used.\n86 | |                     phys_cpu_set,\n87 | |                     arch_config,\n88 | |                 )?));\n   | |___________________^\n   |\n   = note: `Arc<AxVCpu<VmxArchVCpu>>` is not `Send` and `Sync` as `AxVCpu<VmxArchVCpu>` is not `Sync`\n   = help: if the `Arc` will not used be across threads replace it with an `Rc`\n   = help: otherwise make `AxVCpu<VmxArchVCpu>` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n   = note: `#[warn(clippy::arc_with_non_send_sync)]` on by default\n\n"
-    },
-    {
-      "cmd_idx": 160,
-      "file": "src/vm.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: this let-binding has unit value\n  --> src/vm.rs:81:17\n   |\n81 |                 let arch_config = AxVCpuCreateConfig::default();\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_unit_value\n   = note: `#[warn(clippy::let_unit_value)]` on by default\nhelp: omit the `let` binding\n   |\n81 |                 AxVCpuCreateConfig::default();\n   |\nhelp: variable `arch_config` of type `()` can be replaced with explicit `()`\n   |\n87 |                     (),\n   |                     ~~\n\n"
-    },
-    {
-      "cmd_idx": 160,
-      "file": "src/vm.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: usage of an `Arc` that is not `Send` and `Sync`\n  --> src/vm.rs:83:32\n   |\n83 |                   vcpu_list.push(Arc::new(VCpu::new(\n   |  ________________________________^\n84 | |                     vcpu_id,\n85 | |                     0, // Currently not used.\n86 | |                     phys_cpu_set,\n87 | |                     arch_config,\n88 | |                 )?));\n   | |___________________^\n   |\n   = note: `Arc<AxVCpu<VmxArchVCpu>>` is not `Send` and `Sync` as `AxVCpu<VmxArchVCpu>` is not `Sync`\n   = help: if the `Arc` will not used be across threads replace it with an `Rc`\n   = help: otherwise make `AxVCpu<VmxArchVCpu>` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n   = note: `#[warn(clippy::arc_with_non_send_sync)]` on by default\n\n"
-    },
-    {
       "cmd_idx": 162,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-11-02T00:33:22Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:22Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T00:33:25Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:36:23: 36:43 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:39:13: 39:39 (#0)\",\n            \"dep_kind\": \"Both\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:25Z WARN  lockbud::callbacks] crate getrandom contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T00:33:30Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.8/src/util/pool.rs:525:25: 525:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.8/src/util/pool.rs:530:17: 530:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:30Z WARN  lockbud::callbacks] crate riscv_target contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+      "raw": "[2024-11-02T00:32:19Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:32:19Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
       "cmd_idx": 163,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
+      "raw": "[2024-11-02T00:32:19Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:32:19Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
+      "cmd_idx": 176,
+      "file": "src/vm.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: usage of an `Arc` that is not `Send` and `Sync`\n  --> src/vm.rs:83:32\n   |\n83 |                   vcpu_list.push(Arc::new(VCpu::new(\n   |  ________________________________^\n84 | |                     vcpu_id,\n85 | |                     0, // Currently not used.\n86 | |                     phys_cpu_set,\n87 | |                     arch_config,\n88 | |                 )?));\n   | |___________________^\n   |\n   = note: `Arc<AxVCpu<Aarch64VCpu>>` is not `Send` and `Sync` as `AxVCpu<Aarch64VCpu>` is not `Sync`\n   = help: if the `Arc` will not used be across threads replace it with an `Rc`\n   = help: otherwise make `AxVCpu<Aarch64VCpu>` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n   = note: `#[warn(clippy::arc_with_non_send_sync)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 177,
+      "file": "src/vm.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: usage of an `Arc` that is not `Send` and `Sync`\n  --> src/vm.rs:83:32\n   |\n83 |                   vcpu_list.push(Arc::new(VCpu::new(\n   |  ________________________________^\n84 | |                     vcpu_id,\n85 | |                     0, // Currently not used.\n86 | |                     phys_cpu_set,\n87 | |                     arch_config,\n88 | |                 )?));\n   | |___________________^\n   |\n   = note: `Arc<AxVCpu<Aarch64VCpu>>` is not `Send` and `Sync` as `AxVCpu<Aarch64VCpu>` is not `Sync`\n   = help: if the `Arc` will not used be across threads replace it with an `Rc`\n   = help: otherwise make `AxVCpu<Aarch64VCpu>` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n   = note: `#[warn(clippy::arc_with_non_send_sync)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 178,
+      "file": "src/vm.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: usage of an `Arc` that is not `Send` and `Sync`\n  --> src/vm.rs:83:32\n   |\n83 |                   vcpu_list.push(Arc::new(VCpu::new(\n   |  ________________________________^\n84 | |                     vcpu_id,\n85 | |                     0, // Currently not used.\n86 | |                     phys_cpu_set,\n87 | |                     arch_config,\n88 | |                 )?));\n   | |___________________^\n   |\n   = note: `Arc<AxVCpu<RISCVVCpu>>` is not `Send` and `Sync` as `AxVCpu<RISCVVCpu>` is not `Sync`\n   = help: if the `Arc` will not used be across threads replace it with an `Rc`\n   = help: otherwise make `AxVCpu<RISCVVCpu>` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n   = note: `#[warn(clippy::arc_with_non_send_sync)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 179,
+      "file": "src/vm.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this let-binding has unit value\n  --> src/vm.rs:81:17\n   |\n81 |                 let arch_config = AxVCpuCreateConfig::default();\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_unit_value\n   = note: `#[warn(clippy::let_unit_value)]` on by default\nhelp: omit the `let` binding\n   |\n81 |                 AxVCpuCreateConfig::default();\n   |\nhelp: variable `arch_config` of type `()` can be replaced with explicit `()`\n   |\n87 |                     (),\n   |                     ~~\n\n"
+    },
+    {
+      "cmd_idx": 179,
+      "file": "src/vm.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: usage of an `Arc` that is not `Send` and `Sync`\n  --> src/vm.rs:83:32\n   |\n83 |                   vcpu_list.push(Arc::new(VCpu::new(\n   |  ________________________________^\n84 | |                     vcpu_id,\n85 | |                     0, // Currently not used.\n86 | |                     phys_cpu_set,\n87 | |                     arch_config,\n88 | |                 )?));\n   | |___________________^\n   |\n   = note: `Arc<AxVCpu<VmxArchVCpu>>` is not `Send` and `Sync` as `AxVCpu<VmxArchVCpu>` is not `Sync`\n   = help: if the `Arc` will not used be across threads replace it with an `Rc`\n   = help: otherwise make `AxVCpu<VmxArchVCpu>` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n   = note: `#[warn(clippy::arc_with_non_send_sync)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 180,
+      "file": "src/vm.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: this let-binding has unit value\n  --> src/vm.rs:81:17\n   |\n81 |                 let arch_config = AxVCpuCreateConfig::default();\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_unit_value\n   = note: `#[warn(clippy::let_unit_value)]` on by default\nhelp: omit the `let` binding\n   |\n81 |                 AxVCpuCreateConfig::default();\n   |\nhelp: variable `arch_config` of type `()` can be replaced with explicit `()`\n   |\n87 |                     (),\n   |                     ~~\n\n"
+    },
+    {
+      "cmd_idx": 180,
+      "file": "src/vm.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: usage of an `Arc` that is not `Send` and `Sync`\n  --> src/vm.rs:83:32\n   |\n83 |                   vcpu_list.push(Arc::new(VCpu::new(\n   |  ________________________________^\n84 | |                     vcpu_id,\n85 | |                     0, // Currently not used.\n86 | |                     phys_cpu_set,\n87 | |                     arch_config,\n88 | |                 )?));\n   | |___________________^\n   |\n   = note: `Arc<AxVCpu<VmxArchVCpu>>` is not `Send` and `Sync` as `AxVCpu<VmxArchVCpu>` is not `Sync`\n   = help: if the `Arc` will not used be across threads replace it with an `Rc`\n   = help: otherwise make `AxVCpu<VmxArchVCpu>` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n   = note: `#[warn(clippy::arc_with_non_send_sync)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 182,
+      "file": "[lockbud] Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
+      "raw": "[2024-11-02T00:33:22Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:22Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T00:33:25Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:36:23: 36:43 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:39:13: 39:39 (#0)\",\n            \"dep_kind\": \"Both\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:25Z WARN  lockbud::callbacks] crate getrandom contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T00:33:30Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.8/src/util/pool.rs:525:25: 525:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-automata-0.4.8/src/util/pool.rs:530:17: 530:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:30Z WARN  lockbud::callbacks] crate riscv_target contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+    },
+    {
+      "cmd_idx": 183,
+      "file": "[lockbud] Not supported to display yet.",
+      "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T00:33:25Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:36:23: 36:43 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:39:13: 39:39 (#0)\",\n            \"dep_kind\": \"Both\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:25Z WARN  lockbud::callbacks] crate getrandom contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T00:33:39Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:39Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 164,
+      "cmd_idx": 184,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T00:33:25Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:36:23: 36:43 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:39:13: 39:39 (#0)\",\n            \"dep_kind\": \"Both\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:25Z WARN  lockbud::callbacks] crate getrandom contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T00:33:47Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:47Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 165,
+      "cmd_idx": 185,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T00:33:25Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:36:23: 36:43 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:39:13: 39:39 (#0)\",\n            \"dep_kind\": \"Both\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:25Z WARN  lockbud::callbacks] crate getrandom contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T00:33:55Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:55Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
-      "cmd_idx": 166,
+      "cmd_idx": 186,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
       "raw": "[2024-11-02T00:33:25Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:36:23: 36:43 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/getrandom-0.2.15/src/lazy.rs:39:13: 39:39 (#0)\",\n            \"dep_kind\": \"Both\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:33:25Z WARN  lockbud::callbacks] crate getrandom contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2024-11-02T00:34:03Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-11-02T00:34:03Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
-    },
-    {
-      "cmd_idx": 199,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 199,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 199,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 199,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 200,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 200,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 200,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 200,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 201,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 201,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 201,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 201,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 202,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 202,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 202,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 202,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
     }
   ]
 }
