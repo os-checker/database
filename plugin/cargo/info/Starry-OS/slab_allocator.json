@@ -1,0 +1,84 @@
+{
+  "user": "Starry-OS",
+  "repo": "slab_allocator",
+  "pkgs": {
+    "slab_allocator": {
+      "version": "0.3.1",
+      "dependencies": 1,
+      "lib": true,
+      "bin": false,
+      "testcases": {
+        "tests": [
+          {
+            "id": "slab_allocator",
+            "kind": "lib",
+            "binary_name": "slab_allocator",
+            "testcases": [
+              {
+                "name": "tests::allocate_and_free_double_usize",
+                "status": "ok",
+                "duration_ms": 5
+              },
+              {
+                "name": "tests::allocate_double_usize",
+                "status": "ok",
+                "duration_ms": 5
+              },
+              {
+                "name": "tests::allocate_multiple_4096_blocks",
+                "status": "ok",
+                "duration_ms": 6
+              },
+              {
+                "name": "tests::allocate_multiple_sizes",
+                "status": "ok",
+                "duration_ms": 6
+              },
+              {
+                "name": "tests::allocate_one_4096_block",
+                "status": "ok",
+                "duration_ms": 5
+              },
+              {
+                "name": "tests::oom",
+                "status": "ok",
+                "duration_ms": 4
+              },
+              {
+                "name": "tests::reallocate_double_usize",
+                "status": "ok",
+                "duration_ms": 5
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 36
+          }
+        ],
+        "failed": 0,
+        "duration_ms": 36,
+        "pkg_tests_count": 7,
+        "workspace_tests_count": 7
+      },
+      "tests": 0,
+      "examples": 0,
+      "benches": 0,
+      "authors": [
+        "Robert Węcławski <r.weclawski@gmail.com>",
+        "Yiren Zhang <zyr_ms@outlook.com>"
+      ],
+      "description": "Slab allocator for `no_std` systems. Uses multiple slabs with blocks of different sizes and a linked list for blocks larger than 4096 bytes",
+      "documentation": null,
+      "readme": null,
+      "homepage": null,
+      "keywords": [
+        "slab",
+        "allocator",
+        "no_std",
+        "heap",
+        "kernel"
+      ],
+      "categories": [],
+      "os_categories": []
+    }
+  }
+}
