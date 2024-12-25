@@ -2,221 +2,48 @@
   {
     "user": "os-checker",
     "repo": "os-checker",
-    "runs": 753,
+    "runs": 760,
     "last": {
-      "created_at": "2024-12-25T06:22:55Z",
-      "updated_at": "2024-12-25T06:23:21Z",
-      "duration_sec": 26,
+      "created_at": "2024-12-25T07:09:55Z",
+      "updated_at": "2024-12-25T08:09:16Z",
+      "duration_sec": 3561,
       "completed": true,
-      "success": false,
-      "head_branch": "feat/nightly-2024-12-24",
-      "head_sha": "c54fc513353cded133e26b9ebc0b358a0fc9f4d1",
+      "success": true,
+      "head_branch": "fix/rap-target",
+      "head_sha": "2fd5ea134bf19e5ce127831125d6786d37ccb76b",
       "head_commit": {
-        "message": "ci: check all repos\n\nclose https://github.com/os-checker/os-checker/issues/196",
-        "timestamp": "2024-12-25T03:14:33Z"
+        "message": "ci: check all repos",
+        "timestamp": "2024-12-25T07:09:44Z"
       },
       "workflows": [
         {
           "run": {
-            "name": "Release",
-            "head_branch": "feat/nightly-2024-12-24",
-            "head_sha": "c54fc513353cded133e26b9ebc0b358a0fc9f4d1",
-            "head_commit": {
-              "message": "ci: check all repos\n\nclose https://github.com/os-checker/os-checker/issues/196",
-              "timestamp": "2024-12-25T03:14:33Z"
-            },
-            "display_title": "feat: 更新默认工具链到 2024-12-24；使用 cargo-outdated fork",
-            "html_url": "https://github.com/os-checker/os-checker/actions/runs/12490201851",
-            "event": "pull_request",
-            "status": "completed",
-            "conclusion": "failure",
-            "run_attempt": 1,
-            "run_started_at": "2024-12-25T06:22:55Z",
-            "created_at": "2024-12-25T06:22:55Z",
-            "updated_at": "2024-12-25T06:23:21Z",
-            "duration_sec": 26,
-            "actor": {
-              "login": "zjp-CN"
-            },
-            "triggering_actor": {
-              "login": "zjp-CN"
-            },
-            "id": 12490201851,
-            "jobs_url": "https://api.github.com/repos/os-checker/os-checker/actions/runs/12490201851/jobs",
-            "logs_url": "https://api.github.com/repos/os-checker/os-checker/actions/runs/12490201851/logs"
-          },
-          "jobs": {
-            "total_count": 5,
-            "jobs": [
-              {
-                "name": "plan",
-                "workflow_name": "Release",
-                "html_url": "https://github.com/os-checker/os-checker/actions/runs/12490201851/job/34854670694",
-                "status": "completed",
-                "conclusion": "failure",
-                "created_at": "2024-12-25T06:22:57Z",
-                "started_at": "2024-12-25T06:23:04Z",
-                "completed_at": "2024-12-25T06:23:16Z",
-                "duration_sec": 12,
-                "steps": [
-                  {
-                    "name": "Set up job",
-                    "status": "completed",
-                    "conclusion": "success",
-                    "number": 1,
-                    "started_at": "2024-12-25T06:23:03Z",
-                    "completed_at": "2024-12-25T06:23:04Z",
-                    "duration_sec": 1
-                  },
-                  {
-                    "name": "Run actions/checkout@v4",
-                    "status": "completed",
-                    "conclusion": "success",
-                    "number": 2,
-                    "started_at": "2024-12-25T06:23:04Z",
-                    "completed_at": "2024-12-25T06:23:05Z",
-                    "duration_sec": 1
-                  },
-                  {
-                    "name": "Install dist",
-                    "status": "completed",
-                    "conclusion": "success",
-                    "number": 3,
-                    "started_at": "2024-12-25T06:23:05Z",
-                    "completed_at": "2024-12-25T06:23:07Z",
-                    "duration_sec": 2
-                  },
-                  {
-                    "name": "Cache dist",
-                    "status": "completed",
-                    "conclusion": "success",
-                    "number": 4,
-                    "started_at": "2024-12-25T06:23:07Z",
-                    "completed_at": "2024-12-25T06:23:09Z",
-                    "duration_sec": 2
-                  },
-                  {
-                    "name": "Run dist plan --output-format=json > plan-dist-manifest.json",
-                    "status": "completed",
-                    "conclusion": "failure",
-                    "number": 5,
-                    "started_at": "2024-12-25T06:23:10Z",
-                    "completed_at": "2024-12-25T06:23:13Z",
-                    "duration_sec": 3
-                  },
-                  {
-                    "name": "Upload dist-manifest.json",
-                    "status": "completed",
-                    "conclusion": "skipped",
-                    "number": 6,
-                    "started_at": "2024-12-25T06:23:13Z",
-                    "completed_at": "2024-12-25T06:23:13Z",
-                    "duration_sec": 0
-                  },
-                  {
-                    "name": "Post Run actions/checkout@v4",
-                    "status": "completed",
-                    "conclusion": "success",
-                    "number": 12,
-                    "started_at": "2024-12-25T06:23:13Z",
-                    "completed_at": "2024-12-25T06:23:13Z",
-                    "duration_sec": 0
-                  },
-                  {
-                    "name": "Complete job",
-                    "status": "completed",
-                    "conclusion": "success",
-                    "number": 13,
-                    "started_at": "2024-12-25T06:23:13Z",
-                    "completed_at": "2024-12-25T06:23:13Z",
-                    "duration_sec": 0
-                  }
-                ],
-                "id": 34854670694
-              },
-              {
-                "name": "build-local-artifacts (${{ join(matrix.targets, ', ') }})",
-                "workflow_name": "Release",
-                "html_url": "https://github.com/os-checker/os-checker/actions/runs/12490201851/job/34854676672",
-                "status": "completed",
-                "conclusion": "skipped",
-                "created_at": "2024-12-25T06:23:18Z",
-                "started_at": "2024-12-25T06:23:18Z",
-                "completed_at": "2024-12-25T06:23:18Z",
-                "duration_sec": 0,
-                "steps": [],
-                "id": 34854676672
-              },
-              {
-                "name": "build-global-artifacts",
-                "workflow_name": "Release",
-                "html_url": "https://github.com/os-checker/os-checker/actions/runs/12490201851/job/34854676886",
-                "status": "completed",
-                "conclusion": "skipped",
-                "created_at": "2024-12-25T06:23:19Z",
-                "started_at": "2024-12-25T06:23:18Z",
-                "completed_at": "2024-12-25T06:23:18Z",
-                "duration_sec": 0,
-                "steps": [],
-                "id": 34854676886
-              },
-              {
-                "name": "host",
-                "workflow_name": "Release",
-                "html_url": "https://github.com/os-checker/os-checker/actions/runs/12490201851/job/34854677081",
-                "status": "completed",
-                "conclusion": "skipped",
-                "created_at": "2024-12-25T06:23:19Z",
-                "started_at": "2024-12-25T06:23:19Z",
-                "completed_at": "2024-12-25T06:23:19Z",
-                "duration_sec": 0,
-                "steps": [],
-                "id": 34854677081
-              },
-              {
-                "name": "announce",
-                "workflow_name": "Release",
-                "html_url": "https://github.com/os-checker/os-checker/actions/runs/12490201851/job/34854677285",
-                "status": "completed",
-                "conclusion": "skipped",
-                "created_at": "2024-12-25T06:23:20Z",
-                "started_at": "2024-12-25T06:23:20Z",
-                "completed_at": "2024-12-25T06:23:20Z",
-                "duration_sec": 0,
-                "steps": [],
-                "id": 34854677285
-              }
-            ]
-          }
-        },
-        {
-          "run": {
             "name": "Run Checkers",
-            "head_branch": "feat/nightly-2024-12-24",
-            "head_sha": "c54fc513353cded133e26b9ebc0b358a0fc9f4d1",
+            "head_branch": "fix/rap-target",
+            "head_sha": "2fd5ea134bf19e5ce127831125d6786d37ccb76b",
             "head_commit": {
-              "message": "ci: check all repos\n\nclose https://github.com/os-checker/os-checker/issues/196",
-              "timestamp": "2024-12-25T03:14:33Z"
+              "message": "ci: check all repos",
+              "timestamp": "2024-12-25T07:09:44Z"
             },
             "display_title": "ci: check all repos",
-            "html_url": "https://github.com/os-checker/os-checker/actions/runs/12488841269",
+            "html_url": "https://github.com/os-checker/os-checker/actions/runs/12490572889",
             "event": "push",
             "status": "completed",
             "conclusion": "success",
             "run_attempt": 1,
-            "run_started_at": "2024-12-25T03:15:00Z",
-            "created_at": "2024-12-25T03:15:00Z",
-            "updated_at": "2024-12-25T06:02:30Z",
-            "duration_sec": 10050,
+            "run_started_at": "2024-12-25T07:09:55Z",
+            "created_at": "2024-12-25T07:09:55Z",
+            "updated_at": "2024-12-25T08:09:16Z",
+            "duration_sec": 3561,
             "actor": {
               "login": "zjp-CN"
             },
             "triggering_actor": {
               "login": "zjp-CN"
             },
-            "id": 12488841269,
-            "jobs_url": "https://api.github.com/repos/os-checker/os-checker/actions/runs/12488841269/jobs",
-            "logs_url": "https://api.github.com/repos/os-checker/os-checker/actions/runs/12488841269/logs"
+            "id": 12490572889,
+            "jobs_url": "https://api.github.com/repos/os-checker/os-checker/actions/runs/12490572889/jobs",
+            "logs_url": "https://api.github.com/repos/os-checker/os-checker/actions/runs/12490572889/logs"
           },
           "jobs": {
             "total_count": 1,
@@ -224,21 +51,21 @@
               {
                 "name": "run",
                 "workflow_name": "Run Checkers",
-                "html_url": "https://github.com/os-checker/os-checker/actions/runs/12488841269/job/34851753964",
+                "html_url": "https://github.com/os-checker/os-checker/actions/runs/12490572889/job/34855467579",
                 "status": "completed",
                 "conclusion": "success",
-                "created_at": "2024-12-25T03:15:02Z",
-                "started_at": "2024-12-25T03:15:08Z",
-                "completed_at": "2024-12-25T06:02:29Z",
-                "duration_sec": 10041,
+                "created_at": "2024-12-25T07:09:56Z",
+                "started_at": "2024-12-25T07:10:02Z",
+                "completed_at": "2024-12-25T08:09:14Z",
+                "duration_sec": 3552,
                 "steps": [
                   {
                     "name": "Set up job",
                     "status": "completed",
                     "conclusion": "success",
                     "number": 1,
-                    "started_at": "2024-12-25T03:15:07Z",
-                    "completed_at": "2024-12-25T03:15:08Z",
+                    "started_at": "2024-12-25T07:10:02Z",
+                    "completed_at": "2024-12-25T07:10:03Z",
                     "duration_sec": 1
                   },
                   {
@@ -246,17 +73,17 @@
                     "status": "completed",
                     "conclusion": "success",
                     "number": 2,
-                    "started_at": "2024-12-25T03:15:08Z",
-                    "completed_at": "2024-12-25T03:15:08Z",
-                    "duration_sec": 0
+                    "started_at": "2024-12-25T07:10:03Z",
+                    "completed_at": "2024-12-25T07:10:04Z",
+                    "duration_sec": 1
                   },
                   {
                     "name": "Run webfactory/ssh-agent@v0.9.0",
                     "status": "completed",
                     "conclusion": "success",
                     "number": 3,
-                    "started_at": "2024-12-25T03:15:09Z",
-                    "completed_at": "2024-12-25T03:15:09Z",
+                    "started_at": "2024-12-25T07:10:04Z",
+                    "completed_at": "2024-12-25T07:10:04Z",
                     "duration_sec": 0
                   },
                   {
@@ -264,44 +91,44 @@
                     "status": "completed",
                     "conclusion": "success",
                     "number": 4,
-                    "started_at": "2024-12-25T03:15:09Z",
-                    "completed_at": "2024-12-25T03:15:14Z",
-                    "duration_sec": 5
+                    "started_at": "2024-12-25T07:10:04Z",
+                    "completed_at": "2024-12-25T07:10:20Z",
+                    "duration_sec": 16
                   },
                   {
                     "name": "Run dtolnay/rust-toolchain@nightly",
                     "status": "completed",
                     "conclusion": "success",
                     "number": 5,
-                    "started_at": "2024-12-25T03:15:14Z",
-                    "completed_at": "2024-12-25T03:15:22Z",
-                    "duration_sec": 8
+                    "started_at": "2024-12-25T07:10:21Z",
+                    "completed_at": "2024-12-25T07:10:30Z",
+                    "duration_sec": 9
                   },
                   {
                     "name": "Install Checkers",
                     "status": "completed",
                     "conclusion": "success",
                     "number": 6,
-                    "started_at": "2024-12-25T03:15:23Z",
-                    "completed_at": "2024-12-25T03:15:59Z",
-                    "duration_sec": 36
+                    "started_at": "2024-12-25T07:10:31Z",
+                    "completed_at": "2024-12-25T07:11:09Z",
+                    "duration_sec": 38
                   },
                   {
                     "name": "Install os-checker",
                     "status": "completed",
                     "conclusion": "success",
                     "number": 7,
-                    "started_at": "2024-12-25T03:15:59Z",
-                    "completed_at": "2024-12-25T03:17:25Z",
-                    "duration_sec": 86
+                    "started_at": "2024-12-25T07:11:10Z",
+                    "completed_at": "2024-12-25T07:12:35Z",
+                    "duration_sec": 85
                   },
                   {
                     "name": "Install os-checker batch",
                     "status": "completed",
                     "conclusion": "success",
                     "number": 8,
-                    "started_at": "2024-12-25T03:17:26Z",
-                    "completed_at": "2024-12-25T03:17:28Z",
+                    "started_at": "2024-12-25T07:12:36Z",
+                    "completed_at": "2024-12-25T07:12:38Z",
                     "duration_sec": 2
                   },
                   {
@@ -309,17 +136,17 @@
                     "status": "completed",
                     "conclusion": "success",
                     "number": 9,
-                    "started_at": "2024-12-25T03:17:29Z",
-                    "completed_at": "2024-12-25T05:59:25Z",
-                    "duration_sec": 9716
+                    "started_at": "2024-12-25T07:12:39Z",
+                    "completed_at": "2024-12-25T08:05:55Z",
+                    "duration_sec": 3196
                   },
                   {
                     "name": "Run cache_redb test",
                     "status": "completed",
                     "conclusion": "success",
                     "number": 10,
-                    "started_at": "2024-12-25T05:59:25Z",
-                    "completed_at": "2024-12-25T05:59:46Z",
+                    "started_at": "2024-12-25T08:05:56Z",
+                    "completed_at": "2024-12-25T08:06:17Z",
                     "duration_sec": 21
                   },
                   {
@@ -327,8 +154,8 @@
                     "status": "completed",
                     "conclusion": "success",
                     "number": 11,
-                    "started_at": "2024-12-25T05:59:47Z",
-                    "completed_at": "2024-12-25T05:59:47Z",
+                    "started_at": "2024-12-25T08:06:17Z",
+                    "completed_at": "2024-12-25T08:06:17Z",
                     "duration_sec": 0
                   },
                   {
@@ -336,17 +163,17 @@
                     "status": "completed",
                     "conclusion": "success",
                     "number": 12,
-                    "started_at": "2024-12-25T05:59:47Z",
-                    "completed_at": "2024-12-25T06:01:58Z",
-                    "duration_sec": 131
+                    "started_at": "2024-12-25T08:06:17Z",
+                    "completed_at": "2024-12-25T08:08:40Z",
+                    "duration_sec": 143
                   },
                   {
                     "name": "Commit And Push To database repo",
                     "status": "completed",
                     "conclusion": "success",
                     "number": 13,
-                    "started_at": "2024-12-25T06:01:58Z",
-                    "completed_at": "2024-12-25T06:02:27Z",
+                    "started_at": "2024-12-25T08:08:41Z",
+                    "completed_at": "2024-12-25T08:09:10Z",
                     "duration_sec": 29
                   },
                   {
@@ -354,8 +181,8 @@
                     "status": "completed",
                     "conclusion": "success",
                     "number": 25,
-                    "started_at": "2024-12-25T06:02:27Z",
-                    "completed_at": "2024-12-25T06:02:27Z",
+                    "started_at": "2024-12-25T08:09:14Z",
+                    "completed_at": "2024-12-25T08:09:14Z",
                     "duration_sec": 0
                   },
                   {
@@ -363,8 +190,8 @@
                     "status": "completed",
                     "conclusion": "success",
                     "number": 26,
-                    "started_at": "2024-12-25T06:02:27Z",
-                    "completed_at": "2024-12-25T06:02:27Z",
+                    "started_at": "2024-12-25T08:09:14Z",
+                    "completed_at": "2024-12-25T08:09:14Z",
                     "duration_sec": 0
                   },
                   {
@@ -372,12 +199,12 @@
                     "status": "completed",
                     "conclusion": "success",
                     "number": 27,
-                    "started_at": "2024-12-25T06:02:27Z",
-                    "completed_at": "2024-12-25T06:02:27Z",
+                    "started_at": "2024-12-25T08:09:10Z",
+                    "completed_at": "2024-12-25T08:09:10Z",
                     "duration_sec": 0
                   }
                 ],
-                "id": 34851753964
+                "id": 34855467579
               }
             ]
           }
@@ -21319,7 +21146,7 @@
   {
     "user": "seL4",
     "repo": "rust-sel4",
-    "runs": 556,
+    "runs": 555,
     "last": {
       "created_at": "2024-11-26T22:10:30Z",
       "updated_at": "2024-11-26T22:27:40Z",
