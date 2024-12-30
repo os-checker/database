@@ -15,25 +15,42 @@
             "channel": "nightly-2024-12-26-x86_64-unknown-linux-gnu",
             "profile": null,
             "targets": [
-              "x86_64-unknown-linux-gnu"
+              "aarch64-unknown-none",
+              "riscv64gc-unknown-none-elf",
+              "x86_64-unknown-linux-gnu",
+              "x86_64-unknown-none"
             ],
             "components": [
               "cargo-x86_64-unknown-linux-gnu",
               "clippy-x86_64-unknown-linux-gnu",
+              "rust-std-aarch64-unknown-none",
+              "rust-std-riscv64gc-unknown-none-elf",
               "rust-std-x86_64-unknown-linux-gnu",
+              "rust-std-x86_64-unknown-none",
               "rustc-x86_64-unknown-linux-gnu",
               "rustfmt-x86_64-unknown-linux-gnu"
             ],
             "toml_path": "/home/runner/check",
             "need_install_clippy": false,
             "peculiar_targets": null
+          },
+          {
+            "channel": "nightly-2024-06-01",
+            "profile": "default",
+            "targets": null,
+            "components": [
+              "llvm-tools-preview"
+            ],
+            "toml_path": "/home/runner/check/batch_19/yuoo655/ext4_rs/rust-toolchain.toml",
+            "need_install_clippy": false,
+            "peculiar_targets": null
           }
         ]
       },
       "os_checker": {
-        "start": 1735503813901,
-        "finish": 1735503814665,
-        "duration_ms": 763,
+        "start": 1735590707312,
+        "finish": 1735590846491,
+        "duration_ms": 139179,
         "git_time": "2024-12-29 17:03:44 +0800",
         "git_sha": "e2b769275834187be72a14267d195f3530ad1351"
       }
@@ -127,7 +144,7 @@
       "tool": "fmt",
       "cmd": "cargo +nightly-2024-12-26-x86_64-unknown-linux-gnu fmt -- --emit=json",
       "count": 261,
-      "duration_ms": 175,
+      "duration_ms": 190,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-06-01",
@@ -139,7 +156,7 @@
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 115,
-      "duration_ms": 1046,
+      "duration_ms": 1101,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-06-01",
@@ -151,7 +168,7 @@
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2024-12-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu",
       "count": 1,
-      "duration_ms": 1523,
+      "duration_ms": 1602,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-06-01",
@@ -163,7 +180,7 @@
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-10-05 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 1,
-      "duration_ms": 1240,
+      "duration_ms": 1485,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-06-01",
@@ -175,7 +192,7 @@
       "tool": "rap",
       "cmd": "cargo +nightly-2024-10-12 rap -F -M -- --target x86_64-unknown-linux-gnu",
       "count": 0,
-      "duration_ms": 11526,
+      "duration_ms": 21183,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-06-01",
@@ -187,7 +204,7 @@
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
-      "duration_ms": 61765,
+      "duration_ms": 92871,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-06-01",
@@ -199,7 +216,7 @@
       "tool": "outdated",
       "cmd": "cargo +nightly-2024-12-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 1,
-      "duration_ms": 365,
+      "duration_ms": 203,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-06-01",
@@ -211,7 +228,7 @@
       "tool": "geiger",
       "cmd": "cargo +nightly-2024-12-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
       "count": 1,
-      "duration_ms": 800,
+      "duration_ms": 838,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-06-01",
@@ -223,7 +240,7 @@
       "tool": "cargo",
       "cmd": "VRITUAL=clippy cargo",
       "count": 1,
-      "duration_ms": 1046,
+      "duration_ms": 1101,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-06-01",
@@ -235,7 +252,7 @@
       "tool": "cargo",
       "cmd": "VRITUAL=geiger cargo",
       "count": 1,
-      "duration_ms": 800,
+      "duration_ms": 838,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2024-06-01",
@@ -2684,13 +2701,13 @@
       "cmd_idx": 2,
       "file": "[semver checks]",
       "kind": "Semver Violation",
-      "raw": "pkg=ext4_rs, checker=SemverChecks\ntoolchain=nightly-2024-06-01, target=x86_64-unknown-linux-gnu\npkg_dir=/home/runner/check/batch_19/yuoo655/ext4_rs\ncmd=cargo +nightly-2024-12-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu\n\n\nstdout:\n\n--- failure inherent_method_missing: pub method removed or renamed ---\n\nDescription:\nA publicly-visible method or associated fn is no longer available under its prior name. It may have been renamed or removed entirely.\n        ref: https://doc.rust-lang.org/cargo/reference/semver.html#item-remove\n       impl: https://github.com/obi1kenobi/cargo-semver-checks/tree/v0.38.0/src/lints/inherent_method_missing.ron\n\nFailed in:\n  Ext4::append_inode_pblk_with_goal, previously in file /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ext4_rs-1.1.0/src/ext4_impls/inode.rs:178\n  Ext4::append_inode_pblk_with_goal, previously in file /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ext4_rs-1.1.0/src/ext4_impls/inode.rs:178\n\nstderr:\n    Building ext4_rs v1.1.0 (current)\n       Built [   0.417s] (current)\n     Parsing ext4_rs v1.1.0 (current)\n      Parsed [   0.007s] (current)\n    Building ext4_rs v1.1.0 (baseline)\n       Built [   0.405s] (baseline)\n     Parsing ext4_rs v1.1.0 (baseline)\n      Parsed [   0.007s] (baseline)\n    Checking ext4_rs v1.1.0 -> v1.1.0 (no change)\n     Checked [   0.032s] 107 checks: 106 pass, 1 fail, 0 warn, 0 skip\n\n     Summary semver requires new major version: 1 major and 0 minor checks failed\n    Finished [   1.404s] ext4_rs\n"
+      "raw": "pkg=ext4_rs, checker=SemverChecks\ntoolchain=nightly-2024-06-01, target=x86_64-unknown-linux-gnu\npkg_dir=/home/runner/check/batch_19/yuoo655/ext4_rs\ncmd=cargo +nightly-2024-12-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu\n\n\nstdout:\n\n--- failure inherent_method_missing: pub method removed or renamed ---\n\nDescription:\nA publicly-visible method or associated fn is no longer available under its prior name. It may have been renamed or removed entirely.\n        ref: https://doc.rust-lang.org/cargo/reference/semver.html#item-remove\n       impl: https://github.com/obi1kenobi/cargo-semver-checks/tree/v0.38.0/src/lints/inherent_method_missing.ron\n\nFailed in:\n  Ext4::append_inode_pblk_with_goal, previously in file /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ext4_rs-1.1.0/src/ext4_impls/inode.rs:178\n  Ext4::append_inode_pblk_with_goal, previously in file /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ext4_rs-1.1.0/src/ext4_impls/inode.rs:178\n\nstderr:\n    Building ext4_rs v1.1.0 (current)\n       Built [   0.434s] (current)\n     Parsing ext4_rs v1.1.0 (current)\n      Parsed [   0.009s] (current)\n    Building ext4_rs v1.1.0 (baseline)\n       Built [   0.438s] (baseline)\n     Parsing ext4_rs v1.1.0 (baseline)\n      Parsed [   0.008s] (baseline)\n    Checking ext4_rs v1.1.0 -> v1.1.0 (no change)\n     Checked [   0.039s] 107 checks: 106 pass, 1 fail, 0 warn, 0 skip\n\n     Summary semver requires new major version: 1 major and 0 minor checks failed\n    Finished [   1.460s] ext4_rs\n"
     },
     {
       "cmd_idx": 3,
       "file": "[lockbud] Not supported to display yet.",
       "kind": "Lockbud(Possibly)",
-      "raw": "[2024-12-28T17:47:03Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-12-28T17:47:03Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+      "raw": "[2024-12-30T20:32:08Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2024-12-30T20:32:08Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
     },
     {
       "cmd_idx": 6,
@@ -2708,13 +2725,13 @@
       "cmd_idx": 8,
       "file": "(virtual) clippy",
       "kind": "Cargo",
-      "raw": "// pkg_name=ext4_rs, checker=Clippy\n// toolchain=nightly-2024-06-01, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_19/yuoo655/ext4_rs\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n// timestamp=2024-12-29 1:47:01.258474723 +08:00:00\n Downloading crates ...\n  Downloaded bitflags v2.5.0\n    Checking bitflags v2.5.0\n    Checking log v0.4.21\n    Checking ext4_rs v1.1.0 (/home/runner/check/batch_19/yuoo655/ext4_rs)\nerror: could not compile `ext4_rs` (lib) due to 7 previous errors; 109 warnings emitted\n"
+      "raw": "// pkg_name=ext4_rs, checker=Clippy\n// toolchain=nightly-2024-06-01, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_19/yuoo655/ext4_rs\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json\n// timestamp=2024-12-31 4:32:06.092366158 +08:00:00\n    Updating crates.io index\n Downloading crates ...\n  Downloaded bitflags v2.5.0\n  Downloaded log v0.4.21\n    Checking bitflags v2.5.0\n    Checking log v0.4.21\n    Checking ext4_rs v1.1.0 (/home/runner/check/batch_19/yuoo655/ext4_rs)\nerror: could not compile `ext4_rs` (lib) due to 7 previous errors; 109 warnings emitted\n"
     },
     {
       "cmd_idx": 9,
       "file": "(virtual) geiger",
       "kind": "Cargo",
-      "raw": "// pkg_name=ext4_rs, checker=Geiger\n// toolchain=nightly-2024-06-01, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_19/yuoo655/ext4_rs\n// cmd=cargo +nightly-2024-12-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2024-12-29 1:48:18.853516269 +08:00:00\n     Removed 0 files\n    Checking bitflags v2.5.0\n    Checking log v0.4.21\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/bitflags-8f40497a5e9e62da.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/log-20087c0c0cd98a51.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/libbitflags-8f40497a5e9e62da.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/liblog-20087c0c0cd98a51.rmeta\",\"emit\":\"metadata\"}\n    Checking ext4_rs v1.1.0 (/home/runner/check/batch_19/yuoo655/ext4_rs)\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/ext4_rs-285ce3f68f19a851.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"diagnostic\",\"message\":\"the feature `error_in_core` has been stable since 1.81.0 and no longer requires an attribute to enable\",\"code\":{\"code\":\"stable_features\",\"explanation\":null},\"level\":\"warning\",\"spans\":[{\"file_name\":\"src/lib.rs\",\"byte_start\":11,\"byte_end\":24,\"line_start\":1,\"line_end\":1,\"column_start\":12,\"column_end\":25,\"is_primary\":true,\"text\":[{\"text\":\"#![feature(error_in_core)]\",\"highlight_start\":12,\"highlight_end\":25}],\"label\":null,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"expansion\":null}],\"children\":[{\"message\":\"`#[warn(stable_features)]` on by default\",\"code\":null,\"level\":\"note\",\"spans\":[],\"children\":[],\"rendered\":null}],\"rendered\":\"\\u001b[0m\\u001b[1m\\u001b[33mwarning\\u001b[0m\\u001b[0m\\u001b[1m: the feature `error_in_core` has been stable since 1.81.0 and no longer requires an attribute to enable\\u001b[0m\\n\\u001b[0m \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m--> \\u001b[0m\\u001b[0msrc/lib.rs:1:12\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\n\\u001b[0m\\u001b[1m\\u001b[38;5;12m1\\u001b[0m\\u001b[0m \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\u001b[0m \\u001b[0m\\u001b[0m#![feature(error_in_core)]\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\u001b[0m            \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[33m^^^^^^^^^^^^^\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m= \\u001b[0m\\u001b[0m\\u001b[1mnote\\u001b[0m\\u001b[0m: `#[warn(stable_features)]` on by default\\u001b[0m\\n\\n\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/libext4_rs-285ce3f68f19a851.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"diagnostic\",\"message\":\"1 warning emitted\",\"code\":null,\"level\":\"warning\",\"spans\":[],\"children\":[],\"rendered\":\"\\u001b[0m\\u001b[1m\\u001b[33mwarning\\u001b[0m\\u001b[0m\\u001b[1m: 1 warning emitted\\u001b[0m\\n\\n\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/ext4_rs-1bacf681e2cfbd09.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"diagnostic\",\"message\":\"the feature `error_in_core` has been stable since 1.81.0 and no longer requires an attribute to enable\",\"code\":{\"code\":\"stable_features\",\"explanation\":null},\"level\":\"warning\",\"spans\":[{\"file_name\":\"src/main.rs\",\"byte_start\":11,\"byte_end\":24,\"line_start\":1,\"line_end\":1,\"column_start\":12,\"column_end\":25,\"is_primary\":true,\"text\":[{\"text\":\"#![feature(error_in_core)]\",\"highlight_start\":12,\"highlight_end\":25}],\"label\":null,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"expansion\":null}],\"children\":[{\"message\":\"`#[warn(stable_features)]` on by default\",\"code\":null,\"level\":\"note\",\"spans\":[],\"children\":[],\"rendered\":null}],\"rendered\":\"\\u001b[0m\\u001b[1m\\u001b[33mwarning\\u001b[0m\\u001b[0m\\u001b[1m: the feature `error_in_core` has been stable since 1.81.0 and no longer requires an attribute to enable\\u001b[0m\\n\\u001b[0m \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m--> \\u001b[0m\\u001b[0msrc/main.rs:1:12\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\n\\u001b[0m\\u001b[1m\\u001b[38;5;12m1\\u001b[0m\\u001b[0m \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\u001b[0m \\u001b[0m\\u001b[0m#![feature(error_in_core)]\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\u001b[0m            \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[33m^^^^^^^^^^^^^\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m= \\u001b[0m\\u001b[0m\\u001b[1mnote\\u001b[0m\\u001b[0m: `#[warn(stable_features)]` on by default\\u001b[0m\\n\\n\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/libext4_rs-1bacf681e2cfbd09.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"diagnostic\",\"message\":\"1 warning emitted\",\"code\":null,\"level\":\"warning\",\"spans\":[],\"children\":[],\"rendered\":\"\\u001b[0m\\u001b[1m\\u001b[33mwarning\\u001b[0m\\u001b[0m\\u001b[1m: 1 warning emitted\\u001b[0m\\n\\n\"}\n    Finished dev [unoptimized + debuginfo] target(s) in 0.74s\n    Scanning done\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/serde.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/external.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/macros.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/lib.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/public.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/parser.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/iter.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/internal.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/traits.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/__private_api.rs\nerror: Found 11 warnings\n"
+      "raw": "// pkg_name=ext4_rs, checker=Geiger\n// toolchain=nightly-2024-06-01, target=x86_64-unknown-linux-gnu\n// pkg_dir=/home/runner/check/batch_19/yuoo655/ext4_rs\n// cmd=cargo +nightly-2024-12-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2024-12-31 4:34:04.723427759 +08:00:00\n     Removed 0 files\n    Checking log v0.4.21\n    Checking bitflags v2.5.0\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/bitflags-8f40497a5e9e62da.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/log-20087c0c0cd98a51.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/liblog-20087c0c0cd98a51.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/libbitflags-8f40497a5e9e62da.rmeta\",\"emit\":\"metadata\"}\n    Checking ext4_rs v1.1.0 (/home/runner/check/batch_19/yuoo655/ext4_rs)\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/ext4_rs-285ce3f68f19a851.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"diagnostic\",\"message\":\"the feature `error_in_core` has been stable since 1.81.0 and no longer requires an attribute to enable\",\"code\":{\"code\":\"stable_features\",\"explanation\":null},\"level\":\"warning\",\"spans\":[{\"file_name\":\"src/lib.rs\",\"byte_start\":11,\"byte_end\":24,\"line_start\":1,\"line_end\":1,\"column_start\":12,\"column_end\":25,\"is_primary\":true,\"text\":[{\"text\":\"#![feature(error_in_core)]\",\"highlight_start\":12,\"highlight_end\":25}],\"label\":null,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"expansion\":null}],\"children\":[{\"message\":\"`#[warn(stable_features)]` on by default\",\"code\":null,\"level\":\"note\",\"spans\":[],\"children\":[],\"rendered\":null}],\"rendered\":\"\\u001b[0m\\u001b[1m\\u001b[33mwarning\\u001b[0m\\u001b[0m\\u001b[1m: the feature `error_in_core` has been stable since 1.81.0 and no longer requires an attribute to enable\\u001b[0m\\n\\u001b[0m \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m--> \\u001b[0m\\u001b[0msrc/lib.rs:1:12\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\n\\u001b[0m\\u001b[1m\\u001b[38;5;12m1\\u001b[0m\\u001b[0m \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\u001b[0m \\u001b[0m\\u001b[0m#![feature(error_in_core)]\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\u001b[0m            \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[33m^^^^^^^^^^^^^\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m= \\u001b[0m\\u001b[0m\\u001b[1mnote\\u001b[0m\\u001b[0m: `#[warn(stable_features)]` on by default\\u001b[0m\\n\\n\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/libext4_rs-285ce3f68f19a851.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"diagnostic\",\"message\":\"1 warning emitted\",\"code\":null,\"level\":\"warning\",\"spans\":[],\"children\":[],\"rendered\":\"\\u001b[0m\\u001b[1m\\u001b[33mwarning\\u001b[0m\\u001b[0m\\u001b[1m: 1 warning emitted\\u001b[0m\\n\\n\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/ext4_rs-1bacf681e2cfbd09.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"diagnostic\",\"message\":\"the feature `error_in_core` has been stable since 1.81.0 and no longer requires an attribute to enable\",\"code\":{\"code\":\"stable_features\",\"explanation\":null},\"level\":\"warning\",\"spans\":[{\"file_name\":\"src/main.rs\",\"byte_start\":11,\"byte_end\":24,\"line_start\":1,\"line_end\":1,\"column_start\":12,\"column_end\":25,\"is_primary\":true,\"text\":[{\"text\":\"#![feature(error_in_core)]\",\"highlight_start\":12,\"highlight_end\":25}],\"label\":null,\"suggested_replacement\":null,\"suggestion_applicability\":null,\"expansion\":null}],\"children\":[{\"message\":\"`#[warn(stable_features)]` on by default\",\"code\":null,\"level\":\"note\",\"spans\":[],\"children\":[],\"rendered\":null}],\"rendered\":\"\\u001b[0m\\u001b[1m\\u001b[33mwarning\\u001b[0m\\u001b[0m\\u001b[1m: the feature `error_in_core` has been stable since 1.81.0 and no longer requires an attribute to enable\\u001b[0m\\n\\u001b[0m \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m--> \\u001b[0m\\u001b[0msrc/main.rs:1:12\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\n\\u001b[0m\\u001b[1m\\u001b[38;5;12m1\\u001b[0m\\u001b[0m \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\u001b[0m \\u001b[0m\\u001b[0m#![feature(error_in_core)]\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\u001b[0m            \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[33m^^^^^^^^^^^^^\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m|\\u001b[0m\\n\\u001b[0m  \\u001b[0m\\u001b[0m\\u001b[1m\\u001b[38;5;12m= \\u001b[0m\\u001b[0m\\u001b[1mnote\\u001b[0m\\u001b[0m: `#[warn(stable_features)]` on by default\\u001b[0m\\n\\n\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_19/yuoo655/ext4_rs/target/debug/deps/libext4_rs-1bacf681e2cfbd09.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"diagnostic\",\"message\":\"1 warning emitted\",\"code\":null,\"level\":\"warning\",\"spans\":[],\"children\":[],\"rendered\":\"\\u001b[0m\\u001b[1m\\u001b[33mwarning\\u001b[0m\\u001b[0m\\u001b[1m: 1 warning emitted\\u001b[0m\\n\\n\"}\n    Finished dev [unoptimized + debuginfo] target(s) in 0.78s\n    Scanning done\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/__private_api.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/iter.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/public.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/internal.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/lib.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/macros.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/traits.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/serde.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/external.rs\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.5.0/src/parser.rs\nerror: Found 11 warnings\n"
     },
     {
       "cmd_idx": 10,
