@@ -17,7 +17,7 @@
               {
                 "name": "tests::cfs::bench_remove",
                 "status": "ok",
-                "duration_ms": 148,
+                "duration_ms": 117,
                 "error": null,
                 "miri_pass": false,
                 "miri_output": "cmd=cargo miri test -p scheduler --lib scheduler -- tests::cfs::bench_remove\nProcess timed out for 1 minutes.",
@@ -26,7 +26,7 @@
               {
                 "name": "tests::cfs::bench_yield",
                 "status": "ok",
-                "duration_ms": 18552,
+                "duration_ms": 17984,
                 "error": null,
                 "miri_pass": false,
                 "miri_output": "cmd=cargo miri test -p scheduler --lib scheduler -- tests::cfs::bench_yield\nProcess timed out for 1 minutes.",
@@ -35,7 +35,7 @@
               {
                 "name": "tests::cfs::test_sched",
                 "status": "ok",
-                "duration_ms": 43,
+                "duration_ms": 40,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -44,7 +44,7 @@
               {
                 "name": "tests::fifo::bench_remove",
                 "status": "ok",
-                "duration_ms": 44,
+                "duration_ms": 48,
                 "error": null,
                 "miri_pass": false,
                 "miri_output": "cmd=cargo miri test -p scheduler --lib scheduler -- tests::fifo::bench_remove\nProcess timed out for 1 minutes.",
@@ -53,7 +53,7 @@
               {
                 "name": "tests::fifo::bench_yield",
                 "status": "ok",
-                "duration_ms": 2448,
+                "duration_ms": 2690,
                 "error": null,
                 "miri_pass": false,
                 "miri_output": "cmd=cargo miri test -p scheduler --lib scheduler -- tests::fifo::bench_yield\nProcess timed out for 1 minutes.",
@@ -62,16 +62,16 @@
               {
                 "name": "tests::fifo::test_sched",
                 "status": "ok",
-                "duration_ms": 24,
+                "duration_ms": 32,
                 "error": null,
                 "miri_pass": false,
-                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/scheduler-e1855f845ab510a4)\nerror: Undefined Behavior: trying to retag from <312958> for SharedReadWrite permission at alloc125967[0x0], but that tag does not exist in the borrow stack for this location\n   --> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:389:18\n    |\n389 |         unsafe { &*self.as_ptr().cast_const() }\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                  |\n    |                  trying to retag from <312958> for SharedReadWrite permission at alloc125967[0x0], but that tag does not exist in the borrow stack for this location\n    |                  this error occurs as part of retag at alloc125967[0x0..0x30]\n    |\n    = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental\n    = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information\nhelp: <312958> was created by a SharedReadOnly retag at offsets [0x29..0x71]\n   --> src/fifo.rs:46:9\n    |\n46  |         self.ready_queue.push_back(task);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = note: BACKTRACE (of the first span) on thread `tests::fifo::te`:\n    = note: inside `std::ptr::NonNull::<alloc::sync::ArcInner<fifo::FifoTask<usize>>>::as_ref::<'_>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:389:18: 389:46\n    = note: inside `std::sync::Arc::<fifo::FifoTask<usize>>::inner` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:1889:18: 1889:35\n    = note: inside `<std::sync::Arc<fifo::FifoTask<usize>> as std::ops::Deref>::deref` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2201:10: 2201:22\nnote: inside `tests::fifo::test_sched`\n   --> src/tests.rs:18:33\n    |\n18  |                     assert_eq!(*next.inner(), i % NUM_TASKS);\n    |                                 ^^^^^^^^^^^^\n...\n82  | def_test_sched!(fifo, FifoScheduler::<usize>, FifoTask::<usize>);\n    | ---------------------------------------------------------------- in this macro invocation\nnote: inside closure\n   --> src/tests.rs:8:28\n    |\n8   |             fn test_sched() {\n    |                            ^\n...\n82  | def_test_sched!(fifo, FifoScheduler::<usize>, FifoTask::<usize>);\n    | ---------------------------------------------------------------- in this macro invocation\n    = note: this error originates in the macro `def_test_sched` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p scheduler --lib`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/scheduler/target/miri/x86_64-unknown-linux-gnu/debug/deps/scheduler-e1855f845ab510a4 scheduler 'tests::fifo::test_sched'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.04s\n     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/scheduler-e1855f845ab510a4)\nerror: Undefined Behavior: trying to retag from <312958> for SharedReadWrite permission at alloc125967[0x0], but that tag does not exist in the borrow stack for this location\n   --> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:389:18\n    |\n389 |         unsafe { &*self.as_ptr().cast_const() }\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                  |\n    |                  trying to retag from <312958> for SharedReadWrite permission at alloc125967[0x0], but that tag does not exist in the borrow stack for this location\n    |                  this error occurs as part of retag at alloc125967[0x0..0x30]\n    |\n    = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental\n    = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information\nhelp: <312958> was created by a SharedReadOnly retag at offsets [0x29..0x71]\n   --> src/fifo.rs:46:9\n    |\n46  |         self.ready_queue.push_back(task);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = note: BACKTRACE (of the first span) on thread `tests::fifo::te`:\n    = note: inside `std::ptr::NonNull::<alloc::sync::ArcInner<fifo::FifoTask<usize>>>::as_ref::<'_>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:389:18: 389:46\n    = note: inside `std::sync::Arc::<fifo::FifoTask<usize>>::inner` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:1889:18: 1889:35\n    = note: inside `<std::sync::Arc<fifo::FifoTask<usize>> as std::ops::Deref>::deref` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2201:10: 2201:22\nnote: inside `tests::fifo::test_sched`\n   --> src/tests.rs:18:33\n    |\n18  |                     assert_eq!(*next.inner(), i % NUM_TASKS);\n    |                                 ^^^^^^^^^^^^\n...\n82  | def_test_sched!(fifo, FifoScheduler::<usize>, FifoTask::<usize>);\n    | ---------------------------------------------------------------- in this macro invocation\nnote: inside closure\n   --> src/tests.rs:8:28\n    |\n8   |             fn test_sched() {\n    |                            ^\n...\n82  | def_test_sched!(fifo, FifoScheduler::<usize>, FifoTask::<usize>);\n    | ---------------------------------------------------------------- in this macro invocation\n    = note: this error originates in the macro `def_test_sched` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p scheduler --lib`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/scheduler/target/miri/x86_64-unknown-linux-gnu/debug/deps/scheduler-e1855f845ab510a4 scheduler 'tests::fifo::test_sched'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
                 "miri_timeout": false
               },
               {
                 "name": "tests::rr::bench_remove",
                 "status": "ok",
-                "duration_ms": 2877,
+                "duration_ms": 2953,
                 "error": null,
                 "miri_pass": false,
                 "miri_output": "cmd=cargo miri test -p scheduler --lib scheduler -- tests::rr::bench_remove\nProcess timed out for 1 minutes.",
@@ -80,7 +80,7 @@
               {
                 "name": "tests::rr::bench_yield",
                 "status": "ok",
-                "duration_ms": 1172,
+                "duration_ms": 1200,
                 "error": null,
                 "miri_pass": false,
                 "miri_output": "cmd=cargo miri test -p scheduler --lib scheduler -- tests::rr::bench_yield\nProcess timed out for 1 minutes.",
@@ -89,7 +89,7 @@
               {
                 "name": "tests::rr::test_sched",
                 "status": "ok",
-                "duration_ms": 40,
+                "duration_ms": 24,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -97,11 +97,11 @@
               }
             ],
             "failed": 0,
-            "duration_ms": 25348
+            "duration_ms": 25088
           }
         ],
         "failed": 0,
-        "duration_ms": 25348,
+        "duration_ms": 25088,
         "pkg_tests_count": 9,
         "workspace_tests_count": 9
       },
