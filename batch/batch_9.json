@@ -15,12 +15,20 @@
             "channel": "nightly-2025-01-07-x86_64-unknown-linux-gnu",
             "profile": null,
             "targets": [
-              "x86_64-unknown-linux-gnu"
+              "aarch64-unknown-none",
+              "loongarch64-unknown-none",
+              "riscv64gc-unknown-none-elf",
+              "x86_64-unknown-linux-gnu",
+              "x86_64-unknown-none"
             ],
             "components": [
               "cargo-x86_64-unknown-linux-gnu",
               "clippy-x86_64-unknown-linux-gnu",
+              "rust-std-aarch64-unknown-none",
+              "rust-std-loongarch64-unknown-none",
+              "rust-std-riscv64gc-unknown-none-elf",
               "rust-std-x86_64-unknown-linux-gnu",
+              "rust-std-x86_64-unknown-none",
               "rustc-x86_64-unknown-linux-gnu",
               "rustfmt-x86_64-unknown-linux-gnu"
             ],
@@ -31,11 +39,11 @@
         ]
       },
       "os_checker": {
-        "start": 1736713639687,
-        "finish": 1736713641021,
-        "duration_ms": 1334,
-        "git_time": "2025-01-11 21:16:49 +0800",
-        "git_sha": "75b8311a67f1171923e75534468ed4a155cf052a"
+        "start": 1736928175101,
+        "finish": 1736928297499,
+        "duration_ms": 122398,
+        "git_time": "2025-01-15 15:33:14 +0800",
+        "git_sha": "78f7222ac5d4c452fdc3cabe360c2b1390fbe5e6"
       }
     },
     "kinds": {
@@ -211,7 +219,7 @@
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --no-deps --message-format=json",
       "count": 0,
-      "duration_ms": 16906,
+      "duration_ms": 16267,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-06",
@@ -223,7 +231,7 @@
       "tool": "mirai",
       "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu --message-format=json",
       "count": 1,
-      "duration_ms": 49558,
+      "duration_ms": 48853,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-06",
@@ -235,7 +243,7 @@
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu",
       "count": 0,
-      "duration_ms": 28242,
+      "duration_ms": 27948,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-06",
@@ -247,7 +255,7 @@
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu",
       "count": 0,
-      "duration_ms": 21192,
+      "duration_ms": 21295,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-06",
@@ -259,7 +267,7 @@
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra",
       "count": 0,
-      "duration_ms": 246,
+      "duration_ms": 255,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-06",
@@ -271,7 +279,7 @@
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-07-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 1,
-      "duration_ms": 1394,
+      "duration_ms": 1570,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-06",
@@ -283,7 +291,7 @@
       "tool": "geiger",
       "cmd": "cargo +nightly-2025-01-07-x86_64-unknown-linux-gnu geiger --output-format Ascii",
       "count": 0,
-      "duration_ms": 203,
+      "duration_ms": 207,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-06",
@@ -302,13 +310,13 @@
       "cmd_idx": 8,
       "file": "src/step/uboot.rs",
       "kind": "Mirai",
-      "raw": "warning: [MIRAI] index out of bounds\n  --> src/step/uboot.rs:40:27\n   |\n40 |         let serial = names[i].clone();\n   |                           ^^^\n   |\nnote: related location /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:16:9: 16:26\n  --> /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:16:9\nnote: related location /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:274:10: 274:24\n  --> /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:274:10\n\n"
+      "raw": "warning: [MIRAI] index out of bounds\n  --> src/step/uboot.rs:39:27\n   |\n39 |         let serial = names[i].clone();\n   |                           ^^^\n   |\nnote: related location /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:16:9: 16:26\n  --> /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:16:9\nnote: related location /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:274:10: 274:24\n  --> /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:274:10\n\n"
     },
     {
       "cmd_idx": 12,
       "file": "[outdated direct dependencies]",
       "kind": "Outdated",
-      "raw": "pkg=ostool, checker=Outdated\ntoolchain=nightly-2025-01-07-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\npkg_dir=/home/runner/check/batch_9/ZR233/ostool\ncmd=cargo +nightly-2025-01-07-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-01-11 21:39:52.376880416 +08:00:00\n\nName   Project  Compat  Latest  Kind    Platform\n----   -------  ------  ------  ----    --------\nclap   4.5.24   4.5.26  4.5.26  Normal  ---\ntftpd  0.3.2    0.3.3   0.3.3   Normal  ---\n"
+      "raw": "pkg=ostool, checker=Outdated\ntoolchain=nightly-2025-01-07-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\npkg_dir=/home/runner/check/batch_9/ZR233/ostool\ncmd=cargo +nightly-2025-01-07-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-01-15 16:04:57.133643294 +08:00:00\n\nName        Project  Compat  Latest  Kind    Platform\n----        -------  ------  ------  ----    --------\nclap        4.5.24   4.5.26  4.5.26  Normal  ---\nserialport  4.6.1    4.7.0   4.7.0   Normal  ---\ntftpd       0.3.2    0.3.3   0.3.3   Normal  ---\n"
     }
   ]
 }
