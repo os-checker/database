@@ -69,15 +69,15 @@
           "file": "src/stdio.rs",
           "count": 6,
           "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 59 to 60)\n-    } \n-    else {\n+    } else {\n",
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 80 to 80)\n-                        // echo \n+                        // echo\n"
+            ],
             "Mirai": [
               "warning: [MIRAI] Cannot write to stdin!\n   --> src/stdio.rs:109:9\n    |\n109 |         panic!(\"Cannot write to stdin!\");\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] Flushing stdin\n   --> src/stdio.rs:112:9\n    |\n112 |         panic!(\"Flushing stdin\")\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] Cannot read from stdin!\n   --> src/stdio.rs:216:9\n    |\n216 |         panic!(\"Cannot read from stdin!\");\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] Cannot read from stdout!\n   --> src/stdio.rs:335:9\n    |\n335 |         panic!(\"Cannot read from stdout!\");\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 59 to 60)\n-    } \n-    else {\n+    } else {\n",
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 80 to 80)\n-                        // echo \n+                        // echo\n"
             ]
           }
         },
@@ -85,13 +85,13 @@
           "file": "src/api.rs",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: useless conversion to the same type: `api::alloc::string::String`\n  --> src/api.rs:44:29\n   |\n44 |         Arc::new(Mutex::new(String::from(\"/\").into())),\n   |                             ^^^^^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into()`: `String::from(\"/\")`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\n\n",
-              "warning: called `unwrap` on `exit_signal` after checking its variant with `is_some`\n  --> src/api.rs:87:17\n   |\n86 |             let signal = if exit_signal.is_some() {\n   |                          ------------------------ help: try: `if let Some(<item>) = exit_signal`\n87 |                 exit_signal.unwrap()\n   |                 ^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_unwrap\n   = note: `#[warn(clippy::unnecessary_unwrap)]` on by default\n\n"
-            ],
             "Mirai": [
               "warning: [MIRAI] possible attempt to divide by zero\n   --> src/api.rs:285:9\n    |\n285 |         utime_ns / NANOS_PER_SEC as usize,\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to divide by zero\n   --> src/api.rs:286:9\n    |\n286 |         utime_ns / NANOS_PER_MICROS as usize,\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: useless conversion to the same type: `api::alloc::string::String`\n  --> src/api.rs:44:29\n   |\n44 |         Arc::new(Mutex::new(String::from(\"/\").into())),\n   |                             ^^^^^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into()`: `String::from(\"/\")`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\n\n",
+              "warning: called `unwrap` on `exit_signal` after checking its variant with `is_some`\n  --> src/api.rs:87:17\n   |\n86 |             let signal = if exit_signal.is_some() {\n   |                          ------------------------ help: try: `if let Some(<item>) = exit_signal`\n87 |                 exit_signal.unwrap()\n   |                 ^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_unwrap\n   = note: `#[warn(clippy::unnecessary_unwrap)]` on by default\n\n"
             ]
           }
         },
