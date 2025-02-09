@@ -1,1 +1,88 @@
-{"repo":{"user":"arceos-hypervisor","repo":"x86_vcpu"},"data":[{"user":"arceos-hypervisor","repo":"x86_vcpu","pkg":"x86_vcpu","count":9,"raw_reports":[{"file":"src/vmx/vcpu.rs","count":3,"kinds":{"Clippy(Warn)":["warning: operator precedence can trip the unwary\n   --> src/vmx/vcpu.rs:968:21\n    |\n968 |         let value = self.guest_regs.rdx.get_bits(0..32) << 32 | self.guest_regs.rax.get_bits(0..32);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(self.guest_regs.rdx.get_bits(0..32) << 32) | self.guest_regs.rax.get_bits(0..32)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n    = note: `#[warn(clippy::precedence)]` on by default\n\n","warning: operator precedence can trip the unwary\n    --> src/vmx/vcpu.rs:1039:24\n     |\n1039 |         let base_low = entry.get_bits(16..40) | entry.get_bits(56..64) << 24;\n     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `entry.get_bits(16..40) | (entry.get_bits(56..64) << 24)`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n","warning: operator precedence can trip the unwary\n    --> src/vmx/vcpu.rs:1041:9\n     |\n1041 |         base_low | base_high << 32\n     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `base_low | (base_high << 32)`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"]}},{"file":"src/vmx/vmcs.rs","count":2,"kinds":{"Mirai":["warning: [MIRAI] possible attempt to add with overflow\n   --> src/vmx/vmcs.rs:700:22\n    |\n700 |         access_size: qualification.get_bits(0..3) as u8 + 1,\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n","warning: [MIRAI] assertion failed\n   --> src/vmx/vmcs.rs:752:5\n    |\n752 | /     set_control(\n753 | |         VmcsControl32::VMENTRY_CONTROLS,\n754 | |         Msr::IA32_VMX_TRUE_ENTRY_CTLS,\n755 | |         VmcsControl32::VMENTRY_CONTROLS.read()?,\n756 | |         (EntryCtrl::IA32E_MODE_GUEST).bits(),\n757 | |         0,\n758 | |     )?;\n    | |_____^\n    |\nnote: related location\n   --> src/vmx/vmcs.rs:599:5\n    |\n599 |     assert_eq!(allowed0 & allowed1, allowed0);\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"]}},{"file":"(virtual) semver-checks","count":1,"kinds":{"Cargo":["// pkg_name=x86_vcpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_14/arceos-hypervisor/x86_vcpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-01-26 23:06:51.495405573 +08:00:00\n    Building x86_vcpu v0.1.0 (current)\n       Built [   2.046s] (current)\n     Parsing x86_vcpu v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_14/arceos-hypervisor/x86_vcpu/target/semver-checks/local-x86_vcpu-0_1_0-1f2db0415cab274c/target/x86_64-unknown-linux-gnu/doc/x86_vcpu.json\n"]}},{"file":"[semver checks]","count":1,"kinds":{"Semver Violation":["pkg=x86_vcpu, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_14/arceos-hypervisor/x86_vcpu\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-01-26 23:06:53.855924679 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building x86_vcpu v0.1.0 (current)\n       Built [   2.046s] (current)\n     Parsing x86_vcpu v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_14/arceos-hypervisor/x86_vcpu/target/semver-checks/local-x86_vcpu-0_1_0-1f2db0415cab274c/target/x86_64-unknown-linux-gnu/doc/x86_vcpu.json\n"]}},{"file":"src/vmx/instructions.rs","count":1,"kinds":{"Mirai":["warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> src/vmx/instructions.rs:47:9\n   |\n47 |         asm!(\"invept {0}, [{1}]\", in(reg) inv_type as u64, in(reg) &invept_desc);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"]}},{"file":"src/vmx/structs.rs","count":1,"kinds":{"Mirai":["warning: [MIRAI] possible attempt to subtract with overflow\n   --> src/vmx/structs.rs:266:53\n    |\n266 |         let aligned_addr = pml4_paddr.as_usize() & !(PAGE_SIZE - 1);\n    |                                                     ^^^^^^^^^^^^^^^\n\n"]}}]}],"kinds_order":["Cargo","Clippy(Error)","Clippy(Warn)","Semver Violation","Audit","Mirai","Rapx","Rudra","Lockbud(Probably)","Lockbud(Possibly)","Outdated","Geiger","Unformatted"]}
+{
+  "repo": {
+    "user": "arceos-hypervisor",
+    "repo": "x86_vcpu"
+  },
+  "data": [
+    {
+      "user": "arceos-hypervisor",
+      "repo": "x86_vcpu",
+      "pkg": "x86_vcpu",
+      "count": 9,
+      "raw_reports": [
+        {
+          "file": "src/vmx/vcpu.rs",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: operator precedence can trip the unwary\n   --> src/vmx/vcpu.rs:968:21\n    |\n968 |         let value = self.guest_regs.rdx.get_bits(0..32) << 32 | self.guest_regs.rax.get_bits(0..32);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(self.guest_regs.rdx.get_bits(0..32) << 32) | self.guest_regs.rax.get_bits(0..32)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n    = note: `#[warn(clippy::precedence)]` on by default\n\n",
+              "warning: operator precedence can trip the unwary\n    --> src/vmx/vcpu.rs:1039:24\n     |\n1039 |         let base_low = entry.get_bits(16..40) | entry.get_bits(56..64) << 24;\n     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `entry.get_bits(16..40) | (entry.get_bits(56..64) << 24)`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n    --> src/vmx/vcpu.rs:1041:9\n     |\n1041 |         base_low | base_high << 32\n     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `base_low | (base_high << 32)`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/vmx/vmcs.rs",
+          "count": 2,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] possible attempt to add with overflow\n   --> src/vmx/vmcs.rs:700:22\n    |\n700 |         access_size: qualification.get_bits(0..3) as u8 + 1,\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+              "warning: [MIRAI] assertion failed\n   --> src/vmx/vmcs.rs:752:5\n    |\n752 | /     set_control(\n753 | |         VmcsControl32::VMENTRY_CONTROLS,\n754 | |         Msr::IA32_VMX_TRUE_ENTRY_CTLS,\n755 | |         VmcsControl32::VMENTRY_CONTROLS.read()?,\n756 | |         (EntryCtrl::IA32E_MODE_GUEST).bits(),\n757 | |         0,\n758 | |     )?;\n    | |_____^\n    |\nnote: related location\n   --> src/vmx/vmcs.rs:599:5\n    |\n599 |     assert_eq!(allowed0 & allowed1, allowed0);\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=x86_vcpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_14/arceos-hypervisor/x86_vcpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-01-26 23:06:51.495405573 +08:00:00\n    Building x86_vcpu v0.1.0 (current)\n       Built [   2.046s] (current)\n     Parsing x86_vcpu v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_14/arceos-hypervisor/x86_vcpu/target/semver-checks/local-x86_vcpu-0_1_0-1f2db0415cab274c/target/x86_64-unknown-linux-gnu/doc/x86_vcpu.json\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=x86_vcpu, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_14/arceos-hypervisor/x86_vcpu\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-01-26 23:06:53.855924679 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building x86_vcpu v0.1.0 (current)\n       Built [   2.046s] (current)\n     Parsing x86_vcpu v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_14/arceos-hypervisor/x86_vcpu/target/semver-checks/local-x86_vcpu-0_1_0-1f2db0415cab274c/target/x86_64-unknown-linux-gnu/doc/x86_vcpu.json\n"
+            ]
+          }
+        },
+        {
+          "file": "src/vmx/instructions.rs",
+          "count": 1,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> src/vmx/instructions.rs:47:9\n   |\n47 |         asm!(\"invept {0}, [{1}]\", in(reg) inv_type as u64, in(reg) &invept_desc);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/vmx/structs.rs",
+          "count": 1,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] possible attempt to subtract with overflow\n   --> src/vmx/structs.rs:266:53\n    |\n266 |         let aligned_addr = pml4_paddr.as_usize() & !(PAGE_SIZE - 1);\n    |                                                     ^^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}
