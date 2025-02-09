@@ -14,13 +14,6 @@
           "file": "src/lib.rs",
           "count": 11,
           "kinds": {
-            "Mirai": [
-              "warning: unexpected `cfg` condition value: `test`\n  --> src/lib.rs:39:17\n   |\n39 | #![cfg_attr(not(feature = \"test\"), no_std)]\n   |                 ^^^^^^^^^^^^^^^^ help: remove the condition\n   |\n   = note: no expected values for `feature`\n   = help: consider adding `test` as a feature in `Cargo.toml`\n   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration\n   = note: `#[warn(unexpected_cfgs)]` on by default\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_41/os-module/syscall-table/src/lib.rs (original lines from 133 to 133)\n-impl ToIsize for (){\n+impl ToIsize for () {\n",
-              "file: /home/runner/check/batch_41/os-module/syscall-table/src/lib.rs (original lines from 149 to 149)\n-impl<T:ToIsize, E: ToIsize> ToIsize for Result<T, E> {\n+impl<T: ToIsize, E: ToIsize> ToIsize for Result<T, E> {\n"
-            ],
             "Clippy(Warn)": [
               "warning: unexpected `cfg` condition value: `test`\n  --> src/lib.rs:39:17\n   |\n39 | #![cfg_attr(not(feature = \"test\"), no_std)]\n   |                 ^^^^^^^^^^^^^^^^ help: remove the condition\n   |\n   = note: no expected values for `feature`\n   = help: consider adding `test` as a feature in `Cargo.toml`\n   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration\n   = note: `#[warn(unexpected_cfgs)]` on by default\n\n",
               "warning: `crate` references the macro call's crate\n   --> src/lib.rs:421:13\n    |\n421 |             crate::paste!{\n    |             ^^^^^ help: to reference the macro definition's crate, use: `$crate`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#crate_in_macro_def\n    = note: `#[warn(clippy::crate_in_macro_def)]` on by default\n\n",
@@ -30,6 +23,13 @@
               "warning: very complex type used. Consider factoring parts into `type` definitions\n   --> src/lib.rs:299:14\n    |\n299 |     service: Box<dyn Fn(&[usize]) -> isize>,\n    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#type_complexity\n    = note: `#[warn(clippy::type_complexity)]` on by default\n\n",
               "warning: you should consider adding a `Default` implementation for `Table`\n   --> src/lib.rs:337:5\n    |\n337 | /     pub const fn new() -> Self {\n338 | |         Self {\n339 | |             map: BTreeMap::new(),\n340 | |         }\n341 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n335 + impl Default for Table {\n336 +     fn default() -> Self {\n337 +         Self::new()\n338 +     }\n339 + }\n    |\n\n",
               "warning: returning the result of a `let` binding from a block\n   --> src/lib.rs:398:5\n    |\n397 |     let handler = SysCallHandler::new(func);\n    |     ---------------------------------------- unnecessary `let` binding\n398 |     handler\n    |     ^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\n    = note: `#[warn(clippy::let_and_return)]` on by default\nhelp: return the expression directly\n    |\n397 ~     \n398 ~     SysCallHandler::new(func)\n    |\n\n"
+            ],
+            "Mirai": [
+              "warning: unexpected `cfg` condition value: `test`\n  --> src/lib.rs:39:17\n   |\n39 | #![cfg_attr(not(feature = \"test\"), no_std)]\n   |                 ^^^^^^^^^^^^^^^^ help: remove the condition\n   |\n   = note: no expected values for `feature`\n   = help: consider adding `test` as a feature in `Cargo.toml`\n   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration\n   = note: `#[warn(unexpected_cfgs)]` on by default\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_41/os-module/syscall-table/src/lib.rs (original lines from 133 to 133)\n-impl ToIsize for (){\n+impl ToIsize for () {\n",
+              "file: /home/runner/check/batch_41/os-module/syscall-table/src/lib.rs (original lines from 149 to 149)\n-impl<T:ToIsize, E: ToIsize> ToIsize for Result<T, E> {\n+impl<T: ToIsize, E: ToIsize> ToIsize for Result<T, E> {\n"
             ]
           }
         },

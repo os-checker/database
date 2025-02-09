@@ -110,13 +110,13 @@
           "file": "src/console.rs",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: this operation has no effect\n  --> src/console.rs:21:32\n   |\n21 |             let ier = base.add(1 * W).read_volatile();\n   |                                ^^^^^ help: consider reducing it to: `W`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n   = note: `#[warn(clippy::identity_op)]` on by default\n\n",
-              "warning: this operation has no effect\n  --> src/console.rs:22:22\n   |\n22 |             base.add(1 * W).write_volatile(ier | 0x01);\n   |                      ^^^^^ help: consider reducing it to: `W`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n\n"
-            ],
             "Clippy(Error)": [
               "error: this operation will always return zero. This is likely not the intended outcome\n  --> src/console.rs:34:22\n   |\n34 |             base.add(W * 0).write_volatile(c);\n   |                      ^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#erasing_op\n   = note: `#[deny(clippy::erasing_op)]` on by default\n\n",
               "error: this operation will always return zero. This is likely not the intended outcome\n  --> src/console.rs:41:36\n   |\n41 |             Some(unsafe { base.add(0 * W).read_volatile() })\n   |                                    ^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#erasing_op\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: this operation has no effect\n  --> src/console.rs:21:32\n   |\n21 |             let ier = base.add(1 * W).read_volatile();\n   |                                ^^^^^ help: consider reducing it to: `W`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n   = note: `#[warn(clippy::identity_op)]` on by default\n\n",
+              "warning: this operation has no effect\n  --> src/console.rs:22:22\n   |\n22 |             base.add(1 * W).write_volatile(ier | 0x01);\n   |                      ^^^^^ help: consider reducing it to: `W`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n\n"
             ]
           }
         },

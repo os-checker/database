@@ -75,10 +75,6 @@
               "warning: this function has too many arguments (9/7)\n   --> src/fuse_interface/mod.rs:613:5\n    |\n613 | /     fn fuse_setlk(\n614 | |         &mut self,\n615 | |         ino: u64,\n616 | |         fh: u64,\n...   |\n622 | |         sleep: bool,\n623 | |     ) {\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n\n",
               "warning: this function has too many arguments (9/7)\n   --> src/fuse_interface/mod.rs:670:5\n    |\n670 | /     fn fuse_copy_file_range(\n671 | |         &mut self,\n672 | |         ino_in: u64,\n673 | |         fh_in: u64,\n...   |\n679 | |         flags: u32,\n680 | |     ) {\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n\n"
             ],
-            "Clippy(Error)": [
-              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:305:13\n    |\n305 |         if ((flags & O_RDONLY != 0) || (flags & O_RDWR != 0)) && !can_read {\n    |             ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
-              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:441:16\n    |\n441 |             if (flags & O_RDONLY != 0) || (flags & O_RDWR != 0) && !can_read{\n    |                ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_72/yuoo655/ext4_rs/src/fuse_interface/mod.rs (original lines from 9 to 10)\n-pub use crate::ext4_defs::Ext4;\n-pub use crate::ext4_defs::BLOCK_SIZE;\n",
               "file: /home/runner/check/batch_72/yuoo655/ext4_rs/src/fuse_interface/mod.rs (original lines from 12 to 12)\n+pub use crate::ext4_defs::Ext4;\n",
@@ -104,6 +100,10 @@
               "file: /home/runner/check/batch_72/yuoo655/ext4_rs/src/fuse_interface/mod.rs (original lines from 335 to 335)\n-        ) -> Result<Vec<u8>> {\n+    ) -> Result<Vec<u8>> {\n",
               "file: /home/runner/check/batch_72/yuoo655/ext4_rs/src/fuse_interface/mod.rs (original lines from 441 to 441)\n-            if (flags & O_RDONLY != 0) || (flags & O_RDWR != 0) && !can_read{\n+            if (flags & O_RDONLY != 0) || (flags & O_RDWR != 0) && !can_read {\n",
               "file: /home/runner/check/batch_72/yuoo655/ext4_rs/src/fuse_interface/mod.rs (original lines from 465 to 465)\n-    /// \n+    ///\n"
+            ],
+            "Clippy(Error)": [
+              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:305:13\n    |\n305 |         if ((flags & O_RDONLY != 0) || (flags & O_RDWR != 0)) && !can_read {\n    |             ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
+              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:441:16\n    |\n441 |             if (flags & O_RDONLY != 0) || (flags & O_RDWR != 0) && !can_read{\n    |                ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
             ]
           }
         },
