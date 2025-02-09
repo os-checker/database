@@ -14,10 +14,6 @@
           "file": "src/process.rs",
           "count": 10,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 3 to 3)\n+use alloc::format;\n",
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 5 to 5)\n-use alloc::format;\n"
-            ],
             "Clippy(Warn)": [
               "warning: this function has too many arguments (8/7)\n   --> src/process.rs:194:5\n    |\n194 | /     pub fn new(\n195 | |         pid: u64,\n196 | |         stack_size: u64,\n197 | |         parent: u64,\n...   |\n202 | |         fd_table: FdTable,\n203 | |     ) -> Self {\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n    = note: `#[warn(clippy::too_many_arguments)]` on by default\n\n",
               "warning: useless conversion to the same type: `api::alloc::string::String`\n   --> src/process.rs:280:33\n    |\n280 |             Arc::new(Mutex::new(String::from(\"/\").into())),\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into()`: `String::from(\"/\")`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n\n",
@@ -27,6 +23,10 @@
               "warning: called `Iterator::last` on a `DoubleEndedIterator`; this will needlessly iterate the entire iterator\n   --> src/process.rs:529:65\n    |\n529 |             String::from(self.tasks.lock()[0].name().split('/').last().unwrap()),\n    |                                                                 ^^^^^^ help: try: `next_back()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_ended_iterator_last\n\n",
               "warning: useless conversion to the same type: `api::alloc::string::String`\n   --> src/process.rs:661:51\n    |\n661 |             let mut cwd_src = Arc::new(Mutex::new(String::from(\"/\").into()));\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into()`: `String::from(\"/\")`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n\n",
               "warning: useless conversion to the same type: `api::alloc::string::String`\n   --> src/process.rs:807:39\n    |\n807 |         *self.fd_manager.cwd.lock() = cwd.into();\n    |                                       ^^^^^^^^^^ help: consider removing `.into()`: `cwd`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 3 to 3)\n+use alloc::format;\n",
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 5 to 5)\n-use alloc::format;\n"
             ]
           }
         },
@@ -34,9 +34,6 @@
           "file": "src/signal.rs",
           "count": 8,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: manual implementation of `Option::map`\n  --> src/signal.rs:61:9\n   |\n61 | /         match self.signal_set.find_signal() {\n62 | |             Some(sig_num) => Some(\n63 | |                 self.signal_handler\n64 | |                     .lock()\n...  |\n69 | |             None => None,\n70 | |         }\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_map\n   = note: `#[warn(clippy::manual_map)]` on by default\nhelp: try\n   |\n61 ~         self.signal_set.find_signal().map(|sig_num| self.signal_handler\n62 +                     .lock()\n63 +                     .get_action(sig_num)\n64 +                     .need_restart())\n   |\n\n"
-            ],
             "Mirai": [
               "warning: [MIRAI] possible attempt to subtract with overflow\n   --> src/signal.rs:252:9\n    |\n252 |         (signal_module.alternate_stack.sp + signal_module.alternate_stack.size - 1) & !0xf\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to add with overflow\n   --> src/signal.rs:252:10\n    |\n252 |         (signal_module.alternate_stack.sp + signal_module.alternate_stack.size - 1) & !0xf\n    |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
@@ -45,6 +42,9 @@
               "warning: [MIRAI] possible attempt to subtract with overflow\n   --> src/signal.rs:280:25\n    |\n280 |         let sp_base = (((sp - core::mem::size_of::<SigInfo>()) & !0xf)\n    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to subtract with overflow\n   --> src/signal.rs:318:9\n    |\n318 |         sp -= core::mem::size_of::<usize>();\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible misaligned pointer dereference\n   --> src/signal.rs:319:9\n    |\n319 |         *(sp as *mut usize) = restorer;\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: manual implementation of `Option::map`\n  --> src/signal.rs:61:9\n   |\n61 | /         match self.signal_set.find_signal() {\n62 | |             Some(sig_num) => Some(\n63 | |                 self.signal_handler\n64 | |                     .lock()\n...  |\n69 | |             None => None,\n70 | |         }\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_map\n   = note: `#[warn(clippy::manual_map)]` on by default\nhelp: try\n   |\n61 ~         self.signal_set.find_signal().map(|sig_num| self.signal_handler\n62 +                     .lock()\n63 +                     .get_action(sig_num)\n64 +                     .need_restart())\n   |\n\n"
             ]
           }
         },
@@ -69,15 +69,15 @@
           "file": "src/stdio.rs",
           "count": 6,
           "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 59 to 60)\n-    } \n-    else {\n+    } else {\n",
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 80 to 80)\n-                        // echo \n+                        // echo\n"
+            ],
             "Mirai": [
               "warning: [MIRAI] Cannot write to stdin!\n   --> src/stdio.rs:109:9\n    |\n109 |         panic!(\"Cannot write to stdin!\");\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] Flushing stdin\n   --> src/stdio.rs:112:9\n    |\n112 |         panic!(\"Flushing stdin\")\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] Cannot read from stdin!\n   --> src/stdio.rs:216:9\n    |\n216 |         panic!(\"Cannot read from stdin!\");\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] Cannot read from stdout!\n   --> src/stdio.rs:335:9\n    |\n335 |         panic!(\"Cannot read from stdout!\");\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 59 to 60)\n-    } \n-    else {\n+    } else {\n",
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 80 to 80)\n-                        // echo \n+                        // echo\n"
             ]
           }
         },
