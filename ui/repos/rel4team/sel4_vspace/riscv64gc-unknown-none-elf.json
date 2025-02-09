@@ -84,6 +84,13 @@
           "file": "src/asid.rs",
           "count": 19,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: unneeded `return` statement\n  --> src/asid.rs:60:9\n   |\n60 |         return convert_to_option_mut_type_ref::<asid_pool_t>(riscvKSASIDTable[index] as usize)\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n60 |         convert_to_option_mut_type_ref::<asid_pool_t>(riscvKSASIDTable[index] as usize)\n   |\n\n",
+              "warning: unneeded `return` statement\n   --> src/asid.rs:106:5\n    |\n106 |     return ret;\n    |     ^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n106 -     return ret;\n106 +     ret\n    |\n\n",
+              "warning: `0 as *mut _` detected\n   --> src/asid.rs:128:58\n    |\n128 |             riscvKSASIDTable[asid_base >> asidLowBits] = 0 as *mut asid_pool_t;\n    |                                                          ^^^^^^^^^^^^^^^^^^^^^ help: try: `core::ptr::null_mut::<asid_pool_t>()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#zero_ptr\n    = note: `#[warn(clippy::zero_ptr)]` on by default\n\n",
+              "warning: `0 as *mut _` detected\n   --> src/asid.rs:144:59\n    |\n144 |             (*poolPtr).array[asid & MASK!(asidLowBits)] = 0 as *mut pte_t;\n    |                                                           ^^^^^^^^^^^^^^^ help: try: `core::ptr::null_mut::<pte_t>()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#zero_ptr\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/asid.rs:145:25\n    |\n145 |             set_vm_root(&default_vspace_cap)\n    |                         ^^^^^^^^^^^^^^^^^^^ help: change this to: `default_vspace_cap`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n    = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/asid.rs (original lines from 4 to 5)\n-use sel4_common::{structures::exception_t, sel4_config::*, utils::convert_to_option_mut_type_ref, fault::*, BIT, MASK};\n-use sel4_cspace::interface::cap_t;\n+use super::{interface::set_vm_root, pte::pte_t};\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/asid.rs (original lines from 7 to 7)\n-use super::{pte::pte_t, interface::set_vm_root};\n+use sel4_common::{\n+    fault::*, sel4_config::*, structures::exception_t, utils::convert_to_option_mut_type_ref, BIT,\n+    MASK,\n+};\n+use sel4_cspace::interface::cap_t;\n",
@@ -99,13 +106,6 @@
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/asid.rs (original lines from 137 to 137)\n-/// \n+///\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/asid.rs (original lines from 139 to 139)\n-pub fn delete_asid(asid: asid_t, vspace: *mut pte_t, default_vspace_cap: &cap_t) -> Result<(), lookup_fault_t> {\n+pub fn delete_asid(\n+    asid: asid_t,\n+    vspace: *mut pte_t,\n+    default_vspace_cap: &cap_t,\n+) -> Result<(), lookup_fault_t> {\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/asid.rs (original lines from 151 to 151)\n-\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: unneeded `return` statement\n  --> src/asid.rs:60:9\n   |\n60 |         return convert_to_option_mut_type_ref::<asid_pool_t>(riscvKSASIDTable[index] as usize)\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n60 |         convert_to_option_mut_type_ref::<asid_pool_t>(riscvKSASIDTable[index] as usize)\n   |\n\n",
-              "warning: unneeded `return` statement\n   --> src/asid.rs:106:5\n    |\n106 |     return ret;\n    |     ^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n106 -     return ret;\n106 +     ret\n    |\n\n",
-              "warning: `0 as *mut _` detected\n   --> src/asid.rs:128:58\n    |\n128 |             riscvKSASIDTable[asid_base >> asidLowBits] = 0 as *mut asid_pool_t;\n    |                                                          ^^^^^^^^^^^^^^^^^^^^^ help: try: `core::ptr::null_mut::<asid_pool_t>()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#zero_ptr\n    = note: `#[warn(clippy::zero_ptr)]` on by default\n\n",
-              "warning: `0 as *mut _` detected\n   --> src/asid.rs:144:59\n    |\n144 |             (*poolPtr).array[asid & MASK!(asidLowBits)] = 0 as *mut pte_t;\n    |                                                           ^^^^^^^^^^^^^^^ help: try: `core::ptr::null_mut::<pte_t>()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#zero_ptr\n\n",
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/asid.rs:145:25\n    |\n145 |             set_vm_root(&default_vspace_cap)\n    |                         ^^^^^^^^^^^^^^^^^^^ help: change this to: `default_vspace_cap`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n    = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
             ]
           }
         },
@@ -113,13 +113,6 @@
           "file": "src/satp.rs",
           "count": 11,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 1 to 1)\n+use super::structures::paddr_t;\n",
-              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 3 to 3)\n-use super::structures::paddr_t;\n",
-              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 45 to 46)\n-/// \n-/// Risc-v's sfence.vma \n+///\n+/// Risc-v's sfence.vma\n",
-              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 56 to 56)\n-/// \n+///\n",
-              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 68 to 68)\n+\n"
-            ],
             "Clippy(Warn)": [
               "warning: unused import: `sel4_common::sbi::remote_sfence_vma`\n --> src/satp.rs:2:5\n  |\n2 | use sel4_common::sbi::remote_sfence_vma;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
               "warning: operator precedence can trip the unwary\n  --> src/satp.rs:15:20\n   |\n15 |               words: 0\n   |  ____________________^\n16 | |                 | (mode & 0xfusize) << 60\n17 | |                 | (asid & 0xffffusize) << 44\n18 | |                 | (ppn & 0xfffffffffffusize) << 0,\n   | |_________________________________________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[warn(clippy::precedence)]` on by default\nhelp: consider parenthesizing your expression\n   |\n15 ~             words: 0\n16 +                 | (mode & 0xfusize) << 60\n17 ~                 | (asid & 0xffffusize) << 44 | ((ppn & 0xfffffffffffusize) << 0),\n   |\n\n",
@@ -127,6 +120,13 @@
               "warning: operator precedence can trip the unwary\n  --> src/satp.rs:15:20\n   |\n15 |               words: 0\n   |  ____________________^\n16 | |                 | (mode & 0xfusize) << 60\n   | |_________________________________________^ help: consider parenthesizing your expression: `0 | ((mode & 0xfusize) << 60)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
               "warning: this operation has no effect\n  --> src/satp.rs:15:20\n   |\n15 |               words: 0\n   |  ____________________^\n16 | |                 | (mode & 0xfusize) << 60\n   | |_________________________________________^ help: consider reducing it to: `((mode & 0xfusize) << 60)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n\n",
               "warning: this operation has no effect\n  --> src/satp.rs:18:19\n   |\n18 |                 | (ppn & 0xfffffffffffusize) << 0,\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider reducing it to: `((ppn & 0xfffffffffffusize))`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 1 to 1)\n+use super::structures::paddr_t;\n",
+              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 3 to 3)\n-use super::structures::paddr_t;\n",
+              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 45 to 46)\n-/// \n-/// Risc-v's sfence.vma \n+///\n+/// Risc-v's sfence.vma\n",
+              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 56 to 56)\n-/// \n+///\n",
+              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 68 to 68)\n+\n"
             ]
           }
         },
@@ -134,6 +134,9 @@
           "file": "src/structures.rs",
           "count": 8,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: this operation has no effect\n  --> src/structures.rs:43:26\n   |\n43 |         self.words[0] |= (v64 << 0) & 0x1usize;\n   |                          ^^^^^^^^^^ help: consider reducing it to: `v64`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n   = note: `#[warn(clippy::identity_op)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/structures.rs (original lines from 2 to 2)\n-/// \n+///\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/structures.rs (original lines from 6 to 6)\n-/// \n+///\n",
@@ -142,9 +145,6 @@
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/structures.rs (original lines from 23 to 23)\n-\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/structures.rs (original lines from 32 to 34)\n-        Self {\n-            words: [w]\n-        }\n+        Self { words: [w] }\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/structures.rs (original lines from 46 to 46)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: this operation has no effect\n  --> src/structures.rs:43:26\n   |\n43 |         self.words[0] |= (v64 << 0) & 0x1usize;\n   |                          ^^^^^^^^^^ help: consider reducing it to: `v64`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n   = note: `#[warn(clippy::identity_op)]` on by default\n\n"
             ]
           }
         },

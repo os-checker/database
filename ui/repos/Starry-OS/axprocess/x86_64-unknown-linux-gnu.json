@@ -14,10 +14,6 @@
           "file": "src/process.rs",
           "count": 10,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 3 to 3)\n+use alloc::format;\n",
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 5 to 5)\n-use alloc::format;\n"
-            ],
             "Clippy(Warn)": [
               "warning: this function has too many arguments (8/7)\n   --> src/process.rs:194:5\n    |\n194 | /     pub fn new(\n195 | |         pid: u64,\n196 | |         stack_size: u64,\n197 | |         parent: u64,\n...   |\n202 | |         fd_table: FdTable,\n203 | |     ) -> Self {\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n    = note: `#[warn(clippy::too_many_arguments)]` on by default\n\n",
               "warning: useless conversion to the same type: `api::alloc::string::String`\n   --> src/process.rs:280:33\n    |\n280 |             Arc::new(Mutex::new(String::from(\"/\").into())),\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into()`: `String::from(\"/\")`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n\n",
@@ -27,6 +23,10 @@
               "warning: called `Iterator::last` on a `DoubleEndedIterator`; this will needlessly iterate the entire iterator\n   --> src/process.rs:529:65\n    |\n529 |             String::from(self.tasks.lock()[0].name().split('/').last().unwrap()),\n    |                                                                 ^^^^^^ help: try: `next_back()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_ended_iterator_last\n\n",
               "warning: useless conversion to the same type: `api::alloc::string::String`\n   --> src/process.rs:661:51\n    |\n661 |             let mut cwd_src = Arc::new(Mutex::new(String::from(\"/\").into()));\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into()`: `String::from(\"/\")`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n\n",
               "warning: useless conversion to the same type: `api::alloc::string::String`\n   --> src/process.rs:807:39\n    |\n807 |         *self.fd_manager.cwd.lock() = cwd.into();\n    |                                       ^^^^^^^^^^ help: consider removing `.into()`: `cwd`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 3 to 3)\n+use alloc::format;\n",
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 5 to 5)\n-use alloc::format;\n"
             ]
           }
         },
@@ -52,16 +52,16 @@
           "file": "src/futex.rs",
           "count": 7,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: unneeded `return` statement\n  --> src/futex.rs:59:9\n   |\n59 |         return FutexKey::new(pid, aligned, offset);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n   = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n   |\n59 -         return FutexKey::new(pid, aligned, offset);\n59 +         FutexKey::new(pid, aligned, offset)\n   |\n\n",
-              "warning: unneeded `return` statement\n  --> src/futex.rs:64:9\n   |\n64 |         return FutexKey::new(pid, aligned, offset);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n64 -         return FutexKey::new(pid, aligned, offset);\n64 +         FutexKey::new(pid, aligned, offset)\n   |\n\n",
-              "warning: unneeded `return` statement\n   --> src/futex.rs:198:13\n    |\n198 |             return true;\n    |             ^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n198 -             return true;\n198 +             true\n    |\n\n"
-            ],
             "Mirai": [
               "warning: [MIRAI] possible index out of bounds\n   --> src/futex.rs:149:27\n    |\n149 |     let mut hash_bucket = FUTEXQUEUES.buckets[futex_hash(&key)].lock();\n    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible index out of bounds\n   --> src/futex.rs:185:27\n    |\n185 |     let mut hash_bucket = FUTEXQUEUES.buckets[futex_hash(&key)].lock();\n    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible index out of bounds\n   --> src/futex.rs:222:27\n    |\n222 |     let mut hash_bucket = FUTEXQUEUES.buckets[futex_hash(&key)].lock();\n    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible index out of bounds\n   --> src/futex.rs:239:30\n    |\n239 |         let mut req_bucket = FUTEXQUEUES.buckets[futex_hash(&req_key)].lock();\n    |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: unneeded `return` statement\n  --> src/futex.rs:59:9\n   |\n59 |         return FutexKey::new(pid, aligned, offset);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n   = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n   |\n59 -         return FutexKey::new(pid, aligned, offset);\n59 +         FutexKey::new(pid, aligned, offset)\n   |\n\n",
+              "warning: unneeded `return` statement\n  --> src/futex.rs:64:9\n   |\n64 |         return FutexKey::new(pid, aligned, offset);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n64 -         return FutexKey::new(pid, aligned, offset);\n64 +         FutexKey::new(pid, aligned, offset)\n   |\n\n",
+              "warning: unneeded `return` statement\n   --> src/futex.rs:198:13\n    |\n198 |             return true;\n    |             ^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n198 -             return true;\n198 +             true\n    |\n\n"
             ]
           }
         },
@@ -85,13 +85,13 @@
           "file": "src/api.rs",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: useless conversion to the same type: `api::alloc::string::String`\n  --> src/api.rs:44:29\n   |\n44 |         Arc::new(Mutex::new(String::from(\"/\").into())),\n   |                             ^^^^^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into()`: `String::from(\"/\")`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\n\n",
-              "warning: called `unwrap` on `exit_signal` after checking its variant with `is_some`\n  --> src/api.rs:87:17\n   |\n86 |             let signal = if exit_signal.is_some() {\n   |                          ------------------------ help: try: `if let Some(<item>) = exit_signal`\n87 |                 exit_signal.unwrap()\n   |                 ^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_unwrap\n   = note: `#[warn(clippy::unnecessary_unwrap)]` on by default\n\n"
-            ],
             "Mirai": [
               "warning: [MIRAI] possible attempt to divide by zero\n   --> src/api.rs:285:9\n    |\n285 |         utime_ns / NANOS_PER_SEC as usize,\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to divide by zero\n   --> src/api.rs:286:9\n    |\n286 |         utime_ns / NANOS_PER_MICROS as usize,\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: useless conversion to the same type: `api::alloc::string::String`\n  --> src/api.rs:44:29\n   |\n44 |         Arc::new(Mutex::new(String::from(\"/\").into())),\n   |                             ^^^^^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into()`: `String::from(\"/\")`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\n\n",
+              "warning: called `unwrap` on `exit_signal` after checking its variant with `is_some`\n  --> src/api.rs:87:17\n   |\n86 |             let signal = if exit_signal.is_some() {\n   |                          ------------------------ help: try: `if let Some(<item>) = exit_signal`\n87 |                 exit_signal.unwrap()\n   |                 ^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_unwrap\n   = note: `#[warn(clippy::unnecessary_unwrap)]` on by default\n\n"
             ]
           }
         },
