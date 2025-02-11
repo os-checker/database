@@ -9,7 +9,7 @@ if [ -n "$BOT" ]; then
   export branch=$(git branch --show-current)
 
   echo "bot!"
-  # rm batch -r && true
+  rm batch -r && true
 
   git status
   git add .
