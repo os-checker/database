@@ -14,6 +14,9 @@
           "file": "src/ext4_impls/extents.rs",
           "count": 43,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: casting to the same type is unnecessary (`u64` -> `u64`)\n   --> src/ext4_impls/extents.rs:718:33\n    |\n718 |                 ex.store_pblock(newblock as u64);\n    |                                 ^^^^^^^^^^^^^^^ help: try: `newblock`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_72/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 91 to 91)\n-        \n+\n",
               "file: /home/runner/check/batch_72/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 93 to 93)\n-        \n+\n",
@@ -57,9 +60,6 @@
               "file: /home/runner/check/batch_72/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 406 to 406)\n-\n",
               "file: /home/runner/check/batch_72/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 409 to 409)\n-    \n",
               "file: /home/runner/check/batch_72/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 524 to 525)\n-                let ext4block =\n-                    Block::load(self.block_device.clone(), node_pblock * BLOCK_SIZE);\n+                let ext4block = Block::load(self.block_device.clone(), node_pblock * BLOCK_SIZE);\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: casting to the same type is unnecessary (`u64` -> `u64`)\n   --> src/ext4_impls/extents.rs:718:33\n    |\n718 |                 ex.store_pblock(newblock as u64);\n    |                                 ^^^^^^^^^^^^^^^ help: try: `newblock`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
             ]
           }
         },
