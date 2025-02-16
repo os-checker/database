@@ -12,6 +12,7 @@
       "raw_reports": [
         {
           "file": "src/cmd_parser.rs",
+          "features": "",
           "count": 17,
           "kinds": {
             "Clippy(Warn)": [
@@ -39,12 +40,9 @@
         },
         {
           "file": "src/lib.rs",
+          "features": "",
           "count": 17,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/lib.rs:37:39\n   |\n37 |     let cmd_ct = build_cargo_tree_cmd(&cfg);\n   |                                       ^^^^ help: change this to: `cfg`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
-              "warning: writing `&String` instead of `&str` involves a new object where a slice will do\n  --> src/lib.rs:55:21\n   |\n55 | fn parse_deps(deps: &String) -> Vec<(i32, String)> {\n   |                     ^^^^^^^ help: change this to: `&str`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n   = note: `#[warn(clippy::ptr_arg)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/lib.rs (original lines from 1 to 1)\n-mod cmd_parser;\n",
               "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/lib.rs (original lines from 3 to 3)\n-mod mermaid_generator;\n+mod cmd_parser;\n",
@@ -61,11 +59,16 @@
               "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/lib.rs (original lines from 56 to 56)\n-    let mut rst = vec!();\n+    let mut rst = vec![];\n",
               "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/lib.rs (original lines from 83 to 83)\n-        _ => generate_mermaid(config)\n+        _ => generate_mermaid(config),\n",
               "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/lib.rs (original lines from 97 to 98)\n-        Ok(()) => {},\n-        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error)\n+        Ok(()) => {}\n+        Err(error) => println!(\"Error during writing file {}, {}\", config.output_loc, error),\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/lib.rs:37:39\n   |\n37 |     let cmd_ct = build_cargo_tree_cmd(&cfg);\n   |                                       ^^^^ help: change this to: `cfg`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
+              "warning: writing `&String` instead of `&str` involves a new object where a slice will do\n  --> src/lib.rs:55:21\n   |\n55 | fn parse_deps(deps: &String) -> Vec<(i32, String)> {\n   |                     ^^^^^^^ help: change this to: `&str`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n   = note: `#[warn(clippy::ptr_arg)]` on by default\n\n"
             ]
           }
         },
         {
           "file": "src/d2_generator.rs",
+          "features": "",
           "count": 4,
           "kinds": {
             "Unformatted": [
@@ -80,20 +83,22 @@
         },
         {
           "file": "src/mermaid_generator.rs",
+          "features": "",
           "count": 4,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
-            ],
             "Clippy(Warn)": [
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n --> src/mermaid_generator.rs:6:34\n  |\n6 |     let deps_parsed = parse_deps(&deps);\n  |                                  ^^^^^ help: change this to: `deps`\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/mermaid_generator.rs:16:29\n   |\n16 |         if !is_arceos_crate(&name) {\n   |                             ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/mermaid_generator.rs:32:32\n   |\n32 |             parsed_crates.push(&name);\n   |                                ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
             ]
           }
         },
         {
           "file": "src/cmd_builder.rs",
+          "features": "",
           "count": 2,
           "kinds": {
             "Unformatted": [
@@ -104,24 +109,27 @@
         },
         {
           "file": "(virtual) semver-checks",
+          "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=deptool, checker=SemverChecks\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-01-27 1:39:33.514629577 +08:00:00\n    Building deptool v0.1.0 (current)\n       Built [   1.435s] (current)\n     Parsing deptool v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/target/semver-checks/local-deptool-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/deptool.json\n"
+              "// pkg_name=deptool, checker=SemverChecks\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 23:04:52.484987342 +08:00:00\n    Building deptool v0.1.0 (current)\n       Built [   1.568s] (current)\n     Parsing deptool v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/target/semver-checks/local-deptool-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/deptool.json\n"
             ]
           }
         },
         {
           "file": "[semver checks]",
+          "features": "",
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=deptool, checker=SemverChecks\ntoolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-01-27 1:39:35.296551527 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building deptool v0.1.0 (current)\n       Built [   1.435s] (current)\n     Parsing deptool v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/target/semver-checks/local-deptool-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/deptool.json\n"
+              "pkg=deptool, checker=SemverChecks\ntoolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 23:04:54.358281288 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building deptool v0.1.0 (current)\n       Built [   1.568s] (current)\n     Parsing deptool v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/target/semver-checks/local-deptool-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/deptool.json\n"
             ]
           }
         },
         {
           "file": "src/main.rs",
+          "features": "",
           "count": 1,
           "kinds": {
             "Unformatted": [
@@ -135,50 +143,65 @@
       "user": "Starry-OS",
       "repo": "Starry-Old",
       "pkg": "arceos-tls",
-      "count": 5,
+      "count": 6,
       "raw_reports": [
         {
-          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/x86_64-0.14.12/src/addr.rs",
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/x86_64-0.15.1/src/addr.rs",
+          "features": "",
           "count": 1,
           "kinds": {
             "Mirai": [
-              "error[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/x86_64-0.14.12/src/addr.rs:382:51\n    |\n382 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `Option<usize>`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, Option<usize>)`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> Option<usize>`\nhelp: change the output type to match the trait\n    |\n382 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~\n\n"
+              "error[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/x86_64-0.15.1/src/addr.rs:362:51\n    |\n362 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `Option<usize>`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, Option<usize>)`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> Option<usize>`\nhelp: change the output type to match the trait\n    |\n362 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~\n\n"
             ]
           }
         },
         {
-          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/x86_64-0.14.12/src/structures/paging/page.rs",
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/x86_64-0.15.1/src/structures/paging/page.rs",
+          "features": "",
           "count": 1,
           "kinds": {
             "Mirai": [
-              "error[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/x86_64-0.14.12/src/structures/paging/page.rs:282:51\n    |\n282 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `Option<usize>`\n    |\n    = note: expected signature `fn(&Page<_>, &Page<_>) -> (usize, Option<usize>)`\n               found signature `fn(&Page<_>, &Page<_>) -> Option<usize>`\nhelp: change the output type to match the trait\n    |\n282 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~\n\n"
+              "error[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/x86_64-0.15.1/src/structures/paging/page.rs:294:51\n    |\n294 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `Option<usize>`\n    |\n    = note: expected signature `fn(&Page<_>, &Page<_>) -> (usize, Option<usize>)`\n               found signature `fn(&Page<_>, &Page<_>) -> Option<usize>`\nhelp: change the output type to match the trait\n    |\n294 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/x86_64-0.15.1/src/structures/paging/page_table.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Mirai": [
+              "error[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/x86_64-0.15.1/src/structures/paging/page_table.rs:349:51\n    |\n349 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `Option<usize>`\n    |\n    = note: expected signature `fn(&PageTableIndex, &PageTableIndex) -> (usize, Option<usize>)`\n               found signature `fn(&PageTableIndex, &PageTableIndex) -> Option<usize>`\nhelp: change the output type to match the trait\n    |\n349 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~\n\n"
             ]
           }
         },
         {
           "file": "(virtual) lockbud",
+          "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=arceos-tls, checker=Lockbud\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/task/tls\n// cmd=cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-01-27 1:41:05.616344816 +08:00:00\n   Compiling bit_field v0.10.2\n   Compiling bitflags v1.3.2\n   Compiling x86 v0.52.0\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#2a880338)\n   Compiling lock_api v0.4.12\n   Compiling memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n   Compiling raw-cpuid v10.7.0\n   Compiling bitflags v2.6.0\n   Compiling scopeguard v1.2.0\n   Compiling cfg-if v1.0.0\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#3c3ad2fb)\n   Compiling static_assertions v1.1.0\n   Compiling log v0.4.21\n   Compiling numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n   Compiling volatile v0.4.6\n[2025-01-26T17:41:06Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-01-26T17:41:06Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling tock-registers v0.8.1\n   Compiling spin v0.9.8\n   Compiling percpu v0.1.0 (https://github.com/Starry-OS/percpu.git#85e6d8a7)\n   Compiling axhal v0.1.0 (/home/runner/check/batch_4/Starry-OS/Starry-Old/modules/axhal)\n   Compiling aarch64-cpu v9.4.0\n   Compiling lazy_static v1.5.0\n   Compiling paste v1.0.15\n   Compiling x86_64 v0.14.12\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.12/src/addr.rs:382:51\n    |\n382 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `core::option::Option<usize>`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, core::option::Option<usize>)`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> core::option::Option<usize>`\nhelp: change the output type to match the trait\n    |\n382 |     fn steps_between(start: &Self, end: &Self) -> (usize, core::option::Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n   Compiling x86_64 v0.15.1\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.12/src/structures/paging/page.rs:282:51\n    |\n282 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `core::option::Option<usize>`\n    |\n    = note: expected signature `fn(&structures::paging::page::Page<_>, &structures::paging::page::Page<_>) -> (usize, core::option::Option<usize>)`\n               found signature `fn(&structures::paging::page::Page<_>, &structures::paging::page::Page<_>) -> core::option::Option<usize>`\nhelp: change the output type to match the trait\n    |\n282 |     fn steps_between(start: &Self, end: &Self) -> (usize, core::option::Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.1/src/addr.rs:362:51\n    |\n362 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `core::option::Option<usize>`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, core::option::Option<usize>)`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> core::option::Option<usize>`\nhelp: change the output type to match the trait\n    |\n362 |     fn steps_between(start: &Self, end: &Self) -> (usize, core::option::Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.1/src/structures/paging/page.rs:294:51\n    |\n294 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `core::option::Option<usize>`\n    |\n    = note: expected signature `fn(&structures::paging::page::Page<_>, &structures::paging::page::Page<_>) -> (usize, core::option::Option<usize>)`\n               found signature `fn(&structures::paging::page::Page<_>, &structures::paging::page::Page<_>) -> core::option::Option<usize>`\nhelp: change the output type to match the trait\n    |\n294 |     fn steps_between(start: &Self, end: &Self) -> (usize, core::option::Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.1/src/structures/paging/page_table.rs:349:51\n    |\n349 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `core::option::Option<usize>`\n    |\n    = note: expected signature `fn(&structures::paging::page_table::PageTableIndex, &structures::paging::page_table::PageTableIndex) -> (usize, core::option::Option<usize>)`\n               found signature `fn(&structures::paging::page_table::PageTableIndex, &structures::paging::page_table::PageTableIndex) -> core::option::Option<usize>`\nhelp: change the output type to match the trait\n    |\n349 |     fn steps_between(start: &Self, end: &Self) -> (usize, core::option::Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nFor more information about this error, try `rustc --explain E0053`.\nerror: could not compile `x86_64` (lib) due to 2 previous errors\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `x86_64` (lib) due to 3 previous errors\n"
+              "// pkg_name=arceos-tls, checker=Lockbud\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/task/tls\n// cmd=cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 23:06:23.522751535 +08:00:00\n   Compiling bit_field v0.10.2\n   Compiling bitflags v1.3.2\n   Compiling x86 v0.52.0\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#2a880338)\n   Compiling lock_api v0.4.12\n   Compiling memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n   Compiling raw-cpuid v10.7.0\n   Compiling scopeguard v1.2.0\n   Compiling bitflags v2.6.0\n   Compiling cfg-if v1.0.0\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#3c3ad2fb)\n   Compiling volatile v0.4.6\n   Compiling numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n   Compiling static_assertions v1.1.0\n   Compiling log v0.4.21\n   Compiling tock-registers v0.8.1\n   Compiling spin v0.9.8\n   Compiling aarch64-cpu v9.4.0\n[2025-02-16T15:06:24Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-02-16T15:06:24Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling percpu v0.1.0 (https://github.com/Starry-OS/percpu.git#85e6d8a7)\n   Compiling axhal v0.1.0 (/home/runner/check/batch_4/Starry-OS/Starry-Old/modules/axhal)\n   Compiling lazy_static v1.5.0\n   Compiling paste v1.0.15\n   Compiling x86_64 v0.15.1\n   Compiling x86_64 v0.14.12\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.1/src/addr.rs:362:51\n    |\n362 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `core::option::Option<usize>`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, core::option::Option<usize>)`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> core::option::Option<usize>`\nhelp: change the output type to match the trait\n    |\n362 |     fn steps_between(start: &Self, end: &Self) -> (usize, core::option::Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.1/src/structures/paging/page.rs:294:51\n    |\n294 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `core::option::Option<usize>`\n    |\n    = note: expected signature `fn(&structures::paging::page::Page<_>, &structures::paging::page::Page<_>) -> (usize, core::option::Option<usize>)`\n               found signature `fn(&structures::paging::page::Page<_>, &structures::paging::page::Page<_>) -> core::option::Option<usize>`\nhelp: change the output type to match the trait\n    |\n294 |     fn steps_between(start: &Self, end: &Self) -> (usize, core::option::Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.1/src/structures/paging/page_table.rs:349:51\n    |\n349 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `core::option::Option<usize>`\n    |\n    = note: expected signature `fn(&structures::paging::page_table::PageTableIndex, &structures::paging::page_table::PageTableIndex) -> (usize, core::option::Option<usize>)`\n               found signature `fn(&structures::paging::page_table::PageTableIndex, &structures::paging::page_table::PageTableIndex) -> core::option::Option<usize>`\nhelp: change the output type to match the trait\n    |\n349 |     fn steps_between(start: &Self, end: &Self) -> (usize, core::option::Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.12/src/addr.rs:382:51\n    |\n382 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `core::option::Option<usize>`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, core::option::Option<usize>)`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> core::option::Option<usize>`\nhelp: change the output type to match the trait\n    |\n382 |     fn steps_between(start: &Self, end: &Self) -> (usize, core::option::Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.12/src/structures/paging/page.rs:282:51\n    |\n282 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `core::option::Option<usize>`\n    |\n    = note: expected signature `fn(&structures::paging::page::Page<_>, &structures::paging::page::Page<_>) -> (usize, core::option::Option<usize>)`\n               found signature `fn(&structures::paging::page::Page<_>, &structures::paging::page::Page<_>) -> core::option::Option<usize>`\nhelp: change the output type to match the trait\n    |\n282 |     fn steps_between(start: &Self, end: &Self) -> (usize, core::option::Option<usize>) {\n    |                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nFor more information about this error, try `rustc --explain E0053`.\nerror: could not compile `x86_64` (lib) due to 3 previous errors\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `x86_64` (lib) due to 2 previous errors\n"
             ]
           }
         },
         {
           "file": "(virtual) mirai",
+          "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=arceos-tls, checker=Mirai\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/task/tls\n// cmd=cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-01-27 1:40:25.211057764 +08:00:00\n   Compiling equivalent v1.0.1\n   Compiling serde v1.0.215\n   Compiling hashbrown v0.15.2\n   Compiling winnow v0.6.20\n   Compiling toml_datetime v0.6.8\n    Checking bit_field v0.10.2\n   Compiling proc-macro2 v1.0.92\n   Compiling indexmap v2.7.0\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n   Compiling x86 v0.52.0\n   Compiling unicode-ident v1.0.14\n   Compiling lock_api v0.4.12\n   Compiling rustversion v1.0.18\n   Compiling toml_edit v0.22.22\n   Compiling quote v1.0.37\n    Checking bitflags v2.6.0\n    Checking memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#3c3ad2fb)\n    Checking scopeguard v1.2.0\n    Checking cfg-if v1.0.0\n   Compiling syn v2.0.90\n    Checking log v0.4.21\n    Checking volatile v0.4.6\n    Checking numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n    Checking static_assertions v1.1.0\n    Checking spin v0.9.8\n   Compiling paste v1.0.15\n    Checking tock-registers v0.8.1\n   Compiling percpu v0.1.0 (https://github.com/Starry-OS/percpu.git#85e6d8a7)\n    Checking aarch64-cpu v9.4.0\n    Checking x86_64 v0.14.12\nerror: could not compile `x86_64` (lib) due to 2 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
+              "// pkg_name=arceos-tls, checker=Mirai\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/task/tls\n// cmd=cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 23:05:43.123776922 +08:00:00\n   Compiling equivalent v1.0.1\n   Compiling hashbrown v0.15.2\n   Compiling serde v1.0.215\n   Compiling toml_datetime v0.6.8\n   Compiling winnow v0.6.20\n    Checking bit_field v0.10.2\n    Checking bitflags v1.3.2\n   Compiling proc-macro2 v1.0.92\n   Compiling indexmap v2.7.0\n    Checking raw-cpuid v10.7.0\n   Compiling unicode-ident v1.0.14\n   Compiling x86 v0.52.0\n   Compiling lock_api v0.4.12\n   Compiling rustversion v1.0.18\n   Compiling toml_edit v0.22.22\n   Compiling quote v1.0.37\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#3c3ad2fb)\n    Checking memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n    Checking bitflags v2.6.0\n    Checking scopeguard v1.2.0\n    Checking cfg-if v1.0.0\n   Compiling syn v2.0.90\n    Checking volatile v0.4.6\n    Checking static_assertions v1.1.0\n    Checking log v0.4.21\n    Checking numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n    Checking spin v0.9.8\n   Compiling paste v1.0.15\n    Checking tock-registers v0.8.1\n   Compiling percpu v0.1.0 (https://github.com/Starry-OS/percpu.git#85e6d8a7)\n    Checking aarch64-cpu v9.4.0\n    Checking x86_64 v0.15.1\nerror: could not compile `x86_64` (lib) due to 3 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
             ]
           }
         },
         {
           "file": "(virtual) rapx",
+          "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=arceos-tls, checker=Rapx\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/task/tls\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-01-27 1:42:57.106442614 +08:00:00\n   Compiling hashbrown v0.15.2\n   Compiling equivalent v1.0.1\n   Compiling serde v1.0.215\n   Compiling toml_datetime v0.6.8\n   Compiling winnow v0.6.20\n    Checking bit_field v0.10.2\n    Checking bitflags v1.3.2\n   Compiling proc-macro2 v1.0.92\n   Compiling indexmap v2.7.0\n    Checking raw-cpuid v10.7.0\n   Compiling unicode-ident v1.0.14\n   Compiling autocfg v1.4.0\n   Compiling toml_edit v0.22.22\n   Compiling x86 v0.52.0\n   Compiling lock_api v0.4.12\n   Compiling rustversion v1.0.18\n   Compiling quote v1.0.37\n    Checking bitflags v2.6.0\n    Checking memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n    Checking scopeguard v1.2.0\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#3c3ad2fb)\n    Checking cfg-if v1.0.0\n   Compiling syn v2.0.90\n    Checking volatile v0.4.6\n    Checking log v0.4.21\n    Checking numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n    Checking static_assertions v1.1.0\n    Checking spin v0.9.8\n   Compiling paste v1.0.15\n   Compiling percpu v0.1.0 (https://github.com/Starry-OS/percpu.git#85e6d8a7)\n    Checking tock-registers v0.8.1\n    Checking aarch64-cpu v9.4.0\n    Checking lazy_static v1.5.0\n    Checking x86_64 v0.15.1\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#2a880338)\n   Compiling axconfig v0.1.0 (/home/runner/check/batch_4/Starry-OS/Starry-Old/modules/axconfig)\nerror[E0787]: the `asm!` macro is not allowed in naked functions\n   --> /home/runner/.cargo/git/checkouts/taskctx-38ebba1102c121c2/3c3ad2f/src/arch/x86_64.rs:162:5\n    |\n162 | /     asm!(\n163 | |         \"\n164 | |         push    rbp\n165 | |         push    rbx\n...   |\n180 | |         options(noreturn),\n181 | |     )\n    | |_____^ consider using the `naked_asm!` macro instead\n\nFor more information about this error, try `rustc --explain E0787`.\nerror: could not compile `taskctx` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n17:43:05|RAP|ERROR|: Finished with non-zero exit code.\n"
+              "// pkg_name=arceos-tls, checker=Rapx\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/task/tls\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 23:08:18.833337729 +08:00:00\n   Compiling serde v1.0.215\n   Compiling hashbrown v0.15.2\n   Compiling equivalent v1.0.1\n   Compiling winnow v0.6.20\n   Compiling toml_datetime v0.6.8\n    Checking bit_field v0.10.2\n   Compiling proc-macro2 v1.0.92\n   Compiling indexmap v2.7.0\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n   Compiling autocfg v1.4.0\n   Compiling toml_edit v0.22.22\n   Compiling x86 v0.52.0\n   Compiling unicode-ident v1.0.14\n   Compiling lock_api v0.4.12\n   Compiling rustversion v1.0.18\n   Compiling quote v1.0.37\n    Checking bitflags v2.6.0\n    Checking scopeguard v1.2.0\n    Checking cfg-if v1.0.0\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#3c3ad2fb)\n    Checking memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n   Compiling syn v2.0.90\n    Checking log v0.4.21\n    Checking numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n    Checking static_assertions v1.1.0\n    Checking volatile v0.4.6\n    Checking spin v0.9.8\n   Compiling paste v1.0.15\n   Compiling percpu v0.1.0 (https://github.com/Starry-OS/percpu.git#85e6d8a7)\n    Checking tock-registers v0.8.1\n    Checking aarch64-cpu v9.4.0\n    Checking lazy_static v1.5.0\n    Checking x86_64 v0.14.12\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#2a880338)\n   Compiling axconfig v0.1.0 (/home/runner/check/batch_4/Starry-OS/Starry-Old/modules/axconfig)\nerror[E0787]: the `asm!` macro is not allowed in naked functions\n   --> /home/runner/.cargo/git/checkouts/taskctx-38ebba1102c121c2/3c3ad2f/src/arch/x86_64.rs:162:5\n    |\n162 | /     asm!(\n163 | |         \"\n164 | |         push    rbp\n165 | |         push    rbx\n...   |\n180 | |         options(noreturn),\n181 | |     )\n    | |_____^ consider using the `naked_asm!` macro instead\n\nFor more information about this error, try `rustc --explain E0787`.\nerror: could not compile `taskctx` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n15:08:27|RAP|ERROR|: Finished with non-zero exit code.\n"
             ]
           }
         }
@@ -192,15 +215,17 @@
       "raw_reports": [
         {
           "file": "(virtual) clippy",
+          "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=bwbench-client, checker=Clippy\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/tools/bwbench_client\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu  --no-deps\n// timestamp=2025-01-27 1:29:13.62459848 +08:00:00\n   Compiling autocfg v1.4.0\n   Compiling libc v0.2.169\n    Checking iana-time-zone v0.1.61\n   Compiling num-traits v0.2.19\n    Checking chrono v0.4.39\n    Checking bwbench-client v0.1.0 (/home/runner/check/batch_4/Starry-OS/Starry-Old/tools/bwbench_client)\nerror: could not compile `bwbench-client` (bin \"bwbench-client\") due to 2 previous errors\n"
+              "// pkg_name=bwbench-client, checker=Clippy\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/tools/bwbench_client\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu  --no-deps\n// timestamp=2025-02-16 22:55:09.507707221 +08:00:00\n   Compiling autocfg v1.4.0\n   Compiling libc v0.2.169\n    Checking iana-time-zone v0.1.61\n   Compiling num-traits v0.2.19\n    Checking chrono v0.4.39\n    Checking bwbench-client v0.1.0 (/home/runner/check/batch_4/Starry-OS/Starry-Old/tools/bwbench_client)\nerror: could not compile `bwbench-client` (bin \"bwbench-client\") due to 2 previous errors\n"
             ]
           }
         },
         {
           "file": "src/device.rs",
+          "features": "",
           "count": 1,
           "kinds": {
             "Clippy(Error)": [
@@ -218,10 +243,11 @@
       "raw_reports": [
         {
           "file": "(virtual) mirai",
+          "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=arceos-display, checker=Mirai\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/display\n// cmd=cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-01-27 1:40:15.108335939 +08:00:00\n   Compiling autocfg v1.4.0\n   Compiling az v1.2.1\n    Checking byteorder v1.5.0\n    Checking micromath v2.1.0\n   Compiling num-traits v0.2.19\n    Checking embedded-graphics-core v0.4.0\n    Checking float-cmp v0.9.0\n    Checking embedded-graphics v0.8.1\n    Checking arceos-display v0.1.0 (/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/display)\nerror: could not compile `arceos-display` (bin \"arceos-display\")\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.cargo/bin/cargo-mirai /home/runner/.rustup/toolchains/nightly-2025-01-04-x86_64-unknown-linux-gnu/bin/rustc --crate-name arceos_display --edition=2021 apps/display/src/main.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,metadata -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values(\"axstd\"))' -C metadata=a21f4324b9f9ee9f -C extra-filename=-4cac0fe192a30614 --out-dir /home/runner/check/batch_4/Starry-OS/Starry-Old/target/x86_64-unknown-linux-gnu/debug/deps --target x86_64-unknown-linux-gnu -L dependency=/home/runner/check/batch_4/Starry-OS/Starry-Old/target/x86_64-unknown-linux-gnu/debug/deps -L dependency=/home/runner/check/batch_4/Starry-OS/Starry-Old/target/debug/deps --extern embedded_graphics=/home/runner/check/batch_4/Starry-OS/Starry-Old/target/x86_64-unknown-linux-gnu/debug/deps/libembedded_graphics-3a03747bef027f51.rmeta --cfg mirai -Z always_encode_mir` (exit status: 1)\n"
+              "// pkg_name=arceos-display, checker=Mirai\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/display\n// cmd=cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 23:05:32.5079555 +08:00:00\n   Compiling autocfg v1.4.0\n   Compiling az v1.2.1\n    Checking byteorder v1.5.0\n    Checking micromath v2.1.0\n   Compiling num-traits v0.2.19\n    Checking float-cmp v0.9.0\n    Checking embedded-graphics-core v0.4.0\n    Checking embedded-graphics v0.8.1\n    Checking arceos-display v0.1.0 (/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/display)\nerror: could not compile `arceos-display` (bin \"arceos-display\")\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.cargo/bin/cargo-mirai /home/runner/.rustup/toolchains/nightly-2025-01-04-x86_64-unknown-linux-gnu/bin/rustc --crate-name arceos_display --edition=2021 apps/display/src/main.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,metadata -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values(\"axstd\"))' -C metadata=a21f4324b9f9ee9f -C extra-filename=-4cac0fe192a30614 --out-dir /home/runner/check/batch_4/Starry-OS/Starry-Old/target/x86_64-unknown-linux-gnu/debug/deps --target x86_64-unknown-linux-gnu -L dependency=/home/runner/check/batch_4/Starry-OS/Starry-Old/target/x86_64-unknown-linux-gnu/debug/deps -L dependency=/home/runner/check/batch_4/Starry-OS/Starry-Old/target/debug/deps --extern embedded_graphics=/home/runner/check/batch_4/Starry-OS/Starry-Old/target/x86_64-unknown-linux-gnu/debug/deps/libembedded_graphics-3a03747bef027f51.rmeta --cfg mirai -Z always_encode_mir` (exit status: 1)\n"
             ]
           }
         }
@@ -235,10 +261,47 @@
       "raw_reports": [
         {
           "file": "apps/exception/src/main.rs",
+          "features": "",
           "count": 1,
           "kinds": {
             "Mirai": [
               "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> apps/exception/src/main.rs:13:9\n   |\n13 |         asm!(\"int3\");\n   |         ^^^^^^^^^^^^\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Starry-OS",
+      "repo": "Starry-Old",
+      "pkg": "arceos-memtest",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=arceos-memtest, checker=Outdated\ntoolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/memtest\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 23:22:39.649517071 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nrand  0.8.5    ---     0.9.0   Normal  ---\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Starry-OS",
+      "repo": "Starry-Old",
+      "pkg": "arceos-parallel",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=arceos-parallel, checker=Outdated\ntoolchain=nightly-2024-05-02, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_4/Starry-OS/Starry-Old/apps/task/parallel\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 23:22:47.32608331 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nrand  0.8.5    ---     0.9.0   Normal  ---\n"
             ]
           }
         }
@@ -252,6 +315,7 @@
       "raw_reports": [
         {
           "file": "apps/task/priority/src/main.rs",
+          "features": "",
           "count": 1,
           "kinds": {
             "Mirai": [

@@ -12,8 +12,13 @@
       "raw_reports": [
         {
           "file": "src/dwarf/unwinder.rs",
+          "features": "",
           "count": 6,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: field `0` is never read\n  --> src/dwarf/unwinder.rs:99:24\n   |\n99 |     UnexpectedRegister(Register),\n   |     ------------------ ^^^^^^^^\n   |     |\n   |     field in this variant\n   |\n   = note: `UnwinderError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n   = note: `#[warn(dead_code)]` on by default\nhelp: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field\n   |\n99 |     UnexpectedRegister(()),\n   |                        ~~\n\n",
+              "warning: field `0` is never read\n   --> src/dwarf/unwinder.rs:101:28\n    |\n101 |     CfaRuleUnknownRegister(Register),\n    |     ---------------------- ^^^^^^^^\n    |     |\n    |     field in this variant\n    |\n    = note: `UnwinderError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\nhelp: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field\n    |\n101 |     CfaRuleUnknownRegister(()),\n    |                            ~~\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_42/os-module/tracer/src/dwarf/unwinder.rs (original lines from 2 to 2)\n+use crate::utils::read_value;\n",
               "file: /home/runner/check/batch_42/os-module/tracer/src/dwarf/unwinder.rs (original lines from 13 to 13)\n-use crate::utils::read_value;\n"
@@ -21,15 +26,12 @@
             "Mirai": [
               "warning: field `0` is never read\n  --> src/dwarf/unwinder.rs:99:24\n   |\n99 |     UnexpectedRegister(Register),\n   |     ------------------ ^^^^^^^^\n   |     |\n   |     field in this variant\n   |\n   = note: `UnwinderError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n   = note: `#[warn(dead_code)]` on by default\nhelp: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field\n   |\n99 |     UnexpectedRegister(()),\n   |                        ~~\n\n",
               "warning: field `0` is never read\n   --> src/dwarf/unwinder.rs:101:28\n    |\n101 |     CfaRuleUnknownRegister(Register),\n    |     ---------------------- ^^^^^^^^\n    |     |\n    |     field in this variant\n    |\n    = note: `UnwinderError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\nhelp: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field\n    |\n101 |     CfaRuleUnknownRegister(()),\n    |                            ~~\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: field `0` is never read\n  --> src/dwarf/unwinder.rs:99:24\n   |\n99 |     UnexpectedRegister(Register),\n   |     ------------------ ^^^^^^^^\n   |     |\n   |     field in this variant\n   |\n   = note: `UnwinderError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n   = note: `#[warn(dead_code)]` on by default\nhelp: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field\n   |\n99 |     UnexpectedRegister(()),\n   |                        ~~\n\n",
-              "warning: field `0` is never read\n   --> src/dwarf/unwinder.rs:101:28\n    |\n101 |     CfaRuleUnknownRegister(Register),\n    |     ---------------------- ^^^^^^^^\n    |     |\n    |     field in this variant\n    |\n    = note: `UnwinderError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\nhelp: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field\n    |\n101 |     CfaRuleUnknownRegister(()),\n    |                            ~~\n\n"
             ]
           }
         },
         {
           "file": "src/compiler.rs",
+          "features": "",
           "count": 2,
           "kinds": {
             "Clippy(Warn)": [
@@ -40,6 +42,7 @@
         },
         {
           "file": "src/lib.rs",
+          "features": "",
           "count": 2,
           "kinds": {
             "Clippy(Warn)": [
@@ -52,37 +55,41 @@
         },
         {
           "file": "(virtual) semver-checks",
+          "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=tracer, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_42/os-module/tracer\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-01-26 23:16:22.420715399 +08:00:00\n    Building tracer v0.2.0 (current)\n       Built [   1.256s] (current)\n     Parsing tracer v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_42/os-module/tracer/target/semver-checks/local-tracer-0_2_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/tracer.json\n"
+              "// pkg_name=tracer, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_42/os-module/tracer\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 21:27:58.170079315 +08:00:00\n    Building tracer v0.2.0 (current)\n       Built [   1.316s] (current)\n     Parsing tracer v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_42/os-module/tracer/target/semver-checks/local-tracer-0_2_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/tracer.json\n"
             ]
           }
         },
         {
           "file": "[outdated direct dependencies]",
+          "features": "",
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=tracer, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_42/os-module/tracer\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-01-26 23:16:29.40146181 +08:00:00\n\nName   Project  Compat  Latest  Kind    Platform\n----   -------  ------  ------  ----    --------\ngimli  0.26.2   ---     0.31.1  Normal  ---\n"
+              "pkg=tracer, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_42/os-module/tracer\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 21:28:05.375955119 +08:00:00\n\nName   Project  Compat  Latest  Kind    Platform\n----   -------  ------  ------  ----    --------\ngimli  0.26.2   ---     0.31.1  Normal  ---\n"
             ]
           }
         },
         {
           "file": "[rap] Not supported to display yet.",
+          "features": "",
           "count": 1,
           "kinds": {
             "Rapx": [
-              "pkg=tracer, checker=Rapx\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_42/os-module/tracer\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-01-26 23:16:28.900878354 +08:00:00\n\nwarning: Memory Leak detected.\n   --> src/dwarf/unwinder.rs:128:19\n    |\n118 |   fn new<T: DwarfProvider>(provider: &T) -> Self {\n119 |           let hdr = provider.kernel_eh_frame_hdr();\n120 |           let hdr_len = provider.kernel_eh_frame_hdr_end() - hdr;\n121 |           let eh_frame = provider.kernel_eh_frame();\n122 |           let eh_frame_len = provider.kernel_eh_frame_end() - eh_frame;\n123 |           trace!(\"hdr: {:#x?}, len: {}\", hdr, hdr_len);\n124 |           trace!(\"eh_frame: {:#x?}, len: {}\", eh_frame, eh_frame_len);\n125 |           let mut base_addrs = BaseAddresses::default();\n126 |           base_addrs = base_addrs.set_eh_frame_hdr(hdr as u64);\n127 |\n128 |           let hdr = Box::leak(Box::new(\n    |  ___________________-\n129 | |             EhFrameHdr::new(\n130 | |                 // TODO: remove Box\n131 | |                 unsafe { slice::from_raw_parts(hdr as *const u8, hdr_len) },\n132 | |                 LittleEndian,\n133 | |             )\n134 | |             .parse(&base_addrs, size_of::<usize>() as u8)\n135 | |             .unwrap(),\n136 | |         ));\n    | |__________- Memory Leak Candidates.\n137 |           base_addrs = base_addrs.set_eh_frame(eh_frame as u64);\n138 |           let eh_frame = EhFrame::new(\n139 |               unsafe { slice::from_raw_parts(eh_frame as *const u8, eh_frame_len) },\n140 |               LittleEndian,\n141 |           );\n142 |           Self {\n143 |               base_addrs,\n144 |               hdr,\n145 |               hdr_table: hdr.table().unwrap(),\n146 |               eh_frame,\n147 |           }\n148 |       }\n    |\nOver visited: DefId(0:41 ~ tracer[2aa6]::compiler::{impl#3}::next)\nOver visited: DefId(0:134 ~ tracer[2aa6]::dwarf::unwinder::{impl#5}::next)\n"
+              "pkg=tracer, checker=Rapx\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_42/os-module/tracer\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 21:28:04.892177316 +08:00:00\n\nwarning: Memory Leak detected.\n   --> src/dwarf/unwinder.rs:128:19\n    |\n118 |   fn new<T: DwarfProvider>(provider: &T) -> Self {\n119 |           let hdr = provider.kernel_eh_frame_hdr();\n120 |           let hdr_len = provider.kernel_eh_frame_hdr_end() - hdr;\n121 |           let eh_frame = provider.kernel_eh_frame();\n122 |           let eh_frame_len = provider.kernel_eh_frame_end() - eh_frame;\n123 |           trace!(\"hdr: {:#x?}, len: {}\", hdr, hdr_len);\n124 |           trace!(\"eh_frame: {:#x?}, len: {}\", eh_frame, eh_frame_len);\n125 |           let mut base_addrs = BaseAddresses::default();\n126 |           base_addrs = base_addrs.set_eh_frame_hdr(hdr as u64);\n127 |\n128 |           let hdr = Box::leak(Box::new(\n    |  ___________________-\n129 | |             EhFrameHdr::new(\n130 | |                 // TODO: remove Box\n131 | |                 unsafe { slice::from_raw_parts(hdr as *const u8, hdr_len) },\n132 | |                 LittleEndian,\n133 | |             )\n134 | |             .parse(&base_addrs, size_of::<usize>() as u8)\n135 | |             .unwrap(),\n136 | |         ));\n    | |__________- Memory Leak Candidates.\n137 |           base_addrs = base_addrs.set_eh_frame(eh_frame as u64);\n138 |           let eh_frame = EhFrame::new(\n139 |               unsafe { slice::from_raw_parts(eh_frame as *const u8, eh_frame_len) },\n140 |               LittleEndian,\n141 |           );\n142 |           Self {\n143 |               base_addrs,\n144 |               hdr,\n145 |               hdr_table: hdr.table().unwrap(),\n146 |               eh_frame,\n147 |           }\n148 |       }\n    |\nOver visited: DefId(0:41 ~ tracer[2aa6]::compiler::{impl#3}::next)\nOver visited: DefId(0:134 ~ tracer[2aa6]::dwarf::unwinder::{impl#5}::next)\n"
             ]
           }
         },
         {
           "file": "[semver checks]",
+          "features": "",
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=tracer, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_42/os-module/tracer\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-01-26 23:16:23.914694438 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building tracer v0.2.0 (current)\n       Built [   1.256s] (current)\n     Parsing tracer v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_42/os-module/tracer/target/semver-checks/local-tracer-0_2_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/tracer.json\n"
+              "pkg=tracer, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_42/os-module/tracer\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 21:27:59.730566479 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building tracer v0.2.0 (current)\n       Built [   1.316s] (current)\n     Parsing tracer v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_42/os-module/tracer/target/semver-checks/local-tracer-0_2_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/tracer.json\n"
             ]
           }
         }
