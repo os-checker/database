@@ -15,12 +15,18 @@
             "channel": "nightly-2025-01-26-x86_64-unknown-linux-gnu",
             "profile": null,
             "targets": [
-              "x86_64-unknown-linux-gnu"
+              "aarch64-unknown-none",
+              "riscv64gc-unknown-none-elf",
+              "x86_64-unknown-linux-gnu",
+              "x86_64-unknown-none"
             ],
             "components": [
               "cargo-x86_64-unknown-linux-gnu",
               "clippy-x86_64-unknown-linux-gnu",
+              "rust-std-aarch64-unknown-none",
+              "rust-std-riscv64gc-unknown-none-elf",
               "rust-std-x86_64-unknown-linux-gnu",
+              "rust-std-x86_64-unknown-none",
               "rustc-x86_64-unknown-linux-gnu",
               "rustfmt-x86_64-unknown-linux-gnu"
             ],
@@ -31,9 +37,9 @@
         ]
       },
       "os_checker": {
-        "start": 1739910501065,
-        "finish": 1739910502036,
-        "duration_ms": 971,
+        "start": 1739997564252,
+        "finish": 1739997565046,
+        "duration_ms": 794,
         "git_time": "2025-02-16 16:17:11 +0800",
         "git_sha": "379b4c5f3884500f536ea00ffc0672d2af054861"
       }
@@ -95,20 +101,20 @@
     "repos": [
       {
         "user": "kern-crates",
-        "repo": "axhal_split"
+        "repo": "axbacktrace"
       },
       {
         "user": "kern-crates",
-        "repo": "r4l"
+        "repo": "axhal_split"
       }
     ],
     "packages": [
       {
-        "name": "",
+        "name": "axbacktrace",
         "repo": {
           "repo_idx": 0,
           "user": "kern-crates",
-          "repo": "axhal_split"
+          "repo": "axbacktrace"
         }
       },
       {
@@ -116,7 +122,7 @@
         "repo": {
           "repo_idx": 1,
           "user": "kern-crates",
-          "repo": "r4l"
+          "repo": "axhal_split"
         }
       }
     ]
@@ -124,10 +130,118 @@
   "cmd": [
     {
       "package_idx": 0,
-      "tool": "cargo",
-      "cmd": "VRITUAL=LayoutParseError cargo",
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 22,
+      "duration_ms": 97,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
+      "count": 0,
+      "duration_ms": 232,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
       "count": 1,
-      "duration_ms": 0,
+      "duration_ms": 512,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
+      "count": 1,
+      "duration_ms": 381,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 197,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 531,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rudra",
+      "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 250,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 124,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "geiger",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
+      "count": 0,
+      "duration_ms": 68,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 512,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-25",
@@ -150,15 +264,159 @@
   "data": [
     {
       "cmd_idx": 0,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 1 to 1)\n-use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 3 to 3)\n+use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 5 to 5)\n-    init_curr: bool, \n+    init_curr: bool,\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 39 to 39)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 53 to 53)\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 56 to 57)\n-    fn new(pc:usize, fp:usize, stack_info: StackInfo) -> Self {\n-        Unwind{init_curr: false, pc,fp,stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/aarch64.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 69 to 69)\n-            error!(\"unwind init fp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init fp: {:#016x} is invalid\", self.fp);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/lib.rs (original lines from 27 to 27)\n-        Self {low, high}\n+        Self { low, high }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/lib.rs (original lines from 31 to 31)\n-         fp < self.high && fp > self.low\n+        fp < self.high && fp > self.low\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/lib.rs (original lines from 37 to 37)\n-    fn new(pc:usize, fp:usize, stack_info: StackInfo) -> Self;\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 1 to 1)\n-use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 3 to 3)\n+use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 35 to 36)\n-            let stack: *const StackFrame = \n-                (self.fp as *const StackFrame).sub(1);\n+            let stack: *const StackFrame = (self.fp as *const StackFrame).sub(1);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 44 to 46)\n-            let stack: *const StackFrame = \n-                (self.fp as *const StackFrame).sub(1);\n-            self.pc = (*stack).ra;   \n+            let stack: *const StackFrame = (self.fp as *const StackFrame).sub(1);\n+            self.pc = (*stack).ra;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 64 to 66)\n-    fn new(pc:usize, fp: usize, stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: false, pc, fp, stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 69 to 71)\n-    fn new_from_cur_ctx(stack_info: StackInfo) \n-        -> Self {\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+    fn new_from_cur_ctx(stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/riscv.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 83 to 83)\n-            error!(\"unwind init sp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init sp: {:#016x} is invalid\", self.fp);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/x86.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 1 to 1)\n-use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/x86.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 3 to 3)\n+use core::arch::asm;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/x86.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 66 to 68)\n-    fn new(pc:usize, fp: usize, stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: false, pc, fp, stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/x86.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 71 to 73)\n-    fn new_from_cur_ctx(stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+    fn new_from_cur_ctx(stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/x86.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 85 to 85)\n-            error!(\"unwind init sp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init sp: {:#016x} is invalid\", self.fp);\n"
+    },
+    {
+      "cmd_idx": 2,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
+      "raw": "pkg=axbacktrace, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_30/kern-crates/axbacktrace\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 21:58:48.175295657 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axbacktrace v0.1.0 (current)\n       Built [   0.292s] (current)\n     Parsing axbacktrace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_30/kern-crates/axbacktrace/target/semver-checks/local-axbacktrace-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axbacktrace.json\n"
+    },
+    {
+      "cmd_idx": 3,
+      "file": "src/x86.rs",
+      "kind": "Mirai",
+      "raw": "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> src/x86.rs:59:9\n   |\n59 |         asm!(\"mov {ptr}, rbp\", ptr = out(reg) fp);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 9,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=axbacktrace, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_30/kern-crates/axbacktrace\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 21:58:47.662984275 +08:00:00\n    Building axbacktrace v0.1.0 (current)\n       Built [   0.292s] (current)\n     Parsing axbacktrace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_30/kern-crates/axbacktrace/target/semver-checks/local-axbacktrace-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axbacktrace.json\n"
+    },
+    {
+      "cmd_idx": 10,
       "file": "batch_31/kern-crates/axhal_split",
       "kind": "Cargo",
       "raw": "\n   0: 无法解析 `batch_31/kern-crates/axhal_split` 内的 Rust 项目布局\n   1: 无法读取 cargo metadata 的结果：`cargo metadata` exited with an error: error: failed to parse manifest at `/home/runner/check/batch_31/kern-crates/axhal_split/Cargo.toml`\n\n      Caused by:\n        error inheriting `version` from workspace root manifest's `workspace.package.version`\n\n      Caused by:\n        failed to find a workspace root\n   1: \n\nLocation:\n   src/layout/mod.rs:60\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::run_checker::try_new with user=\"kern-crates\" repo=\"axhal_split\"\n      at src/run_checker/mod.rs:219\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
-    },
-    {
-      "cmd_idx": 1,
-      "file": "batch_31/kern-crates/r4l",
-      "kind": "Cargo",
-      "raw": "\n   0: 无法解析 `batch_31/kern-crates/r4l` 内的 Rust 项目布局\n   1: 无法读取 cargo metadata 的结果：`cargo metadata` exited with an error: error: current package believes it's in a workspace when it's not:\n      current:   /home/runner/check/batch_31/kern-crates/r4l/drivers/i2c/busses/i2c-designware/Cargo.toml\n      workspace: /home/runner/check/batch_31/kern-crates/r4l/Cargo.toml\n\n      this may be fixable by adding `drivers/i2c/busses/i2c-designware` to the `workspace.members` array of the manifest located at: /home/runner/check/batch_31/kern-crates/r4l/Cargo.toml\n      Alternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n   1: \n\nLocation:\n   src/layout/mod.rs:60\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::run_checker::try_new with user=\"kern-crates\" repo=\"r4l\"\n      at src/run_checker/mod.rs:219\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
     }
   ]
 }

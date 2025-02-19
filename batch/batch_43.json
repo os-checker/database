@@ -15,12 +15,18 @@
             "channel": "nightly-2025-01-26-x86_64-unknown-linux-gnu",
             "profile": null,
             "targets": [
-              "x86_64-unknown-linux-gnu"
+              "aarch64-unknown-none",
+              "riscv64gc-unknown-none-elf",
+              "x86_64-unknown-linux-gnu",
+              "x86_64-unknown-none"
             ],
             "components": [
               "cargo-x86_64-unknown-linux-gnu",
               "clippy-x86_64-unknown-linux-gnu",
+              "rust-std-aarch64-unknown-none",
+              "rust-std-riscv64gc-unknown-none-elf",
               "rust-std-x86_64-unknown-linux-gnu",
+              "rust-std-x86_64-unknown-none",
               "rustc-x86_64-unknown-linux-gnu",
               "rustfmt-x86_64-unknown-linux-gnu"
             ],
@@ -31,9 +37,9 @@
         ]
       },
       "os_checker": {
-        "start": 1739910508399,
-        "finish": 1739910509481,
-        "duration_ms": 1082,
+        "start": 1739997577950,
+        "finish": 1739997579152,
+        "duration_ms": 1202,
         "git_time": "2025-02-16 16:17:11 +0800",
         "git_sha": "379b4c5f3884500f536ea00ffc0672d2af054861"
       }
@@ -95,36 +101,28 @@
     "repos": [
       {
         "user": "os-module",
-        "repo": "virt2slint"
+        "repo": "uart16550"
       },
       {
         "user": "os-module",
-        "repo": "visionfive2-sd"
+        "repo": "virt2slint"
       }
     ],
     "packages": [
       {
-        "name": "virt2slint",
+        "name": "uart16550",
         "repo": {
           "repo_idx": 0,
           "user": "os-module",
+          "repo": "uart16550"
+        }
+      },
+      {
+        "name": "virt2slint",
+        "repo": {
+          "repo_idx": 1,
+          "user": "os-module",
           "repo": "virt2slint"
-        }
-      },
-      {
-        "name": "testos",
-        "repo": {
-          "repo_idx": 1,
-          "user": "os-module",
-          "repo": "visionfive2-sd"
-        }
-      },
-      {
-        "name": "visionfive2-sd",
-        "repo": {
-          "repo_idx": 1,
-          "user": "os-module",
-          "repo": "visionfive2-sd"
         }
       }
     ]
@@ -132,6 +130,90 @@
   "cmd": [
     {
       "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 101,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target riscv64imac-unknown-none-elf  --no-deps",
+      "count": 0,
+      "duration_ms": 218,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf ",
+      "count": 1,
+      "duration_ms": 477,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64imac-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 137,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64imac-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 1369,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 43,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 477,
+      "arch": "riscv64imac",
+      "target_triple": "riscv64imac-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 2,
@@ -143,7 +225,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
       "count": 0,
@@ -155,7 +237,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
       "count": 1,
@@ -167,7 +249,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "mirai",
       "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -179,7 +261,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -191,7 +273,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -203,7 +285,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -215,7 +297,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -227,7 +309,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "geiger",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
       "count": 0,
@@ -239,7 +321,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -249,236 +331,44 @@
       "rust_toolchain": "nightly-2025-01-25",
       "features": [],
       "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 100,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-05-01",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
-      "count": 0,
-      "duration_ms": 5903,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-05-01",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 6249,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-05-01",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 5448,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-05-01",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 1,
-      "duration_ms": 575,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-05-01",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "cargo",
-      "cmd": "VRITUAL=lockbud cargo",
-      "count": 1,
-      "duration_ms": 6249,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-05-01",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "cargo",
-      "cmd": "VRITUAL=rapx cargo",
-      "count": 1,
-      "duration_ms": 5448,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2024-05-01",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 104,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
-      "count": 0,
-      "duration_ms": 4195,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf ",
-      "count": 1,
-      "duration_ms": 4212,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 5321,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 8981,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 1,
-      "duration_ms": 221,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 4212,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
     }
   ],
   "data": [
     {
-      "cmd_idx": 0,
+      "cmd_idx": 2,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
+      "raw": "pkg=uart16550, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_42/os-module/uart16550\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-02-16 21:28:09.604621032 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building uart16550 v0.0.1 (current)\n       Built [   0.278s] (current)\n     Parsing uart16550 v0.0.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_42/os-module/uart16550/target/semver-checks/local-uart16550-0_0_1-01666ec060466c14/target/riscv64imac-unknown-none-elf/doc/uart16550.json\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=uart16550, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_42/os-module/uart16550\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \n// timestamp=2025-02-16 21:28:09.126990447 +08:00:00\n    Building uart16550 v0.0.1 (current)\n       Built [   0.278s] (current)\n     Parsing uart16550 v0.0.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_42/os-module/uart16550/target/semver-checks/local-uart16550-0_0_1-01666ec060466c14/target/riscv64imac-unknown-none-elf/doc/uart16550.json\n"
+    },
+    {
+      "cmd_idx": 7,
       "file": "src/lib.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_43/os-module/virt2slint/src/lib.rs (original lines from 87 to 87)\n-        \n+\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 7,
       "file": "src/lib.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_43/os-module/virt2slint/src/lib.rs (original lines from 144 to 144)\n-    \n+\n"
     },
     {
-      "cmd_idx": 2,
+      "cmd_idx": 9,
       "file": "[semver checks]",
       "kind": "Semver Violation",
       "raw": "pkg=virt2slint, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_43/os-module/virt2slint\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 23:40:34.46150659 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building virt2slint v0.1.0 (current)\n       Built [  28.854s] (current)\n     Parsing virt2slint v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_43/os-module/virt2slint/target/semver-checks/local-virt2slint-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/virt2slint.json\n"
     },
     {
-      "cmd_idx": 9,
+      "cmd_idx": 16,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=virt2slint, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_43/os-module/virt2slint\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 23:40:04.283055327 +08:00:00\n    Building virt2slint v0.1.0 (current)\n       Built [  28.854s] (current)\n     Parsing virt2slint v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_43/os-module/virt2slint/target/semver-checks/local-virt2slint-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/virt2slint.json\n"
-    },
-    {
-      "cmd_idx": 14,
-      "file": "[outdated direct dependencies]",
-      "kind": "Outdated",
-      "raw": "pkg=testos, checker=Outdated\ntoolchain=nightly-2024-05-01, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_43/os-module/visionfive2-sd/example/testos\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 23:43:19.977571725 +08:00:00\n\nName                    Project  Compat  Latest  Kind    Platform\n----                    -------  ------  ------  ----    --------\nbuddy_system_allocator  0.8.0    ---     0.11.0  Normal  ---\n"
-    },
-    {
-      "cmd_idx": 15,
-      "file": "(virtual) lockbud",
-      "kind": "Cargo",
-      "raw": "// pkg_name=testos, checker=Lockbud\n// toolchain=nightly-2024-05-01, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_43/os-module/visionfive2-sd/example/testos\n// cmd=cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 23:42:53.203731594 +08:00:00\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.14\n   Compiling autocfg v1.4.0\n   Compiling scopeguard v1.2.0\n   Compiling paste v1.0.15\n   Compiling log v0.4.25\n[2025-02-16T15:42:53Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.25/src/lib.rs:1453:11: 1453:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.25/src/lib.rs:1456:13: 1456:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-02-16T15:42:53Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling riscv v0.12.1\n   Compiling spin v0.7.1\n   Compiling bitflags v1.3.2\n   Compiling riscv-pac v0.2.0\n   Compiling critical-section v1.2.0\n   Compiling lock_api v0.4.12\n   Compiling embedded-hal v1.0.0\n   Compiling testos v0.1.0 (/home/runner/check/batch_43/os-module/visionfive2-sd/example/testos)\n   Compiling quote v1.0.38\n   Compiling preprint v0.1.0\n   Compiling buddy_system_allocator v0.8.0\n   Compiling syn v2.0.96\n   Compiling spin v0.9.8\n   Compiling fatfs v0.4.0 (https://github.com/os-module/rust-fatfs.git#55d0dbac)\n   Compiling riscv-macros v0.1.0\n   Compiling bitfield-struct v0.8.0\n   Compiling visionfive2-sd v0.1.0 (/home/runner/check/batch_43/os-module/visionfive2-sd)\nerror[E0787]: the `asm!` macro is not allowed in naked functions\n  --> src/boot.rs:26:5\n   |\n26 | /     core::arch::asm!(\n27 | |     \"   la sp, {stack}\n28 | |         li t0, {stack_size}\n29 | |         mv t1,a0\n...  |\n40 | |     options(noreturn),\n41 | |     )\n   | |_____^ consider using the `naked_asm!` macro instead\n\nwarning: the feature `asm_const` has been stable since 1.82.0 and no longer requires an attribute to enable\n --> src/main.rs:5:12\n  |\n5 | #![feature(asm_const)]\n  |            ^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: the feature `panic_info_message` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> src/main.rs:4:12\n  |\n4 | #![feature(panic_info_message)]\n  |            ^^^^^^^^^^^^^^^^^^\n\nerror[E0599]: no method named `unwrap` found for struct `core::panic::PanicMessage` in the current scope\n  --> src/main.rs:88:28\n   |\n88 |             info.message().unwrap()\n   |                            ^^^^^^ method not found in `PanicMessage<'_>`\n\nSome errors have detailed explanations: E0599, E0787.\nFor more information about an error, try `rustc --explain E0599`.\nwarning: `testos` (bin \"testos\") generated 2 warnings\nerror: could not compile `testos` (bin \"testos\") due to 2 previous errors; 2 warnings emitted\n"
-    },
-    {
-      "cmd_idx": 16,
-      "file": "(virtual) rapx",
-      "kind": "Cargo",
-      "raw": "// pkg_name=testos, checker=Rapx\n// toolchain=nightly-2024-05-01, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_43/os-module/visionfive2-sd/example/testos\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 23:43:04.969708295 +08:00:00\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.14\n   Compiling autocfg v1.4.0\n    Checking scopeguard v1.2.0\n   Compiling paste v1.0.15\n   Compiling riscv v0.12.1\n    Checking log v0.4.25\n    Checking riscv-pac v0.2.0\n   Compiling testos v0.1.0 (/home/runner/check/batch_43/os-module/visionfive2-sd/example/testos)\n   Compiling lock_api v0.4.12\n    Checking embedded-hal v1.0.0\n   Compiling quote v1.0.38\n    Checking bitflags v1.3.2\n    Checking preprint v0.1.0\n   Compiling syn v2.0.96\n    Checking spin v0.9.8\n    Checking critical-section v1.2.0\n    Checking spin v0.7.1\n    Checking fatfs v0.4.0 (https://github.com/os-module/rust-fatfs.git#55d0dbac)\n    Checking buddy_system_allocator v0.8.0\n   Compiling riscv-macros v0.1.0\n   Compiling bitfield-struct v0.8.0\n    Checking visionfive2-sd v0.1.0 (/home/runner/check/batch_43/os-module/visionfive2-sd)\nerror[E0787]: the `asm!` macro is not allowed in naked functions\n  --> src/boot.rs:26:5\n   |\n26 | /     core::arch::asm!(\n27 | |     \"   la sp, {stack}\n28 | |         li t0, {stack_size}\n29 | |         mv t1,a0\n...  |\n40 | |     options(noreturn),\n41 | |     )\n   | |_____^ consider using the `naked_asm!` macro instead\n\nwarning: the feature `asm_const` has been stable since 1.82.0 and no longer requires an attribute to enable\n --> src/main.rs:5:12\n  |\n5 | #![feature(asm_const)]\n  |            ^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: the feature `panic_info_message` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> src/main.rs:4:12\n  |\n4 | #![feature(panic_info_message)]\n  |            ^^^^^^^^^^^^^^^^^^\n\nerror[E0599]: no method named `unwrap` found for struct `core::panic::PanicMessage` in the current scope\n  --> src/main.rs:88:28\n   |\n88 |             info.message().unwrap()\n   |                            ^^^^^^ method not found in `PanicMessage<'_>`\n\nSome errors have detailed explanations: E0599, E0787.\nFor more information about an error, try `rustc --explain E0599`.\nwarning: `testos` (bin \"testos\") generated 2 warnings\nerror: could not compile `testos` (bin \"testos\") due to 2 previous errors; 2 warnings emitted\n15:43:10|RAP|ERROR|: Finished with non-zero exit code.\n"
-    },
-    {
-      "cmd_idx": 19,
-      "file": "[semver checks]",
-      "kind": "Semver Violation",
-      "raw": "pkg=visionfive2-sd, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_43/os-module/visionfive2-sd\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 23:42:53.196408213 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building visionfive2-sd v0.1.0 (current)\n       Built [   3.958s] (current)\n     Parsing visionfive2-sd v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_43/os-module/visionfive2-sd/target/semver-checks/local-visionfive2_sd-0_1_0-05b7df23e4b08c1e/target/riscv64gc-unknown-none-elf/doc/visionfive2_sd.json\n"
-    },
-    {
-      "cmd_idx": 22,
-      "file": "[outdated direct dependencies]",
-      "kind": "Outdated",
-      "raw": "pkg=visionfive2-sd, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_43/os-module/visionfive2-sd\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 23:43:20.200111763 +08:00:00\n\nName             Project  Compat  Latest  Kind    Platform\n----             -------  ------  ------  ----    --------\nbitfield-struct  0.8.0    ---     0.10.1  Normal  ---\n"
-    },
-    {
-      "cmd_idx": 23,
-      "file": "(virtual) semver-checks",
-      "kind": "Cargo",
-      "raw": "// pkg_name=visionfive2-sd, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_43/os-module/visionfive2-sd\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 23:42:48.984166283 +08:00:00\n    Building visionfive2-sd v0.1.0 (current)\n       Built [   3.958s] (current)\n     Parsing visionfive2-sd v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_43/os-module/visionfive2-sd/target/semver-checks/local-visionfive2_sd-0_1_0-05b7df23e4b08c1e/target/riscv64gc-unknown-none-elf/doc/visionfive2_sd.json\n"
     }
   ]
 }

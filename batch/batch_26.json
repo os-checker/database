@@ -15,12 +15,18 @@
             "channel": "nightly-2025-01-26-x86_64-unknown-linux-gnu",
             "profile": null,
             "targets": [
-              "x86_64-unknown-linux-gnu"
+              "aarch64-unknown-none",
+              "riscv64gc-unknown-none-elf",
+              "x86_64-unknown-linux-gnu",
+              "x86_64-unknown-none"
             ],
             "components": [
               "cargo-x86_64-unknown-linux-gnu",
               "clippy-x86_64-unknown-linux-gnu",
+              "rust-std-aarch64-unknown-none",
+              "rust-std-riscv64gc-unknown-none-elf",
               "rust-std-x86_64-unknown-linux-gnu",
+              "rust-std-x86_64-unknown-none",
               "rustc-x86_64-unknown-linux-gnu",
               "rustfmt-x86_64-unknown-linux-gnu"
             ],
@@ -31,9 +37,9 @@
         ]
       },
       "os_checker": {
-        "start": 1739910448222,
-        "finish": 1739910449237,
-        "duration_ms": 1015,
+        "start": 1739997377432,
+        "finish": 1739997378362,
+        "duration_ms": 930,
         "git_time": "2025-02-16 16:17:11 +0800",
         "git_sha": "379b4c5f3884500f536ea00ffc0672d2af054861"
       }
@@ -95,18 +101,26 @@
     "repos": [
       {
         "user": "arceos-org",
-        "repo": "page_table_multiarch"
+        "repo": "linked_list_r4l"
       },
       {
         "user": "arceos-org",
-        "repo": "percpu"
+        "repo": "page_table_multiarch"
       }
     ],
     "packages": [
       {
-        "name": "page_table_entry",
+        "name": "linked_list_r4l",
         "repo": {
           "repo_idx": 0,
+          "user": "arceos-org",
+          "repo": "linked_list_r4l"
+        }
+      },
+      {
+        "name": "page_table_entry",
+        "repo": {
+          "repo_idx": 1,
           "user": "arceos-org",
           "repo": "page_table_multiarch"
         }
@@ -114,25 +128,9 @@
       {
         "name": "page_table_multiarch",
         "repo": {
-          "repo_idx": 0,
+          "repo_idx": 1,
           "user": "arceos-org",
           "repo": "page_table_multiarch"
-        }
-      },
-      {
-        "name": "percpu",
-        "repo": {
-          "repo_idx": 1,
-          "user": "arceos-org",
-          "repo": "percpu"
-        }
-      },
-      {
-        "name": "percpu_macros",
-        "repo": {
-          "repo_idx": 1,
-          "user": "arceos-org",
-          "repo": "percpu"
         }
       }
     ]
@@ -143,19 +141,7 @@
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
-      "duration_ms": 102,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 102,
+      "duration_ms": 105,
       "arch": "riscv64gc",
       "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain": "nightly-2025-01-25",
@@ -167,7 +153,7 @@
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
-      "duration_ms": 102,
+      "duration_ms": 104,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -179,9 +165,9 @@
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
-      "duration_ms": 103,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
+      "duration_ms": 105,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-25",
       "features": [],
       "flags": []
@@ -193,6 +179,18 @@
       "count": 0,
       "duration_ms": 103,
       "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
+      "count": 3,
+      "duration_ms": 218,
+      "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-25",
       "features": [],
@@ -200,6 +198,378 @@
     },
     {
       "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-none  --no-deps",
+      "count": 3,
+      "duration_ms": 198,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
+      "count": 3,
+      "duration_ms": 197,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target aarch64-unknown-none  --no-deps",
+      "count": 3,
+      "duration_ms": 201,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf ",
+      "count": 1,
+      "duration_ms": 388,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
+      "count": 1,
+      "duration_ms": 459,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none ",
+      "count": 1,
+      "duration_ms": 389,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none ",
+      "count": 1,
+      "duration_ms": 397,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 206,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 102,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 128,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none ",
+      "count": 0,
+      "duration_ms": 103,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none ",
+      "count": 0,
+      "duration_ms": 105,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
+      "count": 1,
+      "duration_ms": 857,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none ",
+      "count": 1,
+      "duration_ms": 870,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
+      "count": 1,
+      "duration_ms": 888,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none ",
+      "count": 1,
+      "duration_ms": 895,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rudra",
+      "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 253,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 44,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 44,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 42,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 43,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "geiger",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
+      "count": 0,
+      "duration_ms": 68,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 459,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 397,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 388,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 389,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 102,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 102,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 102,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 103,
+      "arch": "loongarch64",
+      "target_triple": "loongarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 103,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
       "count": 0,
@@ -211,7 +581,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none  --no-deps",
       "count": 0,
@@ -223,7 +593,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
       "count": 0,
@@ -235,7 +605,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none  --no-deps",
       "count": 0,
@@ -247,7 +617,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target loongarch64-unknown-none  --no-deps",
       "count": 0,
@@ -259,7 +629,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none ",
       "count": 1,
@@ -271,7 +641,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
       "count": 1,
@@ -283,7 +653,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none ",
       "count": 1,
@@ -295,7 +665,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none ",
       "count": 1,
@@ -307,7 +677,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf ",
       "count": 1,
@@ -319,7 +689,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "mirai",
       "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -331,7 +701,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target loongarch64-unknown-none ",
       "count": 0,
@@ -343,7 +713,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -355,7 +725,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
       "count": 0,
@@ -367,7 +737,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none ",
       "count": 0,
@@ -379,7 +749,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none ",
       "count": 0,
@@ -391,7 +761,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
       "count": 0,
@@ -403,7 +773,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -415,7 +785,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none ",
       "count": 0,
@@ -427,7 +797,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none ",
       "count": 0,
@@ -439,7 +809,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target loongarch64-unknown-none ",
       "count": 0,
@@ -451,7 +821,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -463,7 +833,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -475,7 +845,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -487,7 +857,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -499,7 +869,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -511,7 +881,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -523,7 +893,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "geiger",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
       "count": 0,
@@ -535,7 +905,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -547,7 +917,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -559,7 +929,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -571,7 +941,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -583,7 +953,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -595,7 +965,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
@@ -607,7 +977,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
@@ -619,7 +989,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
@@ -631,7 +1001,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
@@ -643,7 +1013,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
@@ -655,7 +1025,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
       "count": 0,
@@ -667,7 +1037,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none  --no-deps",
       "count": 0,
@@ -679,7 +1049,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
       "count": 1,
@@ -691,7 +1061,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none  --no-deps",
       "count": 0,
@@ -703,7 +1073,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "clippy",
       "cmd": "cargo clippy --target loongarch64-unknown-none  --no-deps",
       "count": 0,
@@ -715,7 +1085,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none ",
       "count": 1,
@@ -727,7 +1097,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
       "count": 1,
@@ -739,7 +1109,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none ",
       "count": 1,
@@ -751,7 +1121,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none ",
       "count": 1,
@@ -763,7 +1133,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf ",
       "count": 1,
@@ -775,7 +1145,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "mirai",
       "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -787,7 +1157,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target loongarch64-unknown-none ",
       "count": 0,
@@ -799,7 +1169,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none ",
       "count": 0,
@@ -811,7 +1181,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -823,7 +1193,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none ",
       "count": 0,
@@ -835,7 +1205,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
       "count": 0,
@@ -847,7 +1217,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
       "count": 0,
@@ -859,7 +1229,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -871,7 +1241,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none ",
       "count": 0,
@@ -883,7 +1253,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none ",
       "count": 0,
@@ -895,7 +1265,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target loongarch64-unknown-none ",
       "count": 0,
@@ -907,7 +1277,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -919,7 +1289,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -931,7 +1301,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -943,7 +1313,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -955,7 +1325,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -967,7 +1337,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -979,7 +1349,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "geiger",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
       "count": 0,
@@ -991,7 +1361,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -1003,7 +1373,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -1015,7 +1385,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -1027,7 +1397,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -1039,7 +1409,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 2,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -1049,1034 +1419,278 @@
       "rust_toolchain": "nightly-2025-01-25",
       "features": [],
       "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 101,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 100,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 101,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 102,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 100,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
-      "count": 0,
-      "duration_ms": 3643,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-none  --no-deps",
-      "count": 0,
-      "duration_ms": 1249,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
-      "count": 0,
-      "duration_ms": 169,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target aarch64-unknown-none  --no-deps",
-      "count": 0,
-      "duration_ms": 172,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target loongarch64-unknown-none  --no-deps",
-      "count": 0,
-      "duration_ms": 167,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none ",
-      "count": 1,
-      "duration_ms": 488,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf ",
-      "count": 1,
-      "duration_ms": 3750,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none ",
-      "count": 1,
-      "duration_ms": 1559,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none ",
-      "count": 1,
-      "duration_ms": 487,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
-      "count": 1,
-      "duration_ms": 1760,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "mirai",
-      "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
-      "count": 3,
-      "duration_ms": 6721,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 129,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target loongarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 114,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none ",
-      "count": 0,
-      "duration_ms": 1811,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 117,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 4802,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 4003,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 4542,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none ",
-      "count": 0,
-      "duration_ms": 4255,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 4073,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target loongarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 4086,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "rudra",
-      "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 98,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 334,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 283,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 286,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 283,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 277,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "geiger",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
-      "count": 0,
-      "duration_ms": 3754,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 3750,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 487,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 488,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 1760,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 2,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 1559,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 100,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 100,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 101,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 101,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 101,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
-      "count": 0,
-      "duration_ms": 1760,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-none  --no-deps",
-      "count": 0,
-      "duration_ms": 97,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
-      "count": 0,
-      "duration_ms": 96,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target aarch64-unknown-none  --no-deps",
-      "count": 0,
-      "duration_ms": 96,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target loongarch64-unknown-none  --no-deps",
-      "count": 0,
-      "duration_ms": 96,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "mirai",
-      "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 56,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none ",
-      "count": 0,
-      "duration_ms": 30,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 30,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 30,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target loongarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 31,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 31,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 2538,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none ",
-      "count": 0,
-      "duration_ms": 2519,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 2552,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 2557,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target loongarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 2601,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "rudra",
-      "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 99,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 1,
-      "duration_ms": 280,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 1,
-      "duration_ms": 294,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 1,
-      "duration_ms": 295,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 1,
-      "duration_ms": 291,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 1,
-      "duration_ms": 289,
-      "arch": "loongarch64",
-      "target_triple": "loongarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 3,
-      "tool": "geiger",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
-      "count": 0,
-      "duration_ms": 2379,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
     }
   ],
   "data": [
     {
+      "cmd_idx": 4,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: you should consider adding a `Default` implementation for `RawList<G>`\n   --> src/raw_list.rs:99:5\n    |\n99  | /     pub const fn new() -> Self {\n100 | |         Self { head: None }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n97  + impl<G: GetLinks> Default for RawList<G> {\n98  +     fn default() -> Self {\n99  +         Self::new()\n100 +     }\n101 + }\n    |\n\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:186:5\n    |\n186 |     pub unsafe fn push_back(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:195:5\n    |\n195 |     pub unsafe fn push_front(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: you should consider adding a `Default` implementation for `RawList<G>`\n   --> src/raw_list.rs:99:5\n    |\n99  | /     pub const fn new() -> Self {\n100 | |         Self { head: None }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n97  + impl<G: GetLinks> Default for RawList<G> {\n98  +     fn default() -> Self {\n99  +         Self::new()\n100 +     }\n101 + }\n    |\n\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:186:5\n    |\n186 |     pub unsafe fn push_back(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:195:5\n    |\n195 |     pub unsafe fn push_front(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: you should consider adding a `Default` implementation for `RawList<G>`\n   --> src/raw_list.rs:99:5\n    |\n99  | /     pub const fn new() -> Self {\n100 | |         Self { head: None }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n97  + impl<G: GetLinks> Default for RawList<G> {\n98  +     fn default() -> Self {\n99  +         Self::new()\n100 +     }\n101 + }\n    |\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:186:5\n    |\n186 |     pub unsafe fn push_back(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:195:5\n    |\n195 |     pub unsafe fn push_front(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: you should consider adding a `Default` implementation for `RawList<G>`\n   --> src/raw_list.rs:99:5\n    |\n99  | /     pub const fn new() -> Self {\n100 | |         Self { head: None }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n97  + impl<G: GetLinks> Default for RawList<G> {\n98  +     fn default() -> Self {\n99  +         Self::new()\n100 +     }\n101 + }\n    |\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:186:5\n    |\n186 |     pub unsafe fn push_back(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "src/raw_list.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:195:5\n    |\n195 |     pub unsafe fn push_front(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
+      "raw": "pkg=linked_list_r4l, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 20:51:20.419831717 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building linked_list_r4l v0.2.1 (current)\n       Built [   0.243s] (current)\n     Parsing linked_list_r4l v0.2.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_25/arceos-org/linked_list_r4l/target/semver-checks/local-linked_list_r4l-0_2_1-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/linked_list_r4l.json\n"
+    },
+    {
+      "cmd_idx": 9,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
+      "raw": "pkg=linked_list_r4l, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 20:51:19.638469396 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building linked_list_r4l v0.2.1 (current)\n       Built [   0.258s] (current)\n     Parsing linked_list_r4l v0.2.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_25/arceos-org/linked_list_r4l/target/semver-checks/local-linked_list_r4l-0_2_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/linked_list_r4l.json\n"
+    },
+    {
       "cmd_idx": 10,
       "file": "[semver checks]",
       "kind": "Semver Violation",
-      "raw": "pkg=page_table_entry, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 22:28:13.583921666 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building page_table_entry v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_entry' failed with output:\n-----\n    Checking tock-registers v0.9.0\n    Checking bitflags v2.8.0\n    Checking memory_addr v0.3.1\n    Checking aarch64-cpu v10.0.0\n Documenting page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/x86_64.rs:6:9\n  |\n6 | pub use x86_64::structures::paging::page_table::PageTableFlags as PTF;\n  |         ^^^^^^ use of unresolved module or unlinked crate `x86_64`\n  |\n  = help: if you wanted to use a crate named `x86_64`, use `cargo add x86_64` to add it to your `Cargo.toml`\n\nFor more information about this error, try `rustc --explain E0433`.\nerror: could not document `page_table_entry`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_entry v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry --features arm-el2 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_entry v0.5.1\n"
+      "raw": "pkg=linked_list_r4l, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-02-16 20:51:20.029685464 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building linked_list_r4l v0.2.1 (current)\n       Built [   0.239s] (current)\n     Parsing linked_list_r4l v0.2.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_25/arceos-org/linked_list_r4l/target/semver-checks/local-linked_list_r4l-0_2_1-01666ec060466c14/target/x86_64-unknown-none/doc/linked_list_r4l.json\n"
     },
     {
       "cmd_idx": 11,
       "file": "[semver checks]",
       "kind": "Semver Violation",
+      "raw": "pkg=linked_list_r4l, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 20:51:20.818745629 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building linked_list_r4l v0.2.1 (current)\n       Built [   0.252s] (current)\n     Parsing linked_list_r4l v0.2.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_25/arceos-org/linked_list_r4l/target/semver-checks/local-linked_list_r4l-0_2_1-01666ec060466c14/target/aarch64-unknown-none/doc/linked_list_r4l.json\n"
+    },
+    {
+      "cmd_idx": 17,
+      "file": "[rap] Not supported to display yet.",
+      "kind": "Rapx",
+      "raw": "pkg=linked_list_r4l, checker=Rapx\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 20:51:22.436717622 +08:00:00\n\nwarning: Memory Leak detected.\n  --> src/linked_list.rs:36:22\n   |\n35 | fn into_pointer(self) -> NonNull<T> {\n36 |         NonNull::new(Box::into_raw(self)).unwrap()\n   |                      ------------------- Memory Leak Candidates.\n37 |     }\n   |\n"
+    },
+    {
+      "cmd_idx": 18,
+      "file": "[rap] Not supported to display yet.",
+      "kind": "Rapx",
+      "raw": "pkg=linked_list_r4l, checker=Rapx\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none \ntimestamp=2025-02-16 20:51:23.308728151 +08:00:00\n\nwarning: Memory Leak detected.\n  --> src/linked_list.rs:36:22\n   |\n35 | fn into_pointer(self) -> NonNull<T> {\n36 |         NonNull::new(Box::into_raw(self)).unwrap()\n   |                      ------------------- Memory Leak Candidates.\n37 |     }\n   |\n"
+    },
+    {
+      "cmd_idx": 19,
+      "file": "[rap] Not supported to display yet.",
+      "kind": "Rapx",
+      "raw": "pkg=linked_list_r4l, checker=Rapx\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 20:51:24.198680888 +08:00:00\n\nwarning: Memory Leak detected.\n  --> src/linked_list.rs:36:22\n   |\n35 | fn into_pointer(self) -> NonNull<T> {\n36 |         NonNull::new(Box::into_raw(self)).unwrap()\n   |                      ------------------- Memory Leak Candidates.\n37 |     }\n   |\n"
+    },
+    {
+      "cmd_idx": 20,
+      "file": "[rap] Not supported to display yet.",
+      "kind": "Rapx",
+      "raw": "pkg=linked_list_r4l, checker=Rapx\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none \ntimestamp=2025-02-16 20:51:25.095726345 +08:00:00\n\nwarning: Memory Leak detected.\n  --> src/linked_list.rs:36:22\n   |\n35 | fn into_pointer(self) -> NonNull<T> {\n36 |         NonNull::new(Box::into_raw(self)).unwrap()\n   |                      ------------------- Memory Leak Candidates.\n37 |     }\n   |\n"
+    },
+    {
+      "cmd_idx": 27,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=linked_list_r4l, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 20:51:19.179384107 +08:00:00\n    Building linked_list_r4l v0.2.1 (current)\n       Built [   0.258s] (current)\n     Parsing linked_list_r4l v0.2.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_25/arceos-org/linked_list_r4l/target/semver-checks/local-linked_list_r4l-0_2_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/linked_list_r4l.json\n"
+    },
+    {
+      "cmd_idx": 28,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=linked_list_r4l, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 20:51:20.421371762 +08:00:00\n    Building linked_list_r4l v0.2.1 (current)\n       Built [   0.252s] (current)\n     Parsing linked_list_r4l v0.2.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_25/arceos-org/linked_list_r4l/target/semver-checks/local-linked_list_r4l-0_2_1-01666ec060466c14/target/aarch64-unknown-none/doc/linked_list_r4l.json\n"
+    },
+    {
+      "cmd_idx": 29,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=linked_list_r4l, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 20:51:20.031201422 +08:00:00\n    Building linked_list_r4l v0.2.1 (current)\n       Built [   0.243s] (current)\n     Parsing linked_list_r4l v0.2.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_25/arceos-org/linked_list_r4l/target/semver-checks/local-linked_list_r4l-0_2_1-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/linked_list_r4l.json\n"
+    },
+    {
+      "cmd_idx": 30,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=linked_list_r4l, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-16 20:51:19.640291264 +08:00:00\n    Building linked_list_r4l v0.2.1 (current)\n       Built [   0.239s] (current)\n     Parsing linked_list_r4l v0.2.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_25/arceos-org/linked_list_r4l/target/semver-checks/local-linked_list_r4l-0_2_1-01666ec060466c14/target/x86_64-unknown-none/doc/linked_list_r4l.json\n"
+    },
+    {
+      "cmd_idx": 41,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
+      "raw": "pkg=page_table_entry, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 22:28:13.583921666 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building page_table_entry v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_entry' failed with output:\n-----\n    Checking tock-registers v0.9.0\n    Checking bitflags v2.8.0\n    Checking memory_addr v0.3.1\n    Checking aarch64-cpu v10.0.0\n Documenting page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/x86_64.rs:6:9\n  |\n6 | pub use x86_64::structures::paging::page_table::PageTableFlags as PTF;\n  |         ^^^^^^ use of unresolved module or unlinked crate `x86_64`\n  |\n  = help: if you wanted to use a crate named `x86_64`, use `cargo add x86_64` to add it to your `Cargo.toml`\n\nFor more information about this error, try `rustc --explain E0433`.\nerror: could not document `page_table_entry`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_entry v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry --features arm-el2 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_entry v0.5.1\n"
+    },
+    {
+      "cmd_idx": 42,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
       "raw": "pkg=page_table_entry, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:28:10.325704159 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building page_table_entry v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_entry' failed with output:\n-----\n   Compiling rustversion v1.0.19\n    Checking bitflags v2.8.0\n    Checking volatile v0.4.6\n    Checking bit_field v0.10.2\n    Checking memory_addr v0.3.1\n    Checking x86_64 v0.15.2\n Documenting page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `aarch64_cpu`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/aarch64.rs:3:5\n  |\n3 | use aarch64_cpu::registers::MAIR_EL1;\n  |     ^^^^^^^^^^^ use of unresolved module or unlinked crate `aarch64_cpu`\n  |\n  = help: if you wanted to use a crate named `aarch64_cpu`, use `cargo add aarch64_cpu` to add it to your `Cargo.toml`\n\nFor more information about this error, try `rustc --explain E0433`.\nerror: could not document `page_table_entry`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_entry v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry --features arm-el2 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_entry v0.5.1\n"
     },
     {
-      "cmd_idx": 12,
+      "cmd_idx": 43,
       "file": "[semver checks]",
       "kind": "Semver Violation",
       "raw": "pkg=page_table_entry, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-02-16 22:28:11.388611588 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building page_table_entry v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_entry' failed with output:\n-----\n    Checking volatile v0.4.6\n    Checking bitflags v2.8.0\n    Checking bit_field v0.10.2\n    Checking memory_addr v0.3.1\n    Checking x86_64 v0.15.2\n Documenting page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `aarch64_cpu`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/aarch64.rs:3:5\n  |\n3 | use aarch64_cpu::registers::MAIR_EL1;\n  |     ^^^^^^^^^^^ use of unresolved module or unlinked crate `aarch64_cpu`\n  |\n  = help: if you wanted to use a crate named `aarch64_cpu`, use `cargo add aarch64_cpu` to add it to your `Cargo.toml`\n\nFor more information about this error, try `rustc --explain E0433`.\nerror: could not document `page_table_entry`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_entry v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry --features arm-el2 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_entry v0.5.1\n"
     },
     {
-      "cmd_idx": 13,
+      "cmd_idx": 44,
       "file": "[semver checks]",
       "kind": "Semver Violation",
       "raw": "pkg=page_table_entry, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \ntimestamp=2025-02-16 22:28:13.962347529 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building page_table_entry v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_entry' failed with output:\n-----\n    Checking bitflags v2.8.0\n    Checking memory_addr v0.3.1\n Documenting page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/x86_64.rs:6:9\n  |\n6 | pub use x86_64::structures::paging::page_table::PageTableFlags as PTF;\n  |         ^^^^^^ use of unresolved module or unlinked crate `x86_64`\n  |\n  = help: if you wanted to use a crate named `x86_64`, use `cargo add x86_64` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `aarch64_cpu`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/aarch64.rs:3:5\n  |\n3 | use aarch64_cpu::registers::MAIR_EL1;\n  |     ^^^^^^^^^^^ use of unresolved module or unlinked crate `aarch64_cpu`\n  |\n  = help: if you wanted to use a crate named `aarch64_cpu`, use `cargo add aarch64_cpu` to add it to your `Cargo.toml`\n\nFor more information about this error, try `rustc --explain E0433`.\nerror: could not document `page_table_entry`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_entry v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry --features arm-el2 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_entry v0.5.1\n"
     },
     {
-      "cmd_idx": 14,
+      "cmd_idx": 45,
       "file": "[semver checks]",
       "kind": "Semver Violation",
       "raw": "pkg=page_table_entry, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 22:28:11.772734012 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building page_table_entry v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_entry' failed with output:\n-----\n    Checking memory_addr v0.3.1\n    Checking bitflags v2.8.0\n Documenting page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/x86_64.rs:6:9\n  |\n6 | pub use x86_64::structures::paging::page_table::PageTableFlags as PTF;\n  |         ^^^^^^ use of unresolved module or unlinked crate `x86_64`\n  |\n  = help: if you wanted to use a crate named `x86_64`, use `cargo add x86_64` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `aarch64_cpu`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/aarch64.rs:3:5\n  |\n3 | use aarch64_cpu::registers::MAIR_EL1;\n  |     ^^^^^^^^^^^ use of unresolved module or unlinked crate `aarch64_cpu`\n  |\n  = help: if you wanted to use a crate named `aarch64_cpu`, use `cargo add aarch64_cpu` to add it to your `Cargo.toml`\n\nFor more information about this error, try `rustc --explain E0433`.\nerror: could not document `page_table_entry`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_entry v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry --features arm-el2 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_entry v0.5.1\n"
     },
     {
-      "cmd_idx": 33,
+      "cmd_idx": 64,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=page_table_entry, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:28:08.812313178 +08:00:00\n    Building page_table_entry v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_entry' failed with output:\n-----\n   Compiling rustversion v1.0.19\n    Checking bitflags v2.8.0\n    Checking volatile v0.4.6\n    Checking bit_field v0.10.2\n    Checking memory_addr v0.3.1\n    Checking x86_64 v0.15.2\n Documenting page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `aarch64_cpu`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/aarch64.rs:3:5\n  |\n3 | use aarch64_cpu::registers::MAIR_EL1;\n  |     ^^^^^^^^^^^ use of unresolved module or unlinked crate `aarch64_cpu`\n  |\n  = help: if you wanted to use a crate named `aarch64_cpu`, use `cargo add aarch64_cpu` to add it to your `Cargo.toml`\n\nFor more information about this error, try `rustc --explain E0433`.\nerror: could not document `page_table_entry`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_entry v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry --features arm-el2 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_entry v0.5.1\n"
     },
     {
-      "cmd_idx": 34,
+      "cmd_idx": 65,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=page_table_entry, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \n// timestamp=2025-02-16 22:28:13.586644679 +08:00:00\n    Building page_table_entry v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_entry' failed with output:\n-----\n    Checking bitflags v2.8.0\n    Checking memory_addr v0.3.1\n Documenting page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/x86_64.rs:6:9\n  |\n6 | pub use x86_64::structures::paging::page_table::PageTableFlags as PTF;\n  |         ^^^^^^ use of unresolved module or unlinked crate `x86_64`\n  |\n  = help: if you wanted to use a crate named `x86_64`, use `cargo add x86_64` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `aarch64_cpu`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/aarch64.rs:3:5\n  |\n3 | use aarch64_cpu::registers::MAIR_EL1;\n  |     ^^^^^^^^^^^ use of unresolved module or unlinked crate `aarch64_cpu`\n  |\n  = help: if you wanted to use a crate named `aarch64_cpu`, use `cargo add aarch64_cpu` to add it to your `Cargo.toml`\n\nFor more information about this error, try `rustc --explain E0433`.\nerror: could not document `page_table_entry`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_entry v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry --features arm-el2 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_entry v0.5.1\n"
     },
     {
-      "cmd_idx": 35,
+      "cmd_idx": 66,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=page_table_entry, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 22:28:11.775369122 +08:00:00\n    Building page_table_entry v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_entry' failed with output:\n-----\n    Checking tock-registers v0.9.0\n    Checking bitflags v2.8.0\n    Checking memory_addr v0.3.1\n    Checking aarch64-cpu v10.0.0\n Documenting page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/x86_64.rs:6:9\n  |\n6 | pub use x86_64::structures::paging::page_table::PageTableFlags as PTF;\n  |         ^^^^^^ use of unresolved module or unlinked crate `x86_64`\n  |\n  = help: if you wanted to use a crate named `x86_64`, use `cargo add x86_64` to add it to your `Cargo.toml`\n\nFor more information about this error, try `rustc --explain E0433`.\nerror: could not document `page_table_entry`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_entry v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry --features arm-el2 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_entry v0.5.1\n"
     },
     {
-      "cmd_idx": 36,
+      "cmd_idx": 67,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=page_table_entry, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 22:28:11.39293642 +08:00:00\n    Building page_table_entry v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_entry' failed with output:\n-----\n    Checking memory_addr v0.3.1\n    Checking bitflags v2.8.0\n Documenting page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/x86_64.rs:6:9\n  |\n6 | pub use x86_64::structures::paging::page_table::PageTableFlags as PTF;\n  |         ^^^^^^ use of unresolved module or unlinked crate `x86_64`\n  |\n  = help: if you wanted to use a crate named `x86_64`, use `cargo add x86_64` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `aarch64_cpu`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/aarch64.rs:3:5\n  |\n3 | use aarch64_cpu::registers::MAIR_EL1;\n  |     ^^^^^^^^^^^ use of unresolved module or unlinked crate `aarch64_cpu`\n  |\n  = help: if you wanted to use a crate named `aarch64_cpu`, use `cargo add aarch64_cpu` to add it to your `Cargo.toml`\n\nFor more information about this error, try `rustc --explain E0433`.\nerror: could not document `page_table_entry`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_entry v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry --features arm-el2 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_entry v0.5.1\n"
     },
     {
-      "cmd_idx": 37,
+      "cmd_idx": 68,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=page_table_entry, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-16 22:28:10.327679241 +08:00:00\n    Building page_table_entry v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_entry' failed with output:\n-----\n    Checking volatile v0.4.6\n    Checking bitflags v2.8.0\n    Checking bit_field v0.10.2\n    Checking memory_addr v0.3.1\n    Checking x86_64 v0.15.2\n Documenting page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `aarch64_cpu`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry/src/arch/aarch64.rs:3:5\n  |\n3 | use aarch64_cpu::registers::MAIR_EL1;\n  |     ^^^^^^^^^^^ use of unresolved module or unlinked crate `aarch64_cpu`\n  |\n  = help: if you wanted to use a crate named `aarch64_cpu`, use `cargo add aarch64_cpu` to add it to your `Cargo.toml`\n\nFor more information about this error, try `rustc --explain E0433`.\nerror: could not document `page_table_entry`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_entry v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry --features arm-el2 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_entry v0.5.1\n"
     },
     {
-      "cmd_idx": 45,
+      "cmd_idx": 76,
       "file": "page_table_multiarch/src/arch/riscv.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: useless conversion to the same type: `memory_addr::VirtAddr`\n  --> page_table_multiarch/src/arch/riscv.rs:26:43\n   |\n26 |         riscv_flush_tlb(vaddr.map(|vaddr| vaddr.into()))\n   |                                           ^^^^^^^^^^^^ help: consider removing `.into()`: `vaddr`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\n\n"
     },
     {
-      "cmd_idx": 48,
+      "cmd_idx": 79,
       "file": "[semver checks]",
       "kind": "Semver Violation",
       "raw": "pkg=page_table_multiarch, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 22:28:20.075184907 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building page_table_multiarch v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_multiarch' failed with output:\n-----\n    Checking tock-registers v0.9.0\n    Checking bitflags v2.8.0\n    Checking memory_addr v0.3.1\n    Checking log v0.4.25\n    Checking aarch64-cpu v10.0.0\n    Checking page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\n Documenting page_table_multiarch v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch)\nerror[E0432]: unresolved import `page_table_entry::x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/x86_64.rs:4:23\n  |\n4 | use page_table_entry::x86_64::X64PTE;\n  |                       ^^^^^^ could not find `x86_64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::riscv`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/riscv.rs:4:23\n  |\n4 | use page_table_entry::riscv::Rv64PTE;\n  |                       ^^^^^ could not find `riscv` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::loongarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/loongarch64.rs:5:23\n  |\n5 | use page_table_entry::loongarch64::LA64PTE;\n  |                       ^^^^^^^^^^^ could not find `loongarch64` in `page_table_entry`\n\nFor more information about this error, try `rustc --explain E0432`.\nerror: could not document `page_table_multiarch`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_multiarch v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_multiarch v0.5.1\n"
     },
     {
-      "cmd_idx": 49,
+      "cmd_idx": 80,
       "file": "[semver checks]",
       "kind": "Semver Violation",
       "raw": "pkg=page_table_multiarch, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:28:15.665972166 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building page_table_multiarch v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_multiarch' failed with output:\n-----\n   Compiling rustversion v1.0.19\n    Checking bit_field v0.10.2\n    Checking volatile v0.4.6\n   Compiling x86 v0.52.0\n    Checking bitflags v1.3.2\n    Checking bitflags v2.8.0\n    Checking raw-cpuid v10.7.0\n    Checking memory_addr v0.3.1\n    Checking log v0.4.25\n    Checking x86_64 v0.15.2\n    Checking page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\n Documenting page_table_multiarch v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch)\nerror[E0432]: unresolved import `page_table_entry::riscv`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/riscv.rs:4:23\n  |\n4 | use page_table_entry::riscv::Rv64PTE;\n  |                       ^^^^^ could not find `riscv` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::aarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/aarch64.rs:4:23\n  |\n4 | use page_table_entry::aarch64::A64PTE;\n  |                       ^^^^^^^ could not find `aarch64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::loongarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/loongarch64.rs:5:23\n  |\n5 | use page_table_entry::loongarch64::LA64PTE;\n  |                       ^^^^^^^^^^^ could not find `loongarch64` in `page_table_entry`\n\nFor more information about this error, try `rustc --explain E0432`.\nerror: could not document `page_table_multiarch`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_multiarch v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_multiarch v0.5.1\n"
     },
     {
-      "cmd_idx": 50,
+      "cmd_idx": 81,
       "file": "[semver checks]",
       "kind": "Semver Violation",
       "raw": "pkg=page_table_multiarch, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-02-16 22:28:17.166223442 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building page_table_multiarch v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_multiarch' failed with output:\n-----\n    Checking bit_field v0.10.2\n    Checking volatile v0.4.6\n    Checking bitflags v2.8.0\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n   Compiling x86 v0.52.0\n    Checking memory_addr v0.3.1\n    Checking log v0.4.25\n    Checking x86_64 v0.15.2\n    Checking page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\n Documenting page_table_multiarch v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch)\nerror[E0432]: unresolved import `page_table_entry::riscv`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/riscv.rs:4:23\n  |\n4 | use page_table_entry::riscv::Rv64PTE;\n  |                       ^^^^^ could not find `riscv` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::aarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/aarch64.rs:4:23\n  |\n4 | use page_table_entry::aarch64::A64PTE;\n  |                       ^^^^^^^ could not find `aarch64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::loongarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/loongarch64.rs:5:23\n  |\n5 | use page_table_entry::loongarch64::LA64PTE;\n  |                       ^^^^^^^^^^^ could not find `loongarch64` in `page_table_entry`\n\nFor more information about this error, try `rustc --explain E0432`.\nerror: could not document `page_table_multiarch`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_multiarch v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_multiarch v0.5.1\n"
     },
     {
-      "cmd_idx": 51,
+      "cmd_idx": 82,
       "file": "[semver checks]",
       "kind": "Semver Violation",
       "raw": "pkg=page_table_multiarch, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \ntimestamp=2025-02-16 22:28:20.546486329 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building page_table_multiarch v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_multiarch' failed with output:\n-----\n    Checking memory_addr v0.3.1\n    Checking bitflags v2.8.0\n    Checking log v0.4.25\n    Checking page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\n Documenting page_table_multiarch v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch)\nerror[E0432]: unresolved import `page_table_entry::x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/x86_64.rs:4:23\n  |\n4 | use page_table_entry::x86_64::X64PTE;\n  |                       ^^^^^^ could not find `x86_64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::riscv`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/riscv.rs:4:23\n  |\n4 | use page_table_entry::riscv::Rv64PTE;\n  |                       ^^^^^ could not find `riscv` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::aarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/aarch64.rs:4:23\n  |\n4 | use page_table_entry::aarch64::A64PTE;\n  |                       ^^^^^^^ could not find `aarch64` in `page_table_entry`\n\nFor more information about this error, try `rustc --explain E0432`.\nerror: could not document `page_table_multiarch`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_multiarch v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_multiarch v0.5.1\n"
     },
     {
-      "cmd_idx": 52,
+      "cmd_idx": 83,
       "file": "[semver checks]",
       "kind": "Semver Violation",
       "raw": "pkg=page_table_multiarch, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 22:28:18.171415414 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building page_table_multiarch v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_multiarch' failed with output:\n-----\n   Compiling paste v1.0.15\n   Compiling riscv v0.12.1\n    Checking embedded-hal v1.0.0\n    Checking memory_addr v0.3.1\n    Checking bitflags v2.8.0\n    Checking riscv-pac v0.2.0\n    Checking critical-section v1.2.0\n    Checking log v0.4.25\n    Checking page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\n Documenting page_table_multiarch v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch)\nerror[E0432]: unresolved import `page_table_entry::x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/x86_64.rs:4:23\n  |\n4 | use page_table_entry::x86_64::X64PTE;\n  |                       ^^^^^^ could not find `x86_64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::aarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/aarch64.rs:4:23\n  |\n4 | use page_table_entry::aarch64::A64PTE;\n  |                       ^^^^^^^ could not find `aarch64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::loongarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/loongarch64.rs:5:23\n  |\n5 | use page_table_entry::loongarch64::LA64PTE;\n  |                       ^^^^^^^^^^^ could not find `loongarch64` in `page_table_entry`\n\nFor more information about this error, try `rustc --explain E0432`.\nerror: could not document `page_table_multiarch`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_multiarch v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_multiarch v0.5.1\n"
     },
     {
-      "cmd_idx": 71,
+      "cmd_idx": 102,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=page_table_multiarch, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:28:13.9641612 +08:00:00\n    Building page_table_multiarch v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_multiarch' failed with output:\n-----\n   Compiling rustversion v1.0.19\n    Checking bit_field v0.10.2\n    Checking volatile v0.4.6\n   Compiling x86 v0.52.0\n    Checking bitflags v1.3.2\n    Checking bitflags v2.8.0\n    Checking raw-cpuid v10.7.0\n    Checking memory_addr v0.3.1\n    Checking log v0.4.25\n    Checking x86_64 v0.15.2\n    Checking page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\n Documenting page_table_multiarch v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch)\nerror[E0432]: unresolved import `page_table_entry::riscv`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/riscv.rs:4:23\n  |\n4 | use page_table_entry::riscv::Rv64PTE;\n  |                       ^^^^^ could not find `riscv` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::aarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/aarch64.rs:4:23\n  |\n4 | use page_table_entry::aarch64::A64PTE;\n  |                       ^^^^^^^ could not find `aarch64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::loongarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/loongarch64.rs:5:23\n  |\n5 | use page_table_entry::loongarch64::LA64PTE;\n  |                       ^^^^^^^^^^^ could not find `loongarch64` in `page_table_entry`\n\nFor more information about this error, try `rustc --explain E0432`.\nerror: could not document `page_table_multiarch`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_multiarch v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_multiarch v0.5.1\n"
     },
     {
-      "cmd_idx": 72,
+      "cmd_idx": 103,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=page_table_multiarch, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \n// timestamp=2025-02-16 22:28:20.078635552 +08:00:00\n    Building page_table_multiarch v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_multiarch' failed with output:\n-----\n    Checking memory_addr v0.3.1\n    Checking bitflags v2.8.0\n    Checking log v0.4.25\n    Checking page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\n Documenting page_table_multiarch v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch)\nerror[E0432]: unresolved import `page_table_entry::x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/x86_64.rs:4:23\n  |\n4 | use page_table_entry::x86_64::X64PTE;\n  |                       ^^^^^^ could not find `x86_64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::riscv`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/riscv.rs:4:23\n  |\n4 | use page_table_entry::riscv::Rv64PTE;\n  |                       ^^^^^ could not find `riscv` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::aarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/aarch64.rs:4:23\n  |\n4 | use page_table_entry::aarch64::A64PTE;\n  |                       ^^^^^^^ could not find `aarch64` in `page_table_entry`\n\nFor more information about this error, try `rustc --explain E0432`.\nerror: could not document `page_table_multiarch`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_multiarch v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_multiarch v0.5.1\n"
     },
     {
-      "cmd_idx": 73,
+      "cmd_idx": 104,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=page_table_multiarch, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 22:28:18.173369015 +08:00:00\n    Building page_table_multiarch v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_multiarch' failed with output:\n-----\n    Checking tock-registers v0.9.0\n    Checking bitflags v2.8.0\n    Checking memory_addr v0.3.1\n    Checking log v0.4.25\n    Checking aarch64-cpu v10.0.0\n    Checking page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\n Documenting page_table_multiarch v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch)\nerror[E0432]: unresolved import `page_table_entry::x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/x86_64.rs:4:23\n  |\n4 | use page_table_entry::x86_64::X64PTE;\n  |                       ^^^^^^ could not find `x86_64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::riscv`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/riscv.rs:4:23\n  |\n4 | use page_table_entry::riscv::Rv64PTE;\n  |                       ^^^^^ could not find `riscv` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::loongarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/loongarch64.rs:5:23\n  |\n5 | use page_table_entry::loongarch64::LA64PTE;\n  |                       ^^^^^^^^^^^ could not find `loongarch64` in `page_table_entry`\n\nFor more information about this error, try `rustc --explain E0432`.\nerror: could not document `page_table_multiarch`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_multiarch v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_multiarch v0.5.1\n"
     },
     {
-      "cmd_idx": 74,
+      "cmd_idx": 105,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=page_table_multiarch, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 22:28:17.168993912 +08:00:00\n    Building page_table_multiarch v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_multiarch' failed with output:\n-----\n   Compiling paste v1.0.15\n   Compiling riscv v0.12.1\n    Checking embedded-hal v1.0.0\n    Checking memory_addr v0.3.1\n    Checking bitflags v2.8.0\n    Checking riscv-pac v0.2.0\n    Checking critical-section v1.2.0\n    Checking log v0.4.25\n    Checking page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\n Documenting page_table_multiarch v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch)\nerror[E0432]: unresolved import `page_table_entry::x86_64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/x86_64.rs:4:23\n  |\n4 | use page_table_entry::x86_64::X64PTE;\n  |                       ^^^^^^ could not find `x86_64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::aarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/aarch64.rs:4:23\n  |\n4 | use page_table_entry::aarch64::A64PTE;\n  |                       ^^^^^^^ could not find `aarch64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::loongarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/loongarch64.rs:5:23\n  |\n5 | use page_table_entry::loongarch64::LA64PTE;\n  |                       ^^^^^^^^^^^ could not find `loongarch64` in `page_table_entry`\n\nFor more information about this error, try `rustc --explain E0432`.\nerror: could not document `page_table_multiarch`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_multiarch v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_multiarch v0.5.1\n"
     },
     {
-      "cmd_idx": 75,
+      "cmd_idx": 106,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=page_table_multiarch, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-16 22:28:15.668813641 +08:00:00\n    Building page_table_multiarch v0.5.1 (current)\nerror: running cargo-doc on crate 'page_table_multiarch' failed with output:\n-----\n    Checking bit_field v0.10.2\n    Checking volatile v0.4.6\n    Checking bitflags v2.8.0\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n   Compiling x86 v0.52.0\n    Checking memory_addr v0.3.1\n    Checking log v0.4.25\n    Checking x86_64 v0.15.2\n    Checking page_table_entry v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_entry)\n Documenting page_table_multiarch v0.5.1 (/home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch)\nerror[E0432]: unresolved import `page_table_entry::riscv`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/riscv.rs:4:23\n  |\n4 | use page_table_entry::riscv::Rv64PTE;\n  |                       ^^^^^ could not find `riscv` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::aarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/aarch64.rs:4:23\n  |\n4 | use page_table_entry::aarch64::A64PTE;\n  |                       ^^^^^^^ could not find `aarch64` in `page_table_entry`\n\nerror[E0432]: unresolved import `page_table_entry::loongarch64`\n --> /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch/src/arch/loongarch64.rs:5:23\n  |\n5 | use page_table_entry::loongarch64::LA64PTE;\n  |                       ^^^^^^^^^^^ could not find `loongarch64` in `page_table_entry`\n\nFor more information about this error, try `rustc --explain E0432`.\nerror: could not document `page_table_multiarch`\n\n-----\n\nerror: failed to build rustdoc for crate page_table_multiarch v0.5.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_26/arceos-org/page_table_multiarch/page_table_multiarch &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate page_table_multiarch v0.5.1\n"
-    },
-    {
-      "cmd_idx": 86,
-      "file": "[semver checks]",
-      "kind": "Semver Violation",
-      "raw": "pkg=percpu, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 22:28:58.07788375 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building percpu v0.2.0 (current)\n       Built [   0.275s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/aarch64-unknown-none/doc/percpu.json\n"
-    },
-    {
-      "cmd_idx": 87,
-      "file": "[semver checks]",
-      "kind": "Semver Violation",
-      "raw": "pkg=percpu, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 22:28:54.261287123 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building percpu v0.2.0 (current)\n       Built [   3.269s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/riscv64gc-unknown-none-elf/doc/percpu.json\n"
-    },
-    {
-      "cmd_idx": 88,
-      "file": "[semver checks]",
-      "kind": "Semver Violation",
-      "raw": "pkg=percpu, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-02-16 22:28:55.823084084 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building percpu v0.2.0 (current)\n       Built [   1.349s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/x86_64-unknown-none/doc/percpu.json\n"
-    },
-    {
-      "cmd_idx": 89,
-      "file": "[semver checks]",
-      "kind": "Semver Violation",
-      "raw": "pkg=percpu, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \ntimestamp=2025-02-16 22:28:58.572879114 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building percpu v0.2.0 (current)\n       Built [   0.272s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/loongarch64-unknown-none/doc/percpu.json\n"
-    },
-    {
-      "cmd_idx": 90,
-      "file": "[semver checks]",
-      "kind": "Semver Violation",
-      "raw": "pkg=percpu, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:28:57.586682616 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building percpu v0.2.0 (current)\n       Built [   1.554s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/x86_64-unknown-linux-gnu/doc/percpu.json\n"
-    },
-    {
-      "cmd_idx": 91,
-      "file": "percpu/src/imp.rs",
-      "kind": "Mirai",
-      "raw": "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> percpu/src/imp.rs:29:5\n   |\n29 |     percpu_symbol_offset!(_percpu_load_end) - percpu_symbol_offset!(_percpu_load_start)\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: this warning originates in the macro `percpu_symbol_offset` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
-    },
-    {
-      "cmd_idx": 91,
-      "file": "percpu/src/imp.rs",
-      "kind": "Mirai",
-      "raw": "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n   --> percpu/src/imp.rs:133:21\n    |\n133 | /                     core::arch::asm!(\n134 | |                         \"syscall\",\n135 | |                         in(\"eax\") SYS_ARCH_PRCTL,\n136 | |                         in(\"edi\") ARCH_SET_GS,\n137 | |                         in(\"rsi\") tp,\n138 | |                     );\n    | |_____________________^\n\n"
-    },
-    {
-      "cmd_idx": 91,
-      "file": "percpu/src/imp.rs",
-      "kind": "Mirai",
-      "raw": "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n   --> percpu/src/imp.rs:177:1\n    |\n177 | #[percpu_macros::def_percpu]\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: this warning originates in the attribute macro `percpu_macros::def_percpu` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
-    },
-    {
-      "cmd_idx": 109,
-      "file": "(virtual) semver-checks",
-      "kind": "Cargo",
-      "raw": "// pkg_name=percpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 22:28:50.510460571 +08:00:00\n    Building percpu v0.2.0 (current)\n       Built [   3.269s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/riscv64gc-unknown-none-elf/doc/percpu.json\n"
-    },
-    {
-      "cmd_idx": 110,
-      "file": "(virtual) semver-checks",
-      "kind": "Cargo",
-      "raw": "// pkg_name=percpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \n// timestamp=2025-02-16 22:28:58.085040418 +08:00:00\n    Building percpu v0.2.0 (current)\n       Built [   0.272s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/loongarch64-unknown-none/doc/percpu.json\n"
-    },
-    {
-      "cmd_idx": 111,
-      "file": "(virtual) semver-checks",
-      "kind": "Cargo",
-      "raw": "// pkg_name=percpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 22:28:57.589440707 +08:00:00\n    Building percpu v0.2.0 (current)\n       Built [   0.275s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/aarch64-unknown-none/doc/percpu.json\n"
-    },
-    {
-      "cmd_idx": 112,
-      "file": "(virtual) semver-checks",
-      "kind": "Cargo",
-      "raw": "// pkg_name=percpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:28:55.825737533 +08:00:00\n    Building percpu v0.2.0 (current)\n       Built [   1.554s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/x86_64-unknown-linux-gnu/doc/percpu.json\n"
-    },
-    {
-      "cmd_idx": 113,
-      "file": "(virtual) semver-checks",
-      "kind": "Cargo",
-      "raw": "// pkg_name=percpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-16 22:28:54.263198717 +08:00:00\n    Building percpu v0.2.0 (current)\n       Built [   1.349s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/x86_64-unknown-none/doc/percpu.json\n"
-    },
-    {
-      "cmd_idx": 136,
-      "file": "[outdated direct dependencies]",
-      "kind": "Outdated",
-      "raw": "pkg=percpu_macros, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu_macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:29:48.414425827 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nsyn   2.0.96   2.0.98  2.0.98  Normal  ---\n"
-    },
-    {
-      "cmd_idx": 137,
-      "file": "[outdated direct dependencies]",
-      "kind": "Outdated",
-      "raw": "pkg=percpu_macros, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu_macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:29:48.710646192 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nsyn   2.0.96   2.0.98  2.0.98  Normal  ---\n"
-    },
-    {
-      "cmd_idx": 138,
-      "file": "[outdated direct dependencies]",
-      "kind": "Outdated",
-      "raw": "pkg=percpu_macros, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu_macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:29:49.00727659 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nsyn   2.0.96   2.0.98  2.0.98  Normal  ---\n"
-    },
-    {
-      "cmd_idx": 139,
-      "file": "[outdated direct dependencies]",
-      "kind": "Outdated",
-      "raw": "pkg=percpu_macros, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu_macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:29:49.299842082 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nsyn   2.0.96   2.0.98  2.0.98  Normal  ---\n"
-    },
-    {
-      "cmd_idx": 140,
-      "file": "[outdated direct dependencies]",
-      "kind": "Outdated",
-      "raw": "pkg=percpu_macros, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu_macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:29:49.590145791 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nsyn   2.0.96   2.0.98  2.0.98  Normal  ---\n"
     }
   ]
 }

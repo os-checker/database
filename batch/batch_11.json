@@ -15,12 +15,18 @@
             "channel": "nightly-2025-01-26-x86_64-unknown-linux-gnu",
             "profile": null,
             "targets": [
-              "x86_64-unknown-linux-gnu"
+              "aarch64-unknown-none",
+              "riscv64gc-unknown-none-elf",
+              "x86_64-unknown-linux-gnu",
+              "x86_64-unknown-none"
             ],
             "components": [
               "cargo-x86_64-unknown-linux-gnu",
               "clippy-x86_64-unknown-linux-gnu",
+              "rust-std-aarch64-unknown-none",
+              "rust-std-riscv64gc-unknown-none-elf",
               "rust-std-x86_64-unknown-linux-gnu",
+              "rust-std-x86_64-unknown-none",
               "rustc-x86_64-unknown-linux-gnu",
               "rustfmt-x86_64-unknown-linux-gnu"
             ],
@@ -31,9 +37,9 @@
         ]
       },
       "os_checker": {
-        "start": 1739910474582,
-        "finish": 1739910475585,
-        "duration_ms": 1002,
+        "start": 1739997529369,
+        "finish": 1739997530345,
+        "duration_ms": 975,
         "git_time": "2025-02-16 16:17:11 +0800",
         "git_sha": "379b4c5f3884500f536ea00ffc0672d2af054861"
       }
@@ -95,28 +101,28 @@
     "repos": [
       {
         "user": "arceos-hypervisor",
-        "repo": "arm_vgic"
+        "repo": "arm_vcpu"
       },
       {
         "user": "arceos-hypervisor",
-        "repo": "axaddrspace"
+        "repo": "arm_vgic"
       }
     ],
     "packages": [
       {
-        "name": "arm_vgic",
+        "name": "arm_vcpu",
         "repo": {
           "repo_idx": 0,
           "user": "arceos-hypervisor",
-          "repo": "arm_vgic"
+          "repo": "arm_vcpu"
         }
       },
       {
-        "name": "axaddrspace",
+        "name": "arm_vgic",
         "repo": {
           "repo_idx": 1,
           "user": "arceos-hypervisor",
-          "repo": "axaddrspace"
+          "repo": "arm_vgic"
         }
       }
     ]
@@ -124,6 +130,246 @@
   "cmd": [
     {
       "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 107,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 105,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target aarch64-unknown-none  --no-deps",
+      "count": 0,
+      "duration_ms": 4763,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
+      "count": 5,
+      "duration_ms": 2674,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none ",
+      "count": 1,
+      "duration_ms": 5073,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
+      "count": 1,
+      "duration_ms": 2990,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
+      "count": 5,
+      "duration_ms": 5059,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none ",
+      "count": 0,
+      "duration_ms": 6331,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 3662,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none ",
+      "count": 0,
+      "duration_ms": 102,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 101,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rudra",
+      "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 90,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 1,
+      "duration_ms": 563,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 1,
+      "duration_ms": 522,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "geiger",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
+      "count": 0,
+      "duration_ms": 84,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=clippy cargo",
+      "count": 1,
+      "duration_ms": 2674,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 5073,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 2990,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=mirai cargo",
+      "count": 1,
+      "duration_ms": 5059,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=lockbud cargo",
+      "count": 1,
+      "duration_ms": 3662,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 9,
@@ -135,7 +381,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
       "count": 31,
@@ -147,7 +393,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
       "count": 1,
@@ -159,7 +405,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "mirai",
       "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
       "count": 26,
@@ -171,7 +417,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -183,7 +429,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -195,7 +441,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
       "count": 0,
@@ -207,7 +453,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 1,
@@ -219,7 +465,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "geiger",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
       "count": 0,
@@ -231,7 +477,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 1,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -241,842 +487,536 @@
       "rust_toolchain": "nightly-2025-01-25",
       "features": [],
       "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 104,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 103,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 104,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 103,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
-      "count": 0,
-      "duration_ms": 1891,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-none  --no-deps",
-      "count": 0,
-      "duration_ms": 1631,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
-      "count": 0,
-      "duration_ms": 1015,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target aarch64-unknown-none  --no-deps",
-      "count": 0,
-      "duration_ms": 2036,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf ",
-      "count": 1,
-      "duration_ms": 1277,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
-      "count": 1,
-      "duration_ms": 2097,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none ",
-      "count": 1,
-      "duration_ms": 1887,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none ",
-      "count": 1,
-      "duration_ms": 2259,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "mirai",
-      "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 2653,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 1163,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 2417,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none ",
-      "count": 0,
-      "duration_ms": 2218,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 2676,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 102,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none ",
-      "count": 0,
-      "duration_ms": 100,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 101,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 100,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "rudra",
-      "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 94,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 392,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 183,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 190,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 191,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "geiger",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
-      "count": 0,
-      "duration_ms": 78,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 2097,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 2259,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 1277,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 1887,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
     }
   ],
   "data": [
     {
-      "cmd_idx": 0,
+      "cmd_idx": 3,
+      "file": "src/smc.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: invalid register `x0`: unknown register\n  --> src/smc.rs:18:13\n   |\n18 |             inout(\"x0\") x0 => r0,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 3,
+      "file": "src/smc.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: invalid register `x1`: unknown register\n  --> src/smc.rs:19:13\n   |\n19 |             inout(\"x1\") x1 => r1,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 3,
+      "file": "src/smc.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: invalid register `x2`: unknown register\n  --> src/smc.rs:20:13\n   |\n20 |             inout(\"x2\") x2 => r2,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 3,
+      "file": "src/smc.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: invalid register `x3`: unknown register\n  --> src/smc.rs:21:13\n   |\n21 |             inout(\"x3\") x3 => r3,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 3,
+      "file": "src/vcpu.rs",
+      "kind": "Clippy(Error)",
+      "raw": "error: invalid register `x11`: unknown register\n   --> src/vcpu.rs:200:17\n    |\n200 |                 in(\"x11\") &self.host_stack_top as *const _ as usize,\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 4,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
+      "raw": "pkg=arm_vcpu, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 21:09:38.884439221 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building arm_vcpu v0.1.0 (current)\n       Built [   4.658s] (current)\n     Parsing arm_vcpu v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_10/arceos-hypervisor/arm_vcpu/target/semver-checks/local-arm_vcpu-0_1_0-01666ec060466c14/target/aarch64-unknown-none/doc/arm_vcpu.json\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
+      "raw": "pkg=arm_vcpu, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 21:09:41.876656991 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building arm_vcpu v0.1.0 (current)\n       Built [   2.631s] (current)\n     Parsing arm_vcpu v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_10/arceos-hypervisor/arm_vcpu/target/semver-checks/local-arm_vcpu-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/arm_vcpu.json\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/smc.rs",
+      "kind": "Mirai",
+      "raw": "error: invalid register `x0`: unknown register\n  --> src/smc.rs:18:13\n   |\n18 |             inout(\"x0\") x0 => r0,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/smc.rs",
+      "kind": "Mirai",
+      "raw": "error: invalid register `x1`: unknown register\n  --> src/smc.rs:19:13\n   |\n19 |             inout(\"x1\") x1 => r1,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/smc.rs",
+      "kind": "Mirai",
+      "raw": "error: invalid register `x2`: unknown register\n  --> src/smc.rs:20:13\n   |\n20 |             inout(\"x2\") x2 => r2,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/smc.rs",
+      "kind": "Mirai",
+      "raw": "error: invalid register `x3`: unknown register\n  --> src/smc.rs:21:13\n   |\n21 |             inout(\"x3\") x3 => r3,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "src/vcpu.rs",
+      "kind": "Mirai",
+      "raw": "error: invalid register `x11`: unknown register\n   --> src/vcpu.rs:200:17\n    |\n200 |                 in(\"x11\") &self.host_stack_top as *const _ as usize,\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+    },
+    {
+      "cmd_idx": 12,
+      "file": "[outdated direct dependencies]",
+      "kind": "Outdated",
+      "raw": "pkg=arm_vcpu, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 21:09:58.072194701 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  ---\npercpu          0.1.7    ---     0.2.0   Normal  ---\ntock-registers  0.8.1    ---     0.9.0   Normal  ---\n"
+    },
+    {
+      "cmd_idx": 13,
+      "file": "[outdated direct dependencies]",
+      "kind": "Outdated",
+      "raw": "pkg=arm_vcpu, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 21:09:58.596167642 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  ---\npercpu          0.1.7    ---     0.2.0   Normal  ---\ntock-registers  0.8.1    ---     0.9.0   Normal  ---\n"
+    },
+    {
+      "cmd_idx": 15,
+      "file": "(virtual) clippy",
+      "kind": "Cargo",
+      "raw": "// pkg_name=arm_vcpu, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu  --no-deps\n// timestamp=2025-02-16 21:09:31.134392111 +08:00:00\n   Compiling rustversion v1.0.19\n    Checking bit_field v0.10.2\n    Checking bitflags v1.3.2\n   Compiling x86 v0.52.0\n    Checking raw-cpuid v10.7.0\n    Checking memory_addr v0.3.1\n    Checking bitflags v2.8.0\n    Checking volatile v0.4.6\n   Compiling lock_api v0.4.12\n    Checking log v0.4.25\n    Checking scopeguard v1.2.0\n   Compiling axerrno v0.1.0\n    Checking cfg-if v1.0.0\n   Compiling percpu v0.1.7\n    Checking memory_set v0.3.1\n    Checking spin v0.9.8\n    Checking numeric-enum-macro v0.2.0\n    Checking lazyinit v0.2.1\n    Checking tock-registers v0.8.1\n    Checking aarch64_sysreg v0.1.1\n    Checking aarch64-cpu v9.4.0\n    Checking x86_64 v0.15.2\n    Checking page_table_entry v0.5.1\n    Checking page_table_multiarch v0.5.1\n    Checking axaddrspace v0.1.0 (https://github.com/arceos-hypervisor/axaddrspace.git#f1ab1108)\n    Checking axvcpu v0.1.0 (https://github.com/arceos-hypervisor/axvcpu.git#8414a575)\n    Checking arm_vcpu v0.1.0 (/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu)\nerror: could not compile `arm_vcpu` (lib) due to 5 previous errors\n"
+    },
+    {
+      "cmd_idx": 16,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=arm_vcpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 21:09:33.811087719 +08:00:00\n    Building arm_vcpu v0.1.0 (current)\n       Built [   4.658s] (current)\n     Parsing arm_vcpu v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_10/arceos-hypervisor/arm_vcpu/target/semver-checks/local-arm_vcpu-0_1_0-01666ec060466c14/target/aarch64-unknown-none/doc/arm_vcpu.json\n"
+    },
+    {
+      "cmd_idx": 17,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=arm_vcpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 21:09:38.886093273 +08:00:00\n    Building arm_vcpu v0.1.0 (current)\n       Built [   2.631s] (current)\n     Parsing arm_vcpu v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_10/arceos-hypervisor/arm_vcpu/target/semver-checks/local-arm_vcpu-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/arm_vcpu.json\n"
+    },
+    {
+      "cmd_idx": 18,
+      "file": "(virtual) mirai",
+      "kind": "Cargo",
+      "raw": "// pkg_name=arm_vcpu, checker=Mirai\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu\n// cmd=cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 21:09:42.003326539 +08:00:00\n    Checking bit_field v0.10.2\n   Compiling rustversion v1.0.19\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.16\n   Compiling x86 v0.52.0\n    Checking bitflags v1.3.2\n   Compiling autocfg v1.4.0\n    Checking raw-cpuid v10.7.0\n   Compiling lock_api v0.4.12\n    Checking bitflags v2.8.0\n    Checking volatile v0.4.6\n    Checking memory_addr v0.3.1\n    Checking x86_64 v0.15.2\n   Compiling quote v1.0.38\n    Checking scopeguard v1.2.0\n    Checking log v0.4.25\n   Compiling axerrno v0.1.0\n   Compiling syn v2.0.98\n   Compiling percpu v0.1.7\n    Checking cfg-if v1.0.0\n    Checking spin v0.9.8\n    Checking memory_set v0.3.1\n    Checking lazyinit v0.2.1\n    Checking numeric-enum-macro v0.2.0\n    Checking page_table_entry v0.5.1\n    Checking tock-registers v0.8.1\n    Checking aarch64-cpu v9.4.0\n    Checking aarch64_sysreg v0.1.1\n    Checking page_table_multiarch v0.5.1\n    Checking axaddrspace v0.1.0 (https://github.com/arceos-hypervisor/axaddrspace.git#f1ab1108)\n   Compiling percpu_macros v0.1.7\n    Checking axvcpu v0.1.0 (https://github.com/arceos-hypervisor/axvcpu.git#8414a575)\n    Checking arm_vcpu v0.1.0 (/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu)\nerror: could not compile `arm_vcpu` (lib) due to 5 previous errors\n"
+    },
+    {
+      "cmd_idx": 19,
+      "file": "(virtual) lockbud",
+      "kind": "Cargo",
+      "raw": "// pkg_name=arm_vcpu, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu\n// cmd=cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 21:09:53.397903844 +08:00:00\n   Compiling rustversion v1.0.19\n   Compiling bit_field v0.10.2\n   Compiling bitflags v1.3.2\n   Compiling x86 v0.52.0\n   Compiling raw-cpuid v10.7.0\n   Compiling volatile v0.4.6\n   Compiling memory_addr v0.3.1\n   Compiling bitflags v2.8.0\n   Compiling lock_api v0.4.12\n   Compiling scopeguard v1.2.0\n   Compiling log v0.4.25\n[2025-02-16T13:09:53Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.25/src/lib.rs:1453:11: 1453:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.25/src/lib.rs:1456:13: 1456:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-02-16T13:09:53Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling axerrno v0.1.0\n   Compiling cfg-if v1.0.0\n   Compiling percpu v0.1.7\n   Compiling spin v0.9.8\n   Compiling memory_set v0.3.1\n   Compiling lazyinit v0.2.1\n   Compiling numeric-enum-macro v0.2.0\n   Compiling tock-registers v0.8.1\n   Compiling aarch64_sysreg v0.1.1\n   Compiling aarch64-cpu v9.4.0\n   Compiling x86_64 v0.15.2\n   Compiling page_table_entry v0.5.1\n   Compiling page_table_multiarch v0.5.1\n   Compiling axaddrspace v0.1.0 (https://github.com/arceos-hypervisor/axaddrspace.git#f1ab1108)\n   Compiling axvcpu v0.1.0 (https://github.com/arceos-hypervisor/axvcpu.git#8414a575)\n   Compiling arm_vcpu v0.1.0 (/home/runner/check/batch_10/arceos-hypervisor/arm_vcpu)\nerror: invalid register `x0`: unknown register\n  --> src/smc.rs:18:13\n   |\n18 |             inout(\"x0\") x0 => r0,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\nerror: invalid register `x1`: unknown register\n  --> src/smc.rs:19:13\n   |\n19 |             inout(\"x1\") x1 => r1,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\nerror: invalid register `x2`: unknown register\n  --> src/smc.rs:20:13\n   |\n20 |             inout(\"x2\") x2 => r2,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\nerror: invalid register `x3`: unknown register\n  --> src/smc.rs:21:13\n   |\n21 |             inout(\"x3\") x3 => r3,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\nerror: invalid register `x11`: unknown register\n   --> src/vcpu.rs:200:17\n    |\n200 |                 in(\"x11\") &self.host_stack_top as *const _ as usize,\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: could not compile `arm_vcpu` (lib) due to 5 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 20,
       "file": "src/lib.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/lib.rs (original lines from 5 to 5)\n-\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 20,
       "file": "src/lib.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/lib.rs (original lines from 11 to 11)\n+\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 20,
       "file": "src/vgic.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 95 to 95)\n-            },\n+            }\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 20,
       "file": "src/vgic.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 98 to 101)\n-            },\n-            VGICD_ISENABLER_SPI..=VGICD_ICENABLER_SGI_PPI => {\n-                \n-            },\n+            }\n+            VGICD_ISENABLER_SPI..=VGICD_ICENABLER_SGI_PPI => {}\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 20,
       "file": "src/vgic.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 113 to 113)\n-            },\n+            }\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 20,
       "file": "src/vgic.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 116 to 117)\n-            },\n-            \n+            }\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 20,
       "file": "src/vgic.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 126 to 126)\n-            },\n+            }\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 20,
       "file": "src/vgic.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 129 to 130)\n-            },\n-            \n+            }\n"
     },
     {
-      "cmd_idx": 0,
+      "cmd_idx": 20,
       "file": "src/vgicc.rs",
       "kind": "Unformatted",
       "raw": "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgicc.rs (original lines from 1 to 1)\n-\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple patterns overlap on their endpoints\n  --> src/vgic.rs:99:13\n   |\n96 |             VGICD_ISENABLER_SGI_PPI..=VGICD_ISENABLER_SPI => {\n   |             --------------------------------------------- this range overlaps on `260_usize`...\n...\n99 |             VGICD_ISENABLER_SPI..=VGICD_ICENABLER_SGI_PPI => {\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ... with this range\n   |\n   = note: you likely meant to write mutually exclusive ranges\n   = note: `#[warn(overlapping_range_endpoints)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/consts.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: constant `VGICD_ICENABLER_SPI` is never used\n  --> src/consts.rs:11:18\n   |\n11 | pub(crate) const VGICD_ICENABLER_SPI: usize = 0x0184;\n   |                  ^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/consts.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: constant `VGICD_ISPENDR` is never used\n  --> src/consts.rs:13:18\n   |\n13 | pub(crate) const VGICD_ISPENDR: usize = 0x0200;\n   |                  ^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/consts.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: constant `VGICD_ICPENDR` is never used\n  --> src/consts.rs:14:18\n   |\n14 | pub(crate) const VGICD_ICPENDR: usize = 0x5;\n   |                  ^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/consts.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: constant `VGICD_ISACTIVER` is never used\n  --> src/consts.rs:15:18\n   |\n15 | pub(crate) const VGICD_ISACTIVER: usize = 0x6;\n   |                  ^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/consts.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: constant `VGICD_ICACTIVER` is never used\n  --> src/consts.rs:16:18\n   |\n16 | pub(crate) const VGICD_ICACTIVER: usize = 0x7;\n   |                  ^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/consts.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: constant `VGICD_ICFGR` is never used\n  --> src/consts.rs:17:18\n   |\n17 | pub(crate) const VGICD_ICFGR: usize = 0x18;\n   |                  ^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/consts.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: constant `VGICD_SGIR` is never used\n  --> src/consts.rs:18:18\n   |\n18 | pub(crate) const VGICD_SGIR: usize = 0x1e;\n   |                  ^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgicc.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgicc.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgicc.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgicc.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgicc.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgicc.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgicc.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgicc.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/devops_impl.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: unneeded `return` statement\n  --> src/devops_impl.rs:53:17\n   |\n53 |                 return self.handle_read8(addr);\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n   = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n   |\n53 -                 return self.handle_read8(addr);\n53 +                 self.handle_read8(addr)\n   |\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/devops_impl.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: unneeded `return` statement\n  --> src/devops_impl.rs:57:17\n   |\n57 |                 return self.handle_read16(addr);\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n57 -                 return self.handle_read16(addr);\n57 +                 self.handle_read16(addr)\n   |\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/devops_impl.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: unneeded `return` statement\n  --> src/devops_impl.rs:61:17\n   |\n61 |                 return self.handle_read32(addr);\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n61 -                 return self.handle_read32(addr);\n61 +                 self.handle_read32(addr)\n   |\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: you should consider adding a `Default` implementation for `Vgic`\n  --> src/vgic.rs:37:5\n   |\n37 | /     pub fn new() -> Vgic {\n38 | |         Vgic {\n39 | |             inner: Mutex::new(VgicInner {\n40 | |                 gicc: Vec::new(),\n...  |\n54 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n36 + impl Default for Vgic {\n37 +     fn default() -> Self {\n38 +         Self::new()\n39 +     }\n40 + }\n   |\n\n"
     },
     {
-      "cmd_idx": 1,
+      "cmd_idx": 21,
       "file": "src/vgic.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: some ranges overlap\n  --> src/vgic.rs:96:13\n   |\n96 |             VGICD_ISENABLER_SGI_PPI..=VGICD_ISENABLER_SPI => {\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\nnote: overlaps with this\n  --> src/vgic.rs:99:13\n   |\n99 |             VGICD_ISENABLER_SPI..=VGICD_ICENABLER_SGI_PPI => {\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#match_overlapping_arm\n   = note: `#[warn(clippy::match_overlapping_arm)]` on by default\n\n"
     },
     {
-      "cmd_idx": 2,
+      "cmd_idx": 22,
       "file": "[semver checks]",
       "kind": "Semver Violation",
       "raw": "pkg=arm_vgic, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_11/arceos-hypervisor/arm_vgic\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:44:49.739061129 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building arm_vgic v0.0.0 (current)\n       Built [   7.196s] (current)\n     Parsing arm_vgic v0.0.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/target/semver-checks/local-arm_vgic-0_0_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/arm_vgic.json\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgic.rs",
       "kind": "Mirai",
       "raw": "warning: multiple patterns overlap on their endpoints\n  --> src/vgic.rs:99:13\n   |\n96 |             VGICD_ISENABLER_SGI_PPI..=VGICD_ISENABLER_SPI => {\n   |             --------------------------------------------- this range overlaps on `260_usize`...\n...\n99 |             VGICD_ISENABLER_SPI..=VGICD_ICENABLER_SGI_PPI => {\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ... with this range\n   |\n   = note: you likely meant to write mutually exclusive ranges\n   = note: `#[warn(overlapping_range_endpoints)]` on by default\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgic.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgic.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgic.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgic.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgic.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgic.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgic.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgic.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgic.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgic.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/consts.rs",
       "kind": "Mirai",
       "raw": "warning: constant `VGICD_ICENABLER_SPI` is never used\n  --> src/consts.rs:11:18\n   |\n11 | pub(crate) const VGICD_ICENABLER_SPI: usize = 0x0184;\n   |                  ^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/consts.rs",
       "kind": "Mirai",
       "raw": "warning: constant `VGICD_ISPENDR` is never used\n  --> src/consts.rs:13:18\n   |\n13 | pub(crate) const VGICD_ISPENDR: usize = 0x0200;\n   |                  ^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/consts.rs",
       "kind": "Mirai",
       "raw": "warning: constant `VGICD_ICPENDR` is never used\n  --> src/consts.rs:14:18\n   |\n14 | pub(crate) const VGICD_ICPENDR: usize = 0x5;\n   |                  ^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/consts.rs",
       "kind": "Mirai",
       "raw": "warning: constant `VGICD_ISACTIVER` is never used\n  --> src/consts.rs:15:18\n   |\n15 | pub(crate) const VGICD_ISACTIVER: usize = 0x6;\n   |                  ^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/consts.rs",
       "kind": "Mirai",
       "raw": "warning: constant `VGICD_ICACTIVER` is never used\n  --> src/consts.rs:16:18\n   |\n16 | pub(crate) const VGICD_ICACTIVER: usize = 0x7;\n   |                  ^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/consts.rs",
       "kind": "Mirai",
       "raw": "warning: constant `VGICD_ICFGR` is never used\n  --> src/consts.rs:17:18\n   |\n17 | pub(crate) const VGICD_ICFGR: usize = 0x18;\n   |                  ^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/consts.rs",
       "kind": "Mirai",
       "raw": "warning: constant `VGICD_SGIR` is never used\n  --> src/consts.rs:18:18\n   |\n18 | pub(crate) const VGICD_SGIR: usize = 0x1e;\n   |                  ^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgicc.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgicc.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgicc.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgicc.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgicc.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgicc.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgicc.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 23,
       "file": "src/vgicc.rs",
       "kind": "Mirai",
       "raw": "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 7,
+      "cmd_idx": 27,
       "file": "[outdated direct dependencies]",
       "kind": "Outdated",
       "raw": "pkg=arm_vgic, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_11/arceos-hypervisor/arm_vgic\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:45:09.545526423 +08:00:00\n\nName         Project  Compat  Latest  Kind    Platform\n----         -------  ------  ------  ----    --------\nlog          0.4.22   0.4.25  0.4.25  Normal  ---\nmemory_addr  0.3.0    0.3.1   0.3.1   Normal  ---\n"
     },
     {
-      "cmd_idx": 9,
+      "cmd_idx": 29,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=arm_vgic, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_11/arceos-hypervisor/arm_vgic\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:44:42.114903514 +08:00:00\n    Building arm_vgic v0.0.0 (current)\n       Built [   7.196s] (current)\n     Parsing arm_vgic v0.0.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/target/semver-checks/local-arm_vgic-0_0_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/arm_vgic.json\n"
-    },
-    {
-      "cmd_idx": 18,
-      "file": "[semver checks]",
-      "kind": "Semver Violation",
-      "raw": "pkg=axaddrspace, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_11/arceos-hypervisor/axaddrspace\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 22:45:25.701325041 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axaddrspace v0.1.0 (current)\n       Built [   1.061s] (current)\n     Parsing axaddrspace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_11/arceos-hypervisor/axaddrspace/target/semver-checks/local-axaddrspace-0_1_0-9f714011243fae82/target/riscv64gc-unknown-none-elf/doc/axaddrspace.json\n"
-    },
-    {
-      "cmd_idx": 19,
-      "file": "[semver checks]",
-      "kind": "Semver Violation",
-      "raw": "pkg=axaddrspace, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_11/arceos-hypervisor/axaddrspace\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:45:22.533340021 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axaddrspace v0.1.0 (current)\n       Built [   1.819s] (current)\n     Parsing axaddrspace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_11/arceos-hypervisor/axaddrspace/target/semver-checks/local-axaddrspace-0_1_0-9f714011243fae82/target/x86_64-unknown-linux-gnu/doc/axaddrspace.json\n"
-    },
-    {
-      "cmd_idx": 20,
-      "file": "[semver checks]",
-      "kind": "Semver Violation",
-      "raw": "pkg=axaddrspace, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_11/arceos-hypervisor/axaddrspace\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-02-16 22:45:24.422368546 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axaddrspace v0.1.0 (current)\n       Built [   1.672s] (current)\n     Parsing axaddrspace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_11/arceos-hypervisor/axaddrspace/target/semver-checks/local-axaddrspace-0_1_0-9f714011243fae82/target/x86_64-unknown-none/doc/axaddrspace.json\n"
-    },
-    {
-      "cmd_idx": 21,
-      "file": "[semver checks]",
-      "kind": "Semver Violation",
-      "raw": "pkg=axaddrspace, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_11/arceos-hypervisor/axaddrspace\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 22:45:27.962150136 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axaddrspace v0.1.0 (current)\n       Built [   2.053s] (current)\n     Parsing axaddrspace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_11/arceos-hypervisor/axaddrspace/target/semver-checks/local-axaddrspace-0_1_0-9f714011243fae82/target/aarch64-unknown-none/doc/axaddrspace.json\n"
-    },
-    {
-      "cmd_idx": 37,
-      "file": "(virtual) semver-checks",
-      "kind": "Cargo",
-      "raw": "// pkg_name=axaddrspace, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_11/arceos-hypervisor/axaddrspace\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:45:20.435430177 +08:00:00\n    Building axaddrspace v0.1.0 (current)\n       Built [   1.819s] (current)\n     Parsing axaddrspace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_11/arceos-hypervisor/axaddrspace/target/semver-checks/local-axaddrspace-0_1_0-9f714011243fae82/target/x86_64-unknown-linux-gnu/doc/axaddrspace.json\n"
-    },
-    {
-      "cmd_idx": 38,
-      "file": "(virtual) semver-checks",
-      "kind": "Cargo",
-      "raw": "// pkg_name=axaddrspace, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_11/arceos-hypervisor/axaddrspace\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 22:45:25.702913375 +08:00:00\n    Building axaddrspace v0.1.0 (current)\n       Built [   2.053s] (current)\n     Parsing axaddrspace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_11/arceos-hypervisor/axaddrspace/target/semver-checks/local-axaddrspace-0_1_0-9f714011243fae82/target/aarch64-unknown-none/doc/axaddrspace.json\n"
-    },
-    {
-      "cmd_idx": 39,
-      "file": "(virtual) semver-checks",
-      "kind": "Cargo",
-      "raw": "// pkg_name=axaddrspace, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_11/arceos-hypervisor/axaddrspace\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 22:45:24.423981132 +08:00:00\n    Building axaddrspace v0.1.0 (current)\n       Built [   1.061s] (current)\n     Parsing axaddrspace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_11/arceos-hypervisor/axaddrspace/target/semver-checks/local-axaddrspace-0_1_0-9f714011243fae82/target/riscv64gc-unknown-none-elf/doc/axaddrspace.json\n"
-    },
-    {
-      "cmd_idx": 40,
-      "file": "(virtual) semver-checks",
-      "kind": "Cargo",
-      "raw": "// pkg_name=axaddrspace, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_11/arceos-hypervisor/axaddrspace\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-16 22:45:22.535236676 +08:00:00\n    Building axaddrspace v0.1.0 (current)\n       Built [   1.672s] (current)\n     Parsing axaddrspace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_11/arceos-hypervisor/axaddrspace/target/semver-checks/local-axaddrspace-0_1_0-9f714011243fae82/target/x86_64-unknown-none/doc/axaddrspace.json\n"
     }
   ]
 }

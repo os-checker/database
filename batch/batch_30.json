@@ -15,12 +15,18 @@
             "channel": "nightly-2025-01-26-x86_64-unknown-linux-gnu",
             "profile": null,
             "targets": [
-              "x86_64-unknown-linux-gnu"
+              "aarch64-unknown-none",
+              "riscv64gc-unknown-none-elf",
+              "x86_64-unknown-linux-gnu",
+              "x86_64-unknown-none"
             ],
             "components": [
               "cargo-x86_64-unknown-linux-gnu",
               "clippy-x86_64-unknown-linux-gnu",
+              "rust-std-aarch64-unknown-none",
+              "rust-std-riscv64gc-unknown-none-elf",
               "rust-std-x86_64-unknown-linux-gnu",
+              "rust-std-x86_64-unknown-none",
               "rustc-x86_64-unknown-linux-gnu",
               "rustfmt-x86_64-unknown-linux-gnu"
             ],
@@ -31,9 +37,9 @@
         ]
       },
       "os_checker": {
-        "start": 1739910419040,
-        "finish": 1739910420015,
-        "duration_ms": 974,
+        "start": 1739997338281,
+        "finish": 1739997339156,
+        "duration_ms": 874,
         "git_time": "2025-02-16 16:17:11 +0800",
         "git_sha": "379b4c5f3884500f536ea00ffc0672d2af054861"
       }
@@ -94,29 +100,37 @@
     },
     "repos": [
       {
-        "user": "guoweikang",
-        "repo": "osl"
+        "user": "elliott10",
+        "repo": "lwext4_rust"
       },
       {
-        "user": "kern-crates",
-        "repo": "axbacktrace"
+        "user": "guoweikang",
+        "repo": "osl"
       }
     ],
     "packages": [
       {
-        "name": "osl",
+        "name": "lwext4_rust",
         "repo": {
           "repo_idx": 0,
-          "user": "guoweikang",
-          "repo": "osl"
+          "user": "elliott10",
+          "repo": "lwext4_rust"
         }
       },
       {
-        "name": "axbacktrace",
+        "name": "lwext4_rust_examples",
+        "repo": {
+          "repo_idx": 0,
+          "user": "elliott10",
+          "repo": "lwext4_rust"
+        }
+      },
+      {
+        "name": "osl",
         "repo": {
           "repo_idx": 1,
-          "user": "kern-crates",
-          "repo": "axbacktrace"
+          "user": "guoweikang",
+          "repo": "osl"
         }
       }
     ]
@@ -124,6 +138,210 @@
   "cmd": [
     {
       "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 18,
+      "duration_ms": 122,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
+      "count": 5,
+      "duration_ms": 691,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf ",
+      "count": 1,
+      "duration_ms": 790,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 721,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 905,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 1,
+      "duration_ms": 154,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=clippy cargo",
+      "count": 1,
+      "duration_ms": 691,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 790,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=lockbud cargo",
+      "count": 1,
+      "duration_ms": 721,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=rapx cargo",
+      "count": 1,
+      "duration_ms": 905,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 17,
+      "duration_ms": 106,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
+      "count": 0,
+      "duration_ms": 118,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 3311,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 3339,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 1,
+      "duration_ms": 517,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "cargo",
+      "cmd": "VRITUAL=lockbud cargo",
+      "count": 1,
+      "duration_ms": 3311,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "cargo",
+      "cmd": "VRITUAL=rapx cargo",
+      "count": 1,
+      "duration_ms": 3339,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2024-01-31",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
@@ -138,7 +356,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 2,
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu --features arceos --no-deps",
       "count": 4,
@@ -153,7 +371,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 2,
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu --features arceos",
       "count": 1,
@@ -168,7 +386,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 2,
       "tool": "mirai",
       "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu --features arceos",
       "count": 10,
@@ -183,7 +401,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 2,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu --features arceos",
       "count": 0,
@@ -198,7 +416,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 2,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu --features arceos",
       "count": 0,
@@ -213,7 +431,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 2,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu --features arceos",
       "count": 0,
@@ -228,7 +446,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 2,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
@@ -243,7 +461,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 2,
       "tool": "geiger",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
       "count": 0,
@@ -258,7 +476,7 @@
       "flags": []
     },
     {
-      "package_idx": 0,
+      "package_idx": 2,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
@@ -268,374 +486,398 @@
       "rust_toolchain": "nightly-2025-01-25",
       "features": [],
       "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 22,
-      "duration_ms": 97,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
-      "count": 0,
-      "duration_ms": 232,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
-      "count": 1,
-      "duration_ms": 512,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "mirai",
-      "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
-      "count": 1,
-      "duration_ms": 381,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 197,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 531,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "rudra",
-      "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 250,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 124,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "geiger",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
-      "count": 0,
-      "duration_ms": 68,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 512,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
     }
   ],
   "data": [
     {
-      "cmd_idx": 1,
-      "file": "src/arceos/driver/i2c/msg.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: length comparison to zero\n  --> src/arceos/driver/i2c/msg.rs:94:13\n   |\n94 |             self.buf.len() == 0\n   |             ^^^^^^^^^^^^^^^^^^^ help: using `is_empty` is clearer and more explicit: `self.buf.is_empty()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_zero\n   = note: `#[warn(clippy::len_zero)]` on by default\n\n"
+      "cmd_idx": 0,
+      "file": "examples/src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 4 to 7)\n-fn panic(info: &PanicInfo) -> !{\n-\tprintln!(\"{}\", info);\n-\tcrate::boot::sbi::shutdown();\n-\tunreachable!()\n+fn panic(info: &PanicInfo) -> ! {\n+    println!(\"{}\", info);\n+    crate::boot::sbi::shutdown();\n+    unreachable!()\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 11 to 12)\n-pub extern \"C\" fn abort() -> !{\n-\tpanic!(\"abort!\");\n+pub extern \"C\" fn abort() -> ! {\n+    panic!(\"abort!\");\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 14 to 14)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 3 to 4)\n-pub fn console_putchar(ch: usize){\n-\tsbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n+pub fn console_putchar(ch: usize) {\n+    sbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 8 to 8)\n-\treturn sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n+    return sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 11 to 23)\n-pub fn console_putchar_u8(ch: u8){\n-\tlet ret: isize;\n-\t//let arg0: char = ch as char;\n-\tlet arg0: u8 = ch;\n-\tlet arg1: usize = 0;\n-\tlet arg2: usize = 0;\n-\tlet which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n-\tunsafe{\n-\t\tasm!(\"ecall\",\n-\t\t     lateout(\"x10\") ret,\n-\t\t     in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-             );\n-\t}\n+pub fn console_putchar_u8(ch: u8) {\n+    let ret: isize;\n+    //let arg0: char = ch as char;\n+    let arg0: u8 = ch;\n+    let arg1: usize = 0;\n+    let arg2: usize = 0;\n+    let which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n+    unsafe {\n+        asm!(\"ecall\",\n+        lateout(\"x10\") ret,\n+        in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 26 to 28)\n-fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize{\n-\tlet ret: isize;\n-\tunsafe{\n+fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize {\n+    let ret: isize;\n+    unsafe {\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 30 to 34)\n-             lateout(\"x10\") ret,\n-             in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-            );\n-\t}\n-\tret\n+         lateout(\"x10\") ret,\n+         in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n+    ret\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 37 to 39)\n-pub fn set_timer(stime_value: u64){\n-\t#[cfg(target_pointer_width = \"32\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n+pub fn set_timer(stime_value: u64) {\n+    #[cfg(target_pointer_width = \"32\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 41 to 42)\n-\t#[cfg(target_pointer_width = \"64\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n+    #[cfg(target_pointer_width = \"64\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 44 to 45)\n-pub fn clear_ipi(){\n-\tsbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n+pub fn clear_ipi() {\n+    sbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 48 to 49)\n-pub fn send_ipi(sipi_value: usize){\n-\tsbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n+pub fn send_ipi(sipi_value: usize) {\n+    sbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 52 to 53)\n-pub fn set_s_insn(entry: usize){\n-\tsbi_call(SBI_SET_SINSN, entry, 0, 0);\n+pub fn set_s_insn(entry: usize) {\n+    sbi_call(SBI_SET_SINSN, entry, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 56 to 57)\n-pub fn shutdown(){\n-\tsbi_call(SBI_SHUTDOWN, 0, 0, 0);\n+pub fn shutdown() {\n+    sbi_call(SBI_SHUTDOWN, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/ext4fs.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/ext4fs.rs (original lines from 96 to 96)\n-\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/pci_impl.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/pci_impl.rs (original lines from 2 to 2)\n-use pci::{PortOps, CSpaceAccessMethod};\n+use pci::{CSpaceAccessMethod, PortOps};\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "examples/src/pci_impl.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/pci_impl.rs (original lines from 9 to 9)\n-pub const PCI_COMMAND_INTX_DISABLE:u16 = 0x400;\n+pub const PCI_COMMAND_INTX_DISABLE: u16 = 0x400;\n"
+    },
+    {
+      "cmd_idx": 0,
+      "file": "src/lib.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/src/lib.rs (original lines from 5 to 5)\n-\n"
     },
     {
       "cmd_idx": 1,
-      "file": "src/math.rs",
+      "file": "build.rs",
       "kind": "Clippy(Warn)",
-      "raw": "warning: returning the result of a `let` binding from a block\n  --> src/math.rs:51:5\n   |\n50 |     let quotient = n / base as u64;\n   |     ------------------------------- unnecessary `let` binding\n51 |     quotient\n   |     ^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\n   = note: `#[warn(clippy::let_and_return)]` on by default\nhelp: return the expression directly\n   |\n50 ~     \n51 ~     n / base as u64\n   |\n\n"
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:16:19\n   |\n16 |             .args(&[\"submodule\", \"update\", \"--init\", \"--recursive\"])\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: change this to: `[\"submodule\", \"update\", \"--init\", \"--recursive\"]`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\n   = note: `#[warn(clippy::needless_borrows_for_generic_args)]` on by default\n\n"
     },
     {
       "cmd_idx": 1,
-      "file": "src/sync.rs",
+      "file": "build.rs",
       "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n --> src/sync.rs:6:5\n  |\n6 | //!  must supply a stuct called OslCompletion and implement GeneralComplete\n  |     ^\n  |\n  = help: if this is supposed to be its own paragraph, add a blank line\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n  = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n  |\n6 | //!   must supply a stuct called OslCompletion and implement GeneralComplete\n  |      +\n\n"
+      "raw": "warning: spawned process is never `wait()`ed on\n  --> build.rs:22:9\n   |\n22 | /         Command::new(\"git\")\n23 | |             .args(&[\"apply\", lwext4_patch.to_str().unwrap()])\n24 | |             .current_dir(c_path.clone())\n25 | |             .spawn()\n26 | |             .expect(\"failed to execute process: git apply patch\");\n   | |                                                                 ^- help: try: `.wait()`\n   | |_________________________________________________________________|\n   |\n   |\n   = note: not doing so might leave behind zombie processes\n   = note: see https://doc.rust-lang.org/stable/std/process/struct.Child.html#warning\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#zombie_processes\n   = note: `#[warn(clippy::zombie_processes)]` on by default\n\n"
     },
     {
       "cmd_idx": 1,
-      "file": "src/sync.rs",
+      "file": "build.rs",
       "kind": "Clippy(Warn)",
-      "raw": "warning: doc list item without indentation\n --> src/sync.rs:9:5\n  |\n9 | //!  must supply a stuct called SpinLock and implement lock\n  |     ^\n  |\n  = help: if this is supposed to be its own paragraph, add a blank line\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n  |\n9 | //!   must supply a stuct called SpinLock and implement lock\n  |      +\n\n"
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:23:19\n   |\n23 |             .args(&[\"apply\", lwext4_patch.to_str().unwrap()])\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: change this to: `[\"apply\", lwext4_patch.to_str().unwrap()]`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:40:19\n   |\n40 |               .args(&[\n   |  ___________________^\n41 | |                 \"musl-generic\",\n42 | |                 \"-C\",\n43 | |                 c_path.to_str().expect(\"invalid path of lwext4\"),\n44 | |             ])\n   | |_____________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\nhelp: change this to\n   |\n40 ~             .args([\n41 +                 \"musl-generic\",\n42 +                 \"-C\",\n43 +                 c_path.to_str().expect(\"invalid path of lwext4\"),\n44 ~             ])\n   |\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "build.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: the borrowed expression implements the required traits\n  --> build.rs:45:18\n   |\n45 |             .arg(&format!(\"ARCH={}\", arch))\n   |                  ^^^^^^^^^^^^^^^^^^^^^^^^^ help: change this to: `format!(\"ARCH={}\", arch)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\n\n"
     },
     {
       "cmd_idx": 2,
       "file": "[semver checks]",
       "kind": "Semver Violation",
+      "raw": "pkg=lwext4_rust, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_29/elliott10/lwext4_rust\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 23:44:48.754861369 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building lwext4_rust v0.2.0 (current)\nerror: running cargo-doc on crate 'lwext4_rust' failed with output:\n-----\n    Checking either v1.13.0\n    Checking cty v0.2.2\n    Checking memchr v2.7.4\n    Checking bitflags v1.3.2\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)\n    Checking log v0.4.25\n    Checking itertools v0.9.0\n    Checking cstr_core v0.2.6\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_29/elliott10/lwext4_rust/target/semver-checks/local-lwext4_rust-0_2_0-e7bffb85b1077fd0/target/debug/build/lwext4_rust-c6d9a3f78d835c08/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n\n  thread 'main' panicked at /home/runner/check/batch_29/elliott10/lwext4_rust/build.rs:48:9:\n  assertion failed: status.success()\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate lwext4_rust v0.2.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_29/elliott10/lwext4_rust --features default,print,printf-compat &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate lwext4_rust v0.2.0\n"
+    },
+    {
+      "cmd_idx": 5,
+      "file": "[outdated direct dependencies]",
+      "kind": "Outdated",
+      "raw": "pkg=lwext4_rust, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_29/elliott10/lwext4_rust\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 23:44:57.334096084 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nlog   0.4.21   0.4.25  0.4.25  Normal  ---\n"
+    },
+    {
+      "cmd_idx": 6,
+      "file": "(virtual) clippy",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_29/elliott10/lwext4_rust\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf  --no-deps\n// timestamp=2025-02-16 23:44:47.149846047 +08:00:00\n    Checking cty v0.2.2\n    Checking memchr v2.7.2\n    Checking either v1.10.0\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)\n    Checking bitflags v1.3.2\n    Checking log v0.4.21\n    Checking itertools v0.9.0\n    Checking cstr_core v0.2.6\n    Checking printf-compat v0.1.1\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_29/elliott10/lwext4_rust/target/debug/build/lwext4_rust-a514e9ae7e6af264/build-script-build` (exit status: 101)\n  --- stdout\n  Retrieve lwext4 source code\n  To patch lwext4 src\n  make: Entering directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n\n  thread 'main' panicked at build.rs:48:9:\n  assertion failed: status.success()\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 7,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_29/elliott10/lwext4_rust\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 23:44:47.964225741 +08:00:00\n    Building lwext4_rust v0.2.0 (current)\nerror: running cargo-doc on crate 'lwext4_rust' failed with output:\n-----\n    Checking either v1.13.0\n    Checking cty v0.2.2\n    Checking memchr v2.7.4\n    Checking bitflags v1.3.2\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)\n    Checking log v0.4.25\n    Checking itertools v0.9.0\n    Checking cstr_core v0.2.6\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_29/elliott10/lwext4_rust/target/semver-checks/local-lwext4_rust-0_2_0-e7bffb85b1077fd0/target/debug/build/lwext4_rust-c6d9a3f78d835c08/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n\n  thread 'main' panicked at /home/runner/check/batch_29/elliott10/lwext4_rust/build.rs:48:9:\n  assertion failed: status.success()\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate lwext4_rust v0.2.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_29/elliott10/lwext4_rust --features default,print,printf-compat &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate lwext4_rust v0.2.0\n"
+    },
+    {
+      "cmd_idx": 8,
+      "file": "(virtual) lockbud",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_29/elliott10/lwext4_rust\n// cmd=cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 23:44:48.757006179 +08:00:00\n Downloading crates ...\n  Downloaded cstr_core v0.2.6\n  Downloaded either v1.10.0\n  Downloaded cty v0.2.2\n  Downloaded itertools v0.9.0\n  Downloaded printf-compat v0.1.1\n   Compiling memchr v2.7.2\n   Compiling either v1.10.0\n   Compiling cty v0.2.2\n   Compiling bitflags v1.3.2\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)\n   Compiling log v0.4.21\n[2025-02-16T15:44:49Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-02-16T15:44:49Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling itertools v0.9.0\n   Compiling cstr_core v0.2.6\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_29/elliott10/lwext4_rust/target/debug/build/lwext4_rust-909890d5bbd2200e/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n  thread 'main' panicked at build.rs:48:9:\n  assertion failed: status.success()\n  stack backtrace:\n     0:     0x556c1e9a9a5a - std::backtrace_rs::backtrace::libunwind::trace::h392ec3763e4ee520\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/../../backtrace/src/backtrace/libunwind.rs:116:5\n     1:     0x556c1e9a9a5a - std::backtrace_rs::backtrace::trace_unsynchronized::h52faccb7d9939779\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/../../backtrace/src/backtrace/mod.rs:66:5\n     2:     0x556c1e9a9a5a - std::sys::backtrace::_print_fmt::h4ca48f886ab6d023\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/sys/backtrace.rs:66:9\n     3:     0x556c1e9a9a5a - <std::sys::backtrace::BacktraceLock::print::DisplayBacktrace as core::fmt::Display>::fmt::h41650409cfcaa385\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/sys/backtrace.rs:39:26\n     4:     0x556c1e9ca993 - core::fmt::rt::Argument::fmt::h3a0dfc0e2b206c6c\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/fmt/rt.rs:177:76\n     5:     0x556c1e9ca993 - core::fmt::write::h124e50a41a614f35\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/fmt/mod.rs:1185:21\n     6:     0x556c1e9a6ce3 - std::io::Write::write_fmt::h152c770d77d8200b\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/io/mod.rs:1887:15\n     7:     0x556c1e9a98a2 - std::sys::backtrace::BacktraceLock::print::hb77a071b09f7b2d4\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/sys/backtrace.rs:42:9\n     8:     0x556c1e9aa86d - std::panicking::default_hook::{{closure}}::h2289b310e8f70172\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:284:22\n     9:     0x556c1e9aa6b2 - std::panicking::default_hook::h6b36901e2a542246\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:311:9\n    10:     0x556c1e9aae67 - std::panicking::rust_panic_with_hook::hd7b2147b933d3e5b\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:817:13\n    11:     0x556c1e9aacc6 - std::panicking::begin_panic_handler::{{closure}}::h529091dbfbeb0f88\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:683:13\n    12:     0x556c1e9a9f39 - std::sys::backtrace::__rust_end_short_backtrace::h560f3f6f1bef32f3\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/sys/backtrace.rs:170:18\n    13:     0x556c1e9aa98d - rust_begin_unwind\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:681:5\n    14:     0x556c1e9c9bb0 - core::panicking::panic_fmt::h0831c2ae5fe21ab8\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/panicking.rs:75:14\n    15:     0x556c1e9c9c3c - core::panicking::panic::h8345ebad421281bc\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/panicking.rs:145:5\n    16:     0x556c1e980f02 - build_script_build::main::h911ff25ed245b7e5\n                                 at /home/runner/check/batch_29/elliott10/lwext4_rust/build.rs:48:9\n    17:     0x556c1e98280b - core::ops::function::FnOnce::call_once::h12fa7baec91f3519\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/ops/function.rs:250:5\n    18:     0x556c1e9820ce - std::sys::backtrace::__rust_begin_short_backtrace::h440f5647edfc0770\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/sys/backtrace.rs:154:18\n    19:     0x556c1e982001 - std::rt::lang_start::{{closure}}::h89ca6bae058e1830\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/rt.rs:195:18\n    20:     0x556c1e9a3f27 - core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once::h35ac998e8377d702\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/ops/function.rs:284:13\n    21:     0x556c1e9a3f27 - std::panicking::try::do_call::h375eb96a9ae157af\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:573:40\n    22:     0x556c1e9a3f27 - std::panicking::try::h004dd624c2163121\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:536:19\n    23:     0x556c1e9a3f27 - std::panic::catch_unwind::h86180637abc5e029\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panic.rs:358:14\n    24:     0x556c1e9a3f27 - std::rt::lang_start_internal::{{closure}}::h423349aec7014c22\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/rt.rs:174:48\n    25:     0x556c1e9a3f27 - std::panicking::try::do_call::h4e2bc89ab3a21ffc\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:573:40\n    26:     0x556c1e9a3f27 - std::panicking::try::hd6b79a96186c0cd0\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:536:19\n    27:     0x556c1e9a3f27 - std::panic::catch_unwind::h2450b06afb6527e0\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panic.rs:358:14\n    28:     0x556c1e9a3f27 - std::rt::lang_start_internal::he23058d2283a9650\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/rt.rs:174:20\n    29:     0x556c1e981fda - std::rt::lang_start::he1996f49bf799eed\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/rt.rs:194:17\n    30:     0x556c1e9817ae - main\n    31:     0x7f263ae2a1ca - <unknown>\n    32:     0x7f263ae2a28b - __libc_start_main\n    33:     0x556c1e97bbb5 - _start\n    34:                0x0 - <unknown>\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 9,
+      "file": "(virtual) rapx",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust, checker=Rapx\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_29/elliott10/lwext4_rust\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 23:44:52.930218647 +08:00:00\n    Checking cty v0.2.2\n    Checking memchr v2.7.2\n    Checking either v1.10.0\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)\n    Checking bitflags v1.3.2\n    Checking itertools v0.9.0\n    Checking log v0.4.21\n    Checking cstr_core v0.2.6\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_29/elliott10/lwext4_rust/target/debug/build/lwext4_rust-909890d5bbd2200e/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n  thread 'main' panicked at build.rs:48:9:\n  assertion failed: status.success()\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n15:44:53|RAP|ERROR|: Finished with non-zero exit code.\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 4 to 7)\n-fn panic(info: &PanicInfo) -> !{\n-\tprintln!(\"{}\", info);\n-\tcrate::boot::sbi::shutdown();\n-\tunreachable!()\n+fn panic(info: &PanicInfo) -> ! {\n+    println!(\"{}\", info);\n+    crate::boot::sbi::shutdown();\n+    unreachable!()\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 11 to 12)\n-pub extern \"C\" fn abort() -> !{\n-\tpanic!(\"abort!\");\n+pub extern \"C\" fn abort() -> ! {\n+    panic!(\"abort!\");\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/lang_items.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/lang_items.rs (original lines from 14 to 14)\n-\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 3 to 4)\n-pub fn console_putchar(ch: usize){\n-\tsbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n+pub fn console_putchar(ch: usize) {\n+    sbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 8 to 8)\n-\treturn sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n+    return sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 11 to 23)\n-pub fn console_putchar_u8(ch: u8){\n-\tlet ret: isize;\n-\t//let arg0: char = ch as char;\n-\tlet arg0: u8 = ch;\n-\tlet arg1: usize = 0;\n-\tlet arg2: usize = 0;\n-\tlet which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n-\tunsafe{\n-\t\tasm!(\"ecall\",\n-\t\t     lateout(\"x10\") ret,\n-\t\t     in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-             );\n-\t}\n+pub fn console_putchar_u8(ch: u8) {\n+    let ret: isize;\n+    //let arg0: char = ch as char;\n+    let arg0: u8 = ch;\n+    let arg1: usize = 0;\n+    let arg2: usize = 0;\n+    let which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n+    unsafe {\n+        asm!(\"ecall\",\n+        lateout(\"x10\") ret,\n+        in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 26 to 28)\n-fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize{\n-\tlet ret: isize;\n-\tunsafe{\n+fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize {\n+    let ret: isize;\n+    unsafe {\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 30 to 34)\n-             lateout(\"x10\") ret,\n-             in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-            );\n-\t}\n-\tret\n+         lateout(\"x10\") ret,\n+         in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n+    ret\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 37 to 39)\n-pub fn set_timer(stime_value: u64){\n-\t#[cfg(target_pointer_width = \"32\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n+pub fn set_timer(stime_value: u64) {\n+    #[cfg(target_pointer_width = \"32\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 41 to 42)\n-\t#[cfg(target_pointer_width = \"64\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n+    #[cfg(target_pointer_width = \"64\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 44 to 45)\n-pub fn clear_ipi(){\n-\tsbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n+pub fn clear_ipi() {\n+    sbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 48 to 49)\n-pub fn send_ipi(sipi_value: usize){\n-\tsbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n+pub fn send_ipi(sipi_value: usize) {\n+    sbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 52 to 53)\n-pub fn set_s_insn(entry: usize){\n-\tsbi_call(SBI_SET_SINSN, entry, 0, 0);\n+pub fn set_s_insn(entry: usize) {\n+    sbi_call(SBI_SET_SINSN, entry, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/boot/sbi.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/boot/sbi.rs (original lines from 56 to 57)\n-pub fn shutdown(){\n-\tsbi_call(SBI_SHUTDOWN, 0, 0, 0);\n+pub fn shutdown() {\n+    sbi_call(SBI_SHUTDOWN, 0, 0, 0);\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/ext4fs.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/ext4fs.rs (original lines from 96 to 96)\n-\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/pci_impl.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/pci_impl.rs (original lines from 2 to 2)\n-use pci::{PortOps, CSpaceAccessMethod};\n+use pci::{CSpaceAccessMethod, PortOps};\n"
+    },
+    {
+      "cmd_idx": 10,
+      "file": "src/pci_impl.rs",
+      "kind": "Unformatted",
+      "raw": "file: /home/runner/check/batch_29/elliott10/lwext4_rust/examples/src/pci_impl.rs (original lines from 9 to 9)\n-pub const PCI_COMMAND_INTX_DISABLE:u16 = 0x400;\n+pub const PCI_COMMAND_INTX_DISABLE: u16 = 0x400;\n"
+    },
+    {
+      "cmd_idx": 14,
+      "file": "[outdated direct dependencies]",
+      "kind": "Outdated",
+      "raw": "pkg=lwext4_rust_examples, checker=Outdated\ntoolchain=nightly-2024-01-31, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_29/elliott10/lwext4_rust/examples\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 23:44:57.852218404 +08:00:00\n\nName   Project  Compat  Latest  Kind    Platform\n----   -------  ------  ------  ----    --------\nriscv  0.8.0    ---     0.12.1  Normal  ---\n"
+    },
+    {
+      "cmd_idx": 15,
+      "file": "(virtual) lockbud",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust_examples, checker=Lockbud\n// toolchain=nightly-2024-01-31, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_29/elliott10/lwext4_rust/examples\n// cmd=cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 23:44:49.480975754 +08:00:00\nwarning: `/home/runner/check/batch_29/elliott10/lwext4_rust/examples/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nwarning: `/home/runner/check/batch_29/elliott10/lwext4_rust/examples/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nwarning: no edition set: defaulting to the 2015 edition while the latest is 2024\n Downloading crates ...\n  Downloaded linked_list_allocator v0.10.5\n  Downloaded spinning_top v0.2.5\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.16\n   Compiling autocfg v1.4.0\n   Compiling log v0.4.25\n   Compiling either v1.13.0\n[2025-02-16T15:44:49Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.25/src/lib.rs:1453:11: 1453:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.25/src/lib.rs:1456:13: 1456:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-02-16T15:44:49Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling scopeguard v1.2.0\n   Compiling nb v1.1.0\n   Compiling memchr v2.7.4\n   Compiling cty v0.2.2\n   Compiling bitflags v1.3.2\n   Compiling nb v0.1.3\n   Compiling itertools v0.9.0\n   Compiling lock_api v0.4.12\n   Compiling cstr_core v0.2.6\n   Compiling quote v1.0.38\n   Compiling byteorder v1.5.0\n   Compiling void v1.0.2\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)\n   Compiling syn v2.0.98\n   Compiling riscv v0.8.0\n   Compiling embedded-hal v0.2.7\n   Compiling spinning_top v0.2.5\n   Compiling printf-compat v0.1.1\n   Compiling spin v0.9.8\n   Compiling bitflags v2.8.0\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_29/elliott10/lwext4_rust/examples/target/debug/build/lwext4_rust-f6d2545fa0e7dcc7/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n  thread 'main' panicked at /home/runner/check/batch_29/elliott10/lwext4_rust/build.rs:48:9:\n  assertion failed: status.success()\n  stack backtrace:\n     0:     0x5635ad83b9ea - std::backtrace_rs::backtrace::libunwind::trace::h392ec3763e4ee520\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/../../backtrace/src/backtrace/libunwind.rs:116:5\n     1:     0x5635ad83b9ea - std::backtrace_rs::backtrace::trace_unsynchronized::h52faccb7d9939779\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/../../backtrace/src/backtrace/mod.rs:66:5\n     2:     0x5635ad83b9ea - std::sys::backtrace::_print_fmt::h4ca48f886ab6d023\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/sys/backtrace.rs:66:9\n     3:     0x5635ad83b9ea - <std::sys::backtrace::BacktraceLock::print::DisplayBacktrace as core::fmt::Display>::fmt::h41650409cfcaa385\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/sys/backtrace.rs:39:26\n     4:     0x5635ad85c923 - core::fmt::rt::Argument::fmt::h3a0dfc0e2b206c6c\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/fmt/rt.rs:177:76\n     5:     0x5635ad85c923 - core::fmt::write::h124e50a41a614f35\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/fmt/mod.rs:1185:21\n     6:     0x5635ad838c73 - std::io::Write::write_fmt::h152c770d77d8200b\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/io/mod.rs:1887:15\n     7:     0x5635ad83b832 - std::sys::backtrace::BacktraceLock::print::hb77a071b09f7b2d4\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/sys/backtrace.rs:42:9\n     8:     0x5635ad83c7fd - std::panicking::default_hook::{{closure}}::h2289b310e8f70172\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:284:22\n     9:     0x5635ad83c642 - std::panicking::default_hook::h6b36901e2a542246\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:311:9\n    10:     0x5635ad83cdf7 - std::panicking::rust_panic_with_hook::hd7b2147b933d3e5b\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:817:13\n    11:     0x5635ad83cc56 - std::panicking::begin_panic_handler::{{closure}}::h529091dbfbeb0f88\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:683:13\n    12:     0x5635ad83bec9 - std::sys::backtrace::__rust_end_short_backtrace::h560f3f6f1bef32f3\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/sys/backtrace.rs:170:18\n    13:     0x5635ad83c91d - rust_begin_unwind\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:681:5\n    14:     0x5635ad85bb40 - core::panicking::panic_fmt::h0831c2ae5fe21ab8\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/panicking.rs:75:14\n    15:     0x5635ad85bbcc - core::panicking::panic::h8345ebad421281bc\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/panicking.rs:145:5\n    16:     0x5635ad812fb2 - build_script_build::main::h04097e89a6abc4ed\n                                 at /home/runner/check/batch_29/elliott10/lwext4_rust/build.rs:48:9\n    17:     0x5635ad80f59b - core::ops::function::FnOnce::call_once::h2f8a6764fd4f4518\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/ops/function.rs:250:5\n    18:     0x5635ad8144ee - std::sys::backtrace::__rust_begin_short_backtrace::h1bb50f93bb176fee\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/sys/backtrace.rs:154:18\n    19:     0x5635ad80eba1 - std::rt::lang_start::{{closure}}::h47e475a840d38e71\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/rt.rs:195:18\n    20:     0x5635ad835eb7 - core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once::h35ac998e8377d702\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/core/src/ops/function.rs:284:13\n    21:     0x5635ad835eb7 - std::panicking::try::do_call::h375eb96a9ae157af\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:573:40\n    22:     0x5635ad835eb7 - std::panicking::try::h004dd624c2163121\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:536:19\n    23:     0x5635ad835eb7 - std::panic::catch_unwind::h86180637abc5e029\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panic.rs:358:14\n    24:     0x5635ad835eb7 - std::rt::lang_start_internal::{{closure}}::h423349aec7014c22\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/rt.rs:174:48\n    25:     0x5635ad835eb7 - std::panicking::try::do_call::h4e2bc89ab3a21ffc\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:573:40\n    26:     0x5635ad835eb7 - std::panicking::try::hd6b79a96186c0cd0\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panicking.rs:536:19\n    27:     0x5635ad835eb7 - std::panic::catch_unwind::h2450b06afb6527e0\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/panic.rs:358:14\n    28:     0x5635ad835eb7 - std::rt::lang_start_internal::he23058d2283a9650\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/rt.rs:174:20\n    29:     0x5635ad80eb7a - std::rt::lang_start::hd29483eca0b3edb3\n                                 at /rustc/7442931d49b199ad0a1cc0f8ca54e327b5139b66/library/std/src/rt.rs:194:17\n    30:     0x5635ad81385e - main\n    31:     0x7ff6c382a1ca - <unknown>\n    32:     0x7ff6c382a28b - __libc_start_main\n    33:     0x5635ad80db45 - _start\n    34:                0x0 - <unknown>\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "cmd_idx": 16,
+      "file": "(virtual) rapx",
+      "kind": "Cargo",
+      "raw": "// pkg_name=lwext4_rust_examples, checker=Rapx\n// toolchain=nightly-2024-01-31, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_29/elliott10/lwext4_rust/examples\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 23:44:53.837693736 +08:00:00\nwarning: `/home/runner/check/batch_29/elliott10/lwext4_rust/examples/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nwarning: `/home/runner/check/batch_29/elliott10/lwext4_rust/examples/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nwarning: no edition set: defaulting to the 2015 edition while the latest is 2021\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.16\n   Compiling autocfg v1.4.0\n    Checking memchr v2.7.4\n    Checking nb v1.1.0\n    Checking bitflags v1.3.2\n    Checking cty v0.2.2\n    Checking scopeguard v1.2.0\n    Checking log v0.4.25\n    Checking either v1.13.0\n    Checking cstr_core v0.2.6\n   Compiling lock_api v0.4.12\n    Checking itertools v0.9.0\n    Checking nb v0.1.3\n   Compiling lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)\n   Compiling quote v1.0.38\n   Compiling riscv v0.8.0\n   Compiling syn v2.0.98\n    Checking byteorder v1.5.0\n    Checking void v1.0.2\n    Checking spinning_top v0.2.5\n    Checking embedded-hal v0.2.7\n    Checking printf-compat v0.1.1\n    Checking bit_field v0.10.2\n    Checking spin v0.9.8\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (/home/runner/check/batch_29/elliott10/lwext4_rust)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_29/elliott10/lwext4_rust/examples/target/debug/build/lwext4_rust-f6d2545fa0e7dcc7/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/check/batch_29/elliott10/lwext4_rust/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-cc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n  thread 'main' panicked at /home/runner/check/batch_29/elliott10/lwext4_rust/build.rs:48:9:\n  assertion failed: status.success()\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n15:44:57|RAP|ERROR|: Finished with non-zero exit code.\n"
+    },
+    {
+      "cmd_idx": 18,
+      "file": "src/arceos/driver/i2c/msg.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: length comparison to zero\n  --> src/arceos/driver/i2c/msg.rs:94:13\n   |\n94 |             self.buf.len() == 0\n   |             ^^^^^^^^^^^^^^^^^^^ help: using `is_empty` is clearer and more explicit: `self.buf.is_empty()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_zero\n   = note: `#[warn(clippy::len_zero)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 18,
+      "file": "src/math.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: returning the result of a `let` binding from a block\n  --> src/math.rs:51:5\n   |\n50 |     let quotient = n / base as u64;\n   |     ------------------------------- unnecessary `let` binding\n51 |     quotient\n   |     ^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\n   = note: `#[warn(clippy::let_and_return)]` on by default\nhelp: return the expression directly\n   |\n50 ~     \n51 ~     n / base as u64\n   |\n\n"
+    },
+    {
+      "cmd_idx": 18,
+      "file": "src/sync.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: doc list item without indentation\n --> src/sync.rs:6:5\n  |\n6 | //!  must supply a stuct called OslCompletion and implement GeneralComplete\n  |     ^\n  |\n  = help: if this is supposed to be its own paragraph, add a blank line\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n  = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n  |\n6 | //!   must supply a stuct called OslCompletion and implement GeneralComplete\n  |      +\n\n"
+    },
+    {
+      "cmd_idx": 18,
+      "file": "src/sync.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: doc list item without indentation\n --> src/sync.rs:9:5\n  |\n9 | //!  must supply a stuct called SpinLock and implement lock\n  |     ^\n  |\n  = help: if this is supposed to be its own paragraph, add a blank line\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n  |\n9 | //!   must supply a stuct called SpinLock and implement lock\n  |      +\n\n"
+    },
+    {
+      "cmd_idx": 19,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
       "raw": "pkg=osl, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=--features arceos\npkg_dir=/home/runner/check/batch_30/guoweikang/osl\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu --features arceos\ntimestamp=2025-02-16 21:58:13.217068771 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building osl v0.1.0 (current)\nerror: running cargo-doc on crate 'osl' failed with output:\n-----\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.16\n   Compiling hashbrown v0.15.2\n   Compiling serde v1.0.217\n   Compiling equivalent v1.0.2\n   Compiling toml_datetime v0.6.8\n   Compiling winnow v0.7.2\n   Compiling indexmap v2.7.1\n   Compiling quote v1.0.38\n    Checking bit_field v0.10.2\n   Compiling syn v2.0.98\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n   Compiling toml_edit v0.22.24\n   Compiling autocfg v1.4.0\n   Compiling x86 v0.52.0\n   Compiling lock_api v0.4.12\n    Checking cfg-if v1.0.0\n   Compiling rustversion v1.0.19\n    Checking log v0.4.25\n    Checking memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n    Checking bitflags v2.8.0\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#bee485a8)\n    Checking scopeguard v1.2.0\n    Checking static_assertions v1.1.0\n    Checking numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n    Checking volatile v0.4.6\n    Checking spin v0.9.8\n   Compiling paste v1.0.15\n   Compiling fnv v1.0.7\n   Compiling ident_case v1.0.1\n   Compiling percpu v0.1.0 (https://github.com/Starry-OS/percpu.git#85e6d8a7)\n    Checking tock-registers v0.8.1\n   Compiling strsim v0.11.1\n    Checking aarch64-cpu v9.4.0\n   Compiling darling_core v0.20.10\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#2a880338)\n    Checking kernel_guard v0.1.0 (https://github.com/Starry-OS/kernel_guard.git#c087bf99)\n    Checking spinlock v0.1.0 (https://github.com/Starry-OS/spinlock.git#0149e52d)\n   Compiling axhal v0.1.0 (https://github.com/Starry-OS/axhal.git#8bed6725)\n    Checking lazy_static v1.5.0\n    Checking x86_64 v0.15.2\n    Checking x86_64 v0.14.13\n   Compiling crate_interface v0.1.1 (https://github.com/Starry-OS/crate_interface.git#d27dd960)\n   Compiling percpu_macros v0.1.0 (https://github.com/Starry-OS/percpu_macros.git#b785b814)\n    Checking bit v0.1.1\n    Checking fdt v0.1.5\n    Checking of v0.1.0 (https://github.com/Starry-OS/of.git#45a65508)\n    Checking page_table_entry v0.1.0 (https://github.com/Starry-OS/page_table_entry.git#8a871b43)\n    Checking x2apic v0.4.3\n    Checking axlog v0.1.0 (https://github.com/Starry-OS/axlog.git#5b28a4c6)\n    Checking raw-cpuid v11.3.0\n    Checking ratio v0.1.0 (https://github.com/Starry-OS/ratio.git#0c8da4c3)\n    Checking lazy_init v0.1.0 (https://github.com/Starry-OS/lazy_init.git#d0e87c05)\n   Compiling darling_macro v0.20.10\n    Checking handler_table v0.1.0 (https://github.com/Starry-OS/handler_table.git#d6495e7d)\n    Checking linked_list v0.1.0 (https://github.com/Starry-OS/linked_list.git#283dddc4)\n    Checking axbacktrace v0.1.0 (https://github.com/kern-crates/axbacktrace.git#c0371ca8)\n   Compiling axerrno v0.1.0 (https://github.com/Starry-OS/axerrno.git#3e2372cd)\n    Checking scheduler v0.1.0 (https://github.com/Starry-OS/scheduler.git#036a0299)\n    Checking timer_list v0.1.0 (https://github.com/Starry-OS/timer_list.git#1dc25aad)\n   Compiling darling v0.20.10\n   Compiling derive_builder_core v0.20.2\n   Compiling derive_builder_macro v0.20.2\n    Checking axsignal v0.1.0 (https://github.com/Starry-OS/axsignal.git#1cc27325)\n    Checking axtask v0.1.0 (https://github.com/Starry-OS/axtask.git#d41e0730)\n    Checking axsync v0.1.0 (https://github.com/Starry-OS/axsync.git#70651a7c)\n    Checking derive_builder v0.20.2\n Documenting osl v0.1.0 (/home/runner/check/batch_30/guoweikang/osl)\nerror[E0428]: the name `log_print` is defined multiple times\n  --> /home/runner/check/batch_30/guoweikang/osl/src/arceos/log.rs:6:1\n   |\n6  |  / macro_rules! log_print (\n7  |  |     ($crate::log::LogLevel::Error, $($arg:tt)*) => (\n8  |  |         $crate::log::error!($($arg)*)\n9  |  |     );\n...   |\n18 |  |     );\n19 |  | );\n   |  |__^ `log_print` redefined here\n   |\n  ::: /home/runner/check/batch_30/guoweikang/osl/src/linux/log.rs:6:1\n   |\n6  | /  macro_rules! log_print (\n7  | |      // The non-continuation cases (most of them, e.g. `INFO`).\n8  | |      ($crate::log::LogLevel::Error, $($arg:tt)*) => (\n9  | |          $crate::log::pr_err!($($arg)*)\n...  |\n19 | |      );\n20 | |  );\n   | |___- previous definition of the macro `log_print` here\n   |\n   = note: `log_print` must be defined only once in the macro namespace of this module\n\nerror: macro expansion ends with an incomplete expression: expected `;`\n  --> /home/runner/check/batch_30/guoweikang/osl/src/sync.rs:20:55\n   |\n20 |         pub use kernel::{new_spinlock, sync::SpinLock}\n   |                                                       ^ expected `;`\n   |\n   = note: glob-like brace syntax must be last on the path\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/error.rs:1:5\n  |\n1 | use kernel::prelude::*;\n  |     ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/sleep.rs:1:5\n  |\n1 | use kernel::delay::usleep_range;\n  |     ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/time.rs:1:5\n  |\n1 | use kernel::timekeeping::*;\n  |     ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/driver/irq.rs:4:9\n  |\n4 | pub use kernel::irq::Return;\n  |         ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/vec.rs:8:9\n  |\n8 | pub use kernel::prelude::Vec;\n  |         ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/complete.rs:3:5\n  |\n3 | use kernel::{completion::Completion, new_completion, prelude::*, sync::Arc};\n  |     ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0432]: unresolved import `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/log.rs:1:9\n  |\n1 | pub use kernel::{pr_debug, pr_err, pr_info, pr_warn};\n  |         ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/error.rs:3:9\n  |\n3 | pub use kernel::prelude::Error;\n  |         ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0432]: unresolved import `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/complete.rs:3:5\n  |\n3 | use kernel::{completion::Completion, new_completion, prelude::*, sync::Arc};\n  |     ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror: cannot find attribute `pin_data` in this scope\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/complete.rs:6:3\n  |\n6 | #[pin_data]\n  |   ^^^^^^^^\n\nerror: cannot find attribute `pin` in this scope\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/complete.rs:8:7\n  |\n8 |     #[pin]\n  |       ^^^\n\nerror: cannot find macro `pin_init` in this scope\n  --> /home/runner/check/batch_30/guoweikang/osl/src/linux/complete.rs:14:23\n   |\n14 |         Arc::pin_init(pin_init!(Self {\n   |                       ^^^^^^^^\n\nerror[E0412]: cannot find type `Arc` in this scope\n  --> /home/runner/check/batch_30/guoweikang/osl/src/sync.rs:33:24\n   |\n33 |     fn new() -> Result<Arc<Self>>;\n   |                        ^^^ not found in this scope\n   |\nhelp: consider importing this struct\n   |\n14 + use alloc::sync::Arc;\n   |\n\nSome errors have detailed explanations: E0412, E0428, E0432, E0433.\nFor more information about an error, try `rustc --explain E0412`.\nerror: could not document `osl`\n\n-----\n\nerror: failed to build rustdoc for crate osl v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_30/guoweikang/osl --features arceos,axerrno,axhal,axlog,axsync,axtask,linux &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate osl v0.1.0\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 20,
       "file": "src/arceos/driver/i2c/msg.rs",
       "kind": "Mirai",
       "raw": "warning: [MIRAI] assertion failed: flags.contains(I2cMsgFlags::I2cMasterRead)\n  --> src/arceos/driver/i2c/msg.rs:46:10\n   |\n46 |          assert!(flags.contains(I2cMsgFlags::I2cMasterRead));\n   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 20,
       "file": "src/arceos/driver/i2c/msg.rs",
       "kind": "Mirai",
       "raw": "warning: [MIRAI] assertion failed: self.flags.contains(I2cMsgFlags::I2cMasterRecvLen)\n  --> src/arceos/driver/i2c/msg.rs:67:9\n   |\n67 |         assert!(self.flags.contains(I2cMsgFlags::I2cMasterRecvLen));\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 20,
       "file": "src/arceos/driver/i2c/msg.rs",
       "kind": "Mirai",
       "raw": "warning: [MIRAI] assertion failed: self.flags.contains(I2cMsgFlags::I2cMasterRead)\n  --> src/arceos/driver/i2c/msg.rs:68:9\n   |\n68 |         assert!(self.flags.contains(I2cMsgFlags::I2cMasterRead));\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 20,
       "file": "src/arceos/driver/i2c/msg.rs",
       "kind": "Mirai",
       "raw": "warning: [MIRAI] assertion failed: self.flags.contains(I2cMsgFlags::I2cMasterRead)\n  --> src/arceos/driver/i2c/msg.rs:74:9\n   |\n74 |         assert!(self.flags.contains(I2cMsgFlags::I2cMasterRead));\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 20,
       "file": "src/arceos/driver/i2c/msg.rs",
       "kind": "Mirai",
       "raw": "warning: [MIRAI] possible attempt to add with overflow\n  --> src/arceos/driver/i2c/msg.rs:75:9\n   |\n75 |         self.recieve_cmd_cnt +=1;\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 20,
       "file": "src/arceos/driver/i2c/msg.rs",
       "kind": "Mirai",
       "raw": "warning: [MIRAI] possible attempt to subtract with overflow\n  --> src/arceos/driver/i2c/msg.rs:82:46\n   |\n82 |             self.recieve_cmd_cnt as usize == self.recieve_threshold -1\n   |                                              ^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 20,
       "file": "src/arceos/driver/i2c/msg.rs",
       "kind": "Mirai",
       "raw": "warning: [MIRAI] assertion failed: self.flags.contains(I2cMsgFlags::I2cMasterRead)\n   --> src/arceos/driver/i2c/msg.rs:101:9\n    |\n101 |         assert!(self.flags.contains(I2cMsgFlags::I2cMasterRead));\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 20,
       "file": "src/arceos/driver/i2c/msg.rs",
       "kind": "Mirai",
       "raw": "warning: [MIRAI] assertion failed: self.flags.contains(I2cMsgFlags::I2cMasterRead)\n   --> src/arceos/driver/i2c/msg.rs:108:9\n    |\n108 |         assert!(self.flags.contains(I2cMsgFlags::I2cMasterRead));\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 20,
       "file": "src/arceos/driver/i2c/msg.rs",
       "kind": "Mirai",
       "raw": "warning: [MIRAI] assertion failed: !self.flags.contains(I2cMsgFlags::I2cMasterRead)\n   --> src/arceos/driver/i2c/msg.rs:119:9\n    |\n119 |         assert!(!self.flags.contains(I2cMsgFlags::I2cMasterRead));\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 3,
+      "cmd_idx": 20,
       "file": "src/arceos/driver/i2c/msg.rs",
       "kind": "Mirai",
       "raw": "warning: [MIRAI] assertion failed: self.flags.contains(I2cMsgFlags::I2cMasterRecvLen)\n   --> src/arceos/driver/i2c/msg.rs:129:9\n    |\n129 |         assert!(self.flags.contains(I2cMsgFlags::I2cMasterRecvLen));\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
     },
     {
-      "cmd_idx": 9,
+      "cmd_idx": 26,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
       "raw": "// pkg_name=osl, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=--features arceos\n// pkg_dir=/home/runner/check/batch_30/guoweikang/osl\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu --features arceos\n// timestamp=2025-02-16 21:58:01.635232652 +08:00:00\n    Building osl v0.1.0 (current)\nerror: running cargo-doc on crate 'osl' failed with output:\n-----\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.16\n   Compiling hashbrown v0.15.2\n   Compiling serde v1.0.217\n   Compiling equivalent v1.0.2\n   Compiling toml_datetime v0.6.8\n   Compiling winnow v0.7.2\n   Compiling indexmap v2.7.1\n   Compiling quote v1.0.38\n    Checking bit_field v0.10.2\n   Compiling syn v2.0.98\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n   Compiling toml_edit v0.22.24\n   Compiling autocfg v1.4.0\n   Compiling x86 v0.52.0\n   Compiling lock_api v0.4.12\n    Checking cfg-if v1.0.0\n   Compiling rustversion v1.0.19\n    Checking log v0.4.25\n    Checking memory_addr v0.1.0 (https://github.com/Starry-OS/memory_addr.git#a5be547a)\n    Checking bitflags v2.8.0\n   Compiling taskctx v0.1.0 (https://github.com/Starry-OS/taskctx.git#bee485a8)\n    Checking scopeguard v1.2.0\n    Checking static_assertions v1.1.0\n    Checking numeric-enum-macro v0.2.0 (https://github.com/mexus/numeric-enum-macro#20aef288)\n    Checking volatile v0.4.6\n    Checking spin v0.9.8\n   Compiling paste v1.0.15\n   Compiling fnv v1.0.7\n   Compiling ident_case v1.0.1\n   Compiling percpu v0.1.0 (https://github.com/Starry-OS/percpu.git#85e6d8a7)\n    Checking tock-registers v0.8.1\n   Compiling strsim v0.11.1\n    Checking aarch64-cpu v9.4.0\n   Compiling darling_core v0.20.10\n   Compiling axconfig v0.1.0 (https://github.com/Starry-OS/axconfig.git#2a880338)\n    Checking kernel_guard v0.1.0 (https://github.com/Starry-OS/kernel_guard.git#c087bf99)\n    Checking spinlock v0.1.0 (https://github.com/Starry-OS/spinlock.git#0149e52d)\n   Compiling axhal v0.1.0 (https://github.com/Starry-OS/axhal.git#8bed6725)\n    Checking lazy_static v1.5.0\n    Checking x86_64 v0.15.2\n    Checking x86_64 v0.14.13\n   Compiling crate_interface v0.1.1 (https://github.com/Starry-OS/crate_interface.git#d27dd960)\n   Compiling percpu_macros v0.1.0 (https://github.com/Starry-OS/percpu_macros.git#b785b814)\n    Checking bit v0.1.1\n    Checking fdt v0.1.5\n    Checking of v0.1.0 (https://github.com/Starry-OS/of.git#45a65508)\n    Checking page_table_entry v0.1.0 (https://github.com/Starry-OS/page_table_entry.git#8a871b43)\n    Checking x2apic v0.4.3\n    Checking axlog v0.1.0 (https://github.com/Starry-OS/axlog.git#5b28a4c6)\n    Checking raw-cpuid v11.3.0\n    Checking ratio v0.1.0 (https://github.com/Starry-OS/ratio.git#0c8da4c3)\n    Checking lazy_init v0.1.0 (https://github.com/Starry-OS/lazy_init.git#d0e87c05)\n   Compiling darling_macro v0.20.10\n    Checking handler_table v0.1.0 (https://github.com/Starry-OS/handler_table.git#d6495e7d)\n    Checking linked_list v0.1.0 (https://github.com/Starry-OS/linked_list.git#283dddc4)\n    Checking axbacktrace v0.1.0 (https://github.com/kern-crates/axbacktrace.git#c0371ca8)\n   Compiling axerrno v0.1.0 (https://github.com/Starry-OS/axerrno.git#3e2372cd)\n    Checking scheduler v0.1.0 (https://github.com/Starry-OS/scheduler.git#036a0299)\n    Checking timer_list v0.1.0 (https://github.com/Starry-OS/timer_list.git#1dc25aad)\n   Compiling darling v0.20.10\n   Compiling derive_builder_core v0.20.2\n   Compiling derive_builder_macro v0.20.2\n    Checking axsignal v0.1.0 (https://github.com/Starry-OS/axsignal.git#1cc27325)\n    Checking axtask v0.1.0 (https://github.com/Starry-OS/axtask.git#d41e0730)\n    Checking axsync v0.1.0 (https://github.com/Starry-OS/axsync.git#70651a7c)\n    Checking derive_builder v0.20.2\n Documenting osl v0.1.0 (/home/runner/check/batch_30/guoweikang/osl)\nerror[E0428]: the name `log_print` is defined multiple times\n  --> /home/runner/check/batch_30/guoweikang/osl/src/arceos/log.rs:6:1\n   |\n6  |  / macro_rules! log_print (\n7  |  |     ($crate::log::LogLevel::Error, $($arg:tt)*) => (\n8  |  |         $crate::log::error!($($arg)*)\n9  |  |     );\n...   |\n18 |  |     );\n19 |  | );\n   |  |__^ `log_print` redefined here\n   |\n  ::: /home/runner/check/batch_30/guoweikang/osl/src/linux/log.rs:6:1\n   |\n6  | /  macro_rules! log_print (\n7  | |      // The non-continuation cases (most of them, e.g. `INFO`).\n8  | |      ($crate::log::LogLevel::Error, $($arg:tt)*) => (\n9  | |          $crate::log::pr_err!($($arg)*)\n...  |\n19 | |      );\n20 | |  );\n   | |___- previous definition of the macro `log_print` here\n   |\n   = note: `log_print` must be defined only once in the macro namespace of this module\n\nerror: macro expansion ends with an incomplete expression: expected `;`\n  --> /home/runner/check/batch_30/guoweikang/osl/src/sync.rs:20:55\n   |\n20 |         pub use kernel::{new_spinlock, sync::SpinLock}\n   |                                                       ^ expected `;`\n   |\n   = note: glob-like brace syntax must be last on the path\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/error.rs:1:5\n  |\n1 | use kernel::prelude::*;\n  |     ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/sleep.rs:1:5\n  |\n1 | use kernel::delay::usleep_range;\n  |     ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/time.rs:1:5\n  |\n1 | use kernel::timekeeping::*;\n  |     ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/driver/irq.rs:4:9\n  |\n4 | pub use kernel::irq::Return;\n  |         ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/vec.rs:8:9\n  |\n8 | pub use kernel::prelude::Vec;\n  |         ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/complete.rs:3:5\n  |\n3 | use kernel::{completion::Completion, new_completion, prelude::*, sync::Arc};\n  |     ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0432]: unresolved import `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/log.rs:1:9\n  |\n1 | pub use kernel::{pr_debug, pr_err, pr_info, pr_warn};\n  |         ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0433]: failed to resolve: use of unresolved module or unlinked crate `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/error.rs:3:9\n  |\n3 | pub use kernel::prelude::Error;\n  |         ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror[E0432]: unresolved import `kernel`\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/complete.rs:3:5\n  |\n3 | use kernel::{completion::Completion, new_completion, prelude::*, sync::Arc};\n  |     ^^^^^^ use of unresolved module or unlinked crate `kernel`\n  |\n  = help: if you wanted to use a crate named `kernel`, use `cargo add kernel` to add it to your `Cargo.toml`\n\nerror: cannot find attribute `pin_data` in this scope\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/complete.rs:6:3\n  |\n6 | #[pin_data]\n  |   ^^^^^^^^\n\nerror: cannot find attribute `pin` in this scope\n --> /home/runner/check/batch_30/guoweikang/osl/src/linux/complete.rs:8:7\n  |\n8 |     #[pin]\n  |       ^^^\n\nerror: cannot find macro `pin_init` in this scope\n  --> /home/runner/check/batch_30/guoweikang/osl/src/linux/complete.rs:14:23\n   |\n14 |         Arc::pin_init(pin_init!(Self {\n   |                       ^^^^^^^^\n\nerror[E0412]: cannot find type `Arc` in this scope\n  --> /home/runner/check/batch_30/guoweikang/osl/src/sync.rs:33:24\n   |\n33 |     fn new() -> Result<Arc<Self>>;\n   |                        ^^^ not found in this scope\n   |\nhelp: consider importing this struct\n   |\n14 + use alloc::sync::Arc;\n   |\n\nSome errors have detailed explanations: E0412, E0428, E0432, E0433.\nFor more information about an error, try `rustc --explain E0412`.\nerror: could not document `osl`\n\n-----\n\nerror: failed to build rustdoc for crate osl v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_30/guoweikang/osl --features arceos,axerrno,axhal,axlog,axsync,axtask,linux &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate osl v0.1.0\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/aarch64.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 1 to 1)\n-use core::arch::asm;\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/aarch64.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 3 to 3)\n+use core::arch::asm;\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/aarch64.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 5 to 5)\n-    init_curr: bool, \n+    init_curr: bool,\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/aarch64.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 39 to 39)\n-\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/aarch64.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 53 to 53)\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/aarch64.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 56 to 57)\n-    fn new(pc:usize, fp:usize, stack_info: StackInfo) -> Self {\n-        Unwind{init_curr: false, pc,fp,stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/aarch64.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 69 to 69)\n-            error!(\"unwind init fp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init fp: {:#016x} is invalid\", self.fp);\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/lib.rs (original lines from 27 to 27)\n-        Self {low, high}\n+        Self { low, high }\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/lib.rs (original lines from 31 to 31)\n-         fp < self.high && fp > self.low\n+        fp < self.high && fp > self.low\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/lib.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/lib.rs (original lines from 37 to 37)\n-    fn new(pc:usize, fp:usize, stack_info: StackInfo) -> Self;\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self;\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/riscv.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 1 to 1)\n-use core::arch::asm;\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/riscv.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 3 to 3)\n+use core::arch::asm;\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/riscv.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 35 to 36)\n-            let stack: *const StackFrame = \n-                (self.fp as *const StackFrame).sub(1);\n+            let stack: *const StackFrame = (self.fp as *const StackFrame).sub(1);\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/riscv.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 44 to 46)\n-            let stack: *const StackFrame = \n-                (self.fp as *const StackFrame).sub(1);\n-            self.pc = (*stack).ra;   \n+            let stack: *const StackFrame = (self.fp as *const StackFrame).sub(1);\n+            self.pc = (*stack).ra;\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/riscv.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 64 to 66)\n-    fn new(pc:usize, fp: usize, stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: false, pc, fp, stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/riscv.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 69 to 71)\n-    fn new_from_cur_ctx(stack_info: StackInfo) \n-        -> Self {\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+    fn new_from_cur_ctx(stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/riscv.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 83 to 83)\n-            error!(\"unwind init sp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init sp: {:#016x} is invalid\", self.fp);\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/x86.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 1 to 1)\n-use core::arch::asm;\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/x86.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 3 to 3)\n+use core::arch::asm;\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/x86.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 66 to 68)\n-    fn new(pc:usize, fp: usize, stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: false, pc, fp, stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/x86.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 71 to 73)\n-    fn new_from_cur_ctx(stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+    fn new_from_cur_ctx(stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n"
-    },
-    {
-      "cmd_idx": 10,
-      "file": "src/x86.rs",
-      "kind": "Unformatted",
-      "raw": "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 85 to 85)\n-            error!(\"unwind init sp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init sp: {:#016x} is invalid\", self.fp);\n"
-    },
-    {
-      "cmd_idx": 12,
-      "file": "[semver checks]",
-      "kind": "Semver Violation",
-      "raw": "pkg=axbacktrace, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_30/kern-crates/axbacktrace\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 21:58:48.175295657 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axbacktrace v0.1.0 (current)\n       Built [   0.292s] (current)\n     Parsing axbacktrace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_30/kern-crates/axbacktrace/target/semver-checks/local-axbacktrace-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axbacktrace.json\n"
-    },
-    {
-      "cmd_idx": 13,
-      "file": "src/x86.rs",
-      "kind": "Mirai",
-      "raw": "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> src/x86.rs:59:9\n   |\n59 |         asm!(\"mov {ptr}, rbp\", ptr = out(reg) fp);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
-    },
-    {
-      "cmd_idx": 19,
-      "file": "(virtual) semver-checks",
-      "kind": "Cargo",
-      "raw": "// pkg_name=axbacktrace, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_30/kern-crates/axbacktrace\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 21:58:47.662984275 +08:00:00\n    Building axbacktrace v0.1.0 (current)\n       Built [   0.292s] (current)\n     Parsing axbacktrace v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_30/kern-crates/axbacktrace/target/semver-checks/local-axbacktrace-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axbacktrace.json\n"
     }
   ]
 }

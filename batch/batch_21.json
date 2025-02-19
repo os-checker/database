@@ -15,12 +15,18 @@
             "channel": "nightly-2025-01-26-x86_64-unknown-linux-gnu",
             "profile": null,
             "targets": [
-              "x86_64-unknown-linux-gnu"
+              "aarch64-unknown-none",
+              "riscv64gc-unknown-none-elf",
+              "x86_64-unknown-linux-gnu",
+              "x86_64-unknown-none"
             ],
             "components": [
               "cargo-x86_64-unknown-linux-gnu",
               "clippy-x86_64-unknown-linux-gnu",
+              "rust-std-aarch64-unknown-none",
+              "rust-std-riscv64gc-unknown-none-elf",
               "rust-std-x86_64-unknown-linux-gnu",
+              "rust-std-x86_64-unknown-none",
               "rustc-x86_64-unknown-linux-gnu",
               "rustfmt-x86_64-unknown-linux-gnu"
             ],
@@ -31,9 +37,9 @@
         ]
       },
       "os_checker": {
-        "start": 1739910456212,
-        "finish": 1739910457247,
-        "duration_ms": 1034,
+        "start": 1739997389426,
+        "finish": 1739997390395,
+        "duration_ms": 968,
         "git_time": "2025-02-16 16:17:11 +0800",
         "git_sha": "379b4c5f3884500f536ea00ffc0672d2af054861"
       }
@@ -95,28 +101,36 @@
     "repos": [
       {
         "user": "arceos-org",
-        "repo": "cap_access"
+        "repo": "axmm_crates"
       },
       {
         "user": "arceos-org",
-        "repo": "cpumask"
+        "repo": "cap_access"
       }
     ],
     "packages": [
       {
-        "name": "cap_access",
+        "name": "memory_addr",
         "repo": {
           "repo_idx": 0,
           "user": "arceos-org",
-          "repo": "cap_access"
+          "repo": "axmm_crates"
         }
       },
       {
-        "name": "cpumask",
+        "name": "memory_set",
+        "repo": {
+          "repo_idx": 0,
+          "user": "arceos-org",
+          "repo": "axmm_crates"
+        }
+      },
+      {
+        "name": "cap_access",
         "repo": {
           "repo_idx": 1,
           "user": "arceos-org",
-          "repo": "cpumask"
+          "repo": "cap_access"
         }
       }
     ]
@@ -127,7 +141,19 @@
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
-      "duration_ms": 97,
+      "duration_ms": 105,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 105,
       "arch": "riscv64gc",
       "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain": "nightly-2025-01-25",
@@ -139,7 +165,7 @@
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
-      "duration_ms": 98,
+      "duration_ms": 106,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -151,21 +177,9 @@
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 0,
-      "duration_ms": 97,
+      "duration_ms": 105,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 97,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
       "features": [],
       "flags": []
@@ -175,7 +189,7 @@
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
       "count": 0,
-      "duration_ms": 275,
+      "duration_ms": 220,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-25",
@@ -187,7 +201,7 @@
       "tool": "clippy",
       "cmd": "cargo clippy --target x86_64-unknown-none  --no-deps",
       "count": 0,
-      "duration_ms": 257,
+      "duration_ms": 193,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -199,7 +213,7 @@
       "tool": "clippy",
       "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
       "count": 0,
-      "duration_ms": 254,
+      "duration_ms": 195,
       "arch": "riscv64gc",
       "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain": "nightly-2025-01-25",
@@ -211,7 +225,7 @@
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none  --no-deps",
       "count": 0,
-      "duration_ms": 264,
+      "duration_ms": 202,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -223,7 +237,7 @@
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf ",
       "count": 1,
-      "duration_ms": 443,
+      "duration_ms": 360,
       "arch": "riscv64gc",
       "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain": "nightly-2025-01-25",
@@ -235,7 +249,7 @@
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
       "count": 1,
-      "duration_ms": 549,
+      "duration_ms": 457,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-25",
@@ -247,7 +261,7 @@
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none ",
       "count": 1,
-      "duration_ms": 462,
+      "duration_ms": 373,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -259,7 +273,7 @@
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none ",
       "count": 1,
-      "duration_ms": 454,
+      "duration_ms": 370,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -271,31 +285,7 @@
       "tool": "mirai",
       "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
       "count": 0,
-      "duration_ms": 669,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 242,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 264,
+      "duration_ms": 289,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-25",
@@ -307,7 +297,7 @@
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none ",
       "count": 0,
-      "duration_ms": 239,
+      "duration_ms": 118,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -316,358 +306,10 @@
     },
     {
       "package_idx": 0,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 268,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 1159,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none ",
-      "count": 0,
-      "duration_ms": 1197,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 1203,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "rapx",
-      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none ",
-      "count": 0,
-      "duration_ms": 1203,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "rudra",
-      "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 252,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 123,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 121,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 119,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "outdated",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
-      "count": 0,
-      "duration_ms": 131,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "geiger",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
-      "count": 0,
-      "duration_ms": 69,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 549,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 454,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 443,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 0,
-      "tool": "cargo",
-      "cmd": "VRITUAL=semver-checks cargo",
-      "count": 1,
-      "duration_ms": 462,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 98,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 99,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 100,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "fmt",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
-      "count": 0,
-      "duration_ms": 100,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
-      "count": 4,
-      "duration_ms": 517,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target x86_64-unknown-none  --no-deps",
-      "count": 4,
-      "duration_ms": 520,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
-      "count": 4,
-      "duration_ms": 509,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "clippy",
-      "cmd": "cargo clippy --target aarch64-unknown-none  --no-deps",
-      "count": 4,
-      "duration_ms": 517,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf ",
-      "count": 1,
-      "duration_ms": 708,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
-      "count": 1,
-      "duration_ms": 783,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none ",
-      "count": 1,
-      "duration_ms": 716,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "semver-checks",
-      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none ",
-      "count": 1,
-      "duration_ms": 701,
-      "arch": "aarch64",
-      "target_triple": "aarch64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "mirai",
-      "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
-      "count": 0,
-      "duration_ms": 621,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
-      "count": 0,
-      "duration_ms": 476,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
       "count": 0,
-      "duration_ms": 512,
+      "duration_ms": 136,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-25",
@@ -675,23 +317,11 @@
       "flags": []
     },
     {
-      "package_idx": 1,
-      "tool": "lockbud",
-      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none ",
-      "count": 0,
-      "duration_ms": 496,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-none",
-      "rust_toolchain": "nightly-2025-01-25",
-      "features": [],
-      "flags": []
-    },
-    {
-      "package_idx": 1,
+      "package_idx": 0,
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none ",
       "count": 0,
-      "duration_ms": 485,
+      "duration_ms": 121,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -699,11 +329,23 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 0,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 114,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
       "count": 0,
-      "duration_ms": 1387,
+      "duration_ms": 1080,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-25",
@@ -711,11 +353,11 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 0,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none ",
       "count": 0,
-      "duration_ms": 1587,
+      "duration_ms": 1060,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -723,11 +365,11 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 0,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
       "count": 0,
-      "duration_ms": 1375,
+      "duration_ms": 1079,
       "arch": "riscv64gc",
       "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain": "nightly-2025-01-25",
@@ -735,11 +377,11 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 0,
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none ",
       "count": 0,
-      "duration_ms": 1400,
+      "duration_ms": 1053,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -747,11 +389,11 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 0,
       "tool": "rudra",
       "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
       "count": 0,
-      "duration_ms": 266,
+      "duration_ms": 92,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-25",
@@ -759,23 +401,23 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 0,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
-      "duration_ms": 121,
-      "arch": "x86_64",
-      "target_triple": "x86_64-unknown-linux-gnu",
+      "duration_ms": 47,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain": "nightly-2025-01-25",
       "features": [],
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 0,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
-      "duration_ms": 120,
+      "duration_ms": 45,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -783,23 +425,23 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 0,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
-      "duration_ms": 119,
-      "arch": "riscv64gc",
-      "target_triple": "riscv64gc-unknown-none-elf",
+      "duration_ms": 45,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-25",
       "features": [],
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 0,
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 0,
-      "duration_ms": 115,
+      "duration_ms": 45,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -807,7 +449,7 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 0,
       "tool": "geiger",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
       "count": 0,
@@ -819,11 +461,371 @@
       "flags": []
     },
     {
-      "package_idx": 1,
+      "package_idx": 0,
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
-      "duration_ms": 783,
+      "duration_ms": 457,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 370,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 360,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 0,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 373,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 105,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 104,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 103,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 106,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
+      "count": 1,
+      "duration_ms": 173,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-none  --no-deps",
+      "count": 1,
+      "duration_ms": 168,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
+      "count": 1,
+      "duration_ms": 167,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target aarch64-unknown-none  --no-deps",
+      "count": 1,
+      "duration_ms": 171,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf ",
+      "count": 1,
+      "duration_ms": 425,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
+      "count": 1,
+      "duration_ms": 488,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none ",
+      "count": 1,
+      "duration_ms": 432,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none ",
+      "count": 1,
+      "duration_ms": 435,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 208,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none ",
+      "count": 0,
+      "duration_ms": 88,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 86,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none ",
+      "count": 0,
+      "duration_ms": 88,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 85,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 1433,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none ",
+      "count": 0,
+      "duration_ms": 1396,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 1394,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none ",
+      "count": 0,
+      "duration_ms": 1440,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "rudra",
+      "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 89,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 47,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 46,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 45,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 45,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "geiger",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
+      "count": 0,
+      "duration_ms": 71,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-linux-gnu",
       "rust_toolchain": "nightly-2025-01-25",
@@ -835,7 +837,19 @@
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
-      "duration_ms": 701,
+      "duration_ms": 488,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 1,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 435,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -847,7 +861,7 @@
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
-      "duration_ms": 708,
+      "duration_ms": 425,
       "arch": "riscv64gc",
       "target_triple": "riscv64gc-unknown-none-elf",
       "rust_toolchain": "nightly-2025-01-25",
@@ -859,7 +873,379 @@
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
-      "duration_ms": 716,
+      "duration_ms": 432,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 97,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 98,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 97,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "fmt",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
+      "count": 0,
+      "duration_ms": 97,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-linux-gnu  --no-deps",
+      "count": 0,
+      "duration_ms": 275,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target x86_64-unknown-none  --no-deps",
+      "count": 0,
+      "duration_ms": 257,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target riscv64gc-unknown-none-elf  --no-deps",
+      "count": 0,
+      "duration_ms": 254,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "clippy",
+      "cmd": "cargo clippy --target aarch64-unknown-none  --no-deps",
+      "count": 0,
+      "duration_ms": 264,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf ",
+      "count": 1,
+      "duration_ms": 443,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu ",
+      "count": 1,
+      "duration_ms": 549,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none ",
+      "count": 1,
+      "duration_ms": 462,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "semver-checks",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none ",
+      "count": 1,
+      "duration_ms": 454,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "mirai",
+      "cmd": "cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 669,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target riscv64gc-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 242,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 264,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none ",
+      "count": 0,
+      "duration_ms": 239,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "lockbud",
+      "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none ",
+      "count": 0,
+      "duration_ms": 268,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 1159,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none ",
+      "count": 0,
+      "duration_ms": 1197,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf ",
+      "count": 0,
+      "duration_ms": 1203,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "rapx",
+      "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none ",
+      "count": 0,
+      "duration_ms": 1203,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "rudra",
+      "cmd": "cargo +nightly-2021-10-21 rudra --target x86_64-unknown-linux-gnu ",
+      "count": 0,
+      "duration_ms": 252,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 123,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 121,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 119,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "outdated",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
+      "count": 0,
+      "duration_ms": 131,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "geiger",
+      "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii",
+      "count": 0,
+      "duration_ms": 69,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 549,
+      "arch": "x86_64",
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 454,
+      "arch": "aarch64",
+      "target_triple": "aarch64-unknown-none",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 443,
+      "arch": "riscv64gc",
+      "target_triple": "riscv64gc-unknown-none-elf",
+      "rust_toolchain": "nightly-2025-01-25",
+      "features": [],
+      "flags": []
+    },
+    {
+      "package_idx": 2,
+      "tool": "cargo",
+      "cmd": "VRITUAL=semver-checks cargo",
+      "count": 1,
+      "duration_ms": 462,
       "arch": "x86_64",
       "target_triple": "x86_64-unknown-none",
       "rust_toolchain": "nightly-2025-01-25",
@@ -872,193 +1258,169 @@
       "cmd_idx": 8,
       "file": "[semver checks]",
       "kind": "Semver Violation",
-      "raw": "pkg=cap_access, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 22:33:04.439422592 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cap_access v0.1.0 (current)\n       Built [   0.275s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/cap_access.json\n"
+      "raw": "pkg=memory_addr, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_addr\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 20:51:47.199332207 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building memory_addr v0.3.1 (current)\n       Built [   0.215s] (current)\n     Parsing memory_addr v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_addr-0_3_1-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/memory_addr.json\n"
     },
     {
       "cmd_idx": 9,
       "file": "[semver checks]",
       "kind": "Semver Violation",
-      "raw": "pkg=cap_access, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:33:03.52965835 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cap_access v0.1.0 (current)\n       Built [   0.323s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/cap_access.json\n"
+      "raw": "pkg=memory_addr, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_addr\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 20:51:46.461333287 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building memory_addr v0.3.1 (current)\n       Built [   0.254s] (current)\n     Parsing memory_addr v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_addr-0_3_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/memory_addr.json\n"
     },
     {
       "cmd_idx": 10,
       "file": "[semver checks]",
       "kind": "Semver Violation",
-      "raw": "pkg=cap_access, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-02-16 22:33:03.994088151 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cap_access v0.1.0 (current)\n       Built [   0.280s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/x86_64-unknown-none/doc/cap_access.json\n"
+      "raw": "pkg=memory_addr, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_addr\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-02-16 20:51:46.83712321 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building memory_addr v0.3.1 (current)\n       Built [   0.226s] (current)\n     Parsing memory_addr v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_addr-0_3_1-01666ec060466c14/target/x86_64-unknown-none/doc/memory_addr.json\n"
     },
     {
       "cmd_idx": 11,
       "file": "[semver checks]",
       "kind": "Semver Violation",
-      "raw": "pkg=cap_access, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 22:33:04.895651215 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cap_access v0.1.0 (current)\n       Built [   0.285s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/aarch64-unknown-none/doc/cap_access.json\n"
+      "raw": "pkg=memory_addr, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_addr\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 20:51:47.571759601 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building memory_addr v0.3.1 (current)\n       Built [   0.226s] (current)\n     Parsing memory_addr v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_addr-0_3_1-01666ec060466c14/target/aarch64-unknown-none/doc/memory_addr.json\n"
     },
     {
       "cmd_idx": 27,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
-      "raw": "// pkg_name=cap_access, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:33:02.980612176 +08:00:00\n    Building cap_access v0.1.0 (current)\n       Built [   0.323s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/cap_access.json\n"
+      "raw": "// pkg_name=memory_addr, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_addr\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 20:51:46.00331562 +08:00:00\n    Building memory_addr v0.3.1 (current)\n       Built [   0.254s] (current)\n     Parsing memory_addr v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_addr-0_3_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/memory_addr.json\n"
     },
     {
       "cmd_idx": 28,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
-      "raw": "// pkg_name=cap_access, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 22:33:04.441080403 +08:00:00\n    Building cap_access v0.1.0 (current)\n       Built [   0.285s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/aarch64-unknown-none/doc/cap_access.json\n"
+      "raw": "// pkg_name=memory_addr, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_addr\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 20:51:47.201003712 +08:00:00\n    Building memory_addr v0.3.1 (current)\n       Built [   0.226s] (current)\n     Parsing memory_addr v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_addr-0_3_1-01666ec060466c14/target/aarch64-unknown-none/doc/memory_addr.json\n"
     },
     {
       "cmd_idx": 29,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
-      "raw": "// pkg_name=cap_access, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 22:33:03.995673887 +08:00:00\n    Building cap_access v0.1.0 (current)\n       Built [   0.275s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/cap_access.json\n"
+      "raw": "// pkg_name=memory_addr, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_addr\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 20:51:46.838739235 +08:00:00\n    Building memory_addr v0.3.1 (current)\n       Built [   0.215s] (current)\n     Parsing memory_addr v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_addr-0_3_1-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/memory_addr.json\n"
     },
     {
       "cmd_idx": 30,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
-      "raw": "// pkg_name=cap_access, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-16 22:33:03.531373379 +08:00:00\n    Building cap_access v0.1.0 (current)\n       Built [   0.280s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/x86_64-unknown-none/doc/cap_access.json\n"
+      "raw": "// pkg_name=memory_addr, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_addr\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-16 20:51:46.463114981 +08:00:00\n    Building memory_addr v0.3.1 (current)\n       Built [   0.226s] (current)\n     Parsing memory_addr v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_addr-0_3_1-01666ec060466c14/target/x86_64-unknown-none/doc/memory_addr.json\n"
     },
     {
       "cmd_idx": 35,
-      "file": "src/lib.rs",
+      "file": "memory_set/src/set.rs",
       "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 35,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 35,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 35,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
+      "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<B>`\n  --> memory_set/src/set.rs:17:5\n   |\n17 | /     pub const fn new() -> Self {\n18 | |         Self {\n19 | |             areas: BTreeMap::new(),\n20 | |         }\n21 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n15 + impl<B: MappingBackend> Default for MemorySet<B> {\n16 +     fn default() -> Self {\n17 +         Self::new()\n18 +     }\n19 + }\n   |\n\n"
     },
     {
       "cmd_idx": 36,
-      "file": "src/lib.rs",
+      "file": "memory_set/src/set.rs",
       "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 36,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 36,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 36,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
+      "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<B>`\n  --> memory_set/src/set.rs:17:5\n   |\n17 | /     pub const fn new() -> Self {\n18 | |         Self {\n19 | |             areas: BTreeMap::new(),\n20 | |         }\n21 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n15 + impl<B: MappingBackend> Default for MemorySet<B> {\n16 +     fn default() -> Self {\n17 +         Self::new()\n18 +     }\n19 + }\n   |\n\n"
     },
     {
       "cmd_idx": 37,
-      "file": "src/lib.rs",
+      "file": "memory_set/src/set.rs",
       "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 37,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 37,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 37,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
+      "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<B>`\n  --> memory_set/src/set.rs:17:5\n   |\n17 | /     pub const fn new() -> Self {\n18 | |         Self {\n19 | |             areas: BTreeMap::new(),\n20 | |         }\n21 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n15 + impl<B: MappingBackend> Default for MemorySet<B> {\n16 +     fn default() -> Self {\n17 +         Self::new()\n18 +     }\n19 + }\n   |\n\n"
     },
     {
       "cmd_idx": 38,
-      "file": "src/lib.rs",
+      "file": "memory_set/src/set.rs",
       "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 38,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:438:6\n    |\n438 | impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n    |      ^^                                       ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n    |\n438 - impl<'a, const SIZE: usize> Iterator for Iter<'a, SIZE>\n438 + impl<const SIZE: usize> Iterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 38,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
-    },
-    {
-      "cmd_idx": 38,
-      "file": "src/lib.rs",
-      "kind": "Clippy(Warn)",
-      "raw": "warning: the following explicit lifetimes could be elided: 'a\n   --> src/lib.rs:482:6\n    |\n482 | impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n    |      ^^                                                  ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n482 - impl<'a, const SIZE: usize> DoubleEndedIterator for Iter<'a, SIZE>\n482 + impl<const SIZE: usize> DoubleEndedIterator for Iter<'_, SIZE>\n    |\n\n"
+      "raw": "warning: you should consider adding a `Default` implementation for `MemorySet<B>`\n  --> memory_set/src/set.rs:17:5\n   |\n17 | /     pub const fn new() -> Self {\n18 | |         Self {\n19 | |             areas: BTreeMap::new(),\n20 | |         }\n21 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n15 + impl<B: MappingBackend> Default for MemorySet<B> {\n16 +     fn default() -> Self {\n17 +         Self::new()\n18 +     }\n19 + }\n   |\n\n"
     },
     {
       "cmd_idx": 39,
       "file": "[semver checks]",
       "kind": "Semver Violation",
-      "raw": "pkg=cpumask, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cpumask\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 22:33:20.760876836 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cpumask v0.1.0 (current)\n       Built [   0.532s] (current)\n     Parsing cpumask v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cpumask/target/semver-checks/local-cpumask-0_1_0-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/cpumask.json\n"
+      "raw": "pkg=memory_set, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_set\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 20:51:48.923854213 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building memory_set v0.3.1 (current)\n       Built [   0.277s] (current)\n     Parsing memory_set v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_set-0_3_1-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/memory_set.json\n"
     },
     {
       "cmd_idx": 40,
       "file": "[semver checks]",
       "kind": "Semver Violation",
-      "raw": "pkg=cpumask, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cpumask\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:33:19.33173038 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cpumask v0.1.0 (current)\n       Built [   0.555s] (current)\n     Parsing cpumask v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cpumask/target/semver-checks/local-cpumask-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/cpumask.json\n"
+      "raw": "pkg=memory_set, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_set\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 20:51:48.061758933 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building memory_set v0.3.1 (current)\n       Built [   0.308s] (current)\n     Parsing memory_set v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_set-0_3_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/memory_set.json\n"
     },
     {
       "cmd_idx": 41,
       "file": "[semver checks]",
       "kind": "Semver Violation",
-      "raw": "pkg=cpumask, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cpumask\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-02-16 22:33:20.050580164 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cpumask v0.1.0 (current)\n       Built [   0.547s] (current)\n     Parsing cpumask v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cpumask/target/semver-checks/local-cpumask-0_1_0-01666ec060466c14/target/x86_64-unknown-none/doc/cpumask.json\n"
+      "raw": "pkg=memory_set, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_set\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-02-16 20:51:48.496478039 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building memory_set v0.3.1 (current)\n       Built [   0.285s] (current)\n     Parsing memory_set v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_set-0_3_1-01666ec060466c14/target/x86_64-unknown-none/doc/memory_set.json\n"
     },
     {
       "cmd_idx": 42,
       "file": "[semver checks]",
       "kind": "Semver Violation",
-      "raw": "pkg=cpumask, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cpumask\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 22:33:21.463792633 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cpumask v0.1.0 (current)\n       Built [   0.535s] (current)\n     Parsing cpumask v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cpumask/target/semver-checks/local-cpumask-0_1_0-01666ec060466c14/target/aarch64-unknown-none/doc/cpumask.json\n"
+      "raw": "pkg=memory_set, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_set\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 20:51:49.361021354 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building memory_set v0.3.1 (current)\n       Built [   0.287s] (current)\n     Parsing memory_set v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_set-0_3_1-01666ec060466c14/target/aarch64-unknown-none/doc/memory_set.json\n"
     },
     {
       "cmd_idx": 58,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
-      "raw": "// pkg_name=cpumask, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cpumask\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:33:18.548691504 +08:00:00\n    Building cpumask v0.1.0 (current)\n       Built [   0.555s] (current)\n     Parsing cpumask v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cpumask/target/semver-checks/local-cpumask-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/cpumask.json\n"
+      "raw": "// pkg_name=memory_set, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_set\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 20:51:47.57352233 +08:00:00\n    Building memory_set v0.3.1 (current)\n       Built [   0.308s] (current)\n     Parsing memory_set v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_set-0_3_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/memory_set.json\n"
     },
     {
       "cmd_idx": 59,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
-      "raw": "// pkg_name=cpumask, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cpumask\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 22:33:20.762591823 +08:00:00\n    Building cpumask v0.1.0 (current)\n       Built [   0.535s] (current)\n     Parsing cpumask v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cpumask/target/semver-checks/local-cpumask-0_1_0-01666ec060466c14/target/aarch64-unknown-none/doc/cpumask.json\n"
+      "raw": "// pkg_name=memory_set, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_set\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 20:51:48.925615563 +08:00:00\n    Building memory_set v0.3.1 (current)\n       Built [   0.287s] (current)\n     Parsing memory_set v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_set-0_3_1-01666ec060466c14/target/aarch64-unknown-none/doc/memory_set.json\n"
     },
     {
       "cmd_idx": 60,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
-      "raw": "// pkg_name=cpumask, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cpumask\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 22:33:20.05257979 +08:00:00\n    Building cpumask v0.1.0 (current)\n       Built [   0.532s] (current)\n     Parsing cpumask v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cpumask/target/semver-checks/local-cpumask-0_1_0-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/cpumask.json\n"
+      "raw": "// pkg_name=memory_set, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_set\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 20:51:48.498153645 +08:00:00\n    Building memory_set v0.3.1 (current)\n       Built [   0.277s] (current)\n     Parsing memory_set v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_set-0_3_1-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/memory_set.json\n"
     },
     {
       "cmd_idx": 61,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
-      "raw": "// pkg_name=cpumask, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cpumask\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-16 22:33:19.333856173 +08:00:00\n    Building cpumask v0.1.0 (current)\n       Built [   0.547s] (current)\n     Parsing cpumask v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cpumask/target/semver-checks/local-cpumask-0_1_0-01666ec060466c14/target/x86_64-unknown-none/doc/cpumask.json\n"
+      "raw": "// pkg_name=memory_set, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_20/arceos-org/axmm_crates/memory_set\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-16 20:51:48.06370129 +08:00:00\n    Building memory_set v0.3.1 (current)\n       Built [   0.285s] (current)\n     Parsing memory_set v0.3.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_20/arceos-org/axmm_crates/target/semver-checks/local-memory_set-0_3_1-01666ec060466c14/target/x86_64-unknown-none/doc/memory_set.json\n"
+    },
+    {
+      "cmd_idx": 70,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
+      "raw": "pkg=cap_access, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 22:33:04.439422592 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cap_access v0.1.0 (current)\n       Built [   0.275s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/cap_access.json\n"
+    },
+    {
+      "cmd_idx": 71,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
+      "raw": "pkg=cap_access, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:33:03.52965835 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cap_access v0.1.0 (current)\n       Built [   0.323s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/cap_access.json\n"
+    },
+    {
+      "cmd_idx": 72,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
+      "raw": "pkg=cap_access, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-02-16 22:33:03.994088151 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cap_access v0.1.0 (current)\n       Built [   0.280s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/x86_64-unknown-none/doc/cap_access.json\n"
+    },
+    {
+      "cmd_idx": 73,
+      "file": "[semver checks]",
+      "kind": "Semver Violation",
+      "raw": "pkg=cap_access, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-02-16 22:33:04.895651215 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building cap_access v0.1.0 (current)\n       Built [   0.285s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/aarch64-unknown-none/doc/cap_access.json\n"
+    },
+    {
+      "cmd_idx": 89,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=cap_access, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:33:02.980612176 +08:00:00\n    Building cap_access v0.1.0 (current)\n       Built [   0.323s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/cap_access.json\n"
+    },
+    {
+      "cmd_idx": 90,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=cap_access, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 22:33:04.441080403 +08:00:00\n    Building cap_access v0.1.0 (current)\n       Built [   0.285s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/aarch64-unknown-none/doc/cap_access.json\n"
+    },
+    {
+      "cmd_idx": 91,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=cap_access, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 22:33:03.995673887 +08:00:00\n    Building cap_access v0.1.0 (current)\n       Built [   0.275s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/cap_access.json\n"
+    },
+    {
+      "cmd_idx": 92,
+      "file": "(virtual) semver-checks",
+      "kind": "Cargo",
+      "raw": "// pkg_name=cap_access, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_21/arceos-org/cap_access\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-16 22:33:03.531373379 +08:00:00\n    Building cap_access v0.1.0 (current)\n       Built [   0.280s] (current)\n     Parsing cap_access v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_21/arceos-org/cap_access/target/semver-checks/local-cap_access-0_1_0-01666ec060466c14/target/x86_64-unknown-none/doc/cap_access.json\n"
     }
   ]
 }
