@@ -15,31 +15,38 @@
             "channel": "nightly-2025-01-26-x86_64-unknown-linux-gnu",
             "profile": null,
             "targets": [
-              "aarch64-unknown-none",
-              "riscv64gc-unknown-none-elf",
-              "x86_64-unknown-linux-gnu",
-              "x86_64-unknown-none"
+              "x86_64-unknown-linux-gnu"
             ],
             "components": [
               "cargo-x86_64-unknown-linux-gnu",
               "clippy-x86_64-unknown-linux-gnu",
-              "rust-std-aarch64-unknown-none",
-              "rust-std-riscv64gc-unknown-none-elf",
               "rust-std-x86_64-unknown-linux-gnu",
-              "rust-std-x86_64-unknown-none",
               "rustc-x86_64-unknown-linux-gnu",
               "rustfmt-x86_64-unknown-linux-gnu"
             ],
             "toml_path": "/home/runner/check",
             "need_install_clippy": false,
             "peculiar_targets": null
+          },
+          {
+            "channel": "nightly-2025-01-18",
+            "profile": "minimal",
+            "targets": [
+              "aarch64-unknown-none-softfloat"
+            ],
+            "components": [
+              "llvm-tools-preview"
+            ],
+            "toml_path": "/home/runner/check/batch_30/elliott10/fxmac_rs/rust-toolchain",
+            "need_install_clippy": false,
+            "peculiar_targets": null
           }
         ]
       },
       "os_checker": {
-        "start": 1740601991943,
-        "finish": 1740601992722,
-        "duration_ms": 779,
+        "start": 1740774683567,
+        "finish": 1740774736438,
+        "duration_ms": 52871,
         "git_time": "2025-02-16 16:17:11 +0800",
         "git_sha": "379b4c5f3884500f536ea00ffc0672d2af054861"
       }
@@ -141,7 +148,7 @@
       "tool": "fmt",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu fmt",
       "count": 380,
-      "duration_ms": 135,
+      "duration_ms": 196,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none-softfloat",
       "rust_toolchain": "nightly-2025-01-18",
@@ -152,8 +159,8 @@
       "package_idx": 0,
       "tool": "clippy",
       "cmd": "cargo clippy --target aarch64-unknown-none-softfloat  --no-deps",
-      "count": 107,
-      "duration_ms": 3367,
+      "count": 109,
+      "duration_ms": 4101,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none-softfloat",
       "rust_toolchain": "nightly-2025-01-18",
@@ -165,7 +172,7 @@
       "tool": "semver-checks",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat ",
       "count": 1,
-      "duration_ms": 486,
+      "duration_ms": 513,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none-softfloat",
       "rust_toolchain": "nightly-2025-01-18",
@@ -177,7 +184,7 @@
       "tool": "lockbud",
       "cmd": "cargo +nightly-2024-12-01 lockbud -k all -- --target aarch64-unknown-none-softfloat ",
       "count": 0,
-      "duration_ms": 4309,
+      "duration_ms": 4576,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none-softfloat",
       "rust_toolchain": "nightly-2025-01-18",
@@ -189,7 +196,7 @@
       "tool": "rapx",
       "cmd": "cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none-softfloat ",
       "count": 1,
-      "duration_ms": 8255,
+      "duration_ms": 9435,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none-softfloat",
       "rust_toolchain": "nightly-2025-01-18",
@@ -201,7 +208,7 @@
       "tool": "outdated",
       "cmd": "cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2",
       "count": 1,
-      "duration_ms": 169,
+      "duration_ms": 206,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none-softfloat",
       "rust_toolchain": "nightly-2025-01-18",
@@ -213,7 +220,7 @@
       "tool": "cargo",
       "cmd": "VRITUAL=semver-checks cargo",
       "count": 1,
-      "duration_ms": 486,
+      "duration_ms": 513,
       "arch": "aarch64",
       "target_triple": "aarch64-unknown-none-softfloat",
       "rust_toolchain": "nightly-2025-01-18",
@@ -2714,6 +2721,18 @@
     },
     {
       "cmd_idx": 1,
+      "file": "src/lib.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_HI_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_HI_MASK` in the value namespace is also re-exported here\n   |\n   = note: `#[warn(ambiguous_glob_reexports)]` on by default\n\n"
+    },
+    {
+      "cmd_idx": 1,
+      "file": "src/lib.rs",
+      "kind": "Clippy(Warn)",
+      "raw": "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_LO_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_LO_MASK` in the value namespace is also re-exported here\n\n"
+    },
+    {
+      "cmd_idx": 1,
       "file": "src/fxmac_const.rs",
       "kind": "Clippy(Warn)",
       "raw": "warning: casting integer literal to `u64` is unnecessary\n   --> src/fxmac_const.rs:538:7\n    |\n538 |     (!(0 as u64) - (1 << l) + 1) &\n    |       ^^^^^^^^^^ help: try: `0_u64`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
@@ -3352,25 +3371,25 @@
       "cmd_idx": 2,
       "file": "[semver checks]",
       "kind": "Semver Violation",
-      "raw": "pkg=fxmac_rs, checker=SemverChecks\ntoolchain=nightly-2025-01-18, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_30/elliott10/fxmac_rs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \ntimestamp=2025-02-21 22:11:38.475987148 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building fxmac_rs v0.2.0 (current)\nerror: running cargo-doc on crate 'fxmac_rs' failed with output:\n-----\nwarning: /home/runner/check/batch_30/elliott10/fxmac_rs/Cargo.toml: the cargo feature `edition2024` has been stabilized in the 1.85 release and is no longer necessary to be listed in the manifest\n  See https://doc.rust-lang.org/nightly/cargo/reference/manifest.html#the-edition-field for more information about using this feature.\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.17\n    Checking tock-registers v0.9.0\n    Checking log v0.4.26\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `tock-registers` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `log` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate fxmac_rs v0.2.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_30/elliott10/fxmac_rs --features debug &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate fxmac_rs v0.2.0\n"
+      "raw": "pkg=fxmac_rs, checker=SemverChecks\ntoolchain=nightly-2025-01-18, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_30/elliott10/fxmac_rs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \ntimestamp=2025-03-01 4:32:01.556814808 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building fxmac_rs v0.2.0 (current)\nerror: running cargo-doc on crate 'fxmac_rs' failed with output:\n-----\nwarning: /home/runner/check/batch_30/elliott10/fxmac_rs/Cargo.toml: the cargo feature `edition2024` has been stabilized in the 1.85 release and is no longer necessary to be listed in the manifest\n  See https://doc.rust-lang.org/nightly/cargo/reference/manifest.html#the-edition-field for more information about using this feature.\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.17\n    Checking tock-registers v0.9.0\n    Checking log v0.4.26\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `tock-registers` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `log` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate fxmac_rs v0.2.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_30/elliott10/fxmac_rs --features debug &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate fxmac_rs v0.2.0\n"
     },
     {
       "cmd_idx": 4,
       "file": "[rap] Not supported to display yet.",
       "kind": "Rapx",
-      "raw": "pkg=fxmac_rs, checker=Rapx\ntoolchain=nightly-2025-01-18, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_30/elliott10/fxmac_rs\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none-softfloat \ntimestamp=2025-02-21 22:11:51.128970604 +08:00:00\n\nwarning: Memory Leak detected.\n   --> src/utils.rs:229:17\n    |\n217 | pub(crate) fn dma_alloc_coherent(pages: usize) -> (usize, usize) {\n218 |     let paddr: Box<[u32]> = if pages == 1 {\n219 |         Box::new([0; 1024]) // 4096\n220 |     } else if pages == 8 {\n221 |         Box::new([0; 1024 * 8]) // 4096\n222 |     } else {\n223 |         warn!(\"Alloc {} pages failed\", pages);\n224 |         Box::new([0; 1024])\n225 |     };\n226 |\n227 |     let len = paddr.len();\n228 |\n229 |     let paddr = Box::into_raw(paddr) as *const u32 as usize;\n    |                 -------------------- Memory Leak Candidates.\n230 |     //let vaddr = phys_to_virt(paddr);\n231 |     let vaddr = paddr;\n232 |     debug!(\"fxmac: dma alloc paddr: {:#x}, len={}\", paddr, len);\n233 |\n234 |     (vaddr, paddr)\n235 | }\n    |\nOver visited: DefId(0:659 ~ fxmac_rs[2976]::fxmac_intr::FXmacIntrHandler)\nOver visited: DefId(0:750 ~ fxmac_rs[2976]::fxmac::FXmacSetOptions)\nOver visited: DefId(0:751 ~ fxmac_rs[2976]::fxmac::FXmacClearOptions)\nOver visited: DefId(0:762 ~ fxmac_rs[2976]::fxmac::FXmacSelectClk)\nOver visited: DefId(0:765 ~ fxmac_rs[2976]::fxmac::FXmacInitInterface)\n"
+      "raw": "pkg=fxmac_rs, checker=Rapx\ntoolchain=nightly-2025-01-18, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_30/elliott10/fxmac_rs\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none-softfloat \ntimestamp=2025-03-01 4:32:15.658928601 +08:00:00\n\nwarning: Memory Leak detected.\n   --> src/utils.rs:229:17\n    |\n217 | pub(crate) fn dma_alloc_coherent(pages: usize) -> (usize, usize) {\n218 |     let paddr: Box<[u32]> = if pages == 1 {\n219 |         Box::new([0; 1024]) // 4096\n220 |     } else if pages == 8 {\n221 |         Box::new([0; 1024 * 8]) // 4096\n222 |     } else {\n223 |         warn!(\"Alloc {} pages failed\", pages);\n224 |         Box::new([0; 1024])\n225 |     };\n226 |\n227 |     let len = paddr.len();\n228 |\n229 |     let paddr = Box::into_raw(paddr) as *const u32 as usize;\n    |                 -------------------- Memory Leak Candidates.\n230 |     //let vaddr = phys_to_virt(paddr);\n231 |     let vaddr = paddr;\n232 |     debug!(\"fxmac: dma alloc paddr: {:#x}, len={}\", paddr, len);\n233 |\n234 |     (vaddr, paddr)\n235 | }\n    |\nOver visited: DefId(0:659 ~ fxmac_rs[2976]::fxmac_intr::FXmacIntrHandler)\nOver visited: DefId(0:750 ~ fxmac_rs[2976]::fxmac::FXmacSetOptions)\nOver visited: DefId(0:751 ~ fxmac_rs[2976]::fxmac::FXmacClearOptions)\nOver visited: DefId(0:762 ~ fxmac_rs[2976]::fxmac::FXmacSelectClk)\nOver visited: DefId(0:765 ~ fxmac_rs[2976]::fxmac::FXmacInitInterface)\n"
     },
     {
       "cmd_idx": 5,
       "file": "[outdated direct dependencies]",
       "kind": "Outdated",
-      "raw": "pkg=fxmac_rs, checker=Outdated\ntoolchain=nightly-2025-01-18, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_30/elliott10/fxmac_rs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-21 22:11:51.300412866 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nlog   0.4.22   0.4.26  0.4.26  Normal  ---\n"
+      "raw": "pkg=fxmac_rs, checker=Outdated\ntoolchain=nightly-2025-01-18, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_30/elliott10/fxmac_rs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-03-01 4:32:15.866030112 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nlog   0.4.22   0.4.26  0.4.26  Normal  ---\n"
     },
     {
       "cmd_idx": 6,
       "file": "(virtual) semver-checks",
       "kind": "Cargo",
-      "raw": "// pkg_name=fxmac_rs, checker=SemverChecks\n// toolchain=nightly-2025-01-18, target=aarch64-unknown-none-softfloat\n// features=\n// pkg_dir=/home/runner/check/batch_30/elliott10/fxmac_rs\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \n// timestamp=2025-02-21 22:11:37.989759378 +08:00:00\n    Building fxmac_rs v0.2.0 (current)\nerror: running cargo-doc on crate 'fxmac_rs' failed with output:\n-----\nwarning: /home/runner/check/batch_30/elliott10/fxmac_rs/Cargo.toml: the cargo feature `edition2024` has been stabilized in the 1.85 release and is no longer necessary to be listed in the manifest\n  See https://doc.rust-lang.org/nightly/cargo/reference/manifest.html#the-edition-field for more information about using this feature.\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.17\n    Checking tock-registers v0.9.0\n    Checking log v0.4.26\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `tock-registers` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `log` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate fxmac_rs v0.2.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_30/elliott10/fxmac_rs --features debug &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate fxmac_rs v0.2.0\n"
+      "raw": "// pkg_name=fxmac_rs, checker=SemverChecks\n// toolchain=nightly-2025-01-18, target=aarch64-unknown-none-softfloat\n// features=\n// pkg_dir=/home/runner/check/batch_30/elliott10/fxmac_rs\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \n// timestamp=2025-03-01 4:32:01.043027856 +08:00:00\n    Building fxmac_rs v0.2.0 (current)\nerror: running cargo-doc on crate 'fxmac_rs' failed with output:\n-----\nwarning: /home/runner/check/batch_30/elliott10/fxmac_rs/Cargo.toml: the cargo feature `edition2024` has been stabilized in the 1.85 release and is no longer necessary to be listed in the manifest\n  See https://doc.rust-lang.org/nightly/cargo/reference/manifest.html#the-edition-field for more information about using this feature.\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.17\n    Checking tock-registers v0.9.0\n    Checking log v0.4.26\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `tock-registers` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `log` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate fxmac_rs v0.2.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_30/elliott10/fxmac_rs --features debug &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate fxmac_rs v0.2.0\n"
     },
     {
       "cmd_idx": 7,
