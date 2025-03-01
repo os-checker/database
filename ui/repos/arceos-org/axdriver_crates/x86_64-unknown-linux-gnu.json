@@ -7,59 +7,6 @@
     {
       "user": "arceos-org",
       "repo": "axdriver_crates",
-      "pkg": "axdriver_net",
-      "count": 7,
-      "raw_reports": [
-        {
-          "file": "axdriver_net/src/lib.rs",
-          "features": "",
-          "count": 4,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: the feature `const_mut_refs` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> axdriver_net/src/lib.rs:4:12\n  |\n4 | #![feature(const_mut_refs)]\n  |            ^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n",
-              "warning: the feature `const_slice_from_raw_parts_mut` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> axdriver_net/src/lib.rs:5:12\n  |\n5 | #![feature(const_slice_from_raw_parts_mut)]\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
-            ],
-            "Mirai": [
-              "warning: the feature `const_mut_refs` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> axdriver_net/src/lib.rs:4:12\n  |\n4 | #![feature(const_mut_refs)]\n  |            ^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n",
-              "warning: the feature `const_slice_from_raw_parts_mut` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> axdriver_net/src/lib.rs:5:12\n  |\n5 | #![feature(const_slice_from_raw_parts_mut)]\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) semver-checks",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=axdriver_net, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_net\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:31:02.906098461 +08:00:00\n    Building axdriver_net v0.1.1 (current)\n       Built [   2.594s] (current)\n     Parsing axdriver_net v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_net-0_1_1-f8028b71fbdaf8e1/target/x86_64-unknown-linux-gnu/doc/axdriver_net.json\n"
-            ]
-          }
-        },
-        {
-          "file": "[rap] Not supported to display yet.",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Rapx": [
-              "pkg=axdriver_net, checker=Rapx\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_net\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:32:04.537448513 +08:00:00\n\nwarning: Memory Leak detected.\n   --> axdriver_net/src/net_buf.rs:109:26\n    |\n105 | pub fn into_buf_ptr(mut self: Box<Self>) -> NetBufPtr {\n106 |         let buf_ptr = self.packet_mut().as_mut_ptr();\n107 |         let len = self.packet_len;\n108 |         NetBufPtr::new(\n109 |             NonNull::new(Box::into_raw(self) as *mut u8).unwrap(),\n    |                          ------------------- Memory Leak Candidates.\n110 |             NonNull::new(buf_ptr).unwrap(),\n111 |             len,\n112 |         )\n113 |     }\n    |\n"
-            ]
-          }
-        },
-        {
-          "file": "[semver checks]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Semver Violation": [
-              "pkg=axdriver_net, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_net\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:31:05.80890937 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_net v0.1.1 (current)\n       Built [   2.594s] (current)\n     Parsing axdriver_net v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_net-0_1_1-f8028b71fbdaf8e1/target/x86_64-unknown-linux-gnu/doc/axdriver_net.json\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "arceos-org",
-      "repo": "axdriver_crates",
       "pkg": "axdriver_virtio",
       "count": 4,
       "raw_reports": [
@@ -69,7 +16,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=axdriver_virtio, checker=Geiger\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_virtio\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-02-16 22:32:55.94250675 +08:00:00\nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_block#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_block#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_block#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_block#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_block#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_display#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_display#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_display#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_display#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_display#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_net#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_net#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_net#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_net#0.1.1 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_net#0.1.1 \nerror: Cargo(\"failed to parse lock file at: /home/runner/check/batch_18/arceos-org/axdriver_crates/Cargo.lock\")\n"
+              "// pkg_name=axdriver_virtio, checker=Geiger\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_virtio\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-03-02 4:28:34.720370702 +08:00:00\nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_block#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_block#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_block#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_block#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_block#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_display#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_display#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_display#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_display#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_display#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_net#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_net#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_net#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_net#0.1.2 \nFailed to match (ignoring source) package: path+file:///home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_net#0.1.2 \nerror: Cargo(\"failed to parse lock file at: /home/runner/check/batch_19/arceos-org/axdriver_crates/Cargo.lock\")\n"
             ]
           }
         },
@@ -79,7 +26,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=axdriver_virtio, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_virtio\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:31:23.177413261 +08:00:00\n    Building axdriver_virtio v0.1.1 (current)\n       Built [   4.474s] (current)\n     Parsing axdriver_virtio v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_virtio-0_1_1-01cbecfcc07414bb/target/x86_64-unknown-linux-gnu/doc/axdriver_virtio.json\n"
+              "// pkg_name=axdriver_virtio, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_virtio\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-02 4:27:06.945894087 +08:00:00\n    Building axdriver_virtio v0.1.2 (current)\n       Built [   3.930s] (current)\n     Parsing axdriver_virtio v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_virtio-0_1_2-01cbecfcc07414bb/target/x86_64-unknown-linux-gnu/doc/axdriver_virtio.json\n"
             ]
           }
         },
@@ -89,7 +36,7 @@
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=axdriver_virtio, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_virtio\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:32:54.536278566 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\nvirtio-drivers  0.7.5    ---     0.9.0   Normal  ---\n"
+              "pkg=axdriver_virtio, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_virtio\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-03-02 4:28:33.294923993 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\nvirtio-drivers  0.7.5    ---     0.9.0   Normal  ---\n"
             ]
           }
         },
@@ -99,7 +46,45 @@
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=axdriver_virtio, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_virtio\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:31:27.937811569 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_virtio v0.1.1 (current)\n       Built [   4.474s] (current)\n     Parsing axdriver_virtio v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_virtio-0_1_1-01cbecfcc07414bb/target/x86_64-unknown-linux-gnu/doc/axdriver_virtio.json\n"
+              "pkg=axdriver_virtio, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_virtio\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-02 4:27:11.134575213 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_virtio v0.1.2 (current)\n       Built [   3.930s] (current)\n     Parsing axdriver_virtio v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_virtio-0_1_2-01cbecfcc07414bb/target/x86_64-unknown-linux-gnu/doc/axdriver_virtio.json\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "axdriver_crates",
+      "pkg": "axdriver_net",
+      "count": 3,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=axdriver_net, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_net\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-02 4:26:47.154027914 +08:00:00\n    Building axdriver_net v0.1.2 (current)\n       Built [   3.809s] (current)\n     Parsing axdriver_net v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_net-0_1_2-61769b7aef870390/target/x86_64-unknown-linux-gnu/doc/axdriver_net.json\n"
+            ]
+          }
+        },
+        {
+          "file": "[rap] Not supported to display yet.",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Rapx": [
+              "pkg=axdriver_net, checker=Rapx\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_net\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-02 4:27:46.752489728 +08:00:00\n\nwarning: Memory Leak detected.\n   --> axdriver_net/src/net_buf.rs:109:26\n    |\n105 | pub fn into_buf_ptr(mut self: Box<Self>) -> NetBufPtr {\n106 |         let buf_ptr = self.packet_mut().as_mut_ptr();\n107 |         let len = self.packet_len;\n108 |         NetBufPtr::new(\n109 |             NonNull::new(Box::into_raw(self) as *mut u8).unwrap(),\n    |                          ------------------- Memory Leak Candidates.\n110 |             NonNull::new(buf_ptr).unwrap(),\n111 |             len,\n112 |         )\n113 |     }\n    |\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axdriver_net, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_net\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-02 4:26:51.50320829 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_net v0.1.2 (current)\n       Built [   3.809s] (current)\n     Parsing axdriver_net v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_net-0_1_2-61769b7aef870390/target/x86_64-unknown-linux-gnu/doc/axdriver_net.json\n"
             ]
           }
         }
@@ -117,7 +102,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=axdriver_pci, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_pci\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:31:12.754630213 +08:00:00\n    Building axdriver_pci v0.1.1 (current)\n       Built [   4.354s] (current)\n     Parsing axdriver_pci v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_pci-0_1_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_pci.json\n"
+              "// pkg_name=axdriver_pci, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_pci\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-02 4:26:57.900980817 +08:00:00\n    Building axdriver_pci v0.1.2 (current)\n       Built [   3.779s] (current)\n     Parsing axdriver_pci v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_pci-0_1_2-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_pci.json\n"
             ]
           }
         },
@@ -127,7 +112,7 @@
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=axdriver_pci, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_pci\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:32:53.36623518 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\nvirtio-drivers  0.7.5    ---     0.9.0   Normal  ---\n"
+              "pkg=axdriver_pci, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_pci\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-03-02 4:28:32.058458078 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\nvirtio-drivers  0.7.5    ---     0.9.0   Normal  ---\n"
             ]
           }
         },
@@ -137,7 +122,7 @@
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=axdriver_pci, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_pci\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:31:17.376688593 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_pci v0.1.1 (current)\n       Built [   4.354s] (current)\n     Parsing axdriver_pci v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_pci-0_1_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_pci.json\n"
+              "pkg=axdriver_pci, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_pci\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-02 4:27:01.929109189 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_pci v0.1.2 (current)\n       Built [   3.779s] (current)\n     Parsing axdriver_pci v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_pci-0_1_2-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_pci.json\n"
             ]
           }
         }
@@ -155,7 +140,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=axdriver_base, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_base\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:30:51.38682311 +08:00:00\n    Building axdriver_base v0.1.1 (current)\n       Built [   0.242s] (current)\n     Parsing axdriver_base v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_base-0_1_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_base.json\n"
+              "// pkg_name=axdriver_base, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_base\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-02 4:26:36.747138177 +08:00:00\n    Building axdriver_base v0.1.2 (current)\n       Built [   0.218s] (current)\n     Parsing axdriver_base v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_base-0_1_2-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_base.json\n"
             ]
           }
         },
@@ -165,7 +150,7 @@
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=axdriver_base, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_base\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:30:51.855210363 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_base v0.1.1 (current)\n       Built [   0.242s] (current)\n     Parsing axdriver_base v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_base-0_1_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_base.json\n"
+              "pkg=axdriver_base, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_base\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-02 4:26:37.179593818 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_base v0.1.2 (current)\n       Built [   0.218s] (current)\n     Parsing axdriver_base v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_base-0_1_2-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_base.json\n"
             ]
           }
         }
@@ -183,7 +168,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=axdriver_block, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_block\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:30:53.077486304 +08:00:00\n    Building axdriver_block v0.1.1 (current)\n       Built [   1.821s] (current)\n     Parsing axdriver_block v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_block-0_1_1-f69eac22edf0840b/target/x86_64-unknown-linux-gnu/doc/axdriver_block.json\n"
+              "// pkg_name=axdriver_block, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_block\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-02 4:26:38.243789257 +08:00:00\n    Building axdriver_block v0.1.2 (current)\n       Built [   1.574s] (current)\n     Parsing axdriver_block v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_block-0_1_2-f69eac22edf0840b/target/x86_64-unknown-linux-gnu/doc/axdriver_block.json\n"
             ]
           }
         },
@@ -193,7 +178,7 @@
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=axdriver_block, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_block\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:30:55.152227656 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_block v0.1.1 (current)\n       Built [   1.821s] (current)\n     Parsing axdriver_block v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_block-0_1_1-f69eac22edf0840b/target/x86_64-unknown-linux-gnu/doc/axdriver_block.json\n"
+              "pkg=axdriver_block, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_block\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-02 4:26:40.287349016 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_block v0.1.2 (current)\n       Built [   1.574s] (current)\n     Parsing axdriver_block v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_block-0_1_2-f69eac22edf0840b/target/x86_64-unknown-linux-gnu/doc/axdriver_block.json\n"
             ]
           }
         }
@@ -211,7 +196,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=axdriver_display, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_display\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:31:02.4931876 +08:00:00\n    Building axdriver_display v0.1.1 (current)\n       Built [   0.238s] (current)\n     Parsing axdriver_display v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_display-0_1_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_display.json\n"
+              "// pkg_name=axdriver_display, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_display\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-02 4:26:46.781846269 +08:00:00\n    Building axdriver_display v0.1.2 (current)\n       Built [   0.211s] (current)\n     Parsing axdriver_display v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_display-0_1_2-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_display.json\n"
             ]
           }
         },
@@ -221,7 +206,7 @@
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=axdriver_display, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_18/arceos-org/axdriver_crates/axdriver_display\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:31:02.904059249 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_display v0.1.1 (current)\n       Built [   0.238s] (current)\n     Parsing axdriver_display v0.1.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_18/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_display-0_1_1-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_display.json\n"
+              "pkg=axdriver_display, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_19/arceos-org/axdriver_crates/axdriver_display\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-02 4:26:47.151815749 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axdriver_display v0.1.2 (current)\n       Built [   0.211s] (current)\n     Parsing axdriver_display v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_19/arceos-org/axdriver_crates/target/semver-checks/local-axdriver_display-0_1_2-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/axdriver_display.json\n"
             ]
           }
         }
