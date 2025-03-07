@@ -69,15 +69,15 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: match expression looks like `matches!` macro\n  --> src/object.rs:55:9\n   |\n55 | /         match self {\n56 | |             Self::GigaPageObject | Self::NormalPageObject | Self::MegaPageObject => true,\n57 | |             _ => false\n58 | |         }\n   | |_________^ help: try: `matches!(self, Self::GigaPageObject | Self::NormalPageObject | Self::MegaPageObject)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#match_like_matches_macro\n   = note: `#[warn(clippy::match_like_matches_macro)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_46/rel4team/sel4_common/src/object.rs (original lines from 18 to 18)\n-\n",
               "file: /home/runner/check/batch_46/rel4team/sel4_common/src/object.rs (original lines from 49 to 51)\n-        unsafe {\n-            Some(core::mem::transmute::<u8, ObjectType>(value as u8))\n-        }\n+        unsafe { Some(core::mem::transmute::<u8, ObjectType>(value as u8)) }\n",
               "file: /home/runner/check/batch_46/rel4team/sel4_common/src/object.rs (original lines from 57 to 57)\n-            _ => false\n+            _ => false,\n",
               "file: /home/runner/check/batch_46/rel4team/sel4_common/src/object.rs (original lines from 60 to 60)\n-\n",
               "file: /home/runner/check/batch_46/rel4team/sel4_common/src/object.rs (original lines from 62 to 62)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: match expression looks like `matches!` macro\n  --> src/object.rs:55:9\n   |\n55 | /         match self {\n56 | |             Self::GigaPageObject | Self::NormalPageObject | Self::MegaPageObject => true,\n57 | |             _ => false\n58 | |         }\n   | |_________^ help: try: `matches!(self, Self::GigaPageObject | Self::NormalPageObject | Self::MegaPageObject)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#match_like_matches_macro\n   = note: `#[warn(clippy::match_like_matches_macro)]` on by default\n\n"
             ]
           }
         },
@@ -86,15 +86,15 @@
           "features": "",
           "count": 6,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: manually reimplementing `div_ceil`\n  --> src/sel4_config.rs:55:35\n   |\n55 | pub const L2_BITMAP_SIZE: usize = (CONFIG_NUM_PRIORITIES + wordBits - 1) / wordBits;\n   |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `CONFIG_NUM_PRIORITIES.div_ceil(wordBits)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n   = note: `#[warn(clippy::manual_div_ceil)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_46/rel4team/sel4_common/src/sel4_config.rs (original lines from 31 to 31)\n-\n",
               "file: /home/runner/check/batch_46/rel4team/sel4_common/src/sel4_config.rs (original lines from 51 to 51)\n-\n",
               "file: /home/runner/check/batch_46/rel4team/sel4_common/src/sel4_config.rs (original lines from 91 to 91)\n-\n",
               "file: /home/runner/check/batch_46/rel4team/sel4_common/src/sel4_config.rs (original lines from 101 to 101)\n-\n",
               "file: /home/runner/check/batch_46/rel4team/sel4_common/src/sel4_config.rs (original lines from 105 to 105)\n-\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: manually reimplementing `div_ceil`\n  --> src/sel4_config.rs:55:35\n   |\n55 | pub const L2_BITMAP_SIZE: usize = (CONFIG_NUM_PRIORITIES + wordBits - 1) / wordBits;\n   |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `CONFIG_NUM_PRIORITIES.div_ceil(wordBits)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n   = note: `#[warn(clippy::manual_div_ceil)]` on by default\n\n"
             ]
           }
         },
@@ -220,7 +220,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=sel4_common, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_46/rel4team/sel4_common\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 23:37:48.639025167 +08:00:00\n    Building sel4_common v0.1.0 (current)\n       Built [   4.970s] (current)\n     Parsing sel4_common v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_46/rel4team/sel4_common/target/semver-checks/local-sel4_common-0_1_0-a03767e473d570c9/target/riscv64gc-unknown-none-elf/doc/sel4_common.json\n"
+              "// pkg_name=sel4_common, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_47/rel4team/sel4_common\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-03-07 17:24:48.170031241 +08:00:00\n    Building sel4_common v0.1.0 (current)\n       Built [   4.676s] (current)\n     Parsing sel4_common v0.1.0 (current)\n      Parsed [   0.003s] (current)\nerror: sel4_common not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
             ]
           }
         },
@@ -230,7 +230,7 @@
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=sel4_common, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_46/rel4team/sel4_common\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-02-16 23:37:56.11126367 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building sel4_common v0.1.0 (current)\n       Built [   4.970s] (current)\n     Parsing sel4_common v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_46/rel4team/sel4_common/target/semver-checks/local-sel4_common-0_1_0-a03767e473d570c9/target/riscv64gc-unknown-none-elf/doc/sel4_common.json\n"
+              "pkg=sel4_common, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_47/rel4team/sel4_common\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-03-07 17:24:56.458287705 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building sel4_common v0.1.0 (current)\n       Built [   4.676s] (current)\n     Parsing sel4_common v0.1.0 (current)\n      Parsed [   0.003s] (current)\nerror: sel4_common not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
             ]
           }
         },

@@ -8,7 +8,7 @@
       "user": "yuoo655",
       "repo": "ext4_rs",
       "pkg": "ext4_rs",
-      "count": 323,
+      "count": 321,
       "raw_reports": [
         {
           "file": "src/ext4_impls/extents.rs",
@@ -69,10 +69,6 @@
           "features": "",
           "count": 32,
           "kinds": {
-            "Clippy(Error)": [
-              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:305:13\n    |\n305 |         if ((flags & O_RDONLY != 0) || (flags & O_RDWR != 0)) && !can_read {\n    |             ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
-              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:441:16\n    |\n441 |             if (flags & O_RDONLY != 0) || (flags & O_RDWR != 0) && !can_read{\n    |                ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: this function has too many arguments (14/7)\n  --> src/fuse_interface/mod.rs:38:5\n   |\n38 | /     pub fn fuse_setattr(\n39 | |         &self,\n40 | |         ino: u64,\n41 | |         mode: Option<u32>,\n...  |\n52 | |         flags: Option<u32>,\n53 | |     ) {\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n   = note: `#[warn(clippy::too_many_arguments)]` on by default\n\n",
               "warning: this function has too many arguments (8/7)\n   --> src/fuse_interface/mod.rs:141:5\n    |\n141 | /     pub fn fuse_mknod_with_attr(\n142 | |         &self,\n143 | |         parent: u64,\n144 | |         name: &str,\n...   |\n149 | |         gid: u32,\n150 | |     ) -> Result<Ext4InodeRef> {\n    | |_____________________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n\n",
@@ -80,6 +76,10 @@
               "warning: this function has too many arguments (8/7)\n   --> src/fuse_interface/mod.rs:593:5\n    |\n593 | /     fn fuse_getlk(\n594 | |         &mut self,\n595 | |         ino: u64,\n596 | |         fh: u64,\n...   |\n601 | |         pid: u32,\n602 | |     ) {\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n\n",
               "warning: this function has too many arguments (9/7)\n   --> src/fuse_interface/mod.rs:613:5\n    |\n613 | /     fn fuse_setlk(\n614 | |         &mut self,\n615 | |         ino: u64,\n616 | |         fh: u64,\n...   |\n622 | |         sleep: bool,\n623 | |     ) {\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n\n",
               "warning: this function has too many arguments (9/7)\n   --> src/fuse_interface/mod.rs:670:5\n    |\n670 | /     fn fuse_copy_file_range(\n671 | |         &mut self,\n672 | |         ino_in: u64,\n673 | |         fh_in: u64,\n...   |\n679 | |         flags: u32,\n680 | |     ) {\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:305:13\n    |\n305 |         if ((flags & O_RDONLY != 0) || (flags & O_RDWR != 0)) && !can_read {\n    |             ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
+              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:441:16\n    |\n441 |             if (flags & O_RDONLY != 0) || (flags & O_RDWR != 0) && !can_read{\n    |                ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
             ],
             "Unformatted": [
               "file: /home/runner/check/batch_72/yuoo655/ext4_rs/src/fuse_interface/mod.rs (original lines from 9 to 10)\n-pub use crate::ext4_defs::Ext4;\n-pub use crate::ext4_defs::BLOCK_SIZE;\n",
@@ -569,16 +569,6 @@
           }
         },
         {
-          "file": "(virtual) semver-checks",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=ext4_rs, checker=SemverChecks\n// toolchain=nightly-2024-06-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_72/yuoo655/ext4_rs\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 21:38:10.445629385 +08:00:00\n    Building ext4_rs v1.3.0 (current)\n       Built [   0.405s] (current)\n     Parsing ext4_rs v1.3.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_72/yuoo655/ext4_rs/target/semver-checks/local-ext4_rs-1_3_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/ext4_rs.json\n"
-            ]
-          }
-        },
-        {
           "file": "[geiger] Unsafe Code statistics",
           "features": "",
           "count": 1,
@@ -605,16 +595,6 @@
           "kinds": {
             "Rapx": [
               "pkg=ext4_rs, checker=Rapx\ntoolchain=nightly-2024-06-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_72/yuoo655/ext4_rs\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 21:38:24.147701103 +08:00:00\n\nwarning: Dangling pointer detected.\n   --> src/ext4_defs/direntry.rs:214:1\n    |\n214 | / pub fn write_de_to_blk(&self, dst_blk: &mut Block, offset: usize) {\n215 | |         let count = core::mem::size_of::<Ext4DirEntry>() / core::mem::size_of::<u8>();\n...   |\n221 | |         // assert_eq!(dst_blk.block_data[offset..offset + core::mem::size_of::<Ext4DirEntry>()], data[..]);\n222 | |     }\n    | |_____- Dangling pointer detected.\n    |\nwarning: Dangling pointer detected during unwinding.\n   --> src/ext4_defs/direntry.rs:214:1\n    |\n214 | / pub fn write_de_to_blk(&self, dst_blk: &mut Block, offset: usize) {\n215 | |         let count = core::mem::size_of::<Ext4DirEntry>() / core::mem::size_of::<u8>();\n...   |\n221 | |         // assert_eq!(dst_blk.block_data[offset..offset + core::mem::size_of::<Ext4DirEntry>()], data[..]);\n222 | |     }\n    | |_____- Dangling pointer detected during unwinding.\n    |\nOver visited: DefId(0:466 ~ ext4_rs[58b7]::ext4_impls::extents::{impl#0}::insert_extent)\nOver visited: DefId(0:475 ~ ext4_rs[58b7]::ext4_impls::extents::{impl#1}::ext_remove_leaf)\nOver visited: DefId(0:600 ~ ext4_rs[58b7]::fuse_interface::{impl#0}::fuse_setattr)\nwarning: Dangling pointer detected.\n   --> src/ext4_defs/direntry.rs:214:1\n    |\n214 | / pub fn write_de_to_blk(&self, dst_blk: &mut Block, offset: usize) {\n215 | |         let count = core::mem::size_of::<Ext4DirEntry>() / core::mem::size_of::<u8>();\n...   |\n221 | |         // assert_eq!(dst_blk.block_data[offset..offset + core::mem::size_of::<Ext4DirEntry>()], data[..]);\n222 | |     }\n    | |_____- Dangling pointer detected.\n    |\nwarning: Dangling pointer detected during unwinding.\n   --> src/ext4_defs/direntry.rs:214:1\n    |\n214 | / pub fn write_de_to_blk(&self, dst_blk: &mut Block, offset: usize) {\n215 | |         let count = core::mem::size_of::<Ext4DirEntry>() / core::mem::size_of::<u8>();\n...   |\n221 | |         // assert_eq!(dst_blk.block_data[offset..offset + core::mem::size_of::<Ext4DirEntry>()], data[..]);\n222 | |     }\n    | |_____- Dangling pointer detected during unwinding.\n    |\nOver visited: DefId(0:465 ~ ext4_rs[e358]::ext4_impls::extents::{impl#0}::insert_extent)\nOver visited: DefId(0:474 ~ ext4_rs[e358]::ext4_impls::extents::{impl#1}::ext_remove_leaf)\nOver visited: DefId(0:581 ~ ext4_rs[e358]::fuse_interface::{impl#0}::fuse_setattr)\nOver visited: DefId(0:679 ~ ext4_rs[e358]::main)\n"
-            ]
-          }
-        },
-        {
-          "file": "[semver checks]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Semver Violation": [
-              "pkg=ext4_rs, checker=SemverChecks\ntoolchain=nightly-2024-06-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_72/yuoo655/ext4_rs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 21:38:11.076993263 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building ext4_rs v1.3.0 (current)\n       Built [   0.405s] (current)\n     Parsing ext4_rs v1.3.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_72/yuoo655/ext4_rs/target/semver-checks/local-ext4_rs-1_3_0-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/ext4_rs.json\n"
             ]
           }
         }

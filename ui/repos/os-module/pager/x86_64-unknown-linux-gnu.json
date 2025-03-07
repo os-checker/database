@@ -8,7 +8,7 @@
       "user": "os-module",
       "repo": "pager",
       "pkg": "pager",
-      "count": 7,
+      "count": 6,
       "raw_reports": [
         {
           "file": "src/bitmap.rs",
@@ -21,16 +21,6 @@
             "Clippy(Warn)": [
               "warning: doc list item without indentation\n  --> src/bitmap.rs:21:5\n   |\n21 | /// If the number of physical pages is less than 4096*8, space may be wasted\n   |     ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n21 | ///    If the number of physical pages is less than 4096*8, space may be wasted\n   |     +++\n\n",
               "warning: manually reimplementing `div_ceil`\n   --> src/bitmap.rs:197:32\n    |\n197 |             let bitmap_pages = (self.max + 4096 * 8 - 1) / (4096 * 8);\n    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `self.max.div_ceil((4096 * 8))`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n    = note: `#[warn(clippy::manual_div_ceil)]` on by default\n\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) semver-checks",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=pager, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_39/os-module/pager\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 21:51:14.73946854 +08:00:00\n    Building pager v0.1.0 (current)\n       Built [   0.348s] (current)\n     Parsing pager v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_39/os-module/pager/target/semver-checks/local-pager-0_1_0-17d966895907578e/target/x86_64-unknown-linux-gnu/doc/pager.json\n"
             ]
           }
         },
@@ -50,7 +40,7 @@
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=pager, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_39/os-module/pager\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 21:51:15.334319658 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building pager v0.1.0 (current)\n       Built [   0.348s] (current)\n     Parsing pager v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_39/os-module/pager/target/semver-checks/local-pager-0_1_0-17d966895907578e/target/x86_64-unknown-linux-gnu/doc/pager.json\n"
+              "pkg=pager, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_40/os-module/pager\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 17:42:45.699771518 +08:00:00\n\n\nstdout:\n\n--- failure struct_missing: pub struct removed or renamed ---\n\nDescription:\nA publicly-visible struct cannot be imported by its prior path. A `pub use` may have been removed, or the struct itself may have been renamed or removed entirely.\n        ref: https://doc.rust-lang.org/cargo/reference/semver.html#item-remove\n       impl: https://github.com/obi1kenobi/cargo-semver-checks/tree/v0.39.0/src/lints/struct_missing.ron\n\nFailed in:\n  struct pager::Pager, previously in file /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pager-0.1.0/src/lib.rs:11\n\nstderr:\n    Building pager v0.1.0 (current)\n       Built [   0.315s] (current)\n     Parsing pager v0.1.0 (current)\n      Parsed [   0.001s] (current)\n    Building pager v0.1.0 (baseline)\n       Built [   0.784s] (baseline)\n     Parsing pager v0.1.0 (baseline)\n      Parsed [   0.002s] (baseline)\n    Checking pager v0.1.0 -> v0.1.0 (no change)\n     Checked [   0.010s] 148 checks: 147 pass, 1 fail, 0 warn, 0 skip\n\n     Summary semver requires new major version: 1 major and 0 minor checks failed\n    Finished [   1.473s] pager\n"
             ]
           }
         },
