@@ -1,0 +1,61 @@
+{
+  "repo": {
+    "user": "shilei-massclouds",
+    "repo": "lazy_init"
+  },
+  "data": [
+    {
+      "user": "shilei-massclouds",
+      "repo": "lazy_init",
+      "pkg": "lazy_init",
+      "count": 3,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=lazy_init, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_63/shilei-massclouds/lazy_init/lazy_init\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 17:58:14.890751116 +08:00:00\n    Building lazy_init v0.1.0 (current)\n       Built [   0.217s] (current)\n     Parsing lazy_init v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: lazy_init not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=lazy_init, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_63/shilei-massclouds/lazy_init/lazy_init\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 17:58:15.402519586 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building lazy_init v0.1.0 (current)\n       Built [   0.217s] (current)\n     Parsing lazy_init v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: lazy_init not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `LazyInit<T>`\n  --> src/lib.rs:49:5\n   |\n49 | /     pub const fn new() -> Self {\n50 | |         Self {\n51 | |             inited: AtomicBool::new(false),\n52 | |             data: UnsafeCell::new(MaybeUninit::uninit()),\n53 | |         }\n54 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n47 + impl<T> Default for LazyInit<T> {\n48 +     fn default() -> Self {\n49 +         Self::new()\n50 +     }\n51 + }\n   |\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

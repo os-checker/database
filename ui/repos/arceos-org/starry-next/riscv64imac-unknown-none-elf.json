@@ -1,0 +1,255 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "starry-next"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "starry-next",
+      "pkg": "sleep",
+      "count": 10,
+      "raw_reports": [
+        {
+          "file": "src/main.rs",
+          "features": "",
+          "count": 5,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\n",
+              "error: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\n",
+              "error[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "unkonwn-but-maybe-important",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: `#[panic_handler]` function required, but not found\n\n",
+              "error: requires `sized` lang_item\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=sleep, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo clippy --target riscv64imac-unknown-none-elf  --no-deps\n// timestamp=2025-02-16 20:42:34.587164546 +08:00:00\n    Checking sleep v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=sleep, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64imac-unknown-none-elf \n// timestamp=2025-03-07 20:58:25.107490568 +08:00:00\n   Compiling sleep v0.1.0 (/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=sleep, checker=Rapx\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64imac-unknown-none-elf \n// timestamp=2025-02-16 20:45:23.939818467 +08:00:00\n    Checking sleep v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n12:45:24|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "starry-next",
+      "pkg": "user_lib",
+      "count": 9,
+      "raw_reports": [
+        {
+          "file": "src/arch/mod.rs",
+          "features": "",
+          "count": 4,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust/src/arch/mod.rs (original lines from 3 to 4)\n-#[cfg(target_arch = \"x86_64\")]\n-mod x86_64;\n",
+              "file: /home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust/src/arch/mod.rs (original lines from 7 to 7)\n+#[cfg(target_arch = \"x86_64\")]\n+mod x86_64;\n",
+              "file: /home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust/src/arch/mod.rs (original lines from 10 to 11)\n-#[cfg(target_arch = \"x86_64\")]\n-pub use x86_64::*;\n",
+              "file: /home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust/src/arch/mod.rs (original lines from 14 to 14)\n+#[cfg(target_arch = \"x86_64\")]\n+pub use x86_64::*;\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=user_lib, checker=Lockbud\n// toolchain=nightly-2024-05-02, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/arceos-org/starry-next/apps/nimbos/rust\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64imac-unknown-none-elf \n// timestamp=2025-03-07 20:59:27.986130722 +08:00:00\n   Compiling cfg-if v1.0.0\n   Compiling user_lib v0.1.0 (/home/runner/check/batch_4/arceos-org/starry-next/apps/nimbos/rust)\nerror[E0787]: the `asm!` macro is not allowed in naked functions\n  --> src/arch/riscv.rs:27:9\n   |\n27 | /         asm!(\"\n28 | |             // align stack and save entry,arg to the new stack\n29 | |             andi    a2, a2, -16\n30 | |             addi    a2, a2, -16\n...  |\n52 | |             options(noreturn),\n53 | |         )\n   | |_________^ consider using the `naked_asm!` macro instead\n\nwarning: the feature `asm_const` has been stable since 1.82.0 and no longer requires an attribute to enable\n --> src/lib.rs:3:12\n  |\n3 | #![feature(asm_const)]\n  |            ^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: the feature `panic_info_message` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> src/lib.rs:5:12\n  |\n5 | #![feature(panic_info_message)]\n  |            ^^^^^^^^^^^^^^^^^^\n\nerror[E0599]: no method named `unwrap` found for struct `core::panic::PanicMessage` in the current scope\n --> src/lang_items.rs:3:36\n  |\n3 |     let err = panic_info.message().unwrap();\n  |                                    ^^^^^^ method not found in `PanicMessage<'_>`\n\nSome errors have detailed explanations: E0599, E0787.\nFor more information about an error, try `rustc --explain E0599`.\nwarning: `user_lib` (lib) generated 2 warnings\nerror: could not compile `user_lib` (lib) due to 2 previous errors; 2 warnings emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=user_lib, checker=Rapx\n// toolchain=nightly-2024-05-02, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64imac-unknown-none-elf \n// timestamp=2025-02-16 20:45:30.162512609 +08:00:00\n    Checking cfg-if v1.0.0\n    Checking user_lib v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust)\nerror[E0787]: the `asm!` macro is not allowed in naked functions\n  --> src/arch/riscv.rs:27:9\n   |\n27 | /         asm!(\"\n28 | |             // align stack and save entry,arg to the new stack\n29 | |             andi    a2, a2, -16\n30 | |             addi    a2, a2, -16\n...  |\n52 | |             options(noreturn),\n53 | |         )\n   | |_________^ consider using the `naked_asm!` macro instead\n\nwarning: the feature `asm_const` has been stable since 1.82.0 and no longer requires an attribute to enable\n --> src/lib.rs:3:12\n  |\n3 | #![feature(asm_const)]\n  |            ^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: the feature `panic_info_message` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> src/lib.rs:5:12\n  |\n5 | #![feature(panic_info_message)]\n  |            ^^^^^^^^^^^^^^^^^^\n\nerror[E0599]: no method named `unwrap` found for struct `core::panic::PanicMessage` in the current scope\n --> src/lang_items.rs:3:36\n  |\n3 |     let err = panic_info.message().unwrap();\n  |                                    ^^^^^^ method not found in `PanicMessage<'_>`\n\nSome errors have detailed explanations: E0599, E0787.\nFor more information about an error, try `rustc --explain E0599`.\nwarning: `user_lib` (lib) generated 2 warnings\nerror: could not compile `user_lib` (lib) due to 2 previous errors; 2 warnings emitted\n12:45:30|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=user_lib, checker=SemverChecks\n// toolchain=nightly-2024-05-02, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_28/arceos-org/starry-next/apps/nimbos/rust\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \n// timestamp=2025-03-07 18:00:46.008617924 +08:00:00\n    Building user_lib v0.1.0 (current)\n       Built [   0.210s] (current)\n     Parsing user_lib v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: user_lib not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=user_lib, checker=SemverChecks\ntoolchain=nightly-2024-05-02, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_28/arceos-org/starry-next/apps/nimbos/rust\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-03-07 18:00:46.391143968 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building user_lib v0.1.0 (current)\n       Built [   0.210s] (current)\n     Parsing user_lib v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: user_lib not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "src/bin/usertests.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: deref which would be done by auto-deref\n  --> src/bin/usertests.rs:31:21\n   |\n31 |             if exec(*test) == -1 {\n   |                     ^^^^^ help: try: `test`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n   = note: `#[warn(clippy::explicit_auto_deref)]` on by default\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "starry-next",
+      "pkg": "helloworld",
+      "count": 7,
+      "raw_reports": [
+        {
+          "file": "src/main.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `helloworld` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Hello world from Rust!\");\n  |     ^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "unkonwn-but-maybe-important",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: `#[panic_handler]` function required, but not found\n\n",
+              "error: requires `sized` lang_item\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=helloworld, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/helloworld\n// cmd=cargo clippy --target riscv64imac-unknown-none-elf  --no-deps\n// timestamp=2025-02-16 20:42:33.315867256 +08:00:00\n    Checking helloworld v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/helloworld)\nerror: could not compile `helloworld` (bin \"helloworld\") due to 4 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=helloworld, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/helloworld\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64imac-unknown-none-elf \n// timestamp=2025-03-07 20:58:24.251172138 +08:00:00\n   Compiling helloworld v0.1.0 (/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/helloworld)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `helloworld` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Hello world from Rust!\");\n  |     ^^^^^^^\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `helloworld` (bin \"helloworld\") due to 4 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=helloworld, checker=Rapx\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/helloworld\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64imac-unknown-none-elf \n// timestamp=2025-02-16 20:45:20.519649335 +08:00:00\n    Checking helloworld v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/helloworld)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `helloworld` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Hello world from Rust!\");\n  |     ^^^^^^^\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `helloworld` (bin \"helloworld\") due to 4 previous errors\n12:45:20|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "starry-next",
+      "pkg": "starry",
+      "count": 3,
+      "raw_reports": [
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=starry, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next\n// cmd=cargo clippy --target riscv64imac-unknown-none-elf  --no-deps\n// timestamp=2025-02-16 20:43:04.719808702 +08:00:00\n    Checking cfg-if v1.0.0\n    Checking memory_addr v0.3.1\n    Checking log v0.4.21\n   Compiling axerrno v0.1.0\n    Checking bitflags v2.8.0\n    Checking kernel_guard v0.1.2\n    Checking bit_field v0.10.2\n    Checking const-default v1.0.0\n   Compiling riscv v0.12.1\n    Checking kspin v0.1.0\n    Checking rlsf v0.2.1\n    Checking riscv-pac v0.2.0\n    Checking bitmap-allocator v0.2.0\n    Checking critical-section v1.2.0\n    Checking embedded-hal v1.0.0\n   Compiling percpu v0.2.0\n    Checking page_table_entry v0.5.1\n   Compiling axconfig v0.1.0 (https://github.com/arceos-org/arceos.git#959d1c74)\n    Checking sbi-spec v0.0.7\n    Checking sbi-rt v0.0.3\n    Checking allocator v0.1.1 (https://github.com/arceos-org/allocator.git?tag=v0.1.1#1d5b7a1b)\n    Checking linkme v0.3.31\n    Checking axalloc v0.1.0 (https://github.com/arceos-org/arceos.git#959d1c74)\n   Compiling axhal v0.1.0 (https://github.com/arceos-org/arceos.git#959d1c74)\n    Checking axlog v0.1.0 (https://github.com/arceos-org/arceos.git#959d1c74)\n    Checking int_ratio v0.1.1\n    Checking static_assertions v1.1.0\n    Checking handler_table v0.1.2\n    Checking lazyinit v0.2.1\n    Checking bitmaps v3.2.1\n    Checking linked_list v0.1.0 (https://github.com/arceos-org/linked_list.git?tag=v0.1.0#34c8db30)\n   Compiling num-traits v0.2.19\n    Checking scheduler v0.1.0 (https://github.com/arceos-org/scheduler.git?tag=v0.1.0#c8d25d9a)\n    Checking timer_list v0.1.0\n    Checking memory_set v0.3.1\n    Checking ctor_bare v0.2.1\n   Compiling lock_api v0.4.12\n    Checking page_table_multiarch v0.5.1\n    Checking scopeguard v1.2.0\n    Checking axio v0.1.0\n    Checking cpumask v0.1.0\n    Checking axmm v0.1.0 (https://github.com/arceos-org/arceos.git#959d1c74)\n    Checking spin v0.9.8\n    Checking axtask v0.1.0 (https://github.com/arceos-org/arceos.git#959d1c74)\n    Checking zero v0.1.3\n   Compiling syscalls v0.6.18\n    Checking xmas-elf v0.9.1\n    Checking lazy_static v1.5.0\n    Checking chrono v0.4.39\n   Compiling arceos_posix_api v0.1.0 (https://github.com/arceos-org/arceos.git#959d1c74)\n    Checking axsync v0.1.0 (https://github.com/arceos-org/arceos.git#959d1c74)\n    Checking flatten_objects v0.2.1\n    Checking page_table_entry v0.4.1\n    Checking num_enum v0.7.3\n    Checking kernel-elf-parser v0.1.0\n   Compiling starry v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next)\nerror: failed to run custom build command for `arceos_posix_api v0.1.0 (https://github.com/arceos-org/arceos.git#959d1c74)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_27/arceos-org/starry-next/target/debug/build/arceos_posix_api-ac59b64ed38f27ef/build-script-build` (exit status: 101)\n  --- stdout\n  cargo:rerun-if-changed=ctypes.h\n\n  --- stderr\n  error: unknown target triple 'riscv64imac-unknown-none-elf'\n\n  thread 'main' panicked at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bindgen-0.69.5/ir/context.rs:556:15:\n  libclang error; possible causes include:\n  - Invalid flag syntax\n  - Unrecognized flags\n  - Invalid flag arguments\n  - File I/O errors\n  - Host vs. target architecture mismatch\n  If you encounter an error missing from this list, please file an issue or a PR!\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=starry, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/arceos-org/starry-next\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64imac-unknown-none-elf \n// timestamp=2025-03-07 20:59:16.59223153 +08:00:00\n   Compiling cfg-if v1.0.0\n   Compiling memory_addr v0.3.2\n   Compiling log v0.4.21\n   Compiling axerrno v0.1.0\n   Compiling bitflags v2.9.0\n   Compiling kernel_guard v0.1.2\n   Compiling bit_field v0.10.2\n   Compiling const-default v1.0.0\n[2025-03-07T12:59:16Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-03-07T12:59:16Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling riscv v0.12.1\n   Compiling rlsf v0.2.1\n   Compiling bitmap-allocator v0.2.0\n   Compiling kspin v0.1.0\n   Compiling critical-section v1.2.0\n   Compiling riscv-pac v0.2.0\n   Compiling embedded-hal v1.0.0\n   Compiling percpu v0.2.0\n   Compiling page_table_entry v0.5.3\n   Compiling axconfig v0.1.0 (https://github.com/arceos-org/arceos.git#29bdc926)\n   Compiling sbi-spec v0.0.7\n   Compiling allocator v0.1.1 (https://github.com/arceos-org/allocator.git?tag=v0.1.1#1d5b7a1b)\n   Compiling sbi-rt v0.0.3\n   Compiling axalloc v0.1.0 (https://github.com/arceos-org/arceos.git#29bdc926)\n   Compiling linkme v0.3.32\n   Compiling axhal v0.1.0 (https://github.com/arceos-org/arceos.git#29bdc926)\n   Compiling axlog v0.1.0 (https://github.com/arceos-org/arceos.git#29bdc926)\n   Compiling lazyinit v0.2.1\n   Compiling static_assertions v1.1.0\n   Compiling int_ratio v0.1.1\n   Compiling handler_table v0.1.2\n   Compiling bitmaps v3.2.1\n   Compiling linked_list v0.1.0 (https://github.com/arceos-org/linked_list.git?tag=v0.1.0#34c8db30)\n   Compiling num-traits v0.2.19\n   Compiling scheduler v0.1.0 (https://github.com/arceos-org/scheduler.git?tag=v0.1.0#c8d25d9a)\n   Compiling timer_list v0.1.0\n   Compiling memory_set v0.3.2\n   Compiling page_table_multiarch v0.5.3\n   Compiling ctor_bare v0.2.1\n   Compiling lock_api v0.4.12\n[2025-03-07T12:58:47Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-03-07T12:58:47Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling scopeguard v1.2.0\n   Compiling cpumask v0.1.0\n   Compiling axmm v0.1.0 (https://github.com/arceos-org/arceos.git#29bdc926)\n   Compiling axtask v0.1.0 (https://github.com/arceos-org/arceos.git#29bdc926)\n[2025-03-07T12:58:52Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:525:25: 525:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:530:17: 530:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-03-07T12:58:52Z WARN  lockbud::callbacks] crate bindgen contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling axio v0.1.0\n   Compiling spin v0.9.8\n   Compiling chrono v0.4.40\n   Compiling zero v0.1.3\n   Compiling axsync v0.1.0 (https://github.com/arceos-org/arceos.git#29bdc926)\n   Compiling syscalls v0.6.18\n   Compiling xmas-elf v0.9.1\n   Compiling lazy_static v1.5.0\n   Compiling arceos_posix_api v0.1.0 (https://github.com/arceos-org/arceos.git#29bdc926)\n   Compiling flatten_objects v0.2.3\n   Compiling page_table_entry v0.4.1\nerror: failed to run custom build command for `arceos_posix_api v0.1.0 (https://github.com/arceos-org/arceos.git#29bdc926)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_4/arceos-org/starry-next/target/debug/build/arceos_posix_api-53d58bdaf49b5a50/build-script-build` (exit status: 101)\n  --- stdout\n  cargo:rerun-if-changed=ctypes.h\n\n  --- stderr\n  error: unknown target triple 'riscv64imac-unknown-none-elf'\n\n  thread 'main' panicked at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bindgen-0.69.5/ir/context.rs:556:15:\n  libclang error; possible causes include:\n  - Invalid flag syntax\n  - Unrecognized flags\n  - Invalid flag arguments\n  - File I/O errors\n  - Host vs. target architecture mismatch\n  If you encounter an error missing from this list, please file an issue or a PR!\n  stack backtrace:\n     0:     0x55797e971b10 - std::backtrace_rs::backtrace::libunwind::trace::h09b3d24f06048964\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/../../backtrace/src/backtrace/libunwind.rs:116:5\n     1:     0x55797e971b10 - std::backtrace_rs::backtrace::trace_unsynchronized::hf47addf765c6ae4e\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/../../backtrace/src/backtrace/mod.rs:66:5\n     2:     0x55797e971b10 - std::sys::backtrace::_print_fmt::h1cac4748ae805433\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/sys/backtrace.rs:66:9\n     3:     0x55797e971b10 - <std::sys::backtrace::BacktraceLock::print::DisplayBacktrace as core::fmt::Display>::fmt::h51876e9b806abd2f\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/sys/backtrace.rs:39:26\n     4:     0x55797e99a943 - core::fmt::rt::Argument::fmt::h74675d727819c734\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/core/src/fmt/rt.rs:177:76\n     5:     0x55797e99a943 - core::fmt::write::hec8160b518640e0a\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/core/src/fmt/mod.rs:1449:21\n     6:     0x55797e96e313 - std::io::Write::write_fmt::h23dd9fd522f1ed73\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/io/mod.rs:1890:15\n     7:     0x55797e971962 - std::sys::backtrace::BacktraceLock::print::h82fa1cbd2f5c85f6\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/sys/backtrace.rs:42:9\n     8:     0x55797e9728bf - std::panicking::default_hook::{{closure}}::h0c71ebc4d32ee68d\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/panicking.rs:298:22\n     9:     0x55797e97272a - std::panicking::default_hook::h869bbd2dc4246a59\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/panicking.rs:325:9\n    10:     0x55797e9732e2 - std::panicking::rust_panic_with_hook::he7cb010bd1162eb7\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/panicking.rs:831:13\n    11:     0x55797e97306a - std::panicking::begin_panic_handler::{{closure}}::h144a44d32326050e\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/panicking.rs:704:13\n    12:     0x55797e972029 - std::sys::backtrace::__rust_end_short_backtrace::h7baa569e657f05a9\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/sys/backtrace.rs:168:18\n    13:     0x55797e972cfd - rust_begin_unwind\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/panicking.rs:695:5\n    14:     0x55797e998bd0 - core::panicking::panic_fmt::hc13ec85888cb23ce\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/core/src/panicking.rs:75:14\n    15:     0x55797e998bab - core::panicking::panic_display::hf7fb470cf36d99ce\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/core/src/panicking.rs:261:5\n    16:     0x55797e998bab - core::option::expect_failed::h22cda32c9fa6254b\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/core/src/option.rs:2024:5\n    17:     0x55797e4b5a47 - core::option::Option<T>::expect::h1b0e40818b293362\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/core/src/option.rs:933:21\n    18:     0x55797e4ced6a - bindgen::ir::context::BindgenContext::new::hff1fd4b937d516e6\n                                 at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bindgen-0.69.5/ir/context.rs:550:13\n    19:     0x55797e46c7a3 - bindgen::Bindings::generate::h62bcde1be813a06a\n                                 at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bindgen-0.69.5/lib.rs:896:27\n    20:     0x55797e46a225 - bindgen::Builder::generate::hc960ed8ef33ea2a2\n                                 at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bindgen-0.69.5/lib.rs:349:9\n    21:     0x55797e37f4de - build_script_build::main::gen_c_to_rust_bindings::hf2a80d81623a365f\n                                 at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/29bdc92/api/arceos_posix_api/build.rs:98:9\n    22:     0x55797e37e89e - build_script_build::main::h4643830be038c242\n                                 at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/29bdc92/api/arceos_posix_api/build.rs:106:5\n    23:     0x55797e37be2b - core::ops::function::FnOnce::call_once::ha8c7b287d898b56c\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/core/src/ops/function.rs:250:5\n    24:     0x55797e37bcfe - std::sys::backtrace::__rust_begin_short_backtrace::he01427fec85046ca\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/sys/backtrace.rs:152:18\n    25:     0x55797e37bcd1 - std::rt::lang_start::{{closure}}::h19c787c26ef2bd52\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/rt.rs:199:18\n    26:     0x55797e969150 - core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once::h73c200d88ac341db\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/core/src/ops/function.rs:284:13\n    27:     0x55797e969150 - std::panicking::try::do_call::h5d854913854b71fe\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/panicking.rs:587:40\n    28:     0x55797e969150 - std::panicking::try::hf1ae1b2a2498e678\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/panicking.rs:550:19\n    29:     0x55797e969150 - std::panic::catch_unwind::hcfb0a552e6092b8e\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/panic.rs:358:14\n    30:     0x55797e969150 - std::rt::lang_start_internal::{{closure}}::hb0245fc583346cd7\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/rt.rs:168:24\n    31:     0x55797e969150 - std::panicking::try::do_call::h946e97edafdf2f58\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/panicking.rs:587:40\n    32:     0x55797e969150 - std::panicking::try::ha9077e2e87ccc6a6\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/panicking.rs:550:19\n    33:     0x55797e969150 - std::panic::catch_unwind::hd02f80e9111b6f00\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/panic.rs:358:14\n    34:     0x55797e969150 - std::rt::lang_start_internal::h13b1bd40350dac66\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/rt.rs:164:5\n    35:     0x55797e37bcb7 - std::rt::lang_start::h6ae80bb876c97613\n                                 at /rustc/854f22563c8daf92709fae18ee6aed52953835cd/library/std/src/rt.rs:198:5\n    36:     0x55797e37f6fe - main\n    37:     0x7f7d83c2a1ca - <unknown>\n    38:     0x7f7d83c2a28b - __libc_start_main\n    39:     0x55797e37b2b5 - _start\n    40:                0x0 - <unknown>\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) outdated",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=starry, checker=Outdated\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\n// timestamp=2025-02-16 20:45:37.742640444 +08:00:00\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\nerror: failed to select a version for `log`.\n    ... required by package `axhal v0.1.0 (https://github.com/arceos-org/arceos.git#959d1c74)`\n    ... which satisfies git dependency `axhal` of package `starry v0.1.0 (/tmp/cargo-outdatedVELaz8)`\nversions that meet the requirements `=0.4.21` are: 0.4.21\n\nall possible versions conflict with previously selected packages.\n\n  previously selected package `log v0.4.25`\n    ... which satisfies dependency `log = \"^0.4.25\"` of package `starry v0.1.0 (/tmp/cargo-outdatedVELaz8)`\n\nfailed to select a version for `log` which could resolve this conflict\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "repo": {
+    "user": "shilei-massclouds",
+    "repo": "axfs_vfs"
+  },
+  "data": [
+    {
+      "user": "shilei-massclouds",
+      "repo": "axfs_vfs",
+      "pkg": "axfs_vfs",
+      "count": 15,
+      "raw_reports": [
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 9,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs (original lines from 48 to 49)\n-use alloc::{sync::Arc, vec::Vec};\n-use alloc::string::String;\n",
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs (original lines from 51 to 51)\n+use alloc::string::String;\n+use alloc::{sync::Arc, vec::Vec};\n",
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs (original lines from 55 to 55)\n+pub use self::structs::{FileSystemInfo, LinuxDirent64, VfsNodeAttrValid, DT_};\n",
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs (original lines from 56 to 56)\n-pub use self::structs::{VfsNodeAttrValid, FileSystemInfo, DT_, LinuxDirent64};\n",
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs (original lines from 104 to 104)\n-    fn alloc_inode(&self, _ty: VfsNodeType, _uid: u32, _gid: u32, _mode: i32) -> VfsResult<VfsNodeRef> {\n+    fn alloc_inode(\n+        &self,\n+        _ty: VfsNodeType,\n+        _uid: u32,\n+        _gid: u32,\n+        _mode: i32,\n+    ) -> VfsResult<VfsNodeRef> {\n",
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs (original lines from 207 to 207)\n-    fn create_child(&self, _fname: &str, _ty: VfsNodeType, _uid: u32, _gid: u32, _mode: i32) -> VfsResult<VfsNodeRef> {\n+    fn create_child(\n+        &self,\n+        _fname: &str,\n+        _ty: VfsNodeType,\n+        _uid: u32,\n+        _gid: u32,\n+        _mode: i32,\n+    ) -> VfsResult<VfsNodeRef> {\n",
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs (original lines from 257 to 257)\n-        Self { path: String::from(path), fs }\n+        Self {\n+            path: String::from(path),\n+            fs,\n+        }\n",
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs (original lines from 368 to 368)\n-        self.main_fs.root_dir().create(path, FileType::Dir, uid, gid, 0o777)?;\n+        self.main_fs\n+            .root_dir()\n+            .create(path, FileType::Dir, uid, gid, 0o777)?;\n",
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs (original lines from 411 to 411)\n-            Ok((self.main_fs.clone(), path.to_owned()))        // not matched any mount point\n+            Ok((self.main_fs.clone(), path.to_owned())) // not matched any mount point\n"
+            ]
+          }
+        },
+        {
+          "file": "src/structs.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/structs.rs (original lines from 287 to 287)\n-    pub const fn new(mode: VfsNodePerm, ty: VfsNodeType, size: u64, blocks: u64, uid: u32, gid: u32) -> Self {\n+    pub const fn new(\n+        mode: VfsNodePerm,\n+        ty: VfsNodeType,\n+        size: u64,\n+        blocks: u64,\n+        uid: u32,\n+        gid: u32,\n+    ) -> Self {\n",
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/structs.rs (original lines from 474 to 478)\n-    pub d_ino:      u64,    // 64-bit inode number\n-    pub d_off:      i64,    // 64-bit offset to next structure\n-    pub d_reclen:   u16,    // Size of this dirent\n-    pub d_type:     u8,     // File type\n-    pub d_name:     [u8; 0],// Filename (null-terminated)\n+    pub d_ino: u64,      // 64-bit inode number\n+    pub d_off: i64,      // 64-bit offset to next structure\n+    pub d_reclen: u16,   // Size of this dirent\n+    pub d_type: u8,      // File type\n+    pub d_name: [u8; 0], // Filename (null-terminated)\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=axfs_vfs, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 23:39:14.969502748 +08:00:00\n    Building axfs_vfs v0.1.0 (current)\n       Built [   0.841s] (current)\n     Parsing axfs_vfs v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/target/semver-checks/local-axfs_vfs-0_1_0-5f34a8e9237717c9/target/x86_64-unknown-linux-gnu/doc/axfs_vfs.json\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axfs_vfs, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_53/shilei-massclouds/axfs_vfs/axfs_vfs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 18:01:55.732911256 +08:00:00\n\n\nstdout:\n\n--- failure inherent_method_const_removed: pub method is no longer const ---\n\nDescription:\nA publicly-visible method or associated fn is no longer `const` and can no longer be used in a `const` context.\n        ref: https://doc.rust-lang.org/reference/const_eval.html\n       impl: https://github.com/obi1kenobi/cargo-semver-checks/tree/v0.39.0/src/lints/inherent_method_const_removed.ron\n\nFailed in:\n  VfsNodeAttr::new_file in /home/runner/check/batch_53/shilei-massclouds/axfs_vfs/axfs_vfs/src/structs.rs:366\n  VfsNodeAttr::new_dir in /home/runner/check/batch_53/shilei-massclouds/axfs_vfs/axfs_vfs/src/structs.rs:380\n\n--- failure method_parameter_count_changed: pub method parameter count changed ---\n\nDescription:\nA publicly-visible method now takes a different number of parameters.\n        ref: https://doc.rust-lang.org/cargo/reference/semver.html#fn-change-arity\n       impl: https://github.com/obi1kenobi/cargo-semver-checks/tree/v0.39.0/src/lints/method_parameter_count_changed.ron\n\nFailed in:\n  axfs_vfs::VfsNodeAttr::new now takes 6 parameters instead of 4, in /home/runner/check/batch_53/shilei-massclouds/axfs_vfs/axfs_vfs/src/structs.rs:287\n  axfs_vfs::VfsNodeAttr::new_file now takes 5 parameters instead of 2, in /home/runner/check/batch_53/shilei-massclouds/axfs_vfs/axfs_vfs/src/structs.rs:366\n  axfs_vfs::VfsNodeAttr::new_dir now takes 5 parameters instead of 2, in /home/runner/check/batch_53/shilei-massclouds/axfs_vfs/axfs_vfs/src/structs.rs:380\n\n--- failure trait_method_added: pub trait method added ---\n\nDescription:\nA non-sealed public trait added a new method without a default implementation, which breaks downstream implementations of the trait\n        ref: https://doc.rust-lang.org/cargo/reference/semver.html#trait-new-item-no-default\n       impl: https://github.com/obi1kenobi/cargo-semver-checks/tree/v0.39.0/src/lints/trait_method_added.ron\n\nFailed in:\n  trait method axfs_vfs::VfsNodeOps::get_ino in file /home/runner/check/batch_53/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs:241\n\n--- failure trait_method_parameter_count_changed: pub trait method parameter count changed ---\n\nDescription:\nA trait method now takes a different number of parameters.\n        ref: https://doc.rust-lang.org/cargo/reference/semver.html#major-any-change-to-trait-item-signatures\n       impl: https://github.com/obi1kenobi/cargo-semver-checks/tree/v0.39.0/src/lints/trait_method_parameter_count_changed.ron\n\nFailed in:\n  VfsNodeOps::open now takes 2 instead of 1 parameters, in file /home/runner/check/batch_53/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs:112\n  VfsNodeOps::lookup now takes 3 instead of 2 parameters, in file /home/runner/check/batch_53/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs:170\n  VfsNodeOps::create now takes 6 instead of 3 parameters, in file /home/runner/check/batch_53/shilei-massclouds/axfs_vfs/axfs_vfs/src/lib.rs:198\n\nstderr:\n    Building axfs_vfs v0.1.0 (current)\n       Built [   0.816s] (current)\n     Parsing axfs_vfs v0.1.0 (current)\n      Parsed [   0.003s] (current)\n    Building axfs_vfs v0.1.0 (baseline)\n       Built [   0.438s] (baseline)\n     Parsing axfs_vfs v0.1.0 (baseline)\n      Parsed [   0.002s] (baseline)\n    Checking axfs_vfs v0.1.0 -> v0.1.0 (no change)\n     Checked [   0.017s] 148 checks: 144 pass, 4 fail, 0 warn, 0 skip\n\n     Summary semver requires new major version: 4 major and 0 minor checks failed\n    Finished [   2.594s] axfs_vfs\n"
+            ]
+          }
+        },
+        {
+          "file": "src/macros.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_52/shilei-massclouds/axfs_vfs/axfs_vfs/src/macros.rs (original lines from 48 to 48)\n-        fn create(&self, _path: &str, _ty: $crate::VfsNodeType, _uid: u32, _gid: u32, _mode: i32) -> $crate::VfsResult {\n+        fn create(\n+            &self,\n+            _path: &str,\n+            _ty: $crate::VfsNodeType,\n+            _uid: u32,\n+            _gid: u32,\n+            _mode: i32,\n+        ) -> $crate::VfsResult {\n"
+            ]
+          }
+        },
+        {
+          "file": "src/path.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] possible attempt to subtract with overflow\n  --> src/path.rs:41:32\n   |\n41 |                 } else if &buf[buf.len() - 1..] != \"/\" {\n   |                                ^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

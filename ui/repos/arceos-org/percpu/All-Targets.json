@@ -1,0 +1,79 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "percpu"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "percpu",
+      "pkg": "percpu",
+      "count": 8,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 5,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=percpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-16 22:28:54.263198717 +08:00:00\n    Building percpu v0.2.0 (current)\n       Built [   1.349s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/x86_64-unknown-none/doc/percpu.json\n",
+              "// pkg_name=percpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \n// timestamp=2025-02-16 22:28:58.085040418 +08:00:00\n    Building percpu v0.2.0 (current)\n       Built [   0.272s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/loongarch64-unknown-none/doc/percpu.json\n",
+              "// pkg_name=percpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 22:28:57.589440707 +08:00:00\n    Building percpu v0.2.0 (current)\n       Built [   0.275s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/aarch64-unknown-none/doc/percpu.json\n",
+              "// pkg_name=percpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:28:55.825737533 +08:00:00\n    Building percpu v0.2.0 (current)\n       Built [   1.554s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/x86_64-unknown-linux-gnu/doc/percpu.json\n",
+              "// pkg_name=percpu, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 22:28:50.510460571 +08:00:00\n    Building percpu v0.2.0 (current)\n       Built [   3.269s] (current)\n     Parsing percpu v0.2.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_26/arceos-org/percpu/target/semver-checks/local-percpu-0_2_0-8d61630377bd6600/target/riscv64gc-unknown-none-elf/doc/percpu.json\n"
+            ]
+          }
+        },
+        {
+          "file": "percpu/src/imp.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> percpu/src/imp.rs:29:5\n   |\n29 |     percpu_symbol_offset!(_percpu_load_end) - percpu_symbol_offset!(_percpu_load_start)\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: this warning originates in the macro `percpu_symbol_offset` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n   --> percpu/src/imp.rs:133:21\n    |\n133 | /                     core::arch::asm!(\n134 | |                         \"syscall\",\n135 | |                         in(\"eax\") SYS_ARCH_PRCTL,\n136 | |                         in(\"edi\") ARCH_SET_GS,\n137 | |                         in(\"rsi\") tp,\n138 | |                     );\n    | |_____________________^\n\n",
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n   --> percpu/src/imp.rs:177:1\n    |\n177 | #[percpu_macros::def_percpu]\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: this warning originates in the attribute macro `percpu_macros::def_percpu` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "percpu",
+      "pkg": "percpu_macros",
+      "count": 5,
+      "raw_reports": [
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 5,
+          "kinds": {
+            "Outdated": [
+              "pkg=percpu_macros, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu_macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:29:48.414425827 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nsyn   2.0.96   2.0.98  2.0.98  Normal  ---\n",
+              "pkg=percpu_macros, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu_macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:29:48.710646192 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nsyn   2.0.96   2.0.98  2.0.98  Normal  ---\n",
+              "pkg=percpu_macros, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu_macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:29:49.00727659 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nsyn   2.0.96   2.0.98  2.0.98  Normal  ---\n",
+              "pkg=percpu_macros, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu_macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:29:49.299842082 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nsyn   2.0.96   2.0.98  2.0.98  Normal  ---\n",
+              "pkg=percpu_macros, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_26/arceos-org/percpu/percpu_macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:29:49.590145791 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nsyn   2.0.96   2.0.98  2.0.98  Normal  ---\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

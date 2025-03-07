@@ -1,0 +1,140 @@
+{
+  "repo": {
+    "user": "shilei-massclouds",
+    "repo": "percpu2"
+  },
+  "data": [
+    {
+      "user": "shilei-massclouds",
+      "repo": "percpu2",
+      "pkg": "percpu2",
+      "count": 55,
+      "raw_reports": [
+        {
+          "file": "tests/test_percpu.rs",
+          "features": "",
+          "count": 48,
+          "kinds": {
+            "Mirai": [
+              "error[E0432]: unresolved import `percpu`\n --> tests/test_percpu.rs:3:5\n  |\n3 | use percpu::*;\n  |     ^^^^^^ use of undeclared crate or module `percpu`\n  |\nhelp: there is a crate or module with a similar name\n  |\n3 | use percpu2::*;\n  |     ~~~~~~~\n\n",
+              "error: cannot find attribute `def_percpu` in this scope\n --> tests/test_percpu.rs:7:3\n  |\n7 | #[def_percpu]\n  |   ^^^^^^^^^^\n  |\nhelp: consider importing one of these attribute macros\n  |\n3 + use percpu2::def_percpu;\n  |\n3 + use percpu_macros2::def_percpu;\n  |\n\n",
+              "error: cannot find attribute `def_percpu` in this scope\n  --> tests/test_percpu.rs:10:3\n   |\n10 | #[def_percpu]\n   |   ^^^^^^^^^^\n   |\nhelp: consider importing one of these attribute macros\n   |\n3  + use percpu2::def_percpu;\n   |\n3  + use percpu_macros2::def_percpu;\n   |\n\n",
+              "error: cannot find attribute `def_percpu` in this scope\n  --> tests/test_percpu.rs:13:3\n   |\n13 | #[def_percpu]\n   |   ^^^^^^^^^^\n   |\nhelp: consider importing one of these attribute macros\n   |\n3  + use percpu2::def_percpu;\n   |\n3  + use percpu_macros2::def_percpu;\n   |\n\n",
+              "error: cannot find attribute `def_percpu` in this scope\n  --> tests/test_percpu.rs:16:3\n   |\n16 | #[def_percpu]\n   |   ^^^^^^^^^^\n   |\nhelp: consider importing one of these attribute macros\n   |\n3  + use percpu2::def_percpu;\n   |\n3  + use percpu_macros2::def_percpu;\n   |\n\n",
+              "error: cannot find attribute `def_percpu` in this scope\n  --> tests/test_percpu.rs:19:3\n   |\n19 | #[def_percpu]\n   |   ^^^^^^^^^^\n   |\nhelp: consider importing one of these attribute macros\n   |\n3  + use percpu2::def_percpu;\n   |\n3  + use percpu_macros2::def_percpu;\n   |\n\n",
+              "error: cannot find attribute `def_percpu` in this scope\n  --> tests/test_percpu.rs:22:3\n   |\n22 | #[def_percpu]\n   |   ^^^^^^^^^^\n   |\nhelp: consider importing one of these attribute macros\n   |\n3  + use percpu2::def_percpu;\n   |\n3  + use percpu_macros2::def_percpu;\n   |\n\n",
+              "error: cannot find attribute `def_percpu` in this scope\n  --> tests/test_percpu.rs:30:3\n   |\n30 | #[def_percpu]\n   |   ^^^^^^^^^^\n   |\nhelp: consider importing one of these attribute macros\n   |\n3  + use percpu2::def_percpu;\n   |\n3  + use percpu_macros2::def_percpu;\n   |\n\n",
+              "error[E0599]: no method named `offset` found for type `bool` in the current scope\n  --> tests/test_percpu.rs:52:41\n   |\n52 |     println!(\"bool offset: {:#x}\", BOOL.offset());\n   |                                         ^^^^^^ method not found in `bool`\n\n",
+              "error[E0599]: no method named `offset` found for type `u8` in the current scope\n  --> tests/test_percpu.rs:53:37\n   |\n53 |     println!(\"u8 offset: {:#x}\", U8.offset());\n   |                                     ^^^^^^ method not found in `u8`\n\n",
+              "error[E0599]: no method named `offset` found for type `u16` in the current scope\n  --> tests/test_percpu.rs:54:39\n   |\n54 |     println!(\"u16 offset: {:#x}\", U16.offset());\n   |                                       ^^^^^^ method not found in `u16`\n\n",
+              "error[E0599]: no method named `offset` found for type `u32` in the current scope\n  --> tests/test_percpu.rs:55:39\n   |\n55 |     println!(\"u32 offset: {:#x}\", U32.offset());\n   |                                       ^^^^^^ method not found in `u32`\n\n",
+              "error[E0599]: no method named `offset` found for type `u64` in the current scope\n  --> tests/test_percpu.rs:56:39\n   |\n56 |     println!(\"u64 offset: {:#x}\", U64.offset());\n   |                                       ^^^^^^ method not found in `u64`\n\n",
+              "error[E0599]: no method named `offset` found for type `usize` in the current scope\n  --> tests/test_percpu.rs:57:43\n   |\n57 |     println!(\"usize offset: {:#x}\", USIZE.offset());\n   |                                           ^^^^^^ method not found in `usize`\n\n",
+              "error[E0599]: no method named `offset` found for struct `Struct` in the current scope\n  --> tests/test_percpu.rs:58:45\n   |\n25 | struct Struct {\n   | ------------- method `offset` not found for this struct\n...\n58 |     println!(\"struct offset: {:#x}\", STRUCT.offset());\n   |                                             ^^^^^^ method not found in `Struct`\n\n",
+              "error[E0599]: no method named `offset` found for type `bool` in the current scope\n  --> tests/test_percpu.rs:62:32\n   |\n62 |         assert_eq!(base + BOOL.offset(), BOOL.current_ptr() as usize);\n   |                                ^^^^^^ method not found in `bool`\n\n",
+              "error[E0599]: no method named `current_ptr` found for type `bool` in the current scope\n  --> tests/test_percpu.rs:62:47\n   |\n62 |         assert_eq!(base + BOOL.offset(), BOOL.current_ptr() as usize);\n   |                                               ^^^^^^^^^^^ method not found in `bool`\n\n",
+              "error[E0599]: no method named `offset` found for type `u8` in the current scope\n  --> tests/test_percpu.rs:63:30\n   |\n63 |         assert_eq!(base + U8.offset(), U8.current_ptr() as usize);\n   |                              ^^^^^^ method not found in `u8`\n\n",
+              "error[E0599]: no method named `current_ptr` found for type `u8` in the current scope\n  --> tests/test_percpu.rs:63:43\n   |\n63 |         assert_eq!(base + U8.offset(), U8.current_ptr() as usize);\n   |                                           ^^^^^^^^^^^ method not found in `u8`\n\n",
+              "error[E0599]: no method named `offset` found for type `u16` in the current scope\n  --> tests/test_percpu.rs:64:31\n   |\n64 |         assert_eq!(base + U16.offset(), U16.current_ptr() as usize);\n   |                               ^^^^^^ method not found in `u16`\n\n",
+              "error[E0599]: no method named `current_ptr` found for type `u16` in the current scope\n  --> tests/test_percpu.rs:64:45\n   |\n64 |         assert_eq!(base + U16.offset(), U16.current_ptr() as usize);\n   |                                             ^^^^^^^^^^^ method not found in `u16`\n\n",
+              "error[E0599]: no method named `offset` found for type `u32` in the current scope\n  --> tests/test_percpu.rs:65:31\n   |\n65 |         assert_eq!(base + U32.offset(), U32.current_ptr() as usize);\n   |                               ^^^^^^ method not found in `u32`\n\n",
+              "error[E0599]: no method named `current_ptr` found for type `u32` in the current scope\n  --> tests/test_percpu.rs:65:45\n   |\n65 |         assert_eq!(base + U32.offset(), U32.current_ptr() as usize);\n   |                                             ^^^^^^^^^^^ method not found in `u32`\n\n",
+              "error[E0599]: no method named `offset` found for type `u64` in the current scope\n  --> tests/test_percpu.rs:66:31\n   |\n66 |         assert_eq!(base + U64.offset(), U64.current_ptr() as usize);\n   |                               ^^^^^^ method not found in `u64`\n\n",
+              "error[E0599]: no method named `current_ptr` found for type `u64` in the current scope\n  --> tests/test_percpu.rs:66:45\n   |\n66 |         assert_eq!(base + U64.offset(), U64.current_ptr() as usize);\n   |                                             ^^^^^^^^^^^ method not found in `u64`\n\n",
+              "error[E0599]: no method named `offset` found for type `usize` in the current scope\n  --> tests/test_percpu.rs:67:33\n   |\n67 |         assert_eq!(base + USIZE.offset(), USIZE.current_ptr() as usize);\n   |                                 ^^^^^^ method not found in `usize`\n\n",
+              "error[E0599]: no method named `current_ptr` found for type `usize` in the current scope\n  --> tests/test_percpu.rs:67:49\n   |\n67 |         assert_eq!(base + USIZE.offset(), USIZE.current_ptr() as usize);\n   |                                                 ^^^^^^^^^^^ method not found in `usize`\n\n",
+              "error[E0599]: no method named `offset` found for struct `Struct` in the current scope\n  --> tests/test_percpu.rs:68:34\n   |\n25 | struct Struct {\n   | ------------- method `offset` not found for this struct\n...\n68 |         assert_eq!(base + STRUCT.offset(), STRUCT.current_ptr() as usize);\n   |                                  ^^^^^^ method not found in `Struct`\n\n",
+              "error[E0599]: no method named `current_ptr` found for struct `Struct` in the current scope\n  --> tests/test_percpu.rs:68:51\n   |\n25 | struct Struct {\n   | ------------- method `current_ptr` not found for this struct\n...\n68 |         assert_eq!(base + STRUCT.offset(), STRUCT.current_ptr() as usize);\n   |                                                   ^^^^^^^^^^^ method not found in `Struct`\n\n",
+              "error[E0599]: no method named `write_current` found for type `bool` in the current scope\n  --> tests/test_percpu.rs:71:10\n   |\n71 |     BOOL.write_current(true);\n   |          ^^^^^^^^^^^^^ method not found in `bool`\n\n",
+              "error[E0599]: no method named `write_current` found for type `u8` in the current scope\n  --> tests/test_percpu.rs:72:8\n   |\n72 |     U8.write_current(123);\n   |        ^^^^^^^^^^^^^ method not found in `u8`\n\n",
+              "error[E0599]: no method named `write_current` found for type `u16` in the current scope\n  --> tests/test_percpu.rs:73:9\n   |\n73 |     U16.write_current(0xabcd);\n   |         ^^^^^^^^^^^^^ method not found in `u16`\n\n",
+              "error[E0599]: no method named `write_current` found for type `u32` in the current scope\n  --> tests/test_percpu.rs:74:9\n   |\n74 |     U32.write_current(0xdead_beef);\n   |         ^^^^^^^^^^^^^ method not found in `u32`\n\n",
+              "error[E0599]: no method named `write_current` found for type `u64` in the current scope\n  --> tests/test_percpu.rs:75:9\n   |\n75 |     U64.write_current(0xa2ce_a2ce_a2ce_a2ce);\n   |         ^^^^^^^^^^^^^ method not found in `u64`\n\n",
+              "error[E0599]: no method named `write_current` found for type `usize` in the current scope\n  --> tests/test_percpu.rs:76:11\n   |\n76 |     USIZE.write_current(0xffff_0000);\n   |           ^^^^^^^^^^^^^ method not found in `usize`\n\n",
+              "error[E0599]: no method named `with_current` found for struct `Struct` in the current scope\n  --> tests/test_percpu.rs:78:12\n   |\n25 | struct Struct {\n   | ------------- method `with_current` not found for this struct\n...\n78 |     STRUCT.with_current(|s| {\n   |     -------^^^^^^^^^^^^ method not found in `Struct`\n\n",
+              "error[E0599]: no method named `read_current` found for type `bool` in the current scope\n  --> tests/test_percpu.rs:83:37\n   |\n83 |     println!(\"bool value: {}\", BOOL.read_current());\n   |                                     ^^^^^^^^^^^^ method not found in `bool`\n\n",
+              "error[E0599]: no method named `read_current` found for type `u8` in the current scope\n  --> tests/test_percpu.rs:84:33\n   |\n84 |     println!(\"u8 value: {}\", U8.read_current());\n   |                                 ^^^^^^^^^^^^ method not found in `u8`\n\n",
+              "error[E0599]: no method named `read_current` found for type `u16` in the current scope\n  --> tests/test_percpu.rs:85:38\n   |\n85 |     println!(\"u16 value: {:#x}\", U16.read_current());\n   |                                      ^^^^^^^^^^^^ method not found in `u16`\n\n",
+              "error[E0599]: no method named `read_current` found for type `u32` in the current scope\n  --> tests/test_percpu.rs:86:38\n   |\n86 |     println!(\"u32 value: {:#x}\", U32.read_current());\n   |                                      ^^^^^^^^^^^^ method not found in `u32`\n\n",
+              "error[E0599]: no method named `read_current` found for type `u64` in the current scope\n  --> tests/test_percpu.rs:87:38\n   |\n87 |     println!(\"u64 value: {:#x}\", U64.read_current());\n   |                                      ^^^^^^^^^^^^ method not found in `u64`\n\n",
+              "error[E0599]: no method named `read_current` found for type `usize` in the current scope\n  --> tests/test_percpu.rs:88:42\n   |\n88 |     println!(\"usize value: {:#x}\", USIZE.read_current());\n   |                                          ^^^^^^^^^^^^ method not found in `usize`\n\n",
+              "error[E0599]: no method named `read_current` found for type `u8` in the current scope\n  --> tests/test_percpu.rs:90:19\n   |\n90 |     assert_eq!(U8.read_current(), 123);\n   |                   ^^^^^^^^^^^^ method not found in `u8`\n\n",
+              "error[E0599]: no method named `read_current` found for type `u16` in the current scope\n  --> tests/test_percpu.rs:91:20\n   |\n91 |     assert_eq!(U16.read_current(), 0xabcd);\n   |                    ^^^^^^^^^^^^ method not found in `u16`\n\n",
+              "error[E0599]: no method named `read_current` found for type `u32` in the current scope\n  --> tests/test_percpu.rs:92:20\n   |\n92 |     assert_eq!(U32.read_current(), 0xdead_beef);\n   |                    ^^^^^^^^^^^^ method not found in `u32`\n\n",
+              "error[E0599]: no method named `read_current` found for type `u64` in the current scope\n  --> tests/test_percpu.rs:93:20\n   |\n93 |     assert_eq!(U64.read_current(), 0xa2ce_a2ce_a2ce_a2ce);\n   |                    ^^^^^^^^^^^^ method not found in `u64`\n\n",
+              "error[E0599]: no method named `read_current` found for type `usize` in the current scope\n  --> tests/test_percpu.rs:94:22\n   |\n94 |     assert_eq!(USIZE.read_current(), 0xffff_0000);\n   |                      ^^^^^^^^^^^^ method not found in `usize`\n\n",
+              "error[E0599]: no method named `with_current` found for struct `Struct` in the current scope\n  --> tests/test_percpu.rs:96:12\n   |\n25 | struct Struct {\n   | ------------- method `with_current` not found for this struct\n...\n96 |     STRUCT.with_current(|s| {\n   |     -------^^^^^^^^^^^^ method not found in `Struct`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/imp.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> src/imp.rs:17:5\n   |\n17 |     percpu_symbol_offset!(_percpu_load_end) - percpu_symbol_offset!(_percpu_load_start)\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: this warning originates in the macro `percpu_symbol_offset` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n   --> src/imp.rs:95:21\n    |\n95  | /                     core::arch::asm!(\n96  | |                         \"syscall\",\n97  | |                         in(\"eax\") SYS_ARCH_PRCTL,\n98  | |                         in(\"edi\") ARCH_SET_GS,\n99  | |                         in(\"rsi\") tp,\n100 | |                     );\n    | |_____________________^\n\n",
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n   --> src/imp.rs:119:1\n    |\n119 | #[percpu_macros2::def_percpu]\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: this warning originates in the attribute macro `percpu_macros2::def_percpu` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) mirai",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=percpu2, checker=Mirai\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_9/shilei-massclouds/percpu2/percpu2\n// cmd=cargo +nightly-2025-01-10 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 21:43:35.130608397 +08:00:00\n   Compiling proc-macro2 v1.0.94\n   Compiling autocfg v1.4.0\n   Compiling unicode-ident v1.0.18\n    Checking bitflags v1.3.2\n    Checking scopeguard v1.2.0\n   Compiling x86 v0.52.0\n    Checking raw-cpuid v10.7.0\n   Compiling percpu2 v0.1.0 (/home/runner/check/batch_9/shilei-massclouds/percpu2/percpu2)\n    Checking bit_field v0.10.2\n    Checking cfg-if v1.0.0\n   Compiling lock_api v0.4.12\n   Compiling quote v1.0.39\n    Checking spin v0.9.8\n   Compiling syn v2.0.99\n   Compiling percpu_macros2 v0.1.0 (/home/runner/check/batch_9/shilei-massclouds/percpu2/percpu_macros2)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.91s\n   Compiling scopeguard v1.2.0\n   Compiling bitflags v1.3.2\n   Compiling bit_field v0.10.2\n   Compiling cfg-if v1.0.0\n   Compiling raw-cpuid v10.7.0\n   Compiling lock_api v0.4.12\n   Compiling spin v0.9.8\n   Compiling x86 v0.52.0\n   Compiling percpu2 v0.1.0 (/home/runner/check/batch_9/shilei-massclouds/percpu2/percpu2)\nerror: could not compile `percpu2` (test \"test_percpu\") due to 48 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) outdated",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=percpu2, checker=Outdated\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_66/shilei-massclouds/percpu2/percpu2\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\n// timestamp=2025-02-16 20:25:51.289573846 +08:00:00\nerror: feature `sp-naive` includes `percpu_macros2/sp-naive`, but `percpu_macros2` is not a dependency\n  --> Cargo.toml:27:12\n   |\n27 | sp-naive = [\"percpu_macros2/sp-naive\"]\n   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\nerror: failed to parse manifest at `/tmp/cargo-outdatedOx7EZG/Cargo.toml`\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=percpu2, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_67/shilei-massclouds/percpu2/percpu2\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 17:36:14.566615651 +08:00:00\n    Building percpu2 v0.1.0 (current)\n       Built [   3.428s] (current)\n     Parsing percpu2 v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: percpu2 not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=percpu2, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_67/shilei-massclouds/percpu2/percpu2\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 17:36:18.355640937 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building percpu2 v0.1.0 (current)\n       Built [   3.428s] (current)\n     Parsing percpu2 v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: percpu2 not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

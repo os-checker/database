@@ -1,0 +1,198 @@
+{
+  "repo": {
+    "user": "kern-crates",
+    "repo": "zcore-drivers"
+  },
+  "data": [
+    {
+      "user": "kern-crates",
+      "repo": "zcore-drivers",
+      "pkg": "zcore-drivers",
+      "count": 28,
+      "raw_reports": [
+        {
+          "file": "src/nvme/interface.rs",
+          "features": "",
+          "count": 6,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: operator precedence can trip the unwary\n  --> src/nvme/interface.rs:71:19\n   |\n71 |         let aqa = (aqa_high_16 as u32) << 16 | aqa_low_16 as u32;\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((aqa_high_16 as u32) << 16) | aqa_low_16 as u32`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[deny(clippy::precedence)]` implied by `#[deny(warnings)]`\n\n",
+              "error: transmute used without annotations\n   --> src/nvme/interface.rs:108:46\n    |\n108 |         let common_cmd = unsafe { core::mem::transmute(cmd) };\n    |                                              ^^^^^^^^^ help: consider adding missing annotations: `transmute::<nvme::interface::NvmeIdentify, nvme::interface::NvmeCommonCommand>`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_transmute_annotations\n    = note: `#[deny(clippy::missing_transmute_annotations)]` implied by `#[deny(warnings)]`\n\n",
+              "error: transmute used without annotations\n   --> src/nvme/interface.rs:174:46\n    |\n174 |         let common_cmd = unsafe { core::mem::transmute(cmd) };\n    |                                              ^^^^^^^^^ help: consider adding missing annotations: `transmute::<nvme::interface::NvmeCreateCq, nvme::interface::NvmeCommonCommand>`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_transmute_annotations\n\n",
+              "error: transmute used without annotations\n   --> src/nvme/interface.rs:207:46\n    |\n207 |         let common_cmd = unsafe { core::mem::transmute(cmd) };\n    |                                              ^^^^^^^^^ help: consider adding missing annotations: `transmute::<nvme::interface::NvmeCreateSq, nvme::interface::NvmeCommonCommand>`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_transmute_annotations\n\n",
+              "error: transmute used without annotations\n   --> src/nvme/interface.rs:268:46\n    |\n268 |         let common_cmd = unsafe { core::mem::transmute(cmd) };\n    |                                              ^^^^^^^^^ help: consider adding missing annotations: `transmute::<nvme::interface::NvmeRWCommand, nvme::interface::NvmeCommonCommand>`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_transmute_annotations\n\n",
+              "error: transmute used without annotations\n   --> src/nvme/interface.rs:321:46\n    |\n321 |         let common_cmd = unsafe { core::mem::transmute(cmd) };\n    |                                              ^^^^^^^^^ help: consider adding missing annotations: `transmute::<nvme::interface::NvmeRWCommand, nvme::interface::NvmeCommonCommand>`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_transmute_annotations\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/scheme/display.rs",
+          "features": "",
+          "count": 4,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: the following explicit lifetimes could be elided: 'a\n   --> src/scheme/display.rs:141:6\n    |\n141 | impl<'a> core::ops::Deref for FrameBuffer<'a> {\n    |      ^^                                   ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n141 - impl<'a> core::ops::Deref for FrameBuffer<'a> {\n141 + impl core::ops::Deref for FrameBuffer<'_> {\n    |\n\n",
+              "error: the following explicit lifetimes could be elided: 'a\n   --> src/scheme/display.rs:141:6\n    |\n141 | impl<'a> core::ops::Deref for FrameBuffer<'a> {\n    |      ^^                                   ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n141 - impl<'a> core::ops::Deref for FrameBuffer<'a> {\n141 + impl core::ops::Deref for FrameBuffer<'_> {\n    |\n\n",
+              "error: the following explicit lifetimes could be elided: 'a\n   --> src/scheme/display.rs:148:6\n    |\n148 | impl<'a> core::ops::DerefMut for FrameBuffer<'a> {\n    |      ^^                                      ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n148 - impl<'a> core::ops::DerefMut for FrameBuffer<'a> {\n148 + impl core::ops::DerefMut for FrameBuffer<'_> {\n    |\n\n",
+              "error: the following explicit lifetimes could be elided: 'a\n   --> src/scheme/display.rs:148:6\n    |\n148 | impl<'a> core::ops::DerefMut for FrameBuffer<'a> {\n    |      ^^                                      ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n148 - impl<'a> core::ops::DerefMut for FrameBuffer<'a> {\n148 + impl core::ops::DerefMut for FrameBuffer<'_> {\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/bus/pci.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: unexpected `cfg` condition value: `board_malta`\n  --> src/bus/pci.rs:56:7\n   |\n56 | #[cfg(feature = \"board_malta\")]\n   |       ^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: expected values for `feature` are: `allwinner`, `async-std`, `board-qemu`, `d1-pac`, `fu740`, `graphic`, `loopback`, `mock`, `no-pci`, `rcore-console`, `sdl2`, `virtio`, and `virtio-drivers`\n   = help: consider adding `board_malta` as a feature in `Cargo.toml`\n   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration\nnote: the lint level is defined here\n  --> src/lib.rs:4:9\n   |\n4  | #![deny(warnings)]\n   |         ^^^^^^^^\n   = note: `#[deny(unexpected_cfgs)]` implied by `#[deny(warnings)]`\n\n"
+            ],
+            "Mirai": [
+              "error: unexpected `cfg` condition value: `board_malta`\n  --> src/bus/pci.rs:56:7\n   |\n56 | #[cfg(feature = \"board_malta\")]\n   |       ^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: expected values for `feature` are: `allwinner`, `async-std`, `board-qemu`, `d1-pac`, `fu740`, `graphic`, `loopback`, `mock`, `no-pci`, `rcore-console`, `sdl2`, `virtio`, and `virtio-drivers`\n   = help: consider adding `board_malta` as a feature in `Cargo.toml`\n   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration\nnote: the lint level is defined here\n  --> src/lib.rs:4:9\n   |\n4  | #![deny(warnings)]\n   |         ^^^^^^^^\n   = note: `#[deny(unexpected_cfgs)]` implied by `#[deny(warnings)]`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/input/mouse.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: clamp-like pattern without using clamp function\n  --> src/input/mouse.rs:38:18\n   |\n38 |         let dx = self.dx.max(-127).min(127);\n   |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace with clamp: `self.dx.clamp(-127, 127)`\n   |\n   = note: clamp will panic if max < min\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_clamp\n   = note: `#[deny(clippy::manual_clamp)]` implied by `#[deny(warnings)]`\n\n",
+              "error: clamp-like pattern without using clamp function\n  --> src/input/mouse.rs:39:18\n   |\n39 |         let dy = self.dy.max(-127).min(127);\n   |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace with clamp: `self.dy.clamp(-127, 127)`\n   |\n   = note: clamp will panic if max < min\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_clamp\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/irq/x86_apic/ioapic.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: the following explicit lifetimes could be elided: 'a\n   --> src/irq/x86_apic/ioapic.rs:185:14\n    |\n185 |         impl<'a> fmt::Debug for RedirTable<'a> {\n    |              ^^                            ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[deny(clippy::needless_lifetimes)]` implied by `#[deny(warnings)]`\nhelp: elide the lifetimes\n    |\n185 -         impl<'a> fmt::Debug for RedirTable<'a> {\n185 +         impl fmt::Debug for RedirTable<'_> {\n    |\n\n",
+              "error: the following explicit lifetimes could be elided: 'a\n   --> src/irq/x86_apic/ioapic.rs:185:14\n    |\n185 |         impl<'a> fmt::Debug for RedirTable<'a> {\n    |              ^^                            ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n    = note: `#[deny(clippy::needless_lifetimes)]` implied by `#[deny(warnings)]`\nhelp: elide the lifetimes\n    |\n185 -         impl<'a> fmt::Debug for RedirTable<'a> {\n185 +         impl fmt::Debug for RedirTable<'_> {\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/irq/x86_apic/lapic.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: creating a mutable reference to mutable static is discouraged\n  --> src/irq/x86_apic/lapic.rs:16:9\n   |\n16 | /         LOCAL_APIC\n17 | |             .as_mut()\n   | |_____________________^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[deny(static_mut_refs)]` implied by `#[deny(warnings)]`\n\n"
+            ],
+            "Mirai": [
+              "error: creating a mutable reference to mutable static is discouraged\n  --> src/irq/x86_apic/lapic.rs:16:9\n   |\n16 | /         LOCAL_APIC\n17 | |             .as_mut()\n   | |_____________________^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[deny(static_mut_refs)]` implied by `#[deny(warnings)]`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/utils/devicetree.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: operator precedence can trip the unwary\n   --> src/utils/devicetree.rs:125:17\n    |\n125 |         value = value << 32 | c as u64;\n    |                 ^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(value << 32) | c as u64`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "error: parameter is only used in recursion\n  --> src/utils/devicetree.rs:47:23\n   |\n47 |     fn walk_inner<F>(&self, node: &Node, props: InheritProps, device_node_op: &mut F)\n   |                       ^^^^\n   |\nnote: parameter used here\n  --> src/utils/devicetree.rs:64:13\n   |\n64 |             self.walk_inner(child, props, device_node_op);\n   |             ^^^^\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#only_used_in_recursion\n   = note: `#[deny(clippy::only_used_in_recursion)]` implied by `#[deny(warnings)]`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=zcore-drivers, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_33/kern-crates/zcore-drivers\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu  --no-deps\n// timestamp=2025-02-16 22:35:31.761060865 +08:00:00\n   Compiling autocfg v1.4.0\n    Checking bitflags v1.3.2\n    Checking bit_field v0.10.2\n   Compiling rustversion v1.0.19\n    Checking log v0.4.25\n    Checking scopeguard v1.2.0\n    Checking volatile v0.4.6\n    Checking bitflags v2.8.0\n   Compiling paste v1.0.15\n    Checking raw-cpuid v10.7.0\n   Compiling lock_api v0.4.12\n    Checking spin v0.9.8\n    Checking rsdp v2.0.1\n    Checking x86_64 v0.14.13\n    Checking cfg-if v1.0.0\n    Checking managed v0.8.0\n    Checking bit v0.1.1\n    Checking volatile v0.3.0\n    Checking byteorder v1.5.0\n    Checking isomorphic_drivers v0.1.0 (https://github.com/rcore-os/isomorphic_drivers?rev=f7cd97a8#f7cd97a8)\n    Checking acpi v4.1.1\n    Checking smoltcp v0.8.0 (https://github.com/smoltcp-rs/smoltcp?rev=35e833e3#35e833e3)\n    Checking pci v0.0.1 (https://github.com/elliott10/pci-rs?rev=8f33774b#8f33774b)\n    Checking bitmap-allocator v0.1.0 (https://github.com/rcore-os/bitmap-allocator?rev=88e871a5#88e871a5)\n    Checking device_tree v1.0.3 (https://github.com/rcore-os/device_tree-rs?rev=2f2e55f#2f2e55fb)\n    Checking lazy_static v1.5.0\n    Checking numeric-enum-macro v0.2.0\n    Checking lock v0.1.0 (https://github.com/DeathWish5/kernel-sync?rev=8486b8#8486b817)\n    Checking x2apic v0.4.3\n    Checking zcore-drivers v0.1.0 (/home/runner/check/batch_33/kern-crates/zcore-drivers)\nerror: could not compile `zcore-drivers` (lib) due to 16 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=zcore-drivers, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_5/kern-crates/zcore-drivers\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 22:01:25.738546557 +08:00:00\n   Compiling autocfg v1.4.0\n   Compiling bit_field v0.10.2\n   Compiling bitflags v1.3.2\n   Compiling log v0.4.26\n   Compiling rustversion v1.0.20\n   Compiling scopeguard v1.2.0\n[2025-03-07T14:01:25Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-03-07T14:01:25Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling bitflags v2.9.0\n   Compiling volatile v0.4.6\n   Compiling paste v1.0.15\n   Compiling raw-cpuid v10.7.0\n   Compiling lock_api v0.4.12\n   Compiling spin v0.9.8\n   Compiling rsdp v2.0.1\n   Compiling x86_64 v0.14.13\n   Compiling byteorder v1.5.0\n   Compiling bit v0.1.1\n   Compiling managed v0.8.0\n   Compiling volatile v0.3.0\n   Compiling cfg-if v1.0.0\n   Compiling isomorphic_drivers v0.1.0 (https://github.com/rcore-os/isomorphic_drivers?rev=f7cd97a8#f7cd97a8)\n   Compiling smoltcp v0.8.0 (https://github.com/smoltcp-rs/smoltcp?rev=35e833e3#35e833e3)\n   Compiling acpi v4.1.1\n   Compiling pci v0.0.1 (https://github.com/elliott10/pci-rs?rev=8f33774b#8f33774b)\n   Compiling bitmap-allocator v0.1.0 (https://github.com/rcore-os/bitmap-allocator?rev=88e871a5#88e871a5)\n   Compiling numeric-enum-macro v0.2.0\n   Compiling device_tree v1.0.3 (https://github.com/rcore-os/device_tree-rs?rev=2f2e55f#2f2e55fb)\n   Compiling lazy_static v1.5.0\n   Compiling lock v0.1.0 (https://github.com/DeathWish5/kernel-sync?rev=8486b8#8486b817)\n   Compiling x2apic v0.4.3\n   Compiling zcore-drivers v0.1.0 (/home/runner/check/batch_5/kern-crates/zcore-drivers)\nerror: unexpected `cfg` condition value: `board_malta`\n  --> src/bus/pci.rs:56:7\n   |\n56 | #[cfg(feature = \"board_malta\")]\n   |       ^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: expected values for `feature` are: `allwinner`, `async-std`, `board-qemu`, `d1-pac`, `fu740`, `graphic`, `loopback`, `mock`, `no-pci`, `rcore-console`, `sdl2`, `virtio`, and `virtio-drivers`\n   = help: consider adding `board_malta` as a feature in `Cargo.toml`\n   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration\nnote: the lint level is defined here\n  --> src/lib.rs:4:9\n   |\n4  | #![deny(warnings)]\n   |         ^^^^^^^^\n   = note: `#[deny(unexpected_cfgs)]` implied by `#[deny(warnings)]`\n\nerror: creating a mutable reference to mutable static is discouraged\n  --> src/irq/x86_apic/lapic.rs:16:9\n   |\n16 | /         LOCAL_APIC\n17 | |             .as_mut()\n   | |_____________________^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[deny(static_mut_refs)]` implied by `#[deny(warnings)]`\n\nerror: could not compile `zcore-drivers` (lib) due to 2 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) mirai",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=zcore-drivers, checker=Mirai\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_5/kern-crates/zcore-drivers\n// cmd=cargo +nightly-2025-01-10 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 22:01:22.858289376 +08:00:00\n    Checking bit_field v0.10.2\n    Checking bitflags v1.3.2\n   Compiling autocfg v1.4.0\n   Compiling rustversion v1.0.20\n    Checking log v0.4.26\n    Checking scopeguard v1.2.0\n    Checking bitflags v2.9.0\n    Checking volatile v0.4.6\n   Compiling paste v1.0.15\n    Checking raw-cpuid v10.7.0\n   Compiling lock_api v0.4.12\n    Checking spin v0.9.8\n    Checking rsdp v2.0.1\n    Checking x86_64 v0.14.13\n    Checking bit v0.1.1\n    Checking managed v0.8.0\n    Checking volatile v0.3.0\n    Checking byteorder v1.5.0\n    Checking cfg-if v1.0.0\n    Checking isomorphic_drivers v0.1.0 (https://github.com/rcore-os/isomorphic_drivers?rev=f7cd97a8#f7cd97a8)\n    Checking acpi v4.1.1\n    Checking smoltcp v0.8.0 (https://github.com/smoltcp-rs/smoltcp?rev=35e833e3#35e833e3)\n    Checking pci v0.0.1 (https://github.com/elliott10/pci-rs?rev=8f33774b#8f33774b)\n    Checking bitmap-allocator v0.1.0 (https://github.com/rcore-os/bitmap-allocator?rev=88e871a5#88e871a5)\n    Checking lazy_static v1.5.0\n    Checking numeric-enum-macro v0.2.0\n    Checking device_tree v1.0.3 (https://github.com/rcore-os/device_tree-rs?rev=2f2e55f#2f2e55fb)\n    Checking x2apic v0.4.3\n    Checking lock v0.1.0 (https://github.com/DeathWish5/kernel-sync?rev=8486b8#8486b817)\n    Checking zcore-drivers v0.1.0 (/home/runner/check/batch_5/kern-crates/zcore-drivers)\nerror: could not compile `zcore-drivers` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=zcore-drivers, checker=Rapx\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_33/kern-crates/zcore-drivers\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:35:58.816136265 +08:00:00\n   Compiling autocfg v1.4.0\n    Checking bit_field v0.10.2\n    Checking bitflags v1.3.2\n   Compiling rustversion v1.0.19\n    Checking log v0.4.25\n    Checking scopeguard v1.2.0\n   Compiling paste v1.0.15\n    Checking bitflags v2.8.0\n    Checking volatile v0.4.6\n    Checking raw-cpuid v10.7.0\n   Compiling lock_api v0.4.12\n    Checking x86_64 v0.14.13\n    Checking rsdp v2.0.1\n    Checking spin v0.9.8\n    Checking volatile v0.3.0\n    Checking cfg-if v1.0.0\n    Checking byteorder v1.5.0\n    Checking bit v0.1.1\n    Checking managed v0.8.0\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.13/src/addr.rs:387:51\n    |\n387 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> Option<usize>`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n387 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\n    Checking isomorphic_drivers v0.1.0 (https://github.com/rcore-os/isomorphic_drivers?rev=f7cd97a8#f7cd97a8)\n    Checking acpi v4.1.1\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.13/src/structures/paging/page.rs:284:51\n    |\n284 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&Page<_>, &Page<_>) -> Option<usize>`\n               found signature `fn(&Page<_>, &Page<_>) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n284 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\n    Checking smoltcp v0.8.0 (https://github.com/smoltcp-rs/smoltcp?rev=35e833e3#35e833e3)\n    Checking pci v0.0.1 (https://github.com/elliott10/pci-rs?rev=8f33774b#8f33774b)\n    Checking bitmap-allocator v0.1.0 (https://github.com/rcore-os/bitmap-allocator?rev=88e871a5#88e871a5)\n    Checking numeric-enum-macro v0.2.0\n    Checking device_tree v1.0.3 (https://github.com/rcore-os/device_tree-rs?rev=2f2e55f#2f2e55fb)\n    Checking lazy_static v1.5.0\nFor more information about this error, try `rustc --explain E0053`.\nerror: could not compile `x86_64` (lib) due to 2 previous errors\nwarning: build failed, waiting for other jobs to finish...\n14:36:02|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=zcore-drivers, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_34/kern-crates/zcore-drivers\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 18:04:12.221454557 +08:00:00\n    Building zcore-drivers v0.1.0 (current)\n       Built [  15.076s] (current)\n     Parsing zcore-drivers v0.1.0 (current)\n      Parsed [   0.027s] (current)\nerror: zcore-drivers not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=zcore-drivers, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_33/kern-crates/zcore-drivers\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:36:03.974862751 +08:00:00\n\nName      Project  Compat  Latest  Kind    Platform\n----      -------  ------  ------  ----    --------\nacpi      4.1.1    ---     5.1.0   Normal  cfg(target_arch = \"x86_64\")\nbitflags  1.3.2    ---     2.8.0   Normal  ---\nd1-pac    0.0.27   ---     0.0.32  Normal  ---\nriscv     0.10.1   ---     0.12.1  Normal  cfg(any(target_arch = \"riscv32\", target_arch = \"riscv64\"))\nsdl2      0.34.5   ---     0.37.0  Normal  cfg(not(target_os = \"none\"))\nvolatile  0.3.0    ---     0.6.1   Normal  ---\nx2apic    0.4.3    ---     0.5.0   Normal  cfg(target_arch = \"x86_64\")\nx86_64    0.14.13  ---     0.15.2  Normal  cfg(target_arch = \"x86_64\")\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=zcore-drivers, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_34/kern-crates/zcore-drivers\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 18:04:28.535371021 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building zcore-drivers v0.1.0 (current)\n       Built [  15.076s] (current)\n     Parsing zcore-drivers v0.1.0 (current)\n      Parsed [   0.027s] (current)\nerror: zcore-drivers not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "src/uart/buffered.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: length comparison to zero\n  --> src/uart/buffered.rs:47:12\n   |\n47 |         if self.buf.lock().len() > 0 {\n   |            ^^^^^^^^^^^^^^^^^^^^^^^^^ help: using `!is_empty` is clearer and more explicit: `!self.buf.lock().is_empty()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_zero\n   = note: `#[deny(clippy::len_zero)]` implied by `#[deny(warnings)]`\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

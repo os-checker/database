@@ -1,0 +1,126 @@
+{
+  "repo": {
+    "user": "Starry-OS",
+    "repo": "arm_gic"
+  },
+  "data": [
+    {
+      "user": "Starry-OS",
+      "repo": "arm_gic",
+      "pkg": "arm_gic",
+      "count": 30,
+      "raw_reports": [
+        {
+          "file": "src/gic_v3.rs",
+          "features": "",
+          "count": 12,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:205:18\n    |\n205 |             3 => mpidr >> 32 & 0xff,\n    |                  ^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(mpidr >> 32) & 0xff`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n    = note: `#[warn(clippy::precedence)]` on by default\n\n",
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:206:18\n    |\n206 |             2 => mpidr >> 16 & 0xff,\n    |                  ^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(mpidr >> 16) & 0xff`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:207:18\n    |\n207 |             1 => mpidr >> 8 & 0xff,\n    |                  ^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(mpidr >> 8) & 0xff`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:214:9\n    |\n214 | /         Self::mpidr_affinity_level(mpidr, 3) << 32\n215 | |             | Self::mpidr_affinity_level(mpidr, 2) << 16\n216 | |             | Self::mpidr_affinity_level(mpidr, 1) << 8\n    | |_______________________________________________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\nhelp: consider parenthesizing your expression\n    |\n214 ~         Self::mpidr_affinity_level(mpidr, 3) << 32\n215 +             | Self::mpidr_affinity_level(mpidr, 2) << 16 | (Self::mpidr_affinity_level(mpidr, 1) << 8)\n    |\n\n",
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:214:9\n    |\n214 | /         Self::mpidr_affinity_level(mpidr, 3) << 32\n215 | |             | Self::mpidr_affinity_level(mpidr, 2) << 16\n    | |________________________________________________________^ help: consider parenthesizing your expression: `(Self::mpidr_affinity_level(mpidr, 3) << 32) | (Self::mpidr_affinity_level(mpidr, 2) << 16)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:330:26\n    |\n330 |         let mut ppinum = typer >> 27 & 0x1f;\n    |                          ^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(typer >> 27) & 0x1f`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:205:18\n    |\n205 |             3 => mpidr >> 32 & 0xff,\n    |                  ^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(mpidr >> 32) & 0xff`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n    = note: `#[warn(clippy::precedence)]` on by default\n\n",
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:206:18\n    |\n206 |             2 => mpidr >> 16 & 0xff,\n    |                  ^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(mpidr >> 16) & 0xff`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:207:18\n    |\n207 |             1 => mpidr >> 8 & 0xff,\n    |                  ^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(mpidr >> 8) & 0xff`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:214:9\n    |\n214 | /         Self::mpidr_affinity_level(mpidr, 3) << 32\n215 | |             | Self::mpidr_affinity_level(mpidr, 2) << 16\n216 | |             | Self::mpidr_affinity_level(mpidr, 1) << 8\n    | |_______________________________________________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\nhelp: consider parenthesizing your expression\n    |\n214 ~         Self::mpidr_affinity_level(mpidr, 3) << 32\n215 +             | Self::mpidr_affinity_level(mpidr, 2) << 16 | (Self::mpidr_affinity_level(mpidr, 1) << 8)\n    |\n\n",
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:214:9\n    |\n214 | /         Self::mpidr_affinity_level(mpidr, 3) << 32\n215 | |             | Self::mpidr_affinity_level(mpidr, 2) << 16\n    | |________________________________________________________^ help: consider parenthesizing your expression: `(Self::mpidr_affinity_level(mpidr, 3) << 32) | (Self::mpidr_affinity_level(mpidr, 2) << 16)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> src/gic_v3.rs:330:26\n    |\n330 |         let mut ppinum = typer >> 27 & 0x1f;\n    |                          ^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(typer >> 27) & 0x1f`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 8,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: the feature `const_nonnull_new` has been stable since 1.85.0 and no longer requires an attribute to enable\n  --> src/lib.rs:17:12\n   |\n17 | #![feature(const_nonnull_new)]\n   |            ^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(stable_features)]` on by default\n\n",
+              "warning: the feature `const_option` has been stable since 1.83.0 and no longer requires an attribute to enable\n  --> src/lib.rs:16:12\n   |\n16 | #![feature(const_option)]\n   |            ^^^^^^^^^^^^\n\n",
+              "warning: the feature `const_ptr_as_ref` has been stable since 1.83.0 and no longer requires an attribute to enable\n  --> src/lib.rs:15:12\n   |\n15 | #![feature(const_ptr_as_ref)]\n   |            ^^^^^^^^^^^^^^^^\n\n",
+              "warning: the feature `const_nonnull_new` has been stable since 1.85.0 and no longer requires an attribute to enable\n  --> src/lib.rs:17:12\n   |\n17 | #![feature(const_nonnull_new)]\n   |            ^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(stable_features)]` on by default\n\n",
+              "warning: the feature `const_option` has been stable since 1.83.0 and no longer requires an attribute to enable\n  --> src/lib.rs:16:12\n   |\n16 | #![feature(const_option)]\n   |            ^^^^^^^^^^^^\n\n",
+              "warning: the feature `const_ptr_as_ref` has been stable since 1.83.0 and no longer requires an attribute to enable\n  --> src/lib.rs:15:12\n   |\n15 | #![feature(const_ptr_as_ref)]\n   |            ^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: queries overflow the depth limit!\n  |\n  = help: consider increasing the recursion limit by adding a `#![recursion_limit = \"256\"]` attribute to your crate (`arm_gic`)\n  = note: query depth increased by 130 when simplifying constant for the type system `registers::gicv3_regs::_`\n\n",
+              "error: queries overflow the depth limit!\n  |\n  = help: consider increasing the recursion limit by adding a `#![recursion_limit = \"256\"]` attribute to your crate (`arm_gic`)\n  = note: query depth increased by 130 when simplifying constant for the type system `registers::gicv3_regs::_`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arm_gic, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/arm_gic\n// cmd=cargo clippy --target aarch64-unknown-none  --no-deps\n// timestamp=2025-02-16 23:36:54.348168339 +08:00:00\n    Checking tock-registers v0.8.1\n    Checking cfg-if v1.0.0\n    Checking bitflags v2.8.0\n    Checking aarch64-cpu v9.4.0\n    Checking arm_gic v0.1.0 (/home/runner/check/batch_4/Starry-OS/arm_gic)\nerror: could not compile `arm_gic` (lib) due to 1 previous error; 9 warnings emitted\n",
+              "// pkg_name=arm_gic, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/arm_gic\n// cmd=cargo clippy --target aarch64-unknown-linux-gnu  --no-deps\n// timestamp=2025-02-16 23:36:56.104521154 +08:00:00\n    Checking tock-registers v0.8.1\n    Checking bitflags v2.8.0\n    Checking cfg-if v1.0.0\n    Checking aarch64-cpu v9.4.0\n    Checking arm_gic v0.1.0 (/home/runner/check/batch_4/Starry-OS/arm_gic)\nerror: could not compile `arm_gic` (lib) due to 1 previous error; 9 warnings emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arm_gic, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Starry-OS/arm_gic\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target aarch64-unknown-none \n// timestamp=2025-03-07 21:57:28.427565703 +08:00:00\n   Compiling tock-registers v0.8.1\n   Compiling bitflags v2.9.0\n   Compiling cfg-if v1.0.0\n   Compiling aarch64-cpu v9.4.0\n   Compiling arm_gic v0.1.0 (/home/runner/check/batch_1/Starry-OS/arm_gic)\nwarning: the feature `const_nonnull_new` has been stable since 1.85.0 and no longer requires an attribute to enable\n  --> src/lib.rs:17:12\n   |\n17 | #![feature(const_nonnull_new)]\n   |            ^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(stable_features)]` on by default\n\nwarning: the feature `const_option` has been stable since 1.83.0 and no longer requires an attribute to enable\n  --> src/lib.rs:16:12\n   |\n16 | #![feature(const_option)]\n   |            ^^^^^^^^^^^^\n\nwarning: the feature `const_ptr_as_ref` has been stable since 1.83.0 and no longer requires an attribute to enable\n  --> src/lib.rs:15:12\n   |\n15 | #![feature(const_ptr_as_ref)]\n   |            ^^^^^^^^^^^^^^^^\n\nerror: queries overflow the depth limit!\n  |\n  = help: consider increasing the recursion limit by adding a `#![recursion_limit = \"256\"]` attribute to your crate (`arm_gic`)\n  = note: query depth increased by 130 when simplifying constant for the type system `registers::gicv3_regs::_`\n\nwarning: `arm_gic` (lib) generated 3 warnings\nerror: could not compile `arm_gic` (lib) due to 1 previous error; 3 warnings emitted\n",
+              "// pkg_name=arm_gic, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Starry-OS/arm_gic\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target aarch64-unknown-linux-gnu \n// timestamp=2025-03-07 21:57:30.353964212 +08:00:00\n   Compiling tock-registers v0.8.1\n   Compiling cfg-if v1.0.0\n   Compiling bitflags v2.9.0\n   Compiling aarch64-cpu v9.4.0\n   Compiling arm_gic v0.1.0 (/home/runner/check/batch_1/Starry-OS/arm_gic)\nwarning: the feature `const_nonnull_new` has been stable since 1.85.0 and no longer requires an attribute to enable\n  --> src/lib.rs:17:12\n   |\n17 | #![feature(const_nonnull_new)]\n   |            ^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(stable_features)]` on by default\n\nwarning: the feature `const_option` has been stable since 1.83.0 and no longer requires an attribute to enable\n  --> src/lib.rs:16:12\n   |\n16 | #![feature(const_option)]\n   |            ^^^^^^^^^^^^\n\nwarning: the feature `const_ptr_as_ref` has been stable since 1.83.0 and no longer requires an attribute to enable\n  --> src/lib.rs:15:12\n   |\n15 | #![feature(const_ptr_as_ref)]\n   |            ^^^^^^^^^^^^^^^^\n\nerror: queries overflow the depth limit!\n  |\n  = help: consider increasing the recursion limit by adding a `#![recursion_limit = \"256\"]` attribute to your crate (`arm_gic`)\n  = note: query depth increased by 130 when simplifying constant for the type system `registers::gicv3_regs::_`\n\nwarning: `arm_gic` (lib) generated 3 warnings\nerror: could not compile `arm_gic` (lib) due to 1 previous error; 3 warnings emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arm_gic, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/arm_gic\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-03-07 17:05:20.284429394 +08:00:00\n    Building arm_gic v0.1.0 (current)\n       Built [   1.584s] (current)\n     Parsing arm_gic v0.1.0 (current)\n      Parsed [   0.004s] (current)\nerror: arm_gic not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n",
+              "// pkg_name=arm_gic, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_4/Starry-OS/arm_gic\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-linux-gnu \n// timestamp=2025-03-07 17:05:22.188119821 +08:00:00\n    Building arm_gic v0.1.0 (current)\n       Built [   1.563s] (current)\n     Parsing arm_gic v0.1.0 (current)\n      Parsed [   0.004s] (current)\nerror: arm_gic not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Outdated": [
+              "pkg=arm_gic, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/Starry-OS/arm_gic\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 23:37:29.710073803 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  ---\ntock-registers  0.8.1    ---     0.9.0   Normal  ---\n",
+              "pkg=arm_gic, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_4/Starry-OS/arm_gic\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 23:37:29.836615967 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  ---\ntock-registers  0.8.1    ---     0.9.0   Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=arm_gic, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/Starry-OS/arm_gic\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-03-07 17:05:22.186317682 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building arm_gic v0.1.0 (current)\n       Built [   1.584s] (current)\n     Parsing arm_gic v0.1.0 (current)\n      Parsed [   0.004s] (current)\nerror: arm_gic not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n",
+              "pkg=arm_gic, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_4/Starry-OS/arm_gic\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-linux-gnu \ntimestamp=2025-03-07 17:05:23.952252639 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building arm_gic v0.1.0 (current)\n       Built [   1.563s] (current)\n     Parsing arm_gic v0.1.0 (current)\n      Parsed [   0.004s] (current)\nerror: arm_gic not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

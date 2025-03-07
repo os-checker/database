@@ -1,0 +1,95 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "arceos-apps"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "arceos-apps",
+      "pkg": "affinity",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "rust/task/affinity/src/main.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: constant `KERNEL_STACK_SIZE` is never used\n  --> rust/task/affinity/src/main.rs:18:7\n   |\n18 | const KERNEL_STACK_SIZE: usize = 0x40000; // 256 KiB\n   |       ^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "arceos-apps",
+      "pkg": "arceos-memtest",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=arceos-memtest, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=--features axstd\npkg_dir=/home/runner/check/batch_16/arceos-org/arceos-apps/rust/memtest\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-03-06 4:40:50.339142979 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nrand  0.8.5    ---     0.9.0   Normal  ---\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "arceos-apps",
+      "pkg": "arceos-parallel",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=arceos-parallel, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=--features axstd\npkg_dir=/home/runner/check/batch_16/arceos-org/arceos-apps/rust/task/parallel\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-03-06 4:41:03.450767705 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nrand  0.8.5    ---     0.9.0   Normal  ---\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "arceos-apps",
+      "pkg": "arceos-tls",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "rust/task/tls/src/main.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: creating a shared reference to mutable static is discouraged\n  --> rust/task/tls/src/main.rs:97:29\n   |\n97 |             assert_eq!(get!(STR.len()), 13);\n   |                             ^^^^^^^^^ shared reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

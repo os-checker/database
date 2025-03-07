@@ -1,0 +1,105 @@
+{
+  "repo": {
+    "user": "arceos-hypervisor",
+    "repo": "arceos-umhv"
+  },
+  "data": [
+    {
+      "user": "arceos-hypervisor",
+      "repo": "arceos-umhv",
+      "pkg": "arceos-vmm",
+      "count": 11,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/gic.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\n",
+              "error[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\n",
+              "error[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/boot_el2.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n  --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/boot_el2.rs:89:27\n   |\n89 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n   |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\n",
+              "error[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/boot_el2.rs:178:42\n    |\n178 |             entry = sym crate::platform::rust_entry,\n    |                                          ^^^^^^^^^^ not found in `crate::platform`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/pl011.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0425]: cannot find value `UART_PADDR` in module `axconfig::devices`\n --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/pl011.rs:9:52\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::devices::UART_PADDR);\n  |                                                    ^^^^^^^^^^ not found in `axconfig::devices`\n\n",
+              "error[E0425]: cannot find value `UART_IRQ_NUM` in module `crate::platform::irq`\n  --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/pl011.rs:61:50\n   |\n61 |     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n   |                                                  ^^^^^^^^^^^^ not found in `crate::platform::irq`\n   |\nhelp: consider importing this constant\n   |\n3  + use crate::platform::aarch64_common::gic::UART_IRQ_NUM;\n   |\nhelp: if you import `UART_IRQ_NUM`, refer to it directly\n   |\n61 -     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n61 +     crate::irq::set_enable(UART_IRQ_NUM, true);\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/psci.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arceos-vmm, checker=Clippy\n// toolchain=nightly-2024-12-25, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_10/arceos-hypervisor/arceos-umhv/arceos-vmm\n// cmd=cargo clippy --target aarch64-unknown-none  --no-deps\n// timestamp=2025-02-16 21:07:51.564414905 +08:00:00\n   Compiling proc-macro2 v1.0.92\n   Compiling unicode-ident v1.0.14\n    Checking cfg-if v1.0.0\n    Checking tock-registers v0.8.1\n   Compiling equivalent v1.0.1\n    Checking log v0.4.21\n   Compiling hashbrown v0.15.2\n   Compiling utf8parse v0.2.2\n   Compiling anstyle-parse v0.2.6\n   Compiling libc v0.2.169\n   Compiling is_terminal_polyfill v1.70.1\n   Compiling winnow v0.6.20\n   Compiling crunchy v0.2.2\n   Compiling indexmap v2.7.0\n   Compiling anstyle v1.0.10\n   Compiling quote v1.0.38\n   Compiling syn v2.0.93\n   Compiling axerrno v0.1.0\n   Compiling colorchoice v1.0.3\n   Compiling anstyle-query v1.1.2\n   Compiling anstream v0.6.18\n   Compiling clap_lex v0.7.4\n   Compiling tiny-keccak v2.0.2\n    Checking memory_addr v0.3.1\n   Compiling strsim v0.11.1\n   Compiling heck v0.5.0\n   Compiling clap_builder v4.5.24\n    Checking bit_field v0.10.2\n   Compiling toml_datetime v0.6.8\n   Compiling toml_edit v0.22.22\n   Compiling getrandom v0.2.15\n    Checking aarch64-cpu v9.4.0\n   Compiling axconfig v0.1.0 (https://github.com/arceos-hypervisor/arceos.git?branch=vmm#39848356)\n   Compiling once_cell v1.20.2\n   Compiling version_check v0.9.5\n    Checking bitflags v2.6.0\n    Checking page_table_entry v0.5.0\n   Compiling ahash v0.8.11\n   Compiling const-random-macro v0.1.16\n   Compiling clap_derive v4.5.24\n    Checking page_table_multiarch v0.5.0\n   Compiling syn v1.0.109\n    Checking lazyinit v0.2.1\n   Compiling autocfg v1.4.0\n   Compiling percpu v0.1.6\n   Compiling percpu_macros v0.1.6\n   Compiling crate_interface v0.1.3\n   Compiling unicode-width v0.1.14\n   Compiling base64 v0.13.1\n    Checking kernel_guard v0.1.1\n    Checking const-default v1.0.0\n   Compiling linkme-impl v0.3.31\n    Checking kspin v0.1.0\n    Checking bitmap-allocator v0.2.0\n   Compiling serde v1.0.217\n   Compiling serde_derive v1.0.217\n    Checking linkme v0.3.31\n    Checking axlog v0.1.0 (https://github.com/arceos-hypervisor/arceos.git?branch=vmm#39848356)\n    Checking arm_pl011 v0.1.0\n    Checking dw_apb_uart v0.1.0\n   Compiling clap v4.5.24\n   Compiling axconfig-gen v0.1.0\n    Checking arm_gicv2 v0.1.0 (https://github.com/arceos-hypervisor/arm_gicv2#eee14941)\n    Checking cortex-a v8.1.1\n   Compiling axconfig-gen-macros v0.1.0\n   Compiling svgbobdoc v0.3.0\n   Compiling axhal v0.1.0 (https://github.com/arceos-hypervisor/arceos.git?branch=vmm#39848356)\n    Checking rlsf v0.2.1\n    Checking int_ratio v0.1.1\n    Checking allocator v0.1.1 (https://github.com/arceos-org/allocator.git?tag=v0.1.1#1d5b7a1b)\n    Checking handler_table v0.1.1\n    Checking axalloc v0.1.0 (https://github.com/arceos-hypervisor/arceos.git?branch=vmm#39848356)\n    Checking static_assertions v1.1.0\n   Compiling num-traits v0.2.19\n    Checking const-random v0.1.18\n    Checking zerocopy v0.7.35\n    Checking bitmaps v3.2.1\nerror: could not compile `axhal` (lib) due to 6 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arceos-vmm, checker=Lockbud\n// toolchain=nightly-2024-12-25, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_2/arceos-hypervisor/arceos-umhv/arceos-vmm\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target aarch64-unknown-none \n// timestamp=2025-03-07 21:34:57.426623094 +08:00:00\n   Compiling proc-macro2 v1.0.92\n   Compiling unicode-ident v1.0.14\n   Compiling cfg-if v1.0.0\n   Compiling tock-registers v0.8.1\n   Compiling log v0.4.21\n   Compiling equivalent v1.0.1\n   Compiling hashbrown v0.15.2\n   Compiling utf8parse v0.2.2\n[2025-03-07T13:34:57Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-03-07T13:34:57Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling anstyle-parse v0.2.6\n   Compiling axerrno v0.1.0\n   Compiling crunchy v0.2.2\n   Compiling anstyle v1.0.10\n   Compiling is_terminal_polyfill v1.70.1\n   Compiling colorchoice v1.0.3\n   Compiling anstyle-query v1.1.2\n   Compiling winnow v0.6.20\n   Compiling indexmap v2.7.0\n   Compiling libc v0.2.169\n   Compiling quote v1.0.38\n   Compiling anstream v0.6.18\n   Compiling syn v2.0.93\n   Compiling memory_addr v0.3.1\n   Compiling strsim v0.11.1\n   Compiling tiny-keccak v2.0.2\n   Compiling heck v0.5.0\n   Compiling clap_lex v0.7.4\n   Compiling clap_builder v4.5.24\n   Compiling toml_datetime v0.6.8\n   Compiling bit_field v0.10.2\n   Compiling getrandom v0.2.15\n   Compiling toml_edit v0.22.22\n[2025-03-07T13:35:00Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.15/src/lazy.rs:36:23: 36:43 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.15/src/lazy.rs:39:13: 39:39 (#0)\",\n            \"dep_kind\": \"Both\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-03-07T13:35:00Z WARN  lockbud::callbacks] crate getrandom contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling aarch64-cpu v9.4.0\n   Compiling once_cell v1.20.2\n   Compiling axconfig v0.1.0 (https://github.com/arceos-hypervisor/arceos.git?branch=vmm#39848356)\n   Compiling version_check v0.9.5\n   Compiling bitflags v2.6.0\n   Compiling ahash v0.8.11\n   Compiling clap_derive v4.5.24\n   Compiling page_table_entry v0.5.0\n   Compiling const-random-macro v0.1.16\n   Compiling page_table_multiarch v0.5.0\n   Compiling autocfg v1.4.0\n   Compiling lazyinit v0.2.1\n   Compiling syn v1.0.109\n   Compiling percpu v0.1.6\n   Compiling percpu_macros v0.1.6\n   Compiling crate_interface v0.1.3\n   Compiling unicode-width v0.1.14\n   Compiling base64 v0.13.1\n   Compiling kernel_guard v0.1.1\n   Compiling const-default v1.0.0\n   Compiling linkme-impl v0.3.31\n   Compiling kspin v0.1.0\n   Compiling bitmap-allocator v0.2.0\n   Compiling serde v1.0.217\n   Compiling serde_derive v1.0.217\n   Compiling clap v4.5.24\n   Compiling axconfig-gen v0.1.0\n   Compiling linkme v0.3.31\n   Compiling axlog v0.1.0 (https://github.com/arceos-hypervisor/arceos.git?branch=vmm#39848356)\n   Compiling cortex-a v8.1.1\n   Compiling axconfig-gen-macros v0.1.0\n   Compiling axhal v0.1.0 (https://github.com/arceos-hypervisor/arceos.git?branch=vmm#39848356)\n   Compiling svgbobdoc v0.3.0\n   Compiling arm_gicv2 v0.1.0 (https://github.com/arceos-hypervisor/arm_gicv2#eee14941)\n   Compiling rlsf v0.2.1\n   Compiling dw_apb_uart v0.1.0\n   Compiling arm_pl011 v0.1.0\n   Compiling int_ratio v0.1.1\n   Compiling allocator v0.1.1 (https://github.com/arceos-org/allocator.git?tag=v0.1.1#1d5b7a1b)\n   Compiling axalloc v0.1.0 (https://github.com/arceos-hypervisor/arceos.git?branch=vmm#39848356)\n   Compiling handler_table v0.1.1\n   Compiling static_assertions v1.1.0\nerror[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\nerror[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\n   Compiling num-traits v0.2.19\nerror[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n  --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/boot_el2.rs:89:27\n   |\n89 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n   |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\nerror[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/boot_el2.rs:178:42\n    |\n178 |             entry = sym crate::platform::rust_entry,\n    |                                          ^^^^^^^^^^ not found in `crate::platform`\n\nerror[E0425]: cannot find value `UART_PADDR` in module `axconfig::devices`\n --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/pl011.rs:9:52\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::devices::UART_PADDR);\n  |                                                    ^^^^^^^^^^ not found in `axconfig::devices`\n\nerror[E0425]: cannot find value `UART_IRQ_NUM` in module `crate::platform::irq`\n  --> /home/runner/.cargo/git/checkouts/arceos-7565cfbf17e7b8ed/3984835/modules/axhal/src/platform/aarch64_common/pl011.rs:61:50\n   |\n61 |     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n   |                                                  ^^^^^^^^^^^^ not found in `crate::platform::irq`\n   |\nhelp: consider importing this constant\n   |\n3  + use crate::platform::aarch64_common::gic::UART_IRQ_NUM;\n   |\nhelp: if you import `UART_IRQ_NUM`, refer to it directly\n   |\n61 -     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n61 +     crate::irq::set_enable(UART_IRQ_NUM, true);\n   |\n\n   Compiling const-random v0.1.18\n   Compiling zerocopy v0.7.35\nSome errors have detailed explanations: E0425, E0432.\nFor more information about an error, try `rustc --explain E0425`.\nerror: could not compile `axhal` (lib) due to 6 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) outdated",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arceos-vmm, checker=Outdated\n// toolchain=nightly-2024-12-25, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_10/arceos-hypervisor/arceos-umhv/arceos-vmm\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\n// timestamp=2025-02-16 21:09:13.442051773 +08:00:00\n    Updating git repository `https://github.com/arceos-hypervisor/arceos.git`\n    Updating git repository `https://github.com/arceos-hypervisor/axaddrspace.git`\n    Updating git repository `https://github.com/arceos-hypervisor/arceos.git`\n    Updating git repository `https://github.com/arceos-hypervisor/axvcpu.git`\n    Updating git repository `https://github.com/arceos-hypervisor/axvm.git`\n    Updating git repository `https://github.com/arceos-hypervisor/arceos.git`\n    Updating git repository `https://github.com/arceos-hypervisor/toml.git`\nerror: failed to select a version for `log`.\n    ... required by package `axalloc v0.1.0 (https://github.com/arceos-hypervisor/arceos.git?branch=vmm#39848356)`\n    ... which satisfies git dependency `axalloc` of package `arceos_api v0.1.0 (https://github.com/arceos-hypervisor/arceos.git?branch=vmm#39848356)`\n    ... which satisfies git dependency `arceos_api` of package `axstd v0.1.0 (https://github.com/arceos-hypervisor/arceos.git?branch=vmm#39848356)`\n    ... which satisfies git dependency `axstd` of package `arceos-vmm v0.1.0 (/tmp/cargo-outdatedFJRyRG/arceos-vmm)`\nversions that meet the requirements `=0.4.21` are: 0.4.21\n\nall possible versions conflict with previously selected packages.\n\n  previously selected package `log v0.4.25`\n    ... which satisfies dependency `log = \"^0.4.25\"` of package `arceos-vmm v0.1.0 (/tmp/cargo-outdatedFJRyRG/arceos-vmm)`\n\nfailed to select a version for `log` which could resolve this conflict\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

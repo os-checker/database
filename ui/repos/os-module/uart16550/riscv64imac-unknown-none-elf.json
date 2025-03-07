@@ -1,0 +1,51 @@
+{
+  "repo": {
+    "user": "os-module",
+    "repo": "uart16550"
+  },
+  "data": [
+    {
+      "user": "os-module",
+      "repo": "uart16550",
+      "pkg": "uart16550",
+      "count": 2,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=uart16550, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_42/os-module/uart16550\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \n// timestamp=2025-02-16 21:28:09.126990447 +08:00:00\n    Building uart16550 v0.0.1 (current)\n       Built [   0.278s] (current)\n     Parsing uart16550 v0.0.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_42/os-module/uart16550/target/semver-checks/local-uart16550-0_0_1-01666ec060466c14/target/riscv64imac-unknown-none-elf/doc/uart16550.json\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=uart16550, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_43/os-module/uart16550\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-03-07 17:20:43.805370242 +08:00:00\n\n\nstdout:\n\n--- failure auto_trait_impl_removed: auto trait no longer implemented ---\n\nDescription:\nA public type has stopped implementing one or more auto traits. This can break downstream code that depends on the traits being implemented.\n        ref: https://doc.rust-lang.org/reference/special-types-and-traits.html#auto-traits\n       impl: https://github.com/obi1kenobi/cargo-semver-checks/tree/v0.39.0/src/lints/auto_trait_impl_removed.ron\n\nFailed in:\n  type Uart16550 is no longer UnwindSafe, in /home/runner/check/batch_43/os-module/uart16550/src/lib.rs:86\n\n--- failure method_parameter_count_changed: pub method parameter count changed ---\n\nDescription:\nA publicly-visible method now takes a different number of parameters.\n        ref: https://doc.rust-lang.org/cargo/reference/semver.html#fn-change-arity\n       impl: https://github.com/obi1kenobi/cargo-semver-checks/tree/v0.39.0/src/lints/method_parameter_count_changed.ron\n\nFailed in:\n  uart16550::MCR::write now takes 3 parameters instead of 2, in /home/runner/check/batch_43/os-module/uart16550/src/mcr.rs:6\n  uart16550::MCR::read now takes 2 parameters instead of 1, in /home/runner/check/batch_43/os-module/uart16550/src/mcr.rs:12\n  uart16550::RBR_THR::rx_data now takes 2 parameters instead of 1, in /home/runner/check/batch_43/os-module/uart16550/src/rbr_thr.rs:6\n  uart16550::RBR_THR::tx_data now takes 3 parameters instead of 2, in /home/runner/check/batch_43/os-module/uart16550/src/rbr_thr.rs:12\n  uart16550::LSR::read now takes 2 parameters instead of 1, in /home/runner/check/batch_43/os-module/uart16550/src/lsr.rs:6\n  uart16550::IER::write now takes 3 parameters instead of 2, in /home/runner/check/batch_43/os-module/uart16550/src/ier.rs:6\n  uart16550::IER::read now takes 2 parameters instead of 1, in /home/runner/check/batch_43/os-module/uart16550/src/ier.rs:12\n  uart16550::IIR_FCR::write now takes 3 parameters instead of 2, in /home/runner/check/batch_43/os-module/uart16550/src/fcr.rs:6\n  uart16550::IIR_FCR::read now takes 2 parameters instead of 1, in /home/runner/check/batch_43/os-module/uart16550/src/iir.rs:6\n  uart16550::MSR::read now takes 2 parameters instead of 1, in /home/runner/check/batch_43/os-module/uart16550/src/msr.rs:6\n  uart16550::LCR::write now takes 3 parameters instead of 2, in /home/runner/check/batch_43/os-module/uart16550/src/lcr.rs:6\n  uart16550::LCR::read now takes 2 parameters instead of 1, in /home/runner/check/batch_43/os-module/uart16550/src/lcr.rs:12\n\nstderr:\n    Building uart16550 v0.0.1 (current)\n       Built [   0.254s] (current)\n     Parsing uart16550 v0.0.1 (current)\n      Parsed [   0.003s] (current)\n    Building uart16550 v0.0.1 (baseline)\n       Built [   0.233s] (baseline)\n     Parsing uart16550 v0.0.1 (baseline)\n      Parsed [   0.003s] (baseline)\n    Checking uart16550 v0.0.1 -> v0.0.1 (no change)\n     Checked [   0.019s] 148 checks: 146 pass, 2 fail, 0 warn, 0 skip\n\n     Summary semver requires new major version: 2 major and 0 minor checks failed\n    Finished [   0.831s] uart16550\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

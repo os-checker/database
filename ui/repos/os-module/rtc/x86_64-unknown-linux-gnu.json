@@ -1,0 +1,53 @@
+{
+  "repo": {
+    "user": "os-module",
+    "repo": "rtc"
+  },
+  "data": [
+    {
+      "user": "os-module",
+      "repo": "rtc",
+      "pkg": "rtc",
+      "count": 4,
+      "raw_reports": [
+        {
+          "file": "src/goldfish.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: operator precedence can trip the unwary\n  --> src/goldfish.rs:34:9\n   |\n34 |         (time_high as u64) << 32 | time_low as u64\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((time_high as u64) << 32) | time_low as u64`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[warn(clippy::precedence)]` on by default\n\n",
+              "warning: operator precedence can trip the unwary\n  --> src/goldfish.rs:59:9\n   |\n59 |         (alarm_high as u64) << 32 | alarm_low as u64\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((alarm_high as u64) << 32) | alarm_low as u64`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: returning the result of a `let` binding from a block\n  --> src/goldfish.rs:26:9\n   |\n25 |         let rtc = Self { region };\n   |         -------------------------- unnecessary `let` binding\n26 |         rtc\n   |         ^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\n   = note: `#[warn(clippy::let_and_return)]` on by default\nhelp: return the expression directly\n   |\n25 ~         \n26 ~         Self { region }\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=rtc, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_40/os-module/rtc\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 21:28:16.494428839 +08:00:00\n    Building rtc v0.1.0 (current)\n       Built [   0.252s] (current)\n     Parsing rtc v0.1.0 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_40/os-module/rtc/target/semver-checks/local-rtc-0_1_0-af0a6ca0fd289a2b/target/x86_64-unknown-linux-gnu/doc/rtc.json\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

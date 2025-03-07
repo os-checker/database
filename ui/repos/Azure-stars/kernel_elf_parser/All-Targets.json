@@ -1,0 +1,64 @@
+{
+  "repo": {
+    "user": "Azure-stars",
+    "repo": "kernel_elf_parser"
+  },
+  "data": [
+    {
+      "user": "Azure-stars",
+      "repo": "kernel_elf_parser",
+      "pkg": "kernel-elf-parser",
+      "count": 6,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 4,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=kernel-elf-parser, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Azure-stars/kernel_elf_parser\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-02-27 4:29:15.649952718 +08:00:00\n    Building kernel-elf-parser v0.3.2 (current)\n       Built [   1.071s] (current)\n     Parsing kernel-elf-parser v0.3.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_1/Azure-stars/kernel_elf_parser/target/semver-checks/local-kernel_elf_parser-0_3_2-01666ec060466c14/target/x86_64-unknown-none/doc/kernel_elf_parser.json\n",
+              "// pkg_name=kernel-elf-parser, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Azure-stars/kernel_elf_parser\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-27 4:29:17.573675101 +08:00:00\n    Building kernel-elf-parser v0.3.2 (current)\n       Built [   1.845s] (current)\n     Parsing kernel-elf-parser v0.3.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_1/Azure-stars/kernel_elf_parser/target/semver-checks/local-kernel_elf_parser-0_3_2-01666ec060466c14/target/aarch64-unknown-none/doc/kernel_elf_parser.json\n",
+              "// pkg_name=kernel-elf-parser, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_1/Azure-stars/kernel_elf_parser\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-27 4:29:16.916352458 +08:00:00\n    Building kernel-elf-parser v0.3.2 (current)\n       Built [   0.466s] (current)\n     Parsing kernel-elf-parser v0.3.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_1/Azure-stars/kernel_elf_parser/target/semver-checks/local-kernel_elf_parser-0_3_2-01666ec060466c14/target/riscv64gc-unknown-none-elf/doc/kernel_elf_parser.json\n",
+              "// pkg_name=kernel-elf-parser, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Azure-stars/kernel_elf_parser\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-27 4:29:13.882055955 +08:00:00\n    Building kernel-elf-parser v0.3.2 (current)\n       Built [   1.508s] (current)\n     Parsing kernel-elf-parser v0.3.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_1/Azure-stars/kernel_elf_parser/target/semver-checks/local-kernel_elf_parser-0_3_2-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/kernel_elf_parser.json\n"
+            ]
+          }
+        },
+        {
+          "file": "src/info.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] possible attempt to add with overflow\n   --> src/info.rs:118:9\n    |\n118 | /         self.elf.header.pt2.ph_offset() as usize\n119 | |             + self.base\n120 | |             + self\n121 | |                 .elf\n...   |\n124 | |                 .map(|ph| ph.virtual_addr() as usize)\n125 | |                 .unwrap_or(0)\n    | |_____________________________^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/user_stack.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] assertion failed: stack.get_sp() % 16 == 0\n  --> src/user_stack.rs:88:5\n   |\n88 |     assert!(stack.get_sp() % 16 == 0);\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

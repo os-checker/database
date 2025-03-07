@@ -1,0 +1,99 @@
+{
+  "repo": {
+    "user": "os-module",
+    "repo": "visionfive2-sd"
+  },
+  "data": [
+    {
+      "user": "os-module",
+      "repo": "visionfive2-sd",
+      "pkg": "testos",
+      "count": 3,
+      "raw_reports": [
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=testos, checker=Lockbud\n// toolchain=nightly-2024-05-01, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_6/os-module/visionfive2-sd/example/testos\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2025-03-07 21:08:52.177456888 +08:00:00\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.14\n   Compiling autocfg v1.4.0\n   Compiling scopeguard v1.2.0\n   Compiling paste v1.0.15\n   Compiling log v0.4.25\n[2025-03-07T13:08:52Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.25/src/lib.rs:1453:11: 1453:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.25/src/lib.rs:1456:13: 1456:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-03-07T13:08:52Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling riscv v0.12.1\n   Compiling riscv-pac v0.2.0\n   Compiling critical-section v1.2.0\n   Compiling spin v0.7.1\n   Compiling lock_api v0.4.12\n   Compiling embedded-hal v1.0.0\n   Compiling quote v1.0.38\n   Compiling testos v0.1.0 (/home/runner/check/batch_6/os-module/visionfive2-sd/example/testos)\n   Compiling spin v0.9.8\n   Compiling syn v2.0.96\n   Compiling bitflags v1.3.2\n   Compiling preprint v0.1.0\n   Compiling fatfs v0.4.0 (https://github.com/os-module/rust-fatfs.git#55d0dbac)\n   Compiling buddy_system_allocator v0.8.0\n   Compiling riscv-macros v0.1.0\n   Compiling bitfield-struct v0.8.0\n   Compiling visionfive2-sd v0.1.0 (/home/runner/check/batch_6/os-module/visionfive2-sd)\nerror[E0787]: the `asm!` macro is not allowed in naked functions\n  --> src/boot.rs:26:5\n   |\n26 | /     core::arch::asm!(\n27 | |     \"   la sp, {stack}\n28 | |         li t0, {stack_size}\n29 | |         mv t1,a0\n...  |\n40 | |     options(noreturn),\n41 | |     )\n   | |_____^ consider using the `naked_asm!` macro instead\n\nwarning: the feature `asm_const` has been stable since 1.82.0 and no longer requires an attribute to enable\n --> src/main.rs:5:12\n  |\n5 | #![feature(asm_const)]\n  |            ^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: the feature `panic_info_message` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> src/main.rs:4:12\n  |\n4 | #![feature(panic_info_message)]\n  |            ^^^^^^^^^^^^^^^^^^\n\nerror[E0599]: no method named `unwrap` found for struct `core::panic::PanicMessage` in the current scope\n  --> src/main.rs:88:28\n   |\n88 |             info.message().unwrap()\n   |                            ^^^^^^ method not found in `PanicMessage<'_>`\n\nSome errors have detailed explanations: E0599, E0787.\nFor more information about an error, try `rustc --explain E0599`.\nwarning: `testos` (bin \"testos\") generated 2 warnings\nerror: could not compile `testos` (bin \"testos\") due to 2 previous errors; 2 warnings emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=testos, checker=Rapx\n// toolchain=nightly-2024-05-01, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_43/os-module/visionfive2-sd/example/testos\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf \n// timestamp=2025-02-16 23:43:04.969708295 +08:00:00\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.14\n   Compiling autocfg v1.4.0\n    Checking scopeguard v1.2.0\n   Compiling paste v1.0.15\n   Compiling riscv v0.12.1\n    Checking log v0.4.25\n    Checking riscv-pac v0.2.0\n   Compiling testos v0.1.0 (/home/runner/check/batch_43/os-module/visionfive2-sd/example/testos)\n   Compiling lock_api v0.4.12\n    Checking embedded-hal v1.0.0\n   Compiling quote v1.0.38\n    Checking bitflags v1.3.2\n    Checking preprint v0.1.0\n   Compiling syn v2.0.96\n    Checking spin v0.9.8\n    Checking critical-section v1.2.0\n    Checking spin v0.7.1\n    Checking fatfs v0.4.0 (https://github.com/os-module/rust-fatfs.git#55d0dbac)\n    Checking buddy_system_allocator v0.8.0\n   Compiling riscv-macros v0.1.0\n   Compiling bitfield-struct v0.8.0\n    Checking visionfive2-sd v0.1.0 (/home/runner/check/batch_43/os-module/visionfive2-sd)\nerror[E0787]: the `asm!` macro is not allowed in naked functions\n  --> src/boot.rs:26:5\n   |\n26 | /     core::arch::asm!(\n27 | |     \"   la sp, {stack}\n28 | |         li t0, {stack_size}\n29 | |         mv t1,a0\n...  |\n40 | |     options(noreturn),\n41 | |     )\n   | |_____^ consider using the `naked_asm!` macro instead\n\nwarning: the feature `asm_const` has been stable since 1.82.0 and no longer requires an attribute to enable\n --> src/main.rs:5:12\n  |\n5 | #![feature(asm_const)]\n  |            ^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: the feature `panic_info_message` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> src/main.rs:4:12\n  |\n4 | #![feature(panic_info_message)]\n  |            ^^^^^^^^^^^^^^^^^^\n\nerror[E0599]: no method named `unwrap` found for struct `core::panic::PanicMessage` in the current scope\n  --> src/main.rs:88:28\n   |\n88 |             info.message().unwrap()\n   |                            ^^^^^^ method not found in `PanicMessage<'_>`\n\nSome errors have detailed explanations: E0599, E0787.\nFor more information about an error, try `rustc --explain E0599`.\nwarning: `testos` (bin \"testos\") generated 2 warnings\nerror: could not compile `testos` (bin \"testos\") due to 2 previous errors; 2 warnings emitted\n15:43:10|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=testos, checker=Outdated\ntoolchain=nightly-2024-05-01, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_43/os-module/visionfive2-sd/example/testos\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 23:43:19.977571725 +08:00:00\n\nName                    Project  Compat  Latest  Kind    Platform\n----                    -------  ------  ------  ----    --------\nbuddy_system_allocator  0.8.0    ---     0.11.0  Normal  ---\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "os-module",
+      "repo": "visionfive2-sd",
+      "pkg": "visionfive2-sd",
+      "count": 3,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=visionfive2-sd, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_44/os-module/visionfive2-sd\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-03-07 17:19:58.734466606 +08:00:00\n    Building visionfive2-sd v0.1.0 (current)\n       Built [   4.084s] (current)\n     Parsing visionfive2-sd v0.1.0 (current)\n      Parsed [   0.005s] (current)\nerror: visionfive2-sd not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=visionfive2-sd, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_43/os-module/visionfive2-sd\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 23:43:20.200111763 +08:00:00\n\nName             Project  Compat  Latest  Kind    Platform\n----             -------  ------  ------  ----    --------\nbitfield-struct  0.8.0    ---     0.10.1  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=visionfive2-sd, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_44/os-module/visionfive2-sd\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-03-07 17:20:03.157824102 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building visionfive2-sd v0.1.0 (current)\n       Built [   4.084s] (current)\n     Parsing visionfive2-sd v0.1.0 (current)\n      Parsed [   0.005s] (current)\nerror: visionfive2-sd not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

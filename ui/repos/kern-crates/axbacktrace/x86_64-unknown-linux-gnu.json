@@ -1,0 +1,112 @@
+{
+  "repo": {
+    "user": "kern-crates",
+    "repo": "axbacktrace"
+  },
+  "data": [
+    {
+      "user": "kern-crates",
+      "repo": "axbacktrace",
+      "pkg": "axbacktrace",
+      "count": 25,
+      "raw_reports": [
+        {
+          "file": "src/aarch64.rs",
+          "features": "",
+          "count": 7,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 1 to 1)\n-use core::arch::asm;\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 3 to 3)\n+use core::arch::asm;\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 5 to 5)\n-    init_curr: bool, \n+    init_curr: bool,\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 39 to 39)\n-\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 53 to 53)\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 56 to 57)\n-    fn new(pc:usize, fp:usize, stack_info: StackInfo) -> Self {\n-        Unwind{init_curr: false, pc,fp,stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/aarch64.rs (original lines from 69 to 69)\n-            error!(\"unwind init fp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init fp: {:#016x} is invalid\", self.fp);\n"
+            ]
+          }
+        },
+        {
+          "file": "src/riscv.rs",
+          "features": "",
+          "count": 7,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 1 to 1)\n-use core::arch::asm;\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 3 to 3)\n+use core::arch::asm;\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 35 to 36)\n-            let stack: *const StackFrame = \n-                (self.fp as *const StackFrame).sub(1);\n+            let stack: *const StackFrame = (self.fp as *const StackFrame).sub(1);\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 44 to 46)\n-            let stack: *const StackFrame = \n-                (self.fp as *const StackFrame).sub(1);\n-            self.pc = (*stack).ra;   \n+            let stack: *const StackFrame = (self.fp as *const StackFrame).sub(1);\n+            self.pc = (*stack).ra;\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 64 to 66)\n-    fn new(pc:usize, fp: usize, stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: false, pc, fp, stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 69 to 71)\n-    fn new_from_cur_ctx(stack_info: StackInfo) \n-        -> Self {\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+    fn new_from_cur_ctx(stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/riscv.rs (original lines from 83 to 83)\n-            error!(\"unwind init sp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init sp: {:#016x} is invalid\", self.fp);\n"
+            ]
+          }
+        },
+        {
+          "file": "src/x86.rs",
+          "features": "",
+          "count": 6,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 1 to 1)\n-use core::arch::asm;\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 3 to 3)\n+use core::arch::asm;\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 66 to 68)\n-    fn new(pc:usize, fp: usize, stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: false, pc, fp, stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 71 to 73)\n-    fn new_from_cur_ctx(stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+    fn new_from_cur_ctx(stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/x86.rs (original lines from 85 to 85)\n-            error!(\"unwind init sp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init sp: {:#016x} is invalid\", self.fp);\n"
+            ],
+            "Mirai": [
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> src/x86.rs:59:9\n   |\n59 |         asm!(\"mov {ptr}, rbp\", ptr = out(reg) fp);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/lib.rs (original lines from 27 to 27)\n-        Self {low, high}\n+        Self { low, high }\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/lib.rs (original lines from 31 to 31)\n-         fp < self.high && fp > self.low\n+        fp < self.high && fp > self.low\n",
+              "file: /home/runner/check/batch_30/kern-crates/axbacktrace/src/lib.rs (original lines from 37 to 37)\n-    fn new(pc:usize, fp:usize, stack_info: StackInfo) -> Self;\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self;\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=axbacktrace, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_31/kern-crates/axbacktrace\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 17:27:25.734296433 +08:00:00\n    Building axbacktrace v0.1.0 (current)\n       Built [   0.281s] (current)\n     Parsing axbacktrace v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: axbacktrace not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axbacktrace, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_31/kern-crates/axbacktrace\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 17:27:26.331524614 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axbacktrace v0.1.0 (current)\n       Built [   0.281s] (current)\n     Parsing axbacktrace v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: axbacktrace not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

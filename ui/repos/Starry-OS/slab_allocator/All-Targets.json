@@ -1,0 +1,71 @@
+{
+  "repo": {
+    "user": "Starry-OS",
+    "repo": "slab_allocator"
+  },
+  "data": [
+    {
+      "user": "Starry-OS",
+      "repo": "slab_allocator",
+      "pkg": "slab_allocator",
+      "count": 4,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=slab_allocator, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_7/Starry-OS/slab_allocator\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 17:20:14.216839736 +08:00:00\n    Building slab_allocator v0.3.1 (current)\n       Built [   0.291s] (current)\n     Parsing slab_allocator v0.3.1 (current)\n      Parsed [   0.001s] (current)\n    Building slab_allocator v0.3.1 (baseline)\nerror: running cargo-doc on crate 'slab_allocator' failed with output:\n-----\n    Checking spin v0.4.10\nerror[E0557]: feature has been removed\n --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.4.10/src/lib.rs:6:43\n  |\n6 | #![cfg_attr(feature = \"const_fn\", feature(const_fn))]\n  |                                           ^^^^^^^^ feature has been removed\n  |\n  = note: split into finer-grained feature gates\n\nFor more information about this error, try `rustc --explain E0557`.\nerror: could not compile `spin` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate slab_allocator v0.3.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add slab_allocator@=0.3.1 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate slab_allocator v0.3.1\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=slab_allocator, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_7/Starry-OS/slab_allocator\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 20:23:20.986196336 +08:00:00\n\nName                    Project  Compat  Latest  Kind    Platform\n----                    -------  ------  ------  ----    --------\nbuddy_system_allocator  0.9.1    ---     0.11.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=slab_allocator, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_7/Starry-OS/slab_allocator\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 17:20:15.183955854 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building slab_allocator v0.3.1 (current)\n       Built [   0.291s] (current)\n     Parsing slab_allocator v0.3.1 (current)\n      Parsed [   0.001s] (current)\n    Building slab_allocator v0.3.1 (baseline)\nerror: running cargo-doc on crate 'slab_allocator' failed with output:\n-----\n    Checking spin v0.4.10\nerror[E0557]: feature has been removed\n --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.4.10/src/lib.rs:6:43\n  |\n6 | #![cfg_attr(feature = \"const_fn\", feature(const_fn))]\n  |                                           ^^^^^^^^ feature has been removed\n  |\n  = note: split into finer-grained feature gates\n\nFor more information about this error, try `rustc --explain E0557`.\nerror: could not compile `spin` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate slab_allocator v0.3.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add slab_allocator@=0.3.1 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate slab_allocator v0.3.1\n"
+            ]
+          }
+        },
+        {
+          "file": "src/slab.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: using `map` over `inspect`\n  --> src/slab.rs:93:26\n   |\n93 |         self.head.take().map(|node| {\n   |                          ^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_inspect\n   = note: `#[warn(clippy::manual_inspect)]` on by default\nhelp: try\n   |\n93 ~         self.head.take().inspect(|node| {\n94 |             self.head = node.next.take();\n95 ~             self.len -= 1;\n   |\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

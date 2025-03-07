@@ -1,0 +1,63 @@
+{
+  "repo": {
+    "user": "kern-crates",
+    "repo": "virtio-input-decoder"
+  },
+  "data": [
+    {
+      "user": "kern-crates",
+      "repo": "virtio-input-decoder",
+      "pkg": "virtio-input-decoder",
+      "count": 5,
+      "raw_reports": [
+        {
+          "file": "src/decoder.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: this returns a `Result<_, ()>`\n  --> src/decoder.rs:13:5\n   |\n13 |     pub fn decode(etype: usize, code: usize, value: isize) -> Result<DecodeType, ()> {\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: use a custom `Error` type instead\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#result_unit_err\n   = note: `#[warn(clippy::result_unit_err)]` on by default\n\n",
+              "warning: this returns a `Result<_, ()>`\n  --> src/decoder.rs:34:5\n   |\n34 |     pub fn convert_key(key: Key) -> Result<char, ()> {\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: use a custom `Error` type instead\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#result_unit_err\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/key.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: this returns a `Result<_, ()>`\n   --> src/key.rs:203:5\n    |\n203 |     pub fn from_code(code: usize) -> Result<Key, ()> {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: use a custom `Error` type instead\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#result_unit_err\n\n",
+              "warning: this returns a `Result<_, ()>`\n   --> src/key.rs:271:5\n    |\n271 |     pub fn to_char(&self) -> Result<char, ()> {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: use a custom `Error` type instead\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#result_unit_err\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=virtio-input-decoder, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_32/kern-crates/virtio-input-decoder\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:37:19.373827204 +08:00:00\n    Building virtio-input-decoder v0.1.3 (current)\n       Built [   0.233s] (current)\n     Parsing virtio-input-decoder v0.1.3 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_32/kern-crates/virtio-input-decoder/target/semver-checks/local-virtio_input_decoder-0_1_3-01666ec060466c14/target/x86_64-unknown-linux-gnu/doc/virtio_input_decoder.json\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

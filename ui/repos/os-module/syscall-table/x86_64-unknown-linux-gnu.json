@@ -1,0 +1,106 @@
+{
+  "repo": {
+    "user": "os-module",
+    "repo": "syscall-table"
+  },
+  "data": [
+    {
+      "user": "os-module",
+      "repo": "syscall-table",
+      "pkg": "syscall-table",
+      "count": 17,
+      "raw_reports": [
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 11,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unexpected `cfg` condition value: `test`\n  --> src/lib.rs:39:17\n   |\n39 | #![cfg_attr(not(feature = \"test\"), no_std)]\n   |                 ^^^^^^^^^^^^^^^^ help: remove the condition\n   |\n   = note: no expected values for `feature`\n   = help: consider adding `test` as a feature in `Cargo.toml`\n   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration\n   = note: `#[warn(unexpected_cfgs)]` on by default\n\n",
+              "warning: `crate` references the macro call's crate\n   --> src/lib.rs:421:13\n    |\n421 |             crate::paste!{\n    |             ^^^^^ help: to reference the macro definition's crate, use: `$crate`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#crate_in_macro_def\n    = note: `#[warn(clippy::crate_in_macro_def)]` on by default\n\n",
+              "warning: `crate` references the macro call's crate\n   --> src/lib.rs:448:17\n    |\n448 |             use crate::{iter,ServiceWrapper,ToUsize};\n    |                 ^^^^^ help: to reference the macro definition's crate, use: `$crate`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#crate_in_macro_def\n\n",
+              "warning: length comparison to one\n   --> src/lib.rs:227:12\n    |\n227 |         if args.len() >= 1 {\n    |            ^^^^^^^^^^^^^^^ help: using `!is_empty` is clearer and more explicit: `!args.is_empty()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_zero\n    = note: `#[warn(clippy::len_zero)]` on by default\n\n",
+              "warning: length comparison to one\n   --> src/lib.rs:238:12\n    |\n238 |         if args.len() >= 1 {\n    |            ^^^^^^^^^^^^^^^ help: using `!is_empty` is clearer and more explicit: `!args.is_empty()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_zero\n\n",
+              "warning: very complex type used. Consider factoring parts into `type` definitions\n   --> src/lib.rs:299:14\n    |\n299 |     service: Box<dyn Fn(&[usize]) -> isize>,\n    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#type_complexity\n    = note: `#[warn(clippy::type_complexity)]` on by default\n\n",
+              "warning: you should consider adding a `Default` implementation for `Table`\n   --> src/lib.rs:337:5\n    |\n337 | /     pub const fn new() -> Self {\n338 | |         Self {\n339 | |             map: BTreeMap::new(),\n340 | |         }\n341 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n335 + impl Default for Table {\n336 +     fn default() -> Self {\n337 +         Self::new()\n338 +     }\n339 + }\n    |\n\n",
+              "warning: returning the result of a `let` binding from a block\n   --> src/lib.rs:398:5\n    |\n397 |     let handler = SysCallHandler::new(func);\n    |     ---------------------------------------- unnecessary `let` binding\n398 |     handler\n    |     ^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\n    = note: `#[warn(clippy::let_and_return)]` on by default\nhelp: return the expression directly\n    |\n397 ~     \n398 ~     SysCallHandler::new(func)\n    |\n\n"
+            ],
+            "Mirai": [
+              "warning: unexpected `cfg` condition value: `test`\n  --> src/lib.rs:39:17\n   |\n39 | #![cfg_attr(not(feature = \"test\"), no_std)]\n   |                 ^^^^^^^^^^^^^^^^ help: remove the condition\n   |\n   = note: no expected values for `feature`\n   = help: consider adding `test` as a feature in `Cargo.toml`\n   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration\n   = note: `#[warn(unexpected_cfgs)]` on by default\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_41/os-module/syscall-table/src/lib.rs (original lines from 133 to 133)\n-impl ToIsize for (){\n+impl ToIsize for () {\n",
+              "file: /home/runner/check/batch_41/os-module/syscall-table/src/lib.rs (original lines from 149 to 149)\n-impl<T:ToIsize, E: ToIsize> ToIsize for Result<T, E> {\n+impl<T: ToIsize, E: ToIsize> ToIsize for Result<T, E> {\n"
+            ]
+          }
+        },
+        {
+          "file": "examples/test.rs",
+          "features": "",
+          "count": 4,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_41/os-module/syscall-table/examples/test.rs (original lines from 71 to 71)\n-\n",
+              "file: /home/runner/check/batch_41/os-module/syscall-table/examples/test.rs (original lines from 85 to 85)\n-\n",
+              "file: /home/runner/check/batch_41/os-module/syscall-table/examples/test.rs (original lines from 100 to 100)\n-    assert_eq!(r,3);\n+    assert_eq!(r, 3);\n",
+              "file: /home/runner/check/batch_41/os-module/syscall-table/examples/test.rs (original lines from 108 to 108)\n-    assert_eq!(res,1)\n+    assert_eq!(res, 1)\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=syscall-table, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_42/os-module/syscall-table\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 17:52:42.012828287 +08:00:00\n    Building syscall-table v0.1.0 (current)\n       Built [   3.587s] (current)\n     Parsing syscall-table v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: syscall-table not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=syscall-table, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_42/os-module/syscall-table\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 17:52:46.209530222 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building syscall-table v0.1.0 (current)\n       Built [   3.587s] (current)\n     Parsing syscall-table v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: syscall-table not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "os-module",
+      "repo": "syscall-table",
+      "pkg": "systable-macro-derive",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: returning the result of a `let` binding from a block\n  --> src/lib.rs:53:5\n   |\n52 |     let stream = TokenStream::from(expanded);\n   |     ----------------------------------------- unnecessary `let` binding\n53 |     stream\n   |     ^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\n   = note: `#[warn(clippy::let_and_return)]` on by default\nhelp: return the expression directly\n   |\n52 ~     \n53 ~     TokenStream::from(expanded)\n   |\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

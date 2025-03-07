@@ -1,0 +1,145 @@
+{
+  "repo": {
+    "user": "shilei-massclouds",
+    "repo": "axconfig"
+  },
+  "data": [
+    {
+      "user": "shilei-massclouds",
+      "repo": "axconfig",
+      "pkg": "rt_axconfig",
+      "count": 8,
+      "raw_reports": [
+        {
+          "file": "src/main.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Mirai": [
+              "error: environment variable `AX_ARCH` not defined at compile time\n --> src/main.rs:8:32\n  |\n8 |     assert_eq!(axconfig::ARCH, env!(\"AX_ARCH\"));\n  |                                ^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_ARCH\")` to read the variable at run time\n  = note: this error originates in the macro `env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: environment variable `AX_ARCH` not defined at compile time\n --> src/main.rs:8:32\n  |\n8 |     assert_eq!(axconfig::ARCH, env!(\"AX_ARCH\"));\n  |                                ^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_ARCH\")` to read the variable at run time\n  = note: this error originates in the macro `env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+            ]
+          }
+        },
+        {
+          "file": "unkonwn-but-maybe-important",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: unwinding panics are not supported without std\n  |\n  = help: using nightly cargo, use -Zbuild-std with panic=\"abort\" to avoid unwinding\n  = note: since the core library is usually precompiled with panic=\"unwind\", rebuilding your crate with panic=\"abort\" may not be enough to fix the problem\n\n"
+            ],
+            "Mirai": [
+              "error: unwinding panics are not supported without std\n  |\n  = help: using nightly cargo, use -Zbuild-std with panic=\"abort\" to avoid unwinding\n  = note: since the core library is usually precompiled with panic=\"unwind\", rebuilding your crate with panic=\"abort\" may not be enough to fix the problem\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=rt_axconfig, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_49/shilei-massclouds/axconfig/rt_axconfig\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu  --no-deps\n// timestamp=2025-02-16 20:22:34.592757376 +08:00:00\n   Compiling hashbrown v0.15.2\n   Compiling equivalent v1.0.2\n   Compiling serde v1.0.217\n   Compiling toml_datetime v0.6.8\n   Compiling winnow v0.5.40\n   Compiling rustversion v1.0.19\n    Checking bitflags v2.8.0\n   Compiling indexmap v2.7.1\n    Checking bitflags v1.3.2\n   Compiling paste v1.0.15\n    Checking bit_field v0.10.2\n    Checking raw-cpuid v10.7.0\n   Compiling x86 v0.52.0\n   Compiling toml_edit v0.19.15\n    Checking volatile v0.4.6\n    Checking x86_64 v0.14.13\n    Checking bit v0.1.1\n    Checking x2apic v0.4.3\n    Checking raw-cpuid v11.3.0\n    Checking log v0.4.25\n    Checking cfg-if v1.0.0\n   Compiling axconfig v0.1.0 (ssh://git@github.com/shilei-massclouds/axconfig#51b81e4a)\n   Compiling arch_boot v0.1.0 (ssh://git@github.com/shilei-massclouds/arch_boot#8663e839)\n    Checking rt_axconfig v0.1.0 (/home/runner/check/batch_49/shilei-massclouds/axconfig/rt_axconfig)\nerror: could not compile `rt_axconfig` (bin \"rt_axconfig\") due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=rt_axconfig, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_7/shilei-massclouds/axconfig/rt_axconfig\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 21:25:21.778230183 +08:00:00\n   Compiling equivalent v1.0.2\n   Compiling serde v1.0.218\n   Compiling hashbrown v0.15.2\n   Compiling toml_datetime v0.6.8\n   Compiling winnow v0.5.40\n   Compiling rustversion v1.0.20\n   Compiling bitflags v1.3.2\n   Compiling bitflags v2.9.0\n   Compiling indexmap v2.7.1\n   Compiling bit_field v0.10.2\n   Compiling paste v1.0.15\n   Compiling raw-cpuid v10.7.0\n   Compiling toml_edit v0.19.15\n   Compiling x86 v0.52.0\n   Compiling volatile v0.4.6\n   Compiling x86_64 v0.14.13\n   Compiling bit v0.1.1\n   Compiling raw-cpuid v11.5.0\n   Compiling x2apic v0.4.3\n   Compiling log v0.4.26\n[2025-03-07T13:25:26Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-03-07T13:25:26Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling cfg-if v1.0.0\n   Compiling axconfig v0.1.0 (ssh://git@github.com/shilei-massclouds/axconfig#51b81e4a)\n   Compiling arch_boot v0.1.0 (ssh://git@github.com/shilei-massclouds/arch_boot#8663e839)\n   Compiling rt_axconfig v0.1.0 (/home/runner/check/batch_7/shilei-massclouds/axconfig/rt_axconfig)\nerror: environment variable `AX_ARCH` not defined at compile time\n --> src/main.rs:8:32\n  |\n8 |     assert_eq!(axconfig::ARCH, env!(\"AX_ARCH\"));\n  |                                ^^^^^^^^^^^^^^^\n  |\n  = help: use `std::env::var(\"AX_ARCH\")` to read the variable at run time\n  = note: this error originates in the macro `env` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nerror: unwinding panics are not supported without std\n  |\n  = help: using nightly cargo, use -Zbuild-std with panic=\"abort\" to avoid unwinding\n  = note: since the core library is usually precompiled with panic=\"unwind\", rebuilding your crate with panic=\"abort\" may not be enough to fix the problem\n\nerror: could not compile `rt_axconfig` (bin \"rt_axconfig\") due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) mirai",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=rt_axconfig, checker=Mirai\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_7/shilei-massclouds/axconfig/rt_axconfig\n// cmd=cargo +nightly-2025-01-10 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 21:25:13.448478993 +08:00:00\n   Compiling serde v1.0.218\n   Compiling equivalent v1.0.2\n   Compiling hashbrown v0.15.2\n   Compiling winnow v0.5.40\n   Compiling toml_datetime v0.6.8\n   Compiling rustversion v1.0.20\n    Checking bit_field v0.10.2\n   Compiling indexmap v2.7.1\n    Checking bitflags v2.9.0\n   Compiling paste v1.0.15\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n   Compiling toml_edit v0.19.15\n   Compiling x86 v0.52.0\n    Checking volatile v0.4.6\n    Checking x86_64 v0.14.13\n    Checking bit v0.1.1\n    Checking raw-cpuid v11.5.0\n    Checking x2apic v0.4.3\n    Checking cfg-if v1.0.0\n    Checking log v0.4.26\n   Compiling axconfig v0.1.0 (ssh://git@github.com/shilei-massclouds/axconfig#51b81e4a)\n   Compiling arch_boot v0.1.0 (ssh://git@github.com/shilei-massclouds/arch_boot#8663e839)\n    Checking rt_axconfig v0.1.0 (/home/runner/check/batch_7/shilei-massclouds/axconfig/rt_axconfig)\nerror: could not compile `rt_axconfig` (bin \"rt_axconfig\") due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=rt_axconfig, checker=Rapx\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_49/shilei-massclouds/axconfig/rt_axconfig\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 20:23:05.771623738 +08:00:00\n   Compiling equivalent v1.0.2\n   Compiling hashbrown v0.15.2\n   Compiling serde v1.0.217\n   Compiling toml_datetime v0.6.8\n   Compiling winnow v0.5.40\n   Compiling rustversion v1.0.19\n   Compiling indexmap v2.7.1\n    Checking bitflags v2.8.0\n    Checking bit_field v0.10.2\n    Checking bitflags v1.3.2\n   Compiling paste v1.0.15\n    Checking raw-cpuid v10.7.0\n   Compiling toml_edit v0.19.15\n   Compiling x86 v0.52.0\n    Checking volatile v0.4.6\n    Checking x86_64 v0.14.13\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.13/src/addr.rs:387:51\n    |\n387 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> Option<usize>`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n387 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.13/src/structures/paging/page.rs:284:51\n    |\n284 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&Page<_>, &Page<_>) -> Option<usize>`\n               found signature `fn(&Page<_>, &Page<_>) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n284 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\n    Checking bit v0.1.1\n    Checking raw-cpuid v11.3.0\nFor more information about this error, try `rustc --explain E0053`.\nerror: could not compile `x86_64` (lib) due to 2 previous errors\nwarning: build failed, waiting for other jobs to finish...\n12:23:10|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "shilei-massclouds",
+      "repo": "axconfig",
+      "pkg": "axconfig",
+      "count": 4,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=axconfig, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_50/shilei-massclouds/axconfig/axconfig\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 18:03:56.871751947 +08:00:00\n    Building axconfig v0.1.0 (current)\n       Built [   3.263s] (current)\n     Parsing axconfig v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: axconfig not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=axconfig, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_49/shilei-massclouds/axconfig/axconfig\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 20:23:11.375931151 +08:00:00\n\nName       Project  Compat  Latest   Kind   Platform\n----       -------  ------  ------   ----   --------\ntoml_edit  0.19.15  ---     0.22.24  Build  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axconfig, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_50/shilei-massclouds/axconfig/axconfig\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 18:04:00.496190783 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axconfig v0.1.0 (current)\n       Built [   3.263s] (current)\n     Parsing axconfig v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: axconfig not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_49/shilei-massclouds/axconfig/axconfig/src/lib.rs (original lines from 30 to 30)\n-    }}\n+    }};\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}
