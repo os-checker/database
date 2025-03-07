@@ -8,7 +8,7 @@
       "user": "arceos-org",
       "repo": "kernel_guard",
       "pkg": "kernel_guard",
-      "count": 3,
+      "count": 4,
       "raw_reports": [
         {
           "file": "src/arch/x86.rs",
@@ -18,6 +18,16 @@
             "Mirai": [
               "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n --> src/arch/x86.rs:9:14\n  |\n9 |     unsafe { asm!(\"pushf; pop {}; cli\", out(reg) flags) };\n  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> src/arch/x86.rs:16:18\n   |\n16 |         unsafe { asm!(\"sti\") };\n   |                  ^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=kernel_guard, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_24/arceos-org/kernel_guard\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 21:52:21.820814075 +08:00:00\n    Building kernel_guard v0.1.2 (current)\n       Built [   3.759s] (current)\n     Parsing kernel_guard v0.1.2 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_24/arceos-org/kernel_guard/target/semver-checks/local-kernel_guard-0_1_2-8256b7f4c497607d/target/x86_64-unknown-linux-gnu/doc/kernel_guard.json\n"
             ]
           }
         },

@@ -8,7 +8,7 @@
       "user": "arceos-org",
       "repo": "linked_list_r4l",
       "pkg": "linked_list_r4l",
-      "count": 4,
+      "count": 5,
       "raw_reports": [
         {
           "file": "src/raw_list.rs",
@@ -19,6 +19,16 @@
               "warning: you should consider adding a `Default` implementation for `RawList<G>`\n   --> src/raw_list.rs:99:5\n    |\n99  | /     pub const fn new() -> Self {\n100 | |         Self { head: None }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n97  + impl<G: GetLinks> Default for RawList<G> {\n98  +     fn default() -> Self {\n99  +         Self::new()\n100 +     }\n101 + }\n    |\n\n",
               "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:186:5\n    |\n186 |     pub unsafe fn push_back(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n",
               "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:195:5\n    |\n195 |     pub unsafe fn push_front(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=linked_list_r4l, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_25/arceos-org/linked_list_r4l\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-02-16 20:51:20.421371762 +08:00:00\n    Building linked_list_r4l v0.2.1 (current)\n       Built [   0.252s] (current)\n     Parsing linked_list_r4l v0.2.1 (current)\nerror: unsupported rustdoc format v39 for file: /home/runner/check/batch_25/arceos-org/linked_list_r4l/target/semver-checks/local-linked_list_r4l-0_2_1-01666ec060466c14/target/aarch64-unknown-none/doc/linked_list_r4l.json\n"
             ]
           }
         },
