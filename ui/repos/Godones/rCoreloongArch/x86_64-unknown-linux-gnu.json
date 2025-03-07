@@ -1,0 +1,140 @@
+{
+  "repo": {
+    "user": "Godones",
+    "repo": "rCoreloongArch"
+  },
+  "data": [
+    {
+      "user": "Godones",
+      "repo": "rCoreloongArch",
+      "pkg": "easy-fs-fuse",
+      "count": 6,
+      "raw_reports": [
+        {
+          "file": "easy-fs-fuse/src/main.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:15:35\n   |\n15 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n",
+              "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:22:35\n   |\n22 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_3/Godones/rCoreloongArch/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "    Fetching advisory database from `https://github.com/RustSec/advisory-db.git`\n      Loaded 732 security advisories (from /home/runner/.cargo/advisory-db)\n    Updating crates.io index\n    Scanning Cargo.lock for vulnerabilities (75 crate dependencies)\nCrate:     atty\nVersion:   0.2.14\nWarning:   unmaintained\nTitle:     `atty` is unmaintained\nDate:      2024-09-25\nID:        RUSTSEC-2024-0375\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0375\nDependency tree:\natty 0.2.14\n└── clap 3.2.25\n    └── easy-fs-fuse 0.1.0\n\nCrate:     atty\nVersion:   0.2.14\nWarning:   unsound\nTitle:     Potential unaligned read\nDate:      2021-07-04\nID:        RUSTSEC-2021-0145\nURL:       https://rustsec.org/advisories/RUSTSEC-2021-0145\n\nwarning: 2 allowed warnings found\n\n{\n  \"database\": {\n    \"advisory-count\": 732,\n    \"last-commit\": \"ddccfe8aced779f7b54d27bbe7e122ecb1dda33a\",\n    \"last-updated\": \"2025-02-14T08:11:43Z\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 75\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.169\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0375\",\n          \"package\": \"atty\",\n          \"title\": \"`atty` is unmaintained\",\n          \"description\": \"The maintainer of `atty` has [published](https://github.com/softprops/atty/commit/5bfdbe9e48c6ca6a4909e8d5b04f5e843a257e93) an official notice that the crate is no longer\\nunder development, and that users should instead rely on the functionality in the standard library's [`IsTerminal`](https://doc.rust-lang.org/std/io/trait.IsTerminal.html) trait.\\n\\n## Alternative(s)\\n\\n- [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0 and the recommended replacement per the `atty` maintainer.\\n- [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2024-09-25\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/57\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ],\n    \"unsound\": [\n      {\n        \"kind\": \"unsound\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.169\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2021-0145\",\n          \"package\": \"atty\",\n          \"title\": \"Potential unaligned read\",\n          \"description\": \"On windows, `atty` dereferences a potentially unaligned pointer.\\n\\nIn practice however, the pointer won't be unaligned unless a custom global allocator is used.\\n\\nIn particular, the `System` allocator on windows uses `HeapAlloc`, which guarantees a large enough alignment.\\n\\n# atty is Unmaintained\\n\\nA Pull Request with a fix has been provided over a year ago but the maintainer seems to be unreachable.\\n\\nLast release of `atty` was almost 3 years ago.\\n\\n## Possible Alternative(s)\\n\\nThe below list has not been vetted in any way and may or may not contain alternatives;\\n\\n - [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0\\n - [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2021-07-04\",\n          \"aliases\": [\n            \"GHSA-g98v-hv3f-hcfr\"\n          ],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [\n            \"unaligned-read\"\n          ],\n          \"cvss\": null,\n          \"informational\": \"unsound\",\n          \"references\": [\n            \"https://github.com/softprops/atty/pull/51\",\n            \"https://github.com/softprops/atty/issues/57\"\n          ],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/50\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": {\n          \"arch\": [],\n          \"os\": [\n            \"windows\"\n          ],\n          \"functions\": {}\n        },\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) geiger",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=easy-fs-fuse, checker=Geiger\n// toolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/easy-fs-fuse\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-02-16 22:24:46.334219146 +08:00:00\nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nerror: Cargo(\"failed to parse lock file at: /home/runner/check/batch_3/Godones/rCoreloongArch/Cargo.lock\")\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=easy-fs-fuse, checker=Outdated\ntoolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/easy-fs-fuse\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:24:42.184880153 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nclap  3.2.25   ---     4.5.29  Normal  ---\nrand  0.8.5    ---     0.9.0   Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[rap] Not supported to display yet.",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Rapx": [
+              "pkg=easy-fs-fuse, checker=Rapx\ntoolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/easy-fs-fuse\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:24:15.339052623 +08:00:00\n\nwarning: Use after free detected.\n   --> easy-fs/src/block_cache.rs:118:13\n    |\n118 |             self.queue.push_back((block_id, Arc::clone(&block_cache)));\n    |             ----------------------------------------------------------\n    |             |\n    |             Use after free detected.\n    |             Use after free detected.\n    |\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Godones",
+      "repo": "rCoreloongArch",
+      "pkg": "vbe",
+      "count": 5,
+      "raw_reports": [
+        {
+          "file": "(virtual) geiger",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=vbe, checker=Geiger\n// toolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/vbe\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-02-16 22:24:46.443769941 +08:00:00\nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#libc@0.2.169 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#libc@0.2.169 \nerror: Cargo(\"failed to parse lock file at: /home/runner/check/batch_3/Godones/rCoreloongArch/Cargo.lock\")\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) mirai",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=vbe, checker=Mirai\n// toolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/vbe\n// cmd=cargo +nightly-2025-01-04 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-02-16 22:23:24.261165734 +08:00:00\nwarning: /home/runner/check/batch_3/Godones/rCoreloongArch/pci/Cargo.toml: no edition set: defaulting to the 2015 edition while the latest is 2024\n   Compiling num-traits v0.2.19\n   Compiling az v1.2.1\n   Compiling version_check v0.9.5\n   Compiling memchr v2.3.4\n    Checking micromath v1.1.1\n   Compiling nom v6.2.2\n    Checking oorandom v11.1.4\n    Checking bit_field v0.10.2\n    Checking rlibc v1.0.0\n    Checking log v0.4.25\n    Checking lazy_static v1.5.0\n    Checking virtio-input-decoder v0.1.4\n    Checking float-cmp v0.8.0\n    Checking embedded-graphics-core v0.3.3\n    Checking embedded-graphics v0.7.1\n    Checking tinybmp v0.3.3\n    Checking vbe v0.1.0 (/home/runner/check/batch_3/Godones/rCoreloongArch/vbe)\nerror: could not compile `vbe` (lib)\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.cargo/bin/cargo-mirai /home/runner/.rustup/toolchains/nightly-2025-01-04-x86_64-unknown-linux-gnu/bin/rustc --crate-name vbe --edition=2021 vbe/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=280a7268ce2dcbf7 -C extra-filename=-26dd9060fa340426 --out-dir /home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps --target x86_64-unknown-linux-gnu -L dependency=/home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps -L dependency=/home/runner/check/batch_3/Godones/rCoreloongArch/target/debug/deps --extern bit_field=/home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libbit_field-93662a9c3e209f9c.rmeta --extern embedded_graphics=/home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libembedded_graphics-557a49c3b8193f05.rmeta --extern embedded_graphics_core=/home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libembedded_graphics_core-e1b154cb97f24082.rmeta --extern lazy_static=/home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/liblazy_static-c98a29263bef51b2.rmeta --extern log=/home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/liblog-8c2c8baf35fcf0fb.rmeta --extern oorandom=/home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/liboorandom-9b168afcb9efa705.rmeta --extern rlibc=/home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/librlibc-b2964b3abd398afc.rmeta --extern spin=/home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libspin-0ea1d3e5a5b6602b.rmeta --extern tinybmp=/home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libtinybmp-39647abb7316a265.rmeta --extern virtio_input_decoder=/home/runner/check/batch_3/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libvirtio_input_decoder-80ae9181f726790e.rmeta --cfg mirai -Z always_encode_mir` (exit status: 1)\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=vbe, checker=SemverChecks\n// toolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/vbe\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 17:13:47.925524719 +08:00:00\n    Building vbe v0.1.0 (current)\n       Built [   2.485s] (current)\n     Parsing vbe v0.1.0 (current)\n      Parsed [   0.008s] (current)\nerror: No available baseline versions for vbe@0.1.0\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=vbe, checker=Outdated\ntoolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/vbe\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:24:46.269624638 +08:00:00\n\nName                    Project  Compat  Latest  Kind    Platform\n----                    -------  ------  ------  ----    --------\nembedded-graphics       0.7.1    ---     0.8.1   Normal  ---\nembedded-graphics-core  0.3.3    ---     0.4.0   Normal  ---\ntinybmp                 0.3.3    ---     0.6.0   Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=vbe, checker=SemverChecks\ntoolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/vbe\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 17:13:50.795114204 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building vbe v0.1.0 (current)\n       Built [   2.485s] (current)\n     Parsing vbe v0.1.0 (current)\n      Parsed [   0.008s] (current)\nerror: No available baseline versions for vbe@0.1.0\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

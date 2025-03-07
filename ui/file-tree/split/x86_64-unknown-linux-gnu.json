@@ -1,28 +1,28 @@
 {
   "data": [
     {
-      "user": "Azure-stars",
-      "repo": "kernel_elf_parser",
-      "pkg": "kernel-elf-parser",
+      "user": "ZR233",
+      "repo": "ostool",
+      "pkg": "ostool",
       "count": 2,
       "raw_reports": [
         {
-          "file": "src/info.rs",
+          "file": "src/step/tftp.rs",
           "features": "",
           "count": 1,
           "kinds": {
-            "Mirai": [
-              "warning: [MIRAI] possible attempt to add with overflow\n   --> src/info.rs:118:9\n    |\n118 | /         self.elf.header.pt2.ph_offset() as usize\n119 | |             + self.base\n120 | |             + self\n121 | |                 .elf\n...   |\n124 | |                 .map(|ph| ph.virtual_addr() as usize)\n125 | |                 .unwrap_or(0)\n    | |_____________________________^\n\n"
+            "Clippy(Warn)": [
+              "warning: this looks like a formatting argument but it is not part of a formatting macro\n  --> src/step/tftp.rs:30:53\n   |\n30 | ...   println!(\"{}\",\"TFTP server 启动失败：{e:?}。若权限不足，尝试执行 `sudo setcap cap_net_bind_service=+eip $(which ostool)` 并重启终端\".r                  ...\n   |                                            ^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#literal_string_with_formatting_args\n   = note: `#[warn(clippy::literal_string_with_formatting_args)]` on by default\n\n"
             ]
           }
         },
         {
-          "file": "src/user_stack.rs",
+          "file": "src/step/uboot.rs",
           "features": "",
           "count": 1,
           "kinds": {
             "Mirai": [
-              "warning: [MIRAI] assertion failed: stack.get_sp() % 16 == 0\n  --> src/user_stack.rs:88:5\n   |\n88 |     assert!(stack.get_sp() % 16 == 0);\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+              "warning: [MIRAI] index out of bounds\n  --> src/step/uboot.rs:39:27\n   |\n39 |         let serial = names[i].clone();\n   |                           ^^^\n   |\nnote: related location /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:16:9: 16:26\n  --> /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:16:9\nnote: related location /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:274:10: 274:24\n  --> /rustc/3f43b1a636738f41c48df073c5bcb97a97bf8459/library/core/src/slice/index.rs:274:10\n\n"
             ]
           }
         }

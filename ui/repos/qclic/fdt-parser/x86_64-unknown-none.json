@@ -1,0 +1,44 @@
+{
+  "repo": {
+    "user": "qclic",
+    "repo": "fdt-parser"
+  },
+  "data": [
+    {
+      "user": "qclic",
+      "repo": "fdt-parser",
+      "pkg": "fdt-parser",
+      "count": 4,
+      "raw_reports": [
+        {
+          "file": "fdt-parser/src/pci.rs",
+          "features": "",
+          "count": 4,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: operator precedence can trip the unwary\n  --> fdt-parser/src/pci.rs:45:21\n   |\n45 |         let want0 = (bus as u32) << 16 | (device as u32) << 11 | (func as u32) << 8;\n   |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(bus as u32) << 16 | (device as u32) << 11 | ((func as u32) << 8)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[warn(clippy::precedence)]` on by default\n\n",
+              "warning: operator precedence can trip the unwary\n  --> fdt-parser/src/pci.rs:45:21\n   |\n45 |         let want0 = (bus as u32) << 16 | (device as u32) << 11 | (func as u32) << 8;\n   |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((bus as u32) << 16) | ((device as u32) << 11)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> fdt-parser/src/pci.rs:141:29\n    |\n141 |         let prefetchable = (hi & 1 << 30) > 0;\n    |                             ^^^^^^^^^^^^ help: consider parenthesizing your expression: `hi & (1 << 30)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> fdt-parser/src/pci.rs:151:33\n    |\n151 |         let child_bus_address = (mid as u64) << 32 | low as u64;\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((mid as u64) << 32) | low as u64`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

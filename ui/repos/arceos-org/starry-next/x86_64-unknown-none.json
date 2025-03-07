@@ -1,0 +1,245 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "starry-next"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "starry-next",
+      "pkg": "sleep",
+      "count": 10,
+      "raw_reports": [
+        {
+          "file": "src/main.rs",
+          "features": "",
+          "count": 5,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\n",
+              "error: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\n",
+              "error[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "unkonwn-but-maybe-important",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: `#[panic_handler]` function required, but not found\n\n",
+              "error: requires `sized` lang_item\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=sleep, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo clippy --target x86_64-unknown-none  --no-deps\n// timestamp=2025-02-16 20:42:34.866099251 +08:00:00\n    Checking sleep v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=sleep, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none \n// timestamp=2025-02-16 20:44:09.665503925 +08:00:00\n   Compiling sleep v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=sleep, checker=Rapx\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none \n// timestamp=2025-02-16 20:45:23.554076388 +08:00:00\n    Checking sleep v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n12:45:23|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "starry-next",
+      "pkg": "user_lib",
+      "count": 9,
+      "raw_reports": [
+        {
+          "file": "src/arch/mod.rs",
+          "features": "",
+          "count": 4,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust/src/arch/mod.rs (original lines from 3 to 4)\n-#[cfg(target_arch = \"x86_64\")]\n-mod x86_64;\n",
+              "file: /home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust/src/arch/mod.rs (original lines from 7 to 7)\n+#[cfg(target_arch = \"x86_64\")]\n+mod x86_64;\n",
+              "file: /home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust/src/arch/mod.rs (original lines from 10 to 11)\n-#[cfg(target_arch = \"x86_64\")]\n-pub use x86_64::*;\n",
+              "file: /home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust/src/arch/mod.rs (original lines from 14 to 14)\n+#[cfg(target_arch = \"x86_64\")]\n+pub use x86_64::*;\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=user_lib, checker=Lockbud\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust\n// cmd=cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none \n// timestamp=2025-02-16 20:45:18.059937577 +08:00:00\n   Compiling cfg-if v1.0.0\n   Compiling user_lib v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust)\nerror[E0787]: the `asm!` macro is not allowed in naked functions\n  --> src/arch/x86_64.rs:29:9\n   |\n29 | /         asm!(\"\n30 | |             // push arg (rsi) to stack, set func (rdi) to r9\n31 | |             and rdx, -16\n32 | |             sub rdx, 8\n...  |\n56 | |             options(noreturn),\n57 | |         )\n   | |_________^ consider using the `naked_asm!` macro instead\n\nwarning: the feature `asm_const` has been stable since 1.82.0 and no longer requires an attribute to enable\n --> src/lib.rs:3:12\n  |\n3 | #![feature(asm_const)]\n  |            ^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: the feature `panic_info_message` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> src/lib.rs:5:12\n  |\n5 | #![feature(panic_info_message)]\n  |            ^^^^^^^^^^^^^^^^^^\n\nerror[E0599]: no method named `unwrap` found for struct `core::panic::PanicMessage` in the current scope\n --> src/lang_items.rs:3:36\n  |\n3 |     let err = panic_info.message().unwrap();\n  |                                    ^^^^^^ method not found in `PanicMessage<'_>`\n\nSome errors have detailed explanations: E0599, E0787.\nFor more information about an error, try `rustc --explain E0599`.\nwarning: `user_lib` (lib) generated 2 warnings\nerror: could not compile `user_lib` (lib) due to 2 previous errors; 2 warnings emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=user_lib, checker=Rapx\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none \n// timestamp=2025-02-16 20:45:31.055712323 +08:00:00\n    Checking cfg-if v1.0.0\n    Checking user_lib v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/nimbos/rust)\nerror[E0787]: the `asm!` macro is not allowed in naked functions\n  --> src/arch/x86_64.rs:29:9\n   |\n29 | /         asm!(\"\n30 | |             // push arg (rsi) to stack, set func (rdi) to r9\n31 | |             and rdx, -16\n32 | |             sub rdx, 8\n...  |\n56 | |             options(noreturn),\n57 | |         )\n   | |_________^ consider using the `naked_asm!` macro instead\n\nwarning: the feature `asm_const` has been stable since 1.82.0 and no longer requires an attribute to enable\n --> src/lib.rs:3:12\n  |\n3 | #![feature(asm_const)]\n  |            ^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: the feature `panic_info_message` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> src/lib.rs:5:12\n  |\n5 | #![feature(panic_info_message)]\n  |            ^^^^^^^^^^^^^^^^^^\n\nerror[E0599]: no method named `unwrap` found for struct `core::panic::PanicMessage` in the current scope\n --> src/lang_items.rs:3:36\n  |\n3 |     let err = panic_info.message().unwrap();\n  |                                    ^^^^^^ method not found in `PanicMessage<'_>`\n\nSome errors have detailed explanations: E0599, E0787.\nFor more information about an error, try `rustc --explain E0599`.\nwarning: `user_lib` (lib) generated 2 warnings\nerror: could not compile `user_lib` (lib) due to 2 previous errors; 2 warnings emitted\n12:45:31|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=user_lib, checker=SemverChecks\n// toolchain=nightly-2024-05-02, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_28/arceos-org/starry-next/apps/nimbos/rust\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-03-07 18:00:47.555589605 +08:00:00\n    Building user_lib v0.1.0 (current)\n       Built [   0.213s] (current)\n     Parsing user_lib v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: user_lib not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=user_lib, checker=SemverChecks\ntoolchain=nightly-2024-05-02, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_28/arceos-org/starry-next/apps/nimbos/rust\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-03-07 18:00:47.939664154 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building user_lib v0.1.0 (current)\n       Built [   0.213s] (current)\n     Parsing user_lib v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: user_lib not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "src/bin/usertests.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: deref which would be done by auto-deref\n  --> src/bin/usertests.rs:31:21\n   |\n31 |             if exec(*test) == -1 {\n   |                     ^^^^^ help: try: `test`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n   = note: `#[warn(clippy::explicit_auto_deref)]` on by default\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "starry-next",
+      "pkg": "helloworld",
+      "count": 7,
+      "raw_reports": [
+        {
+          "file": "src/main.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `helloworld` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Hello world from Rust!\");\n  |     ^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "unkonwn-but-maybe-important",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: `#[panic_handler]` function required, but not found\n\n",
+              "error: requires `sized` lang_item\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=helloworld, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/helloworld\n// cmd=cargo clippy --target x86_64-unknown-none  --no-deps\n// timestamp=2025-02-16 20:42:33.850197779 +08:00:00\n    Checking helloworld v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/helloworld)\nerror: could not compile `helloworld` (bin \"helloworld\") due to 4 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=helloworld, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/helloworld\n// cmd=cargo +nightly-2024-12-01 lockbud -k all -- --target x86_64-unknown-none \n// timestamp=2025-02-16 20:44:08.715329468 +08:00:00\n   Compiling helloworld v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/helloworld)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `helloworld` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Hello world from Rust!\");\n  |     ^^^^^^^\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `helloworld` (bin \"helloworld\") due to 4 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=helloworld, checker=Rapx\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/helloworld\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none \n// timestamp=2025-02-16 20:45:21.276174941 +08:00:00\n    Checking helloworld v0.1.0 (/home/runner/check/batch_27/arceos-org/starry-next/apps/libc/rust/helloworld)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `helloworld` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Hello world from Rust!\");\n  |     ^^^^^^^\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `helloworld` (bin \"helloworld\") due to 4 previous errors\n12:45:21|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "starry-next",
+      "pkg": "starry",
+      "count": 2,
+      "raw_reports": [
+        {
+          "file": "(virtual) outdated",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=starry, checker=Outdated\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_27/arceos-org/starry-next\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\n// timestamp=2025-02-16 20:45:39.153008293 +08:00:00\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\n    Updating git repository `https://github.com/arceos-org/arceos.git`\nerror: failed to select a version for `log`.\n    ... required by package `axhal v0.1.0 (https://github.com/arceos-org/arceos.git#959d1c74)`\n    ... which satisfies git dependency `axhal` of package `starry v0.1.0 (/tmp/cargo-outdatedKQiCkh)`\nversions that meet the requirements `=0.4.21` are: 0.4.21\n\nall possible versions conflict with previously selected packages.\n\n  previously selected package `log v0.4.25`\n    ... which satisfies dependency `log = \"^0.4.25\"` of package `starry v0.1.0 (/tmp/cargo-outdatedKQiCkh)`\n\nfailed to select a version for `log` which could resolve this conflict\n"
+            ]
+          }
+        },
+        {
+          "file": "src/syscall_imp/fs/ctl.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: doc list item without indentation\n  --> src/syscall_imp/fs/ctl.rs:11:5\n   |\n11 | /// and of type int in musl and other UNIX systems.\n   |     ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n11 | ///   and of type int in musl and other UNIX systems.\n   |     ++\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

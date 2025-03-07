@@ -1,0 +1,73 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "allocator"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "allocator",
+      "pkg": "allocator",
+      "count": 6,
+      "raw_reports": [
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: function `align_down` is never used\n   --> src/lib.rs:134:10\n    |\n134 | const fn align_down(pos: usize, align: usize) -> usize {\n    |          ^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n",
+              "warning: function `align_up` is never used\n   --> src/lib.rs:139:10\n    |\n139 | const fn align_up(pos: usize, align: usize) -> usize {\n    |          ^^^^^^^^\n\n",
+              "warning: function `is_aligned` is never used\n   --> src/lib.rs:147:10\n    |\n147 | const fn is_aligned(base_addr: usize, align: usize) -> bool {\n    |          ^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=allocator, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_15/arceos-org/allocator\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-03-07 17:58:44.204128962 +08:00:00\n    Building allocator v0.1.1 (current)\n       Built [   0.419s] (current)\n     Parsing allocator v0.1.1 (current)\n      Parsed [   0.002s] (current)\n    Building allocator v0.0.2 (baseline)\nerror: running cargo-doc on crate 'allocator' failed with output:\n-----\n    Checking checked_cast v0.0.3\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `checked_cast` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `checked_cast` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate allocator v0.0.2\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add allocator@=0.0.2 --features default,libc,std &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate allocator v0.0.2\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=allocator, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_15/arceos-org/allocator\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 23:48:22.885775669 +08:00:00\n\nName                    Project  Compat  Latest  Kind         Platform\n----                    -------  ------  ------  ----         --------\nbuddy_system_allocator  0.10.0   ---     0.11.0  Normal       ---\nrand                    0.8.5    ---     0.9.0   Development  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=allocator, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_15/arceos-org/allocator\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-03-07 17:58:45.22904277 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building allocator v0.1.1 (current)\n       Built [   0.419s] (current)\n     Parsing allocator v0.1.1 (current)\n      Parsed [   0.002s] (current)\n    Building allocator v0.0.2 (baseline)\nerror: running cargo-doc on crate 'allocator' failed with output:\n-----\n    Checking checked_cast v0.0.3\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `checked_cast` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `checked_cast` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate allocator v0.0.2\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add allocator@=0.0.2 --features default,libc,std &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate allocator v0.0.2\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}

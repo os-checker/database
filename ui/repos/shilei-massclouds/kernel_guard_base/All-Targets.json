@@ -1,0 +1,89 @@
+{
+  "repo": {
+    "user": "shilei-massclouds",
+    "repo": "kernel_guard_base"
+  },
+  "data": [
+    {
+      "user": "shilei-massclouds",
+      "repo": "kernel_guard_base",
+      "pkg": "kernel_guard_base",
+      "count": 9,
+      "raw_reports": [
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: the feature `asm_const` has been stable since 1.82.0 and no longer requires an attribute to enable\n  --> src/lib.rs:55:12\n   |\n55 | #![feature(asm_const)]\n   |            ^^^^^^^^^\n   |\n   = note: `#[warn(stable_features)]` on by default\n\n",
+              "warning: you should consider adding a `Default` implementation for `NoOp`\n  --> src/lib.rs:94:5\n   |\n94 | /     pub const fn new() -> Self {\n95 | |         Self\n96 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n92 + impl Default for NoOp {\n93 +     fn default() -> Self {\n94 +         Self::new()\n95 +     }\n96 + }\n   |\n\n"
+            ],
+            "Mirai": [
+              "warning: the feature `asm_const` has been stable since 1.82.0 and no longer requires an attribute to enable\n  --> src/lib.rs:55:12\n   |\n55 | #![feature(asm_const)]\n   |            ^^^^^^^^^\n   |\n   = note: `#[warn(stable_features)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/arch/mod.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Mirai": [
+              "warning: unused import: `self::x86::*`\n --> src/arch/mod.rs:6:17\n  |\n6 |         pub use self::x86::*;\n  |                 ^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: unused import: `self::x86::*`\n --> src/arch/mod.rs:6:17\n  |\n6 |         pub use self::x86::*;\n  |                 ^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/arch/x86.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n --> src/arch/x86.rs:9:14\n  |\n9 |     unsafe { asm!(\"pushf; pop {}; cli\", out(reg) flags) };\n  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> src/arch/x86.rs:16:18\n   |\n16 |         unsafe { asm!(\"sti\") };\n   |                  ^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=kernel_guard_base, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_63/shilei-massclouds/kernel_guard_base/kernel_guard_base\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 17:58:10.564923064 +08:00:00\n    Building kernel_guard_base v0.1.0 (current)\n       Built [   0.240s] (current)\n     Parsing kernel_guard_base v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: kernel_guard_base not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=kernel_guard_base, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_63/shilei-massclouds/kernel_guard_base/kernel_guard_base\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 17:58:11.121173211 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building kernel_guard_base v0.1.0 (current)\n       Built [   0.240s] (current)\n     Parsing kernel_guard_base v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: kernel_guard_base not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}
