@@ -15,10 +15,6 @@
           "features": "",
           "count": 10,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 3 to 3)\n+use alloc::format;\n",
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 5 to 5)\n-use alloc::format;\n"
-            ],
             "Clippy(Warn)": [
               "warning: this function has too many arguments (8/7)\n   --> src/process.rs:194:5\n    |\n194 | /     pub fn new(\n195 | |         pid: u64,\n196 | |         stack_size: u64,\n197 | |         parent: u64,\n...   |\n202 | |         fd_table: FdTable,\n203 | |     ) -> Self {\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n    = note: `#[warn(clippy::too_many_arguments)]` on by default\n\n",
               "warning: useless conversion to the same type: `api::alloc::string::String`\n   --> src/process.rs:280:33\n    |\n280 |             Arc::new(Mutex::new(String::from(\"/\").into())),\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into()`: `String::from(\"/\")`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n\n",
@@ -28,6 +24,10 @@
               "warning: called `Iterator::last` on a `DoubleEndedIterator`; this will needlessly iterate the entire iterator\n   --> src/process.rs:529:65\n    |\n529 |             String::from(self.tasks.lock()[0].name().split('/').last().unwrap()),\n    |                                                                 ^^^^^^ help: try: `next_back()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_ended_iterator_last\n\n",
               "warning: useless conversion to the same type: `api::alloc::string::String`\n   --> src/process.rs:661:51\n    |\n661 |             let mut cwd_src = Arc::new(Mutex::new(String::from(\"/\").into()));\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into()`: `String::from(\"/\")`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n\n",
               "warning: useless conversion to the same type: `api::alloc::string::String`\n   --> src/process.rs:807:39\n    |\n807 |         *self.fd_manager.cwd.lock() = cwd.into();\n    |                                       ^^^^^^^^^^ help: consider removing `.into()`: `cwd`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 3 to 3)\n+use alloc::format;\n",
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/process.rs (original lines from 5 to 5)\n-use alloc::format;\n"
             ]
           }
         },
