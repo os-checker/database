@@ -75,7 +75,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=sparreal-kernel, checker=Clippy\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_45/qclic/sparreal-os/crates/sparreal-kernel\n// cmd=cargo clippy --target aarch64-unknown-none  --no-deps\n// timestamp=2025-03-07 17:49:12.273069312 +08:00:00\n    Checking sparreal-kernel v0.9.0 (/home/runner/check/batch_45/qclic/sparreal-os/crates/sparreal-kernel)\nerror: could not compile `sparreal-kernel` (lib) due to 14 previous errors\n"
+              "// pkg_name=sparreal-kernel, checker=Clippy\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_6/qclic/sparreal-os/crates/sparreal-kernel\n// cmd=cargo clippy --target aarch64-unknown-none  --no-deps\n// timestamp=2025-03-13 4:30:45.62471983 +08:00:00\n    Checking sparreal-kernel v0.9.0 (/home/runner/check/batch_6/qclic/sparreal-os/crates/sparreal-kernel)\nerror: could not compile `sparreal-kernel` (lib) due to 14 previous errors\n"
             ]
           }
         },
@@ -85,7 +85,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=sparreal-kernel, checker=Lockbud\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_6/qclic/sparreal-os/crates/sparreal-kernel\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target aarch64-unknown-none \n// timestamp=2025-03-07 21:11:30.692409135 +08:00:00\n[2025-03-07T13:11:14Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-03-07T13:11:14Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling sparreal-kernel v0.9.0 (/home/runner/check/batch_6/qclic/sparreal-os/crates/sparreal-kernel)\nerror[E0432]: unresolved imports `crate::platform_if::MMUImpl`, `crate::platform_if::RegionKind`\n  --> crates/sparreal-kernel/src/globals/percpu.rs:15:19\n   |\n15 |     platform_if::{MMUImpl, RegionKind},\n   |                   ^^^^^^^  ^^^^^^^^^^ no `RegionKind` in `platform_if`\n   |                   |\n   |                   no `MMUImpl` in `platform_if`\n\nerror[E0432]: unresolved import `mmu`\n  --> crates/sparreal-kernel/src/mem/mod.rs:11:5\n   |\n11 | use mmu::RegionKind;\n   |     ^^^ use of unresolved module or unlinked crate `mmu`\n   |\n   = help: if you wanted to use a crate named `mmu`, use `cargo add mmu` to add it to your `Cargo.toml`\n\nerror[E0432]: unresolved import `crate::platform_if::MMUImpl`\n --> crates/sparreal-kernel/src/mem/region.rs:4:26\n  |\n4 | use crate::platform_if::{MMUImpl, PlatformImpl};\n  |                          ^^^^^^^ no `MMUImpl` in `platform_if`\n\nerror[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/region.rs:6:13\n   |\n6  | use super::{mmu::BootRegion, once::OnceStatic};\n   |             ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\nerror[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\nerror[E0412]: cannot find type `BootRegion` in this scope\n   --> crates/sparreal-kernel/src/platform/mod.rs:113:26\n    |\n113 | pub fn regsions() -> Vec<BootRegion> {\n    |                          ^^^^^^^^^^ not found in this scope\n    |\nhelp: you might be missing a type parameter\n    |\n113 | pub fn regsions<BootRegion>() -> Vec<BootRegion> {\n    |                ++++++++++++\n\nerror[E0412]: cannot find type `ArrayVec` in this scope\n   --> crates/sparreal-kernel/src/platform/mod.rs:142:26\n    |\n142 | pub fn phys_memorys() -> ArrayVec<Range<PhysAddr>, 12> {\n    |                          ^^^^^^^^ not found in this scope\n    |\nhelp: consider importing this struct\n    |\n1   + use arrayvec::ArrayVec;\n    |\n\nerror[E0425]: cannot find function `set_mmu_enabled` in this scope\n  --> crates/sparreal-kernel/src/boot/mod.rs:29:5\n   |\n29 |     set_mmu_enabled();\n   |     ^^^^^^^^^^^^^^^ not found in this scope\n\nerror[E0277]: the trait bound `mem::addr::Phys<u8>: core::convert::From<mem::addr::Virt<u8>>` is not satisfied\n  --> crates/sparreal-kernel/src/mem/cache.rs:14:21\n   |\n14 |         let paddr = PhysAddr::from(vaddr);\n   |                     ^^^^^^^^ the trait `core::convert::From<mem::addr::Virt<u8>>` is not implemented for `mem::addr::Phys<u8>`\n   |\n   = help: the trait `From<mem::addr::Virt<u8>>` is not implemented for `mem::addr::Phys<u8>`\n           but trait `From<usize>` is implemented for it\n   = help: for that trait implementation, expected `usize`, found `mem::addr::Virt<u8>`\n\nerror[E0599]: no method named `as_usize` found for struct `mem::addr::Phys` in the current scope\n   --> crates/sparreal-kernel/src/mem/mod.rs:137:38\n    |\n137 |         NonNull::new_unchecked(paddr.as_usize() as *mut u8)\n    |                                      ^^^^^^^^ method not found in `Phys<u8>`\n    |\n   ::: crates/sparreal-kernel/src/mem/addr.rs:69:9\n    |\n69  |         pub struct $name<T>($t, core::marker::PhantomData<T>);\n    |         ------------------------------------------------------ method `as_usize` not found for this struct\n\nerror[E0433]: failed to resolve: use of undeclared type `BootRegion`\n   --> crates/sparreal-kernel/src/platform/mod.rs:117:14\n    |\n117 |     ret.push(BootRegion::new(\n    |              ^^^^^^^^^^ use of undeclared type `BootRegion`\n\nerror[E0433]: failed to resolve: use of undeclared type `RegionKind`\n   --> crates/sparreal-kernel/src/platform/mod.rs:122:9\n    |\n122 |         RegionKind::Other,\n    |         ^^^^^^^^^^ use of undeclared type `RegionKind`\n\nerror[E0433]: failed to resolve: use of undeclared type `BootRegion`\n   --> crates/sparreal-kernel/src/platform/mod.rs:130:18\n    |\n130 |         ret.push(BootRegion::new(\n    |                  ^^^^^^^^^^ use of undeclared type `BootRegion`\n\nerror[E0433]: failed to resolve: use of undeclared type `RegionKind`\n   --> crates/sparreal-kernel/src/platform/mod.rs:135:13\n    |\n135 |             RegionKind::Other,\n    |             ^^^^^^^^^^ use of undeclared type `RegionKind`\n\nSome errors have detailed explanations: E0277, E0412, E0425, E0432, E0433, E0599.\nFor more information about an error, try `rustc --explain E0277`.\nerror: could not compile `sparreal-kernel` (lib) due to 14 previous errors\n"
+              "// pkg_name=sparreal-kernel, checker=Lockbud\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_6/qclic/sparreal-os/crates/sparreal-kernel\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target aarch64-unknown-none \n// timestamp=2025-03-13 4:32:57.195985307 +08:00:00\n[2025-03-12T20:32:47Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-03-12T20:32:47Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling sparreal-kernel v0.9.0 (/home/runner/check/batch_6/qclic/sparreal-os/crates/sparreal-kernel)\nerror[E0432]: unresolved imports `crate::platform_if::MMUImpl`, `crate::platform_if::RegionKind`\n  --> crates/sparreal-kernel/src/globals/percpu.rs:15:19\n   |\n15 |     platform_if::{MMUImpl, RegionKind},\n   |                   ^^^^^^^  ^^^^^^^^^^ no `RegionKind` in `platform_if`\n   |                   |\n   |                   no `MMUImpl` in `platform_if`\n\nerror[E0432]: unresolved import `mmu`\n  --> crates/sparreal-kernel/src/mem/mod.rs:11:5\n   |\n11 | use mmu::RegionKind;\n   |     ^^^ use of unresolved module or unlinked crate `mmu`\n   |\n   = help: if you wanted to use a crate named `mmu`, use `cargo add mmu` to add it to your `Cargo.toml`\n\nerror[E0432]: unresolved import `crate::platform_if::MMUImpl`\n --> crates/sparreal-kernel/src/mem/region.rs:4:26\n  |\n4 | use crate::platform_if::{MMUImpl, PlatformImpl};\n  |                          ^^^^^^^ no `MMUImpl` in `platform_if`\n\nerror[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/region.rs:6:13\n   |\n6  | use super::{mmu::BootRegion, once::OnceStatic};\n   |             ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\nerror[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\nerror[E0412]: cannot find type `BootRegion` in this scope\n   --> crates/sparreal-kernel/src/platform/mod.rs:113:26\n    |\n113 | pub fn regsions() -> Vec<BootRegion> {\n    |                          ^^^^^^^^^^ not found in this scope\n    |\nhelp: you might be missing a type parameter\n    |\n113 | pub fn regsions<BootRegion>() -> Vec<BootRegion> {\n    |                ++++++++++++\n\nerror[E0412]: cannot find type `ArrayVec` in this scope\n   --> crates/sparreal-kernel/src/platform/mod.rs:142:26\n    |\n142 | pub fn phys_memorys() -> ArrayVec<Range<PhysAddr>, 12> {\n    |                          ^^^^^^^^ not found in this scope\n    |\nhelp: consider importing this struct\n    |\n1   + use arrayvec::ArrayVec;\n    |\n\nerror[E0425]: cannot find function `set_mmu_enabled` in this scope\n  --> crates/sparreal-kernel/src/boot/mod.rs:29:5\n   |\n29 |     set_mmu_enabled();\n   |     ^^^^^^^^^^^^^^^ not found in this scope\n\nerror[E0277]: the trait bound `mem::addr::Phys<u8>: core::convert::From<mem::addr::Virt<u8>>` is not satisfied\n  --> crates/sparreal-kernel/src/mem/cache.rs:14:21\n   |\n14 |         let paddr = PhysAddr::from(vaddr);\n   |                     ^^^^^^^^ the trait `core::convert::From<mem::addr::Virt<u8>>` is not implemented for `mem::addr::Phys<u8>`\n   |\n   = help: the trait `From<mem::addr::Virt<u8>>` is not implemented for `mem::addr::Phys<u8>`\n           but trait `From<usize>` is implemented for it\n   = help: for that trait implementation, expected `usize`, found `mem::addr::Virt<u8>`\n\nerror[E0599]: no method named `as_usize` found for struct `mem::addr::Phys` in the current scope\n   --> crates/sparreal-kernel/src/mem/mod.rs:137:38\n    |\n137 |         NonNull::new_unchecked(paddr.as_usize() as *mut u8)\n    |                                      ^^^^^^^^ method not found in `Phys<u8>`\n    |\n   ::: crates/sparreal-kernel/src/mem/addr.rs:69:9\n    |\n69  |         pub struct $name<T>($t, core::marker::PhantomData<T>);\n    |         ------------------------------------------------------ method `as_usize` not found for this struct\n\nerror[E0433]: failed to resolve: use of undeclared type `BootRegion`\n   --> crates/sparreal-kernel/src/platform/mod.rs:117:14\n    |\n117 |     ret.push(BootRegion::new(\n    |              ^^^^^^^^^^ use of undeclared type `BootRegion`\n\nerror[E0433]: failed to resolve: use of undeclared type `RegionKind`\n   --> crates/sparreal-kernel/src/platform/mod.rs:122:9\n    |\n122 |         RegionKind::Other,\n    |         ^^^^^^^^^^ use of undeclared type `RegionKind`\n\nerror[E0433]: failed to resolve: use of undeclared type `BootRegion`\n   --> crates/sparreal-kernel/src/platform/mod.rs:130:18\n    |\n130 |         ret.push(BootRegion::new(\n    |                  ^^^^^^^^^^ use of undeclared type `BootRegion`\n\nerror[E0433]: failed to resolve: use of undeclared type `RegionKind`\n   --> crates/sparreal-kernel/src/platform/mod.rs:135:13\n    |\n135 |             RegionKind::Other,\n    |             ^^^^^^^^^^ use of undeclared type `RegionKind`\n\nSome errors have detailed explanations: E0277, E0412, E0425, E0432, E0433, E0599.\nFor more information about an error, try `rustc --explain E0277`.\nerror: could not compile `sparreal-kernel` (lib) due to 14 previous errors\n"
             ]
           }
         },
@@ -115,7 +115,7 @@
           "count": 1,
           "kinds": {
             "Unformatted": [
-              "file: /home/runner/check/batch_45/qclic/sparreal-os/crates/sparreal-kernel/src/globals/percpu.rs (original lines from 82 to 89)\n-        (*PER_CPU.get()).insert(\n-            cpu,\n-            PerCPU {\n-                irq_chips: Default::default(),\n-                timer: Default::default(),\n-                stack: stack_bottom..stack_bottom + kstack_size(),\n-            },\n-        );\n+        (*PER_CPU.get()).insert(cpu, PerCPU {\n+            irq_chips: Default::default(),\n+            timer: Default::default(),\n+            stack: stack_bottom..stack_bottom + kstack_size(),\n+        });\n"
+              "file: /home/runner/check/batch_6/qclic/sparreal-os/crates/sparreal-kernel/src/globals/percpu.rs (original lines from 82 to 89)\n-        (*PER_CPU.get()).insert(\n-            cpu,\n-            PerCPU {\n-                irq_chips: Default::default(),\n-                timer: Default::default(),\n-                stack: stack_bottom..stack_bottom + kstack_size(),\n-            },\n-        );\n+        (*PER_CPU.get()).insert(cpu, PerCPU {\n+            irq_chips: Default::default(),\n+            timer: Default::default(),\n+            stack: stack_bottom..stack_bottom + kstack_size(),\n+        });\n"
             ]
           }
         },
@@ -125,7 +125,35 @@
           "count": 1,
           "kinds": {
             "Unformatted": [
-              "file: /home/runner/check/batch_45/qclic/sparreal-os/crates/sparreal-kernel/src/irq/mod.rs (original lines from 63 to 70)\n-        globals.irq_chips.0.insert(\n-            id,\n-            Chip {\n-                device,\n-                mutex: Mutex::new(()),\n-                handlers: UnsafeCell::new(Default::default()),\n-            },\n-        );\n+        globals.irq_chips.0.insert(id, Chip {\n+            device,\n+            mutex: Mutex::new(()),\n+            handlers: UnsafeCell::new(Default::default()),\n+        });\n"
+              "file: /home/runner/check/batch_6/qclic/sparreal-os/crates/sparreal-kernel/src/irq/mod.rs (original lines from 63 to 70)\n-        globals.irq_chips.0.insert(\n-            id,\n-            Chip {\n-                device,\n-                mutex: Mutex::new(()),\n-                handlers: UnsafeCell::new(Default::default()),\n-            },\n-        );\n+        globals.irq_chips.0.insert(id, Chip {\n+            device,\n+            mutex: Mutex::new(()),\n+            handlers: UnsafeCell::new(Default::default()),\n+        });\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "qclic",
+      "repo": "sparreal-os",
+      "pkg": "page-table-arm",
+      "count": 2,
+      "raw_reports": [
+        {
+          "file": "/home/runner/check/batch_6/qclic/sparreal-os/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     humantime\nVersion:   2.1.0\nWarning:   unmaintained\nTitle:     humantime is unmaintained\nDate:      2025-03-08\nID:        RUSTSEC-2025-0014\nURL:       https://rustsec.org/advisories/RUSTSEC-2025-0014\nDependency tree:\nhumantime 2.1.0\n└── env_logger 0.11.6\n    └── page-table-arm 0.1.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 742,\n    \"last-commit\": \"a99f72f78f43ef5b7883126f5454d86d8670b97d\",\n    \"last-updated\": \"2025-03-10T19:13:02-06:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 99\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"humantime\",\n          \"version\": \"2.1.0\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"9a3a5bfb195931eeb336b2a7b4d761daec841b97f947d34394601737a7bba5e4\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2025-0014\",\n          \"package\": \"humantime\",\n          \"title\": \"humantime is unmaintained\",\n          \"description\": \"Latest `humantime` crates.io release is four years old and GitHub repository has\\nnot seen commits in four years. Question about maintenance status has not gotten\\nany reaction from maintainer: https://github.com/tailhook/humantime/issues/31\\n\\n## Possible alternatives\\n\\n * [jiff](https://crates.io/crates/jiff) provides same kind of functionality\",\n          \"date\": \"2025-03-08\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/tailhook/humantime/issues/31\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=page-table-arm, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_6/qclic/sparreal-os/crates/page-table-arm\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-03-13 4:33:14.226213401 +08:00:00\n\nName        Project  Compat  Latest  Kind         Platform\n----        -------  ------  ------  ----         --------\nenv_logger  0.11.6   0.11.7  0.11.7  Development  ---\n"
             ]
           }
         }
@@ -143,7 +171,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=simple_test, checker=SemverChecks\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_45/qclic/sparreal-os/apps/simple_test\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-03-07 17:49:44.39187298 +08:00:00\n    Building simple_test v0.9.0 (current)\n       Built [   3.621s] (current)\n     Parsing simple_test v0.9.0 (current)\n      Parsed [   0.001s] (current)\nerror: simple_test not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+              "// pkg_name=simple_test, checker=SemverChecks\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_6/qclic/sparreal-os/apps/simple_test\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-03-13 4:31:19.135483925 +08:00:00\n    Building simple_test v0.9.0 (current)\n       Built [   3.841s] (current)\n     Parsing simple_test v0.9.0 (current)\n      Parsed [   0.001s] (current)\nerror: simple_test not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
             ]
           }
         },
@@ -153,7 +181,61 @@
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=simple_test, checker=SemverChecks\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_45/qclic/sparreal-os/apps/simple_test\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-03-07 17:49:48.404085077 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building simple_test v0.9.0 (current)\n       Built [   3.621s] (current)\n     Parsing simple_test v0.9.0 (current)\n      Parsed [   0.001s] (current)\nerror: simple_test not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+              "pkg=simple_test, checker=SemverChecks\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_6/qclic/sparreal-os/apps/simple_test\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-03-13 4:31:23.479263635 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building simple_test v0.9.0 (current)\n       Built [   3.841s] (current)\n     Parsing simple_test v0.9.0 (current)\n      Parsed [   0.001s] (current)\nerror: simple_test not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "qclic",
+      "repo": "sparreal-os",
+      "pkg": "bare-test-macros",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=bare-test-macros, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_6/qclic/sparreal-os/crates/bare-test-macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-03-13 4:33:11.678164719 +08:00:00\n\nName   Project  Compat   Latest   Kind    Platform\n----   -------  ------   ------   ----    --------\nquote  1.0.39   1.0.40   1.0.40   Normal  ---\nsyn    2.0.99   2.0.100  2.0.100  Normal  ---\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "qclic",
+      "repo": "sparreal-os",
+      "pkg": "sparreal-macros",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=sparreal-macros, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_6/qclic/sparreal-os/crates/sparreal-macros\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-03-13 4:33:17.989883146 +08:00:00\n\nName   Project  Compat   Latest   Kind    Platform\n----   -------  ------   ------   ----    --------\nquote  1.0.39   1.0.40   1.0.40   Normal  ---\nsyn    2.0.99   2.0.100  2.0.100  Normal  ---\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "qclic",
+      "repo": "sparreal-os",
+      "pkg": "xtask",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=xtask, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_6/qclic/sparreal-os/xtask\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-03-13 4:33:20.528001057 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nclap  4.5.31   4.5.32  4.5.32  Normal  cfg(not(target_os = \"none\"))\n"
             ]
           }
         }
