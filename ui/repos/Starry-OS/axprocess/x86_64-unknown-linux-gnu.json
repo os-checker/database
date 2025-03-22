@@ -36,6 +36,9 @@
           "features": "",
           "count": 8,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: manual implementation of `Option::map`\n  --> src/signal.rs:61:9\n   |\n61 | /         match self.signal_set.find_signal() {\n62 | |             Some(sig_num) => Some(\n63 | |                 self.signal_handler\n64 | |                     .lock()\n...  |\n69 | |             None => None,\n70 | |         }\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_map\n   = note: `#[warn(clippy::manual_map)]` on by default\nhelp: try\n   |\n61 ~         self.signal_set.find_signal().map(|sig_num| self.signal_handler\n62 +                     .lock()\n63 +                     .get_action(sig_num)\n64 +                     .need_restart())\n   |\n\n"
+            ],
             "Mirai": [
               "warning: [MIRAI] possible attempt to subtract with overflow\n   --> src/signal.rs:252:9\n    |\n252 |         (signal_module.alternate_stack.sp + signal_module.alternate_stack.size - 1) & !0xf\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to add with overflow\n   --> src/signal.rs:252:10\n    |\n252 |         (signal_module.alternate_stack.sp + signal_module.alternate_stack.size - 1) & !0xf\n    |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
@@ -44,9 +47,6 @@
               "warning: [MIRAI] possible attempt to subtract with overflow\n   --> src/signal.rs:280:25\n    |\n280 |         let sp_base = (((sp - core::mem::size_of::<SigInfo>()) & !0xf)\n    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to subtract with overflow\n   --> src/signal.rs:318:9\n    |\n318 |         sp -= core::mem::size_of::<usize>();\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible misaligned pointer dereference\n   --> src/signal.rs:319:9\n    |\n319 |         *(sp as *mut usize) = restorer;\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: manual implementation of `Option::map`\n  --> src/signal.rs:61:9\n   |\n61 | /         match self.signal_set.find_signal() {\n62 | |             Some(sig_num) => Some(\n63 | |                 self.signal_handler\n64 | |                     .lock()\n...  |\n69 | |             None => None,\n70 | |         }\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_map\n   = note: `#[warn(clippy::manual_map)]` on by default\nhelp: try\n   |\n61 ~         self.signal_set.find_signal().map(|sig_num| self.signal_handler\n62 +                     .lock()\n63 +                     .get_action(sig_num)\n64 +                     .need_restart())\n   |\n\n"
             ]
           }
         },
@@ -55,16 +55,16 @@
           "features": "",
           "count": 7,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: unneeded `return` statement\n  --> src/futex.rs:59:9\n   |\n59 |         return FutexKey::new(pid, aligned, offset);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n   = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n   |\n59 -         return FutexKey::new(pid, aligned, offset);\n59 +         FutexKey::new(pid, aligned, offset)\n   |\n\n",
-              "warning: unneeded `return` statement\n  --> src/futex.rs:64:9\n   |\n64 |         return FutexKey::new(pid, aligned, offset);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n64 -         return FutexKey::new(pid, aligned, offset);\n64 +         FutexKey::new(pid, aligned, offset)\n   |\n\n",
-              "warning: unneeded `return` statement\n   --> src/futex.rs:198:13\n    |\n198 |             return true;\n    |             ^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n198 -             return true;\n198 +             true\n    |\n\n"
-            ],
             "Mirai": [
               "warning: [MIRAI] possible index out of bounds\n   --> src/futex.rs:149:27\n    |\n149 |     let mut hash_bucket = FUTEXQUEUES.buckets[futex_hash(&key)].lock();\n    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible index out of bounds\n   --> src/futex.rs:185:27\n    |\n185 |     let mut hash_bucket = FUTEXQUEUES.buckets[futex_hash(&key)].lock();\n    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible index out of bounds\n   --> src/futex.rs:222:27\n    |\n222 |     let mut hash_bucket = FUTEXQUEUES.buckets[futex_hash(&key)].lock();\n    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible index out of bounds\n   --> src/futex.rs:239:30\n    |\n239 |         let mut req_bucket = FUTEXQUEUES.buckets[futex_hash(&req_key)].lock();\n    |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: unneeded `return` statement\n  --> src/futex.rs:59:9\n   |\n59 |         return FutexKey::new(pid, aligned, offset);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n   = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n   |\n59 -         return FutexKey::new(pid, aligned, offset);\n59 +         FutexKey::new(pid, aligned, offset)\n   |\n\n",
+              "warning: unneeded `return` statement\n  --> src/futex.rs:64:9\n   |\n64 |         return FutexKey::new(pid, aligned, offset);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n64 -         return FutexKey::new(pid, aligned, offset);\n64 +         FutexKey::new(pid, aligned, offset)\n   |\n\n",
+              "warning: unneeded `return` statement\n   --> src/futex.rs:198:13\n    |\n198 |             return true;\n    |             ^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n198 -             return true;\n198 +             true\n    |\n\n"
             ]
           }
         },
@@ -73,15 +73,15 @@
           "features": "",
           "count": 6,
           "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 59 to 60)\n-    } \n-    else {\n+    } else {\n",
+              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 80 to 80)\n-                        // echo \n+                        // echo\n"
+            ],
             "Mirai": [
               "warning: [MIRAI] Cannot write to stdin!\n   --> src/stdio.rs:109:9\n    |\n109 |         panic!(\"Cannot write to stdin!\");\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] Flushing stdin\n   --> src/stdio.rs:112:9\n    |\n112 |         panic!(\"Flushing stdin\")\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] Cannot read from stdin!\n   --> src/stdio.rs:216:9\n    |\n216 |         panic!(\"Cannot read from stdin!\");\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] Cannot read from stdout!\n   --> src/stdio.rs:335:9\n    |\n335 |         panic!(\"Cannot read from stdout!\");\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 59 to 60)\n-    } \n-    else {\n+    } else {\n",
-              "file: /home/runner/check/batch_5/Starry-OS/axprocess/src/stdio.rs (original lines from 80 to 80)\n-                        // echo \n+                        // echo\n"
             ]
           }
         },
