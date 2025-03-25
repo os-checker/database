@@ -86,14 +86,14 @@
           "features": "",
           "count": 9,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: you should consider adding a `Default` implementation for `Rtc`\n   --> src/lib.rs:97:5\n    |\n97  | /     pub fn new() -> Self {\n98  | |         Self {\n99  | |             cmos_format: read_cmos_register(CMOS_STATUS_REGISTER_B),\n100 | |         }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n95  + impl Default for Rtc {\n96  +     fn default() -> Self {\n97  +         Self::new()\n98  +     }\n99  + }\n    |\n\n",
+            "Mirai": [
               "warning: creating a mutable reference to mutable static is discouraged\n   --> src/lib.rs:208:17\n    |\n208 |                 COMMAND_PORT.write(CMOS_DISABLE_NMI | register);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n    = note: `#[warn(static_mut_refs)]` on by default\n\n",
               "warning: creating a mutable reference to mutable static is discouraged\n   --> src/lib.rs:209:17\n    |\n209 |                 DATA_PORT.read()\n    |                 ^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
               "warning: creating a mutable reference to mutable static is discouraged\n   --> src/lib.rs:215:17\n    |\n215 |                 COMMAND_PORT.write(CMOS_DISABLE_NMI | register);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
               "warning: creating a mutable reference to mutable static is discouraged\n   --> src/lib.rs:216:17\n    |\n216 |                 DATA_PORT.write(value)\n    |                 ^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `Rtc`\n   --> src/lib.rs:97:5\n    |\n97  | /     pub fn new() -> Self {\n98  | |         Self {\n99  | |             cmos_format: read_cmos_register(CMOS_STATUS_REGISTER_B),\n100 | |         }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n95  + impl Default for Rtc {\n96  +     fn default() -> Self {\n97  +         Self::new()\n98  +     }\n99  + }\n    |\n\n",
               "warning: creating a mutable reference to mutable static is discouraged\n   --> src/lib.rs:208:17\n    |\n208 |                 COMMAND_PORT.write(CMOS_DISABLE_NMI | register);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n    = note: `#[warn(static_mut_refs)]` on by default\n\n",
               "warning: creating a mutable reference to mutable static is discouraged\n   --> src/lib.rs:209:17\n    |\n209 |                 DATA_PORT.read()\n    |                 ^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
               "warning: creating a mutable reference to mutable static is discouraged\n   --> src/lib.rs:215:17\n    |\n215 |                 COMMAND_PORT.write(CMOS_DISABLE_NMI | register);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
@@ -134,11 +134,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: function `align_down` is never used\n   --> src/lib.rs:126:10\n    |\n126 | const fn align_down(pos: usize, align: usize) -> usize {\n    |          ^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n",
               "warning: function `align_up` is never used\n   --> src/lib.rs:131:10\n    |\n131 | const fn align_up(pos: usize, align: usize) -> usize {\n    |          ^^^^^^^^\n\n"
             ],
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: function `align_down` is never used\n   --> src/lib.rs:126:10\n    |\n126 | const fn align_down(pos: usize, align: usize) -> usize {\n    |          ^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n",
               "warning: function `align_up` is never used\n   --> src/lib.rs:131:10\n    |\n131 | const fn align_up(pos: usize, align: usize) -> usize {\n    |          ^^^^^^^^\n\n"
             ]
@@ -242,11 +242,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: the feature `const_nonnull_new` has been stable since 1.85.0 and no longer requires an attribute to enable\n --> src/lib.rs:3:12\n  |\n3 | #![feature(const_nonnull_new)]\n  |            ^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n",
               "warning: the feature `const_option` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> src/lib.rs:2:12\n  |\n2 | #![feature(const_option)]\n  |            ^^^^^^^^^^^^\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: the feature `const_nonnull_new` has been stable since 1.85.0 and no longer requires an attribute to enable\n --> src/lib.rs:3:12\n  |\n3 | #![feature(const_nonnull_new)]\n  |            ^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n",
               "warning: the feature `const_option` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> src/lib.rs:2:12\n  |\n2 | #![feature(const_option)]\n  |            ^^^^^^^^^^^^\n\n"
             ]
@@ -296,11 +296,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: the feature `const_mut_refs` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> axdriver_net/src/lib.rs:4:12\n  |\n4 | #![feature(const_mut_refs)]\n  |            ^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n",
               "warning: the feature `const_slice_from_raw_parts_mut` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> axdriver_net/src/lib.rs:5:12\n  |\n5 | #![feature(const_slice_from_raw_parts_mut)]\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
             ],
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: the feature `const_mut_refs` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> axdriver_net/src/lib.rs:4:12\n  |\n4 | #![feature(const_mut_refs)]\n  |            ^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n",
               "warning: the feature `const_slice_from_raw_parts_mut` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> axdriver_net/src/lib.rs:5:12\n  |\n5 | #![feature(const_slice_from_raw_parts_mut)]\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
             ]
