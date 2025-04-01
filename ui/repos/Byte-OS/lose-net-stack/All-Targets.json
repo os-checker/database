@@ -134,6 +134,10 @@
           "features": "",
           "count": 14,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: this function has too many arguments (8/7)\n  --> src/packets/udp.rs:22:5\n   |\n22 | /     pub fn new(source_ip: IPv4, source_mac: MacAddress, source_port: u16, \n23 | |         dest_ip: IPv4, dest_mac: MacAddress, dest_port: u16, \n24 | |         data_len: usize, data: &'a [u8]) -> Self {\n   | |________________________________________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n   = note: `#[warn(clippy::too_many_arguments)]` on by default\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/packets/udp.rs:68:34\n   |\n68 |         udp_data.copy_from_slice(&self.data);\n   |                                  ^^^^^^^^^^ help: change this to: `self.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n   = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 3 to 4)\n-use crate::consts::{ETH_RTYPE_IP, IP_PROTOCAL_UDP, IP_HEADER_VHL};\n-use crate::net::{UDP, Eth, Ip, UDP_LEN, IP_LEN, ETH_LEN};\n+use crate::consts::{ETH_RTYPE_IP, IP_HEADER_VHL, IP_PROTOCAL_UDP};\n+use crate::net::{Eth, Ip, ETH_LEN, IP_LEN, UDP, UDP_LEN};\n+use crate::utils::{check_sum, UnsafeRefIter};\n",
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 7 to 7)\n-use crate::utils::{UnsafeRefIter, check_sum};\n",
@@ -147,10 +151,6 @@
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 65 to 66)\n-        udp_header.sum   = 0; // udp checksum   zero means no checksum is provided.\n-        udp_header.ulen  = ((self.data_len + UDP_LEN) as u16).to_be();\n+        udp_header.sum = 0; // udp checksum   zero means no checksum is provided.\n+        udp_header.ulen = ((self.data_len + UDP_LEN) as u16).to_be();\n",
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 75 to 82)\n-            self.dest_ip, \n-            self.dest_mac, \n-            self.dest_port, \n-            self.source_ip, \n-            self.source_mac, \n-            self.source_port, \n-            data.len(), \n-            data\n+            self.dest_ip,\n+            self.dest_mac,\n+            self.dest_port,\n+            self.source_ip,\n+            self.source_mac,\n+            self.source_port,\n+            data.len(),\n+            data,\n",
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/packets/udp.rs (original lines from 86 to 86)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: this function has too many arguments (8/7)\n  --> src/packets/udp.rs:22:5\n   |\n22 | /     pub fn new(source_ip: IPv4, source_mac: MacAddress, source_port: u16, \n23 | |         dest_ip: IPv4, dest_mac: MacAddress, dest_port: u16, \n24 | |         data_len: usize, data: &'a [u8]) -> Self {\n   | |________________________________________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n   = note: `#[warn(clippy::too_many_arguments)]` on by default\n\n",
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/packets/udp.rs:68:34\n   |\n68 |         udp_data.copy_from_slice(&self.data);\n   |                                  ^^^^^^^^^^ help: change this to: `self.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n   = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
             ]
           }
         },
@@ -180,6 +180,10 @@
           "features": "",
           "count": 10,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: operator precedence can trip the unwary\n  --> src/addr.rs:10:14\n   |\n10 |         IPv4((a1 as u32) << 24 | (a2 as u32) << 16 | (a3 as u32) << 8 | (a4 as u32))\n   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(a1 as u32) << 24 | (a2 as u32) << 16 | ((a3 as u32) << 8)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[warn(clippy::precedence)]` on by default\n\n",
+              "warning: operator precedence can trip the unwary\n  --> src/addr.rs:10:14\n   |\n10 |         IPv4((a1 as u32) << 24 | (a2 as u32) << 16 | (a3 as u32) << 8 | (a4 as u32))\n   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((a1 as u32) << 24) | ((a2 as u32) << 16)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
+            ],
             "Clippy(Error)": [
               "error: type `addr::IPv4` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:17:5\n   |\n17 | /     pub fn to_string(&self) -> String {\n18 | |         format!(\"{}.{}.{}.{}\", (self.0 >> 24) & 0xff, (self.0 >> 16) & 0xff, (self.0 >> 8) & 0xff, self.0 & 0xff)\n19 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::IPv4`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n   = note: `#[deny(clippy::inherent_to_string_shadow_display)]` on by default\n\n",
               "error: type `addr::MacAddress` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:49:5\n   |\n49 | /     pub fn to_string(&self) -> String {\n50 | |         format!(\"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\", self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5])\n51 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::MacAddress`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n\n"
@@ -191,10 +195,6 @@
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/addr.rs (original lines from 50 to 50)\n-        format!(\"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\", self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5])\n+        format!(\n+            \"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\",\n+            self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5]\n+        )\n",
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/addr.rs (original lines from 62 to 62)\n-        f.debug_tuple(\"MacAddress\").field(&self.to_string()).finish()\n+        f.debug_tuple(\"MacAddress\")\n+            .field(&self.to_string())\n+            .finish()\n",
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/addr.rs (original lines from 65 to 65)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: operator precedence can trip the unwary\n  --> src/addr.rs:10:14\n   |\n10 |         IPv4((a1 as u32) << 24 | (a2 as u32) << 16 | (a3 as u32) << 8 | (a4 as u32))\n   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(a1 as u32) << 24 | (a2 as u32) << 16 | ((a3 as u32) << 8)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[warn(clippy::precedence)]` on by default\n\n",
-              "warning: operator precedence can trip the unwary\n  --> src/addr.rs:10:14\n   |\n10 |         IPv4((a1 as u32) << 24 | (a2 as u32) << 16 | (a3 as u32) << 8 | (a4 as u32))\n   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((a1 as u32) << 24) | ((a2 as u32) << 16)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
             ]
           }
         },
