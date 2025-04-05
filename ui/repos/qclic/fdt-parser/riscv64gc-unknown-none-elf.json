@@ -8,28 +8,15 @@
       "user": "qclic",
       "repo": "fdt-parser",
       "pkg": "fdt-parser",
-      "count": 5,
+      "count": 1,
       "raw_reports": [
         {
-          "file": "fdt-parser/src/pci.rs",
-          "features": "",
-          "count": 4,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: operator precedence can trip the unwary\n  --> fdt-parser/src/pci.rs:45:21\n   |\n45 |         let want0 = (bus as u32) << 16 | (device as u32) << 11 | (func as u32) << 8;\n   |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(bus as u32) << 16 | (device as u32) << 11 | ((func as u32) << 8)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[warn(clippy::precedence)]` on by default\n\n",
-              "warning: operator precedence can trip the unwary\n  --> fdt-parser/src/pci.rs:45:21\n   |\n45 |         let want0 = (bus as u32) << 16 | (device as u32) << 11 | (func as u32) << 8;\n   |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((bus as u32) << 16) | ((device as u32) << 11)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
-              "warning: operator precedence can trip the unwary\n   --> fdt-parser/src/pci.rs:141:29\n    |\n141 |         let prefetchable = (hi & 1 << 30) > 0;\n    |                             ^^^^^^^^^^^^ help: consider parenthesizing your expression: `hi & (1 << 30)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
-              "warning: operator precedence can trip the unwary\n   --> fdt-parser/src/pci.rs:151:33\n    |\n151 |         let child_bus_address = (mid as u64) << 32 | low as u64;\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((mid as u64) << 32) | low as u64`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
-            ]
-          }
-        },
-        {
-          "file": "fdt-parser/src/fdt.rs",
+          "file": "[rap] Not supported to display yet.",
           "features": "",
           "count": 1,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: unused import: `slice_from_raw_parts`\n --> fdt-parser/src/fdt.rs:3:11\n  |\n3 |     ptr::{slice_from_raw_parts, NonNull},\n  |           ^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
+            "Rapx": [
+              "pkg=fdt-parser, checker=Rapx\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_6/qclic/fdt-parser/fdt-parser\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf \ntimestamp=2025-04-06 4:27:04.055241885 +08:00:00\n\nwarning: Dangling pointer detected.\n  --> fdt-parser/src/fdt.rs:55:1\n   |\n55 | / pub fn memory_reservation_block(&self) -> impl Iterator<Item = MemoryRegion> + '_ {\n56 | |         let mut reader = self.reader(self.header.off_mem_rsvmap.get() as _);\n...  |\n66 | |         })\n67 | |     }\n   | |_____- Dangling pointer detected.\n   |\nOver visited: DefId(0:174 ~ fdt_parser[27f0]::fdt::{impl#1}::get_meta_parent)\n"
             ]
           }
         }
