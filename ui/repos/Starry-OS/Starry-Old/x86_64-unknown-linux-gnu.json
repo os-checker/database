@@ -15,10 +15,6 @@
           "features": "",
           "count": 17,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/cmd_parser.rs:82:22\n   |\n82 |     check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n   |                      ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n   = note: `#[warn(clippy::needless_borrow)]` on by default\n\n",
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/cmd_parser.rs:82:50\n   |\n82 |     check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n   |                                                  ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/cmd_parser.rs (original lines from 1 to 2)\n-use std::{fs, path::Path};\n-use clap::{Arg, ArgAction, Command};\n",
               "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/cmd_parser.rs (original lines from 4 to 4)\n+use clap::{Arg, ArgAction, Command};\n+use std::{fs, path::Path};\n",
@@ -35,6 +31,10 @@
               "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/cmd_parser.rs (original lines from 65 to 65)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
               "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/cmd_parser.rs (original lines from 70 to 70)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
               "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/cmd_parser.rs (original lines from 82 to 82)\n-    check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n+    check_crate_name(&name)\n+        || check_module_name(&name)\n+        || check_app_name(name)\n+        || check_lib_name(name)\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/cmd_parser.rs:82:22\n   |\n82 |     check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n   |                      ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n   = note: `#[warn(clippy::needless_borrow)]` on by default\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/cmd_parser.rs:82:50\n   |\n82 |     check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n   |                                                  ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
             ]
           }
         },
@@ -71,13 +71,13 @@
           "features": "",
           "count": 4,
           "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
+            ],
             "Clippy(Warn)": [
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n --> src/d2_generator.rs:8:34\n  |\n8 |     let deps_parsed = parse_deps(&deps);\n  |                                  ^^^^^ help: change this to: `deps`\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/d2_generator.rs:18:29\n   |\n18 |         if !is_arceos_crate(&name) {\n   |                             ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/d2_generator.rs:34:32\n   |\n34 |             parsed_crates.push(&name);\n   |                                ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
             ]
           }
         },
@@ -86,13 +86,13 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
-            ],
             "Clippy(Warn)": [
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n --> src/mermaid_generator.rs:6:34\n  |\n6 |     let deps_parsed = parse_deps(&deps);\n  |                                  ^^^^^ help: change this to: `deps`\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/mermaid_generator.rs:16:29\n   |\n16 |         if !is_arceos_crate(&name) {\n   |                             ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/mermaid_generator.rs:32:32\n   |\n32 |             parsed_crates.push(&name);\n   |                                ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/Starry-OS/Starry-Old/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
             ]
           }
         },
