@@ -15,6 +15,13 @@
           "features": "",
           "count": 26,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: creating a shared reference to mutable static is discouraged\n  --> src/interface.rs:95:32\n   |\n95 |                 kpptr_to_paddr(kernel_image_level2_pt.as_ptr() as usize),\n   |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n",
+              "warning: creating a shared reference to mutable static is discouraged\n  --> src/interface.rs:99:28\n   |\n99 |             kpptr_to_paddr(kernel_image_level2_pt.as_ptr() as usize),\n   |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
+              "warning: creating a shared reference to mutable static is discouraged\n   --> src/interface.rs:122:38\n    |\n122 |         setVSpaceRoot(kpptr_to_paddr(kernel_root_pageTable.as_ptr() as usize), 0);\n    |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
+              "warning: creating a shared reference to mutable static is discouraged\n   --> src/interface.rs:148:42\n    |\n148 |             setVSpaceRoot(kpptr_to_paddr(kernel_root_pageTable.as_ptr() as usize), 0);\n    |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
+              "warning: creating a shared reference to mutable static is discouraged\n   --> src/interface.rs:163:42\n    |\n163 |             setVSpaceRoot(kpptr_to_paddr(kernel_root_pageTable.as_ptr() as usize), 0);\n    |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/interface.rs (original lines from 2 to 2)\n-use sel4_cspace::interface::{cap_t, CapTag};\n+use super::pte::pte_t;\n+use super::utils::{\n+    kpptr_to_paddr, RISCV_GET_LVL_PGSIZE, RISCV_GET_LVL_PGSIZE_BITS, RISCV_GET_PT_INDEX,\n+};\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/interface.rs (original lines from 4 to 4)\n-use sel4_common::{BIT, ROUND_DOWN};\n",
@@ -37,13 +44,6 @@
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/interface.rs (original lines from 190 to 190)\n-    let slot = unsafe {&(*lu_ret.ptSlot)};\n+    let slot = unsafe { &(*lu_ret.ptSlot) };\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/interface.rs (original lines from 192 to 192)\n-    if slot.get_vaild() == 0 || slot.is_pte_table() || slot.get_ppn() << seL4_PageBits != pptr_to_paddr(pptr) {\n+    if slot.get_vaild() == 0\n+        || slot.is_pte_table()\n+        || slot.get_ppn() << seL4_PageBits != pptr_to_paddr(pptr)\n+    {\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/interface.rs (original lines from 203 to 203)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: creating a shared reference to mutable static is discouraged\n  --> src/interface.rs:95:32\n   |\n95 |                 kpptr_to_paddr(kernel_image_level2_pt.as_ptr() as usize),\n   |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n",
-              "warning: creating a shared reference to mutable static is discouraged\n  --> src/interface.rs:99:28\n   |\n99 |             kpptr_to_paddr(kernel_image_level2_pt.as_ptr() as usize),\n   |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
-              "warning: creating a shared reference to mutable static is discouraged\n   --> src/interface.rs:122:38\n    |\n122 |         setVSpaceRoot(kpptr_to_paddr(kernel_root_pageTable.as_ptr() as usize), 0);\n    |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
-              "warning: creating a shared reference to mutable static is discouraged\n   --> src/interface.rs:148:42\n    |\n148 |             setVSpaceRoot(kpptr_to_paddr(kernel_root_pageTable.as_ptr() as usize), 0);\n    |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
-              "warning: creating a shared reference to mutable static is discouraged\n   --> src/interface.rs:163:42\n    |\n163 |             setVSpaceRoot(kpptr_to_paddr(kernel_root_pageTable.as_ptr() as usize), 0);\n    |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n"
             ]
           }
         },
@@ -117,6 +117,13 @@
           "features": "",
           "count": 11,
           "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 1 to 1)\n+use super::structures::paddr_t;\n",
+              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 3 to 3)\n-use super::structures::paddr_t;\n",
+              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 45 to 46)\n-/// \n-/// Risc-v's sfence.vma \n+///\n+/// Risc-v's sfence.vma\n",
+              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 56 to 56)\n-/// \n+///\n",
+              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 68 to 68)\n+\n"
+            ],
             "Clippy(Warn)": [
               "warning: unused import: `sel4_common::sbi::remote_sfence_vma`\n --> src/satp.rs:2:5\n  |\n2 | use sel4_common::sbi::remote_sfence_vma;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
               "warning: operator precedence can trip the unwary\n  --> src/satp.rs:15:20\n   |\n15 |               words: 0\n   |  ____________________^\n16 | |                 | (mode & 0xfusize) << 60\n17 | |                 | (asid & 0xffffusize) << 44\n18 | |                 | (ppn & 0xfffffffffffusize) << 0,\n   | |_________________________________________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[warn(clippy::precedence)]` on by default\nhelp: consider parenthesizing your expression\n   |\n15 ~             words: 0\n16 +                 | (mode & 0xfusize) << 60\n17 ~                 | (asid & 0xffffusize) << 44 | ((ppn & 0xfffffffffffusize) << 0),\n   |\n\n",
@@ -124,13 +131,6 @@
               "warning: operator precedence can trip the unwary\n  --> src/satp.rs:15:20\n   |\n15 |               words: 0\n   |  ____________________^\n16 | |                 | (mode & 0xfusize) << 60\n   | |_________________________________________^ help: consider parenthesizing your expression: `0 | ((mode & 0xfusize) << 60)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
               "warning: this operation has no effect\n  --> src/satp.rs:15:20\n   |\n15 |               words: 0\n   |  ____________________^\n16 | |                 | (mode & 0xfusize) << 60\n   | |_________________________________________^ help: consider reducing it to: `((mode & 0xfusize) << 60)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n\n",
               "warning: this operation has no effect\n  --> src/satp.rs:18:19\n   |\n18 |                 | (ppn & 0xfffffffffffusize) << 0,\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider reducing it to: `((ppn & 0xfffffffffffusize))`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 1 to 1)\n+use super::structures::paddr_t;\n",
-              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 3 to 3)\n-use super::structures::paddr_t;\n",
-              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 45 to 46)\n-/// \n-/// Risc-v's sfence.vma \n+///\n+/// Risc-v's sfence.vma\n",
-              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 56 to 56)\n-/// \n+///\n",
-              "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/satp.rs (original lines from 68 to 68)\n+\n"
             ]
           }
         },
@@ -158,6 +158,9 @@
           "features": "",
           "count": 7,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: the feature `core_intrinsics` is internal to the compiler or standard library\n --> src/lib.rs:1:12\n  |\n1 | #![feature(core_intrinsics)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: using it is strongly discouraged\n  = note: `#[warn(internal_features)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/lib.rs (original lines from 6 to 10)\n-mod structures;\n-mod vm_rights;\n-mod satp;\n-mod utils;\n-mod pte;\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/lib.rs (original lines from 13 to 13)\n+mod pte;\n+mod satp;\n+mod structures;\n+mod utils;\n+mod vm_rights;\n",
@@ -165,9 +168,6 @@
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/lib.rs (original lines from 18 to 19)\n-    asid_t, asid_pool_t, riscvKSASIDTable, delete_asid_pool, delete_asid,\n-    find_vspace_for_asid, get_asid_pool_by_index, set_asid_pool_by_index\n+    asid_pool_t, asid_t, delete_asid, delete_asid_pool, find_vspace_for_asid,\n+    get_asid_pool_by_index, riscvKSASIDTable, set_asid_pool_by_index,\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/lib.rs (original lines from 21 to 21)\n-pub use utils::{pptr_to_paddr, paddr_to_pptr, kpptr_to_paddr, RISCV_GET_LVL_PGSIZE_BITS, RISCV_GET_LVL_PGSIZE, checkVPAlignment};\n+pub use interface::{\n+    activate_kernel_vspace, copyGlobalMappings, rust_map_kernel_window, set_vm_root, unmapPage,\n+};\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/lib.rs (original lines from 23 to 23)\n-pub use satp::{sfence, setVSpaceRoot};\n+pub use satp::{setVSpaceRoot, sfence};\n+pub use structures::*;\n+pub use utils::{\n+    checkVPAlignment, kpptr_to_paddr, paddr_to_pptr, pptr_to_paddr, RISCV_GET_LVL_PGSIZE,\n+    RISCV_GET_LVL_PGSIZE_BITS,\n+};\n+pub use vm_rights::{maskVMRights, VMReadOnly, VMReadWrite};\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: the feature `core_intrinsics` is internal to the compiler or standard library\n --> src/lib.rs:1:12\n  |\n1 | #![feature(core_intrinsics)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: using it is strongly discouraged\n  = note: `#[warn(internal_features)]` on by default\n\n"
             ]
           }
         },
@@ -176,14 +176,14 @@
           "features": "",
           "count": 5,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: unneeded `return` statement\n --> src/vm_rights.rs:9:5\n  |\n9 |     return vm_rights == VMReadWrite;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n  = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n  |\n9 -     return vm_rights == VMReadWrite;\n9 +     vm_rights == VMReadWrite\n  |\n\n",
-              "warning: unneeded `return` statement\n  --> src/vm_rights.rs:14:5\n   |\n14 |     return vm_rights != VMKernelOnly;\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n14 -     return vm_rights != VMKernelOnly;\n14 +     vm_rights != VMKernelOnly\n   |\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/vm_rights.rs (original lines from 19 to 19)\n-/// \n+///\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/vm_rights.rs (original lines from 31 to 31)\n-        }\n+        };\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/vm_rights.rs (original lines from 35 to 35)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: unneeded `return` statement\n --> src/vm_rights.rs:9:5\n  |\n9 |     return vm_rights == VMReadWrite;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n  = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n  |\n9 -     return vm_rights == VMReadWrite;\n9 +     vm_rights == VMReadWrite\n  |\n\n",
+              "warning: unneeded `return` statement\n  --> src/vm_rights.rs:14:5\n   |\n14 |     return vm_rights != VMKernelOnly;\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n14 -     return vm_rights != VMKernelOnly;\n14 +     vm_rights != VMKernelOnly\n   |\n\n"
             ]
           }
         },
