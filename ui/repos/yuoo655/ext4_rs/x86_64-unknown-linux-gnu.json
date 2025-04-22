@@ -15,6 +15,9 @@
           "features": "",
           "count": 43,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: casting to the same type is unnecessary (`u64` -> `u64`)\n   --> src/ext4_impls/extents.rs:718:33\n    |\n718 |                 ex.store_pblock(newblock as u64);\n    |                                 ^^^^^^^^^^^^^^^ help: try: `newblock`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 91 to 91)\n-        \n+\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 93 to 93)\n-        \n+\n",
@@ -58,9 +61,6 @@
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 406 to 406)\n-\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 409 to 409)\n-    \n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 524 to 525)\n-                let ext4block =\n-                    Block::load(self.block_device.clone(), node_pblock * BLOCK_SIZE);\n+                let ext4block = Block::load(self.block_device.clone(), node_pblock * BLOCK_SIZE);\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: casting to the same type is unnecessary (`u64` -> `u64`)\n   --> src/ext4_impls/extents.rs:718:33\n    |\n718 |                 ex.store_pblock(newblock as u64);\n    |                                 ^^^^^^^^^^^^^^^ help: try: `newblock`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
             ]
           }
         },
@@ -69,6 +69,10 @@
           "features": "",
           "count": 32,
           "kinds": {
+            "Clippy(Error)": [
+              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:305:13\n    |\n305 |         if ((flags & O_RDONLY != 0) || (flags & O_RDWR != 0)) && !can_read {\n    |             ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
+              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:441:16\n    |\n441 |             if (flags & O_RDONLY != 0) || (flags & O_RDWR != 0) && !can_read{\n    |                ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/fuse_interface/mod.rs (original lines from 9 to 10)\n-pub use crate::ext4_defs::Ext4;\n-pub use crate::ext4_defs::BLOCK_SIZE;\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/fuse_interface/mod.rs (original lines from 12 to 12)\n+pub use crate::ext4_defs::Ext4;\n",
@@ -94,10 +98,6 @@
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/fuse_interface/mod.rs (original lines from 335 to 335)\n-        ) -> Result<Vec<u8>> {\n+    ) -> Result<Vec<u8>> {\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/fuse_interface/mod.rs (original lines from 441 to 441)\n-            if (flags & O_RDONLY != 0) || (flags & O_RDWR != 0) && !can_read{\n+            if (flags & O_RDONLY != 0) || (flags & O_RDWR != 0) && !can_read {\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/fuse_interface/mod.rs (original lines from 465 to 465)\n-    /// \n+    ///\n"
-            ],
-            "Clippy(Error)": [
-              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:305:13\n    |\n305 |         if ((flags & O_RDONLY != 0) || (flags & O_RDWR != 0)) && !can_read {\n    |             ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
-              "error: &-masking with zero\n   --> src/fuse_interface/mod.rs:441:16\n    |\n441 |             if (flags & O_RDONLY != 0) || (flags & O_RDWR != 0) && !can_read{\n    |                ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
             ],
             "Clippy(Warn)": [
               "warning: this function has too many arguments (14/7)\n  --> src/fuse_interface/mod.rs:38:5\n   |\n38 | /     pub fn fuse_setattr(\n39 | |         &self,\n40 | |         ino: u64,\n41 | |         mode: Option<u32>,\n...  |\n52 | |         flags: Option<u32>,\n53 | |     ) {\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n   = note: `#[warn(clippy::too_many_arguments)]` on by default\n\n",

@@ -15,6 +15,9 @@
           "features": "",
           "count": 22,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: operator precedence can trip the unwary\n  --> src/lib.rs:68:24\n   |\n68 |         let offset = ((tcp_header.offset >> 4 & 0xf) as usize - 5) * 4;\n   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(tcp_header.offset >> 4) & 0xf`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/lib.rs (original lines from 3 to 3)\n-mod net;\n",
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/lib.rs (original lines from 6 to 6)\n+mod net;\n",
@@ -37,9 +40,6 @@
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/lib.rs (original lines from 122 to 126)\n-                IPv4::from_u32(arp_header.spa.to_be()), \n-                MacAddress::new(arp_header.sha), \n-                IPv4::from_u32(arp_header.tpa.to_be()), \n-                MacAddress::new(arp_header.tha), \n-                rtype\n+                IPv4::from_u32(arp_header.spa.to_be()),\n+                MacAddress::new(arp_header.sha),\n+                IPv4::from_u32(arp_header.tpa.to_be()),\n+                MacAddress::new(arp_header.tha),\n+                rtype,\n",
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/lib.rs (original lines from 133 to 133)\n-        let eth_header = unsafe{data_ptr_iter.next::<Eth>()}.unwrap();\n+        let eth_header = unsafe { data_ptr_iter.next::<Eth>() }.unwrap();\n",
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/lib.rs (original lines from 137 to 137)\n-            _ => Packet::None // Unsupported type\n+            _ => Packet::None, // Unsupported type\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: operator precedence can trip the unwary\n  --> src/lib.rs:68:24\n   |\n68 |         let offset = ((tcp_header.offset >> 4 & 0xf) as usize - 5) * 4;\n   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(tcp_header.offset >> 4) & 0xf`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
             ]
           }
         },
