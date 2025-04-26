@@ -497,12 +497,6 @@
           "features": "",
           "count": 36,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/fxmac.rs (original lines from 58 to 58)\n-\n",
-              "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/fxmac.rs (original lines from 98 to 98)\n-    unsafe { core::ptr::read_volatile(crate_interface::call_interface!(crate::KernelFunc::phys_to_virt(src as usize)) as *const T) }\n+    unsafe {\n+        core::ptr::read_volatile(\n+            crate_interface::call_interface!(crate::KernelFunc::phys_to_virt(src as usize))\n+                as *const T,\n+        )\n+    }\n",
-              "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/fxmac.rs (original lines from 103 to 103)\n-        core::ptr::write_volatile(crate_interface::call_interface!(crate::KernelFunc::phys_to_virt(dst as usize)) as *mut T, value);\n+        core::ptr::write_volatile(\n+            crate_interface::call_interface!(crate::KernelFunc::phys_to_virt(dst as usize))\n+                as *mut T,\n+            value,\n+        );\n",
-              "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/fxmac.rs (original lines from 107 to 107)\n-pub fn xmac_init(hwaddr: &[u8; 6]) -> &'static mut FXmac { // i32\n+pub fn xmac_init(hwaddr: &[u8; 6]) -> &'static mut FXmac {\n+    // i32\n"
-            ],
             "Clippy(Warn)": [
               "warning: this `else { if .. }` block can be collapsed\n   --> src/fxmac.rs:632:12\n    |\n632 |       } else {\n    |  ____________^\n633 | |         if direction == FXMAC_SEND {\n634 | |             write_reg(\n635 | |                 (FXMAC_IOBASE\n...   |\n648 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\n    = note: `#[warn(clippy::collapsible_else_if)]` on by default\nhelp: collapse nested if block\n    |\n632 ~     } else if direction == FXMAC_SEND {\n633 +         write_reg(\n634 +             (FXMAC_IOBASE\n635 +                 + FXMAC_QUEUE_REGISTER_OFFSET(FXMAC_TXQ1BASE_OFFSET, queue_num as u64))\n636 +                 as *mut u32,\n637 +             ((queue_p & ULONG64_LO_MASK) | flag_queue_p) as u32,\n638 +         );\n639 +     } else {\n640 +         write_reg(\n641 +             (FXMAC_IOBASE\n642 +                 + FXMAC_QUEUE_REGISTER_OFFSET(FXMAC_RXQ1BASE_OFFSET, queue_num as u64))\n643 +                 as *mut u32,\n644 +             ((queue_p & ULONG64_LO_MASK) | flag_queue_p) as u32,\n645 +         );\n646 +     }\n    |\n\n",
               "warning: manual implementation of an assign operation\n   --> src/fxmac.rs:244:5\n    |\n244 |     dmacrreg = dmacrreg | FXMAC_DMACR_INCR16_AHB_AXI_BURST; /* Attempt to use bursts of up to 16. */\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace it with: `dmacrreg |= FXMAC_DMACR_INCR16_AHB_AXI_BURST`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n\n",
@@ -536,6 +530,12 @@
               "warning: this looks like a formatting argument but it is not part of a formatting macro\n    --> src/fxmac.rs:1591:31\n     |\n1591 |     info!(\"FXMAC_GEM_HSMAC is {:#x}\", reg_value);\n     |                               ^^^^^\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#literal_string_with_formatting_args\n\n",
               "warning: this looks like a formatting argument but it is not part of a formatting macro\n    --> src/fxmac.rs:1601:39\n     |\n1601 |         \"FXmacInitInterface, PHY MODE:{:?}\",\n     |                                       ^^^^\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#literal_string_with_formatting_args\n\n",
               "warning: this looks like a formatting argument but it is not part of a formatting macro\n    --> src/fxmac.rs:1618:33\n     |\n1618 |         info!(\"usx interface is {:?}\", instance_p.config.interface);\n     |                                 ^^^^\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#literal_string_with_formatting_args\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/fxmac.rs (original lines from 58 to 58)\n-\n",
+              "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/fxmac.rs (original lines from 98 to 98)\n-    unsafe { core::ptr::read_volatile(crate_interface::call_interface!(crate::KernelFunc::phys_to_virt(src as usize)) as *const T) }\n+    unsafe {\n+        core::ptr::read_volatile(\n+            crate_interface::call_interface!(crate::KernelFunc::phys_to_virt(src as usize))\n+                as *const T,\n+        )\n+    }\n",
+              "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/fxmac.rs (original lines from 103 to 103)\n-        core::ptr::write_volatile(crate_interface::call_interface!(crate::KernelFunc::phys_to_virt(dst as usize)) as *mut T, value);\n+        core::ptr::write_volatile(\n+            crate_interface::call_interface!(crate::KernelFunc::phys_to_virt(dst as usize))\n+                as *mut T,\n+            value,\n+        );\n",
+              "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/fxmac.rs (original lines from 107 to 107)\n-pub fn xmac_init(hwaddr: &[u8; 6]) -> &'static mut FXmac { // i32\n+pub fn xmac_init(hwaddr: &[u8; 6]) -> &'static mut FXmac {\n+    // i32\n"
             ]
           }
         },
@@ -564,15 +564,15 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_HI_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_HI_MASK` in the value namespace is also re-exported here\n   |\n   = note: `#[warn(ambiguous_glob_reexports)]` on by default\n\n",
-              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_LO_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_LO_MASK` in the value namespace is also re-exported here\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/lib.rs (original lines from 37 to 38)\n-mod utils;\n-mod fxmac_phy;\n+mod fxmac;\n",
               "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/lib.rs (original lines from 41 to 41)\n-mod fxmac;\n+mod fxmac_phy;\n+mod utils;\n",
               "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/lib.rs (original lines from 52 to 52)\n-pub trait KernelFunc{\n+pub trait KernelFunc {\n",
               "file: /home/runner/check/batch_30/elliott10/fxmac_rs/src/lib.rs (original lines from 72 to 73)\n-    fn it_works() {\n-    }\n+    fn it_works() {}\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_HI_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_HI_MASK` in the value namespace is also re-exported here\n   |\n   = note: `#[warn(ambiguous_glob_reexports)]` on by default\n\n",
+              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_LO_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_LO_MASK` in the value namespace is also re-exported here\n\n"
             ]
           }
         },
