@@ -7,27 +7,50 @@
     {
       "user": "Godones",
       "repo": "rCoreloongArch",
-      "pkg": "easy-fs-fuse",
-      "count": 6,
+      "pkg": "vbe",
+      "count": 20,
       "raw_reports": [
         {
-          "file": "easy-fs-fuse/src/main.rs",
+          "file": "vbe/src/old_impl/vbe.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: operator precedence can trip the unwary\n   --> vbe/src/old_impl/vbe.rs:219:28\n    |\n219 |                     tabs = (self.x_position + 8) & !(8 - 1) - self.x_position;\n    |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(self.x_position + 8) & (!(8 - 1) - self.x_position)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n    = note: `#[warn(clippy::precedence)]` on by default\n\n",
+              "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n  --> vbe/src/old_impl/vbe.rs:97:54\n   |\n97 |                     let addr = frame_buffer_addr.add(((y + i) * weight + x + j) as usize);\n   |                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `((y + i) * weight + x + j)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n   --> vbe/src/old_impl/vbe.rs:129:46\n    |\n129 |             let addr = frame_buffer_addr.add((y * weight + x) as usize);\n    |                                              ^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `(y * weight + x)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n"
+            ]
+          }
+        },
+        {
+          "file": "vbe/src/gui/basic/icon.rs",
           "features": "",
           "count": 2,
           "kinds": {
-            "Mirai": [
-              "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:15:35\n   |\n15 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n",
-              "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:22:35\n   |\n22 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n"
+            "Clippy(Warn)": [
+              "warning: manual implementation of an assign operation\n  --> vbe/src/gui/basic/icon.rs:75:17\n   |\n75 |                 x = x + 70;\n   |                 ^^^^^^^^^^ help: replace it with: `x += 70`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n   = note: `#[warn(clippy::assign_op_pattern)]` on by default\n\n",
+              "warning: manual implementation of an assign operation\n  --> vbe/src/gui/basic/icon.rs:78:17\n   |\n78 |                 y = y + 90;\n   |                 ^^^^^^^^^^ help: replace it with: `y += 90`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n\n"
             ]
           }
         },
         {
-          "file": "/home/runner/check/batch_3/Godones/rCoreloongArch/Cargo.lock",
+          "file": "vbe/src/gui/basic/window.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: returning the result of a `let` binding from a block\n   --> vbe/src/gui/basic/window.rs:116:9\n    |\n86  | /         let window = Arc::new(Self {\n87  | |             id,\n88  | |             inner: unsafe {\n89  | |                 Mutex::new(WindowsInner {\n...   |\n105 | |             },\n106 | |         });\n    | |___________- unnecessary `let` binding\n...\n116 |           window\n    |           ^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\n    = note: `#[warn(clippy::let_and_return)]` on by default\nhelp: return the expression directly\n    |\n86  ~         \n87  |         // use log::info;\n...\n95  |         // );\n96  ~         Arc::new(Self {\n97  +             id,\n98  +             inner: unsafe {\n99  +                 Mutex::new(WindowsInner {\n100 +                     event: VecDeque::new(),\n101 +                     name: \"\".to_string(),\n102 +                     component: {\n103 +                         let mut v: VecDeque<Arc<dyn Component>> = VecDeque::new();\n104 +                         v.push_back(bar);\n105 +                         v.push_back(windows.clone());\n106 +                         v\n107 +                     },\n108 +                     graphic: Graphics {\n109 +                         size,\n110 +                         point,\n111 +                         drv: VBE_DEVICE.clone(),\n112 +                     },\n113 +                     panel: windows.clone(),\n114 +                 })\n115 +             },\n116 +         })\n    |\n\n",
+              "warning: returning the result of a `let` binding from a block\n   --> vbe/src/gui/basic/window.rs:142:9\n    |\n141 |         let event = inner.event.pop_front();\n    |         ------------------------------------ unnecessary `let` binding\n142 |         event\n    |         ^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\nhelp: return the expression directly\n    |\n141 ~         \n142 ~         inner.event.pop_front()\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
           "features": "",
           "count": 1,
           "kinds": {
-            "Audit": [
-              "    Fetching advisory database from `https://github.com/RustSec/advisory-db.git`\n      Loaded 732 security advisories (from /home/runner/.cargo/advisory-db)\n    Updating crates.io index\n    Scanning Cargo.lock for vulnerabilities (75 crate dependencies)\nCrate:     atty\nVersion:   0.2.14\nWarning:   unmaintained\nTitle:     `atty` is unmaintained\nDate:      2024-09-25\nID:        RUSTSEC-2024-0375\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0375\nDependency tree:\natty 0.2.14\n└── clap 3.2.25\n    └── easy-fs-fuse 0.1.0\n\nCrate:     atty\nVersion:   0.2.14\nWarning:   unsound\nTitle:     Potential unaligned read\nDate:      2021-07-04\nID:        RUSTSEC-2021-0145\nURL:       https://rustsec.org/advisories/RUSTSEC-2021-0145\n\nwarning: 2 allowed warnings found\n\n{\n  \"database\": {\n    \"advisory-count\": 732,\n    \"last-commit\": \"ddccfe8aced779f7b54d27bbe7e122ecb1dda33a\",\n    \"last-updated\": \"2025-02-14T08:11:43Z\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 75\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.169\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0375\",\n          \"package\": \"atty\",\n          \"title\": \"`atty` is unmaintained\",\n          \"description\": \"The maintainer of `atty` has [published](https://github.com/softprops/atty/commit/5bfdbe9e48c6ca6a4909e8d5b04f5e843a257e93) an official notice that the crate is no longer\\nunder development, and that users should instead rely on the functionality in the standard library's [`IsTerminal`](https://doc.rust-lang.org/std/io/trait.IsTerminal.html) trait.\\n\\n## Alternative(s)\\n\\n- [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0 and the recommended replacement per the `atty` maintainer.\\n- [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2024-09-25\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/57\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ],\n    \"unsound\": [\n      {\n        \"kind\": \"unsound\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.169\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2021-0145\",\n          \"package\": \"atty\",\n          \"title\": \"Potential unaligned read\",\n          \"description\": \"On windows, `atty` dereferences a potentially unaligned pointer.\\n\\nIn practice however, the pointer won't be unaligned unless a custom global allocator is used.\\n\\nIn particular, the `System` allocator on windows uses `HeapAlloc`, which guarantees a large enough alignment.\\n\\n# atty is Unmaintained\\n\\nA Pull Request with a fix has been provided over a year ago but the maintainer seems to be unreachable.\\n\\nLast release of `atty` was almost 3 years ago.\\n\\n## Possible Alternative(s)\\n\\nThe below list has not been vetted in any way and may or may not contain alternatives;\\n\\n - [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0\\n - [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2021-07-04\",\n          \"aliases\": [\n            \"GHSA-g98v-hv3f-hcfr\"\n          ],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [\n            \"unaligned-read\"\n          ],\n          \"cvss\": null,\n          \"informational\": \"unsound\",\n          \"references\": [\n            \"https://github.com/softprops/atty/pull/51\",\n            \"https://github.com/softprops/atty/issues/57\"\n          ],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/50\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": {\n          \"arch\": [],\n          \"os\": [\n            \"windows\"\n          ],\n          \"functions\": {}\n        },\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            "Cargo": [
+              "// pkg_name=vbe, checker=Clippy\n// toolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/vbe\n// cmd=cargo clippy --target x86_64-unknown-linux-gnu  --no-deps\n// timestamp=2025-04-28 4:27:45.703346712 +08:00:00\n   Compiling az v1.2.1\n   Compiling num-traits v0.2.19\n   Compiling memchr v2.3.4\n    Checking byteorder v1.5.0\n   Compiling nom v6.2.2\n    Checking micromath v1.1.1\n    Checking spin v0.9.8\n    Checking log v0.4.27\n    Checking oorandom v11.1.5\n    Checking virtio-input-decoder v0.1.4\n    Checking rlibc v1.0.0\n    Checking bit_field v0.10.2\n    Checking lazy_static v1.5.0\n    Checking float-cmp v0.8.0\n    Checking embedded-graphics-core v0.3.3\n    Checking embedded-graphics v0.7.1\n    Checking tinybmp v0.3.3\n    Checking vbe v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/vbe)\nerror: could not compile `vbe` (lib) due to 1 previous error; 13 warnings emitted\n"
             ]
           }
         },
@@ -37,45 +60,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=easy-fs-fuse, checker=Geiger\n// toolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/easy-fs-fuse\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-02-16 22:24:46.334219146 +08:00:00\nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.25 \nerror: Cargo(\"failed to parse lock file at: /home/runner/check/batch_3/Godones/rCoreloongArch/Cargo.lock\")\n"
-            ]
-          }
-        },
-        {
-          "file": "[outdated direct dependencies]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Outdated": [
-              "pkg=easy-fs-fuse, checker=Outdated\ntoolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/easy-fs-fuse\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:24:42.184880153 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nclap  3.2.25   ---     4.5.29  Normal  ---\nrand  0.8.5    ---     0.9.0   Normal  ---\n"
-            ]
-          }
-        },
-        {
-          "file": "[rap] Not supported to display yet.",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Rapx": [
-              "pkg=easy-fs-fuse, checker=Rapx\ntoolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/easy-fs-fuse\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-02-16 22:24:15.339052623 +08:00:00\n\nwarning: Use after free detected.\n   --> easy-fs/src/block_cache.rs:118:13\n    |\n118 |             self.queue.push_back((block_id, Arc::clone(&block_cache)));\n    |             ----------------------------------------------------------\n    |             |\n    |             Use after free detected.\n    |             Use after free detected.\n    |\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "Godones",
-      "repo": "rCoreloongArch",
-      "pkg": "vbe",
-      "count": 5,
-      "raw_reports": [
-        {
-          "file": "(virtual) geiger",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=vbe, checker=Geiger\n// toolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/vbe\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-02-16 22:24:46.443769941 +08:00:00\nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#libc@0.2.169 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#libc@0.2.169 \nerror: Cargo(\"failed to parse lock file at: /home/runner/check/batch_3/Godones/rCoreloongArch/Cargo.lock\")\n"
+              "// pkg_name=vbe, checker=Geiger\n// toolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/vbe\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-04-28 4:29:38.034979931 +08:00:00\nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#libc@0.2.172 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#libc@0.2.172 \nerror: Cargo(\"failed to parse lock file at: /home/runner/check/batch_1/Godones/rCoreloongArch/Cargo.lock\")\n"
             ]
           }
         },
@@ -85,7 +70,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=vbe, checker=Mirai\n// toolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/vbe\n// cmd=cargo +nightly-2025-01-10 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 21:54:11.097918179 +08:00:00\nwarning: /home/runner/check/batch_1/Godones/rCoreloongArch/pci/Cargo.toml: no edition set: defaulting to the 2015 edition while the latest is 2024\n   Compiling num-traits v0.2.19\n   Compiling az v1.2.1\n   Compiling memchr v2.3.4\n   Compiling version_check v0.9.5\n    Checking micromath v1.1.1\n   Compiling nom v6.2.2\n    Checking lazy_static v1.5.0\n    Checking oorandom v11.1.5\n    Checking bit_field v0.10.2\n    Checking log v0.4.26\n    Checking rlibc v1.0.0\n    Checking virtio-input-decoder v0.1.4\n    Checking float-cmp v0.8.0\n    Checking embedded-graphics-core v0.3.3\n    Checking embedded-graphics v0.7.1\n    Checking tinybmp v0.3.3\n    Checking vbe v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/vbe)\nerror: could not compile `vbe` (lib)\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.cargo/bin/cargo-mirai /home/runner/.rustup/toolchains/nightly-2025-01-10-x86_64-unknown-linux-gnu/bin/rustc --crate-name vbe --edition=2021 vbe/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=da69e2816ed55d02 -C extra-filename=-5a6f65b0ce8787e3 --out-dir /home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps --target x86_64-unknown-linux-gnu -L dependency=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps -L dependency=/home/runner/check/batch_1/Godones/rCoreloongArch/target/debug/deps --extern bit_field=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libbit_field-93662a9c3e209f9c.rmeta --extern embedded_graphics=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libembedded_graphics-557a49c3b8193f05.rmeta --extern embedded_graphics_core=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libembedded_graphics_core-e1b154cb97f24082.rmeta --extern lazy_static=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/liblazy_static-c98a29263bef51b2.rmeta --extern log=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/liblog-001285a4eea6d156.rmeta --extern oorandom=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/liboorandom-638b98c41d1e6a91.rmeta --extern rlibc=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/librlibc-b2964b3abd398afc.rmeta --extern spin=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libspin-0ea1d3e5a5b6602b.rmeta --extern tinybmp=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libtinybmp-39647abb7316a265.rmeta --extern virtio_input_decoder=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libvirtio_input_decoder-80ae9181f726790e.rmeta --cfg mirai -Z always_encode_mir` (exit status: 1)\n"
+              "// pkg_name=vbe, checker=Mirai\n// toolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/vbe\n// cmd=cargo +nightly-2025-01-10 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-04-28 4:28:01.001653135 +08:00:00\n   Compiling num-traits v0.2.19\n   Compiling az v1.2.1\n   Compiling memchr v2.3.4\n   Compiling version_check v0.9.5\n    Checking byteorder v1.5.0\n   Compiling nom v6.2.2\n    Checking micromath v1.1.1\n    Checking spin v0.9.8\n    Checking oorandom v11.1.5\n    Checking virtio-input-decoder v0.1.4\n    Checking rlibc v1.0.0\n    Checking log v0.4.27\n    Checking float-cmp v0.8.0\n    Checking lazy_static v1.5.0\n    Checking bit_field v0.10.2\n    Checking embedded-graphics-core v0.3.3\n    Checking embedded-graphics v0.7.1\n    Checking tinybmp v0.3.3\n    Checking vbe v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/vbe)\nerror: could not compile `vbe` (lib)\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.cargo/bin/cargo-mirai /home/runner/.rustup/toolchains/nightly-2025-01-10-x86_64-unknown-linux-gnu/bin/rustc --crate-name vbe --edition=2021 vbe/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=963bb5b37c0a116c -C extra-filename=-707a129b6ab1f10e --out-dir /home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps --target x86_64-unknown-linux-gnu -L dependency=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps -L dependency=/home/runner/check/batch_1/Godones/rCoreloongArch/target/debug/deps --extern bit_field=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libbit_field-93662a9c3e209f9c.rmeta --extern embedded_graphics=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libembedded_graphics-557a49c3b8193f05.rmeta --extern embedded_graphics_core=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libembedded_graphics_core-e1b154cb97f24082.rmeta --extern lazy_static=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/liblazy_static-c98a29263bef51b2.rmeta --extern log=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/liblog-db8057b4c6ec239b.rmeta --extern oorandom=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/liboorandom-638b98c41d1e6a91.rmeta --extern rlibc=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/librlibc-b2964b3abd398afc.rmeta --extern spin=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libspin-0ea1d3e5a5b6602b.rmeta --extern tinybmp=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libtinybmp-39647abb7316a265.rmeta --extern virtio_input_decoder=/home/runner/check/batch_1/Godones/rCoreloongArch/target/x86_64-unknown-linux-gnu/debug/deps/libvirtio_input_decoder-80ae9181f726790e.rmeta --cfg mirai -Z always_encode_mir` (exit status: 1)\n"
             ]
           }
         },
@@ -95,7 +80,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=vbe, checker=SemverChecks\n// toolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/vbe\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-03-07 17:13:47.925524719 +08:00:00\n    Building vbe v0.1.0 (current)\n       Built [   2.485s] (current)\n     Parsing vbe v0.1.0 (current)\n      Parsed [   0.008s] (current)\nerror: No available baseline versions for vbe@0.1.0\n"
+              "// pkg_name=vbe, checker=SemverChecks\n// toolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/vbe\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-04-28 4:27:50.776039899 +08:00:00\n    Building vbe v0.1.0 (current)\n       Built [   2.553s] (current)\n     Parsing vbe v0.1.0 (current)\n      Parsed [   0.008s] (current)\nerror: No available baseline versions for vbe@0.1.0\n"
             ]
           }
         },
@@ -105,7 +90,7 @@
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=vbe, checker=Outdated\ntoolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/vbe\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-02-16 22:24:46.269624638 +08:00:00\n\nName                    Project  Compat  Latest  Kind    Platform\n----                    -------  ------  ------  ----    --------\nembedded-graphics       0.7.1    ---     0.8.1   Normal  ---\nembedded-graphics-core  0.3.3    ---     0.4.0   Normal  ---\ntinybmp                 0.3.3    ---     0.6.0   Normal  ---\n"
+              "pkg=vbe, checker=Outdated\ntoolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/vbe\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-04-28 4:29:37.84926948 +08:00:00\n\nName                    Project  Compat  Latest  Kind    Platform\n----                    -------  ------  ------  ----    --------\nembedded-graphics       0.7.1    ---     0.8.1   Normal  ---\nembedded-graphics-core  0.3.3    ---     0.4.0   Normal  ---\nspin                    0.9.8    ---     0.10.0  Normal  ---\ntinybmp                 0.3.3    ---     0.6.0   Normal  ---\n"
             ]
           }
         },
@@ -115,7 +100,149 @@
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=vbe, checker=SemverChecks\ntoolchain=nightly-2024-01-19, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_3/Godones/rCoreloongArch/vbe\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-03-07 17:13:50.795114204 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building vbe v0.1.0 (current)\n       Built [   2.485s] (current)\n     Parsing vbe v0.1.0 (current)\n      Parsed [   0.008s] (current)\nerror: No available baseline versions for vbe@0.1.0\n"
+              "pkg=vbe, checker=SemverChecks\ntoolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/vbe\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-04-28 4:27:54.213534253 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building vbe v0.1.0 (current)\n       Built [   2.553s] (current)\n     Parsing vbe v0.1.0 (current)\n      Parsed [   0.008s] (current)\nerror: No available baseline versions for vbe@0.1.0\n"
+            ]
+          }
+        },
+        {
+          "file": "vbe/src/driver/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: mutable borrow from immutable input(s)\n  --> vbe/src/driver/mod.rs:15:35\n   |\n15 |     fn get_frame_buffer(&self) -> &mut [u8];\n   |                                   ^^^^^^^^^\n   |\nnote: immutable borrow here\n  --> vbe/src/driver/mod.rs:15:25\n   |\n15 |     fn get_frame_buffer(&self) -> &mut [u8];\n   |                         ^^^^^\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#mut_from_ref\n   = note: `#[deny(clippy::mut_from_ref)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "vbe/src/gui/basic/edit.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: empty line after doc comment\n  --> vbe/src/gui/basic/edit.rs:19:1\n   |\n19 | / /// 文本编辑框\n20 | |\n   | |_^\n21 |   pub struct TextEdit {\n   |   ------------------- the comment documents this struct\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#empty_line_after_doc_comments\n   = note: `#[warn(clippy::empty_line_after_doc_comments)]` on by default\n   = help: if the empty line is unintentional remove it\n\n"
+            ]
+          }
+        },
+        {
+          "file": "vbe/src/gui/basic/image.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: casting raw pointers to the same type and constness is unnecessary (`*const u8` -> `*const u8`)\n  --> vbe/src/gui/basic/image.rs:53:23\n   |\n53 |             let ptr = inner.image.as_ptr() as *const u8;\n   |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `inner.image.as_ptr()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n   = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "vbe/src/gui/basic/manager.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `Screen`\n  --> vbe/src/gui/basic/manager.rs:34:5\n   |\n34 | /     pub fn new() -> Self {\n35 | |         Self {\n36 | |             inner: unsafe {\n37 | |                 Mutex::new(ScreenInner {\n...  |\n43 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n33 + impl Default for Screen {\n34 +     fn default() -> Self {\n35 +         Self::new()\n36 +     }\n37 + }\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "vbe/src/gui/basic/panel.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: useless conversion to the same type: `core::ops::Range<usize>`\n  --> vbe/src/gui/basic/panel.rs:56:9\n   |\n56 |         (0..len).into_iter().for_each(|i| {\n   |         ^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into_iter()`: `(0..len)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "vbe/src/gui/god_terminal.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: needless call to `as_bytes()`\n  --> vbe/src/gui/god_terminal.rs:39:19\n   |\n39 |         let len = str.as_bytes().len();\n   |                   ^^^^^^^^^^^^^^^^^^^^ help: `len()` can be called directly on strings: `str.len()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_as_bytes\n   = note: `#[warn(clippy::needless_as_bytes)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "vbe/src/id_allocator.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `RecycleAllocator`\n  --> vbe/src/id_allocator.rs:9:5\n   |\n9  | /     pub fn new() -> Self {\n10 | |         RecycleAllocator {\n11 | |             current: 0,\n12 | |             recycled: Vec::new(),\n13 | |         }\n14 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n   |\n8  + impl Default for RecycleAllocator {\n9  +     fn default() -> Self {\n10 +         Self::new()\n11 +     }\n12 + }\n   |\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Godones",
+      "repo": "rCoreloongArch",
+      "pkg": "easy-fs-fuse",
+      "count": 8,
+      "raw_reports": [
+        {
+          "file": "easy-fs-fuse/src/main.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:17:35\n   |\n17 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n",
+              "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:24:35\n   |\n24 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: useless conversion to the same type: `std::fs::ReadDir`\n  --> easy-fs-fuse/src/main.rs:62:24\n   |\n62 |       let apps: Vec<_> = read_dir(src_path)\n   |  ________________________^\n63 | |         .unwrap()\n64 | |         .into_iter()\n   | |____________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\nhelp: consider removing `.into_iter()`\n   |\n62 ~     let apps: Vec<_> = read_dir(src_path)\n63 +         .unwrap()\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_1/Godones/rCoreloongArch/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     xmas-elf\nVersion:   0.8.0\nTitle:     Potential out-of-bounds read with a malformed ELF file and the HashTable API.\nDate:      2025-03-26\nID:        RUSTSEC-2025-0018\nURL:       https://rustsec.org/advisories/RUSTSEC-2025-0018\nSolution:  Upgrade to >=0.10\nDependency tree:\nxmas-elf 0.8.0\n├── stack_trace 0.1.0\n│   └── kernel 0.1.0\n└── kernel 0.1.0\n\nCrate:     atty\nVersion:   0.2.14\nWarning:   unmaintained\nTitle:     `atty` is unmaintained\nDate:      2024-09-25\nID:        RUSTSEC-2024-0375\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0375\nDependency tree:\natty 0.2.14\n└── clap 3.2.25\n    └── easy-fs-fuse 0.1.0\n\nCrate:     atty\nVersion:   0.2.14\nWarning:   unsound\nTitle:     Potential unaligned read\nDate:      2021-07-04\nID:        RUSTSEC-2021-0145\nURL:       https://rustsec.org/advisories/RUSTSEC-2021-0145\n\n\n{\n  \"database\": {\n    \"advisory-count\": 752,\n    \"last-commit\": \"1273f0099ce6882659ff64b852c8fdb5f8cdd5b9\",\n    \"last-updated\": \"2025-04-10T14:29:37+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 76\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": true,\n    \"count\": 1,\n    \"list\": [\n      {\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2025-0018\",\n          \"package\": \"xmas-elf\",\n          \"title\": \"Potential out-of-bounds read with a malformed ELF file and the HashTable API.\",\n          \"description\": \"Affected versions of this crate only validated the `index` argument of\\n`HashTable::get_bucket` and `HashTable::get_chain` against the input-controlled\\n`bucket_count` and `chain_count` fields, but not against the size of the ELF\\nsection. As a result, a malformed ELF file could trigger out-of-bounds reads in\\na consumer of the HashTable API by setting these fields to inappropriately large\\nvalues that would fall outside the relevant hash table section, and by\\nintroducing correspondingly out-of-bounds hash table indexes elsewhere in the ELF\\nfile.\",\n          \"date\": \"2025-03-26\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [\n            \"memory-exposure\"\n          ],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": null,\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/nrc/xmas-elf/issues/86\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"versions\": {\n          \"patched\": [\n            \">=0.10\"\n          ],\n          \"unaffected\": []\n        },\n        \"affected\": {\n          \"arch\": [],\n          \"os\": [],\n          \"functions\": {\n            \"xmas_elf::hash::HashTable::get_bucket\": [\n              \"<0.10\"\n            ],\n            \"xmas_elf::hash::HashTable::get_chain\": [\n              \"<0.10\"\n            ]\n          }\n        },\n        \"package\": {\n          \"name\": \"xmas-elf\",\n          \"version\": \"0.8.0\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8d29b4d8e7beaceb4e77447ba941a7600d23d0319ab52da0461abea214832d5a\",\n          \"dependencies\": [\n            {\n              \"name\": \"zero\",\n              \"version\": \"0.1.3\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        }\n      }\n    ]\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.172\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0375\",\n          \"package\": \"atty\",\n          \"title\": \"`atty` is unmaintained\",\n          \"description\": \"The maintainer of `atty` has [published](https://github.com/softprops/atty/commit/5bfdbe9e48c6ca6a4909e8d5b04f5e843a257e93) an official notice that the crate is no longer\\nunder development, and that users should instead rely on the functionality in the standard library's [`IsTerminal`](https://doc.rust-lang.org/std/io/trait.IsTerminal.html) trait.\\n\\n## Alternative(s)\\n\\n- [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0 and the recommended replacement per the `atty` maintainer.\\n- [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2024-09-25\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/57\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ],\n    \"unsound\": [\n      {\n        \"kind\": \"unsound\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.172\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2021-0145\",\n          \"package\": \"atty\",\n          \"title\": \"Potential unaligned read\",\n          \"description\": \"On windows, `atty` dereferences a potentially unaligned pointer.\\n\\nIn practice however, the pointer won't be unaligned unless a custom global allocator is used.\\n\\nIn particular, the `System` allocator on windows uses `HeapAlloc`, which guarantees a large enough alignment.\\n\\n# atty is Unmaintained\\n\\nA Pull Request with a fix has been provided over a year ago but the maintainer seems to be unreachable.\\n\\nLast release of `atty` was almost 3 years ago.\\n\\n## Possible Alternative(s)\\n\\nThe below list has not been vetted in any way and may or may not contain alternatives;\\n\\n - [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0\\n - [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2021-07-04\",\n          \"aliases\": [\n            \"GHSA-g98v-hv3f-hcfr\"\n          ],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [\n            \"unaligned-read\"\n          ],\n          \"cvss\": null,\n          \"informational\": \"unsound\",\n          \"references\": [\n            \"https://github.com/softprops/atty/pull/51\",\n            \"https://github.com/softprops/atty/issues/57\"\n          ],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/50\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": {\n          \"arch\": [],\n          \"os\": [\n            \"windows\"\n          ],\n          \"functions\": {}\n        },\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) audit",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=easy-fs-fuse, checker=Audit\n// toolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\n// cmd=cargo audit\n// timestamp=2025-04-28 4:27:54.215388777 +08:00:00\n    Fetching advisory database from `https://github.com/RustSec/advisory-db.git`\n      Loaded 752 security advisories (from /home/runner/.cargo/advisory-db)\n    Updating crates.io index\n    Scanning Cargo.lock for vulnerabilities (76 crate dependencies)\nerror: 1 vulnerability found!\nwarning: 2 allowed warnings found\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) geiger",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=easy-fs-fuse, checker=Geiger\n// toolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-04-28 4:29:37.9245251 +08:00:00\nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nerror: Cargo(\"failed to parse lock file at: /home/runner/check/batch_1/Godones/rCoreloongArch/Cargo.lock\")\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=easy-fs-fuse, checker=Outdated\ntoolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-04-28 4:29:34.830208331 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nclap  3.2.25   ---     4.5.37  Normal  ---\nrand  0.8.5    ---     0.9.1   Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[rap] Not supported to display yet.",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Rapx": [
+              "pkg=easy-fs-fuse, checker=Rapx\ntoolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-04-28 4:28:50.91360157 +08:00:00\n\nwarning: Use after free detected.\n   --> easy-fs/src/block_cache.rs:119:13\n    |\n119 |             self.queue.push_back((block_id, Arc::clone(&block_cache)));\n    |             ----------------------------------------------------------\n    |             |\n    |             Use after free detected.\n    |             Use after free detected.\n    |\n"
             ]
           }
         }
