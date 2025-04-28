@@ -15,14 +15,6 @@
           "features": "",
           "count": 30,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 95 to 95)\n-            },\n+            }\n",
-              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 98 to 101)\n-            },\n-            VGICD_ISENABLER_SPI..=VGICD_ICENABLER_SGI_PPI => {\n-                \n-            },\n+            }\n+            VGICD_ISENABLER_SPI..=VGICD_ICENABLER_SGI_PPI => {}\n",
-              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 113 to 113)\n-            },\n+            }\n",
-              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 116 to 117)\n-            },\n-            \n+            }\n",
-              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 126 to 126)\n-            },\n+            }\n",
-              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 129 to 130)\n-            },\n-            \n+            }\n"
-            ],
             "Clippy(Warn)": [
               "warning: multiple patterns overlap on their endpoints\n  --> src/vgic.rs:99:13\n   |\n96 |             VGICD_ISENABLER_SGI_PPI..=VGICD_ISENABLER_SPI => {\n   |             --------------------------------------------- this range overlaps on `260_usize`...\n...\n99 |             VGICD_ISENABLER_SPI..=VGICD_ICENABLER_SGI_PPI => {\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ... with this range\n   |\n   = note: you likely meant to write mutually exclusive ranges\n   = note: `#[warn(overlapping_range_endpoints)]` on by default\n\n",
               "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n",
@@ -50,6 +42,14 @@
               "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n",
               "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n",
               "warning: multiple fields are never read\n  --> src/vgic.rs:17:5\n   |\n15 | struct VgicInner {\n   |        --------- fields in this struct\n16 |     used_irq: [u32; SPI_ID_MAX / 32],\n17 |     ptov: [u32; SPI_ID_MAX],\n   |     ^^^^\n18 |     vtop: [u32; SPI_ID_MAX],\n   |     ^^^^\n19 |     gicc: Vec<Vgicc>,\n   |     ^^^^\n...\n22 |     typer: u32,\n   |     ^^^^^\n23 |     iidr: u32,\n   |     ^^^^\n24 |\n25 |     gicd_igroupr: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^\n26 |     gicd_isenabler: [u32; SPI_ID_MAX / 32],\n   |     ^^^^^^^^^^^^^^\n27 |     gicd_ipriorityr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^^\n28 |     gicd_itargetsr: [u8; SPI_ID_MAX],\n   |     ^^^^^^^^^^^^^^\n29 |     gicd_icfgr: [u32; SPI_ID_MAX / 16],\n   |     ^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 95 to 95)\n-            },\n+            }\n",
+              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 98 to 101)\n-            },\n-            VGICD_ISENABLER_SPI..=VGICD_ICENABLER_SGI_PPI => {\n-                \n-            },\n+            }\n+            VGICD_ISENABLER_SPI..=VGICD_ICENABLER_SGI_PPI => {}\n",
+              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 113 to 113)\n-            },\n+            }\n",
+              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 116 to 117)\n-            },\n-            \n+            }\n",
+              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 126 to 126)\n-            },\n+            }\n",
+              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgic.rs (original lines from 129 to 130)\n-            },\n-            \n+            }\n"
             ]
           }
         },
@@ -68,6 +68,9 @@
               "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n",
               "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
             ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgicc.rs (original lines from 1 to 1)\n-\n"
+            ],
             "Mirai": [
               "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n",
               "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n",
@@ -77,9 +80,6 @@
               "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n",
               "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n",
               "warning: multiple fields are never read\n  --> src/vgicc.rs:4:5\n   |\n3  | pub(crate) struct Vgicc {\n   |                   ----- fields in this struct\n4  |     id: u32,\n   |     ^^\n5  |     pending_lr: [u32; SPI_ID_MAX],\n   |     ^^^^^^^^^^\n6  |     saved_lr: [u32; GICD_LR_NUM],\n   |     ^^^^^^^^\n7  |\n8  |     saved_elsr0: u32,\n   |     ^^^^^^^^^^^\n9  |     saved_apr: u32,\n   |     ^^^^^^^^^\n10 |     saved_hcr: u32,\n   |     ^^^^^^^^^\n11 |\n12 |     isenabler: u32, // 0..31\n   |     ^^^^^^^^^\n13 |     priorityr: [u8; PPI_ID_MAX],\n   |     ^^^^^^^^^\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_11/arceos-hypervisor/arm_vgic/src/vgicc.rs (original lines from 1 to 1)\n-\n"
             ]
           }
         },
@@ -88,7 +88,7 @@
           "features": "",
           "count": 14,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: constant `VGICD_ICENABLER_SPI` is never used\n  --> src/consts.rs:11:18\n   |\n11 | pub(crate) const VGICD_ICENABLER_SPI: usize = 0x0184;\n   |                  ^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: constant `VGICD_ISPENDR` is never used\n  --> src/consts.rs:13:18\n   |\n13 | pub(crate) const VGICD_ISPENDR: usize = 0x0200;\n   |                  ^^^^^^^^^^^^^\n\n",
               "warning: constant `VGICD_ICPENDR` is never used\n  --> src/consts.rs:14:18\n   |\n14 | pub(crate) const VGICD_ICPENDR: usize = 0x5;\n   |                  ^^^^^^^^^^^^^\n\n",
@@ -97,7 +97,7 @@
               "warning: constant `VGICD_ICFGR` is never used\n  --> src/consts.rs:17:18\n   |\n17 | pub(crate) const VGICD_ICFGR: usize = 0x18;\n   |                  ^^^^^^^^^^^\n\n",
               "warning: constant `VGICD_SGIR` is never used\n  --> src/consts.rs:18:18\n   |\n18 | pub(crate) const VGICD_SGIR: usize = 0x1e;\n   |                  ^^^^^^^^^^\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: constant `VGICD_ICENABLER_SPI` is never used\n  --> src/consts.rs:11:18\n   |\n11 | pub(crate) const VGICD_ICENABLER_SPI: usize = 0x0184;\n   |                  ^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: constant `VGICD_ISPENDR` is never used\n  --> src/consts.rs:13:18\n   |\n13 | pub(crate) const VGICD_ISPENDR: usize = 0x0200;\n   |                  ^^^^^^^^^^^^^\n\n",
               "warning: constant `VGICD_ICPENDR` is never used\n  --> src/consts.rs:14:18\n   |\n14 | pub(crate) const VGICD_ICPENDR: usize = 0x5;\n   |                  ^^^^^^^^^^^^^\n\n",
