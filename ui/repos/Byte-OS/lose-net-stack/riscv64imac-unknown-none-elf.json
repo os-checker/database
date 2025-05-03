@@ -108,6 +108,9 @@
           "features": "",
           "count": 15,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/packets/tcp.rs:63:34\n   |\n63 |         tcp_data.copy_from_slice(&self.data);\n   |                                  ^^^^^^^^^^ help: change this to: `self.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 4 to 4)\n-use crate::utils::{UnsafeRefIter, check_sum};\n+use crate::net::{Eth, Ip, TcpFlags, ETH_LEN, IP_LEN, TCP, TCP_LEN};\n+use crate::utils::{check_sum, UnsafeRefIter};\n",
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 7 to 7)\n-use crate::net::{TCP_LEN, IP_LEN, ETH_LEN, Eth, Ip, TCP, TcpFlags};\n",
@@ -123,9 +126,6 @@
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 90 to 90)\n-        \n+\n",
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 108 to 108)\n-            data: TCP_EMPTY_DATA\n+            data: TCP_EMPTY_DATA,\n",
               "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 112 to 112)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/packets/tcp.rs:63:34\n   |\n63 |         tcp_data.copy_from_slice(&self.data);\n   |                                  ^^^^^^^^^^ help: change this to: `self.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
             ]
           }
         },
@@ -203,14 +203,14 @@
           "features": "",
           "count": 5,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/consts.rs (original lines from 5 to 5)\n-pub(crate) const ETH_RTYPE_IP: u16 =  0x0800; // Internet protocol\n+pub(crate) const ETH_RTYPE_IP: u16 = 0x0800; // Internet protocol\n",
-              "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/consts.rs (original lines from 24 to 24)\n+\n"
-            ],
             "Clippy(Warn)": [
               "warning: operator precedence can trip the unwary\n  --> src/consts.rs:21:38\n   |\n21 | pub(crate) const IP_HEADER_VHL: u8 = 4 << 4 | 20 >> 2;\n   |                                      ^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(4 << 4) | (20 >> 2)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
               "warning: constant `ARP_PTYPE_ETHTYPE_IP` is never used\n  --> src/consts.rs:10:18\n   |\n10 | pub(crate) const ARP_PTYPE_ETHTYPE_IP: u16 = 0x0800;\n   |                  ^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n",
               "warning: constant `IP_PROTOCAL_IGMP` is never used\n  --> src/consts.rs:17:18\n   |\n17 | pub(crate) const IP_PROTOCAL_IGMP: u8 = 2;\n   |                  ^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/consts.rs (original lines from 5 to 5)\n-pub(crate) const ETH_RTYPE_IP: u16 =  0x0800; // Internet protocol\n+pub(crate) const ETH_RTYPE_IP: u16 = 0x0800; // Internet protocol\n",
+              "file: /home/runner/check/batch_2/Byte-OS/lose-net-stack/src/consts.rs (original lines from 24 to 24)\n+\n"
             ]
           }
         },
