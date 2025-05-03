@@ -158,9 +158,6 @@
           "features": "",
           "count": 7,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: the feature `core_intrinsics` is internal to the compiler or standard library\n --> src/lib.rs:1:12\n  |\n1 | #![feature(core_intrinsics)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: using it is strongly discouraged\n  = note: `#[warn(internal_features)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/lib.rs (original lines from 6 to 10)\n-mod structures;\n-mod vm_rights;\n-mod satp;\n-mod utils;\n-mod pte;\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/lib.rs (original lines from 13 to 13)\n+mod pte;\n+mod satp;\n+mod structures;\n+mod utils;\n+mod vm_rights;\n",
@@ -168,6 +165,9 @@
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/lib.rs (original lines from 18 to 19)\n-    asid_t, asid_pool_t, riscvKSASIDTable, delete_asid_pool, delete_asid,\n-    find_vspace_for_asid, get_asid_pool_by_index, set_asid_pool_by_index\n+    asid_pool_t, asid_t, delete_asid, delete_asid_pool, find_vspace_for_asid,\n+    get_asid_pool_by_index, riscvKSASIDTable, set_asid_pool_by_index,\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/lib.rs (original lines from 21 to 21)\n-pub use utils::{pptr_to_paddr, paddr_to_pptr, kpptr_to_paddr, RISCV_GET_LVL_PGSIZE_BITS, RISCV_GET_LVL_PGSIZE, checkVPAlignment};\n+pub use interface::{\n+    activate_kernel_vspace, copyGlobalMappings, rust_map_kernel_window, set_vm_root, unmapPage,\n+};\n",
               "file: /home/runner/check/batch_48/rel4team/sel4_vspace/src/lib.rs (original lines from 23 to 23)\n-pub use satp::{sfence, setVSpaceRoot};\n+pub use satp::{setVSpaceRoot, sfence};\n+pub use structures::*;\n+pub use utils::{\n+    checkVPAlignment, kpptr_to_paddr, paddr_to_pptr, pptr_to_paddr, RISCV_GET_LVL_PGSIZE,\n+    RISCV_GET_LVL_PGSIZE_BITS,\n+};\n+pub use vm_rights::{maskVMRights, VMReadOnly, VMReadWrite};\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: the feature `core_intrinsics` is internal to the compiler or standard library\n --> src/lib.rs:1:12\n  |\n1 | #![feature(core_intrinsics)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: using it is strongly discouraged\n  = note: `#[warn(internal_features)]` on by default\n\n"
             ]
           }
         },
