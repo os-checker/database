@@ -1,8 +1,181 @@
 {
   "user": "os-checker",
   "repo": "os-checker",
-  "runs_total_count": 1054,
+  "runs_total_count": 1055,
   "workflows": [
+    {
+      "run": {
+        "name": "Release",
+        "head_branch": "config-rerun",
+        "head_sha": "9007427cd93393d585b49be22db9571a7126a23b",
+        "head_commit": {
+          "message": "fix(run_checke): define Output::new_cargo_from_tool to construct from err\n\nref: https://github.com/os-checker/os-checker/issues/331",
+          "timestamp": "2025-05-03T15:26:39Z"
+        },
+        "display_title": "Feat:  support `meta.rerun` in config JSON",
+        "html_url": "https://github.com/os-checker/os-checker/actions/runs/14812205124",
+        "event": "pull_request",
+        "status": "completed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "run_started_at": "2025-05-03T15:27:52Z",
+        "created_at": "2025-05-03T15:27:52Z",
+        "updated_at": "2025-05-03T15:28:06Z",
+        "duration_sec": 14,
+        "actor": {
+          "login": "zjp-CN"
+        },
+        "triggering_actor": {
+          "login": "zjp-CN"
+        },
+        "id": 14812205124,
+        "jobs_url": "https://api.github.com/repos/os-checker/os-checker/actions/runs/14812205124/jobs",
+        "logs_url": "https://api.github.com/repos/os-checker/os-checker/actions/runs/14812205124/logs"
+      },
+      "jobs": {
+        "total_count": 5,
+        "jobs": [
+          {
+            "name": "plan",
+            "workflow_name": "Release",
+            "html_url": "https://github.com/os-checker/os-checker/actions/runs/14812205124/job/41588276471",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2025-05-03T15:27:52Z",
+            "started_at": "2025-05-03T15:27:54Z",
+            "completed_at": "2025-05-03T15:28:05Z",
+            "duration_sec": 11,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2025-05-03T15:27:55Z",
+                "completed_at": "2025-05-03T15:27:56Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2025-05-03T15:27:56Z",
+                "completed_at": "2025-05-03T15:27:56Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Install dist",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2025-05-03T15:27:56Z",
+                "completed_at": "2025-05-03T15:27:58Z",
+                "duration_sec": 2
+              },
+              {
+                "name": "Cache dist",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2025-05-03T15:27:58Z",
+                "completed_at": "2025-05-03T15:27:59Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dist plan --output-format=json > plan-dist-manifest.json",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2025-05-03T15:27:59Z",
+                "completed_at": "2025-05-03T15:28:03Z",
+                "duration_sec": 4
+              },
+              {
+                "name": "Upload dist-manifest.json",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2025-05-03T15:28:03Z",
+                "completed_at": "2025-05-03T15:28:04Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 12,
+                "started_at": "2025-05-03T15:28:04Z",
+                "completed_at": "2025-05-03T15:28:04Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2025-05-03T15:28:04Z",
+                "completed_at": "2025-05-03T15:28:04Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 41588276471
+          },
+          {
+            "name": "build-local-artifacts (${{ join(matrix.targets, ', ') }})",
+            "workflow_name": "Release",
+            "html_url": "https://github.com/os-checker/os-checker/actions/runs/14812205124/job/41588279299",
+            "status": "completed",
+            "conclusion": "skipped",
+            "created_at": "2025-05-03T15:28:06Z",
+            "started_at": "2025-05-03T15:28:06Z",
+            "completed_at": "2025-05-03T15:28:05Z",
+            "duration_sec": -1,
+            "steps": [],
+            "id": 41588279299
+          },
+          {
+            "name": "host",
+            "workflow_name": "Release",
+            "html_url": "https://github.com/os-checker/os-checker/actions/runs/14812205124/job/41588279303",
+            "status": "completed",
+            "conclusion": "skipped",
+            "created_at": "2025-05-03T15:28:06Z",
+            "started_at": "2025-05-03T15:28:06Z",
+            "completed_at": "2025-05-03T15:28:06Z",
+            "duration_sec": 0,
+            "steps": [],
+            "id": 41588279303
+          },
+          {
+            "name": "announce",
+            "workflow_name": "Release",
+            "html_url": "https://github.com/os-checker/os-checker/actions/runs/14812205124/job/41588279333",
+            "status": "completed",
+            "conclusion": "skipped",
+            "created_at": "2025-05-03T15:28:06Z",
+            "started_at": "2025-05-03T15:28:06Z",
+            "completed_at": "2025-05-03T15:28:06Z",
+            "duration_sec": 0,
+            "steps": [],
+            "id": 41588279333
+          },
+          {
+            "name": "build-global-artifacts",
+            "workflow_name": "Release",
+            "html_url": "https://github.com/os-checker/os-checker/actions/runs/14812205124/job/41588279337",
+            "status": "completed",
+            "conclusion": "skipped",
+            "created_at": "2025-05-03T15:28:06Z",
+            "started_at": "2025-05-03T15:28:06Z",
+            "completed_at": "2025-05-03T15:28:05Z",
+            "duration_sec": -1,
+            "steps": [],
+            "id": 41588279337
+          }
+        ]
+      }
+    },
     {
       "run": {
         "name": "Release",
@@ -7047,208 +7220,6 @@
               }
             ],
             "id": 40896779432
-          }
-        ]
-      }
-    },
-    {
-      "run": {
-        "name": "Run Checkers",
-        "head_branch": "main",
-        "head_sha": "c87e37a0a8ada6c8059ffe889fc0cbc6bbae8364",
-        "head_commit": {
-          "message": "Merge pull request #298 from os-checker/feat/update-lockbud-mirai\n\nFeat/update lockbud mirai",
-          "timestamp": "2025-03-07T14:26:16Z"
-        },
-        "display_title": "Run Checkers",
-        "html_url": "https://github.com/os-checker/os-checker/actions/runs/14563010196",
-        "event": "schedule",
-        "status": "completed",
-        "conclusion": "success",
-        "run_attempt": 1,
-        "run_started_at": "2025-04-20T20:22:17Z",
-        "created_at": "2025-04-20T20:22:17Z",
-        "updated_at": "2025-04-20T20:29:11Z",
-        "duration_sec": 414,
-        "actor": {
-          "login": "zjp-CN"
-        },
-        "triggering_actor": {
-          "login": "zjp-CN"
-        },
-        "id": 14563010196,
-        "jobs_url": "https://api.github.com/repos/os-checker/os-checker/actions/runs/14563010196/jobs",
-        "logs_url": "https://api.github.com/repos/os-checker/os-checker/actions/runs/14563010196/logs"
-      },
-      "jobs": {
-        "total_count": 1,
-        "jobs": [
-          {
-            "name": "run",
-            "workflow_name": "Run Checkers",
-            "html_url": "https://github.com/os-checker/os-checker/actions/runs/14563010196/job/40848669664",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-04-20T20:22:17Z",
-            "started_at": "2025-04-20T20:22:21Z",
-            "completed_at": "2025-04-20T20:29:10Z",
-            "duration_sec": 409,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2025-04-20T20:22:21Z",
-                "completed_at": "2025-04-20T20:22:22Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2025-04-20T20:22:22Z",
-                "completed_at": "2025-04-20T20:22:23Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run webfactory/ssh-agent@v0.9.0",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2025-04-20T20:22:23Z",
-                "completed_at": "2025-04-20T20:22:23Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Prepare Makefile and repos JSONs",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2025-04-20T20:22:23Z",
-                "completed_at": "2025-04-20T20:22:27Z",
-                "duration_sec": 4
-              },
-              {
-                "name": "Run dtolnay/rust-toolchain@nightly",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2025-04-20T20:22:27Z",
-                "completed_at": "2025-04-20T20:22:49Z",
-                "duration_sec": 22
-              },
-              {
-                "name": "Install Checkers",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 6,
-                "started_at": "2025-04-20T20:22:49Z",
-                "completed_at": "2025-04-20T20:23:38Z",
-                "duration_sec": 49
-              },
-              {
-                "name": "Extra building environment required by OS libs",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 7,
-                "started_at": "2025-04-20T20:23:38Z",
-                "completed_at": "2025-04-20T20:24:01Z",
-                "duration_sec": 23
-              },
-              {
-                "name": "Install os-checker",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 8,
-                "started_at": "2025-04-20T20:24:01Z",
-                "completed_at": "2025-04-20T20:25:29Z",
-                "duration_sec": 88
-              },
-              {
-                "name": "Install os-checker batch",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 9,
-                "started_at": "2025-04-20T20:25:29Z",
-                "completed_at": "2025-04-20T20:25:32Z",
-                "duration_sec": 3
-              },
-              {
-                "name": "Run All Checkers",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 10,
-                "started_at": "2025-04-20T20:25:32Z",
-                "completed_at": "2025-04-20T20:27:19Z",
-                "duration_sec": 107
-              },
-              {
-                "name": "Run cache_redb test",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 11,
-                "started_at": "2025-04-20T20:27:19Z",
-                "completed_at": "2025-04-20T20:27:37Z",
-                "duration_sec": 18
-              },
-              {
-                "name": "Run config --merged or --list-repos",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 12,
-                "started_at": "2025-04-20T20:27:37Z",
-                "completed_at": "2025-04-20T20:27:37Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Update cache.redb",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 13,
-                "started_at": "2025-04-20T20:27:37Z",
-                "completed_at": "2025-04-20T20:28:46Z",
-                "duration_sec": 69
-              },
-              {
-                "name": "Commit And Push To database repo",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 14,
-                "started_at": "2025-04-20T20:28:46Z",
-                "completed_at": "2025-04-20T20:29:08Z",
-                "duration_sec": 22
-              },
-              {
-                "name": "Post Run webfactory/ssh-agent@v0.9.0",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 27,
-                "started_at": "2025-04-20T20:29:08Z",
-                "completed_at": "2025-04-20T20:29:08Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Post Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 28,
-                "started_at": "2025-04-20T20:29:08Z",
-                "completed_at": "2025-04-20T20:29:08Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 29,
-                "started_at": "2025-04-20T20:29:08Z",
-                "completed_at": "2025-04-20T20:29:08Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 40848669664
           }
         ]
       }
