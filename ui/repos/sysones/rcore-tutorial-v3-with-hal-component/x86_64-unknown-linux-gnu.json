@@ -7,16 +7,145 @@
     {
       "user": "sysones",
       "repo": "rcore-tutorial-v3-with-hal-component",
-      "pkg": "",
-      "count": 1,
+      "pkg": "user_lib",
+      "count": 12,
       "raw_reports": [
         {
-          "file": "batch_10/sysones/rcore-tutorial-v3-with-hal-component",
+          "file": "(virtual) geiger",
           "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "\n   0: 无法解析 `batch_10/sysones/rcore-tutorial-v3-with-hal-component` 内的 Rust 项目布局\n   1: 无法读取 cargo metadata 的结果：`cargo metadata` exited with an error:     Updating crates.io index\n          Updating git repository `https://github.com/Byte-OS/polyhal.git`\n          Updating git repository `https://github.com/rcore-os/virtio-drivers`\n      error: failed to select a version for `polyhal`.\n          ... required by package `os v0.1.0 (/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/os)`\n      versions that meet the requirements `*` are: 0.1.3\n\n      the package `os` depends on `polyhal`, with features: `kcontext` but `polyhal` does not have these features.\n\n\n      failed to select a version for `polyhal` which could resolve this conflict\n   1: \n\nLocation:\n   src/layout/mod.rs:60\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::run_checker::try_new with user=\"sysones\" repo=\"rcore-tutorial-v3-with-hal-component\"\n      at src/run_checker/mod.rs:219\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+              "// pkg_name=user_lib, checker=Geiger\n// toolchain=nightly-2023-12-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-05-04 15:24:43.295409392 +08:00:00\nwarning: `/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nerror: Cargo(\"failed to parse lock file at: /home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/Cargo.lock\")\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=user_lib, checker=Lockbud\n// toolchain=nightly-2023-12-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-05-04 15:24:19.847577201 +08:00:00\nwarning: `/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nwarning: `/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\n   Compiling memchr v2.7.4\n   Compiling regex-syntax v0.8.5\n   Compiling semver-parser v0.7.0\n   Compiling lazy_static v1.5.0\n   Compiling bitflags v1.3.2\n   Compiling log v0.4.27\n[2025-05-04T07:24:20Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-04T07:24:20Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling semver v0.9.0\n   Compiling spin v0.7.1\n   Compiling rustc_version v0.2.3\n   Compiling aho-corasick v1.1.3\n   Compiling bare-metal v0.2.5\n   Compiling bit_field v0.10.2\n   Compiling buddy_system_allocator v0.6.0\n   Compiling regex-automata v0.4.9\n   Compiling regex v1.11.1\n   Compiling riscv-target v0.1.2\n[2025-05-04T07:24:24Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:525:25: 525:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:530:17: 530:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-04T07:24:24Z WARN  lockbud::callbacks] crate riscv_target contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling riscv v0.6.0 (https://github.com/rcore-os/riscv#11d43cf7)\n   Compiling user_lib v0.1.0 (/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user)\nwarning: the feature `panic_info_message` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> src/lib.rs:3:12\n  |\n3 | #![feature(panic_info_message)]\n  |            ^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nerror[E0599]: no method named `unwrap` found for struct `core::panic::PanicMessage` in the current scope\n --> src/lang_items.rs:5:36\n  |\n5 |     let err = panic_info.message().unwrap();\n  |                                    ^^^^^^ method not found in `PanicMessage<'_>`\n\nFor more information about this error, try `rustc --explain E0599`.\nwarning: `user_lib` (lib) generated 1 warning\nerror: could not compile `user_lib` (lib) due to 1 previous error; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) mirai",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=user_lib, checker=Mirai\n// toolchain=nightly-2023-12-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user\n// cmd=cargo +nightly-2025-01-10 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-05-04 15:24:05.181437476 +08:00:00\nwarning: `/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nwarning: `/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\n   Compiling memchr v2.7.4\n   Compiling regex-syntax v0.8.5\n   Compiling semver-parser v0.7.0\n   Compiling lazy_static v1.5.0\n    Checking log v0.4.27\n   Compiling semver v0.9.0\n    Checking spin v0.7.1\n   Compiling rustc_version v0.2.3\n    Checking bit_field v0.10.2\n   Compiling aho-corasick v1.1.3\n   Compiling bare-metal v0.2.5\n    Checking bitflags v1.3.2\n    Checking buddy_system_allocator v0.6.0\n   Compiling regex-automata v0.4.9\n   Compiling regex v1.11.1\n   Compiling riscv-target v0.1.2\n   Compiling riscv v0.6.0 (https://github.com/rcore-os/riscv#11d43cf7)\n    Checking user_lib v0.1.0 (/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user)\nerror: could not compile `user_lib` (lib) due to 1 previous error; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=user_lib, checker=Rapx\n// toolchain=nightly-2023-12-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-05-04 15:24:34.104805256 +08:00:00\nwarning: `/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nwarning: `/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\n    Updating git repository `https://github.com/rcore-os/riscv`\n Downloading crates ...\n  Downloaded rustc_version v0.2.3\n  Downloaded bare-metal v0.2.5\n  Downloaded semver v0.9.0\n  Downloaded semver-parser v0.7.0\n  Downloaded riscv-target v0.1.2\n   Compiling memchr v2.7.4\n   Compiling regex-syntax v0.8.5\n   Compiling semver-parser v0.7.0\n   Compiling lazy_static v1.5.0\n    Checking spin v0.7.1\n   Compiling semver v0.9.0\n    Checking log v0.4.27\n   Compiling aho-corasick v1.1.3\n   Compiling rustc_version v0.2.3\n    Checking bitflags v1.3.2\n   Compiling bare-metal v0.2.5\n    Checking bit_field v0.10.2\n    Checking buddy_system_allocator v0.6.0\n   Compiling regex-automata v0.4.9\n   Compiling regex v1.11.1\n   Compiling riscv-target v0.1.2\n   Compiling riscv v0.6.0 (https://github.com/rcore-os/riscv#11d43cf7)\n    Checking user_lib v0.1.0 (/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user)\nwarning: the feature `panic_info_message` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> src/lib.rs:3:12\n  |\n3 | #![feature(panic_info_message)]\n  |            ^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nerror[E0599]: no method named `unwrap` found for struct `core::panic::PanicMessage` in the current scope\n --> src/lang_items.rs:5:36\n  |\n5 |     let err = panic_info.message().unwrap();\n  |                                    ^^^^^^ method not found in `PanicMessage<'_>`\n\nFor more information about this error, try `rustc --explain E0599`.\nwarning: `user_lib` (lib) generated 1 warning\nerror: could not compile `user_lib` (lib) due to 1 previous error; 1 warning emitted\n07:24:40|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=user_lib, checker=SemverChecks\n// toolchain=nightly-2023-12-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-05-04 15:23:16.295033591 +08:00:00\nwarning: `/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\n    Building user_lib v0.1.0 (current)\n       Built [   4.577s] (current)\n     Parsing user_lib v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: user_lib not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[lockbud] Not supported to display yet.",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-05-04T07:24:20Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-04T07:24:20Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2025-05-04T07:24:24Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:525:25: 525:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:530:17: 530:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-04T07:24:24Z WARN  lockbud::callbacks] crate riscv_target contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=user_lib, checker=Outdated\ntoolchain=nightly-2023-12-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-04 15:24:43.089751756 +08:00:00\n\nName                    Project  Compat  Latest  Kind    Platform\n----                    -------  ------  ------  ----    --------\nbitflags                1.3.2    ---     2.9.0   Normal  ---\nbuddy_system_allocator  0.6.0    ---     0.11.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=user_lib, checker=SemverChecks\ntoolchain=nightly-2023-12-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-05-04 15:23:21.893146434 +08:00:00\n\n\nstdout:\n\nstderr:\nwarning: `/home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\n    Building user_lib v0.1.0 (current)\n       Built [   4.577s] (current)\n     Parsing user_lib v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: user_lib not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "src/bin/sig_tests.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/src/bin/sig_tests.rs (original lines from 131 to 131)\n-        loop {yield_();}\n+        loop {\n+            yield_();\n+        }\n"
+            ]
+          }
+        },
+        {
+          "file": "src/bin/usertests.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_10/sysones/rcore-tutorial-v3-with-hal-component/user/src/bin/usertests.rs (original lines from 102 to 102)\n-    \n+\n"
+            ]
+          }
+        },
+        {
+          "file": "src/lang_items.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Mirai": [
+              "error[E0599]: no method named `unwrap` found for struct `core::panic::PanicMessage` in the current scope\n --> src/lang_items.rs:5:36\n  |\n5 |     let err = panic_info.message().unwrap();\n  |                                    ^^^^^^ method not found in `PanicMessage<'_>`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Mirai": [
+              "warning: the feature `panic_info_message` has been stable since 1.81.0 and no longer requires an attribute to enable\n --> src/lib.rs:3:12\n  |\n3 | #![feature(panic_info_message)]\n  |            ^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "sysones",
+      "repo": "rcore-tutorial-v3-with-hal-component",
+      "pkg": "patch_tool",
+      "count": 2,
+      "raw_reports": [
+        {
+          "file": "src/patch.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: writing `&String` instead of `&str` involves a new object where a slice will do\n  --> src/patch.rs:46:22\n   |\n46 |     patch_repo_name: &String,\n   |                      ^^^^^^^ help: change this to: `&str`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n   = note: `#[warn(clippy::ptr_arg)]` on by default\n\n",
+              "warning: writing `&String` instead of `&str` involves a new object where a slice will do\n  --> src/patch.rs:47:13\n   |\n47 |     commit: &String,\n   |             ^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\nhelp: change this to\n   |\n47 ~     commit: &str,\n48 | ) -> anyhow::Result<()> {\n...\n88 |     git_table.insert(\"git\".to_string(), toml::Value::String(patch_git.clone()));\n89 ~     git_table.insert(\"rev\".to_string(), toml::Value::String(commit.to_owned()));\n   |\n\n"
             ]
           }
         }
