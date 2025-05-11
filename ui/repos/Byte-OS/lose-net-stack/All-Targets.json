@@ -80,6 +80,10 @@
           "features": "",
           "count": 17,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: variable does not need to be mutable\n  --> src/packets/arp.rs:55:13\n   |\n55 |         let mut eth_header = unsafe{ data_ptr_iter.next_mut::<Eth>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n   |\n   = note: `#[warn(unused_mut)]` on by default\n\n",
+              "warning: variable does not need to be mutable\n  --> src/packets/arp.rs:61:13\n   |\n61 |         let mut arp_header = unsafe { data_ptr_iter.next_mut::<Arp>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 3 to 3)\n+use crate::consts::{\n+    ARP_ETHADDR_LEN, ARP_HRD_ETHER, ARP_OP_REPLY, ARP_OP_REQUEST, BROADCAST_MAC, ETH_RTYPE_ARP,\n+    ETH_RTYPE_IP,\n+};\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 5 to 7)\n-use crate::consts::{ARP_OP_REQUEST, ARP_OP_REPLY, ARP_HRD_ETHER, ETH_RTYPE_IP, ARP_ETHADDR_LEN, ETH_RTYPE_ARP, BROADCAST_MAC};\n-use crate::MacAddress;\n-use crate::IPv4;\n",
@@ -96,10 +100,6 @@
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 80 to 84)\n-                    local_ip, \n-                    local_mac, \n-                    self.sender_ip, \n-                    self.sender_mac, \n-                    ArpType::Reply\n+                    local_ip,\n+                    local_mac,\n+                    self.sender_ip,\n+                    self.sender_mac,\n+                    ArpType::Reply,\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 89 to 89)\n-            _ => Err(NetStackErrors::NotRequiredReplyArp)\n+            _ => Err(NetStackErrors::NotRequiredReplyArp),\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/arp.rs (original lines from 93 to 93)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: variable does not need to be mutable\n  --> src/packets/arp.rs:55:13\n   |\n55 |         let mut eth_header = unsafe{ data_ptr_iter.next_mut::<Eth>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n   |\n   = note: `#[warn(unused_mut)]` on by default\n\n",
-              "warning: variable does not need to be mutable\n  --> src/packets/arp.rs:61:13\n   |\n61 |         let mut arp_header = unsafe { data_ptr_iter.next_mut::<Arp>() }.unwrap();\n   |             ----^^^^^^^^^^\n   |             |\n   |             help: remove this `mut`\n\n"
             ]
           }
         },
@@ -180,14 +180,6 @@
           "features": "",
           "count": 10,
           "kinds": {
-            "Clippy(Error)": [
-              "error: type `addr::IPv4` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:17:5\n   |\n17 | /     pub fn to_string(&self) -> String {\n18 | |         format!(\"{}.{}.{}.{}\", (self.0 >> 24) & 0xff, (self.0 >> 16) & 0xff, (self.0 >> 8) & 0xff, self.0 & 0xff)\n19 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::IPv4`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n   = note: `#[deny(clippy::inherent_to_string_shadow_display)]` on by default\n\n",
-              "error: type `addr::MacAddress` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:49:5\n   |\n49 | /     pub fn to_string(&self) -> String {\n50 | |         format!(\"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\", self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5])\n51 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::MacAddress`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: operator precedence can trip the unwary\n  --> src/addr.rs:10:14\n   |\n10 |         IPv4((a1 as u32) << 24 | (a2 as u32) << 16 | (a3 as u32) << 8 | (a4 as u32))\n   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(a1 as u32) << 24 | (a2 as u32) << 16 | ((a3 as u32) << 8)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[warn(clippy::precedence)]` on by default\n\n",
-              "warning: operator precedence can trip the unwary\n  --> src/addr.rs:10:14\n   |\n10 |         IPv4((a1 as u32) << 24 | (a2 as u32) << 16 | (a3 as u32) << 8 | (a4 as u32))\n   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((a1 as u32) << 24) | ((a2 as u32) << 16)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 1 to 1)\n-use core::fmt::{Display, Debug};\n+use core::fmt::{Debug, Display};\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 3 to 3)\n-use alloc::{string::String, format};\n+use alloc::{format, string::String};\n",
@@ -195,6 +187,14 @@
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 50 to 50)\n-        format!(\"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\", self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5])\n+        format!(\n+            \"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\",\n+            self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5]\n+        )\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 62 to 62)\n-        f.debug_tuple(\"MacAddress\").field(&self.to_string()).finish()\n+        f.debug_tuple(\"MacAddress\")\n+            .field(&self.to_string())\n+            .finish()\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 65 to 65)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: operator precedence can trip the unwary\n  --> src/addr.rs:10:14\n   |\n10 |         IPv4((a1 as u32) << 24 | (a2 as u32) << 16 | (a3 as u32) << 8 | (a4 as u32))\n   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(a1 as u32) << 24 | (a2 as u32) << 16 | ((a3 as u32) << 8)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[warn(clippy::precedence)]` on by default\n\n",
+              "warning: operator precedence can trip the unwary\n  --> src/addr.rs:10:14\n   |\n10 |         IPv4((a1 as u32) << 24 | (a2 as u32) << 16 | (a3 as u32) << 8 | (a4 as u32))\n   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((a1 as u32) << 24) | ((a2 as u32) << 16)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: type `addr::IPv4` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:17:5\n   |\n17 | /     pub fn to_string(&self) -> String {\n18 | |         format!(\"{}.{}.{}.{}\", (self.0 >> 24) & 0xff, (self.0 >> 16) & 0xff, (self.0 >> 8) & 0xff, self.0 & 0xff)\n19 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::IPv4`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n   = note: `#[deny(clippy::inherent_to_string_shadow_display)]` on by default\n\n",
+              "error: type `addr::MacAddress` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:49:5\n   |\n49 | /     pub fn to_string(&self) -> String {\n50 | |         format!(\"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\", self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5])\n51 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::MacAddress`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n\n"
             ]
           }
         },
@@ -290,6 +290,11 @@
           "features": "",
           "count": 11,
           "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/net.rs (original lines from 167 to 167)\n-    if tcp_packet.data_len > 10 && tcp_packet.data[..4] == [0x47,0x45,0x54, 0x20] {\n+    if tcp_packet.data_len > 10 && tcp_packet.data[..4] == [0x47, 0x45, 0x54, 0x20] {\n",
+              "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/net.rs (original lines from 180 to 180)\n-            net.send(&reply_packet.build_data()).expect(\"can't send reply packet\");\n+            net.send(&reply_packet.build_data())\n+                .expect(\"can't send reply packet\");\n",
+              "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/net.rs (original lines from 187 to 187)\n-        net.send(&reply_packet.build_data()).expect(\"can't send reply packet\");\n+        net.send(&reply_packet.build_data())\n+            .expect(\"can't send reply packet\");\n"
+            ],
             "Clippy(Warn)": [
               "warning: using `println!(\"\")`\n   --> src/net.rs:146:9\n    |\n146 |         println!(\"\");\n    |         ^^^^^^^^^^^^ help: replace it with: `println!()`\n    |\n    = note: `#[warn(clippy::println_empty_string)]` on by default\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#println_empty_string\n\n",
               "warning: this call to `as_ref` does nothing\n  --> src/net.rs:58:45\n   |\n58 |                     String::from_utf8_lossy(udp_packet.data.as_ref())\n   |                                             ^^^^^^^^^^^^^^^^^^^^^^^^ help: try this: `udp_packet.data`\n   |\n   = note: `#[warn(clippy::useless_asref)]` on by default\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_asref\n\n",
@@ -299,11 +304,6 @@
               "warning: this call to `as_ref` does nothing\n   --> src/net.rs:100:49\n    |\n100 |                         String::from_utf8_lossy(tcp_packet.data.as_ref())\n    |                                                 ^^^^^^^^^^^^^^^^^^^^^^^^ help: try this: `tcp_packet.data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_asref\n\n",
               "warning: this call to `as_ref` does nothing\n   --> src/net.rs:103:29\n    |\n103 |                     hexdump(tcp_packet.data.as_ref());\n    |                             ^^^^^^^^^^^^^^^^^^^^^^^^ help: try this: `tcp_packet.data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_asref\n\n",
               "warning: manual `RangeInclusive::contains` implementation\n   --> src/net.rs:136:20\n    |\n136 |                 if c >= 0x20 && c <= 0x7e {\n    |                    ^^^^^^^^^^^^^^^^^^^^^^ help: use: `(0x20..=0x7e).contains(&c)`\n    |\n    = note: `#[warn(clippy::manual_range_contains)]` on by default\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_range_contains\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/net.rs (original lines from 167 to 167)\n-    if tcp_packet.data_len > 10 && tcp_packet.data[..4] == [0x47,0x45,0x54, 0x20] {\n+    if tcp_packet.data_len > 10 && tcp_packet.data[..4] == [0x47, 0x45, 0x54, 0x20] {\n",
-              "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/net.rs (original lines from 180 to 180)\n-            net.send(&reply_packet.build_data()).expect(\"can't send reply packet\");\n+            net.send(&reply_packet.build_data())\n+                .expect(\"can't send reply packet\");\n",
-              "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/example/src/net.rs (original lines from 187 to 187)\n-        net.send(&reply_packet.build_data()).expect(\"can't send reply packet\");\n+        net.send(&reply_packet.build_data())\n+            .expect(\"can't send reply packet\");\n"
             ]
           }
         },
