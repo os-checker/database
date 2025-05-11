@@ -15,7 +15,7 @@
           "features": "",
           "count": 16,
           "kinds": {
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0433]: failed to resolve: could not find `log_print` in the crate root\n   --> r4l/src/print.rs:228:17\n    |\n228 |           $crate::log_print!($crate::print::LogLevel::Info, $($arg)*)\n    |                   ^^^^^^^^^ could not find `log_print` in the crate root\n    |\n   ::: r4l/src/init.rs:25:5\n    |\n25  | /     crate::pr_info!(\n26  | |         \"enter driver_framework_init start_Addr {:p}  end_Addr{:p}\",\n27  | |         start_addr,\n28  | |         end_addr\n29  | |     );\n    | |_____- in this macro invocation\n    |\n    = note: this error originates in the macro `crate::pr_info` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error[E0433]: failed to resolve: could not find `log_print` in the crate root\n   --> r4l/src/print.rs:228:17\n    |\n228 |         $crate::log_print!($crate::print::LogLevel::Info, $($arg)*)\n    |                 ^^^^^^^^^ could not find `log_print` in the crate root\n    |\n   ::: r4l/src/init.rs:36:9\n    |\n36  |         crate::pr_info!(\"Function at address {:p} returned: {}\",current_addr,result);\n    |         ---------------------------------------------------------------------------- in this macro invocation\n    |\n    = note: this error originates in the macro `crate::pr_info` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error[E0433]: failed to resolve: could not find `log_print` in the crate root\n   --> r4l/src/print.rs:228:17\n    |\n228 |         $crate::log_print!($crate::print::LogLevel::Info, $($arg)*)\n    |                 ^^^^^^^^^ could not find `log_print` in the crate root\n    |\n   ::: r4l/src/of/platform.rs:26:9\n    |\n26  |         crate::pr_info!(\"bus node: {:?} \", i.compatible().unwrap().first());\n    |         ------------------------------------------------------------------- in this macro invocation\n    |\n    = note: this error originates in the macro `crate::pr_info` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
@@ -25,7 +25,7 @@
               "error[E0433]: failed to resolve: could not find `log_print` in the crate root\n   --> r4l/src/print.rs:254:17\n    |\n254 |         $crate::log_print!($crate::print::LogLevel::Debug, $($arg)*)\n    |                 ^^^^^^^^^ could not find `log_print` in the crate root\n    |\n   ::: r4l/src/of/irq.rs:26:9\n    |\n26  |         pr_debug!(\" intspec={:?}\\n\", res.args);\n    |         -------------------------------------- in this macro invocation\n    |\n    = note: this error originates in the macro `pr_debug` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error[E0433]: failed to resolve: could not find `log_print` in the crate root\n   --> r4l/src/print.rs:228:17\n    |\n228 |         $crate::log_print!($crate::print::LogLevel::Info, $($arg)*)\n    |                 ^^^^^^^^^ could not find `log_print` in the crate root\n    |\n   ::: r4l/src/platform/platform_bus.rs:45:29\n    |\n45  | ...                   pr_info!(\"driver : {} device matched\", id);\n    |                       ------------------------------------------ in this macro invocation\n    |\n    = note: this error originates in the macro `pr_info` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
             ],
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0433]: failed to resolve: could not find `log_print` in the crate root\n   --> r4l/src/print.rs:228:17\n    |\n228 |           $crate::log_print!($crate::print::LogLevel::Info, $($arg)*)\n    |                   ^^^^^^^^^ could not find `log_print` in the crate root\n    |\n   ::: r4l/src/init.rs:25:5\n    |\n25  | /     crate::pr_info!(\n26  | |         \"enter driver_framework_init start_Addr {:p}  end_Addr{:p}\",\n27  | |         start_addr,\n28  | |         end_addr\n29  | |     );\n    | |_____- in this macro invocation\n    |\n    = note: this error originates in the macro `crate::pr_info` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error[E0433]: failed to resolve: could not find `log_print` in the crate root\n   --> r4l/src/print.rs:228:17\n    |\n228 |         $crate::log_print!($crate::print::LogLevel::Info, $($arg)*)\n    |                 ^^^^^^^^^ could not find `log_print` in the crate root\n    |\n   ::: r4l/src/init.rs:36:9\n    |\n36  |         crate::pr_info!(\"Function at address {:p} returned: {}\",current_addr,result);\n    |         ---------------------------------------------------------------------------- in this macro invocation\n    |\n    = note: this error originates in the macro `crate::pr_info` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error[E0433]: failed to resolve: could not find `log_print` in the crate root\n   --> r4l/src/print.rs:228:17\n    |\n228 |         $crate::log_print!($crate::print::LogLevel::Info, $($arg)*)\n    |                 ^^^^^^^^^ could not find `log_print` in the crate root\n    |\n   ::: r4l/src/of/platform.rs:26:9\n    |\n26  |         crate::pr_info!(\"bus node: {:?} \", i.compatible().unwrap().first());\n    |         ------------------------------------------------------------------- in this macro invocation\n    |\n    = note: this error originates in the macro `crate::pr_info` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
@@ -42,13 +42,9 @@
           "features": "",
           "count": 12,
           "kinds": {
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0432]: unresolved imports `crate::sync::Arc`, `crate::sync::Mutex`\n --> r4l/src/platform/platform_drv.rs:6:5\n  |\n6 |     sync::Arc, sync::Mutex,\n  |     ^^^^^^^^^  ^^^^^^^^^^^ no `Mutex` in `sync`\n  |     |\n  |     no `Arc` in `sync`\n  |\n  = help: consider importing this struct instead:\n          alloc::sync::Arc\n\n",
-              "error[E0432]: unresolved imports `crate::sync::Arc`, `crate::sync::Mutex`\n --> r4l/src/platform/platform_drv.rs:6:5\n  |\n6 |     sync::Arc, sync::Mutex,\n  |     ^^^^^^^^^  ^^^^^^^^^^^ no `Mutex` in `sync`\n  |     |\n  |     no `Arc` in `sync`\n  |\n  = help: consider importing this struct instead:\n          alloc::sync::Arc\n\n",
-              "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
-              "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
-              "warning: unused macro definition: `module_platform_device`\n   --> r4l/src/platform/platform_drv.rs:136:14\n    |\n136 | macro_rules! module_platform_device {\n    |              ^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(unused_macros)]` on by default\n\n",
-              "warning: unused variable: `pdev`\n   --> r4l/src/platform/platform_drv.rs:115:20\n    |\n115 |     fn get_id_info(pdev: &PlatformDevice) -> Option<&'static T::IdInfo> {\n    |                    ^^^^ help: if this is intentional, prefix it with an underscore: `_pdev`\n    |\n    = note: `#[warn(unused_variables)]` on by default\n\n"
+              "error[E0432]: unresolved imports `crate::sync::Arc`, `crate::sync::Mutex`\n --> r4l/src/platform/platform_drv.rs:6:5\n  |\n6 |     sync::Arc, sync::Mutex,\n  |     ^^^^^^^^^  ^^^^^^^^^^^ no `Mutex` in `sync`\n  |     |\n  |     no `Arc` in `sync`\n  |\n  = help: consider importing this struct instead:\n          alloc::sync::Arc\n\n"
             ],
             "Clippy(Warn)": [
               "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
@@ -56,9 +52,13 @@
               "warning: unused macro definition: `module_platform_device`\n   --> r4l/src/platform/platform_drv.rs:136:14\n    |\n136 | macro_rules! module_platform_device {\n    |              ^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(unused_macros)]` on by default\n\n",
               "warning: unused variable: `pdev`\n   --> r4l/src/platform/platform_drv.rs:115:20\n    |\n115 |     fn get_id_info(pdev: &PlatformDevice) -> Option<&'static T::IdInfo> {\n    |                    ^^^^ help: if this is intentional, prefix it with an underscore: `_pdev`\n    |\n    = note: `#[warn(unused_variables)]` on by default\n\n"
             ],
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0432]: unresolved imports `crate::sync::Arc`, `crate::sync::Mutex`\n --> r4l/src/platform/platform_drv.rs:6:5\n  |\n6 |     sync::Arc, sync::Mutex,\n  |     ^^^^^^^^^  ^^^^^^^^^^^ no `Mutex` in `sync`\n  |     |\n  |     no `Arc` in `sync`\n  |\n  = help: consider importing this struct instead:\n          alloc::sync::Arc\n\n",
-              "error[E0432]: unresolved imports `crate::sync::Arc`, `crate::sync::Mutex`\n --> r4l/src/platform/platform_drv.rs:6:5\n  |\n6 |     sync::Arc, sync::Mutex,\n  |     ^^^^^^^^^  ^^^^^^^^^^^ no `Mutex` in `sync`\n  |     |\n  |     no `Arc` in `sync`\n  |\n  = help: consider importing this struct instead:\n          alloc::sync::Arc\n\n"
+              "error[E0432]: unresolved imports `crate::sync::Arc`, `crate::sync::Mutex`\n --> r4l/src/platform/platform_drv.rs:6:5\n  |\n6 |     sync::Arc, sync::Mutex,\n  |     ^^^^^^^^^  ^^^^^^^^^^^ no `Mutex` in `sync`\n  |     |\n  |     no `Arc` in `sync`\n  |\n  = help: consider importing this struct instead:\n          alloc::sync::Arc\n\n",
+              "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
+              "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
+              "warning: unused macro definition: `module_platform_device`\n   --> r4l/src/platform/platform_drv.rs:136:14\n    |\n136 | macro_rules! module_platform_device {\n    |              ^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(unused_macros)]` on by default\n\n",
+              "warning: unused variable: `pdev`\n   --> r4l/src/platform/platform_drv.rs:115:20\n    |\n115 |     fn get_id_info(pdev: &PlatformDevice) -> Option<&'static T::IdInfo> {\n    |                    ^^^^ help: if this is intentional, prefix it with an underscore: `_pdev`\n    |\n    = note: `#[warn(unused_variables)]` on by default\n\n"
             ]
           }
         },
@@ -87,6 +87,11 @@
           "features": "",
           "count": 9,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: unused import: `super::DeviceId`\n --> r4l/src/of/platform.rs:3:5\n  |\n3 | use super::DeviceId;\n  |     ^^^^^^^^^^^^^^^\n\n",
+              "warning: unused import: `crate::pr_debug`\n --> r4l/src/of/platform.rs:6:5\n  |\n6 | use crate::pr_debug;\n  |     ^^^^^^^^^^^^^^^\n\n",
+              "warning: constants have by default a `'static` lifetime\n  --> r4l/src/of/platform.rs:11:37\n   |\n11 | const OF_DEFAULT_BUS_MATCH_TABLE: [&'static str; 4] =\n   |                                    -^^^^^^^---- help: consider removing `'static`: `&str`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_static_lifetimes\n   = note: `#[warn(clippy::redundant_static_lifetimes)]` on by default\n\n"
+            ],
             "Clippy(Error)": [
               "error[E0432]: unresolved import `crate::sync::Arc`\n --> r4l/src/of/platform.rs:7:5\n  |\n7 | use crate::sync::Arc;\n  |     ^^^^^^^^^^^^^^^^ no `Arc` in `sync`\n  |\nhelp: consider importing this struct instead\n  |\n7 | use alloc::sync::Arc;\n  |     ~~~~~~~~~~~~~~~~\n\n",
               "error[E0432]: unresolved import `crate::sync::Mutex`\n --> r4l/src/of/platform.rs:8:5\n  |\n8 | use crate::sync::Mutex;\n  |     ^^^^^^^^^^^^^^^^^^ no `Mutex` in `sync`\n\n"
@@ -96,11 +101,6 @@
               "error[E0432]: unresolved import `crate::sync::Mutex`\n --> r4l/src/of/platform.rs:8:5\n  |\n8 | use crate::sync::Mutex;\n  |     ^^^^^^^^^^^^^^^^^^ no `Mutex` in `sync`\n\n",
               "warning: unused import: `super::DeviceId`\n --> r4l/src/of/platform.rs:3:5\n  |\n3 | use super::DeviceId;\n  |     ^^^^^^^^^^^^^^^\n\n",
               "warning: unused import: `crate::pr_debug`\n --> r4l/src/of/platform.rs:6:5\n  |\n6 | use crate::pr_debug;\n  |     ^^^^^^^^^^^^^^^\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: unused import: `super::DeviceId`\n --> r4l/src/of/platform.rs:3:5\n  |\n3 | use super::DeviceId;\n  |     ^^^^^^^^^^^^^^^\n\n",
-              "warning: unused import: `crate::pr_debug`\n --> r4l/src/of/platform.rs:6:5\n  |\n6 | use crate::pr_debug;\n  |     ^^^^^^^^^^^^^^^\n\n",
-              "warning: constants have by default a `'static` lifetime\n  --> r4l/src/of/platform.rs:11:37\n   |\n11 | const OF_DEFAULT_BUS_MATCH_TABLE: [&'static str; 4] =\n   |                                    -^^^^^^^---- help: consider removing `'static`: `&str`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_static_lifetimes\n   = note: `#[warn(clippy::redundant_static_lifetimes)]` on by default\n\n"
             ]
           }
         },
@@ -109,6 +109,11 @@
           "features": "",
           "count": 8,
           "kinds": {
+            "Clippy(Error)": [
+              "error[E0432]: unresolved import `crate::str::CString`\n  --> r4l/src/irq/mod.rs:18:5\n   |\n18 |     str::CString,\n   |     ^^^^^^^^^^^^ no `CString` in `str`\n   |\n   = help: consider importing this struct instead:\n           alloc::ffi::CString\n\n",
+              "error[E0432]: unresolved import `crate::sync::Mutex`\n  --> r4l/src/irq/mod.rs:22:5\n   |\n22 | use crate::sync::Mutex;\n   |     ^^^^^^^^^^^^^^^^^^ no `Mutex` in `sync`\n\n",
+              "error[E0599]: no function or associated item named `handler` found for struct `irq::Registration` in the current scope\n   --> r4l/src/irq/mod.rs:126:58\n    |\n100 | pub struct Registration(InternalRegistration);\n    | ----------------------- function or associated item `handler` not found for this struct\n...\n126 |         Ok(Self(InternalRegistration::try_new(irq, Self::handler::<H>, None, flags, name)?))\n    |                                                          ^^^^^^^ function or associated item not found in `Registration`\n\n"
+            ],
             "Clippy(Warn)": [
               "warning: unused import: `os_api::*`\n  --> r4l/src/irq/mod.rs:14:9\n   |\n14 | pub use os_api::*;\n   |         ^^^^^^^^^\n\n"
             ],
@@ -116,11 +121,6 @@
               "error[E0432]: unresolved import `crate::str::CString`\n  --> r4l/src/irq/mod.rs:18:5\n   |\n18 |     str::CString,\n   |     ^^^^^^^^^^^^ no `CString` in `str`\n   |\n   = help: consider importing this struct instead:\n           alloc::ffi::CString\n\n",
               "error[E0432]: unresolved import `crate::sync::Mutex`\n  --> r4l/src/irq/mod.rs:22:5\n   |\n22 | use crate::sync::Mutex;\n   |     ^^^^^^^^^^^^^^^^^^ no `Mutex` in `sync`\n\n",
               "warning: unused import: `os_api::*`\n  --> r4l/src/irq/mod.rs:14:9\n   |\n14 | pub use os_api::*;\n   |         ^^^^^^^^^\n\n",
-              "error[E0599]: no function or associated item named `handler` found for struct `irq::Registration` in the current scope\n   --> r4l/src/irq/mod.rs:126:58\n    |\n100 | pub struct Registration(InternalRegistration);\n    | ----------------------- function or associated item `handler` not found for this struct\n...\n126 |         Ok(Self(InternalRegistration::try_new(irq, Self::handler::<H>, None, flags, name)?))\n    |                                                          ^^^^^^^ function or associated item not found in `Registration`\n\n"
-            ],
-            "Clippy(Error)": [
-              "error[E0432]: unresolved import `crate::str::CString`\n  --> r4l/src/irq/mod.rs:18:5\n   |\n18 |     str::CString,\n   |     ^^^^^^^^^^^^ no `CString` in `str`\n   |\n   = help: consider importing this struct instead:\n           alloc::ffi::CString\n\n",
-              "error[E0432]: unresolved import `crate::sync::Mutex`\n  --> r4l/src/irq/mod.rs:22:5\n   |\n22 | use crate::sync::Mutex;\n   |     ^^^^^^^^^^^^^^^^^^ no `Mutex` in `sync`\n\n",
               "error[E0599]: no function or associated item named `handler` found for struct `irq::Registration` in the current scope\n   --> r4l/src/irq/mod.rs:126:58\n    |\n100 | pub struct Registration(InternalRegistration);\n    | ----------------------- function or associated item `handler` not found for this struct\n...\n126 |         Ok(Self(InternalRegistration::try_new(irq, Self::handler::<H>, None, flags, name)?))\n    |                                                          ^^^^^^^ function or associated item not found in `Registration`\n\n"
             ]
           }
@@ -160,15 +160,15 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Error)": [
-              "error[E0432]: unresolved import `crate::sync::Arc`\n --> r4l/src/bus.rs:7:5\n  |\n7 | use crate::sync::Arc;\n  |     ^^^^^^^^^^^^^^^^ no `Arc` in `sync`\n  |\nhelp: consider importing this struct instead\n  |\n7 | use alloc::sync::Arc;\n  |     ~~~~~~~~~~~~~~~~\n\n"
+            "Clippy(Warn)": [
+              "warning: unused import: `core::ops::Deref`\n --> r4l/src/bus.rs:8:5\n  |\n8 | use core::ops::Deref;\n  |     ^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
             ],
             "Mirai": [
               "error[E0432]: unresolved import `crate::sync::Arc`\n --> r4l/src/bus.rs:7:5\n  |\n7 | use crate::sync::Arc;\n  |     ^^^^^^^^^^^^^^^^ no `Arc` in `sync`\n  |\nhelp: consider importing this struct instead\n  |\n7 | use alloc::sync::Arc;\n  |     ~~~~~~~~~~~~~~~~\n\n",
               "warning: unused import: `core::ops::Deref`\n --> r4l/src/bus.rs:8:5\n  |\n8 | use core::ops::Deref;\n  |     ^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
             ],
-            "Clippy(Warn)": [
-              "warning: unused import: `core::ops::Deref`\n --> r4l/src/bus.rs:8:5\n  |\n8 | use core::ops::Deref;\n  |     ^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
+            "Clippy(Error)": [
+              "error[E0432]: unresolved import `crate::sync::Arc`\n --> r4l/src/bus.rs:7:5\n  |\n7 | use crate::sync::Arc;\n  |     ^^^^^^^^^^^^^^^^ no `Arc` in `sync`\n  |\nhelp: consider importing this struct instead\n  |\n7 | use alloc::sync::Arc;\n  |     ~~~~~~~~~~~~~~~~\n\n"
             ]
           }
         },
@@ -177,11 +177,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0432]: unresolved import `crate::c_str`\n --> r4l/src/driver/driver.rs:6:13\n  |\n6 | use crate::{c_str, sync::Arc};\n  |             ^^^^^ no `c_str` in the root\n  |\n  = help: consider importing one of these modules instead:\n          core::ffi::c_str\n          alloc::ffi::c_str\n\n",
               "error[E0432]: unresolved import `crate::sync::Arc`\n --> r4l/src/driver/driver.rs:6:20\n  |\n6 | use crate::{c_str, sync::Arc};\n  |                    ^^^^^^^^^ no `Arc` in `sync`\n  |\n  = help: consider importing this struct instead:\n          alloc::sync::Arc\n\n"
             ],
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0432]: unresolved import `crate::c_str`\n --> r4l/src/driver/driver.rs:6:13\n  |\n6 | use crate::{c_str, sync::Arc};\n  |             ^^^^^ no `c_str` in the root\n  |\n  = help: consider importing one of these modules instead:\n          core::ffi::c_str\n          alloc::ffi::c_str\n\n",
               "error[E0432]: unresolved import `crate::sync::Arc`\n --> r4l/src/driver/driver.rs:6:20\n  |\n6 | use crate::{c_str, sync::Arc};\n  |                    ^^^^^^^^^ no `Arc` in `sync`\n  |\n  = help: consider importing this struct instead:\n          alloc::sync::Arc\n\n"
             ]
@@ -192,11 +192,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0432]: unresolved import `self::error`\n  --> r4l/src/error.rs:77:15\n   |\n77 | pub use self::error::code;\n   |               ^^^^^ could not find `error` in `self`\n   |\nnote: found an item that was configured out\n  --> r4l/src/error.rs:9:5\n   |\n9  | mod error {\n   |     ^^^^^\nnote: the item is gated behind the `starry` feature\n  --> r4l/src/error.rs:8:7\n   |\n8  | #[cfg(feature = \"starry\")]\n   |       ^^^^^^^^^^^^^^^^^^\n\n",
               "error[E0432]: unresolved import `self::error`\n  --> r4l/src/error.rs:78:15\n   |\n78 | pub use self::error::Error;\n   |               ^^^^^ could not find `error` in `self`\n   |\nnote: found an item that was configured out\n  --> r4l/src/error.rs:9:5\n   |\n9  | mod error {\n   |     ^^^^^\nnote: the item is gated behind the `starry` feature\n  --> r4l/src/error.rs:8:7\n   |\n8  | #[cfg(feature = \"starry\")]\n   |       ^^^^^^^^^^^^^^^^^^\n\n"
             ],
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0432]: unresolved import `self::error`\n  --> r4l/src/error.rs:77:15\n   |\n77 | pub use self::error::code;\n   |               ^^^^^ could not find `error` in `self`\n   |\nnote: found an item that was configured out\n  --> r4l/src/error.rs:9:5\n   |\n9  | mod error {\n   |     ^^^^^\nnote: the item is gated behind the `starry` feature\n  --> r4l/src/error.rs:8:7\n   |\n8  | #[cfg(feature = \"starry\")]\n   |       ^^^^^^^^^^^^^^^^^^\n\n",
               "error[E0432]: unresolved import `self::error`\n  --> r4l/src/error.rs:78:15\n   |\n78 | pub use self::error::Error;\n   |               ^^^^^ could not find `error` in `self`\n   |\nnote: found an item that was configured out\n  --> r4l/src/error.rs:9:5\n   |\n9  | mod error {\n   |     ^^^^^\nnote: the item is gated behind the `starry` feature\n  --> r4l/src/error.rs:8:7\n   |\n8  | #[cfg(feature = \"starry\")]\n   |       ^^^^^^^^^^^^^^^^^^\n\n"
             ]
@@ -207,11 +207,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: the feature `generic_const_exprs` is incomplete and may not be safe to use and/or cause compiler crashes\n --> r4l/src/lib.rs:9:12\n  |\n9 | #![feature(generic_const_exprs)]\n  |            ^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #76560 <https://github.com/rust-lang/rust/issues/76560> for more information\n  = note: `#[warn(incomplete_features)]` on by default\n\n",
               "warning: the feature `generic_const_items` is incomplete and may not be safe to use and/or cause compiler crashes\n  --> r4l/src/lib.rs:10:12\n   |\n10 | #![feature(generic_const_items)]\n   |            ^^^^^^^^^^^^^^^^^^^\n   |\n   = note: see issue #113521 <https://github.com/rust-lang/rust/issues/113521> for more information\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: the feature `generic_const_exprs` is incomplete and may not be safe to use and/or cause compiler crashes\n --> r4l/src/lib.rs:9:12\n  |\n9 | #![feature(generic_const_exprs)]\n  |            ^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #76560 <https://github.com/rust-lang/rust/issues/76560> for more information\n  = note: `#[warn(incomplete_features)]` on by default\n\n",
               "warning: the feature `generic_const_items` is incomplete and may not be safe to use and/or cause compiler crashes\n  --> r4l/src/lib.rs:10:12\n   |\n10 | #![feature(generic_const_items)]\n   |            ^^^^^^^^^^^^^^^^^^^\n   |\n   = note: see issue #113521 <https://github.com/rust-lang/rust/issues/113521> for more information\n\n"
             ]
@@ -300,11 +300,11 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Mirai": [
-              "error[E0432]: unresolved import `list`\n  --> r4l/src/linked_list.rs:11:9\n   |\n11 | pub use list::*;\n   |         ^^^^ use of undeclared crate or module `list`\n\n"
-            ],
             "Clippy(Error)": [
               "error[E0432]: unresolved import `list`\n  --> r4l/src/linked_list.rs:11:9\n   |\n11 | pub use list::*;\n   |         ^^^^ use of unresolved module or unlinked crate `list`\n   |\n   = help: if you wanted to use a crate named `list`, use `cargo add list` to add it to your `Cargo.toml`\n\n"
+            ],
+            "Mirai": [
+              "error[E0432]: unresolved import `list`\n  --> r4l/src/linked_list.rs:11:9\n   |\n11 | pub use list::*;\n   |         ^^^^ use of undeclared crate or module `list`\n\n"
             ]
           }
         },
@@ -313,10 +313,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0432]: unresolved import `super::str::CStr`\n  --> r4l/src/prelude.rs:19:17\n   |\n19 | pub use super::{str::CStr, ThisModule};\n   |                 ^^^^^^^^^ no `CStr` in `str`\n   |\n   = help: consider importing this struct instead:\n           core::ffi::CStr\n\n"
             ],
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0432]: unresolved import `super::str::CStr`\n  --> r4l/src/prelude.rs:19:17\n   |\n19 | pub use super::{str::CStr, ThisModule};\n   |                 ^^^^^^^^^ no `CStr` in `str`\n   |\n   = help: consider importing this struct instead:\n           core::ffi::CStr\n\n"
             ]
           }
@@ -326,10 +326,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0432]: unresolved import `str`\n  --> r4l/src/str.rs:40:9\n   |\n40 | pub use str::*;\n   |         ^^^ help: a similar path exists: `crate::str`\n   |\n   = note: `use` statements changed in Rust 2018; read more at <https://doc.rust-lang.org/edition-guide/rust-2018/module-system/path-clarity.html>\n\n"
             ],
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0432]: unresolved import `str`\n  --> r4l/src/str.rs:40:9\n   |\n40 | pub use str::*;\n   |         ^^^ help: a similar path exists: `crate::str`\n   |\n   = note: `use` statements changed in Rust 2018; read more at <https://doc.rust-lang.org/edition-guide/rust-2018/module-system/path-clarity.html>\n\n"
             ]
           }
@@ -339,10 +339,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0432]: unresolved import `sync`\n  --> r4l/src/sync.rs:15:9\n   |\n15 | pub use sync::*;\n   |         ^^^^ help: a similar path exists: `crate::sync`\n   |\n   = note: `use` statements changed in Rust 2018; read more at <https://doc.rust-lang.org/edition-guide/rust-2018/module-system/path-clarity.html>\n\n"
             ],
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0432]: unresolved import `sync`\n  --> r4l/src/sync.rs:15:9\n   |\n15 | pub use sync::*;\n   |         ^^^^ help: a similar path exists: `crate::sync`\n   |\n   = note: `use` statements changed in Rust 2018; read more at <https://doc.rust-lang.org/edition-guide/rust-2018/module-system/path-clarity.html>\n\n"
             ]
           }
@@ -513,11 +513,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: the feature `generic_const_exprs` is incomplete and may not be safe to use and/or cause compiler crashes\n --> r4l/src/lib.rs:9:12\n  |\n9 | #![feature(generic_const_exprs)]\n  |            ^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #76560 <https://github.com/rust-lang/rust/issues/76560> for more information\n  = note: `#[warn(incomplete_features)]` on by default\n\n",
               "warning: the feature `generic_const_items` is incomplete and may not be safe to use and/or cause compiler crashes\n  --> r4l/src/lib.rs:10:12\n   |\n10 | #![feature(generic_const_items)]\n   |            ^^^^^^^^^^^^^^^^^^^\n   |\n   = note: see issue #113521 <https://github.com/rust-lang/rust/issues/113521> for more information\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: the feature `generic_const_exprs` is incomplete and may not be safe to use and/or cause compiler crashes\n --> r4l/src/lib.rs:9:12\n  |\n9 | #![feature(generic_const_exprs)]\n  |            ^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #76560 <https://github.com/rust-lang/rust/issues/76560> for more information\n  = note: `#[warn(incomplete_features)]` on by default\n\n",
               "warning: the feature `generic_const_items` is incomplete and may not be safe to use and/or cause compiler crashes\n  --> r4l/src/lib.rs:10:12\n   |\n10 | #![feature(generic_const_items)]\n   |            ^^^^^^^^^^^^^^^^^^^\n   |\n   = note: see issue #113521 <https://github.com/rust-lang/rust/issues/113521> for more information\n\n"
             ]
@@ -543,10 +543,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: unused import: `crate::pr_info`\n --> r4l/src/device.rs:8:5\n  |\n8 | use crate::pr_info;\n  |     ^^^^^^^^^^^^^^\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: unused import: `crate::pr_info`\n --> r4l/src/device.rs:8:5\n  |\n8 | use crate::pr_info;\n  |     ^^^^^^^^^^^^^^\n\n"
             ]
           }
@@ -683,7 +683,7 @@
           "features": "",
           "count": 16,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
               "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
               "warning: unused macro definition: `module_platform_device`\n   --> r4l/src/platform/platform_drv.rs:136:14\n    |\n136 | macro_rules! module_platform_device {\n    |              ^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(unused_macros)]` on by default\n\n",
@@ -693,7 +693,7 @@
               "warning: unused variable: `pdrv`\n   --> r4l/src/platform/platform_drv.rs:111:19\n    |\n111 |     fn unregister(pdrv: &mut Self::RegType) {}\n    |                   ^^^^ help: if this is intentional, prefix it with an underscore: `_pdrv`\n\n",
               "warning: unused variable: `pdev`\n   --> r4l/src/platform/platform_drv.rs:115:20\n    |\n115 |     fn get_id_info(pdev: &PlatformDevice) -> Option<&'static T::IdInfo> {\n    |                    ^^^^ help: if this is intentional, prefix it with an underscore: `_pdev`\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
               "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
               "warning: unused macro definition: `module_platform_device`\n   --> r4l/src/platform/platform_drv.rs:136:14\n    |\n136 | macro_rules! module_platform_device {\n    |              ^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(unused_macros)]` on by default\n\n",
@@ -710,11 +710,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: struct `Generics` is never constructed\n   --> macros/src/helpers.rs:109:19\n    |\n109 | pub(crate) struct Generics {\n    |                   ^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n",
               "warning: function `parse_generics` is never used\n   --> macros/src/helpers.rs:128:15\n    |\n128 | pub(crate) fn parse_generics(input: TokenStream) -> (Generics, Vec<TokenTree>) {\n    |               ^^^^^^^^^^^^^^\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: struct `Generics` is never constructed\n   --> macros/src/helpers.rs:109:19\n    |\n109 | pub(crate) struct Generics {\n    |                   ^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n",
               "warning: function `parse_generics` is never used\n   --> macros/src/helpers.rs:128:15\n    |\n128 | pub(crate) fn parse_generics(input: TokenStream) -> (Generics, Vec<TokenTree>) {\n    |               ^^^^^^^^^^^^^^\n\n"
             ]
@@ -725,11 +725,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: unused import: `crate::sync::Arc`\n --> r4l/src/bus.rs:7:5\n  |\n7 | use crate::sync::Arc;\n  |     ^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
               "warning: unused import: `core::ops::Deref`\n --> r4l/src/bus.rs:8:5\n  |\n8 | use core::ops::Deref;\n  |     ^^^^^^^^^^^^^^^^\n\n"
             ],
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: unused import: `crate::sync::Arc`\n --> r4l/src/bus.rs:7:5\n  |\n7 | use crate::sync::Arc;\n  |     ^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
               "warning: unused import: `core::ops::Deref`\n --> r4l/src/bus.rs:8:5\n  |\n8 | use core::ops::Deref;\n  |     ^^^^^^^^^^^^^^^^\n\n"
             ]
@@ -740,11 +740,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0432]: unresolved import `axhal::irq`\n  --> r4l/src/irq/os_api.rs:5:16\n   |\n5  |     use axhal::irq::register_handler;\n   |                ^^^ could not find `irq` in `axhal`\n   |\nnote: found an item that was configured out\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:53:9\n   |\n53 | pub mod irq;\n   |         ^^^\nnote: the item is gated behind the `irq` feature\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:52:7\n   |\n52 | #[cfg(feature = \"irq\")]\n   |       ^^^^^^^^^^^^^^^\n\n",
               "error[E0433]: failed to resolve: could not find `irq` in `axhal`\n  --> r4l/src/irq/os_api.rs:7:34\n   |\n7  |     pub type IrqHandler = axhal::irq::IrqHandler;\n   |                                  ^^^ could not find `irq` in `axhal`\n   |\nnote: found an item that was configured out\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:53:9\n   |\n53 | pub mod irq;\n   |         ^^^\nnote: the item is gated behind the `irq` feature\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:52:7\n   |\n52 | #[cfg(feature = \"irq\")]\n   |       ^^^^^^^^^^^^^^^\nhelp: consider importing this module\n   |\n5  +     use crate::irq;\n   |\nhelp: if you import `irq`, refer to it directly\n   |\n7  -     pub type IrqHandler = axhal::irq::IrqHandler;\n7  +     pub type IrqHandler = irq::IrqHandler;\n   |\n\n"
             ],
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0432]: unresolved import `axhal::irq`\n  --> r4l/src/irq/os_api.rs:5:16\n   |\n5  |     use axhal::irq::register_handler;\n   |                ^^^ could not find `irq` in `axhal`\n   |\nnote: found an item that was configured out\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:53:9\n   |\n53 | pub mod irq;\n   |         ^^^\nnote: the item is gated behind the `irq` feature\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:52:7\n   |\n52 | #[cfg(feature = \"irq\")]\n   |       ^^^^^^^^^^^^^^^\n\n",
               "error[E0433]: failed to resolve: could not find `irq` in `axhal`\n  --> r4l/src/irq/os_api.rs:7:34\n   |\n7  |     pub type IrqHandler = axhal::irq::IrqHandler;\n   |                                  ^^^ could not find `irq` in `axhal`\n   |\nnote: found an item that was configured out\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:53:9\n   |\n53 | pub mod irq;\n   |         ^^^\nnote: the item is gated behind the `irq` feature\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:52:7\n   |\n52 | #[cfg(feature = \"irq\")]\n   |       ^^^^^^^^^^^^^^^\nhelp: consider importing this module\n   |\n5  +     use crate::irq;\n   |\nhelp: if you import `irq`, refer to it directly\n   |\n7  -     pub type IrqHandler = axhal::irq::IrqHandler;\n7  +     pub type IrqHandler = irq::IrqHandler;\n   |\n\n"
             ]
@@ -755,11 +755,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: the feature `generic_const_exprs` is incomplete and may not be safe to use and/or cause compiler crashes\n --> r4l/src/lib.rs:9:12\n  |\n9 | #![feature(generic_const_exprs)]\n  |            ^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #76560 <https://github.com/rust-lang/rust/issues/76560> for more information\n  = note: `#[warn(incomplete_features)]` on by default\n\n",
               "warning: the feature `generic_const_items` is incomplete and may not be safe to use and/or cause compiler crashes\n  --> r4l/src/lib.rs:10:12\n   |\n10 | #![feature(generic_const_items)]\n   |            ^^^^^^^^^^^^^^^^^^^\n   |\n   = note: see issue #113521 <https://github.com/rust-lang/rust/issues/113521> for more information\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: the feature `generic_const_exprs` is incomplete and may not be safe to use and/or cause compiler crashes\n --> r4l/src/lib.rs:9:12\n  |\n9 | #![feature(generic_const_exprs)]\n  |            ^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #76560 <https://github.com/rust-lang/rust/issues/76560> for more information\n  = note: `#[warn(incomplete_features)]` on by default\n\n",
               "warning: the feature `generic_const_items` is incomplete and may not be safe to use and/or cause compiler crashes\n  --> r4l/src/lib.rs:10:12\n   |\n10 | #![feature(generic_const_items)]\n   |            ^^^^^^^^^^^^^^^^^^^\n   |\n   = note: see issue #113521 <https://github.com/rust-lang/rust/issues/113521> for more information\n\n"
             ]
@@ -798,10 +798,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: unused import: `super::IdArray`\n --> r4l/src/driver/driver.rs:8:5\n  |\n8 | use super::IdArray;\n  |     ^^^^^^^^^^^^^^\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: unused import: `super::IdArray`\n --> r4l/src/driver/driver.rs:8:5\n  |\n8 | use super::IdArray;\n  |     ^^^^^^^^^^^^^^\n\n"
             ]
           }
@@ -811,10 +811,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: unused variable: `e`\n  --> r4l/src/init.rs:14:16\n   |\n14 |     if let Err(e) = crate::of::of_platform_default_populate_init() {\n   |                ^ help: if this is intentional, prefix it with an underscore: `_e`\n   |\n   = note: `#[warn(unused_variables)]` on by default\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: unused variable: `e`\n  --> r4l/src/init.rs:14:16\n   |\n14 |     if let Err(e) = crate::of::of_platform_default_populate_init() {\n   |                ^ help: if this is intentional, prefix it with an underscore: `_e`\n   |\n   = note: `#[warn(unused_variables)]` on by default\n\n"
             ]
           }
@@ -824,10 +824,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: unreachable pattern\n  --> r4l/src/platform/platform_bus.rs:49:21\n   |\n43 |                     Compatible(id) => {\n   |                     -------------- matches all the relevant values\n...\n49 |                     _ => panic!(\"invalid id table\"),\n   |                     ^ no value can reach this\n   |\n   = note: `#[warn(unreachable_patterns)]` on by default\n\n"
             ],
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: unreachable pattern\n  --> r4l/src/platform/platform_bus.rs:49:21\n   |\n43 |                     Compatible(id) => {\n   |                     -------------- matches all the relevant values\n...\n49 |                     _ => panic!(\"invalid id table\"),\n   |                     ^ no value can reach this\n   |\n   = note: `#[warn(unreachable_patterns)]` on by default\n\n"
             ]
           }
@@ -925,7 +925,7 @@
           "features": "",
           "count": 16,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
               "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
               "warning: unused macro definition: `module_platform_device`\n   --> r4l/src/platform/platform_drv.rs:136:14\n    |\n136 | macro_rules! module_platform_device {\n    |              ^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(unused_macros)]` on by default\n\n",
@@ -935,7 +935,7 @@
               "warning: unused variable: `pdrv`\n   --> r4l/src/platform/platform_drv.rs:111:19\n    |\n111 |     fn unregister(pdrv: &mut Self::RegType) {}\n    |                   ^^^^ help: if this is intentional, prefix it with an underscore: `_pdrv`\n\n",
               "warning: unused variable: `pdev`\n   --> r4l/src/platform/platform_drv.rs:115:20\n    |\n115 |     fn get_id_info(pdev: &PlatformDevice) -> Option<&'static T::IdInfo> {\n    |                    ^^^^ help: if this is intentional, prefix it with an underscore: `_pdev`\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
               "warning: unused imports: `driver::IdArray` and `driver::IdTable`\n --> r4l/src/platform/platform_drv.rs:5:32\n  |\n5 |     device::DeviceOps, driver, driver::IdArray, driver::IdTable, error::*, of, prelude::*,\n  |                                ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^\n\n",
               "warning: unused macro definition: `module_platform_device`\n   --> r4l/src/platform/platform_drv.rs:136:14\n    |\n136 | macro_rules! module_platform_device {\n    |              ^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(unused_macros)]` on by default\n\n",
@@ -952,11 +952,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: struct `Generics` is never constructed\n   --> macros/src/helpers.rs:109:19\n    |\n109 | pub(crate) struct Generics {\n    |                   ^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n",
               "warning: function `parse_generics` is never used\n   --> macros/src/helpers.rs:128:15\n    |\n128 | pub(crate) fn parse_generics(input: TokenStream) -> (Generics, Vec<TokenTree>) {\n    |               ^^^^^^^^^^^^^^\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: struct `Generics` is never constructed\n   --> macros/src/helpers.rs:109:19\n    |\n109 | pub(crate) struct Generics {\n    |                   ^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n",
               "warning: function `parse_generics` is never used\n   --> macros/src/helpers.rs:128:15\n    |\n128 | pub(crate) fn parse_generics(input: TokenStream) -> (Generics, Vec<TokenTree>) {\n    |               ^^^^^^^^^^^^^^\n\n"
             ]
@@ -967,11 +967,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: unused import: `crate::sync::Arc`\n --> r4l/src/bus.rs:7:5\n  |\n7 | use crate::sync::Arc;\n  |     ^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
               "warning: unused import: `core::ops::Deref`\n --> r4l/src/bus.rs:8:5\n  |\n8 | use core::ops::Deref;\n  |     ^^^^^^^^^^^^^^^^\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: unused import: `crate::sync::Arc`\n --> r4l/src/bus.rs:7:5\n  |\n7 | use crate::sync::Arc;\n  |     ^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
               "warning: unused import: `core::ops::Deref`\n --> r4l/src/bus.rs:8:5\n  |\n8 | use core::ops::Deref;\n  |     ^^^^^^^^^^^^^^^^\n\n"
             ]
@@ -982,11 +982,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0432]: unresolved import `axhal::irq`\n  --> r4l/src/irq/os_api.rs:5:16\n   |\n5  |     use axhal::irq::register_handler;\n   |                ^^^ could not find `irq` in `axhal`\n   |\nnote: found an item that was configured out\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:53:9\n   |\n53 | pub mod irq;\n   |         ^^^\nnote: the item is gated behind the `irq` feature\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:52:7\n   |\n52 | #[cfg(feature = \"irq\")]\n   |       ^^^^^^^^^^^^^^^\n\n",
               "error[E0433]: failed to resolve: could not find `irq` in `axhal`\n  --> r4l/src/irq/os_api.rs:7:34\n   |\n7  |     pub type IrqHandler = axhal::irq::IrqHandler;\n   |                                  ^^^ could not find `irq` in `axhal`\n   |\nnote: found an item that was configured out\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:53:9\n   |\n53 | pub mod irq;\n   |         ^^^\nnote: the item is gated behind the `irq` feature\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:52:7\n   |\n52 | #[cfg(feature = \"irq\")]\n   |       ^^^^^^^^^^^^^^^\nhelp: consider importing this module\n   |\n5  +     use crate::irq;\n   |\nhelp: if you import `irq`, refer to it directly\n   |\n7  -     pub type IrqHandler = axhal::irq::IrqHandler;\n7  +     pub type IrqHandler = irq::IrqHandler;\n   |\n\n"
             ],
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0432]: unresolved import `axhal::irq`\n  --> r4l/src/irq/os_api.rs:5:16\n   |\n5  |     use axhal::irq::register_handler;\n   |                ^^^ could not find `irq` in `axhal`\n   |\nnote: found an item that was configured out\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:53:9\n   |\n53 | pub mod irq;\n   |         ^^^\nnote: the item is gated behind the `irq` feature\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:52:7\n   |\n52 | #[cfg(feature = \"irq\")]\n   |       ^^^^^^^^^^^^^^^\n\n",
               "error[E0433]: failed to resolve: could not find `irq` in `axhal`\n  --> r4l/src/irq/os_api.rs:7:34\n   |\n7  |     pub type IrqHandler = axhal::irq::IrqHandler;\n   |                                  ^^^ could not find `irq` in `axhal`\n   |\nnote: found an item that was configured out\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:53:9\n   |\n53 | pub mod irq;\n   |         ^^^\nnote: the item is gated behind the `irq` feature\n  --> /home/runner/.cargo/git/checkouts/axhal-119c43838a5d3216/8bed672/src/lib.rs:52:7\n   |\n52 | #[cfg(feature = \"irq\")]\n   |       ^^^^^^^^^^^^^^^\nhelp: consider importing this module\n   |\n5  +     use crate::irq;\n   |\nhelp: if you import `irq`, refer to it directly\n   |\n7  -     pub type IrqHandler = axhal::irq::IrqHandler;\n7  +     pub type IrqHandler = irq::IrqHandler;\n   |\n\n"
             ]
@@ -1012,11 +1012,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: unused import: `super::DeviceId`\n --> r4l/src/of/platform.rs:3:5\n  |\n3 | use super::DeviceId;\n  |     ^^^^^^^^^^^^^^^\n\n",
               "warning: unused import: `crate::pr_debug`\n --> r4l/src/of/platform.rs:6:5\n  |\n6 | use crate::pr_debug;\n  |     ^^^^^^^^^^^^^^^\n\n"
             ],
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: unused import: `super::DeviceId`\n --> r4l/src/of/platform.rs:3:5\n  |\n3 | use super::DeviceId;\n  |     ^^^^^^^^^^^^^^^\n\n",
               "warning: unused import: `crate::pr_debug`\n --> r4l/src/of/platform.rs:6:5\n  |\n6 | use crate::pr_debug;\n  |     ^^^^^^^^^^^^^^^\n\n"
             ]
@@ -1027,10 +1027,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: unused import: `crate::pr_info`\n --> r4l/src/device.rs:8:5\n  |\n8 | use crate::pr_info;\n  |     ^^^^^^^^^^^^^^\n\n"
             ],
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: unused import: `crate::pr_info`\n --> r4l/src/device.rs:8:5\n  |\n8 | use crate::pr_info;\n  |     ^^^^^^^^^^^^^^\n\n"
             ]
           }
