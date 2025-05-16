@@ -7,38 +7,16 @@
     {
       "user": "os-module",
       "repo": "domains",
-      "pkg": "domain",
-      "count": 5,
+      "pkg": "",
+      "count": 1,
       "raw_reports": [
         {
-          "file": "domain/src/subcommand/build.rs",
-          "features": "",
-          "count": 2,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: the borrowed expression implements the required traits\n  --> domain/src/subcommand/build.rs:12:28\n   |\n12 |         fs::create_dir_all(&format!(\"{}/disk\", output)).unwrap();\n   |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: change this to: `format!(\"{}/disk\", output)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\n   = note: `#[warn(clippy::needless_borrows_for_generic_args)]` on by default\n\n",
-              "warning: the borrowed expression implements the required traits\n  --> domain/src/subcommand/build.rs:13:28\n   |\n13 |         fs::create_dir_all(&format!(\"{}/init\", output)).unwrap();\n   |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: change this to: `format!(\"{}/init\", output)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrows_for_generic_args\n\n"
-            ]
-          }
-        },
-        {
-          "file": "domain/src/subcommand/new.rs",
-          "features": "",
-          "count": 2,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: unneeded `return` statement\n  --> domain/src/subcommand/new.rs:79:62\n   |\n79 |           println!(\"Error: the domain project already exists\");\n   |  ______________________________________________________________^\n80 | |         return;\n   | |______________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n   |\n79 -         println!(\"Error: the domain project already exists\");\n80 -         return;\n79 +         println!(\"Error: the domain project already exists\");\n   |\n\n",
-              "warning: file opened with `create`, but `truncate` behavior not defined\n  --> domain/src/subcommand/new.rs:89:14\n   |\n89 |             .create(true)\n   |              ^^^^^^^^^^^^- help: add: `.truncate(true)`\n   |\n   = help: if you intend to overwrite an existing file entirely, call `.truncate(true)`\n   = help: if you instead know that you may want to keep some parts of the old file, call `.truncate(false)`\n   = help: alternatively, use `.append(true)` to append to the file instead of overwriting it\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#suspicious_open_options\n   = note: `#[warn(clippy::suspicious_open_options)]` on by default\n\n"
-            ]
-          }
-        },
-        {
-          "file": "domain/src/subcommand/fmt.rs",
+          "file": "batch_5/os-module/domains",
           "features": "",
           "count": 1,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: unneeded `return` statement\n  --> domain/src/subcommand/fmt.rs:13:10\n   |\n13 |           }\n   |  __________^\n14 | |         return;\n   | |______________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n   = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n   |\n13 -         }\n14 -         return;\n13 +         }\n   |\n\n"
+            "Cargo": [
+              "\n   0: 无法解析 `batch_5/os-module/domains` 内的 Rust 项目布局\n   1: 无法从 /home/runner/check/batch_5/os-module/domains/common/fifo_scheduler/Cargo.toml 中读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error: error: failed to load manifest for workspace member `/home/runner/check/batch_5/os-module/domains/common/fifo_scheduler/fifo_scheduler`\n      referenced by workspace at `/home/runner/check/batch_5/os-module/domains/common/fifo_scheduler/Cargo.toml`\n\n      Caused by:\n        failed to load manifest for dependency `basic`\n\n      Caused by:\n        failed to read `/home/runner/check/batch_5/os-module/domain-lib/basic/Cargo.toml`\n\n      Caused by:\n        No such file or directory (os error 2)\n   1: \n\nLocation:\n   src/layout/mod.rs:69\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::run_checker::run with user=\"os-module\" repo=\"domains\"\n      at src/run_checker/mod.rs:255\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
             ]
           }
         }
