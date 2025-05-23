@@ -47,15 +47,15 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Mirai": [
-              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> src/x86.rs:59:9\n   |\n59 |         asm!(\"mov {ptr}, rbp\", ptr = out(reg) fp);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/kern-crates/axbacktrace/src/x86.rs (original lines from 1 to 1)\n-use core::arch::asm;\n",
               "file: /home/runner/check/batch_4/kern-crates/axbacktrace/src/x86.rs (original lines from 3 to 3)\n+use core::arch::asm;\n",
               "file: /home/runner/check/batch_4/kern-crates/axbacktrace/src/x86.rs (original lines from 66 to 68)\n-    fn new(pc:usize, fp: usize, stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: false, pc, fp, stack_info}\n+    fn new(pc: usize, fp: usize, stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: false,\n+            pc,\n+            fp,\n+            stack_info,\n+        }\n",
               "file: /home/runner/check/batch_4/kern-crates/axbacktrace/src/x86.rs (original lines from 71 to 73)\n-    fn new_from_cur_ctx(stack_info: StackInfo)\n-        -> Self {\n-        Unwind{init_curr: true, pc: 0, fp: 0, stack_info}\n+    fn new_from_cur_ctx(stack_info: StackInfo) -> Self {\n+        Unwind {\n+            init_curr: true,\n+            pc: 0,\n+            fp: 0,\n+            stack_info,\n+        }\n",
               "file: /home/runner/check/batch_4/kern-crates/axbacktrace/src/x86.rs (original lines from 85 to 85)\n-            error!(\"unwind init sp: {:#016x} is invalid\",self.fp);\n+            error!(\"unwind init sp: {:#016x} is invalid\", self.fp);\n"
+            ],
+            "Mirai": [
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> src/x86.rs:59:9\n   |\n59 |         asm!(\"mov {ptr}, rbp\", ptr = out(reg) fp);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
             ]
           }
         },
