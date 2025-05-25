@@ -8,7 +8,7 @@
       "user": "Byte-OS",
       "repo": "polyhal",
       "pkg": "polyhal",
-      "count": 28,
+      "count": 29,
       "raw_reports": [
         {
           "file": "polyhal/src/components/mem/loongarch64.rs",
@@ -37,6 +37,18 @@
           }
         },
         {
+          "file": "polyhal/src/components/kcontext/loongarch64.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unused import: `core::mem::offset_of`\n --> polyhal/src/components/kcontext/loongarch64.rs:1:5\n  |\n1 | use core::mem::offset_of;\n  |     ^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
+              "warning: unsafe function's docs are missing a `# Safety` section\n   --> polyhal/src/components/kcontext/loongarch64.rs:289:1\n    |\n289 | pub unsafe extern \"C\" fn context_switch(from: *mut KContext, to: *const KContext) {\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n",
+              "warning: unsafe function's docs are missing a `# Safety` section\n   --> polyhal/src/components/kcontext/loongarch64.rs:304:1\n    |\n304 | / pub unsafe extern \"C\" fn context_switch_pt(\n305 | |     from: *mut KContext,\n306 | |     to: *const KContext,\n307 | |     pt_token: PageTable,\n308 | | ) {\n    | |_^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+            ]
+          }
+        },
+        {
           "file": "polyhal/src/mem.rs",
           "features": "",
           "count": 3,
@@ -61,17 +73,6 @@
           }
         },
         {
-          "file": "polyhal/src/components/kcontext/loongarch64.rs",
-          "features": "",
-          "count": 2,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: unsafe function's docs are missing a `# Safety` section\n   --> polyhal/src/components/kcontext/loongarch64.rs:134:1\n    |\n134 | pub unsafe extern \"C\" fn context_switch(from: *mut KContext, to: *const KContext) {\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n",
-              "warning: unsafe function's docs are missing a `# Safety` section\n   --> polyhal/src/components/kcontext/loongarch64.rs:149:1\n    |\n149 | / pub unsafe extern \"C\" fn context_switch_pt(\n150 | |     from: *mut KContext,\n151 | |     to: *const KContext,\n152 | |     pt_token: PageTable,\n153 | | ) {\n    | |_^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
-            ]
-          }
-        },
-        {
           "file": "polyhal/src/debug_console/loongarch64.rs",
           "features": "",
           "count": 2,
@@ -88,7 +89,7 @@
           "count": 1,
           "kinds": {
             "Audit": [
-              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.3.2\n│       ├── polyhal-trap 0.3.2\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.3.2\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.3.2\n│   ├── polyhal-boot 0.3.2\n│   └── polyhal 0.3.2\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.3.2\n    ├── polyhal-boot 0.3.2\n    └── polyhal 0.3.2\n\n\n{\n  \"database\": {\n    \"advisory-count\": 780,\n    \"last-commit\": \"982c2320aa55b3095110a0b0eadd446d83be45f9\",\n    \"last-updated\": \"2025-05-14T22:55:51+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.3.2\n│       ├── polyhal-trap 0.3.2\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.3.2\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.3.2\n│   ├── polyhal-boot 0.3.2\n│   └── polyhal 0.3.2\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.3.2\n    ├── polyhal-boot 0.3.2\n    └── polyhal 0.3.2\n\n\n{\n  \"database\": {\n    \"advisory-count\": 782,\n    \"last-commit\": \"bccf313a98c034573ac4170e6271749113343d97\",\n    \"last-updated\": \"2025-05-22T19:04:33+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
             ]
           }
         },
@@ -98,7 +99,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=polyhal, checker=Clippy\n// toolchain=nightly-2025-02-01, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal\n// cmd=cargo clippy --target loongarch64-unknown-none  --no-deps\n// timestamp=2025-05-16 5:42:34.430805216 +08:00:00\n   Compiling polyhal v0.3.2 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\nerror: could not compile `polyhal` (lib) due to 2 previous errors; 17 warnings emitted\n"
+              "// pkg_name=polyhal, checker=Clippy\n// toolchain=nightly-2025-02-01, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal\n// cmd=cargo clippy --target loongarch64-unknown-none  --no-deps\n// timestamp=2025-05-25 12:43:21.468651879 +08:00:00\n   Compiling polyhal v0.3.2 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\nerror: could not compile `polyhal` (lib) due to 2 previous errors; 18 warnings emitted\n"
             ]
           }
         },
@@ -108,7 +109,7 @@
           "count": 1,
           "kinds": {
             "Lockbud(Possibly)": [
-              "[2025-05-15T21:45:04Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-15T21:45:04Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+              "[2025-05-25T04:45:40Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T04:45:40Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
             ]
           }
         },
@@ -118,7 +119,7 @@
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=polyhal, checker=Outdated\ntoolchain=nightly-2025-02-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-16 5:48:58.967728534 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  cfg(target_arch = \"aarch64\")\nbitflags        2.9.0    2.9.1   2.9.1   Normal  ---\nfdt-parser      0.4.10   0.4.13  0.4.13  Normal  ---\nlog             0.4.26   0.4.27  0.4.27  Normal  ---\nloongArch64     0.2.4    0.2.5   0.2.5   Normal  cfg(target_arch = \"loongarch64\")\nsbi-rt          0.0.2    ---     0.0.3   Normal  cfg(target_arch = \"riscv64\")\ntock-registers  0.8.1    ---     0.9.0   Normal  cfg(target_arch = \"aarch64\")\n"
+              "pkg=polyhal, checker=Outdated\ntoolchain=nightly-2025-02-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 12:49:27.525897108 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  cfg(target_arch = \"aarch64\")\nbitflags        2.9.0    2.9.1   2.9.1   Normal  ---\nfdt-parser      0.4.10   0.4.16  0.4.16  Normal  ---\nlog             0.4.26   0.4.27  0.4.27  Normal  ---\nloongArch64     0.2.4    0.2.5   0.2.5   Normal  cfg(target_arch = \"loongarch64\")\nsbi-rt          0.0.2    ---     0.0.3   Normal  cfg(target_arch = \"riscv64\")\ntock-registers  0.8.1    ---     0.9.0   Normal  cfg(target_arch = \"aarch64\")\n"
             ]
           }
         },
@@ -188,7 +189,7 @@
       "user": "Byte-OS",
       "repo": "polyhal",
       "pkg": "polyhal-trap",
-      "count": 25,
+      "count": 26,
       "raw_reports": [
         {
           "file": "polyhal-trap/src/trap/loongarch64/unaligned.rs",
@@ -270,7 +271,7 @@
           "count": 1,
           "kinds": {
             "Audit": [
-              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.3.2\n│       ├── polyhal-trap 0.3.2\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.3.2\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.3.2\n│   ├── polyhal-boot 0.3.2\n│   └── polyhal 0.3.2\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.3.2\n    ├── polyhal-boot 0.3.2\n    └── polyhal 0.3.2\n\n\n{\n  \"database\": {\n    \"advisory-count\": 780,\n    \"last-commit\": \"982c2320aa55b3095110a0b0eadd446d83be45f9\",\n    \"last-updated\": \"2025-05-14T22:55:51+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.3.2\n│       ├── polyhal-trap 0.3.2\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.3.2\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.3.2\n│   ├── polyhal-boot 0.3.2\n│   └── polyhal 0.3.2\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.3.2\n    ├── polyhal-boot 0.3.2\n    └── polyhal 0.3.2\n\n\n{\n  \"database\": {\n    \"advisory-count\": 782,\n    \"last-commit\": \"bccf313a98c034573ac4170e6271749113343d97\",\n    \"last-updated\": \"2025-05-22T19:04:33+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
             ]
           }
         },
@@ -280,7 +281,7 @@
           "count": 1,
           "kinds": {
             "Lockbud(Possibly)": [
-              "[2025-05-15T21:45:04Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-15T21:45:04Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+              "[2025-05-25T04:45:40Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T04:45:40Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
             ]
           }
         },
@@ -290,7 +291,7 @@
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=polyhal-trap, checker=Outdated\ntoolchain=nightly-2025-02-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-16 5:49:06.337374001 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  cfg(target_arch = \"aarch64\")\nbitflags        2.9.0    2.9.1   2.9.1   Normal  ---\nlog             0.4.26   0.4.27  0.4.27  Normal  ---\nloongArch64     0.2.4    0.2.5   0.2.5   Normal  cfg(target_arch = \"loongarch64\")\ntock-registers  0.8.1    ---     0.9.0   Normal  cfg(target_arch = \"aarch64\")\n"
+              "pkg=polyhal-trap, checker=Outdated\ntoolchain=nightly-2025-02-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 12:49:34.666838004 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  cfg(target_arch = \"aarch64\")\nbitflags        2.9.0    2.9.1   2.9.1   Normal  ---\nlog             0.4.26   0.4.27  0.4.27  Normal  ---\nloongArch64     0.2.4    0.2.5   0.2.5   Normal  cfg(target_arch = \"loongarch64\")\ntock-registers  0.8.1    ---     0.9.0   Normal  cfg(target_arch = \"aarch64\")\n"
             ]
           }
         },
@@ -301,6 +302,16 @@
           "kinds": {
             "Clippy(Warn)": [
               "warning: field `0` is never read\n  --> polyhal/src/components/irq/mod.rs:35:22\n   |\n35 | pub struct IRQVector(usize);\n   |            --------- ^^^^^\n   |            |\n   |            field in this struct\n   |\n   = help: consider removing this field\n   = note: `IRQVector` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis\n   = note: `#[warn(dead_code)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/components/kcontext/loongarch64.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unused import: `core::mem::offset_of`\n --> polyhal/src/components/kcontext/loongarch64.rs:1:5\n  |\n1 | use core::mem::offset_of;\n  |     ^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
             ]
           }
         },
@@ -320,7 +331,7 @@
       "user": "Byte-OS",
       "repo": "polyhal",
       "pkg": "example",
-      "count": 21,
+      "count": 22,
       "raw_reports": [
         {
           "file": "polyhal/src/components/mem/loongarch64.rs",
@@ -376,7 +387,7 @@
           "count": 1,
           "kinds": {
             "Audit": [
-              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.3.2\n│       ├── polyhal-trap 0.3.2\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.3.2\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.3.2\n│   ├── polyhal-boot 0.3.2\n│   └── polyhal 0.3.2\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.3.2\n    ├── polyhal-boot 0.3.2\n    └── polyhal 0.3.2\n\n\n{\n  \"database\": {\n    \"advisory-count\": 780,\n    \"last-commit\": \"982c2320aa55b3095110a0b0eadd446d83be45f9\",\n    \"last-updated\": \"2025-05-14T22:55:51+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.3.2\n│       ├── polyhal-trap 0.3.2\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.3.2\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.3.2\n│   ├── polyhal-boot 0.3.2\n│   └── polyhal 0.3.2\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.3.2\n    ├── polyhal-boot 0.3.2\n    └── polyhal 0.3.2\n\n\n{\n  \"database\": {\n    \"advisory-count\": 782,\n    \"last-commit\": \"bccf313a98c034573ac4170e6271749113343d97\",\n    \"last-updated\": \"2025-05-22T19:04:33+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
             ]
           }
         },
@@ -386,7 +397,7 @@
           "count": 1,
           "kinds": {
             "Lockbud(Possibly)": [
-              "[2025-05-15T21:45:04Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-15T21:45:04Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+              "[2025-05-25T04:45:40Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T04:45:40Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
             ]
           }
         },
@@ -396,7 +407,7 @@
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=example, checker=Outdated\ntoolchain=nightly-2025-02-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/example\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-16 5:48:56.632334734 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\nlog             0.4.26   0.4.27  0.4.27  Normal  ---\nvirtio-drivers  0.7.5    ---     0.11.0  Normal  ---\n"
+              "pkg=example, checker=Outdated\ntoolchain=nightly-2025-02-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/example\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 12:49:24.925667245 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\nlog             0.4.26   0.4.27  0.4.27  Normal  ---\nvirtio-drivers  0.7.5    ---     0.11.0  Normal  ---\n"
             ]
           }
         },
@@ -451,6 +462,16 @@
           }
         },
         {
+          "file": "polyhal/src/components/kcontext/loongarch64.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unused import: `core::mem::offset_of`\n --> polyhal/src/components/kcontext/loongarch64.rs:1:5\n  |\n1 | use core::mem::offset_of;\n  |     ^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
+            ]
+          }
+        },
+        {
           "file": "polyhal/src/components/mem/mod.rs",
           "features": "",
           "count": 1,
@@ -466,7 +487,7 @@
       "user": "Byte-OS",
       "repo": "polyhal",
       "pkg": "polyhal-boot",
-      "count": 17,
+      "count": 18,
       "raw_reports": [
         {
           "file": "polyhal/src/components/mem/loongarch64.rs",
@@ -522,7 +543,7 @@
           "count": 1,
           "kinds": {
             "Audit": [
-              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.3.2\n│       ├── polyhal-trap 0.3.2\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.3.2\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.3.2\n│   ├── polyhal-boot 0.3.2\n│   └── polyhal 0.3.2\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.3.2\n    ├── polyhal-boot 0.3.2\n    └── polyhal 0.3.2\n\n\n{\n  \"database\": {\n    \"advisory-count\": 780,\n    \"last-commit\": \"982c2320aa55b3095110a0b0eadd446d83be45f9\",\n    \"last-updated\": \"2025-05-14T22:55:51+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.3.2\n│       ├── polyhal-trap 0.3.2\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.3.2\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.3.2\n│   ├── polyhal-boot 0.3.2\n│   └── polyhal 0.3.2\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.3.2\n    ├── polyhal-boot 0.3.2\n    └── polyhal 0.3.2\n\n\n{\n  \"database\": {\n    \"advisory-count\": 782,\n    \"last-commit\": \"bccf313a98c034573ac4170e6271749113343d97\",\n    \"last-updated\": \"2025-05-22T19:04:33+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
             ]
           }
         },
@@ -532,7 +553,7 @@
           "count": 1,
           "kinds": {
             "Lockbud(Possibly)": [
-              "[2025-05-15T21:45:04Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-15T21:45:04Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+              "[2025-05-25T04:45:40Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T04:45:40Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
             ]
           }
         },
@@ -542,7 +563,7 @@
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=polyhal-boot, checker=Outdated\ntoolchain=nightly-2025-02-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-16 5:49:01.285291739 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  cfg(target_arch = \"aarch64\")\nloongArch64     0.2.4    0.2.5   0.2.5   Normal  cfg(target_arch = \"loongarch64\")\ntock-registers  0.8.1    ---     0.9.0   Normal  cfg(target_arch = \"aarch64\")\n"
+              "pkg=polyhal-boot, checker=Outdated\ntoolchain=nightly-2025-02-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 12:49:29.927850602 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  cfg(target_arch = \"aarch64\")\nloongArch64     0.2.4    0.2.5   0.2.5   Normal  cfg(target_arch = \"loongarch64\")\ntock-registers  0.8.1    ---     0.9.0   Normal  cfg(target_arch = \"aarch64\")\n"
             ]
           }
         },
@@ -553,6 +574,16 @@
           "kinds": {
             "Clippy(Warn)": [
               "warning: field `0` is never read\n  --> polyhal/src/components/irq/mod.rs:35:22\n   |\n35 | pub struct IRQVector(usize);\n   |            --------- ^^^^^\n   |            |\n   |            field in this struct\n   |\n   = help: consider removing this field\n   = note: `IRQVector` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis\n   = note: `#[warn(dead_code)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/components/kcontext/loongarch64.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unused import: `core::mem::offset_of`\n --> polyhal/src/components/kcontext/loongarch64.rs:1:5\n  |\n1 | use core::mem::offset_of;\n  |     ^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
             ]
           }
         },
@@ -580,7 +611,7 @@
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=polyhal-macro, checker=Outdated\ntoolchain=nightly-2025-02-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-macro\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-16 5:49:03.634003296 +08:00:00\n\nName         Project  Compat   Latest   Kind    Platform\n----         -------  ------   ------   ----    --------\nproc-macro2  1.0.94   1.0.95   1.0.95   Normal  ---\nsyn          2.0.100  2.0.101  2.0.101  Normal  ---\n"
+              "pkg=polyhal-macro, checker=Outdated\ntoolchain=nightly-2025-02-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-macro\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 12:49:32.290082128 +08:00:00\n\nName         Project  Compat   Latest   Kind    Platform\n----         -------  ------   ------   ----    --------\nproc-macro2  1.0.94   1.0.95   1.0.95   Normal  ---\nsyn          2.0.100  2.0.101  2.0.101  Normal  ---\n"
             ]
           }
         }
