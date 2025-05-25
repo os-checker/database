@@ -15,13 +15,13 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Mirai": [
-              "warning: unused import: `Node`\n --> examples/enumerate/src/timer.rs:6:41\n  |\n6 |     register::{DriverRegister, FdtInfo, Node, ProbeKind, ProbeLevel, ProbePriority},\n  |                                         ^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: unused import: `Node`\n --> examples/enumerate/src/timer.rs:6:41\n  |\n6 |     register::{DriverRegister, FdtInfo, Node, ProbeKind, ProbeLevel, ProbePriority},\n  |                                         ^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
               "warning: you seem to be trying to use `match` for destructuring a single pattern. Consider using `if let`\n  --> examples/enumerate/src/timer.rs:25:5\n   |\n25 | /     match desc.irq_parent {\n26 | |         Some(parent) => match get_dev!(parent, Intc) {\n27 | |             Some(intc) => {\n28 | |                 debug!(\"intc : {}\", intc.descriptor.name);\n...  |\n32 | |         None => {}\n33 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#single_match\n   = note: `#[warn(clippy::single_match)]` on by default\nhelp: try\n   |\n25 ~     if let Some(parent) = desc.irq_parent { match get_dev!(parent, Intc) {\n26 +         Some(intc) => {\n27 +             debug!(\"intc : {}\", intc.descriptor.name);\n28 +         }\n29 +         None => {}\n30 +     } }\n   |\n\n",
               "warning: you seem to be trying to use `match` for destructuring a single pattern. Consider using `if let`\n  --> examples/enumerate/src/timer.rs:26:25\n   |\n26 |           Some(parent) => match get_dev!(parent, Intc) {\n   |  _________________________^\n27 | |             Some(intc) => {\n28 | |                 debug!(\"intc : {}\", intc.descriptor.name);\n...  |\n31 | |         },\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#single_match\nhelp: try\n   |\n26 ~         Some(parent) => if let Some(intc) = get_dev!(parent, Intc) {\n27 +             debug!(\"intc : {}\", intc.descriptor.name);\n28 ~         },\n   |\n\n"
+            ],
+            "Mirai": [
+              "warning: unused import: `Node`\n --> examples/enumerate/src/timer.rs:6:41\n  |\n6 |     register::{DriverRegister, FdtInfo, Node, ProbeKind, ProbeLevel, ProbePriority},\n  |                                         ^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
             ]
           }
         },
