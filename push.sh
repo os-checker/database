@@ -6,6 +6,9 @@ if [ -n "$BOT" ]; then
   echo "更新 ui 目录"
   os-checker-database
 
+  # Rewrite lockbud diagnostics by extracting file names.
+  convert_repo_json --input ui/repos/ --emit inplace
+
   export branch=$(git branch --show-current)
 
   echo "bot!"
