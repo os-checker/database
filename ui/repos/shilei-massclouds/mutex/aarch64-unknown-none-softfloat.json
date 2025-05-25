@@ -8,8 +8,18 @@
       "user": "shilei-massclouds",
       "repo": "mutex",
       "pkg": "mutex",
-      "count": 6,
+      "count": 7,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "/home/runner/check/batch_9/shilei-massclouds/mutex/Cargo.lock",
           "features": "",
@@ -76,7 +86,7 @@
       "user": "shilei-massclouds",
       "repo": "mutex",
       "pkg": "rt_mutex",
-      "count": 6,
+      "count": 7,
       "raw_reports": [
         {
           "file": "src/main.rs",
@@ -86,6 +96,16 @@
             "Unformatted": [
               "file: /home/runner/check/batch_9/shilei-massclouds/mutex/rt_mutex/src/main.rs (original lines from 8 to 8)\n+use axtype::{align_down_4k, align_up_4k, phys_to_virt, virt_to_phys};\n",
               "file: /home/runner/check/batch_9/shilei-massclouds/mutex/rt_mutex/src/main.rs (original lines from 9 to 9)\n-use axtype::{align_up_4k, align_down_4k, phys_to_virt, virt_to_phys};\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

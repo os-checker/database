@@ -8,13 +8,17 @@
       "user": "arceos-hypervisor",
       "repo": "axvisor",
       "pkg": "axvisor",
-      "count": 78,
+      "count": 83,
       "raw_reports": [
         {
           "file": "src/vmm/vcpus.rs",
           "features": "",
           "count": 16,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: function call inside of `expect`\n   --> src/vmm/vcpus.rs:342:26\n    |\n342 |                           .expect(&format!(\n    |  __________________________^\n343 | |                             \"Physical CPU ID {} not found in VM configuration\",\n344 | |                             target_cpu\n345 | |                         ));\n    | |__________________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#expect_fun_call\n    = note: `#[warn(clippy::expect_fun_call)]` on by default\nhelp: try\n    |\n342 ~                         .unwrap_or_else(|| panic!(\"Physical CPU ID {} not found in VM configuration\",\n343 ~                             target_cpu));\n    |\n\n",
+              "warning: function call inside of `expect`\n   --> src/vmm/vcpus.rs:342:26\n    |\n342 |                           .expect(&format!(\n    |  __________________________^\n343 | |                             \"Physical CPU ID {} not found in VM configuration\",\n344 | |                             target_cpu\n345 | |                         ));\n    | |__________________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#expect_fun_call\n    = note: `#[warn(clippy::expect_fun_call)]` on by default\nhelp: try\n    |\n342 ~                         .unwrap_or_else(|| panic!(\"Physical CPU ID {} not found in VM configuration\",\n343 ~                             target_cpu));\n    |\n\n"
+            ],
             "Clippy(Error)": [
               "error: creating a shared reference to mutable static is discouraged\n   --> src/vmm/vcpus.rs:118:14\n    |\n118 |     unsafe { VM_VCPU_TASK_WAIT_QUEUE.get(&vm_id) }\n    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n    = note: `#[deny(static_mut_refs)]` on by default\n\n",
               "error: creating a shared reference to mutable static is discouraged\n   --> src/vmm/vcpus.rs:135:14\n    |\n135 |     unsafe { VM_VCPU_TASK_WAIT_QUEUE.get(&vm_id) }\n    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
@@ -30,10 +34,6 @@
               "error: creating a shared reference to mutable static is discouraged\n   --> src/vmm/vcpus.rs:164:14\n    |\n164 |     unsafe { VM_VCPU_TASK_WAIT_QUEUE.get(&vm_id) }\n    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
               "error: creating a mutable reference to mutable static is discouraged\n   --> src/vmm/vcpus.rs:205:14\n    |\n205 |     unsafe { VM_VCPU_TASK_WAIT_QUEUE.get_mut(&vm.id()) }\n    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
               "error: creating a mutable reference to mutable static is discouraged\n   --> src/vmm/vcpus.rs:229:9\n    |\n229 |         VM_VCPU_TASK_WAIT_QUEUE.insert(vm_id, vm_vcpus);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: function call inside of `expect`\n   --> src/vmm/vcpus.rs:342:26\n    |\n342 |                           .expect(&format!(\n    |  __________________________^\n343 | |                             \"Physical CPU ID {} not found in VM configuration\",\n344 | |                             target_cpu\n345 | |                         ));\n    | |__________________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#expect_fun_call\n    = note: `#[warn(clippy::expect_fun_call)]` on by default\nhelp: try\n    |\n342 ~                         .unwrap_or_else(|| panic!(\"Physical CPU ID {} not found in VM configuration\",\n343 ~                             target_cpu));\n    |\n\n",
-              "warning: function call inside of `expect`\n   --> src/vmm/vcpus.rs:342:26\n    |\n342 |                           .expect(&format!(\n    |  __________________________^\n343 | |                             \"Physical CPU ID {} not found in VM configuration\",\n344 | |                             target_cpu\n345 | |                         ));\n    | |__________________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#expect_fun_call\n    = note: `#[warn(clippy::expect_fun_call)]` on by default\nhelp: try\n    |\n342 ~                         .unwrap_or_else(|| panic!(\"Physical CPU ID {} not found in VM configuration\",\n343 ~                             target_cpu));\n    |\n\n"
             ]
           }
         },
@@ -215,6 +215,17 @@
           }
         },
         {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:218:18: 218:55 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}",
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:222:13: 222:53 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
           "file": "src/logo.rs",
           "features": "",
           "count": 2,
@@ -222,6 +233,36 @@
             "Clippy(Warn)": [
               "warning: constants have by default a `'static` lifetime\n --> src/logo.rs:4:15\n  |\n4 | const LOGO: [&'static str; 2] = [\n  |              -^^^^^^^---- help: consider removing `'static`: `&str`\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_static_lifetimes\n  = note: `#[warn(clippy::redundant_static_lifetimes)]` on by default\n\n",
               "warning: constants have by default a `'static` lifetime\n --> src/logo.rs:4:15\n  |\n4 | const LOGO: [&'static str; 2] = [\n  |              -^^^^^^^---- help: consider removing `'static`: `&str`\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_static_lifetimes\n  = note: `#[warn(clippy::redundant_static_lifetimes)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.15/src/lazy.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.15/src/lazy.rs:36:23: 36:43 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.15/src/lazy.rs:39:13: 39:39 (#0)\",\n    \"dep_kind\": \"Both\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:525:25: 525:59 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:530:17: 530:69 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         }

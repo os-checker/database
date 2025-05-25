@@ -8,7 +8,7 @@
       "user": "shilei-massclouds",
       "repo": "driver_virtio",
       "pkg": "rt_driver_virtio",
-      "count": 8,
+      "count": 9,
       "raw_reports": [
         {
           "file": "src/main.rs",
@@ -20,6 +20,16 @@
               "file: /home/runner/check/batch_8/shilei-massclouds/driver_virtio/rt_driver_virtio/src/main.rs (original lines from 12 to 12)\n+use driver_common::{BaseDriverOps, DeviceType};\n",
               "file: /home/runner/check/batch_8/shilei-massclouds/driver_virtio/rt_driver_virtio/src/main.rs (original lines from 13 to 14)\n-const DISK_SIZE: usize = 0x1000_0000;    // 256M\n-const BLOCK_SIZE: usize = 0x200;        // 512\n+const DISK_SIZE: usize = 0x1000_0000; // 256M\n+const BLOCK_SIZE: usize = 0x200; // 512\n",
               "file: /home/runner/check/batch_8/shilei-massclouds/driver_virtio/rt_driver_virtio/src/main.rs (original lines from 47 to 47)\n-    assert_eq!(disk.num_blocks() as usize, DISK_SIZE/BLOCK_SIZE);\n+    assert_eq!(disk.num_blocks() as usize, DISK_SIZE / BLOCK_SIZE);\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -69,8 +79,18 @@
       "user": "shilei-massclouds",
       "repo": "driver_virtio",
       "pkg": "driver_virtio",
-      "count": 4,
+      "count": 5,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "(virtual) rapx",
           "features": "",

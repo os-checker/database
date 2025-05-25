@@ -8,7 +8,7 @@
       "user": "shilei-massclouds",
       "repo": "fileops",
       "pkg": "fileops",
-      "count": 48,
+      "count": 49,
       "raw_reports": [
         {
           "file": "src/lib.rs",
@@ -57,6 +57,16 @@
               "file: /home/runner/check/batch_8/shilei-massclouds/fileops/fileops/src/lib.rs (original lines from 784 to 785)\n-    error!(\"utimensat: dfd {:#x} path {} times {} flags {}\",\n-        dfd, path, times, flags);\n+    error!(\n+        \"utimensat: dfd {:#x} path {} times {} flags {}\",\n+        dfd, path, times, flags\n+    );\n",
               "file: /home/runner/check/batch_8/shilei-massclouds/fileops/fileops/src/lib.rs (original lines from 810 to 812)\n-pub fn mount(fsname: &str, dir: &str, fstype: &str, flags: usize, data: usize) -> LinuxResult<usize> {\n-    info!(\"mount: name {} dir {} ty {} flags {:#x} data {:#x}\",\n-        fsname, dir, fstype, flags, data);\n+pub fn mount(\n+    fsname: &str,\n+    dir: &str,\n+    fstype: &str,\n+    flags: usize,\n+    data: usize,\n+) -> LinuxResult<usize> {\n+    info!(\n+        \"mount: name {} dir {} ty {} flags {:#x} data {:#x}\",\n+        fsname, dir, fstype, flags, data\n+    );\n",
               "file: /home/runner/check/batch_8/shilei-massclouds/fileops/fileops/src/lib.rs (original lines from 842 to 843)\n-    let console = File::open(\"/dev/console\", &opts, &fs, 0, 0)\n-        .expect(\"bad /dev/console\");\n+    let console = File::open(\"/dev/console\", &opts, &fs, 0, 0).expect(\"bad /dev/console\");\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -136,8 +146,18 @@
       "user": "shilei-massclouds",
       "repo": "fileops",
       "pkg": "rt_fileops",
-      "count": 4,
+      "count": 5,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "/home/runner/check/batch_8/shilei-massclouds/fileops/Cargo.lock",
           "features": "",

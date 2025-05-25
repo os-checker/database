@@ -8,7 +8,7 @@
       "user": "Starry-OS",
       "repo": "spinlock",
       "pkg": "spinlock",
-      "count": 13,
+      "count": 14,
       "raw_reports": [
         {
           "file": "src/base.rs",
@@ -25,6 +25,16 @@
               "warning: the following explicit lifetimes could be elided: 'a\n   --> src/base.rs:212:6\n    |\n212 | impl<'a, G: BaseGuard, T: ?Sized + fmt::Debug> fmt::Debug for BaseSpinLockGuard<'a, G, T> {\n    |      ^^                                                                         ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n212 - impl<'a, G: BaseGuard, T: ?Sized + fmt::Debug> fmt::Debug for BaseSpinLockGuard<'a, G, T> {\n212 + impl<G: BaseGuard, T: ?Sized + fmt::Debug> fmt::Debug for BaseSpinLockGuard<'_, G, T> {\n    |\n\n",
               "warning: the following explicit lifetimes could be elided: 'a\n   --> src/base.rs:218:6\n    |\n218 | impl<'a, G: BaseGuard, T: ?Sized> Drop for BaseSpinLockGuard<'a, G, T> {\n    |      ^^                                                      ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n218 - impl<'a, G: BaseGuard, T: ?Sized> Drop for BaseSpinLockGuard<'a, G, T> {\n218 + impl<G: BaseGuard, T: ?Sized> Drop for BaseSpinLockGuard<'_, G, T> {\n    |\n\n",
               "warning: the following explicit lifetimes could be elided: 'a\n   --> src/base.rs:218:6\n    |\n218 | impl<'a, G: BaseGuard, T: ?Sized> Drop for BaseSpinLockGuard<'a, G, T> {\n    |      ^^                                                      ^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n    |\n218 - impl<'a, G: BaseGuard, T: ?Sized> Drop for BaseSpinLockGuard<'a, G, T> {\n218 + impl<G: BaseGuard, T: ?Sized> Drop for BaseSpinLockGuard<'_, G, T> {\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

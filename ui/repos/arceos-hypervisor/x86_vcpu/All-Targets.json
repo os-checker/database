@@ -8,7 +8,7 @@
       "user": "arceos-hypervisor",
       "repo": "x86_vcpu",
       "pkg": "x86_vcpu",
-      "count": 20,
+      "count": 21,
       "raw_reports": [
         {
           "file": "src/vmx/vcpu.rs",
@@ -79,6 +79,16 @@
             "Mirai": [
               "warning: [MIRAI] possible attempt to add with overflow\n   --> src/vmx/vmcs.rs:700:22\n    |\n700 |         access_size: qualification.get_bits(0..3) as u8 + 1,\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] assertion failed\n   --> src/vmx/vmcs.rs:752:5\n    |\n752 | /     set_control(\n753 | |         VmcsControl32::VMENTRY_CONTROLS,\n754 | |         Msr::IA32_VMX_TRUE_ENTRY_CTLS,\n755 | |         VmcsControl32::VMENTRY_CONTROLS.read()?,\n756 | |         (EntryCtrl::IA32E_MODE_GUEST).bits(),\n757 | |         0,\n758 | |     )?;\n    | |_____^\n    |\nnote: related location\n   --> src/vmx/vmcs.rs:599:5\n    |\n599 |     assert_eq!(allowed0 & allowed1, allowed0);\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

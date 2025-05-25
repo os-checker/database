@@ -8,14 +8,14 @@
       "user": "arceos-hypervisor",
       "repo": "riscv_vcpu",
       "pkg": "riscv_vcpu",
-      "count": 75,
+      "count": 77,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sbi-rt-0.0.3/src/binary.rs",
           "features": "",
           "count": 60,
           "kinds": {
-            "Mirai": [
+            "Clippy(Error)": [
               "error: invalid register `a7`: unknown register\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sbi-rt-0.0.3/src/binary.rs:11:13\n   |\n11 |             in(\"a7\") eid,\n   |             ^^^^^^^^^^^^\n\n",
               "error: invalid register `a6`: unknown register\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sbi-rt-0.0.3/src/binary.rs:12:13\n   |\n12 |             in(\"a6\") fid,\n   |             ^^^^^^^^^^^^\n\n",
               "error: invalid register `a0`: unknown register\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sbi-rt-0.0.3/src/binary.rs:13:13\n   |\n13 |             lateout(\"a0\") error,\n   |             ^^^^^^^^^^^^^^^^^^^\n\n",
@@ -47,7 +47,7 @@
               "error: invalid register `a3`: unknown register\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sbi-rt-0.0.3/src/binary.rs:109:13\n    |\n109 |             in(\"a3\") arg3,\n    |             ^^^^^^^^^^^^^\n\n",
               "error: invalid register `a4`: unknown register\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sbi-rt-0.0.3/src/binary.rs:110:13\n    |\n110 |             in(\"a4\") arg4,\n    |             ^^^^^^^^^^^^^\n\n"
             ],
-            "Clippy(Error)": [
+            "Mirai": [
               "error: invalid register `a7`: unknown register\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sbi-rt-0.0.3/src/binary.rs:11:13\n   |\n11 |             in(\"a7\") eid,\n   |             ^^^^^^^^^^^^\n\n",
               "error: invalid register `a6`: unknown register\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sbi-rt-0.0.3/src/binary.rs:12:13\n   |\n12 |             in(\"a6\") fid,\n   |             ^^^^^^^^^^^^\n\n",
               "error: invalid register `a0`: unknown register\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sbi-rt-0.0.3/src/binary.rs:13:13\n   |\n13 |             lateout(\"a0\") error,\n   |             ^^^^^^^^^^^^^^^^^^^\n\n",
@@ -144,6 +144,26 @@
             "Clippy(Warn)": [
               "warning: operator precedence can trip the unwary\n  --> src/vcpu.rs:88:43\n   |\n88 |         self.regs.virtual_hs_csrs.hgatp = 8usize << 60 | usize::from(ept_root) >> 12;\n   |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(8usize << 60) | (usize::from(ept_root) >> 12)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[warn(clippy::precedence)]` on by default\n\n",
               "warning: operator precedence can trip the unwary\n   --> src/vcpu.rs:293:34\n    |\n293 |                 let fault_addr = self.regs.trap_csrs.htval << 2 | self.regs.trap_csrs.stval & 0x3;\n    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(self.regs.trap_csrs.htval << 2) | self.regs.trap_csrs.stval & 0x3`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:525:25: 525:59 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:530:17: 530:69 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

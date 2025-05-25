@@ -7,71 +7,8 @@
     {
       "user": "arceos-org",
       "repo": "starry-next",
-      "pkg": "sleep",
-      "count": 10,
-      "raw_reports": [
-        {
-          "file": "src/main.rs",
-          "features": "",
-          "count": 5,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
-              "error: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\n",
-              "error: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\n",
-              "error[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
-              "error[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n"
-            ]
-          }
-        },
-        {
-          "file": "unkonwn-but-maybe-important",
-          "features": "",
-          "count": 2,
-          "kinds": {
-            "Clippy(Error)": [
-              "error: `#[panic_handler]` function required, but not found\n\n",
-              "error: requires `sized` lang_item\n\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) clippy",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=sleep, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo clippy --target riscv64imac-unknown-none-elf  --no-deps\n// timestamp=2025-05-25 11:33:02.751633258 +08:00:00\n    Checking sleep v0.1.0 (/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) lockbud",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=sleep, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64imac-unknown-none-elf \n// timestamp=2025-05-25 11:34:04.840844019 +08:00:00\n   Compiling sleep v0.1.0 (/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) rapx",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=sleep, checker=Rapx\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64imac-unknown-none-elf \n// timestamp=2025-05-25 11:35:02.418704831 +08:00:00\n    Checking sleep v0.1.0 (/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n03:35:02|RAP|ERROR|: Finished with non-zero exit code.\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "arceos-org",
-      "repo": "starry-next",
       "pkg": "starry",
-      "count": 10,
+      "count": 11,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/riscv/context.rs",
@@ -83,6 +20,16 @@
               "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/riscv/context.rs:284:3\n    |\n284 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
               "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/riscv/context.rs:284:1\n    |\n284 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
               "error[E0658]: use of unstable library feature `naked_functions`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/riscv/context.rs:1:5\n  |\n1 | use core::arch::naked_asm;\n  |     ^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n  = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n  = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -143,6 +90,69 @@
           "kinds": {
             "Lockbud(Possibly)": [
               "[2025-05-25T03:34:33Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T03:34:33Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "starry-next",
+      "pkg": "sleep",
+      "count": 10,
+      "raw_reports": [
+        {
+          "file": "src/main.rs",
+          "features": "",
+          "count": 5,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\n",
+              "error: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\n",
+              "error[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "unkonwn-but-maybe-important",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: `#[panic_handler]` function required, but not found\n\n",
+              "error: requires `sized` lang_item\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=sleep, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo clippy --target riscv64imac-unknown-none-elf  --no-deps\n// timestamp=2025-05-25 11:33:02.751633258 +08:00:00\n    Checking sleep v0.1.0 (/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=sleep, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64imac-unknown-none-elf \n// timestamp=2025-05-25 11:34:04.840844019 +08:00:00\n   Compiling sleep v0.1.0 (/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=sleep, checker=Rapx\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64imac-unknown-none-elf \n// timestamp=2025-05-25 11:35:02.418704831 +08:00:00\n    Checking sleep v0.1.0 (/home/runner/check/batch_4/arceos-org/starry-next/apps/libc/rust/task/sleep)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `sleep` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:5:5\n  |\n5 |     println!(\"Woke up from sleep!\");\n  |     ^^^^^^^\n\nerror: cannot find macro `println` in this scope\n --> src/main.rs:2:5\n  |\n2 |     println!(\"Sleep for 5 seconds from Rust!\");\n  |     ^^^^^^^\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:3:20\n  |\n3 |     let duration = std::time::Duration::from_secs(5);\n  |                    ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n --> src/main.rs:4:5\n  |\n4 |     std::thread::sleep(duration);\n  |     ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: `#[panic_handler]` function required, but not found\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `sleep` (bin \"sleep\") due to 7 previous errors\n03:35:02|RAP|ERROR|: Finished with non-zero exit code.\n"
             ]
           }
         }

@@ -8,7 +8,7 @@
       "user": "Godones",
       "repo": "rCoreloongArch",
       "pkg": "kernel",
-      "count": 47,
+      "count": 49,
       "raw_reports": [
         {
           "file": "kernel/src/mm/page_table.rs",
@@ -146,6 +146,16 @@
             "Clippy(Warn)": [
               "warning: module has the same name as its containing module\n --> kernel/src/trap/mod.rs:2:1\n  |\n2 | mod trap;\n  | ^^^^^^^^^\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#module_inception\n\n",
               "warning: used `assert_eq!` with a literal bool\n   --> kernel/src/trap/mod.rs:252:5\n    |\n252 |     assert_eq!(tlbidx.ne(), false);\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bool_assert_comparison\n    = note: `#[warn(clippy::bool_assert_comparison)]` on by default\nhelp: replace it with `assert!(..)`\n    |\n252 -     assert_eq!(tlbidx.ne(), false);\n252 +     assert!(!tlbidx.ne());\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -290,6 +300,16 @@
           }
         },
         {
+          "file": "kernel/src/task/processor.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at kernel/src/task/processor.rs:75:17: 75:61 (#0) after dropped at kernel/src/task/processor.rs:78:5: 78:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
           "file": "kernel/src/timer.rs",
           "features": "",
           "count": 1,
@@ -315,17 +335,13 @@
       "user": "Godones",
       "repo": "rCoreloongArch",
       "pkg": "isomorphic_drivers",
-      "count": 35,
+      "count": 36,
       "raw_reports": [
         {
           "file": "isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs",
           "features": "",
           "count": 16,
           "kinds": {
-            "Clippy(Error)": [
-              "error: this operation will always return zero. This is likely not the intended outcome\n  --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:98:27\n   |\n98 | const IXGBE_CTRL: usize = 0x00000 / 4;\n   |                           ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#erasing_op\n   = note: `#[deny(clippy::erasing_op)]` on by default\n\n",
-              "error: this call for this type may be undefined behavior\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninit_assumed_init\n    = note: `#[deny(clippy::uninit_assumed_init)]` on by default\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: operator precedence can trip the unwary\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:335:33\n    |\n335 |         ixgbe[IXGBE_CTRL].write(1 << 3 | 1 << 26);\n    |                                 ^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(1 << 3) | (1 << 26)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
               "warning: operator precedence can trip the unwary\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:336:43\n    |\n336 |         while ixgbe[IXGBE_CTRL].read() & (1 << 3 | 1 << 26) != 0 {}\n    |                                           ^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(1 << 3) | (1 << 26)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
@@ -341,6 +357,10 @@
               "warning: the loop variable `i` is used to index `send_queue`\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:526:22\n    |\n526 |             for i in 0..IXGBE_SEND_DESC_NUM {\n    |                      ^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator and enumerate()\n    |\n526 |             for (i, <item>) in send_queue.iter_mut().enumerate().take(IXGBE_SEND_DESC_NUM) {\n    |                 ~~~~~~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
               "warning: the type `[&mut [net::ethernet::intel::ixgbe::IXGBESendDesc]; 4]` does not permit being left uninitialized\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                      |\n    |                      this code causes undefined behavior when executed\n    |                      help: use `MaybeUninit<T>` instead, and only call `assume_init` after initialization is done\n    |\n    = note: references must be non-null\n    = note: `#[warn(invalid_value)]` on by default\n\n",
               "warning: the type `[&mut [net::ethernet::intel::ixgbe::IXGBESendDesc]; 4]` does not permit being left uninitialized\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                      |\n    |                      this code causes undefined behavior when executed\n    |                      help: use `MaybeUninit<T>` instead, and only call `assume_init` after initialization is done\n    |\n    = note: references must be non-null\n    = note: `#[warn(invalid_value)]` on by default\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: this operation will always return zero. This is likely not the intended outcome\n  --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:98:27\n   |\n98 | const IXGBE_CTRL: usize = 0x00000 / 4;\n   |                           ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#erasing_op\n   = note: `#[deny(clippy::erasing_op)]` on by default\n\n",
+              "error: this call for this type may be undefined behavior\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninit_assumed_init\n    = note: `#[deny(clippy::uninit_assumed_init)]` on by default\n\n"
             ]
           }
         },
@@ -366,15 +386,25 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Clippy(Error)": [
-              "error: incompatible bit mask: `_ | 32768` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:328:19\n    |\n328 |             while port.command.read() | (1 << 15) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
-              "error: incompatible bit mask: `_ | 16384` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:335:19\n    |\n335 |             while port.command.read() | (1 << 14) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n",
-              "error: incompatible bit mask: `_ | 1` can never be equal to `0`\n   --> isomorphic_drivers/src/block/ahci.rs:399:19\n    |\n399 |             while port.command.read() | (1 << 0) == 0 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: empty doc comment\n  --> isomorphic_drivers/src/block/ahci.rs:14:1\n   |\n14 | ///\n   | ^^^\n   |\n   = help: consider removing or filling it\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#empty_docs\n   = note: `#[warn(clippy::empty_docs)]` on by default\n\n",
               "warning: this operation has no effect\n   --> isomorphic_drivers/src/block/ahci.rs:278:22\n    |\n278 |         self.lba_0 = (lba >> 0) as u8;\n    |                      ^^^^^^^^^^ help: consider reducing it to: `lba`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n    = note: `#[warn(clippy::identity_op)]` on by default\n\n",
               "warning: unneeded `return` statement\n   --> isomorphic_drivers/src/block/ahci.rs:513:5\n    |\n513 |     return String::from_utf8(swapped_data).unwrap();\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n    = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n    |\n513 -     return String::from_utf8(swapped_data).unwrap();\n513 +     String::from_utf8(swapped_data).unwrap()\n    |\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: incompatible bit mask: `_ | 32768` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:328:19\n    |\n328 |             while port.command.read() | (1 << 15) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
+              "error: incompatible bit mask: `_ | 16384` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:335:19\n    |\n335 |             while port.command.read() | (1 << 14) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n",
+              "error: incompatible bit mask: `_ | 1` can never be equal to `0`\n   --> isomorphic_drivers/src/block/ahci.rs:399:19\n    |\n399 |             while port.command.read() | (1 << 0) == 0 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -648,8 +678,18 @@
       "user": "Godones",
       "repo": "rCoreloongArch",
       "pkg": "stack_trace",
-      "count": 4,
+      "count": 5,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "(virtual) semver-checks",
           "features": "",

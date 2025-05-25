@@ -8,7 +8,7 @@
       "user": "arceos-hypervisor",
       "repo": "x86_vcpu",
       "pkg": "x86_vcpu",
-      "count": 8,
+      "count": 9,
       "raw_reports": [
         {
           "file": "src/vmx/vcpu.rs",
@@ -20,6 +20,16 @@
               "warning: operator precedence can trip the unwary\n    --> src/vmx/vcpu.rs:1114:24\n     |\n1114 |         let base_low = entry.get_bits(16..40) | entry.get_bits(56..64) << 24;\n     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `entry.get_bits(16..40) | (entry.get_bits(56..64) << 24)`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
               "warning: operator precedence can trip the unwary\n    --> src/vmx/vcpu.rs:1116:9\n     |\n1116 |         base_low | base_high << 32\n     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `base_low | (base_high << 32)`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
               "warning: an array of `Range` that is only one element\n   --> src/vmx/vcpu.rs:441:36\n    |\n441 |           let io_to_be_intercepted = [\n    |  ____________________________________^\n...   |\n468 | |             QEMU_EXIT_PORT..QEMU_EXIT_PORT + 1, // QEMU exit port\n469 | |         ];\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#single_range_in_vec_init\n    = note: `#[warn(clippy::single_range_in_vec_init)]` on by default\nhelp: if you wanted a `Vec` that contains the entire range, try\n    |\n441 |         let io_to_be_intercepted = (QEMU_EXIT_PORT..QEMU_EXIT_PORT + 1).collect::<std::vec::Vec<u16>>();\n    |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

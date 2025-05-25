@@ -8,7 +8,7 @@
       "user": "shilei-massclouds",
       "repo": "rust_fatfs",
       "pkg": "rust_fatfs",
-      "count": 46,
+      "count": 47,
       "raw_reports": [
         {
           "file": "tests/format.rs",
@@ -89,6 +89,16 @@
             "Clippy(Warn)": [
               "warning: manually reimplementing `div_ceil`\n   --> src/dir.rs:739:37\n    |\n739 | const MAX_LONG_DIR_ENTRIES: usize = (MAX_LONG_NAME_LEN + LFN_PART_LEN - 1) / LFN_PART_LEN;\n    |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `MAX_LONG_NAME_LEN.div_ceil(LFN_PART_LEN)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n\n",
               "warning: manually reimplementing `div_ceil`\n   --> src/dir.rs:955:27\n    |\n955 |         let num_entries = (name_utf16.len() + LFN_PART_LEN - 1) / LFN_PART_LEN;\n    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `name_utf16.len().div_ceil(LFN_PART_LEN)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

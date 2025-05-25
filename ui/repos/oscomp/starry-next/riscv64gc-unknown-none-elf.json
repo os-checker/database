@@ -8,7 +8,7 @@
       "user": "oscomp",
       "repo": "starry-next",
       "pkg": "starry-core",
-      "count": 22,
+      "count": 23,
       "raw_reports": [
         {
           "file": "core/src/mm.rs",
@@ -39,6 +39,16 @@
               "error[E0425]: cannot find value `USER_HEAP_BASE` in module `axconfig::plat`\n   --> core/src/task.rs:228:56\n    |\n228 |             heap_top: AtomicUsize::new(axconfig::plat::USER_HEAP_BASE),\n    |                                                        ^^^^^^^^^^^^^^ not found in `axconfig::plat`\n\n",
               "error[E0425]: cannot find value `SIGNAL_TRAMPOLINE` in module `axconfig::plat`\n   --> core/src/task.rs:235:33\n    |\n235 |                 axconfig::plat::SIGNAL_TRAMPOLINE,\n    |                                 ^^^^^^^^^^^^^^^^^ not found in `axconfig::plat`\n\n",
               "error[E0599]: no method named `wait_timeout` found for struct `axtask::WaitQueue` in the current scope\n   --> core/src/task.rs:142:20\n    |\n142 |             self.0.wait_timeout(timeout)\n    |                    ^^^^^^^^^^^^ method not found in `WaitQueue`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -128,7 +138,7 @@
       "user": "oscomp",
       "repo": "starry-next",
       "pkg": "starry-api",
-      "count": 20,
+      "count": 22,
       "raw_reports": [
         {
           "file": "core/src/mm.rs",
@@ -157,6 +167,26 @@
               "error[E0425]: cannot find value `USER_HEAP_BASE` in module `axconfig::plat`\n   --> core/src/task.rs:227:59\n    |\n227 |             heap_bottom: AtomicUsize::new(axconfig::plat::USER_HEAP_BASE),\n    |                                                           ^^^^^^^^^^^^^^ not found in `axconfig::plat`\n\n",
               "error[E0425]: cannot find value `USER_HEAP_BASE` in module `axconfig::plat`\n   --> core/src/task.rs:228:56\n    |\n228 |             heap_top: AtomicUsize::new(axconfig::plat::USER_HEAP_BASE),\n    |                                                        ^^^^^^^^^^^^^^ not found in `axconfig::plat`\n\n",
               "error[E0425]: cannot find value `SIGNAL_TRAMPOLINE` in module `axconfig::plat`\n   --> core/src/task.rs:235:33\n    |\n235 |                 axconfig::plat::SIGNAL_TRAMPOLINE,\n    |                                 ^^^^^^^^^^^^^^^^^ not found in `axconfig::plat`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-3bdd51727ca45c19/f29b248/modules/axnet/src/smoltcp_impl/udp.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"DoubleLock\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"first_lock_type\": \"SpinWrite(core::option::Option<smoltcp::wire::IpEndpoint>)\",\n    \"first_lock_span\": \"/home/runner/.cargo/git/checkouts/arceos-3bdd51727ca45c19/f29b248/modules/axnet/src/smoltcp_impl/udp.rs:138:13: 138:31 (#0)\",\n    \"second_lock_type\": \"SpinWrite(core::option::Option<smoltcp::wire::IpEndpoint>)\",\n    \"second_lock_span\": \"/home/runner/.cargo/git/checkouts/arceos-3bdd51727ca45c19/f29b248/modules/axnet/src/smoltcp_impl/udp.rs:77:13: 77:32 (#0)\",\n    \"callchains\": [\n      [\n        [\n          \"/home/runner/.cargo/git/checkouts/arceos-3bdd51727ca45c19/f29b248/modules/axnet/src/smoltcp_impl/udp.rs:141:13: 141:64 (#0)\"\n        ]\n      ]\n    ]\n  },\n  \"explanation\": \"The first lock is not released when acquiring the second lock\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -246,7 +276,7 @@
       "user": "oscomp",
       "repo": "starry-next",
       "pkg": "starry",
-      "count": 18,
+      "count": 20,
       "raw_reports": [
         {
           "file": "core/src/mm.rs",
@@ -275,6 +305,26 @@
               "error[E0425]: cannot find value `USER_HEAP_BASE` in module `axconfig::plat`\n   --> core/src/task.rs:227:59\n    |\n227 |             heap_bottom: AtomicUsize::new(axconfig::plat::USER_HEAP_BASE),\n    |                                                           ^^^^^^^^^^^^^^ not found in `axconfig::plat`\n\n",
               "error[E0425]: cannot find value `USER_HEAP_BASE` in module `axconfig::plat`\n   --> core/src/task.rs:228:56\n    |\n228 |             heap_top: AtomicUsize::new(axconfig::plat::USER_HEAP_BASE),\n    |                                                        ^^^^^^^^^^^^^^ not found in `axconfig::plat`\n\n",
               "error[E0425]: cannot find value `SIGNAL_TRAMPOLINE` in module `axconfig::plat`\n   --> core/src/task.rs:235:33\n    |\n235 |                 axconfig::plat::SIGNAL_TRAMPOLINE,\n    |                                 ^^^^^^^^^^^^^^^^^ not found in `axconfig::plat`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-3bdd51727ca45c19/f29b248/modules/axnet/src/smoltcp_impl/udp.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"DoubleLock\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"first_lock_type\": \"SpinWrite(core::option::Option<smoltcp::wire::IpEndpoint>)\",\n    \"first_lock_span\": \"/home/runner/.cargo/git/checkouts/arceos-3bdd51727ca45c19/f29b248/modules/axnet/src/smoltcp_impl/udp.rs:138:13: 138:31 (#0)\",\n    \"second_lock_type\": \"SpinWrite(core::option::Option<smoltcp::wire::IpEndpoint>)\",\n    \"second_lock_span\": \"/home/runner/.cargo/git/checkouts/arceos-3bdd51727ca45c19/f29b248/modules/axnet/src/smoltcp_impl/udp.rs:77:13: 77:32 (#0)\",\n    \"callchains\": [\n      [\n        [\n          \"/home/runner/.cargo/git/checkouts/arceos-3bdd51727ca45c19/f29b248/modules/axnet/src/smoltcp_impl/udp.rs:141:13: 141:64 (#0)\"\n        ]\n      ]\n    ]\n  },\n  \"explanation\": \"The first lock is not released when acquiring the second lock\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

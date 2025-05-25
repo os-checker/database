@@ -8,7 +8,7 @@
       "user": "drivercraft",
       "repo": "rdrive",
       "pkg": "enumerate",
-      "count": 5,
+      "count": 8,
       "raw_reports": [
         {
           "file": "examples/enumerate/src/timer.rs",
@@ -26,12 +26,42 @@
           }
         },
         {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:525:25: 525:59 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:530:17: 530:69 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
           "file": "[lockbud] Not supported to display yet.",
           "features": "",
           "count": 1,
           "kinds": {
             "Lockbud(Possibly)": [
               "[2025-05-25T03:40:29Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T03:40:29Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2025-05-25T03:40:33Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:525:25: 525:59 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:530:17: 530:69 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T03:40:33Z WARN  lockbud::callbacks] crate env_filter contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2025-05-25T03:40:37Z WARN  lockbud::callbacks] [\n      {\n        \"DoubleLock\": {\n          \"bug_kind\": \"DoubleLock\",\n          \"possibility\": \"Probably\",\n          \"diagnosis\": {\n            \"first_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n            \"first_lock_span\": \"rdrive/src/lib.rs:40:9: 40:14 (#0)\",\n            \"second_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n            \"second_lock_span\": \"rdrive/src/lib.rs:48:9: 48:10 (#0)\",\n            \"callchains\": [\n              [\n                [\n                  \"rdrive/src/lib.rs:41:5: 41:45 (#0)\"\n                ],\n                [\n                  \"rdrive/src/lib.rs:93:39: 93:63 (#0)\"\n                ],\n                [\n                  \"rdrive/src/manager.rs:29:9: 29:47 (#0)\"\n                ],\n                [\n                  \"rdrive/src/probe/mod.rs:53:31: 53:56 (#0)\"\n                ],\n                [],\n                [\n                  \"rdrive/src/lib.rs:149:9: 156:11 (#85)\"\n                ]\n              ]\n            ]\n          },\n          \"explanation\": \"The first lock is not released when acquiring the second lock\"\n        }\n      },\n      {\n        \"DoubleLock\": {\n          \"bug_kind\": \"DoubleLock\",\n          \"possibility\": \"Probably\",\n          \"diagnosis\": {\n            \"first_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n            \"first_lock_span\": \"rdrive/src/lib.rs:40:9: 40:14 (#0)\",\n            \"second_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n            \"second_lock_span\": \"rdrive/src/lib.rs:48:9: 48:10 (#0)\",\n            \"callchains\": [\n              [\n                [\n                  \"rdrive/src/lib.rs:41:5: 41:45 (#0)\"\n                ],\n                [\n                  \"rdrive/src/lib.rs:93:39: 93:63 (#0)\"\n                ],\n                [\n                  \"rdrive/src/manager.rs:29:9: 29:47 (#0)\"\n                ],\n                [\n                  \"rdrive/src/probe/mod.rs:53:31: 53:56 (#0)\"\n                ],\n                [],\n                [\n                  \"rdrive/src/lib.rs:149:9: 156:11 (#85)\"\n                ]\n              ]\n            ]\n          },\n          \"explanation\": \"The first lock is not released when acquiring the second lock\"\n        }\n      }\n    ]\n[2025-05-25T03:40:37Z WARN  lockbud::callbacks] crate rdrive contains bugs: { probably: 2, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "rdrive/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"DoubleLock\",\n  \"possibility\": \"Probably\",\n  \"diagnosis\": {\n    \"first_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n    \"first_lock_span\": \"rdrive/src/lib.rs:40:9: 40:14 (#0)\",\n    \"second_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n    \"second_lock_span\": \"rdrive/src/lib.rs:48:9: 48:10 (#0)\",\n    \"callchains\": [\n      [\n        [\n          \"rdrive/src/lib.rs:41:5: 41:45 (#0)\"\n        ],\n        [\n          \"rdrive/src/lib.rs:93:39: 93:63 (#0)\"\n        ],\n        [\n          \"rdrive/src/manager.rs:29:9: 29:47 (#0)\"\n        ],\n        [\n          \"rdrive/src/probe/mod.rs:53:31: 53:56 (#0)\"\n        ],\n        [],\n        [\n          \"rdrive/src/lib.rs:149:9: 156:11 (#85)\"\n        ]\n      ]\n    ]\n  },\n  \"explanation\": \"The first lock is not released when acquiring the second lock\"\n}"
             ]
           }
         }
@@ -41,7 +71,7 @@
       "user": "drivercraft",
       "repo": "rdrive",
       "pkg": "rdrive",
-      "count": 5,
+      "count": 7,
       "raw_reports": [
         {
           "file": "src/register/mod.rs",
@@ -51,6 +81,16 @@
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/rdrive/rdrive/src/register/mod.rs (original lines from 123 to 123)\n-        self.registers.insert(\n+        self.registers.insert(id, DriverRegisterData {\n",
               "file: /home/runner/check/batch_4/drivercraft/rdrive/rdrive/src/register/mod.rs (original lines from 125 to 130)\n-            DriverRegisterData {\n-                id,\n-                register,\n-                probed: false,\n-            },\n-        );\n+            register,\n+            probed: false,\n+        });\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -71,6 +111,16 @@
           "kinds": {
             "Lockbud(Possibly)": [
               "[2025-05-25T03:40:42Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T03:40:42Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2025-05-25T03:40:42Z WARN  lockbud::callbacks] [\n      {\n        \"DoubleLock\": {\n          \"bug_kind\": \"DoubleLock\",\n          \"possibility\": \"Probably\",\n          \"diagnosis\": {\n            \"first_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n            \"first_lock_span\": \"rdrive/src/lib.rs:40:9: 40:14 (#0)\",\n            \"second_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n            \"second_lock_span\": \"rdrive/src/lib.rs:48:9: 48:10 (#0)\",\n            \"callchains\": [\n              [\n                [\n                  \"rdrive/src/lib.rs:41:5: 41:45 (#0)\"\n                ],\n                [\n                  \"rdrive/src/lib.rs:93:39: 93:63 (#0)\"\n                ],\n                [\n                  \"rdrive/src/manager.rs:29:9: 29:47 (#0)\"\n                ],\n                [\n                  \"rdrive/src/probe/mod.rs:53:31: 53:56 (#0)\"\n                ],\n                [],\n                [\n                  \"rdrive/src/lib.rs:149:9: 156:11 (#85)\"\n                ]\n              ]\n            ]\n          },\n          \"explanation\": \"The first lock is not released when acquiring the second lock\"\n        }\n      },\n      {\n        \"DoubleLock\": {\n          \"bug_kind\": \"DoubleLock\",\n          \"possibility\": \"Probably\",\n          \"diagnosis\": {\n            \"first_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n            \"first_lock_span\": \"rdrive/src/lib.rs:40:9: 40:14 (#0)\",\n            \"second_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n            \"second_lock_span\": \"rdrive/src/lib.rs:48:9: 48:10 (#0)\",\n            \"callchains\": [\n              [\n                [\n                  \"rdrive/src/lib.rs:41:5: 41:45 (#0)\"\n                ],\n                [\n                  \"rdrive/src/lib.rs:93:39: 93:63 (#0)\"\n                ],\n                [\n                  \"rdrive/src/manager.rs:29:9: 29:47 (#0)\"\n                ],\n                [\n                  \"rdrive/src/probe/mod.rs:53:31: 53:56 (#0)\"\n                ],\n                [],\n                [\n                  \"rdrive/src/lib.rs:149:9: 156:11 (#85)\"\n                ]\n              ]\n            ]\n          },\n          \"explanation\": \"The first lock is not released when acquiring the second lock\"\n        }\n      }\n    ]\n[2025-05-25T03:40:42Z WARN  lockbud::callbacks] crate rdrive contains bugs: { probably: 2, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "rdrive/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"DoubleLock\",\n  \"possibility\": \"Probably\",\n  \"diagnosis\": {\n    \"first_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n    \"first_lock_span\": \"rdrive/src/lib.rs:40:9: 40:14 (#0)\",\n    \"second_lock_type\": \"SpinMutex(core::option::Option<manager::Manager>)\",\n    \"second_lock_span\": \"rdrive/src/lib.rs:48:9: 48:10 (#0)\",\n    \"callchains\": [\n      [\n        [\n          \"rdrive/src/lib.rs:41:5: 41:45 (#0)\"\n        ],\n        [\n          \"rdrive/src/lib.rs:93:39: 93:63 (#0)\"\n        ],\n        [\n          \"rdrive/src/manager.rs:29:9: 29:47 (#0)\"\n        ],\n        [\n          \"rdrive/src/probe/mod.rs:53:31: 53:56 (#0)\"\n        ],\n        [],\n        [\n          \"rdrive/src/lib.rs:149:9: 156:11 (#85)\"\n        ]\n      ]\n    ]\n  },\n  \"explanation\": \"The first lock is not released when acquiring the second lock\"\n}"
             ]
           }
         },

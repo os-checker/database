@@ -8,21 +8,21 @@
       "user": "shilei-massclouds",
       "repo": "macrokernel",
       "pkg": "rt_macrokernel",
-      "count": 24,
+      "count": 25,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs",
           "features": "",
           "count": 10,
           "kinds": {
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0432]: unresolved imports `platform::getchar`, `platform::putchar`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:12:20\n   |\n12 | pub use platform::{getchar, putchar};\n   |                    ^^^^^^^  ^^^^^^^ no `putchar` in `platform`\n   |                    |\n   |                    no `getchar` in `platform`\n\n",
               "error[E0432]: unresolved imports `platform::getchar`, `platform::putchar`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:12:20\n   |\n12 | pub use platform::{getchar, putchar};\n   |                    ^^^^^^^  ^^^^^^^ no `putchar` in `platform`\n   |                    |\n   |                    no `getchar` in `platform`\n\n",
               "error[E0425]: cannot find function `console_init` in module `platform`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:17:15\n   |\n17 |     platform::console_init();\n   |               ^^^^^^^^^^^^ not found in `platform`\n\n",
               "error[E0425]: cannot find function `putchar` in module `platform`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:23:19\n   |\n23 |         platform::putchar(*c);\n   |                   ^^^^^^^ not found in `platform`\n   |\nhelp: consider importing this function\n   |\n12 + use crate::platform::console::putchar;\n   |\nhelp: if you import `putchar`, refer to it directly\n   |\n23 -         platform::putchar(*c);\n23 +         putchar(*c);\n   |\n\n",
               "error[E0425]: cannot find function `getchar` in module `platform`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:31:36\n   |\n31 |         if let Some(c) = platform::getchar() {\n   |                                    ^^^^^^^ not found in `platform`\n   |\nhelp: consider importing this function\n   |\n12 + use crate::platform::console::getchar;\n   |\nhelp: if you import `getchar`, refer to it directly\n   |\n31 -         if let Some(c) = platform::getchar() {\n31 +         if let Some(c) = getchar() {\n   |\n\n"
             ],
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0432]: unresolved imports `platform::getchar`, `platform::putchar`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:12:20\n   |\n12 | pub use platform::{getchar, putchar};\n   |                    ^^^^^^^  ^^^^^^^ no `putchar` in `platform`\n   |                    |\n   |                    no `getchar` in `platform`\n\n",
               "error[E0432]: unresolved imports `platform::getchar`, `platform::putchar`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:12:20\n   |\n12 | pub use platform::{getchar, putchar};\n   |                    ^^^^^^^  ^^^^^^^ no `putchar` in `platform`\n   |                    |\n   |                    no `getchar` in `platform`\n\n",
               "error[E0425]: cannot find function `console_init` in module `platform`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:17:15\n   |\n17 |     platform::console_init();\n   |               ^^^^^^^^^^^^ not found in `platform`\n\n",
@@ -54,6 +54,16 @@
             ],
             "Mirai": [
               "error[E0433]: failed to resolve: unresolved import\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/platform/dummy/mod.rs:31:69\n   |\n31 |     pub(crate) fn platform_regions() -> impl Iterator<Item = crate::mem::MemRegion> {\n   |                                                                     ^^^\n   |                                                                     |\n   |                                                                     unresolved import\n   |                                                                     help: a similar path exists: `core::mem`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

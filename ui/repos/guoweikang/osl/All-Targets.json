@@ -8,13 +8,16 @@
       "user": "guoweikang",
       "repo": "osl",
       "pkg": "osl",
-      "count": 19,
+      "count": 21,
       "raw_reports": [
         {
           "file": "src/arceos/driver/i2c/msg.rs",
           "features": "--features arceos",
           "count": 11,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: length comparison to zero\n  --> src/arceos/driver/i2c/msg.rs:94:13\n   |\n94 |             self.buf.len() == 0\n   |             ^^^^^^^^^^^^^^^^^^^ help: using `is_empty` is clearer and more explicit: `self.buf.is_empty()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_zero\n   = note: `#[warn(clippy::len_zero)]` on by default\n\n"
+            ],
             "Mirai": [
               "warning: [MIRAI] assertion failed: flags.contains(I2cMsgFlags::I2cMasterRead)\n  --> src/arceos/driver/i2c/msg.rs:46:10\n   |\n46 |          assert!(flags.contains(I2cMsgFlags::I2cMasterRead));\n   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] assertion failed: self.flags.contains(I2cMsgFlags::I2cMasterRecvLen)\n  --> src/arceos/driver/i2c/msg.rs:67:9\n   |\n67 |         assert!(self.flags.contains(I2cMsgFlags::I2cMasterRecvLen));\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
@@ -26,9 +29,6 @@
               "warning: [MIRAI] assertion failed: self.flags.contains(I2cMsgFlags::I2cMasterRead)\n   --> src/arceos/driver/i2c/msg.rs:108:9\n    |\n108 |         assert!(self.flags.contains(I2cMsgFlags::I2cMasterRead));\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] assertion failed: !self.flags.contains(I2cMsgFlags::I2cMasterRead)\n   --> src/arceos/driver/i2c/msg.rs:119:9\n    |\n119 |         assert!(!self.flags.contains(I2cMsgFlags::I2cMasterRead));\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] assertion failed: self.flags.contains(I2cMsgFlags::I2cMasterRecvLen)\n   --> src/arceos/driver/i2c/msg.rs:129:9\n    |\n129 |         assert!(self.flags.contains(I2cMsgFlags::I2cMasterRecvLen));\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: length comparison to zero\n  --> src/arceos/driver/i2c/msg.rs:94:13\n   |\n94 |             self.buf.len() == 0\n   |             ^^^^^^^^^^^^^^^^^^^ help: using `is_empty` is clearer and more explicit: `self.buf.is_empty()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_zero\n   = note: `#[warn(clippy::len_zero)]` on by default\n\n"
             ]
           }
         },
@@ -40,6 +40,26 @@
             "Clippy(Warn)": [
               "warning: doc list item without indentation\n --> src/sync.rs:6:5\n  |\n6 | //!  must supply a stuct called OslCompletion and implement GeneralComplete\n  |     ^\n  |\n  = help: if this is supposed to be its own paragraph, add a blank line\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n  = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n  |\n6 | //!   must supply a stuct called OslCompletion and implement GeneralComplete\n  |      +\n\n",
               "warning: doc list item without indentation\n --> src/sync.rs:9:5\n  |\n9 | //!  must supply a stuct called SpinLock and implement lock\n  |     ^\n  |\n  = help: if this is supposed to be its own paragraph, add a blank line\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\nhelp: indent this line\n  |\n9 | //!   must supply a stuct called SpinLock and implement lock\n  |      +\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/axtask-a853ac150ce01602/d41e073/src/schedule.rs",
+          "features": "--features arceos",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/git/checkouts/axtask-a853ac150ce01602/d41e073/src/schedule.rs:216:64: 216:80 (#0) after dropped at /home/runner/.cargo/git/checkouts/axtask-a853ac150ce01602/d41e073/src/schedule.rs:137:21: 137:30 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features arceos",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

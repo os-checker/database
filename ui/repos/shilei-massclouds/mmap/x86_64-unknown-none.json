@@ -8,7 +8,7 @@
       "user": "shilei-massclouds",
       "repo": "mmap",
       "pkg": "mmap",
-      "count": 41,
+      "count": 42,
       "raw_reports": [
         {
           "file": "src/lib.rs",
@@ -51,6 +51,16 @@
               "file: /home/runner/check/batch_9/shilei-massclouds/mmap/mmap/src/lib.rs (original lines from 723 to 723)\n-    assert_eq!(oaddr+osize, area.vm_end);\n+    assert_eq!(oaddr + osize, area.vm_end);\n",
               "file: /home/runner/check/batch_9/shilei-massclouds/mmap/mmap/src/lib.rs (original lines from 753 to 753)\n-        },\n+        }\n",
               "file: /home/runner/check/batch_9/shilei-massclouds/mmap/mmap/src/lib.rs (original lines from 756 to 756)\n-        },\n+        }\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -120,7 +130,7 @@
       "user": "shilei-massclouds",
       "repo": "mmap",
       "pkg": "rt_mmap",
-      "count": 12,
+      "count": 13,
       "raw_reports": [
         {
           "file": "src/main.rs",
@@ -136,6 +146,16 @@
               "file: /home/runner/check/batch_9/shilei-massclouds/mmap/rt_mmap/src/main.rs (original lines from 88 to 88)\n-    info!(\"do_openat: ... {}, {}, {}, {}, ofd {:#x} => fd {:#x}\", dfd, fname, flags, mode, ofd, fd);\n+    info!(\n+        \"do_openat: ... {}, {}, {}, {}, ofd {:#x} => fd {:#x}\",\n+        dfd, fname, flags, mode, ofd, fd\n+    );\n",
               "file: /home/runner/check/batch_9/shilei-massclouds/mmap/rt_mmap/src/main.rs (original lines from 110 to 111)\n-    error!(\"mmap: va {:#x} len {:#x} prot {:#x} flags {:#x} ofd {} off {:#x} result {}\",\n-          va, len, prot, flags, ofd, offset, result);\n+    error!(\n+        \"mmap: va {:#x} len {:#x} prot {:#x} flags {:#x} ofd {} off {:#x} result {}\",\n+        va, len, prot, flags, ofd, offset, result\n+    );\n",
               "file: /home/runner/check/batch_9/shilei-massclouds/mmap/rt_mmap/src/main.rs (original lines from 117 to 120)\n-    let ret = mmap::mmap(va, len, prot, flags, *fd, offset)\n-        .unwrap_or_else(|e| {\n-            linux_err_from!(e)\n-        });\n+    let ret = mmap::mmap(va, len, prot, flags, *fd, offset).unwrap_or_else(|e| linux_err_from!(e));\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

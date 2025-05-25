@@ -8,7 +8,7 @@
       "user": "qclic",
       "repo": "sparreal-os",
       "pkg": "sparreal-rt",
-      "count": 23,
+      "count": 27,
       "raw_reports": [
         {
           "file": "crates/sparreal-rt/src/mem/mod.rs",
@@ -43,13 +43,13 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: unnecessary `unsafe` block\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:18:5\n   |\n18 |     unsafe {\n   |     ^^^^^^ unnecessary `unsafe` block\n   |\n   = note: `#[warn(unused_unsafe)]` on by default\n\n",
-              "warning: unnecessary `unsafe` block\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:47:5\n   |\n47 |     unsafe {\n   |     ^^^^^^ unnecessary `unsafe` block\n\n"
-            ],
             "Clippy(Error)": [
               "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:13:3\n   |\n13 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n13 | #[unsafe(naked)]\n   |   +++++++     +\n\n",
               "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:43:3\n   |\n43 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n43 | #[unsafe(naked)]\n   |   +++++++     +\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: unnecessary `unsafe` block\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:18:5\n   |\n18 |     unsafe {\n   |     ^^^^^^ unnecessary `unsafe` block\n   |\n   = note: `#[warn(unused_unsafe)]` on by default\n\n",
+              "warning: unnecessary `unsafe` block\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:47:5\n   |\n47 |     unsafe {\n   |     ^^^^^^ unnecessary `unsafe` block\n\n"
             ]
           }
         },
@@ -63,6 +63,27 @@
               "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/trap.rs:16:1\n   |\n16 | #[aarch64_trap_handler(kind = \"fiq\")]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ usage of unsafe attribute\n   |\n   = note: this error originates in the attribute macro `aarch64_trap_handler` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: wrap the attribute in `unsafe(...)`\n   |\n16 | unsafe(#[aarch64_trap_handler(kind = \"fiq\")])\n   | +++++++                                     +\n\n",
               "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/trap.rs:23:1\n   |\n23 | #[aarch64_trap_handler(kind = \"sync\")]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ usage of unsafe attribute\n   |\n   = note: this error originates in the attribute macro `aarch64_trap_handler` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: wrap the attribute in `unsafe(...)`\n   |\n23 | unsafe(#[aarch64_trap_handler(kind = \"sync\")])\n   | +++++++                                      +\n\n",
               "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/trap.rs:56:1\n   |\n56 | #[aarch64_trap_handler(kind = \"serror\")]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ usage of unsafe attribute\n   |\n   = note: this error originates in the attribute macro `aarch64_trap_handler` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: wrap the attribute in `unsafe(...)`\n   |\n56 | unsafe(#[aarch64_trap_handler(kind = \"serror\")])\n   | +++++++                                        +\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:218:18: 218:55 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}",
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:222:13: 222:53 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -107,6 +128,16 @@
           }
         },
         {
+          "file": "crates/sparreal-rt/src/arch/aarch64/debug/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"arch::debug::setup_by_fdt\",\n    \"atomic_reader\": \"crates/sparreal-rt/src/arch/aarch64/debug/mod.rs:41:15: 41:45 (#0)\",\n    \"atomic_writer\": \"crates/sparreal-rt/src/arch/aarch64/debug/mod.rs:43:9: 43:51 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
           "file": "crates/sparreal-rt/src/lib.rs",
           "features": "",
           "count": 1,
@@ -122,7 +153,7 @@
       "user": "qclic",
       "repo": "sparreal-os",
       "pkg": "sparreal-kernel",
-      "count": 22,
+      "count": 23,
       "raw_reports": [
         {
           "file": "crates/sparreal-kernel/src/platform/mod.rs",
@@ -180,6 +211,16 @@
             "Clippy(Error)": [
               "error[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\n",
               "error[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -269,7 +310,7 @@
       "user": "qclic",
       "repo": "sparreal-os",
       "pkg": "bare-test",
-      "count": 18,
+      "count": 22,
       "raw_reports": [
         {
           "file": "crates/sparreal-rt/src/mem/mod.rs",
@@ -291,13 +332,13 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Error)": [
-              "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:13:3\n   |\n13 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n13 | #[unsafe(naked)]\n   |   +++++++     +\n\n",
-              "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:43:3\n   |\n43 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n43 | #[unsafe(naked)]\n   |   +++++++     +\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: unnecessary `unsafe` block\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:18:5\n   |\n18 |     unsafe {\n   |     ^^^^^^ unnecessary `unsafe` block\n   |\n   = note: `#[warn(unused_unsafe)]` on by default\n\n",
               "warning: unnecessary `unsafe` block\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:47:5\n   |\n47 |     unsafe {\n   |     ^^^^^^ unnecessary `unsafe` block\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:13:3\n   |\n13 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n13 | #[unsafe(naked)]\n   |   +++++++     +\n\n",
+              "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:43:3\n   |\n43 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n43 | #[unsafe(naked)]\n   |   +++++++     +\n\n"
             ]
           }
         },
@@ -311,6 +352,27 @@
               "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/trap.rs:16:1\n   |\n16 | #[aarch64_trap_handler(kind = \"fiq\")]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ usage of unsafe attribute\n   |\n   = note: this error originates in the attribute macro `aarch64_trap_handler` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: wrap the attribute in `unsafe(...)`\n   |\n16 | unsafe(#[aarch64_trap_handler(kind = \"fiq\")])\n   | +++++++                                     +\n\n",
               "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/trap.rs:23:1\n   |\n23 | #[aarch64_trap_handler(kind = \"sync\")]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ usage of unsafe attribute\n   |\n   = note: this error originates in the attribute macro `aarch64_trap_handler` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: wrap the attribute in `unsafe(...)`\n   |\n23 | unsafe(#[aarch64_trap_handler(kind = \"sync\")])\n   | +++++++                                      +\n\n",
               "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/trap.rs:56:1\n   |\n56 | #[aarch64_trap_handler(kind = \"serror\")]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ usage of unsafe attribute\n   |\n   = note: this error originates in the attribute macro `aarch64_trap_handler` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: wrap the attribute in `unsafe(...)`\n   |\n56 | unsafe(#[aarch64_trap_handler(kind = \"serror\")])\n   | +++++++                                        +\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:218:18: 218:55 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}",
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:222:13: 222:53 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -345,6 +407,16 @@
           }
         },
         {
+          "file": "crates/sparreal-rt/src/arch/aarch64/debug/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"arch::debug::setup_by_fdt\",\n    \"atomic_reader\": \"crates/sparreal-rt/src/arch/aarch64/debug/mod.rs:41:15: 41:45 (#0)\",\n    \"atomic_writer\": \"crates/sparreal-rt/src/arch/aarch64/debug/mod.rs:43:9: 43:51 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
           "file": "crates/sparreal-rt/src/lib.rs",
           "features": "",
           "count": 1,
@@ -360,7 +432,7 @@
       "user": "qclic",
       "repo": "sparreal-os",
       "pkg": "helloworld",
-      "count": 18,
+      "count": 22,
       "raw_reports": [
         {
           "file": "crates/sparreal-rt/src/mem/mod.rs",
@@ -382,13 +454,13 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Error)": [
-              "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:13:3\n   |\n13 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n13 | #[unsafe(naked)]\n   |   +++++++     +\n\n",
-              "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:43:3\n   |\n43 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n43 | #[unsafe(naked)]\n   |   +++++++     +\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: unnecessary `unsafe` block\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:18:5\n   |\n18 |     unsafe {\n   |     ^^^^^^ unnecessary `unsafe` block\n   |\n   = note: `#[warn(unused_unsafe)]` on by default\n\n",
               "warning: unnecessary `unsafe` block\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:47:5\n   |\n47 |     unsafe {\n   |     ^^^^^^ unnecessary `unsafe` block\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:13:3\n   |\n13 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n13 | #[unsafe(naked)]\n   |   +++++++     +\n\n",
+              "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/boot.rs:43:3\n   |\n43 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n43 | #[unsafe(naked)]\n   |   +++++++     +\n\n"
             ]
           }
         },
@@ -402,6 +474,27 @@
               "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/trap.rs:16:1\n   |\n16 | #[aarch64_trap_handler(kind = \"fiq\")]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ usage of unsafe attribute\n   |\n   = note: this error originates in the attribute macro `aarch64_trap_handler` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: wrap the attribute in `unsafe(...)`\n   |\n16 | unsafe(#[aarch64_trap_handler(kind = \"fiq\")])\n   | +++++++                                     +\n\n",
               "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/trap.rs:23:1\n   |\n23 | #[aarch64_trap_handler(kind = \"sync\")]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ usage of unsafe attribute\n   |\n   = note: this error originates in the attribute macro `aarch64_trap_handler` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: wrap the attribute in `unsafe(...)`\n   |\n23 | unsafe(#[aarch64_trap_handler(kind = \"sync\")])\n   | +++++++                                      +\n\n",
               "error: unsafe attribute used without unsafe\n  --> crates/sparreal-rt/src/arch/aarch64/trap.rs:56:1\n   |\n56 | #[aarch64_trap_handler(kind = \"serror\")]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ usage of unsafe attribute\n   |\n   = note: this error originates in the attribute macro `aarch64_trap_handler` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: wrap the attribute in `unsafe(...)`\n   |\n56 | unsafe(#[aarch64_trap_handler(kind = \"serror\")])\n   | +++++++                                        +\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:218:18: 218:55 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}",
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:222:13: 222:53 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.1/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -436,6 +529,16 @@
           }
         },
         {
+          "file": "crates/sparreal-rt/src/arch/aarch64/debug/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"arch::debug::setup_by_fdt\",\n    \"atomic_reader\": \"crates/sparreal-rt/src/arch/aarch64/debug/mod.rs:41:15: 41:45 (#0)\",\n    \"atomic_writer\": \"crates/sparreal-rt/src/arch/aarch64/debug/mod.rs:43:9: 43:51 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
           "file": "crates/sparreal-rt/src/lib.rs",
           "features": "",
           "count": 1,
@@ -451,8 +554,18 @@
       "user": "qclic",
       "repo": "sparreal-os",
       "pkg": "page-table-arm",
-      "count": 2,
+      "count": 3,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "[lockbud] Not supported to display yet.",
           "features": "",

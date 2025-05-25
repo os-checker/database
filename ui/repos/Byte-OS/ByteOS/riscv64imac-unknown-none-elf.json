@@ -8,7 +8,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "fs",
-      "count": 22,
+      "count": 23,
       "raw_reports": [
         {
           "file": "filesystem/devfs/src/tty.rs",
@@ -59,6 +59,16 @@
             "Clippy(Warn)": [
               "warning: length comparison to zero\n  --> filesystem/fs/src/pipe.rs:68:16\n   |\n68 |             if self.queue.lock().len() > 0 {\n   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: using `!is_empty` is clearer and more explicit: `!self.queue.lock().is_empty()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_zero\n   = note: `#[warn(clippy::len_zero)]` on by default\n\n",
               "warning: length comparison to zero\n  --> filesystem/fs/src/pipe.rs:75:16\n   |\n75 |             && self.queue.lock().len() == 0\n   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: using `is_empty` is clearer and more explicit: `self.queue.lock().is_empty()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#len_zero\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -128,7 +138,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "devfs",
-      "count": 16,
+      "count": 17,
       "raw_reports": [
         {
           "file": "filesystem/devfs/src/tty.rs",
@@ -155,6 +165,16 @@
               "warning: you should consider adding a `Default` implementation for `DevDir`\n  --> filesystem/devfs/src/lib.rs:61:5\n   |\n61 | /     pub fn new() -> Self {\n62 | |         let mut map: BTreeMap<&'static str, Arc<dyn INodeInterface>> = BTreeMap::new();\n63 | |         map.insert(\"stdout\", Arc::new(Tty::new()));\n64 | |         map.insert(\"stderr\", Arc::new(Tty::new()));\n...  |\n75 | |         Self { map }\n76 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n   |\n60 + impl Default for DevDir {\n61 +     fn default() -> Self {\n62 +         Self::new()\n63 +     }\n64 + }\n   |\n\n",
               "warning: you are using an explicit closure for cloning elements\n  --> filesystem/devfs/src/lib.rs:85:9\n   |\n85 | /         self.inner\n86 | |             .map\n87 | |             .get(name)\n88 | |             .map(|x| x.clone())\n   | |_______________________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#map_clone\n   = note: `#[warn(clippy::map_clone)]` on by default\nhelp: consider calling the dedicated `cloned` method\n   |\n85 ~         self.inner\n86 +             .map\n87 +             .get(name).cloned()\n   |\n\n",
               "warning: iterating on a map's keys\n   --> filesystem/devfs/src/lib.rs:93:12\n    |\n93  |           Ok(self\n    |  ____________^\n94  | |             .inner\n95  | |             .map\n96  | |             .iter()\n...   |\n100 | |                 file_type: FileType::Device,\n101 | |             })\n    | |______________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#iter_kv_map\n    = note: `#[warn(clippy::iter_kv_map)]` on by default\nhelp: try\n    |\n93  ~         Ok(self\n94  +             .inner\n95  +             .map.keys().map(|name| DirEntry {\n96  +                 filename: name.to_string(),\n97  +                 len: 0,\n98  +                 file_type: FileType::Device,\n99  +             })\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -224,7 +244,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "kvirtio",
-      "count": 16,
+      "count": 17,
       "raw_reports": [
         {
           "file": "driver/kvirtio/src/lib.rs",
@@ -251,6 +271,16 @@
               "warning: explicit call to `.into_iter()` in function argument accepting `IntoIterator`\n   --> driver/kvirtio/src/virtio_impl.rs:17:40\n    |\n17  |         VIRTIO_CONTAINER.lock().extend(trackers.into_iter());\n    |                                        ^^^^^^^^------------\n    |                                                |\n    |                                                help: consider removing the `.into_iter()`\n    |\nnote: this parameter accepts any `IntoIterator`, so you don't need to call `.into_iter()`\n   --> /home/runner/.rustup/toolchains/nightly-2025-02-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits/collect.rs:416:18\n    |\n416 |     fn extend<T: IntoIterator<Item = A>>(&mut self, iter: T);\n    |                  ^^^^^^^^^^^^^^^^^^^^^^\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n    = note: `#[warn(clippy::useless_conversion)]` on by default\n\n",
               "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n  --> driver/kvirtio/src/virtio_impl.rs:30:28\n   |\n30 |             let phy_page = paddr as usize >> 12;\n   |                            ^^^^^^^^^^^^^^ help: try: `paddr`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n   = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n",
               "warning: useless conversion to the same type: `usize`\n  --> driver/kvirtio/src/virtio_impl.rs:39:23\n   |\n39 |         NonNull::new((usize::from(paddr) | VIRT_ADDR_START) as *mut u8).unwrap()\n   |                       ^^^^^^^^^^^^^^^^^^ help: consider removing `usize::from()`: `paddr`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -320,7 +350,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "executor",
-      "count": 12,
+      "count": 13,
       "raw_reports": [
         {
           "file": "crates/executor/src/executor.rs",
@@ -343,6 +373,16 @@
             "Clippy(Warn)": [
               "warning: bound is defined in more than one place\n  --> crates/executor/src/task.rs:83:1\n   |\n83 | impl_downcast!(sync AsyncTask);\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n   = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n   = note: this warning originates in the macro `impl_downcast` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "warning: bound is defined in more than one place\n  --> crates/executor/src/task.rs:83:1\n   |\n83 | impl_downcast!(sync AsyncTask);\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n   = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n   = note: this warning originates in the macro `impl_downcast` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -412,7 +452,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "ext4rsfs",
-      "count": 11,
+      "count": 12,
       "raw_reports": [
         {
           "file": "filesystem/ext4rsfs/src/lib.rs",
@@ -425,6 +465,16 @@
               "warning: variable does not need to be mutable\n   --> filesystem/ext4rsfs/src/lib.rs:181:13\n    |\n181 |         let mut inode = self.inode;\n    |             ----^^^^^\n    |             |\n    |             help: remove this `mut`\n    |\n    = note: `#[warn(unused_mut)]` on by default\n\n",
               "warning: variable does not need to be mutable\n   --> filesystem/ext4rsfs/src/lib.rs:182:13\n    |\n182 |         let mut name_off = 0;\n    |             ----^^^^^^^^\n    |             |\n    |             help: remove this `mut`\n\n",
               "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n  --> filesystem/ext4rsfs/src/lib.rs:91:33\n   |\n91 |             device.write_blocks(current_block_id as usize, &data);\n   |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `current_block_id`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n   = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -494,8 +544,18 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "ext4fs",
-      "count": 7,
+      "count": 8,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
           "features": "",
@@ -572,8 +632,18 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "kramdisk",
-      "count": 7,
+      "count": 8,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
           "features": "",
@@ -649,69 +719,19 @@
     {
       "user": "Byte-OS",
       "repo": "ByteOS",
-      "pkg": "libc-types",
+      "pkg": "devices",
       "count": 7,
       "raw_reports": [
         {
-          "file": "crates/libc-types/src/types.rs",
-          "features": "",
-          "count": 3,
-          "kinds": {
-            "Clippy(Error)": [
-              "error: this `else { if .. }` block can be collapsed\n  --> crates/libc-types/src/types.rs:52:16\n   |\n52 |           } else {\n   |  ________________^\n53 | |             if self.usec > other.usec {\n54 | |                 Some(Ordering::Greater)\n55 | |             } else if self.usec < other.usec {\n...  |\n60 | |         }\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\nnote: the lint level is defined here\n  --> crates/libc-types/src/lib.rs:7:9\n   |\n7  | #![deny(clippy::all)]\n   |         ^^^^^^^^^^^\n   = note: `#[deny(clippy::collapsible_else_if)]` implied by `#[deny(clippy::all)]`\nhelp: collapse nested if block\n   |\n52 ~         } else if self.usec > other.usec {\n53 +             Some(Ordering::Greater)\n54 +         } else if self.usec < other.usec {\n55 +             Some(Ordering::Less)\n56 +         } else {\n57 +             Some(Ordering::Equal)\n58 +         }\n   |\n\n",
-              "error: `if` chain can be rewritten with `match`\n  --> crates/libc-types/src/types.rs:48:9\n   |\n48 | /         if self.sec > other.sec {\n49 | |             Some(Ordering::Greater)\n50 | |         } else if self.sec < other.sec {\n51 | |             Some(Ordering::Less)\n...  |\n60 | |         }\n   | |_________^ help: consider rewriting the `if` chain with `match`: `match self.sec.cmp(&other.sec) {...}`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#comparison_chain\n   = note: `#[deny(clippy::comparison_chain)]` implied by `#[deny(clippy::all)]`\n\n",
-              "error: `if` chain can be rewritten with `match`\n  --> crates/libc-types/src/types.rs:53:13\n   |\n53 | /             if self.usec > other.usec {\n54 | |                 Some(Ordering::Greater)\n55 | |             } else if self.usec < other.usec {\n56 | |                 Some(Ordering::Less)\n57 | |             } else {\n58 | |                 Some(Ordering::Equal)\n59 | |             }\n   | |_____________^ help: consider rewriting the `if` chain with `match`: `match self.usec.cmp(&other.usec) {...}`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#comparison_chain\n\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) clippy",
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
           "features": "",
           "count": 1,
           "kinds": {
-            "Cargo": [
-              "// pkg_name=libc-types, checker=Clippy\n// toolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/crates/libc-types\n// cmd=cargo clippy --target riscv64imac-unknown-none-elf  --no-deps\n// timestamp=2025-05-25 12:32:07.355030184 +08:00:00\n    Checking num_enum v0.7.3\n    Checking libc-types v0.1.0 (/home/runner/check/batch_1/Byte-OS/ByteOS/crates/libc-types)\nerror: could not compile `libc-types` (lib) due to 3 previous errors\n"
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
-        {
-          "file": "(virtual) semver-checks",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=libc-types, checker=SemverChecks\n// toolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/crates/libc-types\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \n// timestamp=2025-05-25 12:34:53.591749263 +08:00:00\n    Building libc-types v0.1.0 (current)\n       Built [   0.436s] (current)\n     Parsing libc-types v0.1.0 (current)\n      Parsed [   0.011s] (current)\nerror: libc-types not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
-            ]
-          }
-        },
-        {
-          "file": "[outdated direct dependencies]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Outdated": [
-              "pkg=libc-types, checker=Outdated\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/crates/libc-types\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 12:40:06.345414368 +08:00:00\n\nName      Project  Compat  Latest  Kind    Platform\n----      -------  ------  ------  ----    --------\nbitflags  2.9.0    2.9.1   2.9.1   Normal  ---\n"
-            ]
-          }
-        },
-        {
-          "file": "[semver checks]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Semver Violation": [
-              "pkg=libc-types, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/crates/libc-types\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-05-25 12:34:54.315209333 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building libc-types v0.1.0 (current)\n       Built [   0.436s] (current)\n     Parsing libc-types v0.1.0 (current)\n      Parsed [   0.011s] (current)\nerror: libc-types not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "Byte-OS",
-      "repo": "ByteOS",
-      "pkg": "devices",
-      "count": 6,
-      "raw_reports": [
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
           "features": "",
@@ -778,8 +798,18 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "kernel",
-      "count": 6,
+      "count": 7,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
           "features": "",
@@ -845,9 +875,79 @@
     {
       "user": "Byte-OS",
       "repo": "ByteOS",
-      "pkg": "runtime",
-      "count": 6,
+      "pkg": "libc-types",
+      "count": 7,
       "raw_reports": [
+        {
+          "file": "crates/libc-types/src/types.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: this `else { if .. }` block can be collapsed\n  --> crates/libc-types/src/types.rs:52:16\n   |\n52 |           } else {\n   |  ________________^\n53 | |             if self.usec > other.usec {\n54 | |                 Some(Ordering::Greater)\n55 | |             } else if self.usec < other.usec {\n...  |\n60 | |         }\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\nnote: the lint level is defined here\n  --> crates/libc-types/src/lib.rs:7:9\n   |\n7  | #![deny(clippy::all)]\n   |         ^^^^^^^^^^^\n   = note: `#[deny(clippy::collapsible_else_if)]` implied by `#[deny(clippy::all)]`\nhelp: collapse nested if block\n   |\n52 ~         } else if self.usec > other.usec {\n53 +             Some(Ordering::Greater)\n54 +         } else if self.usec < other.usec {\n55 +             Some(Ordering::Less)\n56 +         } else {\n57 +             Some(Ordering::Equal)\n58 +         }\n   |\n\n",
+              "error: `if` chain can be rewritten with `match`\n  --> crates/libc-types/src/types.rs:48:9\n   |\n48 | /         if self.sec > other.sec {\n49 | |             Some(Ordering::Greater)\n50 | |         } else if self.sec < other.sec {\n51 | |             Some(Ordering::Less)\n...  |\n60 | |         }\n   | |_________^ help: consider rewriting the `if` chain with `match`: `match self.sec.cmp(&other.sec) {...}`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#comparison_chain\n   = note: `#[deny(clippy::comparison_chain)]` implied by `#[deny(clippy::all)]`\n\n",
+              "error: `if` chain can be rewritten with `match`\n  --> crates/libc-types/src/types.rs:53:13\n   |\n53 | /             if self.usec > other.usec {\n54 | |                 Some(Ordering::Greater)\n55 | |             } else if self.usec < other.usec {\n56 | |                 Some(Ordering::Less)\n57 | |             } else {\n58 | |                 Some(Ordering::Equal)\n59 | |             }\n   | |_____________^ help: consider rewriting the `if` chain with `match`: `match self.usec.cmp(&other.usec) {...}`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#comparison_chain\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=libc-types, checker=Clippy\n// toolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/crates/libc-types\n// cmd=cargo clippy --target riscv64imac-unknown-none-elf  --no-deps\n// timestamp=2025-05-25 12:32:07.355030184 +08:00:00\n    Checking num_enum v0.7.3\n    Checking libc-types v0.1.0 (/home/runner/check/batch_1/Byte-OS/ByteOS/crates/libc-types)\nerror: could not compile `libc-types` (lib) due to 3 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=libc-types, checker=SemverChecks\n// toolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/crates/libc-types\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \n// timestamp=2025-05-25 12:34:53.591749263 +08:00:00\n    Building libc-types v0.1.0 (current)\n       Built [   0.436s] (current)\n     Parsing libc-types v0.1.0 (current)\n      Parsed [   0.011s] (current)\nerror: libc-types not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=libc-types, checker=Outdated\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/crates/libc-types\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 12:40:06.345414368 +08:00:00\n\nName      Project  Compat  Latest  Kind    Platform\n----      -------  ------  ------  ----    --------\nbitflags  2.9.0    2.9.1   2.9.1   Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=libc-types, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/crates/libc-types\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-05-25 12:34:54.315209333 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building libc-types v0.1.0 (current)\n       Built [   0.436s] (current)\n     Parsing libc-types v0.1.0 (current)\n      Parsed [   0.011s] (current)\nerror: libc-types not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Byte-OS",
+      "repo": "ByteOS",
+      "pkg": "runtime",
+      "count": 7,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
           "features": "",
@@ -914,8 +1014,18 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "general-plic",
-      "count": 5,
+      "count": 6,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
           "features": "",
@@ -972,8 +1082,18 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "kgoldfish-rtc",
-      "count": 5,
+      "count": 6,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
           "features": "",
@@ -1030,8 +1150,18 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "ns16550a",
-      "count": 5,
+      "count": 6,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
           "features": "",
@@ -1088,7 +1218,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "procfs",
-      "count": 5,
+      "count": 6,
       "raw_reports": [
         {
           "file": "filesystem/procfs/src/lib.rs",
@@ -1098,6 +1228,16 @@
             "Clippy(Warn)": [
               "warning: you are using an explicit closure for cloning elements\n  --> filesystem/procfs/src/lib.rs:61:9\n   |\n61 | /         self.inner\n62 | |             .map\n63 | |             .get(name)\n64 | |             .map(|x| x.clone())\n   | |_______________________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#map_clone\n   = note: `#[warn(clippy::map_clone)]` on by default\nhelp: consider calling the dedicated `cloned` method\n   |\n61 ~         self.inner\n62 +             .map\n63 +             .get(name).cloned()\n   |\n\n",
               "warning: iterating on a map's keys\n  --> filesystem/procfs/src/lib.rs:69:12\n   |\n69 |           Ok(self\n   |  ____________^\n70 | |             .inner\n71 | |             .map\n72 | |             .iter()\n...  |\n76 | |                 file_type: FileType::Device,\n77 | |             })\n   | |______________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#iter_kv_map\n   = note: `#[warn(clippy::iter_kv_map)]` on by default\nhelp: try\n   |\n69 ~         Ok(self\n70 +             .inner\n71 +             .map.keys().map(|name| DirEntry {\n72 +                 filename: name.to_string(),\n73 +                 len: 0,\n74 +                 file_type: FileType::Device,\n75 +             })\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -1137,8 +1277,18 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "ramfs",
-      "count": 5,
+      "count": 6,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
           "features": "",

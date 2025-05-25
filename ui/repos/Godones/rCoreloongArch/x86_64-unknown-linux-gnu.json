@@ -8,7 +8,7 @@
       "user": "Godones",
       "repo": "rCoreloongArch",
       "pkg": "vbe",
-      "count": 21,
+      "count": 22,
       "raw_reports": [
         {
           "file": "vbe/src/old_impl/vbe.rs",
@@ -41,6 +41,16 @@
             "Clippy(Warn)": [
               "warning: returning the result of a `let` binding from a block\n   --> vbe/src/gui/basic/window.rs:116:9\n    |\n86  | /         let window = Arc::new(Self {\n87  | |             id,\n88  | |             inner: unsafe {\n89  | |                 Mutex::new(WindowsInner {\n...   |\n105 | |             },\n106 | |         });\n    | |___________- unnecessary `let` binding\n...\n116 |           window\n    |           ^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\n    = note: `#[warn(clippy::let_and_return)]` on by default\nhelp: return the expression directly\n    |\n86  ~         \n87  |         // use log::info;\n...\n95  |         // );\n96  ~         Arc::new(Self {\n97  +             id,\n98  +             inner: unsafe {\n99  +                 Mutex::new(WindowsInner {\n100 +                     event: VecDeque::new(),\n101 +                     name: \"\".to_string(),\n102 +                     component: {\n103 +                         let mut v: VecDeque<Arc<dyn Component>> = VecDeque::new();\n104 +                         v.push_back(bar);\n105 +                         v.push_back(windows.clone());\n106 +                         v\n107 +                     },\n108 +                     graphic: Graphics {\n109 +                         size,\n110 +                         point,\n111 +                         drv: VBE_DEVICE.clone(),\n112 +                     },\n113 +                     panel: windows.clone(),\n114 +                 })\n115 +             },\n116 +         })\n    |\n\n",
               "warning: returning the result of a `let` binding from a block\n   --> vbe/src/gui/basic/window.rs:142:9\n    |\n141 |         let event = inner.event.pop_front();\n    |         ------------------------------------ unnecessary `let` binding\n142 |         event\n    |         ^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\nhelp: return the expression directly\n    |\n141 ~         \n142 ~         inner.event.pop_front()\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -190,7 +200,7 @@
       "user": "Godones",
       "repo": "rCoreloongArch",
       "pkg": "easy-fs-fuse",
-      "count": 9,
+      "count": 11,
       "raw_reports": [
         {
           "file": "easy-fs-fuse/src/main.rs",
@@ -203,6 +213,26 @@
             "Mirai": [
               "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:17:35\n   |\n17 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:24:35\n   |\n24 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.16/src/lazy.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.16/src/lazy.rs:36:23: 36:43 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.16/src/lazy.rs:39:13: 39:39 (#0)\",\n    \"dep_kind\": \"Both\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/termcolor-1.4.1/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"BufferWriter::print\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/termcolor-1.4.1/src/lib.rs:1146:16: 1146:52 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/termcolor-1.4.1/src/lib.rs:1166:9: 1166:52 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

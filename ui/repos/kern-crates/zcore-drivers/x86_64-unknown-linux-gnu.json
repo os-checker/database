@@ -8,7 +8,7 @@
       "user": "kern-crates",
       "repo": "zcore-drivers",
       "pkg": "zcore-drivers",
-      "count": 30,
+      "count": 31,
       "raw_reports": [
         {
           "file": "src/nvme/interface.rs",
@@ -94,6 +94,16 @@
             "Clippy(Error)": [
               "error: operator precedence can trip the unwary\n   --> src/utils/devicetree.rs:125:17\n    |\n125 |         value = value << 32 | c as u64;\n    |                 ^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(value << 32) | c as u64`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
               "error: parameter is only used in recursion\n  --> src/utils/devicetree.rs:47:23\n   |\n47 |     fn walk_inner<F>(&self, node: &Node, props: InheritProps, device_node_op: &mut F)\n   |                       ^^^^\n   |\nnote: parameter used here\n  --> src/utils/devicetree.rs:64:13\n   |\n64 |             self.walk_inner(child, props, device_node_op);\n   |             ^^^^\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#only_used_in_recursion\n   = note: `#[deny(clippy::only_used_in_recursion)]` implied by `#[deny(warnings)]`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

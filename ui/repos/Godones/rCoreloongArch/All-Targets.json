@@ -8,7 +8,7 @@
       "user": "Godones",
       "repo": "rCoreloongArch",
       "pkg": "kernel",
-      "count": 47,
+      "count": 49,
       "raw_reports": [
         {
           "file": "kernel/src/mm/page_table.rs",
@@ -146,6 +146,16 @@
             "Clippy(Warn)": [
               "warning: module has the same name as its containing module\n --> kernel/src/trap/mod.rs:2:1\n  |\n2 | mod trap;\n  | ^^^^^^^^^\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#module_inception\n\n",
               "warning: used `assert_eq!` with a literal bool\n   --> kernel/src/trap/mod.rs:252:5\n    |\n252 |     assert_eq!(tlbidx.ne(), false);\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bool_assert_comparison\n    = note: `#[warn(clippy::bool_assert_comparison)]` on by default\nhelp: replace it with `assert!(..)`\n    |\n252 -     assert_eq!(tlbidx.ne(), false);\n252 +     assert!(!tlbidx.ne());\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -290,6 +300,16 @@
           }
         },
         {
+          "file": "kernel/src/task/processor.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at kernel/src/task/processor.rs:75:17: 75:61 (#0) after dropped at kernel/src/task/processor.rs:78:5: 78:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
           "file": "kernel/src/timer.rs",
           "features": "",
           "count": 1,
@@ -315,17 +335,13 @@
       "user": "Godones",
       "repo": "rCoreloongArch",
       "pkg": "isomorphic_drivers",
-      "count": 35,
+      "count": 36,
       "raw_reports": [
         {
           "file": "isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs",
           "features": "",
           "count": 16,
           "kinds": {
-            "Clippy(Error)": [
-              "error: this operation will always return zero. This is likely not the intended outcome\n  --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:98:27\n   |\n98 | const IXGBE_CTRL: usize = 0x00000 / 4;\n   |                           ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#erasing_op\n   = note: `#[deny(clippy::erasing_op)]` on by default\n\n",
-              "error: this call for this type may be undefined behavior\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninit_assumed_init\n    = note: `#[deny(clippy::uninit_assumed_init)]` on by default\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: operator precedence can trip the unwary\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:335:33\n    |\n335 |         ixgbe[IXGBE_CTRL].write(1 << 3 | 1 << 26);\n    |                                 ^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(1 << 3) | (1 << 26)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
               "warning: operator precedence can trip the unwary\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:336:43\n    |\n336 |         while ixgbe[IXGBE_CTRL].read() & (1 << 3 | 1 << 26) != 0 {}\n    |                                           ^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(1 << 3) | (1 << 26)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
@@ -341,6 +357,10 @@
               "warning: the loop variable `i` is used to index `send_queue`\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:526:22\n    |\n526 |             for i in 0..IXGBE_SEND_DESC_NUM {\n    |                      ^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator and enumerate()\n    |\n526 |             for (i, <item>) in send_queue.iter_mut().enumerate().take(IXGBE_SEND_DESC_NUM) {\n    |                 ~~~~~~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
               "warning: the type `[&mut [net::ethernet::intel::ixgbe::IXGBESendDesc]; 4]` does not permit being left uninitialized\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                      |\n    |                      this code causes undefined behavior when executed\n    |                      help: use `MaybeUninit<T>` instead, and only call `assume_init` after initialization is done\n    |\n    = note: references must be non-null\n    = note: `#[warn(invalid_value)]` on by default\n\n",
               "warning: the type `[&mut [net::ethernet::intel::ixgbe::IXGBESendDesc]; 4]` does not permit being left uninitialized\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                      |\n    |                      this code causes undefined behavior when executed\n    |                      help: use `MaybeUninit<T>` instead, and only call `assume_init` after initialization is done\n    |\n    = note: references must be non-null\n    = note: `#[warn(invalid_value)]` on by default\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: this operation will always return zero. This is likely not the intended outcome\n  --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:98:27\n   |\n98 | const IXGBE_CTRL: usize = 0x00000 / 4;\n   |                           ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#erasing_op\n   = note: `#[deny(clippy::erasing_op)]` on by default\n\n",
+              "error: this call for this type may be undefined behavior\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninit_assumed_init\n    = note: `#[deny(clippy::uninit_assumed_init)]` on by default\n\n"
             ]
           }
         },
@@ -366,15 +386,25 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Clippy(Error)": [
-              "error: incompatible bit mask: `_ | 32768` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:328:19\n    |\n328 |             while port.command.read() | (1 << 15) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
-              "error: incompatible bit mask: `_ | 16384` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:335:19\n    |\n335 |             while port.command.read() | (1 << 14) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n",
-              "error: incompatible bit mask: `_ | 1` can never be equal to `0`\n   --> isomorphic_drivers/src/block/ahci.rs:399:19\n    |\n399 |             while port.command.read() | (1 << 0) == 0 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: empty doc comment\n  --> isomorphic_drivers/src/block/ahci.rs:14:1\n   |\n14 | ///\n   | ^^^\n   |\n   = help: consider removing or filling it\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#empty_docs\n   = note: `#[warn(clippy::empty_docs)]` on by default\n\n",
               "warning: this operation has no effect\n   --> isomorphic_drivers/src/block/ahci.rs:278:22\n    |\n278 |         self.lba_0 = (lba >> 0) as u8;\n    |                      ^^^^^^^^^^ help: consider reducing it to: `lba`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n    = note: `#[warn(clippy::identity_op)]` on by default\n\n",
               "warning: unneeded `return` statement\n   --> isomorphic_drivers/src/block/ahci.rs:513:5\n    |\n513 |     return String::from_utf8(swapped_data).unwrap();\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n    = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n    |\n513 -     return String::from_utf8(swapped_data).unwrap();\n513 +     String::from_utf8(swapped_data).unwrap()\n    |\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: incompatible bit mask: `_ | 32768` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:328:19\n    |\n328 |             while port.command.read() | (1 << 15) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
+              "error: incompatible bit mask: `_ | 16384` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:335:19\n    |\n335 |             while port.command.read() | (1 << 14) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n",
+              "error: incompatible bit mask: `_ | 1` can never be equal to `0`\n   --> isomorphic_drivers/src/block/ahci.rs:399:19\n    |\n399 |             while port.command.read() | (1 << 0) == 0 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -434,7 +464,7 @@
       "user": "Godones",
       "repo": "rCoreloongArch",
       "pkg": "vbe",
-      "count": 21,
+      "count": 22,
       "raw_reports": [
         {
           "file": "vbe/src/old_impl/vbe.rs",
@@ -467,6 +497,16 @@
             "Clippy(Warn)": [
               "warning: returning the result of a `let` binding from a block\n   --> vbe/src/gui/basic/window.rs:116:9\n    |\n86  | /         let window = Arc::new(Self {\n87  | |             id,\n88  | |             inner: unsafe {\n89  | |                 Mutex::new(WindowsInner {\n...   |\n105 | |             },\n106 | |         });\n    | |___________- unnecessary `let` binding\n...\n116 |           window\n    |           ^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\n    = note: `#[warn(clippy::let_and_return)]` on by default\nhelp: return the expression directly\n    |\n86  ~         \n87  |         // use log::info;\n...\n95  |         // );\n96  ~         Arc::new(Self {\n97  +             id,\n98  +             inner: unsafe {\n99  +                 Mutex::new(WindowsInner {\n100 +                     event: VecDeque::new(),\n101 +                     name: \"\".to_string(),\n102 +                     component: {\n103 +                         let mut v: VecDeque<Arc<dyn Component>> = VecDeque::new();\n104 +                         v.push_back(bar);\n105 +                         v.push_back(windows.clone());\n106 +                         v\n107 +                     },\n108 +                     graphic: Graphics {\n109 +                         size,\n110 +                         point,\n111 +                         drv: VBE_DEVICE.clone(),\n112 +                     },\n113 +                     panel: windows.clone(),\n114 +                 })\n115 +             },\n116 +         })\n    |\n\n",
               "warning: returning the result of a `let` binding from a block\n   --> vbe/src/gui/basic/window.rs:142:9\n    |\n141 |         let event = inner.event.pop_front();\n    |         ------------------------------------ unnecessary `let` binding\n142 |         event\n    |         ^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\nhelp: return the expression directly\n    |\n141 ~         \n142 ~         inner.event.pop_front()\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -748,6 +788,108 @@
     {
       "user": "Godones",
       "repo": "rCoreloongArch",
+      "pkg": "easy-fs-fuse",
+      "count": 11,
+      "raw_reports": [
+        {
+          "file": "easy-fs-fuse/src/main.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:17:35\n   |\n17 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n",
+              "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:24:35\n   |\n24 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: useless conversion to the same type: `std::fs::ReadDir`\n  --> easy-fs-fuse/src/main.rs:62:24\n   |\n62 |       let apps: Vec<_> = read_dir(src_path)\n   |  ________________________^\n63 | |         .unwrap()\n64 | |         .into_iter()\n   | |____________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\nhelp: consider removing `.into_iter()`\n   |\n62 ~     let apps: Vec<_> = read_dir(src_path)\n63 +         .unwrap()\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.16/src/lazy.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.16/src/lazy.rs:36:23: 36:43 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.16/src/lazy.rs:39:13: 39:39 (#0)\",\n    \"dep_kind\": \"Both\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/termcolor-1.4.1/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"BufferWriter::print\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/termcolor-1.4.1/src/lib.rs:1146:16: 1146:52 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/termcolor-1.4.1/src/lib.rs:1166:9: 1166:52 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_1/Godones/rCoreloongArch/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     xmas-elf\nVersion:   0.8.0\nTitle:     Potential out-of-bounds read with a malformed ELF file and the HashTable API.\nDate:      2025-03-26\nID:        RUSTSEC-2025-0018\nURL:       https://rustsec.org/advisories/RUSTSEC-2025-0018\nSolution:  Upgrade to >=0.10\nDependency tree:\nxmas-elf 0.8.0\n├── stack_trace 0.1.0\n│   └── kernel 0.1.0\n└── kernel 0.1.0\n\nCrate:     atty\nVersion:   0.2.14\nWarning:   unmaintained\nTitle:     `atty` is unmaintained\nDate:      2024-09-25\nID:        RUSTSEC-2024-0375\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0375\nDependency tree:\natty 0.2.14\n└── clap 3.2.25\n    └── easy-fs-fuse 0.1.0\n\nCrate:     atty\nVersion:   0.2.14\nWarning:   unsound\nTitle:     Potential unaligned read\nDate:      2021-07-04\nID:        RUSTSEC-2021-0145\nURL:       https://rustsec.org/advisories/RUSTSEC-2021-0145\n\n\n{\n  \"database\": {\n    \"advisory-count\": 782,\n    \"last-commit\": \"bccf313a98c034573ac4170e6271749113343d97\",\n    \"last-updated\": \"2025-05-22T19:04:33+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 76\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": true,\n    \"count\": 1,\n    \"list\": [\n      {\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2025-0018\",\n          \"package\": \"xmas-elf\",\n          \"title\": \"Potential out-of-bounds read with a malformed ELF file and the HashTable API.\",\n          \"description\": \"Affected versions of this crate only validated the `index` argument of\\n`HashTable::get_bucket` and `HashTable::get_chain` against the input-controlled\\n`bucket_count` and `chain_count` fields, but not against the size of the ELF\\nsection. As a result, a malformed ELF file could trigger out-of-bounds reads in\\na consumer of the HashTable API by setting these fields to inappropriately large\\nvalues that would fall outside the relevant hash table section, and by\\nintroducing correspondingly out-of-bounds hash table indexes elsewhere in the ELF\\nfile.\",\n          \"date\": \"2025-03-26\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [\n            \"memory-exposure\"\n          ],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": null,\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/nrc/xmas-elf/issues/86\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"versions\": {\n          \"patched\": [\n            \">=0.10\"\n          ],\n          \"unaffected\": []\n        },\n        \"affected\": {\n          \"arch\": [],\n          \"os\": [],\n          \"functions\": {\n            \"xmas_elf::hash::HashTable::get_bucket\": [\n              \"<0.10\"\n            ],\n            \"xmas_elf::hash::HashTable::get_chain\": [\n              \"<0.10\"\n            ]\n          }\n        },\n        \"package\": {\n          \"name\": \"xmas-elf\",\n          \"version\": \"0.8.0\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8d29b4d8e7beaceb4e77447ba941a7600d23d0319ab52da0461abea214832d5a\",\n          \"dependencies\": [\n            {\n              \"name\": \"zero\",\n              \"version\": \"0.1.3\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        }\n      }\n    ]\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.172\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0375\",\n          \"package\": \"atty\",\n          \"title\": \"`atty` is unmaintained\",\n          \"description\": \"The maintainer of `atty` has [published](https://github.com/softprops/atty/commit/5bfdbe9e48c6ca6a4909e8d5b04f5e843a257e93) an official notice that the crate is no longer\\nunder development, and that users should instead rely on the functionality in the standard library's [`IsTerminal`](https://doc.rust-lang.org/std/io/trait.IsTerminal.html) trait.\\n\\n## Alternative(s)\\n\\n- [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0 and the recommended replacement per the `atty` maintainer.\\n- [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2024-09-25\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/57\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ],\n    \"unsound\": [\n      {\n        \"kind\": \"unsound\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.172\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2021-0145\",\n          \"package\": \"atty\",\n          \"title\": \"Potential unaligned read\",\n          \"description\": \"On windows, `atty` dereferences a potentially unaligned pointer.\\n\\nIn practice however, the pointer won't be unaligned unless a custom global allocator is used.\\n\\nIn particular, the `System` allocator on windows uses `HeapAlloc`, which guarantees a large enough alignment.\\n\\n# atty is Unmaintained\\n\\nA Pull Request with a fix has been provided over a year ago but the maintainer seems to be unreachable.\\n\\nLast release of `atty` was almost 3 years ago.\\n\\n## Possible Alternative(s)\\n\\nThe below list has not been vetted in any way and may or may not contain alternatives;\\n\\n - [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0\\n - [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2021-07-04\",\n          \"aliases\": [\n            \"GHSA-g98v-hv3f-hcfr\"\n          ],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [\n            \"unaligned-read\"\n          ],\n          \"cvss\": null,\n          \"informational\": \"unsound\",\n          \"references\": [\n            \"https://github.com/softprops/atty/pull/51\",\n            \"https://github.com/softprops/atty/issues/57\"\n          ],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/50\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": {\n          \"arch\": [],\n          \"os\": [\n            \"windows\"\n          ],\n          \"functions\": {}\n        },\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) audit",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=easy-fs-fuse, checker=Audit\n// toolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\n// cmd=cargo audit\n// timestamp=2025-05-25 12:51:34.646790212 +08:00:00\n    Fetching advisory database from `https://github.com/RustSec/advisory-db.git`\n      Loaded 782 security advisories (from /home/runner/.cargo/advisory-db)\n    Updating crates.io index\n    Scanning Cargo.lock for vulnerabilities (76 crate dependencies)\nerror: 1 vulnerability found!\nwarning: 2 allowed warnings found\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) geiger",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=easy-fs-fuse, checker=Geiger\n// toolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-05-25 12:53:13.42888212 +08:00:00\nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nerror: Cargo(\"failed to parse lock file at: /home/runner/check/batch_1/Godones/rCoreloongArch/Cargo.lock\")\n"
+            ]
+          }
+        },
+        {
+          "file": "[lockbud] Not supported to display yet.",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-05-25T04:52:09Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"BufferWriter::print\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/termcolor-1.4.1/src/lib.rs:1146:16: 1146:52 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/termcolor-1.4.1/src/lib.rs:1166:9: 1166:52 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T04:52:09Z WARN  lockbud::callbacks] crate termcolor contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2025-05-25T04:52:09Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.16/src/lazy.rs:36:23: 36:43 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.16/src/lazy.rs:39:13: 39:39 (#0)\",\n            \"dep_kind\": \"Both\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T04:52:09Z WARN  lockbud::callbacks] crate getrandom contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=easy-fs-fuse, checker=Outdated\ntoolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 12:53:10.248967089 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nclap  3.2.25   ---     4.5.38  Normal  ---\nrand  0.8.5    ---     0.9.1   Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[rap] Not supported to display yet.",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Rapx": [
+              "pkg=easy-fs-fuse, checker=Rapx\ntoolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-05-25 12:52:27.692788141 +08:00:00\n\nwarning: Use after free detected.\n   --> easy-fs/src/block_cache.rs:119:13\n    |\n119 |             self.queue.push_back((block_id, Arc::clone(&block_cache)));\n    |             ----------------------------------------------------------\n    |             |\n    |             Use after free detected.\n    |             Use after free detected.\n    |\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Godones",
+      "repo": "rCoreloongArch",
       "pkg": "easy-fs",
       "count": 10,
       "raw_reports": [
@@ -829,91 +971,19 @@
     {
       "user": "Godones",
       "repo": "rCoreloongArch",
-      "pkg": "easy-fs-fuse",
-      "count": 9,
+      "pkg": "stack_trace",
+      "count": 5,
       "raw_reports": [
         {
-          "file": "easy-fs-fuse/src/main.rs",
-          "features": "",
-          "count": 3,
-          "kinds": {
-            "Mirai": [
-              "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:17:35\n   |\n17 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n",
-              "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:24:35\n   |\n24 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: useless conversion to the same type: `std::fs::ReadDir`\n  --> easy-fs-fuse/src/main.rs:62:24\n   |\n62 |       let apps: Vec<_> = read_dir(src_path)\n   |  ________________________^\n63 | |         .unwrap()\n64 | |         .into_iter()\n   | |____________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\nhelp: consider removing `.into_iter()`\n   |\n62 ~     let apps: Vec<_> = read_dir(src_path)\n63 +         .unwrap()\n   |\n\n"
-            ]
-          }
-        },
-        {
-          "file": "/home/runner/check/batch_1/Godones/rCoreloongArch/Cargo.lock",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Audit": [
-              "Crate:     xmas-elf\nVersion:   0.8.0\nTitle:     Potential out-of-bounds read with a malformed ELF file and the HashTable API.\nDate:      2025-03-26\nID:        RUSTSEC-2025-0018\nURL:       https://rustsec.org/advisories/RUSTSEC-2025-0018\nSolution:  Upgrade to >=0.10\nDependency tree:\nxmas-elf 0.8.0\n├── stack_trace 0.1.0\n│   └── kernel 0.1.0\n└── kernel 0.1.0\n\nCrate:     atty\nVersion:   0.2.14\nWarning:   unmaintained\nTitle:     `atty` is unmaintained\nDate:      2024-09-25\nID:        RUSTSEC-2024-0375\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0375\nDependency tree:\natty 0.2.14\n└── clap 3.2.25\n    └── easy-fs-fuse 0.1.0\n\nCrate:     atty\nVersion:   0.2.14\nWarning:   unsound\nTitle:     Potential unaligned read\nDate:      2021-07-04\nID:        RUSTSEC-2021-0145\nURL:       https://rustsec.org/advisories/RUSTSEC-2021-0145\n\n\n{\n  \"database\": {\n    \"advisory-count\": 782,\n    \"last-commit\": \"bccf313a98c034573ac4170e6271749113343d97\",\n    \"last-updated\": \"2025-05-22T19:04:33+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 76\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": true,\n    \"count\": 1,\n    \"list\": [\n      {\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2025-0018\",\n          \"package\": \"xmas-elf\",\n          \"title\": \"Potential out-of-bounds read with a malformed ELF file and the HashTable API.\",\n          \"description\": \"Affected versions of this crate only validated the `index` argument of\\n`HashTable::get_bucket` and `HashTable::get_chain` against the input-controlled\\n`bucket_count` and `chain_count` fields, but not against the size of the ELF\\nsection. As a result, a malformed ELF file could trigger out-of-bounds reads in\\na consumer of the HashTable API by setting these fields to inappropriately large\\nvalues that would fall outside the relevant hash table section, and by\\nintroducing correspondingly out-of-bounds hash table indexes elsewhere in the ELF\\nfile.\",\n          \"date\": \"2025-03-26\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [\n            \"memory-exposure\"\n          ],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": null,\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/nrc/xmas-elf/issues/86\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"versions\": {\n          \"patched\": [\n            \">=0.10\"\n          ],\n          \"unaffected\": []\n        },\n        \"affected\": {\n          \"arch\": [],\n          \"os\": [],\n          \"functions\": {\n            \"xmas_elf::hash::HashTable::get_bucket\": [\n              \"<0.10\"\n            ],\n            \"xmas_elf::hash::HashTable::get_chain\": [\n              \"<0.10\"\n            ]\n          }\n        },\n        \"package\": {\n          \"name\": \"xmas-elf\",\n          \"version\": \"0.8.0\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8d29b4d8e7beaceb4e77447ba941a7600d23d0319ab52da0461abea214832d5a\",\n          \"dependencies\": [\n            {\n              \"name\": \"zero\",\n              \"version\": \"0.1.3\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        }\n      }\n    ]\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.172\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0375\",\n          \"package\": \"atty\",\n          \"title\": \"`atty` is unmaintained\",\n          \"description\": \"The maintainer of `atty` has [published](https://github.com/softprops/atty/commit/5bfdbe9e48c6ca6a4909e8d5b04f5e843a257e93) an official notice that the crate is no longer\\nunder development, and that users should instead rely on the functionality in the standard library's [`IsTerminal`](https://doc.rust-lang.org/std/io/trait.IsTerminal.html) trait.\\n\\n## Alternative(s)\\n\\n- [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0 and the recommended replacement per the `atty` maintainer.\\n- [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2024-09-25\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/57\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ],\n    \"unsound\": [\n      {\n        \"kind\": \"unsound\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.172\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2021-0145\",\n          \"package\": \"atty\",\n          \"title\": \"Potential unaligned read\",\n          \"description\": \"On windows, `atty` dereferences a potentially unaligned pointer.\\n\\nIn practice however, the pointer won't be unaligned unless a custom global allocator is used.\\n\\nIn particular, the `System` allocator on windows uses `HeapAlloc`, which guarantees a large enough alignment.\\n\\n# atty is Unmaintained\\n\\nA Pull Request with a fix has been provided over a year ago but the maintainer seems to be unreachable.\\n\\nLast release of `atty` was almost 3 years ago.\\n\\n## Possible Alternative(s)\\n\\nThe below list has not been vetted in any way and may or may not contain alternatives;\\n\\n - [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0\\n - [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2021-07-04\",\n          \"aliases\": [\n            \"GHSA-g98v-hv3f-hcfr\"\n          ],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [\n            \"unaligned-read\"\n          ],\n          \"cvss\": null,\n          \"informational\": \"unsound\",\n          \"references\": [\n            \"https://github.com/softprops/atty/pull/51\",\n            \"https://github.com/softprops/atty/issues/57\"\n          ],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/50\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": {\n          \"arch\": [],\n          \"os\": [\n            \"windows\"\n          ],\n          \"functions\": {}\n        },\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) audit",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=easy-fs-fuse, checker=Audit\n// toolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\n// cmd=cargo audit\n// timestamp=2025-05-25 12:51:34.646790212 +08:00:00\n    Fetching advisory database from `https://github.com/RustSec/advisory-db.git`\n      Loaded 782 security advisories (from /home/runner/.cargo/advisory-db)\n    Updating crates.io index\n    Scanning Cargo.lock for vulnerabilities (76 crate dependencies)\nerror: 1 vulnerability found!\nwarning: 2 allowed warnings found\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) geiger",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=easy-fs-fuse, checker=Geiger\n// toolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-05-25 12:53:13.42888212 +08:00:00\nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nFailed to match (ignoring source) package: registry+https://github.com/rust-lang/crates.io-index#log@0.4.27 \nerror: Cargo(\"failed to parse lock file at: /home/runner/check/batch_1/Godones/rCoreloongArch/Cargo.lock\")\n"
-            ]
-          }
-        },
-        {
-          "file": "[lockbud] Not supported to display yet.",
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
           "features": "",
           "count": 1,
           "kinds": {
             "Lockbud(Possibly)": [
-              "[2025-05-25T04:52:09Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"BufferWriter::print\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/termcolor-1.4.1/src/lib.rs:1146:16: 1146:52 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/termcolor-1.4.1/src/lib.rs:1166:9: 1166:52 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T04:52:09Z WARN  lockbud::callbacks] crate termcolor contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2025-05-25T04:52:09Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"lazy::LazyUsize::unsync_init\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.16/src/lazy.rs:36:23: 36:43 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.16/src/lazy.rs:39:13: 39:39 (#0)\",\n            \"dep_kind\": \"Both\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-25T04:52:09Z WARN  lockbud::callbacks] crate getrandom contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
-        {
-          "file": "[outdated direct dependencies]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Outdated": [
-              "pkg=easy-fs-fuse, checker=Outdated\ntoolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 12:53:10.248967089 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nclap  3.2.25   ---     4.5.38  Normal  ---\nrand  0.8.5    ---     0.9.1   Normal  ---\n"
-            ]
-          }
-        },
-        {
-          "file": "[rap] Not supported to display yet.",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Rapx": [
-              "pkg=easy-fs-fuse, checker=Rapx\ntoolchain=nightly-2025-01-01, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs-fuse\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-05-25 12:52:27.692788141 +08:00:00\n\nwarning: Use after free detected.\n   --> easy-fs/src/block_cache.rs:119:13\n    |\n119 |             self.queue.push_back((block_id, Arc::clone(&block_cache)));\n    |             ----------------------------------------------------------\n    |             |\n    |             Use after free detected.\n    |             Use after free detected.\n    |\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "Godones",
-      "repo": "rCoreloongArch",
-      "pkg": "stack_trace",
-      "count": 4,
-      "raw_reports": [
         {
           "file": "(virtual) semver-checks",
           "features": "",

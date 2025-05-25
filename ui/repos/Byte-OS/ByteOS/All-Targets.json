@@ -8,7 +8,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "fs",
-      "count": 110,
+      "count": 111,
       "raw_reports": [
         {
           "file": "filesystem/devfs/src/tty.rs",
@@ -209,6 +209,16 @@
               "pkg=fs, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/filesystem/fs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \ntimestamp=2025-05-25 12:33:47.085683943 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building fs v0.1.0 (current)\nerror: running cargo-doc on crate 'fs' failed with output:\n-----\n    Checking scopeguard v1.2.0\n   Compiling lock_api v0.4.12\n    Checking bitflags v2.9.1\n    Checking tock-registers v0.8.1\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `scopeguard` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `tock-registers` (lib) due to 1 previous error\nerror: could not compile `bitflags` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate fs v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/Byte-OS/ByteOS/filesystem/fs &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate fs v0.1.0\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -216,7 +226,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "devfs",
-      "count": 80,
+      "count": 81,
       "raw_reports": [
         {
           "file": "filesystem/devfs/src/tty.rs",
@@ -369,6 +379,16 @@
               "pkg=devfs, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/filesystem/devfs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-05-25 12:32:28.528956091 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building devfs v0.1.0 (current)\n       Built [   1.278s] (current)\n     Parsing devfs v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: devfs not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -376,7 +396,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "kvirtio",
-      "count": 80,
+      "count": 81,
       "raw_reports": [
         {
           "file": "driver/kvirtio/src/lib.rs",
@@ -529,6 +549,16 @@
               "pkg=kvirtio, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/driver/kvirtio\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-05-25 12:34:44.631370424 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building kvirtio v0.1.0 (current)\n       Built [   2.645s] (current)\n     Parsing kvirtio v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: kvirtio not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -536,7 +566,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "executor",
-      "count": 61,
+      "count": 62,
       "raw_reports": [
         {
           "file": "crates/executor/src/executor.rs",
@@ -671,6 +701,16 @@
           }
         },
         {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
           "file": "(virtual) semver-checks",
           "features": "",
           "count": 1,
@@ -686,7 +726,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "ext4rsfs",
-      "count": 55,
+      "count": 56,
       "raw_reports": [
         {
           "file": "filesystem/ext4rsfs/src/lib.rs",
@@ -805,6 +845,16 @@
               "pkg=ext4rsfs, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/filesystem/ext4rsfs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-05-25 12:33:29.648431911 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building ext4rsfs v0.1.0 (current)\n       Built [   1.390s] (current)\n     Parsing ext4rsfs v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: ext4rsfs not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -812,7 +862,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "ext4fs",
-      "count": 35,
+      "count": 36,
       "raw_reports": [
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
@@ -911,6 +961,16 @@
               "pkg=ext4fs, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/filesystem/ext4fs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-05-25 12:33:14.918767513 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building ext4fs v0.1.0 (current)\nerror: running cargo-doc on crate 'ext4fs' failed with output:\n-----\n    Checking scopeguard v1.2.0\n   Compiling lock_api v0.4.12\n    Checking static_assertions v1.1.0\n    Checking bitflags v2.9.1\n    Checking sbi-spec v0.0.4\n   Compiling riscv v0.13.0\n    Checking log v0.4.27\n    Checking riscv-pac v0.2.0\n    Checking embedded-hal v1.0.0\n    Checking critical-section v1.2.0\n    Checking sbi-rt v0.0.2\n   Compiling polyhal v0.3.2\n    Checking cfg-if v1.0.0\n    Checking arrayvec v0.7.6\n    Checking lazyinit v0.2.1\n    Checking spin v0.9.8\n    Checking spin v0.10.0\n    Checking fdt-parser v0.4.16\n    Checking buddy_system_allocator v0.9.1\n    Checking sync v0.1.0 (/home/runner/check/batch_1/Byte-OS/ByteOS/crates/sync)\n   Compiling syscalls v0.6.18 (https://github.com/jasonwhite/syscalls.git#92624de3)\n   Compiling runtime v0.1.0 (/home/runner/check/batch_1/Byte-OS/ByteOS/crates/runtime)\n    Checking num_enum v0.7.3\n    Checking bit_field v0.10.2\n    Checking libc-types v0.1.0 (/home/runner/check/batch_1/Byte-OS/ByteOS/crates/libc-types)\n   Compiling lwext4_rust v0.2.0 (https://github.com/Azure-stars/lwext4_rust.git?rev=ee5131c#ee5131ca)\n    Checking linkme v0.3.33\nerror: failed to run custom build command for `lwext4_rust v0.2.0 (https://github.com/Azure-stars/lwext4_rust.git?rev=ee5131c#ee5131ca)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/Byte-OS/ByteOS/target/semver-checks/local-ext4fs-0_1_0-01666ec060466c14/target/debug/build/lwext4_rust-95b80d03d16b9754/build-script-build` (exit status: 101)\n  --- stdout\n  make: Entering directory '/home/runner/.cargo/git/checkouts/lwext4_rust-42b311d794fde3a2/ee5131c/c/lwext4'\n  rm -R -f build_musl-generic\n  mkdir build_musl-generic\n  cd build_musl-generic && cmake -G\"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Release -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_PATCH=0 -DVERSION=1.0.0-58bcf89 -DLWEXT4_BUILD_SHARED_LIB=OFF -DCMAKE_INSTALL_PREFIX=./install   -DCMAKE_TOOLCHAIN_FILE=../toolchain/musl-generic.cmake ..\n  -- The C compiler identification is unknown\n  -- Configuring incomplete, errors occurred!\n  make: Leaving directory '/home/runner/.cargo/git/checkouts/lwext4_rust-42b311d794fde3a2/ee5131c/c/lwext4'\n\n  --- stderr\n  CMake Warning (dev) at CMakeLists.txt:1 (project):\n    cmake_minimum_required() should be called prior to this top-level project()\n    call.  Please see the cmake-commands(7) manual for usage documentation of\n    both commands.\n  This warning is for project developers.  Use -Wno-dev to suppress it.\n\n  CMake Error at CMakeLists.txt:1 (project):\n    The CMAKE_C_COMPILER:\n\n      riscv64-linux-musl-gcc\n\n    is not a full path and was not found in the PATH.\n\n    Tell CMake where to find the compiler by setting either the environment\n    variable \"CC\" or the CMake cache entry CMAKE_C_COMPILER to the full path to\n    the compiler, or to the compiler name if it is in the PATH.\n\n\n  make: *** [Makefile:37: musl-generic] Error 1\n\n  thread 'main' panicked at /home/runner/.cargo/git/checkouts/lwext4_rust-42b311d794fde3a2/ee5131c/build.rs:48:9:\n  assertion failed: status.success()\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate ext4fs v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/Byte-OS/ByteOS/filesystem/ext4fs &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate ext4fs v0.1.0\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -918,7 +978,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "kramdisk",
-      "count": 35,
+      "count": 36,
       "raw_reports": [
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
@@ -1017,6 +1077,16 @@
               "pkg=kramdisk, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/driver/kramdisk\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-05-25 12:34:27.515520158 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building kramdisk v0.1.0 (current)\nerror: running cargo-doc on crate 'kramdisk' failed with output:\n-----\n    Checking bit_field v0.10.2\n   Compiling lock_api v0.4.12\n   Compiling rustversion v1.0.21\n    Checking bitflags v2.9.1\n    Checking scopeguard v1.2.0\n    Checking bitflags v1.3.2\n   Compiling x86 v0.52.0\n    Checking raw-cpuid v10.7.0\n    Checking volatile v0.4.6\n    Checking bit v0.1.1\n    Checking spin v0.9.8\n    Checking log v0.4.27\n    Checking spin v0.10.0\n    Checking acpi v5.2.0\n   Compiling polyhal v0.3.2\n    Checking multiboot v0.8.0\n    Checking raw-cpuid v11.5.0\n    Checking fdt-parser v0.4.16\n    Checking cfg-if v1.0.0\n    Checking x86_64 v0.15.2\n    Checking lazyinit v0.2.1\n    Checking arrayvec v0.7.6\n   Compiling runtime v0.1.0 (/home/runner/check/batch_1/Byte-OS/ByteOS/crates/runtime)\n    Checking buddy_system_allocator v0.9.1\n    Checking sync v0.1.0 (/home/runner/check/batch_1/Byte-OS/ByteOS/crates/sync)\n    Checking linkme v0.3.33\n    Checking timestamp v0.1.0 (https://github.com/Byte-OS/timestamp.git#0394ccfa)\n   Compiling kramdisk v0.1.0 (/home/runner/check/batch_1/Byte-OS/ByteOS/driver/kramdisk)\nerror: failed to run custom build command for `kramdisk v0.1.0 (/home/runner/check/batch_1/Byte-OS/ByteOS/driver/kramdisk)`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/check/batch_1/Byte-OS/ByteOS/target/semver-checks/local-kramdisk-0_1_0-01666ec060466c14/target/debug/build/kramdisk-8efddaf227e4050f/build-script-build` (exit status: 101)\n  --- stderr\n\n  thread 'main' panicked at /home/runner/check/batch_1/Byte-OS/ByteOS/driver/kramdisk/build.rs:13:53:\n  can't find manifest directory: NotPresent\n  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate kramdisk v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/Byte-OS/ByteOS/driver/kramdisk &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate kramdisk v0.1.0\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -1112,7 +1182,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "devices",
-      "count": 30,
+      "count": 31,
       "raw_reports": [
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
@@ -1197,6 +1267,16 @@
               "pkg=devices, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/crates/devices\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-05-25 12:32:43.882208918 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building devices v0.1.0 (current)\n       Built [   1.103s] (current)\n     Parsing devices v0.1.0 (current)\n      Parsed [   0.001s] (current)\n    Building devices v0.1.0 (baseline)\nerror: running cargo-doc on crate 'devices' failed with output:\n-----\n    Checking memchr v2.7.4\n    Checking regex-syntax v0.8.5\n    Checking cfg-if v1.0.0\n    Checking lazy_static v1.5.0\nerror[E0463]: can't find crate for `std`\n --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lazy_static-1.5.0/src/inline_lazy.rs:9:1\n  |\n9 | extern crate std;\n  | ^^^^^^^^^^^^^^^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `lazy_static` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror[E0463]: can't find crate for `std`\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/memchr-2.7.4/src/lib.rs:198:1\n    |\n198 | extern crate std;\n    | ^^^^^^^^^^^^^^^^^ can't find crate\n    |\n    = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n    = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-syntax-0.8.5/src/lib.rs:174:1\n    |\n174 | extern crate std;\n    | ^^^^^^^^^^^^^^^^^ can't find crate\n    |\n    = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n    = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: could not compile `memchr` (lib) due to 1 previous error\nerror: could not compile `regex-syntax` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate devices v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add devices@=0.1.0 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate devices v0.1.0\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -1204,7 +1284,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "kernel",
-      "count": 30,
+      "count": 31,
       "raw_reports": [
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
@@ -1289,6 +1369,16 @@
               "pkg=kernel, checker=Outdated\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/kernel\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 12:39:19.185048366 +08:00:00\n\nName             Project  Compat   Latest   Kind    Platform\n----             -------  ------   ------   ----    --------\nasync-recursion  1.1.0    1.1.1    1.1.1    Normal  ---\nbitflags         2.9.0    2.9.1    2.9.1    Normal  ---\nfutures-lite     1.13.0   ---      2.6.0    Normal  ---\nhashbrown        0.14.5   ---      0.15.3   Normal  ---\nserde            1.0.188  1.0.219  1.0.219  Build   ---\nserde_derive     1.0.188  1.0.219  1.0.219  Build   ---\ntoml             0.5.11   ---      0.8.22   Build   ---\nxmas-elf         0.9.0    0.9.1    0.10.0   Normal  ---\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -1296,7 +1386,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "runtime",
-      "count": 30,
+      "count": 31,
       "raw_reports": [
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
@@ -1381,6 +1471,16 @@
               "pkg=runtime, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/crates/runtime\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-05-25 12:35:45.464380752 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building runtime v0.1.0 (current)\n       Built [   1.029s] (current)\n     Parsing runtime v0.1.0 (current)\n      Parsed [   0.001s] (current)\n    Building runtime v0.0.0 (baseline)\nerror: running cargo-doc on crate 'runtime' failed with output:\n-----\n Documenting runtime v0.0.0\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `runtime` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not document `runtime`\n\n-----\n\nerror: failed to build rustdoc for crate runtime v0.0.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add runtime@=0.0.0 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate runtime v0.0.0\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -1388,7 +1488,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "ns16550a",
-      "count": 26,
+      "count": 27,
       "raw_reports": [
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
@@ -1461,6 +1561,16 @@
           }
         },
         {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
           "file": "(virtual) semver-checks",
           "features": "",
           "count": 1,
@@ -1476,7 +1586,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "general-plic",
-      "count": 25,
+      "count": 26,
       "raw_reports": [
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
@@ -1547,6 +1657,16 @@
               "pkg=general-plic, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/driver/general-plic\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-05-25 12:34:01.278194273 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building general-plic v0.1.0 (current)\n       Built [   1.157s] (current)\n     Parsing general-plic v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: general-plic not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -1554,7 +1674,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "kgoldfish-rtc",
-      "count": 25,
+      "count": 26,
       "raw_reports": [
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
@@ -1625,6 +1745,16 @@
               "pkg=kgoldfish-rtc, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/driver/kgoldfish-rtc\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-05-25 12:34:16.197668011 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building kgoldfish-rtc v0.1.0 (current)\n       Built [   2.513s] (current)\n     Parsing kgoldfish-rtc v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: kgoldfish-rtc not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -1632,7 +1762,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "procfs",
-      "count": 25,
+      "count": 26,
       "raw_reports": [
         {
           "file": "filesystem/procfs/src/lib.rs",
@@ -1694,6 +1824,16 @@
               "pkg=procfs, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/filesystem/procfs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-05-25 12:35:19.020414384 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building procfs v0.1.0 (current)\n       Built [   0.818s] (current)\n     Parsing procfs v0.1.0 (current)\n      Parsed [   0.001s] (current)\n    Building procfs v0.1.0 (baseline)\nerror: running cargo-doc on crate 'procfs' failed with output:\n-----\n   Compiling num-traits v0.2.19\n    Checking byteorder v1.5.0\n    Checking lazy_static v1.5.0\n   Compiling libc v0.2.172\nerror[E0463]: can't find crate for `std`\n --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lazy_static-1.5.0/src/inline_lazy.rs:9:1\n  |\n9 | extern crate std;\n  | ^^^^^^^^^^^^^^^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `byteorder` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `lazy_static` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror[E0463]: can't find crate for `std`\n --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:1:5\n  |\n1 | use std::{\n  |     ^^^ can't find crate\n  |\n  = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:1588:9\n     |\n1588 |     use std::mem::size_of;\n     |         ^^^ can't find crate\n     |\n     = note: the `riscv64imac-unknown-none-elf` target may not support the standard library\n     = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1209:27\n     |\n1209 |             const _: () = assert!(align_of::<u32>() <= align_of::<f32>());\n     |                           ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1271:27\n     |\n1271 |             const _: () = assert!(align_of::<u64>() <= align_of::<f64>());\n     |                           ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find attribute `derive` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1812:3\n     |\n1812 | #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]\n     |   ^^^^^^\n     |\nhelp: consider importing this attribute macro\n     |\n76   + use core::prelude::rust_2024::derive;\n     |\n\nerror: cannot find macro `panic` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1817:9\n     |\n1817 |         panic!(\"BigEndian default\")\n     |         ^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::panic;\n     |\n\nerror: cannot find attribute `derive` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1842:3\n     |\n1842 | #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]\n     |   ^^^^^^\n     |\nhelp: consider importing this attribute macro\n     |\n76   + use core::prelude::rust_2024::derive;\n     |\n\nerror: cannot find macro `panic` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1847:9\n     |\n1847 |         panic!(\"LittleEndian default\")\n     |         ^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::panic;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1962:9\n     |\n1962 |         assert!(1 <= nbytes && nbytes <= out.len() && nbytes <= buf.len());\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1971:9\n     |\n1971 |         assert!(1 <= nbytes && nbytes <= out.len() && nbytes <= buf.len());\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1999:9\n     |\n1999 |         assert!(pack_size(n) <= nbytes && nbytes <= 8);\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2000:9\n     |\n2000 |         assert!(nbytes <= buf.len());\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2013:9\n     |\n2013 |         assert!(pack_size128(n) <= nbytes && nbytes <= 16);\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2014:9\n     |\n2014 |         assert!(nbytes <= buf.len());\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1914:9\n     |\n1914 |         assert_eq!(src.len(), dst.len() * SIZE);\n     |         ^^^^^^^^^\n...\n2027 |         read_slice!(src, dst, u16, from_be_bytes);\n     |         ----------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `read_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1914:9\n     |\n1914 |         assert_eq!(src.len(), dst.len() * SIZE);\n     |         ^^^^^^^^^\n...\n2032 |         read_slice!(src, dst, u32, from_be_bytes);\n     |         ----------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `read_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1914:9\n     |\n1914 |         assert_eq!(src.len(), dst.len() * SIZE);\n     |         ^^^^^^^^^\n...\n2037 |         read_slice!(src, dst, u64, from_be_bytes);\n     |         ----------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `read_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1914:9\n     |\n1914 |         assert_eq!(src.len(), dst.len() * SIZE);\n     |         ^^^^^^^^^\n...\n2042 |         read_slice!(src, dst, u128, from_be_bytes);\n     |         ------------------------------------------ in this macro invocation\n     |\n     = note: this error originates in the macro `read_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1931:9\n     |\n1931 |         assert_eq!(src.len() * SIZE, dst.len());\n     |         ^^^^^^^^^\n...\n2047 |         write_slice!(src, dst, u16, to_be_bytes);\n     |         ---------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `write_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1931:9\n     |\n1931 |         assert_eq!(src.len() * SIZE, dst.len());\n     |         ^^^^^^^^^\n...\n2052 |         write_slice!(src, dst, u32, to_be_bytes);\n     |         ---------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `write_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1931:9\n     |\n1931 |         assert_eq!(src.len() * SIZE, dst.len());\n     |         ^^^^^^^^^\n...\n2057 |         write_slice!(src, dst, u64, to_be_bytes);\n     |         ---------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `write_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1931:9\n     |\n1931 |         assert_eq!(src.len() * SIZE, dst.len());\n     |         ^^^^^^^^^\n...\n2062 |         write_slice!(src, dst, u128, to_be_bytes);\n     |         ----------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `write_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2067:12\n     |\n2067 |         if cfg!(target_endian = \"little\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2076:12\n     |\n2076 |         if cfg!(target_endian = \"little\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2085:12\n     |\n2085 |         if cfg!(target_endian = \"little\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2094:12\n     |\n2094 |         if cfg!(target_endian = \"little\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2103:12\n     |\n2103 |         if cfg!(target_endian = \"little\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2115:12\n     |\n2115 |         if cfg!(target_endian = \"little\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2150:9\n     |\n2150 |         assert!(1 <= nbytes && nbytes <= out.len() && nbytes <= buf.len());\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2158:9\n     |\n2158 |         assert!(1 <= nbytes && nbytes <= out.len() && nbytes <= buf.len());\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2185:9\n     |\n2185 |         assert!(pack_size(n as u64) <= nbytes && nbytes <= 8);\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2186:9\n     |\n2186 |         assert!(nbytes <= buf.len());\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2195:9\n     |\n2195 |         assert!(pack_size128(n as u128) <= nbytes && nbytes <= 16);\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2196:9\n     |\n2196 |         assert!(nbytes <= buf.len());\n     |         ^^^^^^\n     |\nhelp: consider importing this macro\n     |\n76   + use core::assert;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1914:9\n     |\n1914 |         assert_eq!(src.len(), dst.len() * SIZE);\n     |         ^^^^^^^^^\n...\n2205 |         read_slice!(src, dst, u16, from_le_bytes);\n     |         ----------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `read_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1914:9\n     |\n1914 |         assert_eq!(src.len(), dst.len() * SIZE);\n     |         ^^^^^^^^^\n...\n2210 |         read_slice!(src, dst, u32, from_le_bytes);\n     |         ----------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `read_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1914:9\n     |\n1914 |         assert_eq!(src.len(), dst.len() * SIZE);\n     |         ^^^^^^^^^\n...\n2215 |         read_slice!(src, dst, u64, from_le_bytes);\n     |         ----------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `read_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1914:9\n     |\n1914 |         assert_eq!(src.len(), dst.len() * SIZE);\n     |         ^^^^^^^^^\n...\n2220 |         read_slice!(src, dst, u128, from_le_bytes);\n     |         ------------------------------------------ in this macro invocation\n     |\n     = note: this error originates in the macro `read_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1931:9\n     |\n1931 |         assert_eq!(src.len() * SIZE, dst.len());\n     |         ^^^^^^^^^\n...\n2225 |         write_slice!(src, dst, u16, to_le_bytes);\n     |         ---------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `write_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1931:9\n     |\n1931 |         assert_eq!(src.len() * SIZE, dst.len());\n     |         ^^^^^^^^^\n...\n2230 |         write_slice!(src, dst, u32, to_le_bytes);\n     |         ---------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `write_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1931:9\n     |\n1931 |         assert_eq!(src.len() * SIZE, dst.len());\n     |         ^^^^^^^^^\n...\n2235 |         write_slice!(src, dst, u64, to_le_bytes);\n     |         ---------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `write_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `assert_eq` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1931:9\n     |\n1931 |         assert_eq!(src.len() * SIZE, dst.len());\n     |         ^^^^^^^^^\n...\n2240 |         write_slice!(src, dst, u128, to_le_bytes);\n     |         ----------------------------------------- in this macro invocation\n     |\n     = note: this error originates in the macro `write_slice` (in Nightly builds, run with -Z macro-backtrace for more info)\nhelp: consider importing this macro\n     |\n76   + use core::assert_eq;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2245:12\n     |\n2245 |         if cfg!(target_endian = \"big\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2254:12\n     |\n2254 |         if cfg!(target_endian = \"big\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2263:12\n     |\n2263 |         if cfg!(target_endian = \"big\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2272:12\n     |\n2272 |         if cfg!(target_endian = \"big\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2281:12\n     |\n2281 |         if cfg!(target_endian = \"big\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror: cannot find macro `cfg` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:2293:12\n     |\n2293 |         if cfg!(target_endian = \"big\") {\n     |            ^^^\n     |\n     = note: `cfg` is in scope, but it is an attribute: `#[cfg]`\nhelp: consider importing this macro\n     |\n76   + use core::cfg;\n     |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:58:9\n   |\n58 |         Ok(buf[0])\n   |         ^^ not found in this scope\n   |\nhelp: consider importing this tuple variant\n   |\n1  + use core::result::Result::Ok;\n   |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:88:9\n   |\n88 |         Ok(buf[0] as i8)\n   |         ^^ not found in this scope\n   |\nhelp: consider importing this tuple variant\n   |\n1  + use core::result::Result::Ok;\n   |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:115:9\n    |\n115 |         Ok(T::read_u16(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:142:9\n    |\n142 |         Ok(T::read_i16(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:168:9\n    |\n168 |         Ok(T::read_u24(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:194:9\n    |\n194 |         Ok(T::read_i24(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:220:9\n    |\n220 |         Ok(T::read_u32(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:246:9\n    |\n246 |         Ok(T::read_i32(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:272:9\n    |\n272 |         Ok(T::read_u48(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:298:9\n    |\n298 |         Ok(T::read_i48(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:324:9\n    |\n324 |         Ok(T::read_u64(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:350:9\n    |\n350 |         Ok(T::read_i64(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:379:9\n    |\n379 |         Ok(T::read_u128(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:405:9\n    |\n405 |         Ok(T::read_i128(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:430:9\n    |\n430 |         Ok(T::read_uint(&buf[..nbytes], nbytes))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:455:9\n    |\n455 |         Ok(T::read_int(&buf[..nbytes], nbytes))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:463:9\n    |\n463 |         Ok(T::read_uint128(&buf[..nbytes], nbytes))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:471:9\n    |\n471 |         Ok(T::read_int128(&buf[..nbytes], nbytes))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:502:9\n    |\n502 |         Ok(T::read_f32(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:533:9\n    |\n533 |         Ok(T::read_f64(&buf))\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:568:9\n    |\n568 |         Ok(())\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:603:9\n    |\n603 |         Ok(())\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:641:9\n    |\n641 |         Ok(())\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:682:9\n    |\n682 |         Ok(())\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:753:9\n    |\n753 |         Ok(())\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:788:9\n    |\n788 |         Ok(())\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:826:9\n    |\n826 |         Ok(())\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:867:9\n    |\n867 |         Ok(())\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:908:9\n    |\n908 |         Ok(())\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0425]: cannot find function, tuple struct or tuple variant `Ok` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:993:9\n    |\n993 |         Ok(())\n    |         ^^ not found in this scope\n    |\nhelp: consider importing this tuple variant\n    |\n1   + use core::result::Result::Ok;\n    |\n\nerror[E0405]: cannot find trait `Sized` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:1049:21\n     |\n1049 | impl<R: io::Read + ?Sized> ReadBytesExt for R {}\n     |                     ^^^^^ not found in this scope\n     |\nhelp: consider importing this trait\n     |\n1    + use core::marker::Sized;\n     |\n\nerror[E0405]: cannot find trait `Sized` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:1579:22\n     |\n1579 | impl<W: io::Write + ?Sized> WriteBytesExt for W {}\n     |                      ^^^^^ not found in this scope\n     |\nhelp: consider importing this trait\n     |\n1    + use core::marker::Sized;\n     |\n\nerror[E0405]: cannot find trait `Copy` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/io.rs:1587:30\n     |\n1587 | unsafe fn slice_to_u8_mut<T: Copy>(slice: &mut [T]) -> &mut [u8] {\n     |                              ^^^^ not found in this scope\n     |\nhelp: consider importing this trait\n     |\n1    + use core::marker::Copy;\n     |\n\nerror[E0405]: cannot find trait `Clone` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:213:5\n    |\n213 |     Clone\n    |     ^^^^^ not found in this scope\n    |\nhelp: consider importing this trait\n    |\n76  + use core::clone::Clone;\n    |\n\nerror[E0405]: cannot find trait `Copy` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:214:7\n    |\n214 |     + Copy\n    |       ^^^^ not found in this scope\n    |\nhelp: consider importing this trait\n    |\n76  + use core::marker::Copy;\n    |\n\nerror[E0405]: cannot find trait `Default` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:216:7\n    |\n216 |     + Default\n    |       ^^^^^^^ not found in this scope\n    |\nhelp: consider importing this trait\n    |\n76  + use core::default::Default;\n    |\n\nerror[E0405]: cannot find trait `Eq` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:217:7\n    |\n217 |     + Eq\n    |       ^^ not found in this scope\n    |\nhelp: consider importing this trait\n    |\n76  + use core::cmp::Eq;\n    |\n\nerror[E0405]: cannot find trait `Ord` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:219:7\n    |\n219 |     + Ord\n    |       ^^^ not found in this scope\n    |\nhelp: consider importing this trait\n    |\n76  + use core::cmp::Ord;\n    |\n\nerror[E0405]: cannot find trait `PartialEq` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:220:7\n    |\n220 |     + PartialEq\n    |       ^^^^^^^^^ not found in this scope\n    |\nhelp: consider importing this trait\n    |\n76  + use core::cmp::PartialEq;\n    |\n\nerror[E0405]: cannot find trait `PartialOrd` in this scope\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:221:7\n    |\n221 |     + PartialOrd\n    |       ^^^^^^^^^^ not found in this scope\n    |\nhelp: consider importing this trait\n    |\n76  + use core::cmp::PartialOrd;\n    |\n\nerror[E0405]: cannot find trait `Default` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1815:6\n     |\n1815 | impl Default for BigEndian {\n     |      ^^^^^^^ not found in this scope\n     |\nhelp: consider importing this trait\n     |\n76   + use core::default::Default;\n     |\n\nerror[E0405]: cannot find trait `Default` in this scope\n    --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/byteorder-1.5.0/src/lib.rs:1845:6\n     |\n1845 | impl Default for LittleEndian {\n     |      ^^^^^^^ not found in this scope\n     |\nhelp: consider importing this trait\n     |\n76   + use core::default::Default;\n     |\n\nSome errors have detailed explanations: E0405, E0425, E0463.\nFor more information about an error, try `rustc --explain E0405`.\nerror: could not compile `byteorder` (lib) due to 91 previous errors\n\n-----\n\nerror: failed to build rustdoc for crate procfs v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add procfs@=0.1.0 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate procfs v0.1.0\n"
             ]
           }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
         }
       ]
     },
@@ -1701,7 +1841,7 @@
       "user": "Byte-OS",
       "repo": "ByteOS",
       "pkg": "ramfs",
-      "count": 25,
+      "count": 26,
       "raw_reports": [
         {
           "file": "/home/runner/check/batch_1/Byte-OS/ByteOS/Cargo.lock",
@@ -1770,6 +1910,16 @@
               "pkg=ramfs, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/filesystem/ramfs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \ntimestamp=2025-05-25 12:35:35.355518187 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building ramfs v0.1.0 (current)\nerror: running cargo-doc on crate 'ramfs' failed with output:\n-----\n    Checking scopeguard v1.2.0\n   Compiling lock_api v0.4.12\n    Checking tock-registers v0.8.1\n    Checking bitflags v2.9.1\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `scopeguard` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `tock-registers` (lib) due to 1 previous error\nerror: could not compile `bitflags` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate ramfs v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/Byte-OS/ByteOS/filesystem/ramfs &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate ramfs v0.1.0\n",
               "pkg=ramfs, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/filesystem/ramfs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \ntimestamp=2025-05-25 12:35:30.874538049 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building ramfs v0.1.0 (current)\n       Built [   1.154s] (current)\n     Parsing ramfs v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: ramfs not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n",
               "pkg=ramfs, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=riscv64imac-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/ByteOS/filesystem/ramfs\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target riscv64imac-unknown-none-elf \ntimestamp=2025-05-25 12:35:34.717519153 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building ramfs v0.1.0 (current)\n       Built [   1.260s] (current)\n     Parsing ramfs v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: ramfs not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         }

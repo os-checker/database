@@ -8,7 +8,7 @@
       "user": "os-module",
       "repo": "pager",
       "pkg": "pager",
-      "count": 7,
+      "count": 8,
       "raw_reports": [
         {
           "file": "src/bitmap.rs",
@@ -21,6 +21,16 @@
             "Clippy(Warn)": [
               "warning: doc list item without indentation\n  --> src/bitmap.rs:21:5\n   |\n21 | /// If the number of physical pages is less than 4096*8, space may be wasted\n   |     ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n21 | ///    If the number of physical pages is less than 4096*8, space may be wasted\n   |     +++\n\n",
               "warning: manually reimplementing `div_ceil`\n   --> src/bitmap.rs:197:32\n    |\n197 |             let bitmap_pages = (self.max + 4096 * 8 - 1) / (4096 * 8);\n    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `self.max.div_ceil((4096 * 8))`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n    = note: `#[warn(clippy::manual_div_ceil)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },

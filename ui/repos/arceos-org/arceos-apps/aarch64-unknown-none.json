@@ -8,6 +8,137 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-parallel",
+      "count": 24,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
+          "features": "--features axstd",
+          "count": 8,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:121:5\n    |\n121 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
+              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:143:5\n    |\n143 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
+              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:3\n    |\n115 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
+              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:3\n    |\n139 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
+              "error[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:106:27\n    |\n106 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\n",
+              "error[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:172:38\n    |\n172 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\n",
+              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:1\n    |\n115 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
+              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:1\n    |\n139 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs",
+          "features": "--features axstd",
+          "count": 4,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:264:5\n    |\n264 |     naked_asm!(\n    |     ^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
+              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:3\n    |\n262 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
+              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:1\n    |\n262 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
+              "error[E0658]: use of unstable library feature `naked_functions`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:1:5\n  |\n1 | use core::arch::naked_asm;\n  |     ^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n  = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n  = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/gic.rs",
+          "features": "--features axstd",
+          "count": 3,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\n",
+              "error[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\n",
+              "error[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs",
+          "features": "--features axstd",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0425]: cannot find value `UART_PADDR` in module `axconfig::devices`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:9:52\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::devices::UART_PADDR);\n  |                                                    ^^^^^^^^^^ not found in `axconfig::devices`\n\n",
+              "error[E0425]: cannot find value `UART_IRQ_NUM` in module `crate::platform::irq`\n  --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:61:50\n   |\n61 |     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n   |                                                  ^^^^^^^^^^^^ not found in `crate::platform::irq`\n   |\nhelp: consider importing this constant\n   |\n3  + use crate::platform::aarch64_common::gic::UART_IRQ_NUM;\n   |\nhelp: if you import `UART_IRQ_NUM`, refer to it directly\n   |\n61 -     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n61 +     crate::irq::set_enable(UART_IRQ_NUM, true);\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_2/arceos-org/arceos-apps/Cargo.lock",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     atomic-polyfill\nVersion:   1.0.3\nWarning:   unmaintained\nTitle:     atomic-polyfill is unmaintained\nDate:      2023-07-11\nID:        RUSTSEC-2023-0089\nURL:       https://rustsec.org/advisories/RUSTSEC-2023-0089\nDependency tree:\natomic-polyfill 1.0.3\n└── heapless 0.7.17\n    └── smoltcp 0.10.0\n        └── axnet 0.1.0\n            ├── axruntime 0.1.0\n            │   ├── axfeat 0.1.0\n            │   │   ├── axstd 0.1.0\n            │   │   │   ├── wait_queue 0.1.0\n            │   │   │   ├── arceos-yield 0.1.0\n            │   │   │   ├── arceos-udpserver 0.1.0\n            │   │   │   ├── arceos-tls 0.1.0\n            │   │   │   ├── arceos-sleep 0.1.0\n            │   │   │   ├── arceos-shell 0.1.0\n            │   │   │   ├── arceos-priority 0.1.0\n            │   │   │   ├── arceos-parallel 0.1.0\n            │   │   │   ├── arceos-memtest 0.1.0\n            │   │   │   ├── arceos-irq 0.1.0\n            │   │   │   ├── arceos-httpserver 0.1.0\n            │   │   │   ├── arceos-httpclient 0.1.0\n            │   │   │   ├── arceos-helloworld 0.1.0\n            │   │   │   ├── arceos-exception 0.1.0\n            │   │   │   ├── arceos-echoserver 0.1.0\n            │   │   │   ├── arceos-display 0.1.0\n            │   │   │   ├── arceos-bwbench 0.1.0\n            │   │   │   └── affinity 0.1.0\n            │   │   └── arceos_api 0.1.0\n            │   │       └── axstd 0.1.0\n            │   └── arceos_api 0.1.0\n            ├── axfeat 0.1.0\n            └── arceos_api 0.1.0\n\nCrate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.4.3\n│   └── axhal 0.1.0\n│       ├── axtask 0.1.0\n│       │   ├── axsync 0.1.0\n│       │   │   ├── axnet 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   │   ├── axfeat 0.1.0\n│       │   │   │   │   │   ├── axstd 0.1.0\n│       │   │   │   │   │   │   ├── wait_queue 0.1.0\n│       │   │   │   │   │   │   ├── arceos-yield 0.1.0\n│       │   │   │   │   │   │   ├── arceos-udpserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-tls 0.1.0\n│       │   │   │   │   │   │   ├── arceos-sleep 0.1.0\n│       │   │   │   │   │   │   ├── arceos-shell 0.1.0\n│       │   │   │   │   │   │   ├── arceos-priority 0.1.0\n│       │   │   │   │   │   │   ├── arceos-parallel 0.1.0\n│       │   │   │   │   │   │   ├── arceos-memtest 0.1.0\n│       │   │   │   │   │   │   ├── arceos-irq 0.1.0\n│       │   │   │   │   │   │   ├── arceos-httpserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-httpclient 0.1.0\n│       │   │   │   │   │   │   ├── arceos-helloworld 0.1.0\n│       │   │   │   │   │   │   ├── arceos-exception 0.1.0\n│       │   │   │   │   │   │   ├── arceos-echoserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-display 0.1.0\n│       │   │   │   │   │   │   ├── arceos-bwbench 0.1.0\n│       │   │   │   │   │   │   └── affinity 0.1.0\n│       │   │   │   │   │   └── arceos_api 0.1.0\n│       │   │   │   │   │       └── axstd 0.1.0\n│       │   │   │   │   └── arceos_api 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   ├── axfs 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   ├── axfeat 0.1.0\n│       │   │   ├── axdisplay 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   └── arceos_api 0.1.0\n│       │   ├── axruntime 0.1.0\n│       │   ├── axnet 0.1.0\n│       │   ├── axfeat 0.1.0\n│       │   └── arceos_api 0.1.0\n│       ├── axruntime 0.1.0\n│       ├── axnet 0.1.0\n│       ├── axmm 0.1.0\n│       │   └── axruntime 0.1.0\n│       ├── axfeat 0.1.0\n│       ├── axdriver 0.1.0\n│       │   ├── axruntime 0.1.0\n│       │   ├── axnet 0.1.0\n│       │   ├── axfs 0.1.0\n│       │   ├── axfeat 0.1.0\n│       │   ├── axdisplay 0.1.0\n│       │   └── arceos_api 0.1.0\n│       └── arceos_api 0.1.0\n├── riscv 0.13.0\n│   └── axhal 0.1.0\n└── riscv 0.12.1\n    └── page_table_multiarch 0.5.3\n        └── axhal 0.1.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 782,\n    \"last-commit\": \"bccf313a98c034573ac4170e6271749113343d97\",\n    \"last-updated\": \"2025-05-22T19:04:33+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 181\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atomic-polyfill\",\n          \"version\": \"1.0.3\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8cf2bce30dfe09ef0bfaef228b9d414faaf7e563035494d7fe092dba54b300f4\",\n          \"dependencies\": [\n            {\n              \"name\": \"critical-section\",\n              \"version\": \"1.2.0\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2023-0089\",\n          \"package\": \"atomic-polyfill\",\n          \"title\": \"atomic-polyfill is unmaintained\",\n          \"description\": \"The author has archived the GitHub repository and mentions deprecation in\\nproject's\\n[README](https://github.com/embassy-rs/atomic-polyfill/blob/48e55c166684f37af0b00fbee5a0809b1a2bae8e/README.md).\\n\\n## Possible alternatives\\n\\n * [portable-atomic](https://crates.io/crates/portable-atomic)\",\n          \"date\": \"2023-07-11\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/embassy-rs/atomic-polyfill/commit/48e55c166684f37af0b00fbee5a0809b1a2bae8e\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      },\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arceos-parallel, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=--features axstd\n// pkg_dir=/home/runner/check/batch_2/arceos-org/arceos-apps/rust/task/parallel\n// cmd=cargo clippy --target aarch64-unknown-none --features axstd --no-deps\n// timestamp=2025-05-25 0:55:10.038267806 +08:00:00\n    Checking axhal v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\nerror: could not compile `axhal` (lib) due to 16 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arceos-parallel, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=--features axstd\n// pkg_dir=/home/runner/check/batch_2/arceos-org/arceos-apps/rust/task/parallel\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target aarch64-unknown-none --features axstd\n// timestamp=2025-05-25 0:56:24.177116088 +08:00:00\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling axhal v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:121:5\n    |\n121 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:143:5\n    |\n143 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:264:5\n    |\n264 |     naked_asm!(\n    |     ^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:3\n    |\n115 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:3\n    |\n139 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:3\n    |\n262 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\nerror[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\nerror[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\nerror[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:106:27\n    |\n106 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\nerror[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:172:38\n    |\n172 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\nerror[E0425]: cannot find value `UART_PADDR` in module `axconfig::devices`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:9:52\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::devices::UART_PADDR);\n  |                                                    ^^^^^^^^^^ not found in `axconfig::devices`\n\nerror[E0425]: cannot find value `UART_IRQ_NUM` in module `crate::platform::irq`\n  --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:61:50\n   |\n61 |     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n   |                                                  ^^^^^^^^^^^^ not found in `crate::platform::irq`\n   |\nhelp: consider importing this constant\n   |\n3  + use crate::platform::aarch64_common::gic::UART_IRQ_NUM;\n   |\nhelp: if you import `UART_IRQ_NUM`, refer to it directly\n   |\n61 -     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n61 +     crate::irq::set_enable(UART_IRQ_NUM, true);\n   |\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:1\n    |\n115 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:1\n    |\n139 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:1\n    |\n262 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: use of unstable library feature `naked_functions`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:1:5\n  |\n1 | use core::arch::naked_asm;\n  |     ^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n  = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n  = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nSome errors have detailed explanations: E0425, E0432, E0658.\nFor more information about an error, try `rustc --explain E0425`.\nerror: could not compile `axhal` (lib) due to 16 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "[lockbud] Not supported to display yet.",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-05-24T16:55:53Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=arceos-parallel, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=--features axstd\npkg_dir=/home/runner/check/batch_2/arceos-org/arceos-apps/rust/task/parallel\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 1:00:27.04446648 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nrand  0.8.5    ---     0.9.1   Normal  ---\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "arceos-apps",
+      "pkg": "arceos-irq",
       "count": 23,
       "raw_reports": [
         {
@@ -74,123 +205,12 @@
           }
         },
         {
-          "file": "/home/runner/check/batch_2/arceos-org/arceos-apps/Cargo.lock",
-          "features": "--features axstd",
-          "count": 1,
-          "kinds": {
-            "Audit": [
-              "Crate:     atomic-polyfill\nVersion:   1.0.3\nWarning:   unmaintained\nTitle:     atomic-polyfill is unmaintained\nDate:      2023-07-11\nID:        RUSTSEC-2023-0089\nURL:       https://rustsec.org/advisories/RUSTSEC-2023-0089\nDependency tree:\natomic-polyfill 1.0.3\n└── heapless 0.7.17\n    └── smoltcp 0.10.0\n        └── axnet 0.1.0\n            ├── axruntime 0.1.0\n            │   ├── axfeat 0.1.0\n            │   │   ├── axstd 0.1.0\n            │   │   │   ├── wait_queue 0.1.0\n            │   │   │   ├── arceos-yield 0.1.0\n            │   │   │   ├── arceos-udpserver 0.1.0\n            │   │   │   ├── arceos-tls 0.1.0\n            │   │   │   ├── arceos-sleep 0.1.0\n            │   │   │   ├── arceos-shell 0.1.0\n            │   │   │   ├── arceos-priority 0.1.0\n            │   │   │   ├── arceos-parallel 0.1.0\n            │   │   │   ├── arceos-memtest 0.1.0\n            │   │   │   ├── arceos-irq 0.1.0\n            │   │   │   ├── arceos-httpserver 0.1.0\n            │   │   │   ├── arceos-httpclient 0.1.0\n            │   │   │   ├── arceos-helloworld 0.1.0\n            │   │   │   ├── arceos-exception 0.1.0\n            │   │   │   ├── arceos-echoserver 0.1.0\n            │   │   │   ├── arceos-display 0.1.0\n            │   │   │   ├── arceos-bwbench 0.1.0\n            │   │   │   └── affinity 0.1.0\n            │   │   └── arceos_api 0.1.0\n            │   │       └── axstd 0.1.0\n            │   └── arceos_api 0.1.0\n            ├── axfeat 0.1.0\n            └── arceos_api 0.1.0\n\nCrate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.4.3\n│   └── axhal 0.1.0\n│       ├── axtask 0.1.0\n│       │   ├── axsync 0.1.0\n│       │   │   ├── axnet 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   │   ├── axfeat 0.1.0\n│       │   │   │   │   │   ├── axstd 0.1.0\n│       │   │   │   │   │   │   ├── wait_queue 0.1.0\n│       │   │   │   │   │   │   ├── arceos-yield 0.1.0\n│       │   │   │   │   │   │   ├── arceos-udpserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-tls 0.1.0\n│       │   │   │   │   │   │   ├── arceos-sleep 0.1.0\n│       │   │   │   │   │   │   ├── arceos-shell 0.1.0\n│       │   │   │   │   │   │   ├── arceos-priority 0.1.0\n│       │   │   │   │   │   │   ├── arceos-parallel 0.1.0\n│       │   │   │   │   │   │   ├── arceos-memtest 0.1.0\n│       │   │   │   │   │   │   ├── arceos-irq 0.1.0\n│       │   │   │   │   │   │   ├── arceos-httpserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-httpclient 0.1.0\n│       │   │   │   │   │   │   ├── arceos-helloworld 0.1.0\n│       │   │   │   │   │   │   ├── arceos-exception 0.1.0\n│       │   │   │   │   │   │   ├── arceos-echoserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-display 0.1.0\n│       │   │   │   │   │   │   ├── arceos-bwbench 0.1.0\n│       │   │   │   │   │   │   └── affinity 0.1.0\n│       │   │   │   │   │   └── arceos_api 0.1.0\n│       │   │   │   │   │       └── axstd 0.1.0\n│       │   │   │   │   └── arceos_api 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   ├── axfs 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   ├── axfeat 0.1.0\n│       │   │   ├── axdisplay 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   └── arceos_api 0.1.0\n│       │   ├── axruntime 0.1.0\n│       │   ├── axnet 0.1.0\n│       │   ├── axfeat 0.1.0\n│       │   └── arceos_api 0.1.0\n│       ├── axruntime 0.1.0\n│       ├── axnet 0.1.0\n│       ├── axmm 0.1.0\n│       │   └── axruntime 0.1.0\n│       ├── axfeat 0.1.0\n│       ├── axdriver 0.1.0\n│       │   ├── axruntime 0.1.0\n│       │   ├── axnet 0.1.0\n│       │   ├── axfs 0.1.0\n│       │   ├── axfeat 0.1.0\n│       │   ├── axdisplay 0.1.0\n│       │   └── arceos_api 0.1.0\n│       └── arceos_api 0.1.0\n├── riscv 0.13.0\n│   └── axhal 0.1.0\n└── riscv 0.12.1\n    └── page_table_multiarch 0.5.3\n        └── axhal 0.1.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 782,\n    \"last-commit\": \"bccf313a98c034573ac4170e6271749113343d97\",\n    \"last-updated\": \"2025-05-22T19:04:33+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 181\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atomic-polyfill\",\n          \"version\": \"1.0.3\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8cf2bce30dfe09ef0bfaef228b9d414faaf7e563035494d7fe092dba54b300f4\",\n          \"dependencies\": [\n            {\n              \"name\": \"critical-section\",\n              \"version\": \"1.2.0\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2023-0089\",\n          \"package\": \"atomic-polyfill\",\n          \"title\": \"atomic-polyfill is unmaintained\",\n          \"description\": \"The author has archived the GitHub repository and mentions deprecation in\\nproject's\\n[README](https://github.com/embassy-rs/atomic-polyfill/blob/48e55c166684f37af0b00fbee5a0809b1a2bae8e/README.md).\\n\\n## Possible alternatives\\n\\n * [portable-atomic](https://crates.io/crates/portable-atomic)\",\n          \"date\": \"2023-07-11\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/embassy-rs/atomic-polyfill/commit/48e55c166684f37af0b00fbee5a0809b1a2bae8e\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      },\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) clippy",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=arceos-parallel, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=--features axstd\n// pkg_dir=/home/runner/check/batch_2/arceos-org/arceos-apps/rust/task/parallel\n// cmd=cargo clippy --target aarch64-unknown-none --features axstd --no-deps\n// timestamp=2025-05-25 0:55:10.038267806 +08:00:00\n    Checking axhal v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\nerror: could not compile `axhal` (lib) due to 16 previous errors\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) lockbud",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=arceos-parallel, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=--features axstd\n// pkg_dir=/home/runner/check/batch_2/arceos-org/arceos-apps/rust/task/parallel\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target aarch64-unknown-none --features axstd\n// timestamp=2025-05-25 0:56:24.177116088 +08:00:00\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling axhal v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:121:5\n    |\n121 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:143:5\n    |\n143 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:264:5\n    |\n264 |     naked_asm!(\n    |     ^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:3\n    |\n115 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:3\n    |\n139 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:3\n    |\n262 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\nerror[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\nerror[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\nerror[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:106:27\n    |\n106 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\nerror[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:172:38\n    |\n172 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\nerror[E0425]: cannot find value `UART_PADDR` in module `axconfig::devices`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:9:52\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::devices::UART_PADDR);\n  |                                                    ^^^^^^^^^^ not found in `axconfig::devices`\n\nerror[E0425]: cannot find value `UART_IRQ_NUM` in module `crate::platform::irq`\n  --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:61:50\n   |\n61 |     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n   |                                                  ^^^^^^^^^^^^ not found in `crate::platform::irq`\n   |\nhelp: consider importing this constant\n   |\n3  + use crate::platform::aarch64_common::gic::UART_IRQ_NUM;\n   |\nhelp: if you import `UART_IRQ_NUM`, refer to it directly\n   |\n61 -     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n61 +     crate::irq::set_enable(UART_IRQ_NUM, true);\n   |\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:1\n    |\n115 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:1\n    |\n139 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:1\n    |\n262 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: use of unstable library feature `naked_functions`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:1:5\n  |\n1 | use core::arch::naked_asm;\n  |     ^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n  = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n  = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nSome errors have detailed explanations: E0425, E0432, E0658.\nFor more information about an error, try `rustc --explain E0425`.\nerror: could not compile `axhal` (lib) due to 16 previous errors\n"
-            ]
-          }
-        },
-        {
-          "file": "[lockbud] Not supported to display yet.",
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
           "features": "--features axstd",
           "count": 1,
           "kinds": {
             "Lockbud(Possibly)": [
-              "[2025-05-24T16:55:53Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
-            ]
-          }
-        },
-        {
-          "file": "[outdated direct dependencies]",
-          "features": "--features axstd",
-          "count": 1,
-          "kinds": {
-            "Outdated": [
-              "pkg=arceos-parallel, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=--features axstd\npkg_dir=/home/runner/check/batch_2/arceos-org/arceos-apps/rust/task/parallel\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-05-25 1:00:27.04446648 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nrand  0.8.5    ---     0.9.1   Normal  ---\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "arceos-org",
-      "repo": "arceos-apps",
-      "pkg": "arceos-irq",
-      "count": 22,
-      "raw_reports": [
-        {
-          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
-          "features": "--features axstd",
-          "count": 8,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:121:5\n    |\n121 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
-              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:143:5\n    |\n143 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
-              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:3\n    |\n115 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
-              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:3\n    |\n139 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
-              "error[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:106:27\n    |\n106 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\n",
-              "error[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:172:38\n    |\n172 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\n",
-              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:1\n    |\n115 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
-              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:1\n    |\n139 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n"
-            ]
-          }
-        },
-        {
-          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs",
-          "features": "--features axstd",
-          "count": 4,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:264:5\n    |\n264 |     naked_asm!(\n    |     ^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
-              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:3\n    |\n262 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
-              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:1\n    |\n262 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
-              "error[E0658]: use of unstable library feature `naked_functions`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:1:5\n  |\n1 | use core::arch::naked_asm;\n  |     ^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n  = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n  = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n"
-            ]
-          }
-        },
-        {
-          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/gic.rs",
-          "features": "--features axstd",
-          "count": 3,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\n",
-              "error[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\n",
-              "error[E0432]: unresolved imports `axconfig::devices::GICC_PADDR`, `axconfig::devices::GICD_PADDR`, `axconfig::devices::UART_IRQ`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/gic.rs:3:25\n  |\n3 | use axconfig::devices::{GICC_PADDR, GICD_PADDR, UART_IRQ};\n  |                         ^^^^^^^^^^  ^^^^^^^^^^  ^^^^^^^^ no `UART_IRQ` in `devices`\n  |                         |           |\n  |                         |           no `GICD_PADDR` in `devices`\n  |                         no `GICC_PADDR` in `devices`\n\n"
-            ]
-          }
-        },
-        {
-          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs",
-          "features": "--features axstd",
-          "count": 2,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0425]: cannot find value `UART_PADDR` in module `axconfig::devices`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:9:52\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::devices::UART_PADDR);\n  |                                                    ^^^^^^^^^^ not found in `axconfig::devices`\n\n",
-              "error[E0425]: cannot find value `UART_IRQ_NUM` in module `crate::platform::irq`\n  --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:61:50\n   |\n61 |     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n   |                                                  ^^^^^^^^^^^^ not found in `crate::platform::irq`\n   |\nhelp: consider importing this constant\n   |\n3  + use crate::platform::aarch64_common::gic::UART_IRQ_NUM;\n   |\nhelp: if you import `UART_IRQ_NUM`, refer to it directly\n   |\n61 -     crate::irq::set_enable(crate::platform::irq::UART_IRQ_NUM, true);\n61 +     crate::irq::set_enable(UART_IRQ_NUM, true);\n   |\n\n"
-            ]
-          }
-        },
-        {
-          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs",
-          "features": "--features axstd",
-          "count": 1,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -240,7 +260,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-sleep",
-      "count": 22,
+      "count": 23,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -302,6 +322,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -351,7 +381,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "wait_queue",
-      "count": 22,
+      "count": 23,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -417,6 +447,16 @@
           }
         },
         {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
           "file": "/home/runner/check/batch_2/arceos-org/arceos-apps/Cargo.lock",
           "features": "--features axstd",
           "count": 1,
@@ -462,7 +502,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-memtest",
-      "count": 19,
+      "count": 20,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -511,6 +551,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -569,8 +619,8 @@
     {
       "user": "arceos-org",
       "repo": "arceos-apps",
-      "pkg": "affinity",
-      "count": 18,
+      "pkg": "arceos-shell",
+      "count": 20,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -619,6 +669,134 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axns/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axns/src/lib.rs:187:2: 187:2 (#0) after dropped at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axns/src/lib.rs:185:36: 185:37 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_2/arceos-org/arceos-apps/Cargo.lock",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     atomic-polyfill\nVersion:   1.0.3\nWarning:   unmaintained\nTitle:     atomic-polyfill is unmaintained\nDate:      2023-07-11\nID:        RUSTSEC-2023-0089\nURL:       https://rustsec.org/advisories/RUSTSEC-2023-0089\nDependency tree:\natomic-polyfill 1.0.3\n└── heapless 0.7.17\n    └── smoltcp 0.10.0\n        └── axnet 0.1.0\n            ├── axruntime 0.1.0\n            │   ├── axfeat 0.1.0\n            │   │   ├── axstd 0.1.0\n            │   │   │   ├── wait_queue 0.1.0\n            │   │   │   ├── arceos-yield 0.1.0\n            │   │   │   ├── arceos-udpserver 0.1.0\n            │   │   │   ├── arceos-tls 0.1.0\n            │   │   │   ├── arceos-sleep 0.1.0\n            │   │   │   ├── arceos-shell 0.1.0\n            │   │   │   ├── arceos-priority 0.1.0\n            │   │   │   ├── arceos-parallel 0.1.0\n            │   │   │   ├── arceos-memtest 0.1.0\n            │   │   │   ├── arceos-irq 0.1.0\n            │   │   │   ├── arceos-httpserver 0.1.0\n            │   │   │   ├── arceos-httpclient 0.1.0\n            │   │   │   ├── arceos-helloworld 0.1.0\n            │   │   │   ├── arceos-exception 0.1.0\n            │   │   │   ├── arceos-echoserver 0.1.0\n            │   │   │   ├── arceos-display 0.1.0\n            │   │   │   ├── arceos-bwbench 0.1.0\n            │   │   │   └── affinity 0.1.0\n            │   │   └── arceos_api 0.1.0\n            │   │       └── axstd 0.1.0\n            │   └── arceos_api 0.1.0\n            ├── axfeat 0.1.0\n            └── arceos_api 0.1.0\n\nCrate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.4.3\n│   └── axhal 0.1.0\n│       ├── axtask 0.1.0\n│       │   ├── axsync 0.1.0\n│       │   │   ├── axnet 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   │   ├── axfeat 0.1.0\n│       │   │   │   │   │   ├── axstd 0.1.0\n│       │   │   │   │   │   │   ├── wait_queue 0.1.0\n│       │   │   │   │   │   │   ├── arceos-yield 0.1.0\n│       │   │   │   │   │   │   ├── arceos-udpserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-tls 0.1.0\n│       │   │   │   │   │   │   ├── arceos-sleep 0.1.0\n│       │   │   │   │   │   │   ├── arceos-shell 0.1.0\n│       │   │   │   │   │   │   ├── arceos-priority 0.1.0\n│       │   │   │   │   │   │   ├── arceos-parallel 0.1.0\n│       │   │   │   │   │   │   ├── arceos-memtest 0.1.0\n│       │   │   │   │   │   │   ├── arceos-irq 0.1.0\n│       │   │   │   │   │   │   ├── arceos-httpserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-httpclient 0.1.0\n│       │   │   │   │   │   │   ├── arceos-helloworld 0.1.0\n│       │   │   │   │   │   │   ├── arceos-exception 0.1.0\n│       │   │   │   │   │   │   ├── arceos-echoserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-display 0.1.0\n│       │   │   │   │   │   │   ├── arceos-bwbench 0.1.0\n│       │   │   │   │   │   │   └── affinity 0.1.0\n│       │   │   │   │   │   └── arceos_api 0.1.0\n│       │   │   │   │   │       └── axstd 0.1.0\n│       │   │   │   │   └── arceos_api 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   ├── axfs 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   ├── axfeat 0.1.0\n│       │   │   ├── axdisplay 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   └── arceos_api 0.1.0\n│       │   ├── axruntime 0.1.0\n│       │   ├── axnet 0.1.0\n│       │   ├── axfeat 0.1.0\n│       │   └── arceos_api 0.1.0\n│       ├── axruntime 0.1.0\n│       ├── axnet 0.1.0\n│       ├── axmm 0.1.0\n│       │   └── axruntime 0.1.0\n│       ├── axfeat 0.1.0\n│       ├── axdriver 0.1.0\n│       │   ├── axruntime 0.1.0\n│       │   ├── axnet 0.1.0\n│       │   ├── axfs 0.1.0\n│       │   ├── axfeat 0.1.0\n│       │   ├── axdisplay 0.1.0\n│       │   └── arceos_api 0.1.0\n│       └── arceos_api 0.1.0\n├── riscv 0.13.0\n│   └── axhal 0.1.0\n└── riscv 0.12.1\n    └── page_table_multiarch 0.5.3\n        └── axhal 0.1.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 782,\n    \"last-commit\": \"bccf313a98c034573ac4170e6271749113343d97\",\n    \"last-updated\": \"2025-05-22T19:04:33+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 181\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atomic-polyfill\",\n          \"version\": \"1.0.3\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8cf2bce30dfe09ef0bfaef228b9d414faaf7e563035494d7fe092dba54b300f4\",\n          \"dependencies\": [\n            {\n              \"name\": \"critical-section\",\n              \"version\": \"1.2.0\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2023-0089\",\n          \"package\": \"atomic-polyfill\",\n          \"title\": \"atomic-polyfill is unmaintained\",\n          \"description\": \"The author has archived the GitHub repository and mentions deprecation in\\nproject's\\n[README](https://github.com/embassy-rs/atomic-polyfill/blob/48e55c166684f37af0b00fbee5a0809b1a2bae8e/README.md).\\n\\n## Possible alternatives\\n\\n * [portable-atomic](https://crates.io/crates/portable-atomic)\",\n          \"date\": \"2023-07-11\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/embassy-rs/atomic-polyfill/commit/48e55c166684f37af0b00fbee5a0809b1a2bae8e\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      },\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arceos-shell, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=--features axstd\n// pkg_dir=/home/runner/check/batch_2/arceos-org/arceos-apps/rust/fs/shell\n// cmd=cargo clippy --target aarch64-unknown-none --features axstd --no-deps\n// timestamp=2025-05-25 0:55:12.622938307 +08:00:00\n    Checking axhal v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n    Checking axdriver_block v0.1.2 (https://github.com/arceos-org/axdriver_crates.git?tag=v0.1.2#84eb2170)\n    Checking axfs_vfs v0.1.1\n   Compiling axdriver v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n    Checking axns v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n    Checking axdriver_virtio v0.1.2 (https://github.com/arceos-org/axdriver_crates.git?tag=v0.1.2#84eb2170)\n    Checking cap_access v0.1.0\n    Checking fatfs v0.4.0 (https://github.com/rafalh/rust-fatfs?rev=85f06e0#85f06e08)\n    Checking axfs_ramfs v0.1.1\n    Checking axfs_devfs v0.1.1\nerror: could not compile `axhal` (lib) due to 14 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arceos-shell, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=--features axstd\n// pkg_dir=/home/runner/check/batch_2/arceos-org/arceos-apps/rust/fs/shell\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target aarch64-unknown-none --features axstd\n// timestamp=2025-05-25 0:56:26.048311077 +08:00:00\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling axhal v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n   Compiling axdriver_block v0.1.2 (https://github.com/arceos-org/axdriver_crates.git?tag=v0.1.2#84eb2170)\n   Compiling axfs_vfs v0.1.1\n   Compiling axdriver v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n   Compiling axns v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n   Compiling axdriver_virtio v0.1.2 (https://github.com/arceos-org/axdriver_crates.git?tag=v0.1.2#84eb2170)\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:121:5\n    |\n121 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:143:5\n    |\n143 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\n[2025-05-24T16:56:26Z WARN  lockbud::callbacks] [\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axns/src/lib.rs:187:2: 187:2 (#0) after dropped at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axns/src/lib.rs:185:36: 185:37 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      }\n    ]\n[2025-05-24T16:56:26Z WARN  lockbud::callbacks] crate axns contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 1 }\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:264:5\n    |\n264 |     naked_asm!(\n    |     ^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:3\n    |\n115 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:3\n    |\n139 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:3\n    |\n262 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n   Compiling fatfs v0.4.0 (https://github.com/rafalh/rust-fatfs?rev=85f06e0#85f06e08)\nerror[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\nerror[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:106:27\n    |\n106 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\nerror[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:172:38\n    |\n172 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\nerror[E0425]: cannot find value `UART_PADDR` in module `axconfig::devices`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:9:52\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::devices::UART_PADDR);\n  |                                                    ^^^^^^^^^^ not found in `axconfig::devices`\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:1\n    |\n115 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:1\n    |\n139 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:1\n    |\n262 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\n   Compiling cap_access v0.1.0\nerror[E0658]: use of unstable library feature `naked_functions`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:1:5\n  |\n1 | use core::arch::naked_asm;\n  |     ^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n  = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n  = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nSome errors have detailed explanations: E0425, E0432, E0658.\nFor more information about an error, try `rustc --explain E0425`.\nerror: could not compile `axhal` (lib) due to 14 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "[lockbud] Not supported to display yet.",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-05-24T16:55:53Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2025-05-24T16:56:26Z WARN  lockbud::callbacks] [\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axns/src/lib.rs:187:2: 187:2 (#0) after dropped at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axns/src/lib.rs:185:36: 185:37 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      }\n    ]\n[2025-05-24T16:56:26Z WARN  lockbud::callbacks] crate axns contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 1 }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "arceos-apps",
+      "pkg": "affinity",
+      "count": 19,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
+          "features": "--features axstd",
+          "count": 8,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:121:5\n    |\n121 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
+              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:143:5\n    |\n143 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
+              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:3\n    |\n115 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
+              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:3\n    |\n139 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
+              "error[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:106:27\n    |\n106 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\n",
+              "error[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:172:38\n    |\n172 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\n",
+              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:1\n    |\n115 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
+              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:1\n    |\n139 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs",
+          "features": "--features axstd",
+          "count": 4,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:264:5\n    |\n264 |     naked_asm!(\n    |     ^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
+              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:3\n    |\n262 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
+              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:1\n    |\n262 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
+              "error[E0658]: use of unstable library feature `naked_functions`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:1:5\n  |\n1 | use core::arch::naked_asm;\n  |     ^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n  = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n  = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0425]: cannot find value `UART_PADDR` in module `axconfig::devices`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:9:52\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::devices::UART_PADDR);\n  |                                                    ^^^^^^^^^^ not found in `axconfig::devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -668,7 +846,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-bwbench",
-      "count": 18,
+      "count": 19,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -717,6 +895,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -766,7 +954,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-display",
-      "count": 18,
+      "count": 19,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -815,6 +1003,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -864,7 +1062,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-echoserver",
-      "count": 18,
+      "count": 19,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -913,6 +1111,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -962,7 +1170,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-exception",
-      "count": 18,
+      "count": 19,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -1011,6 +1219,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -1060,7 +1278,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-helloworld",
-      "count": 18,
+      "count": 19,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -1109,6 +1327,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -1158,7 +1386,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-httpclient",
-      "count": 18,
+      "count": 19,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -1207,6 +1435,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -1256,7 +1494,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-httpserver",
-      "count": 18,
+      "count": 19,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -1305,6 +1543,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -1354,7 +1602,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-priority",
-      "count": 18,
+      "count": 19,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -1403,6 +1651,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -1451,8 +1709,8 @@
     {
       "user": "arceos-org",
       "repo": "arceos-apps",
-      "pkg": "arceos-shell",
-      "count": 18,
+      "pkg": "arceos-tls",
+      "count": 19,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -1505,100 +1763,12 @@
           }
         },
         {
-          "file": "/home/runner/check/batch_2/arceos-org/arceos-apps/Cargo.lock",
-          "features": "--features axstd",
-          "count": 1,
-          "kinds": {
-            "Audit": [
-              "Crate:     atomic-polyfill\nVersion:   1.0.3\nWarning:   unmaintained\nTitle:     atomic-polyfill is unmaintained\nDate:      2023-07-11\nID:        RUSTSEC-2023-0089\nURL:       https://rustsec.org/advisories/RUSTSEC-2023-0089\nDependency tree:\natomic-polyfill 1.0.3\n└── heapless 0.7.17\n    └── smoltcp 0.10.0\n        └── axnet 0.1.0\n            ├── axruntime 0.1.0\n            │   ├── axfeat 0.1.0\n            │   │   ├── axstd 0.1.0\n            │   │   │   ├── wait_queue 0.1.0\n            │   │   │   ├── arceos-yield 0.1.0\n            │   │   │   ├── arceos-udpserver 0.1.0\n            │   │   │   ├── arceos-tls 0.1.0\n            │   │   │   ├── arceos-sleep 0.1.0\n            │   │   │   ├── arceos-shell 0.1.0\n            │   │   │   ├── arceos-priority 0.1.0\n            │   │   │   ├── arceos-parallel 0.1.0\n            │   │   │   ├── arceos-memtest 0.1.0\n            │   │   │   ├── arceos-irq 0.1.0\n            │   │   │   ├── arceos-httpserver 0.1.0\n            │   │   │   ├── arceos-httpclient 0.1.0\n            │   │   │   ├── arceos-helloworld 0.1.0\n            │   │   │   ├── arceos-exception 0.1.0\n            │   │   │   ├── arceos-echoserver 0.1.0\n            │   │   │   ├── arceos-display 0.1.0\n            │   │   │   ├── arceos-bwbench 0.1.0\n            │   │   │   └── affinity 0.1.0\n            │   │   └── arceos_api 0.1.0\n            │   │       └── axstd 0.1.0\n            │   └── arceos_api 0.1.0\n            ├── axfeat 0.1.0\n            └── arceos_api 0.1.0\n\nCrate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.4.3\n│   └── axhal 0.1.0\n│       ├── axtask 0.1.0\n│       │   ├── axsync 0.1.0\n│       │   │   ├── axnet 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   │   ├── axfeat 0.1.0\n│       │   │   │   │   │   ├── axstd 0.1.0\n│       │   │   │   │   │   │   ├── wait_queue 0.1.0\n│       │   │   │   │   │   │   ├── arceos-yield 0.1.0\n│       │   │   │   │   │   │   ├── arceos-udpserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-tls 0.1.0\n│       │   │   │   │   │   │   ├── arceos-sleep 0.1.0\n│       │   │   │   │   │   │   ├── arceos-shell 0.1.0\n│       │   │   │   │   │   │   ├── arceos-priority 0.1.0\n│       │   │   │   │   │   │   ├── arceos-parallel 0.1.0\n│       │   │   │   │   │   │   ├── arceos-memtest 0.1.0\n│       │   │   │   │   │   │   ├── arceos-irq 0.1.0\n│       │   │   │   │   │   │   ├── arceos-httpserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-httpclient 0.1.0\n│       │   │   │   │   │   │   ├── arceos-helloworld 0.1.0\n│       │   │   │   │   │   │   ├── arceos-exception 0.1.0\n│       │   │   │   │   │   │   ├── arceos-echoserver 0.1.0\n│       │   │   │   │   │   │   ├── arceos-display 0.1.0\n│       │   │   │   │   │   │   ├── arceos-bwbench 0.1.0\n│       │   │   │   │   │   │   └── affinity 0.1.0\n│       │   │   │   │   │   └── arceos_api 0.1.0\n│       │   │   │   │   │       └── axstd 0.1.0\n│       │   │   │   │   └── arceos_api 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   ├── axfs 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   ├── axfeat 0.1.0\n│       │   │   ├── axdisplay 0.1.0\n│       │   │   │   ├── axruntime 0.1.0\n│       │   │   │   ├── axfeat 0.1.0\n│       │   │   │   └── arceos_api 0.1.0\n│       │   │   └── arceos_api 0.1.0\n│       │   ├── axruntime 0.1.0\n│       │   ├── axnet 0.1.0\n│       │   ├── axfeat 0.1.0\n│       │   └── arceos_api 0.1.0\n│       ├── axruntime 0.1.0\n│       ├── axnet 0.1.0\n│       ├── axmm 0.1.0\n│       │   └── axruntime 0.1.0\n│       ├── axfeat 0.1.0\n│       ├── axdriver 0.1.0\n│       │   ├── axruntime 0.1.0\n│       │   ├── axnet 0.1.0\n│       │   ├── axfs 0.1.0\n│       │   ├── axfeat 0.1.0\n│       │   ├── axdisplay 0.1.0\n│       │   └── arceos_api 0.1.0\n│       └── arceos_api 0.1.0\n├── riscv 0.13.0\n│   └── axhal 0.1.0\n└── riscv 0.12.1\n    └── page_table_multiarch 0.5.3\n        └── axhal 0.1.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 782,\n    \"last-commit\": \"bccf313a98c034573ac4170e6271749113343d97\",\n    \"last-updated\": \"2025-05-22T19:04:33+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 181\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atomic-polyfill\",\n          \"version\": \"1.0.3\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8cf2bce30dfe09ef0bfaef228b9d414faaf7e563035494d7fe092dba54b300f4\",\n          \"dependencies\": [\n            {\n              \"name\": \"critical-section\",\n              \"version\": \"1.2.0\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2023-0089\",\n          \"package\": \"atomic-polyfill\",\n          \"title\": \"atomic-polyfill is unmaintained\",\n          \"description\": \"The author has archived the GitHub repository and mentions deprecation in\\nproject's\\n[README](https://github.com/embassy-rs/atomic-polyfill/blob/48e55c166684f37af0b00fbee5a0809b1a2bae8e/README.md).\\n\\n## Possible alternatives\\n\\n * [portable-atomic](https://crates.io/crates/portable-atomic)\",\n          \"date\": \"2023-07-11\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/embassy-rs/atomic-polyfill/commit/48e55c166684f37af0b00fbee5a0809b1a2bae8e\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      },\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) clippy",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=arceos-shell, checker=Clippy\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=--features axstd\n// pkg_dir=/home/runner/check/batch_2/arceos-org/arceos-apps/rust/fs/shell\n// cmd=cargo clippy --target aarch64-unknown-none --features axstd --no-deps\n// timestamp=2025-05-25 0:55:12.622938307 +08:00:00\n    Checking axhal v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n    Checking axdriver_block v0.1.2 (https://github.com/arceos-org/axdriver_crates.git?tag=v0.1.2#84eb2170)\n    Checking axfs_vfs v0.1.1\n   Compiling axdriver v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n    Checking axns v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n    Checking axdriver_virtio v0.1.2 (https://github.com/arceos-org/axdriver_crates.git?tag=v0.1.2#84eb2170)\n    Checking cap_access v0.1.0\n    Checking fatfs v0.4.0 (https://github.com/rafalh/rust-fatfs?rev=85f06e0#85f06e08)\n    Checking axfs_ramfs v0.1.1\n    Checking axfs_devfs v0.1.1\nerror: could not compile `axhal` (lib) due to 14 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) lockbud",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=arceos-shell, checker=Lockbud\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\n// features=--features axstd\n// pkg_dir=/home/runner/check/batch_2/arceos-org/arceos-apps/rust/fs/shell\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target aarch64-unknown-none --features axstd\n// timestamp=2025-05-25 0:56:26.048311077 +08:00:00\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling axhal v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n   Compiling axdriver_block v0.1.2 (https://github.com/arceos-org/axdriver_crates.git?tag=v0.1.2#84eb2170)\n   Compiling axfs_vfs v0.1.1\n   Compiling axdriver v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n   Compiling axns v0.1.0 (https://github.com/arceos-org/arceos.git#f4428b49)\n   Compiling axdriver_virtio v0.1.2 (https://github.com/arceos-org/axdriver_crates.git?tag=v0.1.2#84eb2170)\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:121:5\n    |\n121 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:143:5\n    |\n143 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\n[2025-05-24T16:56:26Z WARN  lockbud::callbacks] [\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axns/src/lib.rs:187:2: 187:2 (#0) after dropped at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axns/src/lib.rs:185:36: 185:37 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      }\n    ]\n[2025-05-24T16:56:26Z WARN  lockbud::callbacks] crate axns contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 1 }\nerror[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:264:5\n    |\n264 |     naked_asm!(\n    |     ^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:3\n    |\n115 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:3\n    |\n139 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\nerror: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:3\n    |\n262 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n   Compiling fatfs v0.4.0 (https://github.com/rafalh/rust-fatfs?rev=85f06e0#85f06e08)\nerror[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\nerror[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:106:27\n    |\n106 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\nerror[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:172:38\n    |\n172 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\nerror[E0425]: cannot find value `UART_PADDR` in module `axconfig::devices`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:9:52\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::devices::UART_PADDR);\n  |                                                    ^^^^^^^^^^ not found in `axconfig::devices`\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:1\n    |\n115 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:1\n    |\n139 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nerror[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:1\n    |\n262 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\n   Compiling cap_access v0.1.0\nerror[E0658]: use of unstable library feature `naked_functions`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:1:5\n  |\n1 | use core::arch::naked_asm;\n  |     ^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n  = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n  = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nSome errors have detailed explanations: E0425, E0432, E0658.\nFor more information about an error, try `rustc --explain E0425`.\nerror: could not compile `axhal` (lib) due to 14 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
-            ]
-          }
-        },
-        {
-          "file": "[lockbud] Not supported to display yet.",
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
           "features": "--features axstd",
           "count": 1,
           "kinds": {
             "Lockbud(Possibly)": [
-              "[2025-05-24T16:55:53Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-05-24T16:55:53Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2025-05-24T16:56:26Z WARN  lockbud::callbacks] [\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axns/src/lib.rs:187:2: 187:2 (#0) after dropped at /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axns/src/lib.rs:185:36: 185:37 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      }\n    ]\n[2025-05-24T16:56:26Z WARN  lockbud::callbacks] crate axns contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 1 }"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "arceos-org",
-      "repo": "arceos-apps",
-      "pkg": "arceos-tls",
-      "count": 18,
-      "raw_reports": [
-        {
-          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
-          "features": "--features axstd",
-          "count": 8,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:121:5\n    |\n121 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
-              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:143:5\n    |\n143 |     core::arch::naked_asm!(\"\n    |     ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
-              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:3\n    |\n115 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
-              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:3\n    |\n139 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
-              "error[E0425]: cannot find function `init_boot_page_table` in module `crate::platform::mem`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:106:27\n    |\n106 |     crate::platform::mem::init_boot_page_table(addr_of_mut!(BOOT_PT_L0), addr_of_mut!(BOOT_PT_L1));\n    |                           ^^^^^^^^^^^^^^^^^^^^ not found in `crate::platform::mem`\n\n",
-              "error[E0425]: cannot find value `rust_entry` in module `crate::platform`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:172:38\n    |\n172 |         entry = sym crate::platform::rust_entry,\n    |                                      ^^^^^^^^^^ not found in `crate::platform`\n\n",
-              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:115:1\n    |\n115 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
-              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs:139:1\n    |\n139 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n"
-            ]
-          }
-        },
-        {
-          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs",
-          "features": "--features axstd",
-          "count": 4,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0658]: use of unstable library feature `naked_functions`\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:264:5\n    |\n264 |     naked_asm!(\n    |     ^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
-              "error: `naked` is not an unsafe attribute\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:3\n    |\n262 | #[unsafe(naked)]\n    |   ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
-              "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:262:1\n    |\n262 | #[unsafe(naked)]\n    | ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n",
-              "error[E0658]: use of unstable library feature `naked_functions`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/arch/aarch64/context.rs:1:5\n  |\n1 | use core::arch::naked_asm;\n  |     ^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n  = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n  = note: this compiler was built on 2025-01-25; consider upgrading it if it is out of date\n\n"
-            ]
-          }
-        },
-        {
-          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs",
-          "features": "--features axstd",
-          "count": 1,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0425]: cannot find value `UART_PADDR` in module `axconfig::devices`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/pl011.rs:9:52\n  |\n9 | const UART_BASE: PhysAddr = pa!(axconfig::devices::UART_PADDR);\n  |                                                    ^^^^^^^^^^ not found in `axconfig::devices`\n\n"
-            ]
-          }
-        },
-        {
-          "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs",
-          "features": "--features axstd",
-          "count": 1,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -1648,7 +1818,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-udpserver",
-      "count": 18,
+      "count": 19,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -1697,6 +1867,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
@@ -1746,7 +1926,7 @@
       "user": "arceos-org",
       "repo": "arceos-apps",
       "pkg": "arceos-yield",
-      "count": 18,
+      "count": 19,
       "raw_reports": [
         {
           "file": "/home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/boot.rs",
@@ -1795,6 +1975,16 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0432]: unresolved import `axconfig::devices::PSCI_METHOD`\n --> /home/runner/.cargo/git/checkouts/arceos-97f667ab5043b954/f4428b4/modules/axhal/src/platform/aarch64_common/psci.rs:5:5\n  |\n5 | use axconfig::devices::PSCI_METHOD;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `PSCI_METHOD` in `devices`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "--features axstd",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
