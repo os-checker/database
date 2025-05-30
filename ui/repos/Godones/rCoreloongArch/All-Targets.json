@@ -796,12 +796,12 @@
           "features": "",
           "count": 3,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: useless conversion to the same type: `std::fs::ReadDir`\n  --> easy-fs-fuse/src/main.rs:62:24\n   |\n62 |       let apps: Vec<_> = read_dir(src_path)\n   |  ________________________^\n63 | |         .unwrap()\n64 | |         .into_iter()\n   | |____________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\nhelp: consider removing `.into_iter()`\n   |\n62 ~     let apps: Vec<_> = read_dir(src_path)\n63 +         .unwrap()\n   |\n\n"
-            ],
             "Mirai": [
               "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:17:35\n   |\n17 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to multiply with overflow\n  --> easy-fs-fuse/src/main.rs:24:35\n   |\n24 |         file.seek(SeekFrom::Start((block_id * BLOCK_SZ) as u64))\n   |                                   ^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: useless conversion to the same type: `std::fs::ReadDir`\n  --> easy-fs-fuse/src/main.rs:62:24\n   |\n62 |       let apps: Vec<_> = read_dir(src_path)\n   |  ________________________^\n63 | |         .unwrap()\n64 | |         .into_iter()\n   | |____________________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\nhelp: consider removing `.into_iter()`\n   |\n62 ~     let apps: Vec<_> = read_dir(src_path)\n63 +         .unwrap()\n   |\n\n"
             ]
           }
         },
