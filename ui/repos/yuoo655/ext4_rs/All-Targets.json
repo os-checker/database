@@ -15,9 +15,6 @@
           "features": "",
           "count": 183,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: casting to the same type is unnecessary (`u64` -> `u64`)\n   --> src/ext4_impls/extents.rs:929:33\n    |\n929 |                 ex.store_pblock(newblock as u64);\n    |                                 ^^^^^^^^^^^^^^^ help: try: `newblock`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 1 to 1)\n+use crate::ext4_defs::*;\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 3 to 3)\n-use crate::ext4_defs::*;\n+use crate::utils::crc::*;\n",
@@ -201,6 +198,9 @@
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 1248 to 1248)\n-\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 1253 to 1254)\n-    size_of::<Ext4ExtentHeader>() + \n-    (header.max_entries_count as usize * size_of::<Ext4Extent>())\n+    size_of::<Ext4ExtentHeader>() + (header.max_entries_count as usize * size_of::<Ext4Extent>())\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 1256 to 1256)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: casting to the same type is unnecessary (`u64` -> `u64`)\n   --> src/ext4_impls/extents.rs:929:33\n    |\n929 |                 ex.store_pblock(newblock as u64);\n    |                                 ^^^^^^^^^^^^^^^ help: try: `newblock`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
             ]
           }
         },
