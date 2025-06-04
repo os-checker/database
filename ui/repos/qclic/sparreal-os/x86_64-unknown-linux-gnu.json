@@ -98,10 +98,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0425]: cannot find function `set_mmu_enabled` in this scope\n  --> crates/sparreal-kernel/src/boot/mod.rs:29:5\n   |\n29 |     set_mmu_enabled();\n   |     ^^^^^^^^^^^^^^^ not found in this scope\n\n"
             ],
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0425]: cannot find function `set_mmu_enabled` in this scope\n  --> crates/sparreal-kernel/src/boot/mod.rs:29:5\n   |\n29 |     set_mmu_enabled();\n   |     ^^^^^^^^^^^^^^^ not found in this scope\n\n"
             ]
           }
@@ -111,10 +111,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/cache.rs:7:33\n   |\n7  | use super::{PhysAddr, VirtAddr, mmu::RegionKind};\n   |                                 ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n"
             ],
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/cache.rs:7:33\n   |\n7  | use super::{PhysAddr, VirtAddr, mmu::RegionKind};\n   |                                 ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n"
             ]
           }
@@ -240,14 +240,14 @@
           "features": "",
           "count": 3,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> crates/sparreal-rt/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
+            "Mirai": [
+              "error[E0583]: file not found for module `arch`\n  --> crates/sparreal-rt/src/lib.rs:10:1\n   |\n10 | pub mod arch;\n   | ^^^^^^^^^^^^^\n   |\n   = help: to create the module `arch`, create file \"crates/sparreal-rt/src/arch.rs\" or \"crates/sparreal-rt/src/arch/mod.rs\"\n   = note: if there is a `mod arch` elsewhere in the crate already, import it with `use crate::...` instead\n\n"
             ],
             "Clippy(Error)": [
               "error[E0583]: file not found for module `arch`\n  --> crates/sparreal-rt/src/lib.rs:10:1\n   |\n10 | pub mod arch;\n   | ^^^^^^^^^^^^^\n   |\n   = help: to create the module `arch`, create file \"crates/sparreal-rt/src/arch.rs\" or \"crates/sparreal-rt/src/arch/mod.rs\"\n   = note: if there is a `mod arch` elsewhere in the crate already, import it with `use crate::...` instead\n\n"
             ],
-            "Mirai": [
-              "error[E0583]: file not found for module `arch`\n  --> crates/sparreal-rt/src/lib.rs:10:1\n   |\n10 | pub mod arch;\n   | ^^^^^^^^^^^^^\n   |\n   = help: to create the module `arch`, create file \"crates/sparreal-rt/src/arch.rs\" or \"crates/sparreal-rt/src/arch/mod.rs\"\n   = note: if there is a `mod arch` elsewhere in the crate already, import it with `use crate::...` instead\n\n"
+            "Clippy(Warn)": [
+              "warning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> crates/sparreal-rt/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
             ]
           }
         },
@@ -468,11 +468,11 @@
           "features": "",
           "count": 3,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> crates/sparreal-rt/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
-            ],
             "Clippy(Error)": [
               "error[E0583]: file not found for module `arch`\n  --> crates/sparreal-rt/src/lib.rs:10:1\n   |\n10 | pub mod arch;\n   | ^^^^^^^^^^^^^\n   |\n   = help: to create the module `arch`, create file \"crates/sparreal-rt/src/arch.rs\" or \"crates/sparreal-rt/src/arch/mod.rs\"\n   = note: if there is a `mod arch` elsewhere in the crate already, import it with `use crate::...` instead\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> crates/sparreal-rt/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
             ],
             "Mirai": [
               "error[E0583]: file not found for module `arch`\n  --> crates/sparreal-rt/src/lib.rs:10:1\n   |\n10 | pub mod arch;\n   | ^^^^^^^^^^^^^\n   |\n   = help: to create the module `arch`, create file \"crates/sparreal-rt/src/arch.rs\" or \"crates/sparreal-rt/src/arch/mod.rs\"\n   = note: if there is a `mod arch` elsewhere in the crate already, import it with `use crate::...` instead\n\n"
