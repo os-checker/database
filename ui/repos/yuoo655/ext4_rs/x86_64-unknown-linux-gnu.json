@@ -15,9 +15,6 @@
           "features": "",
           "count": 183,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: casting to the same type is unnecessary (`u64` -> `u64`)\n   --> src/ext4_impls/extents.rs:929:33\n    |\n929 |                 ex.store_pblock(newblock as u64);\n    |                                 ^^^^^^^^^^^^^^^ help: try: `newblock`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 1 to 1)\n+use crate::ext4_defs::*;\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 3 to 3)\n-use crate::ext4_defs::*;\n+use crate::utils::crc::*;\n",
@@ -201,6 +198,9 @@
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 1248 to 1248)\n-\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 1253 to 1254)\n-    size_of::<Ext4ExtentHeader>() + \n-    (header.max_entries_count as usize * size_of::<Ext4Extent>())\n+    size_of::<Ext4ExtentHeader>() + (header.max_entries_count as usize * size_of::<Ext4Extent>())\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/extents.rs (original lines from 1256 to 1256)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: casting to the same type is unnecessary (`u64` -> `u64`)\n   --> src/ext4_impls/extents.rs:929:33\n    |\n929 |                 ex.store_pblock(newblock as u64);\n    |                                 ^^^^^^^^^^^^^^^ help: try: `newblock`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
             ]
           }
         },
@@ -367,9 +367,6 @@
           "features": "",
           "count": 123,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: returning the result of a `let` binding from a block\n   --> src/ext4_impls/balloc.rs:726:9\n    |\n721 |         let meta_blocks = if has_super { 1 + gdt_blocks } else { 0 };\n    |         ------------------------------------------------------------- unnecessary `let` binding\n...\n726 |         meta_blocks\n    |         ^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\nhelp: return the expression directly\n    |\n721 ~         \n722 |         // log::info!(\n  ...\n725 |         // );\n726 ~         if has_super { 1 + gdt_blocks } else { 0 }\n    |\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/balloc.rs (original lines from 61 to 62)\n-            for i in 0..self.len-1 {\n-                self.caches[i] = self.caches[i+1];\n+            for i in 0..self.len - 1 {\n+                self.caches[i] = self.caches[i + 1];\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/balloc.rs (original lines from 64 to 64)\n-            self.caches[self.len-1] = (bgid, cache);\n+            self.caches[self.len - 1] = (bgid, cache);\n",
@@ -493,6 +490,9 @@
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/balloc.rs (original lines from 713 to 713)\n-        \n+\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/balloc.rs (original lines from 736 to 737)\n-            if n < base { return false; }\n-            while n % base == 0 { n /= base; }\n+            if n < base {\n+                return false;\n+            }\n+            while n % base == 0 {\n+                n /= base;\n+            }\n",
               "file: /home/runner/check/batch_10/yuoo655/ext4_rs/src/ext4_impls/balloc.rs (original lines from 757 to 757)\n-        let desc_blocks = ((group_count as u64 * desc_size as u64 + block_size as u64 - 1) / block_size as u64) as u32;\n+        let desc_blocks = ((group_count as u64 * desc_size as u64 + block_size as u64 - 1)\n+            / block_size as u64) as u32;\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: returning the result of a `let` binding from a block\n   --> src/ext4_impls/balloc.rs:726:9\n    |\n721 |         let meta_blocks = if has_super { 1 + gdt_blocks } else { 0 };\n    |         ------------------------------------------------------------- unnecessary `let` binding\n...\n726 |         meta_blocks\n    |         ^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\nhelp: return the expression directly\n    |\n721 ~         \n722 |         // log::info!(\n  ...\n725 |         // );\n726 ~         if has_super { 1 + gdt_blocks } else { 0 }\n    |\n\n"
             ]
           }
         },
@@ -917,13 +917,13 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Error)": [
-              "error: this comparison involving the minimum or maximum element for this type contains a case that is always true or always false\n   --> src/ext4_impls/inode.rs:471:12\n    |\n471 |         if extent.first_block >= EXT_MAX_BLOCKS {\n    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: because `EXT_MAX_BLOCKS` is the maximum value for this type, the case where the two sides are not equal never occurs, consider using `extent.first_block == EXT_MAX_BLOCKS` instead\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#absurd_extreme_comparisons\n    = note: `#[deny(clippy::absurd_extreme_comparisons)]` on by default\n\n",
-              "error: this comparison involving the minimum or maximum element for this type contains a case that is always true or always false\n   --> src/ext4_impls/inode.rs:490:16\n    |\n490 |             if end_block > EXT_MAX_BLOCKS {\n    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: because `EXT_MAX_BLOCKS` is the maximum value for this type, this comparison is always false\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#absurd_extreme_comparisons\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: returning the result of a `let` binding from a block\n   --> src/ext4_impls/inode.rs:294:13\n    |\n284 | /             let last_extent = match self.get_last_extent(inode_ref) {\n285 | |                 Ok(extent) => extent.first_block + extent.block_count as u32,\n286 | |                 Err(_) => {\n287 | |                     log::warn!(\n...   |\n292 | |                 }\n293 | |             };\n    | |______________- unnecessary `let` binding\n294 |               last_extent\n    |               ^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\n    = note: `#[warn(clippy::let_and_return)]` on by default\nhelp: return the expression directly\n    |\n284 ~             \n285 ~             match self.get_last_extent(inode_ref) {\n286 +                 Ok(extent) => extent.first_block + extent.block_count as u32,\n287 +                 Err(_) => {\n288 +                     log::warn!(\n289 +                         \"[Batch Append] Could not get last extent, starting at block {}\",\n290 +                         iblock\n291 +                     );\n292 +                     iblock\n293 +                 }\n294 +             }\n    |\n\n",
               "warning: field assignment outside of initializer for an instance created with Default::default()\n   --> src/ext4_impls/inode.rs:361:17\n    |\n361 |                 newex.first_block = current_iblk;\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\nnote: consider initializing the variable with `ext4_defs::extents::Ext4Extent { first_block: current_iblk, ..Default::default() }` and removing relevant reassignments\n   --> src/ext4_impls/inode.rs:360:17\n    |\n360 |                 let mut newex = Ext4Extent::default();\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#field_reassign_with_default\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: this comparison involving the minimum or maximum element for this type contains a case that is always true or always false\n   --> src/ext4_impls/inode.rs:471:12\n    |\n471 |         if extent.first_block >= EXT_MAX_BLOCKS {\n    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: because `EXT_MAX_BLOCKS` is the maximum value for this type, the case where the two sides are not equal never occurs, consider using `extent.first_block == EXT_MAX_BLOCKS` instead\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#absurd_extreme_comparisons\n    = note: `#[deny(clippy::absurd_extreme_comparisons)]` on by default\n\n",
+              "error: this comparison involving the minimum or maximum element for this type contains a case that is always true or always false\n   --> src/ext4_impls/inode.rs:490:16\n    |\n490 |             if end_block > EXT_MAX_BLOCKS {\n    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: because `EXT_MAX_BLOCKS` is the maximum value for this type, this comparison is always false\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#absurd_extreme_comparisons\n\n"
             ]
           }
         },
