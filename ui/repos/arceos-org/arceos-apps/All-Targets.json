@@ -477,9 +477,6 @@
           "features": "",
           "count": 27,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: unused macro definition: `get`\n  --> rust/task/tls/src/main.rs:31:14\n   |\n31 | macro_rules! get {\n   |              ^^^\n   |\n   = note: `#[warn(unused_macros)]` on by default\n\n"
-            ],
             "Clippy(Error)": [
               "error[E0463]: can't find crate for `std`\n  |\n  = note: the `loongarch64-unknown-none` target may not support the standard library\n  = note: `std` is required by `arceos_tls` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
               "error[E0463]: can't find crate for `std`\n  --> rust/task/tls/src/main.rs:10:5\n   |\n10 | use std::{ptr::addr_of, str::from_utf8_unchecked};\n   |     ^^^ can't find crate\n   |\n   = note: the `loongarch64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
@@ -507,6 +504,9 @@
               "error: cannot find macro `assert_eq` in this scope\n   --> rust/task/tls/src/main.rs:108:5\n    |\n108 |     assert_eq!(get!(U64), 0xa2ce05_a2ce05);\n    |     ^^^^^^^^^\n    |\nhelp: consider importing this macro\n    |\n10  + use core::assert_eq;\n    |\n\n",
               "error: cannot find macro `assert_eq` in this scope\n   --> rust/task/tls/src/main.rs:109:5\n    |\n109 |     assert_eq!(get!(&*addr_of!(STR)), b\"Hello, world!\");\n    |     ^^^^^^^^^\n    |\nhelp: consider importing this macro\n    |\n10  + use core::assert_eq;\n    |\n\n",
               "error: cannot find macro `println` in this scope\n   --> rust/task/tls/src/main.rs:111:5\n    |\n111 |     println!(\"TLS tests run OK!\");\n    |     ^^^^^^^\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: unused macro definition: `get`\n  --> rust/task/tls/src/main.rs:31:14\n   |\n31 | macro_rules! get {\n   |              ^^^\n   |\n   = note: `#[warn(unused_macros)]` on by default\n\n"
             ]
           }
         },
