@@ -1,0 +1,81 @@
+{
+  "repo": {
+    "user": "Starry-OS",
+    "repo": "axns"
+  },
+  "data": [
+    {
+      "user": "Starry-OS",
+      "repo": "axns",
+      "pkg": "axns",
+      "count": 5,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=axns, checker=SemverChecks\n// toolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_1/Starry-OS/axns\n// cmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-06-09 4:30:42.702489733 +08:00:00\n    Building axns v0.1.0 (current)\n       Built [   3.713s] (current)\n     Parsing axns v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: axns not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=axns, checker=Outdated\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_1/Starry-OS/axns\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-09 4:30:51.779344492 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nspin  0.9.8    ---     0.10.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axns, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_1/Starry-OS/axns\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-06-09 4:30:46.936499452 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axns v0.1.0 (current)\n       Built [   3.713s] (current)\n     Parsing axns v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: axns not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "src/res.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] possible attempt to subtract with overflow\n  --> src/res.rs:31:19\n   |\n31 |         let len = (addr_of!(RESOURCES_STOP) as usize - start) / core::mem::size_of::<Resource>();\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "tests/all.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] possibly deallocates the pointer with layout information inconsistent with the allocation\n  --> tests/all.rs:25:1\n   |\n25 | }\n   | ^\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Outdated",
+    "Geiger",
+    "Unformatted"
+  ]
+}
