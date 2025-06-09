@@ -1,0 +1,67 @@
+{
+  "user": "Starry-OS",
+  "repo": "axns",
+  "timestamp": {
+    "start": 1749432178235,
+    "end": 1749432178256
+  },
+  "pkgs": {
+    "axns": {
+      "version": "0.1.0",
+      "dependencies": 3,
+      "lib": true,
+      "bin": false,
+      "testcases": {
+        "tests": [
+          {
+            "id": "axns::all",
+            "kind": "test",
+            "binary_name": "all",
+            "testcases": [
+              {
+                "name": "current",
+                "status": "ok",
+                "duration_ms": 3,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "   Compiling autocfg v1.4.0\n   Compiling libc v0.2.172\n   Compiling parking_lot_core v0.9.11\n   Compiling cfg-if v1.0.0\n   Compiling scopeguard v1.2.0\n   Compiling smallvec v1.15.1\n   Compiling spin v0.9.8\n   Compiling axns v0.1.0 (/tmp/os-checker-plugin-cargo/Starry-OS/axns)\n   Compiling lock_api v0.4.13\n   Compiling parking_lot v0.12.4\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.13s\n     Running tests/all.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/all-6f91ce033117a6db)\nerror: unsupported operation: extern static `__start_axns_resources` is not supported by Miri\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/res.rs:30:30\n    |\n30  |         let start = addr_of!(RESOURCES_START) as usize;\n    |                              ^^^^^^^^^^^^^^^ extern static `__start_axns_resources` is not supported by Miri\n    |\n    = help: this is likely not a bug in the program; it indicates that the program performed an operation that Miri does not support\n    = note: BACKTRACE on thread `current`:\n    = note: inside `<axns::res::Resources as std::ops::Deref>::deref` at /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/res.rs:30:30: 30:45\nnote: inside `axns::Namespace::layout`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/ns.rs:17:33\n    |\n17  |         Layout::array::<ResArc>(Resources.len()).unwrap()\n    |                                 ^^^^^^^^^^^^^^^\nnote: inside `axns::Namespace::new`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/ns.rs:23:22\n    |\n23  |         let layout = Self::layout();\n    |                      ^^^^^^^^^^^^^^\n    = note: inside `<fn() -> axns::Namespace as std::ops::FnOnce<()>>::call_once - shim(fn() -> axns::Namespace)` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250:5: 250:71\n    = note: inside closure at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/lazy.rs:99:24: 99:27\n    = note: inside closure at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/once.rs:169:72: 169:75\n    = note: inside `spin::once::Once::<axns::Namespace>::try_call_once_slow::<{closure@spin::once::Once<axns::Namespace>::call_once<{closure@spin::lazy::Lazy<axns::Namespace>::force::{closure#0}}>::{closure#0}}, std::convert::Infallible>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/once.rs:255:29: 255:32\n    = note: inside `spin::once::Once::<axns::Namespace>::try_call_once::<{closure@spin::once::Once<axns::Namespace>::call_once<{closure@spin::lazy::Lazy<axns::Namespace>::force::{closure#0}}>::{closure#0}}, std::convert::Infallible>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/once.rs:212:13: 212:39\n    = note: inside `spin::once::Once::<axns::Namespace>::call_once::<{closure@spin::lazy::Lazy<axns::Namespace>::force::{closure#0}}>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/once.rs:169:15: 169:77\n    = note: inside `spin::lazy::Lazy::<axns::Namespace>::force` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/lazy.rs:98:9: 101:11\n    = note: inside `<spin::lazy::Lazy<axns::Namespace> as std::ops::Deref>::deref` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/lazy.rs:109:9: 109:26\nnote: inside `axns::global_ns`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/lib.rs:24:5\n    |\n24  |     &NS\n    |     ^^^\nnote: inside `<axns::CurrentNsImpl as std::convert::AsRef<axns::Namespace>>::as_ref`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/lib.rs:50:9\n    |\n50  |         global_ns()\n    |         ^^^^^^^^^^^\nnote: inside `<axns::ResCurrent<std::sync::atomic::AtomicI32> as std::ops::Deref>::deref`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/res.rs:126:9\n    |\n126 |         self.ns.as_ref().get(self.res).as_ref()\n    |         ^^^^^^^^^^^^^^^^\nnote: inside `current`\n   --> tests/all.rs:35:16\n    |\n35  |     assert_eq!(DATA.current().load(Relaxed), 100);\n    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> tests/all.rs:28:13\n    |\n27  | #[test]\n    | ------- in this procedural macro expansion\n28  | fn current() {\n    |             ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p axns --test all`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/axns/target/miri/x86_64-unknown-linux-gnu/debug/deps/all-6f91ce033117a6db current` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_timeout": false
+              },
+              {
+                "name": "ns",
+                "status": "ok",
+                "duration_ms": 3,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/all.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/all-6f91ce033117a6db)\nerror: unsupported operation: extern static `__start_axns_resources` is not supported by Miri\n  --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/res.rs:30:30\n   |\n30 |         let start = addr_of!(RESOURCES_START) as usize;\n   |                              ^^^^^^^^^^^^^^^ extern static `__start_axns_resources` is not supported by Miri\n   |\n   = help: this is likely not a bug in the program; it indicates that the program performed an operation that Miri does not support\n   = note: BACKTRACE on thread `ns`:\n   = note: inside `<axns::res::Resources as std::ops::Deref>::deref` at /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/res.rs:30:30: 30:45\nnote: inside `axns::Namespace::layout`\n  --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/ns.rs:17:33\n   |\n17 |         Layout::array::<ResArc>(Resources.len()).unwrap()\n   |                                 ^^^^^^^^^^^^^^^\nnote: inside `axns::Namespace::new`\n  --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/ns.rs:23:22\n   |\n23 |         let layout = Self::layout();\n   |                      ^^^^^^^^^^^^^^\nnote: inside `ns`\n  --> tests/all.rs:15:18\n   |\n15 |     let mut ns = Namespace::new();\n   |                  ^^^^^^^^^^^^^^^^\nnote: inside closure\n  --> tests/all.rs:4:8\n   |\n3  | #[test]\n   | ------- in this procedural macro expansion\n4  | fn ns() {\n   |        ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p axns --test all`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/axns/target/miri/x86_64-unknown-linux-gnu/debug/deps/all-6f91ce033117a6db ns` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 6
+          }
+        ],
+        "failed": 0,
+        "duration_ms": 6,
+        "pkg_tests_count": 2,
+        "workspace_tests_count": 2
+      },
+      "tests": 1,
+      "examples": 0,
+      "benches": 0,
+      "authors": [],
+      "description": "",
+      "documentation": null,
+      "readme": "README.md",
+      "homepage": null,
+      "keywords": [],
+      "categories": [],
+      "rust_version": null,
+      "diag_total_count": 5,
+      "last_commit_time": "2025-05-06T09:13:24Z",
+      "release_count": null,
+      "last_release_size": null,
+      "last_release_time": null
+    }
+  }
+}

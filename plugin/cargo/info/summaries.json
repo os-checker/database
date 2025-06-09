@@ -4,7 +4,7 @@
     "repo": "kernel_elf_parser",
     "timestamp": {
       "start": 1747358267916,
-      "end": 1749345930847
+      "end": 1749432165959
     },
     "pkgs": {
       "kernel-elf-parser": {
@@ -88,7 +88,7 @@
     "repo": "ByteOS",
     "timestamp": {
       "start": 1748654213325,
-      "end": 1749345931067
+      "end": 1749432166196
     },
     "pkgs": {
       "devfs": {
@@ -512,7 +512,7 @@
     "repo": "lose-net-stack",
     "timestamp": {
       "start": 1748222416543,
-      "end": 1749345931288
+      "end": 1749432166484
     },
     "pkgs": {
       "example": {
@@ -568,7 +568,7 @@
     "repo": "polyhal",
     "timestamp": {
       "start": 1748654219010,
-      "end": 1749345931535
+      "end": 1749432166699
     },
     "pkgs": {
       "example": {
@@ -701,7 +701,7 @@
     "repo": "loongArch64",
     "timestamp": {
       "start": 1744512068950,
-      "end": 1749345931736
+      "end": 1749432166914
     },
     "pkgs": {
       "loongArch64": {
@@ -739,7 +739,7 @@
     "repo": "rCoreloongArch",
     "timestamp": {
       "start": 1745803063472,
-      "end": 1749345931936
+      "end": 1749432167187
     },
     "pkgs": {
       "easy-fs": {
@@ -939,7 +939,7 @@
     "repo": "Starry-Old",
     "timestamp": {
       "start": 1740845049134,
-      "end": 1749345932137
+      "end": 1749432167429
     },
     "pkgs": {
       "arceos-bwbench": {
@@ -2090,7 +2090,7 @@
     "repo": "arm_gic",
     "timestamp": {
       "start": 1740845050455,
-      "end": 1749345932377
+      "end": 1749432167653
     },
     "pkgs": {
       "arm_gic": {
@@ -2124,10 +2124,377 @@
   },
   {
     "user": "Starry-OS",
+    "repo": "axns",
+    "timestamp": {
+      "start": 1749432178235,
+      "end": 1749432178256
+    },
+    "pkgs": {
+      "axns": {
+        "version": "0.1.0",
+        "dependencies": 3,
+        "lib": true,
+        "bin": false,
+        "testcases": {
+          "tests": [
+            {
+              "id": "axns::all",
+              "kind": "test",
+              "binary_name": "all",
+              "testcases": [
+                {
+                  "name": "current",
+                  "status": "ok",
+                  "duration_ms": 3,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "   Compiling autocfg v1.4.0\n   Compiling libc v0.2.172\n   Compiling parking_lot_core v0.9.11\n   Compiling cfg-if v1.0.0\n   Compiling scopeguard v1.2.0\n   Compiling smallvec v1.15.1\n   Compiling spin v0.9.8\n   Compiling axns v0.1.0 (/tmp/os-checker-plugin-cargo/Starry-OS/axns)\n   Compiling lock_api v0.4.13\n   Compiling parking_lot v0.12.4\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.13s\n     Running tests/all.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/all-6f91ce033117a6db)\nerror: unsupported operation: extern static `__start_axns_resources` is not supported by Miri\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/res.rs:30:30\n    |\n30  |         let start = addr_of!(RESOURCES_START) as usize;\n    |                              ^^^^^^^^^^^^^^^ extern static `__start_axns_resources` is not supported by Miri\n    |\n    = help: this is likely not a bug in the program; it indicates that the program performed an operation that Miri does not support\n    = note: BACKTRACE on thread `current`:\n    = note: inside `<axns::res::Resources as std::ops::Deref>::deref` at /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/res.rs:30:30: 30:45\nnote: inside `axns::Namespace::layout`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/ns.rs:17:33\n    |\n17  |         Layout::array::<ResArc>(Resources.len()).unwrap()\n    |                                 ^^^^^^^^^^^^^^^\nnote: inside `axns::Namespace::new`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/ns.rs:23:22\n    |\n23  |         let layout = Self::layout();\n    |                      ^^^^^^^^^^^^^^\n    = note: inside `<fn() -> axns::Namespace as std::ops::FnOnce<()>>::call_once - shim(fn() -> axns::Namespace)` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250:5: 250:71\n    = note: inside closure at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/lazy.rs:99:24: 99:27\n    = note: inside closure at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/once.rs:169:72: 169:75\n    = note: inside `spin::once::Once::<axns::Namespace>::try_call_once_slow::<{closure@spin::once::Once<axns::Namespace>::call_once<{closure@spin::lazy::Lazy<axns::Namespace>::force::{closure#0}}>::{closure#0}}, std::convert::Infallible>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/once.rs:255:29: 255:32\n    = note: inside `spin::once::Once::<axns::Namespace>::try_call_once::<{closure@spin::once::Once<axns::Namespace>::call_once<{closure@spin::lazy::Lazy<axns::Namespace>::force::{closure#0}}>::{closure#0}}, std::convert::Infallible>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/once.rs:212:13: 212:39\n    = note: inside `spin::once::Once::<axns::Namespace>::call_once::<{closure@spin::lazy::Lazy<axns::Namespace>::force::{closure#0}}>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/once.rs:169:15: 169:77\n    = note: inside `spin::lazy::Lazy::<axns::Namespace>::force` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/lazy.rs:98:9: 101:11\n    = note: inside `<spin::lazy::Lazy<axns::Namespace> as std::ops::Deref>::deref` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.9.8/src/lazy.rs:109:9: 109:26\nnote: inside `axns::global_ns`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/lib.rs:24:5\n    |\n24  |     &NS\n    |     ^^^\nnote: inside `<axns::CurrentNsImpl as std::convert::AsRef<axns::Namespace>>::as_ref`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/lib.rs:50:9\n    |\n50  |         global_ns()\n    |         ^^^^^^^^^^^\nnote: inside `<axns::ResCurrent<std::sync::atomic::AtomicI32> as std::ops::Deref>::deref`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/res.rs:126:9\n    |\n126 |         self.ns.as_ref().get(self.res).as_ref()\n    |         ^^^^^^^^^^^^^^^^\nnote: inside `current`\n   --> tests/all.rs:35:16\n    |\n35  |     assert_eq!(DATA.current().load(Relaxed), 100);\n    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> tests/all.rs:28:13\n    |\n27  | #[test]\n    | ------- in this procedural macro expansion\n28  | fn current() {\n    |             ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p axns --test all`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/axns/target/miri/x86_64-unknown-linux-gnu/debug/deps/all-6f91ce033117a6db current` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "ns",
+                  "status": "ok",
+                  "duration_ms": 3,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/all.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/all-6f91ce033117a6db)\nerror: unsupported operation: extern static `__start_axns_resources` is not supported by Miri\n  --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/res.rs:30:30\n   |\n30 |         let start = addr_of!(RESOURCES_START) as usize;\n   |                              ^^^^^^^^^^^^^^^ extern static `__start_axns_resources` is not supported by Miri\n   |\n   = help: this is likely not a bug in the program; it indicates that the program performed an operation that Miri does not support\n   = note: BACKTRACE on thread `ns`:\n   = note: inside `<axns::res::Resources as std::ops::Deref>::deref` at /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/res.rs:30:30: 30:45\nnote: inside `axns::Namespace::layout`\n  --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/ns.rs:17:33\n   |\n17 |         Layout::array::<ResArc>(Resources.len()).unwrap()\n   |                                 ^^^^^^^^^^^^^^^\nnote: inside `axns::Namespace::new`\n  --> /tmp/os-checker-plugin-cargo/Starry-OS/axns/src/ns.rs:23:22\n   |\n23 |         let layout = Self::layout();\n   |                      ^^^^^^^^^^^^^^\nnote: inside `ns`\n  --> tests/all.rs:15:18\n   |\n15 |     let mut ns = Namespace::new();\n   |                  ^^^^^^^^^^^^^^^^\nnote: inside closure\n  --> tests/all.rs:4:8\n   |\n3  | #[test]\n   | ------- in this procedural macro expansion\n4  | fn ns() {\n   |        ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p axns --test all`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/axns/target/miri/x86_64-unknown-linux-gnu/debug/deps/all-6f91ce033117a6db ns` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 6
+            }
+          ],
+          "failed": 0,
+          "duration_ms": 6,
+          "pkg_tests_count": 2,
+          "workspace_tests_count": 2
+        },
+        "tests": 1,
+        "examples": 0,
+        "benches": 0,
+        "authors": [],
+        "description": "",
+        "documentation": null,
+        "readme": "README.md",
+        "homepage": null,
+        "keywords": [],
+        "categories": [],
+        "rust_version": null,
+        "diag_total_count": 5,
+        "last_commit_time": "2025-05-06T09:13:24Z",
+        "release_count": null,
+        "last_release_size": null,
+        "last_release_time": null
+      }
+    }
+  },
+  {
+    "user": "Starry-OS",
+    "repo": "axprocess",
+    "timestamp": {
+      "start": 1749432215545,
+      "end": 1749432215578
+    },
+    "pkgs": {
+      "axprocess": {
+        "version": "0.1.0",
+        "dependencies": 5,
+        "lib": true,
+        "bin": false,
+        "testcases": {
+          "tests": [
+            {
+              "id": "axprocess::group",
+              "kind": "test",
+              "binary_name": "group",
+              "testcases": [
+                {
+                  "name": "basic",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling cfg-if v1.0.0\n   Compiling dtor-proc-macro v0.0.5\n   Compiling ctor-proc-macro v0.0.5\n   Compiling lazyinit v0.2.1\n   Compiling weak-map v0.1.0 (https://github.com/Starry-OS/weak-map#b19a081d)\n   Compiling dtor v0.0.6\n   Compiling ctor v0.4.2\n   Compiling quote v1.0.40\n   Compiling syn v2.0.101\n   Compiling crate_interface v0.1.4\n   Compiling kernel_guard v0.1.2\n   Compiling kspin v0.1.0\n   Compiling axprocess v0.1.0 (/tmp/os-checker-plugin-cargo/Starry-OS/axprocess)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.33s\n     Running tests/group.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/group-678b0462acd30174)\nerror: test failed, to rerun pass `-p axprocess --test group`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "cleanup",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/group.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/group-678b0462acd30174)\nerror: test failed, to rerun pass `-p axprocess --test group`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "cleanup_processes",
+                  "status": "ok",
+                  "duration_ms": 5,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/group.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/group-678b0462acd30174)\nerror: test failed, to rerun pass `-p axprocess --test group`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "create",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/group.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/group-678b0462acd30174)\nerror: test failed, to rerun pass `-p axprocess --test group`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "create_leader",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/group.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/group-678b0462acd30174)\nerror: test failed, to rerun pass `-p axprocess --test group`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "inherit",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/group.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/group-678b0462acd30174)\nerror: test failed, to rerun pass `-p axprocess --test group`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "move_back",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/group.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/group-678b0462acd30174)\nerror: test failed, to rerun pass `-p axprocess --test group`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "move_cleanup",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/group.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/group-678b0462acd30174)\nerror: test failed, to rerun pass `-p axprocess --test group`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "move_to",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/group.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/group-678b0462acd30174)\nerror: test failed, to rerun pass `-p axprocess --test group`\n",
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 37
+            },
+            {
+              "id": "axprocess::process",
+              "kind": "test",
+              "binary_name": "process",
+              "testcases": [
+                {
+                  "name": "child",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "   Compiling axprocess v0.1.0 (/tmp/os-checker-plugin-cargo/Starry-OS/axprocess)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running tests/process.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/process-921b76a9ed7da3b1)\nerror: test failed, to rerun pass `-p axprocess --test process`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "exit",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/process.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/process-921b76a9ed7da3b1)\nerror: test failed, to rerun pass `-p axprocess --test process`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "free",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/process.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/process-921b76a9ed7da3b1)\nerror: test failed, to rerun pass `-p axprocess --test process`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "free_not_zombie",
+                  "status": "ok",
+                  "duration_ms": 5,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "init_proc_exit",
+                  "status": "ok",
+                  "duration_ms": 6,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "reap",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/process.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/process-921b76a9ed7da3b1)\nerror: test failed, to rerun pass `-p axprocess --test process`\n",
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 27
+            },
+            {
+              "id": "axprocess::session",
+              "kind": "test",
+              "binary_name": "session",
+              "testcases": [
+                {
+                  "name": "basic",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "   Compiling axprocess v0.1.0 (/tmp/os-checker-plugin-cargo/Starry-OS/axprocess)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running tests/session.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/session-63d53a4a2b42a2b0)\nerror: test failed, to rerun pass `-p axprocess --test session`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "cleanup",
+                  "status": "ok",
+                  "duration_ms": 5,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/session.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/session-63d53a4a2b42a2b0)\nerror: test failed, to rerun pass `-p axprocess --test session`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "cleanup_groups",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/session.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/session-63d53a4a2b42a2b0)\nerror: test failed, to rerun pass `-p axprocess --test session`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "create",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/session.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/session-63d53a4a2b42a2b0)\nerror: test failed, to rerun pass `-p axprocess --test session`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "create_group",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/session.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/session-63d53a4a2b42a2b0)\nerror: test failed, to rerun pass `-p axprocess --test session`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "create_leader",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/session.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/session-63d53a4a2b42a2b0)\nerror: test failed, to rerun pass `-p axprocess --test session`\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "move_to_different_session",
+                  "status": "ok",
+                  "duration_ms": 3,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/session.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/session-63d53a4a2b42a2b0)\nerror: test failed, to rerun pass `-p axprocess --test session`\n",
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 28
+            }
+          ],
+          "failed": 0,
+          "duration_ms": 92,
+          "pkg_tests_count": 22,
+          "workspace_tests_count": 22
+        },
+        "tests": 3,
+        "examples": 0,
+        "benches": 0,
+        "authors": [
+          "Asakura Mizu <asakuramizu111@gmail.com>"
+        ],
+        "description": "Process management for ArceOS",
+        "documentation": null,
+        "readme": "README.md",
+        "homepage": null,
+        "keywords": [],
+        "categories": [],
+        "rust_version": null,
+        "diag_total_count": 3,
+        "last_commit_time": "2025-04-17T08:53:54Z",
+        "release_count": null,
+        "last_release_size": null,
+        "last_release_time": null
+      }
+    }
+  },
+  {
+    "user": "Starry-OS",
+    "repo": "axsignal",
+    "timestamp": {
+      "start": 1749432233194,
+      "end": 1749432233266
+    },
+    "pkgs": {
+      "axsignal": {
+        "version": "0.1.0",
+        "dependencies": 11,
+        "lib": true,
+        "bin": false,
+        "testcases": null,
+        "tests": 0,
+        "examples": 0,
+        "benches": 0,
+        "authors": [],
+        "description": "",
+        "documentation": null,
+        "readme": null,
+        "homepage": null,
+        "keywords": [],
+        "categories": [],
+        "rust_version": null,
+        "diag_total_count": 16,
+        "last_commit_time": "2025-05-08T08:21:18Z",
+        "release_count": null,
+        "last_release_size": null,
+        "last_release_time": null
+      }
+    }
+  },
+  {
+    "user": "Starry-OS",
     "repo": "dw_apb_uart",
     "timestamp": {
       "start": 1740845074338,
-      "end": 1749345932620
+      "end": 1749432233502
     },
     "pkgs": {
       "dw_apb_uart": {
@@ -2164,7 +2531,7 @@
     "repo": "of",
     "timestamp": {
       "start": 1740845201433,
-      "end": 1749345932879
+      "end": 1749432233765
     },
     "pkgs": {
       "of": {
@@ -2271,7 +2638,7 @@
     "repo": "percpu_macros",
     "timestamp": {
       "start": 1740845205641,
-      "end": 1749345933108
+      "end": 1749432234018
     },
     "pkgs": {
       "percpu_macros": {
@@ -2308,7 +2675,7 @@
     "repo": "slab_allocator",
     "timestamp": {
       "start": 1740845215690,
-      "end": 1749345933319
+      "end": 1749432234269
     },
     "pkgs": {
       "slab_allocator": {
@@ -2429,7 +2796,7 @@
     "repo": "spinlock",
     "timestamp": {
       "start": 1740845236696,
-      "end": 1749345933542
+      "end": 1749432234501
     },
     "pkgs": {
       "spinlock": {
@@ -2545,7 +2912,7 @@
     "repo": "tuple_for_each",
     "timestamp": {
       "start": 1740845249011,
-      "end": 1749345933757
+      "end": 1749432234721
     },
     "pkgs": {
       "tuple_for_each": {
@@ -2630,11 +2997,89 @@
     }
   },
   {
+    "user": "Starry-OS",
+    "repo": "weak-map",
+    "timestamp": {
+      "start": 1749432298856,
+      "end": 1749432298863
+    },
+    "pkgs": {
+      "weak-map": {
+        "version": "0.1.0",
+        "dependencies": 0,
+        "lib": true,
+        "bin": false,
+        "testcases": {
+          "tests": [
+            {
+              "id": "weak-map",
+              "kind": "lib",
+              "binary_name": "weak_map",
+              "testcases": [
+                {
+                  "name": "map::tests::test_basic",
+                  "status": "ok",
+                  "duration_ms": 3,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "map::tests::test_cleanup",
+                  "status": "ok",
+                  "duration_ms": 12,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "cmd=cargo miri test -p weak-map --lib weak_map -- map::tests::test_cleanup\nProcess timed out for 1 minutes.",
+                  "miri_timeout": true
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 15
+            }
+          ],
+          "failed": 0,
+          "duration_ms": 15,
+          "pkg_tests_count": 2,
+          "workspace_tests_count": 2
+        },
+        "tests": 0,
+        "examples": 0,
+        "benches": 0,
+        "authors": [
+          "Asakura Mizu <asakuramizu111@gmail.com>"
+        ],
+        "description": "BTreeMap with weak references",
+        "documentation": "https://docs.rs/weak-map",
+        "readme": "README.md",
+        "homepage": null,
+        "keywords": [
+          "Arc",
+          "Rc",
+          "weak",
+          "map",
+          "btree"
+        ],
+        "categories": [
+          "no-std",
+          "data-structures"
+        ],
+        "rust_version": null,
+        "diag_total_count": null,
+        "last_commit_time": "2025-04-21T17:14:43Z",
+        "release_count": 1,
+        "last_release_size": 9740,
+        "last_release_time": "2025-04-21T17:19:33Z"
+      }
+    }
+  },
+  {
     "user": "ZR233",
     "repo": "arm-gic-driver",
     "timestamp": {
       "start": 1740845267910,
-      "end": 1749345933981
+      "end": 1749432299096
     },
     "pkgs": {
       "arm-gic-driver": {
@@ -2749,7 +3194,7 @@
     "repo": "arm-pl011-rs",
     "timestamp": {
       "start": 1740845269141,
-      "end": 1749345934212
+      "end": 1749432299346
     },
     "pkgs": {
       "arm-pl011-rs": {
@@ -2794,7 +3239,7 @@
     "repo": "ostool",
     "timestamp": {
       "start": 1748999959231,
-      "end": 1749345934424
+      "end": 1749432299667
     },
     "pkgs": {
       "ostool": {
@@ -2867,7 +3312,7 @@
     "repo": "arm_vcpu",
     "timestamp": {
       "start": 1749345945814,
-      "end": 1749345945844
+      "end": 1749432299900
     },
     "pkgs": {
       "arm_vcpu": {
@@ -2900,7 +3345,7 @@
     "repo": "arm_vgic",
     "timestamp": {
       "start": 1740845327122,
-      "end": 1749345946075
+      "end": 1749432300111
     },
     "pkgs": {
       "arm_vgic": {
@@ -2933,7 +3378,7 @@
     "repo": "axaddrspace",
     "timestamp": {
       "start": 1743037928020,
-      "end": 1749345946315
+      "end": 1749432300626
     },
     "pkgs": {
       "axaddrspace": {
@@ -2966,7 +3411,7 @@
     "repo": "axdevice",
     "timestamp": {
       "start": 1740845341832,
-      "end": 1749345946661
+      "end": 1749432300849
     },
     "pkgs": {
       "axdevice": {
@@ -2999,7 +3444,7 @@
     "repo": "axdevice_crates",
     "timestamp": {
       "start": 1740845349599,
-      "end": 1749345946890
+      "end": 1749432301070
     },
     "pkgs": {
       "axdevice_base": {
@@ -3034,7 +3479,7 @@
     "repo": "axvcpu",
     "timestamp": {
       "start": 1749345953292,
-      "end": 1749345953318
+      "end": 1749432301291
     },
     "pkgs": {
       "axvcpu": {
@@ -3069,7 +3514,7 @@
     "repo": "axvisor",
     "timestamp": {
       "start": 1748395146152,
-      "end": 1749345953535
+      "end": 1749432301592
     },
     "pkgs": {
       "axvisor": {
@@ -3104,7 +3549,7 @@
     "repo": "axvm",
     "timestamp": {
       "start": 1747358312912,
-      "end": 1749345953742
+      "end": 1749432301838
     },
     "pkgs": {
       "axvm": {
@@ -3137,7 +3582,7 @@
     "repo": "riscv_vcpu",
     "timestamp": {
       "start": 1745284483826,
-      "end": 1749345953983
+      "end": 1749432302045
     },
     "pkgs": {
       "riscv_vcpu": {
@@ -3170,7 +3615,7 @@
     "repo": "x86_vcpu",
     "timestamp": {
       "start": 1745311926327,
-      "end": 1749345954223
+      "end": 1749432302327
     },
     "pkgs": {
       "x86_vcpu": {
@@ -3203,7 +3648,7 @@
     "repo": "allocator",
     "timestamp": {
       "start": 1740845648922,
-      "end": 1749345954432
+      "end": 1749432302577
     },
     "pkgs": {
       "allocator": {
@@ -3317,7 +3762,7 @@
     "repo": "arceos",
     "timestamp": {
       "start": 1749345964186,
-      "end": 1749345964186
+      "end": 1749432302808
     },
     "err": "\n   0: Cloning into '/tmp/os-checker-plugin-cargo/arceos-org/arceos'...\n      Error: \n         0: The package `bwbench-client` is not in the repo.\n\n      Location:\n         src/config/deserialization.rs:131\n\n      Backtrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\n      Run with RUST_BACKTRACE=full to include source snippets.\n   0: \n\nLocation:\n   src/repo/os_checker.rs:27\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"e3ab0a26483ce042b43947ec7d455b08145ea35e\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"arceos-org/arceos\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -3326,7 +3771,7 @@
     "repo": "arceos-apps",
     "timestamp": {
       "start": 1749172729901,
-      "end": 1749345964423
+      "end": 1749432303059
     },
     "pkgs": {
       "affinity": {
@@ -3787,7 +4232,7 @@
     "repo": "arceos-crates",
     "timestamp": {
       "start": 1743643445107,
-      "end": 1749345964654
+      "end": 1749432303336
     },
     "pkgs": {
       "allocator": {
@@ -5148,7 +5593,7 @@
     "repo": "arm_gicv2",
     "timestamp": {
       "start": 1740846061694,
-      "end": 1749345964873
+      "end": 1749432303586
     },
     "pkgs": {
       "arm_gicv2": {
@@ -5194,7 +5639,7 @@
     "repo": "arm_pl011",
     "timestamp": {
       "start": 1740846065436,
-      "end": 1749345965114
+      "end": 1749432303844
     },
     "pkgs": {
       "arm_pl011": {
@@ -5240,7 +5685,7 @@
     "repo": "arm_pl031",
     "timestamp": {
       "start": 1740846086345,
-      "end": 1749345965352
+      "end": 1749432304087
     },
     "pkgs": {
       "arm_pl031": {
@@ -5318,7 +5763,7 @@
     "repo": "axdriver_crates",
     "timestamp": {
       "start": 1740846107409,
-      "end": 1749345965566
+      "end": 1749432304343
     },
     "pkgs": {
       "axdriver_base": {
@@ -5527,7 +5972,7 @@
     "repo": "axerrno",
     "timestamp": {
       "start": 1740846116421,
-      "end": 1749345965982
+      "end": 1749432304576
     },
     "pkgs": {
       "axerrno": {
@@ -5593,7 +6038,7 @@
     "repo": "axfs_crates",
     "timestamp": {
       "start": 1740846142254,
-      "end": 1749345966223
+      "end": 1749432304797
     },
     "pkgs": {
       "axfs_devfs": {
@@ -5777,7 +6222,7 @@
     "repo": "axio",
     "timestamp": {
       "start": 1741655490816,
-      "end": 1749345966457
+      "end": 1749432305176
     },
     "pkgs": {
       "axio": {
@@ -5818,7 +6263,7 @@
     "repo": "axmm_crates",
     "timestamp": {
       "start": 1741395555461,
-      "end": 1749345966741
+      "end": 1749432305407
     },
     "pkgs": {
       "memory_addr": {
@@ -6127,7 +6572,7 @@
     "repo": "cap_access",
     "timestamp": {
       "start": 1740846432452,
-      "end": 1749345966965
+      "end": 1749432305616
     },
     "pkgs": {
       "cap_access": {
@@ -6170,7 +6615,7 @@
     "repo": "cpumask",
     "timestamp": {
       "start": 1740846437925,
-      "end": 1749345967189
+      "end": 1749432305858
     },
     "pkgs": {
       "cpumask": {
@@ -6212,7 +6657,7 @@
     "repo": "crate_interface",
     "timestamp": {
       "start": 1748827314061,
-      "end": 1749345967409
+      "end": 1749432306090
     },
     "pkgs": {
       "crate_interface": {
@@ -6279,7 +6724,7 @@
     "repo": "flatten_objects",
     "timestamp": {
       "start": 1741395559295,
-      "end": 1749345967650
+      "end": 1749432306341
     },
     "pkgs": {
       "flatten_objects": {
@@ -6320,7 +6765,7 @@
     "repo": "handler_table",
     "timestamp": {
       "start": 1740846476792,
-      "end": 1749345967844
+      "end": 1749432306558
     },
     "pkgs": {
       "handler_table": {
@@ -6361,7 +6806,7 @@
     "repo": "int_ratio",
     "timestamp": {
       "start": 1740846490578,
-      "end": 1749345968070
+      "end": 1749432306766
     },
     "pkgs": {
       "int_ratio": {
@@ -6437,7 +6882,7 @@
     "repo": "kernel_guard",
     "timestamp": {
       "start": 1740846501030,
-      "end": 1749345968281
+      "end": 1749432307019
     },
     "pkgs": {
       "kernel_guard": {
@@ -6479,7 +6924,7 @@
     "repo": "kspin",
     "timestamp": {
       "start": 1740846556462,
-      "end": 1749345968489
+      "end": 1749432307229
     },
     "pkgs": {
       "kspin": {
@@ -6601,7 +7046,7 @@
     "repo": "lazyinit",
     "timestamp": {
       "start": 1740846560163,
-      "end": 1749345968722
+      "end": 1749432307450
     },
     "pkgs": {
       "lazyinit": {
@@ -6643,7 +7088,7 @@
     "repo": "linked_list_r4l",
     "timestamp": {
       "start": 1740846593304,
-      "end": 1749345968934
+      "end": 1749432307672
     },
     "pkgs": {
       "linked_list_r4l": {
@@ -6745,7 +7190,7 @@
     "repo": "page_table_multiarch",
     "timestamp": {
       "start": 1744161219457,
-      "end": 1749345969158
+      "end": 1749432307922
     },
     "pkgs": {
       "page_table_entry": {
@@ -6825,7 +7270,7 @@
     "repo": "percpu",
     "timestamp": {
       "start": 1740846619098,
-      "end": 1749345969367
+      "end": 1749432308179
     },
     "pkgs": {
       "percpu": {
@@ -6903,7 +7348,7 @@
     "repo": "scheduler",
     "timestamp": {
       "start": 1748309010291,
-      "end": 1749345969612
+      "end": 1749432308448
     },
     "pkgs": {
       "scheduler": {
@@ -7035,7 +7480,7 @@
     "repo": "starry-next",
     "timestamp": {
       "start": 1740847114540,
-      "end": 1749345969821
+      "end": 1749432308722
     },
     "pkgs": {
       "helloworld": {
@@ -7143,7 +7588,7 @@
     "repo": "timer_list",
     "timestamp": {
       "start": 1740847161768,
-      "end": 1749345970087
+      "end": 1749432309054
     },
     "pkgs": {
       "timer_list": {
@@ -7220,7 +7665,7 @@
     "repo": "driver_usb",
     "timestamp": {
       "start": 1740847189698,
-      "end": 1749345970317
+      "end": 1749432309296
     },
     "pkgs": {
       "driver_usb": {
@@ -7253,7 +7698,7 @@
     "repo": "CrabUSB",
     "timestamp": {
       "start": 1743124346904,
-      "end": 1749345970580
+      "end": 1749432309584
     },
     "pkgs": {
       "crab-usb": {
@@ -7297,7 +7742,7 @@
     "repo": "rdrive",
     "timestamp": {
       "start": 1748654261536,
-      "end": 1749345970814
+      "end": 1749432309829
     },
     "pkgs": {
       "enumerate": {
@@ -7668,7 +8113,7 @@
     "repo": "e1000-driver",
     "timestamp": {
       "start": 1740847309000,
-      "end": 1749345970998
+      "end": 1749432310060
     },
     "pkgs": {
       "e1000-driver": {
@@ -7728,7 +8173,7 @@
     "repo": "fxmac_rs",
     "timestamp": {
       "start": 1740847356394,
-      "end": 1749345971226
+      "end": 1749432310312
     },
     "pkgs": {
       "fxmac_rs": {
@@ -7763,7 +8208,7 @@
     "repo": "lwext4_rust",
     "timestamp": {
       "start": 1742001024419,
-      "end": 1749345971424
+      "end": 1749432310558
     },
     "pkgs": {
       "lwext4_rust": {
@@ -7823,7 +8268,7 @@
     "repo": "osl",
     "timestamp": {
       "start": 1740847398489,
-      "end": 1749345971636
+      "end": 1749432310789
     },
     "pkgs": {
       "osl": {
@@ -7858,7 +8303,7 @@
     "repo": "axbacktrace",
     "timestamp": {
       "start": 1740847405191,
-      "end": 1749345971843
+      "end": 1749432311032
     },
     "pkgs": {
       "axbacktrace": {
@@ -7893,7 +8338,7 @@
     "repo": "axhal_split",
     "timestamp": {
       "start": 1740847406857,
-      "end": 1749345972058
+      "end": 1749432311294
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error: error: failed to parse manifest at `/tmp/os-checker-plugin-cargo/kern-crates/axhal_split/Cargo.toml`\n\n      Caused by:\n        error inheriting `version` from workspace root manifest's `workspace.package.version`\n\n      Caused by:\n        failed to find a workspace root\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"6c5cff629fef0e5f0a26640d4884938c9a4d561e\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"kern-crates/axhal_split\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -7902,7 +8347,7 @@
     "repo": "r4l",
     "timestamp": {
       "start": 1740847413158,
-      "end": 1749345972289
+      "end": 1749432311555
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error: error: current package believes it's in a workspace when it's not:\n      current:   /tmp/os-checker-plugin-cargo/kern-crates/r4l/drivers/i2c/busses/i2c-designware/Cargo.toml\n      workspace: /tmp/os-checker-plugin-cargo/kern-crates/r4l/Cargo.toml\n\n      this may be fixable by adding `drivers/i2c/busses/i2c-designware` to the `workspace.members` array of the manifest located at: /tmp/os-checker-plugin-cargo/kern-crates/r4l/Cargo.toml\n      Alternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"9ce5d0e07aa35af06d6db1b1e293f460c7340ef1\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"kern-crates/r4l\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -7911,7 +8356,7 @@
     "repo": "virtio-input-decoder",
     "timestamp": {
       "start": 1740847419314,
-      "end": 1749345972564
+      "end": 1749432311838
     },
     "pkgs": {
       "virtio-input-decoder": {
@@ -7946,7 +8391,7 @@
     "repo": "zCore",
     "timestamp": {
       "start": 1740847573865,
-      "end": 1749345972766
+      "end": 1749432312075
     },
     "pkgs": {
       "rboot": {
@@ -8055,7 +8500,7 @@
     "repo": "zcore-drivers",
     "timestamp": {
       "start": 1740847596921,
-      "end": 1749345973031
+      "end": 1749432312307
     },
     "pkgs": {
       "zcore-drivers": {
@@ -8090,7 +8535,7 @@
     "repo": "zcore-kernel-hal",
     "timestamp": {
       "start": 1740847660439,
-      "end": 1749345973250
+      "end": 1749432312552
     },
     "pkgs": {
       "kernel-hal": {
@@ -8126,7 +8571,7 @@
     "repo": "zcore-linux-object",
     "timestamp": {
       "start": 1740847665903,
-      "end": 1749345973495
+      "end": 1749432312786
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating crates.io index\n          Updating git repository `https://github.com/kern-crates/zcore-kernel-hal.git`\n          Updating git repository `https://github.com/DeathWish5/kernel-sync`\n          Updating git repository `https://github.com/rcore-os/rcore-fs`\n          Updating git repository `https://github.com/smoltcp-rs/smoltcp`\n          Updating git repository `https://github.com/kern-crates/zcore-drivers.git`\n          Updating git repository `https://github.com/kern-crates/zcore-zircon-object.git`\n          Updating git repository `https://github.com/rcore-os/x86-smpboot`\n          Updating git repository `https://github.com/DeathWish5/PreemptiveScheduler`\n          Updating git repository `https://github.com/rust-embedded/riscv`\n          Updating git repository `https://github.com/rcore-os/bitmap-allocator.git`\n          Updating git repository `https://github.com/rcore-os/device_tree-rs`\n          Updating git repository `https://github.com/rcore-os/isomorphic_drivers`\n          Updating git repository `https://github.com/elliott10/pci-rs`\n          Updating git repository `https://github.com/rcore-os/virtio-drivers`\n          Updating git repository `https://github.com/rzswh/region-allocator`\n          Updating git repository `https://github.com/pleasewhy/unicycle`\n          Updating git repository `https://github.com/pleasewhy/uniset`\n      error: failed to select a version for the requirement `funty = \"~1.2\"`\n        version 1.2.0 is yanked\n      location searched: crates.io index\n      required by package `bitvec v0.22.0`\n          ... which satisfies dependency `bitvec = \"^0.22\"` of package `rcore-fs-sfs v0.1.0 (https://github.com/rcore-os/rcore-fs?rev=1a3246b#1a3246b1)`\n          ... which satisfies git dependency `rcore-fs-sfs` of package `linux-object v0.1.0 (/tmp/os-checker-plugin-cargo/kern-crates/zcore-linux-object)`\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"1304b7e11ce56156506d23459fdc1e2a0badb09c\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"kern-crates/zcore-linux-object\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -8135,7 +8580,7 @@
     "repo": "zcore-linux-syscall",
     "timestamp": {
       "start": 1740847668657,
-      "end": 1749345973714
+      "end": 1749432313091
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating crates.io index\n          Updating git repository `https://github.com/kern-crates/zcore-kernel-hal.git`\n          Updating git repository `https://github.com/kern-crates/zcore-linux-object.git`\n          Updating git repository `https://github.com/DeathWish5/kernel-sync`\n          Updating git repository `https://github.com/rcore-os/rcore-fs`\n          Updating git repository `https://github.com/kern-crates/zcore-zircon-object.git`\n          Updating git repository `https://github.com/smoltcp-rs/smoltcp`\n          Updating git repository `https://github.com/kern-crates/zcore-drivers.git`\n          Updating git repository `https://github.com/rcore-os/x86-smpboot`\n          Updating git repository `https://github.com/DeathWish5/PreemptiveScheduler`\n          Updating git repository `https://github.com/rust-embedded/riscv`\n          Updating git repository `https://github.com/rzswh/region-allocator`\n          Updating git repository `https://github.com/rcore-os/bitmap-allocator.git`\n          Updating git repository `https://github.com/rcore-os/device_tree-rs`\n          Updating git repository `https://github.com/rcore-os/isomorphic_drivers`\n          Updating git repository `https://github.com/elliott10/pci-rs`\n          Updating git repository `https://github.com/rcore-os/virtio-drivers`\n          Updating git repository `https://github.com/pleasewhy/unicycle`\n          Updating git repository `https://github.com/pleasewhy/uniset`\n      error: failed to select a version for the requirement `funty = \"~1.2\"`\n        version 1.2.0 is yanked\n      location searched: crates.io index\n      required by package `bitvec v0.22.0`\n          ... which satisfies dependency `bitvec = \"^0.22\"` of package `rcore-fs-sfs v0.1.0 (https://github.com/rcore-os/rcore-fs?rev=1a3246b#1a3246b1)`\n          ... which satisfies git dependency `rcore-fs-sfs` of package `linux-object v0.1.0 (https://github.com/kern-crates/zcore-linux-object.git?rev=1304b7e1#1304b7e1)`\n          ... which satisfies git dependency `linux-object` of package `linux-syscall v0.1.0 (/tmp/os-checker-plugin-cargo/kern-crates/zcore-linux-syscall)`\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"06fb8490e9d45774d89031d5f69b412c5f0c3484\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"kern-crates/zcore-linux-syscall\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -8144,7 +8589,7 @@
     "repo": "zcore-loader",
     "timestamp": {
       "start": 1740847671264,
-      "end": 1749345973959
+      "end": 1749432313333
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating crates.io index\n          Updating git repository `https://github.com/DeathWish5/PreemptiveScheduler`\n          Updating git repository `https://github.com/kern-crates/zcore-kernel-hal.git`\n          Updating git repository `https://github.com/kern-crates/zcore-linux-object.git`\n          Updating git repository `https://github.com/kern-crates/zcore-linux-syscall.git`\n          Updating git repository `https://github.com/kern-crates/zcore-zircon-object.git`\n          Updating git repository `https://github.com/kern-crates/zcore-zircon-syscall.git`\n          Updating git repository `https://github.com/rcore-os/rcore-fs`\n          Updating git repository `https://github.com/pleasewhy/unicycle`\n          Updating git repository `https://github.com/rcore-os/bitmap-allocator.git`\n          Updating git repository `https://github.com/DeathWish5/kernel-sync`\n          Updating git repository `https://github.com/smoltcp-rs/smoltcp`\n          Updating git repository `https://github.com/kern-crates/zcore-drivers.git`\n          Updating git repository `https://github.com/rcore-os/x86-smpboot`\n          Updating git repository `https://github.com/rzswh/region-allocator`\n          Updating git repository `https://github.com/pleasewhy/uniset`\n          Updating git repository `https://github.com/rust-embedded/riscv`\n          Updating git repository `https://github.com/rcore-os/device_tree-rs`\n          Updating git repository `https://github.com/rcore-os/isomorphic_drivers`\n          Updating git repository `https://github.com/elliott10/pci-rs`\n          Updating git repository `https://github.com/rcore-os/virtio-drivers`\n      error: failed to select a version for the requirement `funty = \"~1.2\"`\n        version 1.2.0 is yanked\n      location searched: crates.io index\n      required by package `bitvec v0.22.0`\n          ... which satisfies dependency `bitvec = \"^0.22\"` of package `rcore-fs-sfs v0.1.0 (https://github.com/rcore-os/rcore-fs?rev=1a3246b#1a3246b1)`\n          ... which satisfies git dependency `rcore-fs-sfs` of package `linux-object v0.1.0 (https://github.com/kern-crates/zcore-linux-object.git?rev=1304b7e1#1304b7e1)`\n          ... which satisfies git dependency `linux-object` of package `zcore-loader v0.1.0 (/tmp/os-checker-plugin-cargo/kern-crates/zcore-loader)`\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"e9cfa35b5cc36bd56e253e8d4e65424d86fc48ed\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"kern-crates/zcore-loader\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -8153,7 +8598,7 @@
     "repo": "zcore-zircon-object",
     "timestamp": {
       "start": 1740847728366,
-      "end": 1749345974186
+      "end": 1749432313597
     },
     "pkgs": {
       "zircon-object": {
@@ -8189,7 +8634,7 @@
     "repo": "zcore-zircon-syscall",
     "timestamp": {
       "start": 1740847757546,
-      "end": 1749345974433
+      "end": 1749432313878
     },
     "pkgs": {
       "zircon-syscall": {
@@ -8224,7 +8669,7 @@
     "repo": "zcore-zircon-user",
     "timestamp": {
       "start": 1740847766341,
-      "end": 1749345974640
+      "end": 1749432314112
     },
     "pkgs": {
       "zircon-user": {
@@ -8259,7 +8704,7 @@
     "repo": "os-checker",
     "timestamp": {
       "start": 1748913995216,
-      "end": 1749345974832
+      "end": 1749432314336
     },
     "pkgs": {
       "os-checker": {
@@ -8759,7 +9204,7 @@
     "repo": "plugin",
     "timestamp": {
       "start": 1745371358360,
-      "end": 1749345975103
+      "end": 1749432314601
     },
     "pkgs": {
       "os-checker-plugin": {
@@ -8792,7 +9237,7 @@
     "repo": "plugin-cargo",
     "timestamp": {
       "start": 1745371440212,
-      "end": 1749345975314
+      "end": 1749432314826
     },
     "pkgs": {
       "os-checker-plugin-cargo": {
@@ -9021,7 +9466,7 @@
     "repo": "plugin-github-api",
     "timestamp": {
       "start": 1745371501568,
-      "end": 1749345975526
+      "end": 1749432315128
     },
     "pkgs": {
       "os-checker-plugin-github-api": {
@@ -9079,7 +9524,7 @@
     "repo": "domain-lib",
     "timestamp": {
       "start": 1741309885427,
-      "end": 1749345975757
+      "end": 1749432315371
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error: error: failed to load manifest for workspace member `/tmp/os-checker-plugin-cargo/os-module/domain-lib/basic`\n      referenced by workspace at `/tmp/os-checker-plugin-cargo/os-module/domain-lib/Cargo.toml`\n\n      Caused by:\n        failed to load manifest for dependency `corelib`\n\n      Caused by:\n        failed to load manifest for dependency `interface`\n\n      Caused by:\n        failed to load manifest for dependency `vfscore-ref`\n\n      Caused by:\n        failed to read `/tmp/os-checker-plugin-cargo/os-module/rvfs-ref/vfscore-ref/Cargo.toml`\n\n      Caused by:\n        No such file or directory (os error 2)\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"677103cee3118d37561faca1f4d3d1b6db7960f5\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"os-module/domain-lib\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -9088,7 +9533,7 @@
     "repo": "domains",
     "timestamp": {
       "start": 1740849177070,
-      "end": 1749345975974
+      "end": 1749432315590
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating crates.io index\n          Updating git repository `https://github.com/os-module/memory_addr`\n          Updating git repository `https://github.com/os-module/pconst.git`\n          Updating git repository `https://github.com/asterinas/pod`\n          Updating git repository `https://github.com/nbdd0121/unwinding`\n      error: failed to get `vfscore-ref` as a dependency of package `interface v0.1.0 (/tmp/os-checker-plugin-cargo/os-module/domain-lib/interface)`\n          ... which satisfies path dependency `interface` of package `fifo_scheduler v0.1.0 (/tmp/os-checker-plugin-cargo/os-module/domains/common/fifo_scheduler/fifo_scheduler)`\n\n      Caused by:\n        failed to load source for dependency `vfscore-ref`\n\n      Caused by:\n        Unable to update /tmp/os-checker-plugin-cargo/os-module/rvfs-ref/vfscore-ref\n\n      Caused by:\n        failed to read `/tmp/os-checker-plugin-cargo/os-module/rvfs-ref/vfscore-ref/Cargo.toml`\n\n      Caused by:\n        No such file or directory (os error 2)\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"9ecee6637e94bd2cfb90ddc199989fd3d0d65b93\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"os-module/domains\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -9097,7 +9542,7 @@
     "repo": "lwext4",
     "timestamp": {
       "start": 1740849344977,
-      "end": 1749345976201
+      "end": 1749432315827
     },
     "pkgs": {
       "lwext4-mkfs": {
@@ -9201,7 +9646,7 @@
     "repo": "pager",
     "timestamp": {
       "start": 1740849464390,
-      "end": 1749345976421
+      "end": 1749432316082
     },
     "pkgs": {
       "pager": {
@@ -9286,7 +9731,7 @@
     "repo": "pconst",
     "timestamp": {
       "start": 1747617674943,
-      "end": 1749345976640
+      "end": 1749432316315
     },
     "pkgs": {
       "pconst": {
@@ -9325,7 +9770,7 @@
     "repo": "rtc",
     "timestamp": {
       "start": 1740849524245,
-      "end": 1749345976909
+      "end": 1749432316557
     },
     "pkgs": {
       "rtc": {
@@ -9410,7 +9855,7 @@
     "repo": "rvfs",
     "timestamp": {
       "start": 1740849988291,
-      "end": 1749345977165
+      "end": 1749432316789
     },
     "pkgs": {
       "custom_fs": {
@@ -10002,7 +10447,7 @@
     "repo": "safe-virtio-drivers",
     "timestamp": {
       "start": 1740850029420,
-      "end": 1749345977400
+      "end": 1749432317031
     },
     "pkgs": {
       "qemu": {
@@ -10060,7 +10505,7 @@
     "repo": "syscall-table",
     "timestamp": {
       "start": 1740850097317,
-      "end": 1749345977671
+      "end": 1749432317264
     },
     "pkgs": {
       "syscall-table": {
@@ -10150,7 +10595,7 @@
     "repo": "tracer",
     "timestamp": {
       "start": 1740850109680,
-      "end": 1749345977895
+      "end": 1749432317501
     },
     "pkgs": {
       "tracer": {
@@ -10183,7 +10628,7 @@
     "repo": "uart16550",
     "timestamp": {
       "start": 1740850112715,
-      "end": 1749345978128
+      "end": 1749432317735
     },
     "pkgs": {
       "uart16550": {
@@ -10224,7 +10669,7 @@
     "repo": "virt2slint",
     "timestamp": {
       "start": 1740850228466,
-      "end": 1749345978444
+      "end": 1749432317963
     },
     "pkgs": {
       "virt2slint": {
@@ -10257,7 +10702,7 @@
     "repo": "visionfive2-sd",
     "timestamp": {
       "start": 1740850283242,
-      "end": 1749345978684
+      "end": 1749432318171
     },
     "pkgs": {
       "testos": {
@@ -10313,7 +10758,7 @@
     "repo": "starry-next",
     "timestamp": {
       "start": 1747790349321,
-      "end": 1749345978921
+      "end": 1749432318414
     },
     "pkgs": {
       "starry": {
@@ -10427,7 +10872,7 @@
     "repo": "fdt-parser",
     "timestamp": {
       "start": 1747877586127,
-      "end": 1749345979143
+      "end": 1749432318636
     },
     "pkgs": {
       "dtb-tool": {
@@ -10717,7 +11162,7 @@
     "repo": "sparreal-os",
     "timestamp": {
       "start": 1743556511492,
-      "end": 1749345979369
+      "end": 1749432318875
     },
     "pkgs": {
       "bare-test": {
@@ -10977,7 +11422,7 @@
     "repo": "rboot",
     "timestamp": {
       "start": 1740851328957,
-      "end": 1749345979597
+      "end": 1749432319201
     },
     "err": "\n   0: Cloning into '/tmp/os-checker-plugin-cargo/rcore-os/rboot'...\n      Error: \n         0: Fail to parse json as a rustsec::Report:\n         0: \n         1: EOF while parsing a value at line 1 column 0\n\n      Location:\n         src/layout/audit.rs:128\n\n        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n         0: os_checker::layout::audit::cargo_audit with lock_file=Ok(\"/tmp/os-checker-plugin-cargo/rcore-os/rboot/Cargo.lock\")\n            at src/layout/audit.rs:114\n\n      Backtrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\n      Run with RUST_BACKTRACE=full to include source snippets.\n   0: \n\nLocation:\n   src/repo/os_checker.rs:27\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"master\\\", sha: \\\"ad2157580216c0fbda7cf4ebed13fd8882a27973\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"rcore-os/rboot\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -10986,7 +11431,7 @@
     "repo": "zcore-tests",
     "timestamp": {
       "start": 1740851333761,
-      "end": 1749345979838
+      "end": 1749432319483
     },
     "pkgs": {
       "uart": {
@@ -11019,7 +11464,7 @@
     "repo": "sel4_common",
     "timestamp": {
       "start": 1740851374425,
-      "end": 1749345980115
+      "end": 1749432319753
     },
     "pkgs": {
       "sel4_common": {
@@ -11052,7 +11497,7 @@
     "repo": "sel4_cspace",
     "timestamp": {
       "start": 1740851387397,
-      "end": 1749345980351
+      "end": 1749432319997
     },
     "pkgs": {
       "sel4_cspace": {
@@ -11085,7 +11530,7 @@
     "repo": "sel4_ipc",
     "timestamp": {
       "start": 1740851440361,
-      "end": 1749345980579
+      "end": 1749432320265
     },
     "pkgs": {
       "sel4_ipc": {
@@ -11118,7 +11563,7 @@
     "repo": "sel4_task",
     "timestamp": {
       "start": 1740851483747,
-      "end": 1749345980796
+      "end": 1749432320484
     },
     "pkgs": {
       "sel4_task": {
@@ -11151,7 +11596,7 @@
     "repo": "sel4_vspace",
     "timestamp": {
       "start": 1740851513148,
-      "end": 1749345981062
+      "end": 1749432320748
     },
     "pkgs": {
       "sel4_vspace": {
@@ -11184,7 +11629,7 @@
     "repo": "arch_boot",
     "timestamp": {
       "start": 1740851516023,
-      "end": 1749345981307
+      "end": 1749432320974
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axconfig.git`\n      error: failed to get `axconfig` as a dependency of package `arch_boot v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/arch_boot/arch_boot)`\n\n      Caused by:\n        failed to load source for dependency `axconfig`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axconfig.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axconfig-70485e14962bd144\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"8663e83966ef87d2f3a8f7736ab22ae37eb15f81\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/arch_boot\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11193,7 +11638,7 @@
     "repo": "axalloc",
     "timestamp": {
       "start": 1740851518945,
-      "end": 1749345981522
+      "end": 1749432321227
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/allocator`\n      error: failed to get `allocator` as a dependency of package `axalloc v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axalloc/axalloc)`\n\n      Caused by:\n        failed to load source for dependency `allocator`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/allocator\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/allocator-eba7065e74aaf177\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"0e9945a6bc5123537357b15f490b583a955c0a21\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axalloc\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11202,7 +11647,7 @@
     "repo": "axconfig",
     "timestamp": {
       "start": 1740851522552,
-      "end": 1749345981776
+      "end": 1749432321466
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/arch_boot`\n      error: failed to get `arch_boot` as a dependency of package `rt_axconfig v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axconfig/rt_axconfig)`\n\n      Caused by:\n        failed to load source for dependency `arch_boot`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/arch_boot\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/arch_boot-0f6ec9e352b6979d\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"51b81e4a93c510d9bcb86f24ba810bd2541a18d7\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axconfig\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11211,7 +11656,7 @@
     "repo": "axdriver",
     "timestamp": {
       "start": 1740851524940,
-      "end": 1749345982007
+      "end": 1749432321710
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axalloc.git`\n      error: failed to get `axalloc` as a dependency of package `axdriver v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axdriver/axdriver)`\n\n      Caused by:\n        failed to load source for dependency `axalloc`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axalloc.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axalloc-d7829ad52d27c407\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"6d1a637a03687dfdaad089a499fae38ca49e84ae\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axdriver\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11220,7 +11665,7 @@
     "repo": "axdtb",
     "timestamp": {
       "start": 1740851527253,
-      "end": 1749345982200
+      "end": 1749432321988
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axtype.git`\n      error: failed to get `axtype` as a dependency of package `axdtb v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axdtb/axdtb)`\n\n      Caused by:\n        failed to load source for dependency `axtype`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axtype.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axtype-6a8b47ab4140963d\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"2808f1e91e4aeee2eeed08c7f157a14e64e09425\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axdtb\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11229,7 +11674,7 @@
     "repo": "axfile",
     "timestamp": {
       "start": 1740851529674,
-      "end": 1749345982459
+      "end": 1749432322224
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axerrno.git`\n      error: failed to get `axerrno` as a dependency of package `axfile v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axfile/axfile)`\n\n      Caused by:\n        failed to load source for dependency `axerrno`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axerrno.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axerrno-d109ab1f0aeac1f2\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"888bec2756056df410e97dff42508e4901eb4066\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axfile\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11238,7 +11683,7 @@
     "repo": "axfs_devfs",
     "timestamp": {
       "start": 1740851532151,
-      "end": 1749345982674
+      "end": 1749432322458
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axfs_vfs.git`\n      error: failed to get `axfs_vfs` as a dependency of package `axfs_devfs v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axfs_devfs/axfs_devfs)`\n\n      Caused by:\n        failed to load source for dependency `axfs_vfs`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axfs_vfs.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axfs_vfs-3a433597d90a2025\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"4d970bd85725f8ac6be722cec1d10363f1338fd1\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axfs_devfs\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11247,7 +11692,7 @@
     "repo": "axfs_ramfs",
     "timestamp": {
       "start": 1740851534489,
-      "end": 1749345982887
+      "end": 1749432322690
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axfs_devfs.git`\n      error: failed to get `axfs_devfs` as a dependency of package `axfs_ramfs v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axfs_ramfs/axfs_ramfs)`\n\n      Caused by:\n        failed to load source for dependency `axfs_devfs`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axfs_devfs.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axfs_devfs-5f17c982463dfa7d\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"8fe4f148c7282ec2f93053c90ba679f91a6031dd\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axfs_ramfs\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11256,7 +11701,7 @@
     "repo": "axfs_vfs",
     "timestamp": {
       "start": 1740851536744,
-      "end": 1749345983088
+      "end": 1749432322917
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axerrno.git`\n      error: failed to get `axerrno` as a dependency of package `axfs_vfs v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axfs_vfs/axfs_vfs)`\n\n      Caused by:\n        failed to load source for dependency `axerrno`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axerrno.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axerrno-d109ab1f0aeac1f2\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"b7ba21c01b48617583f43e95f23e8e6263adfc64\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axfs_vfs\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11265,7 +11710,7 @@
     "repo": "axhal",
     "timestamp": {
       "start": 1740851539183,
-      "end": 1749345983329
+      "end": 1749432323192
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axconfig`\n      error: failed to get `axconfig` as a dependency of package `axhal v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axhal/axhal)`\n\n      Caused by:\n        failed to load source for dependency `axconfig`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axconfig\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axconfig-70485e14962bd144\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"db90ff50a8982b7a0235196ec190723a70a22a73\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axhal\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11274,7 +11719,7 @@
     "repo": "axlog2",
     "timestamp": {
       "start": 1740851541537,
-      "end": 1749345983540
+      "end": 1749432323438
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axconfig`\n      error: failed to get `axconfig` as a dependency of package `axlog2 v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axlog2/axlog2)`\n\n      Caused by:\n        failed to load source for dependency `axconfig`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axconfig\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axconfig-70485e14962bd144\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"4142b20290216bf81e35eceb0a79cf0871850998\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axlog2\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11283,7 +11728,7 @@
     "repo": "axmount",
     "timestamp": {
       "start": 1740851544035,
-      "end": 1749345983754
+      "end": 1749432323674
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axconfig`\n      error: failed to get `axconfig` as a dependency of package `axmount v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axmount/axmount)`\n\n      Caused by:\n        failed to load source for dependency `axconfig`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axconfig\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axconfig-70485e14962bd144\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"fb10d4d821185bf5ad8f3984327009552b8f1981\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axmount\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11292,7 +11737,7 @@
     "repo": "axsyscall",
     "timestamp": {
       "start": 1740851546682,
-      "end": 1749345983980
+      "end": 1749432323961
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axerrno.git`\n      error: failed to get `axerrno` as a dependency of package `axsyscall v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axsyscall/axsyscall)`\n\n      Caused by:\n        failed to load source for dependency `axerrno`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axerrno.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axerrno-d109ab1f0aeac1f2\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"4ed982b34101cc07f316a13d14968cd060e7e89e\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axsyscall\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11301,7 +11746,7 @@
     "repo": "axtrap",
     "timestamp": {
       "start": 1740851548993,
-      "end": 1749345984443
+      "end": 1749432324201
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axalloc`\n      error: failed to get `axalloc` as a dependency of package `axtrap v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axtrap/axtrap)`\n\n      Caused by:\n        failed to load source for dependency `axalloc`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axalloc\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axalloc-d7829ad52d27c407\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"1493740d421ed957465a2590f1e026f0062cbfd1\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axtrap\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11310,7 +11755,7 @@
     "repo": "axtype",
     "timestamp": {
       "start": 1740851551379,
-      "end": 1749345984646
+      "end": 1749432324466
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axconfig`\n      error: failed to get `axconfig` as a dependency of package `axtype v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/axtype/axtype)`\n\n      Caused by:\n        failed to load source for dependency `axconfig`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axconfig\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axconfig-70485e14962bd144\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"28dc5578729797569bcbd96e86d9d9fda90a1b89\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/axtype\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11319,7 +11764,7 @@
     "repo": "capability",
     "timestamp": {
       "start": 1740851553698,
-      "end": 1749345984960
+      "end": 1749432324707
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axerrno.git`\n      error: failed to get `axerrno` as a dependency of package `capability v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/capability/capability)`\n\n      Caused by:\n        failed to load source for dependency `axerrno`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axerrno.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axerrno-d109ab1f0aeac1f2\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"3933108f2f8b11f18ad6a6c89484b7c1323100c5\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/capability\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11328,7 +11773,7 @@
     "repo": "driver_block",
     "timestamp": {
       "start": 1740851556229,
-      "end": 1749345985178
+      "end": 1749432324936
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `https://github.com/lhw2002426/bcm2835-sdhci.git`\n          Updating git repository `ssh://git@github.com/shilei-massclouds/driver_common`\n      error: failed to get `driver_common` as a dependency of package `driver_block v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/driver_block/driver_block)`\n\n      Caused by:\n        failed to load source for dependency `driver_common`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/driver_common\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/driver_common-4ba8b7cf56504905\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"7ef4e9c68fa00c91109936f089dfdf0798369a56\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/driver_block\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11337,7 +11782,7 @@
     "repo": "driver_common",
     "timestamp": {
       "start": 1740851562774,
-      "end": 1749345985382
+      "end": 1749432325167
     },
     "pkgs": {
       "driver_common": {
@@ -11372,7 +11817,7 @@
     "repo": "driver_pci",
     "timestamp": {
       "start": 1740851586481,
-      "end": 1749345985622
+      "end": 1749432325387
     },
     "pkgs": {
       "driver_pci": {
@@ -11407,7 +11852,7 @@
     "repo": "driver_virtio",
     "timestamp": {
       "start": 1740851588862,
-      "end": 1749345985839
+      "end": 1749432325617
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/driver_block.git`\n      error: failed to get `driver_block` as a dependency of package `driver_virtio v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/driver_virtio/driver_virtio)`\n\n      Caused by:\n        failed to load source for dependency `driver_block`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/driver_block.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/driver_block-9996f9245b595a27\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"4ec75adb293afc881f80ad3198a8cccceb460ca8\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/driver_virtio\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11416,7 +11861,7 @@
     "repo": "early_console",
     "timestamp": {
       "start": 1740851590935,
-      "end": 1749345986060
+      "end": 1749432325867
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axconfig.git`\n      error: failed to get `axconfig` as a dependency of package `early_console v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/early_console/early_console)`\n\n      Caused by:\n        failed to load source for dependency `axconfig`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axconfig.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axconfig-70485e14962bd144\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"8bc0d219950d06f1fd5168876392be4ba69819d5\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/early_console\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11425,7 +11870,7 @@
     "repo": "elf",
     "timestamp": {
       "start": 1740851600013,
-      "end": 1749345986277
+      "end": 1749432326099
     },
     "pkgs": {
       "elf": {
@@ -11469,7 +11914,7 @@
     "repo": "exec",
     "timestamp": {
       "start": 1740851602051,
-      "end": 1749345986557
+      "end": 1749432326360
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axalloc`\n      error: failed to get `axalloc` as a dependency of package `exec v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/exec/exec)`\n\n      Caused by:\n        failed to load source for dependency `axalloc`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axalloc\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axalloc-d7829ad52d27c407\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"7e66ccbaf7a660dcd4b454cc657b7c7800695370\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/exec\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11478,7 +11923,7 @@
     "repo": "fileops",
     "timestamp": {
       "start": 1740851604328,
-      "end": 1749345986796
+      "end": 1749432326652
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axalloc`\n      error: failed to get `axalloc` as a dependency of package `fileops v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/fileops/fileops)`\n\n      Caused by:\n        failed to load source for dependency `axalloc`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axalloc\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axalloc-d7829ad52d27c407\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"9050d8a9b237ab46375c7a7b4b286d7e24c31ee5\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/fileops\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11487,7 +11932,7 @@
     "repo": "filetable",
     "timestamp": {
       "start": 1740851606676,
-      "end": 1749345987030
+      "end": 1749432326867
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axerrno.git`\n      error: failed to get `axerrno` as a dependency of package `filetable v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/filetable/filetable)`\n\n      Caused by:\n        failed to load source for dependency `axerrno`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axerrno.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axerrno-d109ab1f0aeac1f2\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"92f4fbaa98b34c885cffec2cbfb15b5b00dcfc15\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/filetable\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11496,7 +11941,7 @@
     "repo": "fork",
     "timestamp": {
       "start": 1740851608718,
-      "end": 1749345987278
+      "end": 1749432327142
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axalloc`\n      error: failed to get `axalloc` as a dependency of package `fork v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/fork/fork)`\n\n      Caused by:\n        failed to load source for dependency `axalloc`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axalloc\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axalloc-d7829ad52d27c407\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"5baa179ed87104b18ceddee89769c42eb6a8e206\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/fork\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11505,7 +11950,7 @@
     "repo": "fstree",
     "timestamp": {
       "start": 1740851610901,
-      "end": 1749345987515
+      "end": 1749432327375
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axalloc`\n      error: failed to get `axalloc` as a dependency of package `fstree v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/fstree/fstree)`\n\n      Caused by:\n        failed to load source for dependency `axalloc`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axalloc\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axalloc-d7829ad52d27c407\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"71614d93c41b52d8172d35fa67b1801c64d5c655\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/fstree\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11514,7 +11959,7 @@
     "repo": "kernel_guard_base",
     "timestamp": {
       "start": 1740851617518,
-      "end": 1749345987732
+      "end": 1749432327606
     },
     "pkgs": {
       "kernel_guard_base": {
@@ -11556,7 +12001,7 @@
     "repo": "lazy_init",
     "timestamp": {
       "start": 1740851623279,
-      "end": 1749345987966
+      "end": 1749432327854
     },
     "pkgs": {
       "lazy_init": {
@@ -11591,7 +12036,7 @@
     "repo": "macrokernel",
     "timestamp": {
       "start": 1740851625191,
-      "end": 1749345988209
+      "end": 1749432328111
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/arch_boot.git`\n      error: failed to get `arch_boot` as a dependency of package `rt_macrokernel v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/macrokernel/rt_macrokernel)`\n\n      Caused by:\n        failed to load source for dependency `arch_boot`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/arch_boot.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/arch_boot-0f6ec9e352b6979d\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"abe4710d2fc72080f7fea867561bb09c6b788418\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/macrokernel\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11600,7 +12045,7 @@
     "repo": "memory_addr",
     "timestamp": {
       "start": 1740851631687,
-      "end": 1749345988454
+      "end": 1749432328351
     },
     "pkgs": {
       "memory_addr": {
@@ -11643,7 +12088,7 @@
     "repo": "mm",
     "timestamp": {
       "start": 1740851633737,
-      "end": 1749345988665
+      "end": 1749432328596
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axalloc.git`\n      error: failed to get `axalloc` as a dependency of package `mm v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/mm/mm)`\n\n      Caused by:\n        failed to load source for dependency `axalloc`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axalloc.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axalloc-d7829ad52d27c407\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"ccaba09d77c6bb94c687ff4166ec8fadc959a663\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/mm\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11652,7 +12097,7 @@
     "repo": "mmap",
     "timestamp": {
       "start": 1740851635712,
-      "end": 1749345988897
+      "end": 1749432328798
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axalloc.git`\n      error: failed to get `axalloc` as a dependency of package `mmap v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/mmap/mmap)`\n\n      Caused by:\n        failed to load source for dependency `axalloc`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axalloc.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axalloc-d7829ad52d27c407\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"012b6dc7ff03fd4508a71197a94ac77203e0d765\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/mmap\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11661,7 +12106,7 @@
     "repo": "mutex",
     "timestamp": {
       "start": 1740851637752,
-      "end": 1749345989153
+      "end": 1749432329055
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/taskctx.git`\n      error: failed to get `taskctx` as a dependency of package `mutex v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/mutex/mutex)`\n\n      Caused by:\n        failed to load source for dependency `taskctx`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/taskctx.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/taskctx-41de63c35c1b8b3a\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"ba8033b82c7456200139e11552e0f4a664531573\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/mutex\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11670,7 +12115,7 @@
     "repo": "page_table",
     "timestamp": {
       "start": 1740851639741,
-      "end": 1749345989363
+      "end": 1749432329291
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axalloc`\n      error: failed to get `axalloc` as a dependency of package `page_table v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/page_table/page_table)`\n\n      Caused by:\n        failed to load source for dependency `axalloc`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axalloc\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axalloc-d7829ad52d27c407\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"e81e9ebd29dd7d700a37bad80d4601d7b0f8cc89\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/page_table\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11679,7 +12124,7 @@
     "repo": "percpu2",
     "timestamp": {
       "start": 1740851662880,
-      "end": 1749345989560
+      "end": 1749432329533
     },
     "pkgs": {
       "percpu2": {
@@ -11739,7 +12184,7 @@
     "repo": "preempt_guard",
     "timestamp": {
       "start": 1740851665084,
-      "end": 1749345989774
+      "end": 1749432329768
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axconfig`\n      error: failed to get `axconfig` as a dependency of package `preempt_guard v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/preempt_guard/preempt_guard)`\n\n      Caused by:\n        failed to load source for dependency `axconfig`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axconfig\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axconfig-70485e14962bd144\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"066c1592d2baf3b03db03f90651d4fd469eddd50\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/preempt_guard\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11748,7 +12193,7 @@
     "repo": "ratio",
     "timestamp": {
       "start": 1740851688691,
-      "end": 1749345990000
+      "end": 1749432330009
     },
     "pkgs": {
       "ratio": {
@@ -11817,7 +12262,7 @@
     "repo": "run_queue",
     "timestamp": {
       "start": 1740851690832,
-      "end": 1749345990206
+      "end": 1749432330230
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axconfig`\n      error: failed to get `axconfig` as a dependency of package `run_queue v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/run_queue/run_queue)`\n\n      Caused by:\n        failed to load source for dependency `axconfig`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axconfig\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axconfig-70485e14962bd144\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"c0fe80d96ae13511f9821399d0f873b38cc32070\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/run_queue\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11826,7 +12271,7 @@
     "repo": "rust_fatfs",
     "timestamp": {
       "start": 1740851717735,
-      "end": 1749345990408
+      "end": 1749432330493
     },
     "pkgs": {
       "rust_fatfs": {
@@ -11867,7 +12312,7 @@
     "repo": "signal",
     "timestamp": {
       "start": 1740851719966,
-      "end": 1749345990643
+      "end": 1749432330754
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axerrno.git`\n      error: failed to get `axerrno` as a dependency of package `signal v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/signal/signal)`\n\n      Caused by:\n        failed to load source for dependency `axerrno`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axerrno.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axerrno-d109ab1f0aeac1f2\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"7547a9a696452ff04d26712a4a454ad2fb793358\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/signal\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11876,7 +12321,7 @@
     "repo": "spinbase",
     "timestamp": {
       "start": 1740851722276,
-      "end": 1749345990848
+      "end": 1749432331000
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating crates.io index\n          Updating git repository `ssh://git@github.com/shilei-massclouds/kernel_guard_base`\n      error: failed to get `kernel_guard_base` as a dependency of package `spinbase v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/spinbase/spinbase)`\n\n      Caused by:\n        failed to load source for dependency `kernel_guard_base`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/kernel_guard_base\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/kernel_guard_base-69ecb072ca76c80c\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"a3496db86711cf857d639159b3be87f77d25d74b\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/spinbase\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11885,7 +12330,7 @@
     "repo": "spinpreempt",
     "timestamp": {
       "start": 1740851724242,
-      "end": 1749345991081
+      "end": 1749432331281
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axconfig`\n      error: failed to get `axconfig` as a dependency of package `spinpreempt v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/spinpreempt/spinpreempt)`\n\n      Caused by:\n        failed to load source for dependency `axconfig`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axconfig\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axconfig-70485e14962bd144\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"645e157a78307481137c9ed8cb05ba2a41f956f7\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/spinpreempt\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11894,7 +12339,7 @@
     "repo": "sys",
     "timestamp": {
       "start": 1740851726382,
-      "end": 1749345991301
+      "end": 1749432331515
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axalloc.git`\n      error: failed to get `axalloc` as a dependency of package `sys v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/sys/sys)`\n\n      Caused by:\n        failed to load source for dependency `axalloc`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axalloc.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axalloc-d7829ad52d27c407\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"6bb9ad286b9353325837a8f58567f0765ded2226\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/sys\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11903,7 +12348,7 @@
     "repo": "task",
     "timestamp": {
       "start": 1740851728607,
-      "end": 1749345991553
+      "end": 1749432331755
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/arch_boot.git`\n      error: failed to get `arch_boot` as a dependency of package `rt_task v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/task/rt_task)`\n\n      Caused by:\n        failed to load source for dependency `arch_boot`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/arch_boot.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/arch_boot-0f6ec9e352b6979d\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"4dbbecaa94abc89e946d84f8c07f03b7eb97732d\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/task\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11912,7 +12357,7 @@
     "repo": "taskctx",
     "timestamp": {
       "start": 1740851730609,
-      "end": 1749345991758
+      "end": 1749432332027
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/axconfig`\n      error: failed to get `axconfig` as a dependency of package `taskctx v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/taskctx/taskctx)`\n\n      Caused by:\n        failed to load source for dependency `axconfig`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/axconfig\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/axconfig-70485e14962bd144\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"023d4e421c05fd4992e4c82470852ad0cae725a3\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/taskctx\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11921,7 +12366,7 @@
     "repo": "wait_queue",
     "timestamp": {
       "start": 1740851732766,
-      "end": 1749345991976
+      "end": 1749432332274
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating git repository `ssh://git@github.com/shilei-massclouds/run_queue.git`\n      error: failed to get `run_queue` as a dependency of package `wait_queue v0.1.0 (/tmp/os-checker-plugin-cargo/shilei-massclouds/wait_queue/wait_queue)`\n\n      Caused by:\n        failed to load source for dependency `run_queue`\n\n      Caused by:\n        Unable to update ssh://git@github.com/shilei-massclouds/run_queue.git\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/run_queue-74e72e34e566147a\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted ssh-agent authentication, but no usernames succeeded: `git`\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        no authentication methods succeeded\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"3855cc5a71debacc54d5506cdd21c915dfc18745\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"shilei-massclouds/wait_queue\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -11930,16 +12375,49 @@
     "repo": "rcore-tutorial-v3-with-hal-component",
     "timestamp": {
       "start": 1740851742057,
-      "end": 1749345992196
+      "end": 1749432332511
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating crates.io index\n          Updating git repository `https://github.com/Byte-OS/polyhal.git`\n          Updating git repository `https://github.com/rcore-os/virtio-drivers`\n      error: failed to select a version for `polyhal`.\n          ... required by package `os v0.1.0 (/tmp/os-checker-plugin-cargo/sysones/rcore-tutorial-v3-with-hal-component/os)`\n      versions that meet the requirements `*` are: 0.1.3\n\n      the package `os` depends on `polyhal`, with features: `kcontext` but `polyhal` does not have these features.\n\n\n      failed to select a version for `polyhal` which could resolve this conflict\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"ch7\\\", sha: \\\"794bb3a264a07abbf727fbb3969c37600906d578\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"sysones/rcore-tutorial-v3-with-hal-component\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+  },
+  {
+    "user": "yfblock",
+    "repo": "libc-core",
+    "timestamp": {
+      "start": 1749432358582,
+      "end": 1749432358584
+    },
+    "pkgs": {
+      "libc-core": {
+        "version": "0.1.0",
+        "dependencies": 2,
+        "lib": true,
+        "bin": false,
+        "testcases": null,
+        "tests": 0,
+        "examples": 0,
+        "benches": 0,
+        "authors": [],
+        "description": "provides the libc types",
+        "documentation": "https://yfblock.github.io/libc-core/libc_core/",
+        "readme": "README.md",
+        "homepage": null,
+        "keywords": [],
+        "categories": [],
+        "rust_version": null,
+        "diag_total_count": 10,
+        "last_commit_time": "2025-06-04T00:59:41Z",
+        "release_count": 1,
+        "last_release_size": 22347,
+        "last_release_time": "2025-06-04T01:01:41Z"
+      }
+    }
   },
   {
     "user": "yuoo655",
     "repo": "ext4_rs",
     "timestamp": {
       "start": 1748136846154,
-      "end": 1749345992439
+      "end": 1749432358853
     },
     "pkgs": {
       "ext4_rs": {
@@ -12233,7 +12711,7 @@
     "repo": "ext4libtest",
     "timestamp": {
       "start": 1740851915461,
-      "end": 1749345992680
+      "end": 1749432359109
     },
     "pkgs": {
       "ext4libtest": {
