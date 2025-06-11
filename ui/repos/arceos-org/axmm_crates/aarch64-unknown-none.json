@@ -8,8 +8,18 @@
       "user": "arceos-org",
       "repo": "axmm_crates",
       "pkg": "memory_set",
-      "count": 1,
+      "count": 2,
       "raw_reports": [
+        {
+          "file": "[semver checks]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=memory_set, checker=SemverChecks\ntoolchain=nightly-2025-01-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_3/arceos-org/axmm_crates/memory_set\ncmd=cargo +nightly-2025-01-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-06-12 4:36:59.929538791 +08:00:00\n\n\nstdout:\n\n--- failure method_parameter_count_changed: pub method parameter count changed ---\n\nDescription:\nA publicly-visible method now takes a different number of parameters.\n        ref: https://doc.rust-lang.org/cargo/reference/semver.html#fn-change-arity\n       impl: https://github.com/obi1kenobi/cargo-semver-checks/tree/v0.39.0/src/lints/method_parameter_count_changed.ron\n\nFailed in:\n  memory_set::MemorySet::find_free_area now takes 5 parameters instead of 4, in /home/runner/check/batch_3/arceos-org/axmm_crates/memory_set/src/set.rs:73\n\nstderr:\n    Building memory_set v0.3.2 (current)\n       Built [   0.279s] (current)\n     Parsing memory_set v0.3.2 (current)\n      Parsed [   0.001s] (current)\n    Building memory_set v0.3.2 (baseline)\n       Built [   0.300s] (baseline)\n     Parsing memory_set v0.3.2 (baseline)\n      Parsed [   0.001s] (baseline)\n    Checking memory_set v0.3.2 -> v0.3.2 (no change)\n     Checked [   0.011s] 148 checks: 147 pass, 1 fail, 0 warn, 0 skip\n\n     Summary semver requires new major version: 1 major and 0 minor checks failed\n    Finished [   0.822s] memory_set\n"
+            ]
+          }
+        },
         {
           "file": "memory_set/src/set.rs",
           "features": "",
