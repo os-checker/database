@@ -15,13 +15,13 @@
           "features": "",
           "count": 12,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: you should consider adding a `Default` implementation for `DtbInfo`\n  --> src/lib.rs:88:5\n   |\n88 | /     pub fn new() -> Self {\n89 | |         Self {\n90 | |             init_cmd: None,\n91 | |         }\n92 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n87 + impl Default for DtbInfo {\n88 +     fn default() -> Self {\n89 +         Self::new()\n90 +     }\n91 + }\n   |\n\n",
-              "warning: unneeded `return` statement\n   --> src/lib.rs:188:5\n    |\n188 |     return Some(num);\n    |     ^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n    = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n    |\n188 -     return Some(num);\n188 +     Some(num)\n    |\n\n"
-            ],
             "Clippy(Error)": [
               "error: this public function might dereference a raw pointer but is not marked `unsafe`\n   --> src/lib.rs:116:36\n    |\n116 |     let len = unsafe { get_str_len(ptr) };\n    |                                    ^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#not_unsafe_ptr_arg_deref\n    = note: `#[deny(clippy::not_unsafe_ptr_arg_deref)]` on by default\n\n",
               "error: this public function might dereference a raw pointer but is not marked `unsafe`\n   --> src/lib.rs:117:54\n    |\n117 |     let slice = unsafe { core::slice::from_raw_parts(ptr, len) };\n    |                                                      ^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#not_unsafe_ptr_arg_deref\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `DtbInfo`\n  --> src/lib.rs:88:5\n   |\n88 | /     pub fn new() -> Self {\n89 | |         Self {\n90 | |             init_cmd: None,\n91 | |         }\n92 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n87 + impl Default for DtbInfo {\n88 +     fn default() -> Self {\n89 +         Self::new()\n90 +     }\n91 + }\n   |\n\n",
+              "warning: unneeded `return` statement\n   --> src/lib.rs:188:5\n    |\n188 |     return Some(num);\n    |     ^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n    = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n    |\n188 -     return Some(num);\n188 +     Some(num)\n    |\n\n"
             ],
             "Unformatted": [
               "file: /home/runner/check/batch_8/shilei-massclouds/axtype/axtype/src/lib.rs (original lines from 10 to 10)\n-pub const PAGE_SIZE: usize  = 0x1000;\n+pub const PAGE_SIZE: usize = 0x1000;\n",
