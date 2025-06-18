@@ -2,8 +2,8 @@
   "user": "Azure-stars",
   "repo": "kernel_elf_parser",
   "timestamp": {
-    "start": 1747358267916,
-    "end": 1750123191487
+    "start": 1750209555725,
+    "end": 1750209555748
   },
   "pkgs": {
     "kernel-elf-parser": {
@@ -21,15 +21,15 @@
               {
                 "name": "test_elf_parser",
                 "status": "ok",
-                "duration_ms": 3,
+                "duration_ms": 4,
                 "error": null,
                 "miri_pass": false,
-                "miri_output": "   Compiling rustversion v1.0.20\n   Compiling axerrno v0.1.0\n   Compiling bitflags v2.9.1\n   Compiling volatile v0.4.6\n   Compiling bit_field v0.10.2\n   Compiling log v0.4.27\n   Compiling memory_addr v0.3.2\n   Compiling zero v0.1.3\n   Compiling cfg-if v1.0.0\n   Compiling xmas-elf v0.9.1\n   Compiling x86_64 v0.15.2\n   Compiling page_table_entry v0.5.3\n   Compiling kernel-elf-parser v0.3.3 (/tmp/os-checker-plugin-cargo/Azure-stars/kernel_elf_parser)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.47s\n     Running tests/test_dynamic.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test_dynamic-619b52ffabf6590e)\nerror: Undefined Behavior: writing to alloc12 which is read-only\n   --> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/raw.rs:192:9\n    |\n192 |         &mut *ptr::slice_from_raw_parts_mut(data, len)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ writing to alloc12 which is read-only\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = note: BACKTRACE on thread `test_elf_parser`:\n    = note: inside `std::slice::from_raw_parts_mut::<'_, u8>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/raw.rs:192:9: 192:55\nnote: inside `test_elf_parser`\n   --> tests/test_dynamic.rs:8:9\n    |\n8   |         std::slice::from_raw_parts_mut(ptr, elf_bytes.len())\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> tests/test_dynamic.rs:2:21\n    |\n1   | #[test]\n    | ------- in this procedural macro expansion\n2   | fn test_elf_parser() {\n    |                     ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p kernel-elf-parser --test test_dynamic`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Azure-stars/kernel_elf_parser/target/miri/x86_64-unknown-linux-gnu/debug/deps/test_dynamic-619b52ffabf6590e test_elf_parser` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_output": "   Compiling rustversion v1.0.21\n   Compiling axerrno v0.1.0\n   Compiling volatile v0.4.6\n   Compiling bit_field v0.10.2\n   Compiling bitflags v2.9.1\n   Compiling log v0.4.27\n   Compiling zero v0.1.3\n   Compiling memory_addr v0.3.2\n   Compiling xmas-elf v0.9.1\n   Compiling cfg-if v1.0.1\n   Compiling memory_addr v0.4.0\n   Compiling x86_64 v0.15.2\n   Compiling page_table_entry v0.5.3\n   Compiling kernel-elf-parser v0.3.3 (/tmp/os-checker-plugin-cargo/Azure-stars/kernel_elf_parser)\nwarning: lifetime flowing from input to output with different syntax can be confusing\n   --> src/info.rs:134:16\n    |\n134 |     pub fn elf(&self) -> &xmas_elf::ElfFile {\n    |                ^^^^^     ------------------\n    |                |         ||\n    |                |         |the lifetimes get resolved as `'_`\n    |                |         the lifetimes get resolved as `'_`\n    |                this lifetime flows to the output\n    |\n    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n134 |     pub fn elf(&self) -> &xmas_elf::ElfFile<'_> {\n    |                                            ++++\n\nwarning: `kernel-elf-parser` (lib) generated 1 warning (run `cargo fix --lib -p kernel-elf-parser` to apply 1 suggestion)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.50s\n     Running tests/test_dynamic.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test_dynamic-7994b8e30494c2f3)\nerror: Undefined Behavior: writing to alloc12 which is read-only\n --> tests/test_dynamic.rs:8:9\n  |\n8 |         std::slice::from_raw_parts_mut(ptr, elf_bytes.len())\n  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n  |\n  = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n  = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n  = note: BACKTRACE on thread `test_elf_parser`:\n  = note: inside `test_elf_parser` at tests/test_dynamic.rs:8:9: 8:61\nnote: inside closure\n --> tests/test_dynamic.rs:2:21\n  |\n1 | #[test]\n  | ------- in this procedural macro expansion\n2 | fn test_elf_parser() {\n  |                     ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p kernel-elf-parser --test test_dynamic`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Azure-stars/kernel_elf_parser/target/miri/x86_64-unknown-linux-gnu/debug/deps/test_dynamic-7994b8e30494c2f3 test_elf_parser` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
                 "miri_timeout": false
               }
             ],
             "failed": 0,
-            "duration_ms": 3
+            "duration_ms": 4
           },
           {
             "id": "kernel-elf-parser::test_static",
@@ -39,19 +39,19 @@
               {
                 "name": "test_elf_parser",
                 "status": "ok",
-                "duration_ms": 3,
+                "duration_ms": 4,
                 "error": null,
                 "miri_pass": false,
-                "miri_output": "   Compiling kernel-elf-parser v0.3.3 (/tmp/os-checker-plugin-cargo/Azure-stars/kernel_elf_parser)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.02s\n     Running tests/test_static.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test_static-4f24b6dd862d2570)\nerror: Undefined Behavior: writing to alloc12 which is read-only\n   --> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/raw.rs:192:9\n    |\n192 |         &mut *ptr::slice_from_raw_parts_mut(data, len)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ writing to alloc12 which is read-only\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = note: BACKTRACE on thread `test_elf_parser`:\n    = note: inside `std::slice::from_raw_parts_mut::<'_, u8>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/raw.rs:192:9: 192:55\nnote: inside `test_elf_parser`\n   --> tests/test_static.rs:12:9\n    |\n12  |         std::slice::from_raw_parts_mut(ptr, elf_bytes.len())\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> tests/test_static.rs:5:21\n    |\n4   | #[test]\n    | ------- in this procedural macro expansion\n5   | fn test_elf_parser() {\n    |                     ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p kernel-elf-parser --test test_static`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Azure-stars/kernel_elf_parser/target/miri/x86_64-unknown-linux-gnu/debug/deps/test_static-4f24b6dd862d2570 test_elf_parser` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_output": "warning: lifetime flowing from input to output with different syntax can be confusing\n   --> src/info.rs:134:16\n    |\n134 |     pub fn elf(&self) -> &xmas_elf::ElfFile {\n    |                ^^^^^     ------------------\n    |                |         ||\n    |                |         |the lifetimes get resolved as `'_`\n    |                |         the lifetimes get resolved as `'_`\n    |                this lifetime flows to the output\n    |\n    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n134 |     pub fn elf(&self) -> &xmas_elf::ElfFile<'_> {\n    |                                            ++++\n\nwarning: `kernel-elf-parser` (lib) generated 1 warning (run `cargo fix --lib -p kernel-elf-parser` to apply 1 suggestion)\n   Compiling kernel-elf-parser v0.3.3 (/tmp/os-checker-plugin-cargo/Azure-stars/kernel_elf_parser)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.02s\n     Running tests/test_static.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test_static-c9fc738f2fd690d5)\nerror: Undefined Behavior: writing to alloc12 which is read-only\n  --> tests/test_static.rs:12:9\n   |\n12 |         std::slice::from_raw_parts_mut(ptr, elf_bytes.len())\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n   |\n   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n   = note: BACKTRACE on thread `test_elf_parser`:\n   = note: inside `test_elf_parser` at tests/test_static.rs:12:9: 12:61\nnote: inside closure\n  --> tests/test_static.rs:5:21\n   |\n4  | #[test]\n   | ------- in this procedural macro expansion\n5  | fn test_elf_parser() {\n   |                     ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p kernel-elf-parser --test test_static`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Azure-stars/kernel_elf_parser/target/miri/x86_64-unknown-linux-gnu/debug/deps/test_static-c9fc738f2fd690d5 test_elf_parser` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
                 "miri_timeout": false
               }
             ],
             "failed": 0,
-            "duration_ms": 3
+            "duration_ms": 4
           }
         ],
         "failed": 0,
-        "duration_ms": 6,
+        "duration_ms": 8,
         "pkg_tests_count": 2,
         "workspace_tests_count": 2
       },
@@ -75,7 +75,7 @@
       ],
       "rust_version": null,
       "diag_total_count": 11,
-      "last_commit_time": "2025-05-15T13:27:19Z",
+      "last_commit_time": "2025-06-17T06:17:44Z",
       "release_count": 8,
       "last_release_size": 132348,
       "last_release_time": "2025-05-15T13:29:18Z"
