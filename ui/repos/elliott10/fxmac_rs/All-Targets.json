@@ -564,15 +564,15 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_HI_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_HI_MASK` in the value namespace is also re-exported here\n   |\n   = note: `#[warn(ambiguous_glob_reexports)]` on by default\n\n",
-              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_LO_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_LO_MASK` in the value namespace is also re-exported here\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/lib.rs (original lines from 37 to 38)\n-mod utils;\n-mod fxmac_phy;\n+mod fxmac;\n",
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/lib.rs (original lines from 41 to 41)\n-mod fxmac;\n+mod fxmac_phy;\n+mod utils;\n",
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/lib.rs (original lines from 52 to 52)\n-pub trait KernelFunc{\n+pub trait KernelFunc {\n",
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/lib.rs (original lines from 72 to 73)\n-    fn it_works() {\n-    }\n+    fn it_works() {}\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_HI_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_HI_MASK` in the value namespace is also re-exported here\n   |\n   = note: `#[warn(ambiguous_glob_reexports)]` on by default\n\n",
+              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_LO_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_LO_MASK` in the value namespace is also re-exported here\n\n"
             ]
           }
         },
