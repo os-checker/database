@@ -15,6 +15,11 @@
           "features": "",
           "count": 11,
           "kinds": {
+            "Mirai": [
+              "warning: creating a mutable reference to mutable static is discouraged\n  --> crates/ws-lockbud-checks-this1/src/main.rs:83:46\n   |\n83 |           let mut host_aliases: Vec<*mut i8> = HOST_ALIASES\n   |  ______________________________________________^\n84 | |             .as_mut()\n   | |_____________________^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n",
+              "warning: creating a mutable reference to mutable static is discouraged\n  --> crates/ws-lockbud-checks-this1/src/main.rs:95:21\n   |\n95 |             h_name: HOST_NAME.as_mut().unwrap().as_mut_ptr() as *mut c_char,\n   |                     ^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
+              "warning: creating a shared reference to mutable static is discouraged\n   --> crates/ws-lockbud-checks-this1/src/main.rs:101:9\n    |\n101 |         &HOST_ENTRY as *const hostent\n    |         ^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\nhelp: use `&raw const` instead to create a raw pointer\n    |\n101 |         &raw const HOST_ENTRY as *const hostent\n    |         ~~~~~~~~~~\n\n"
+            ],
             "Clippy(Warn)": [
               "warning: casting raw pointers to the same type and constness is unnecessary (`*mut *mut i8` -> `*mut *mut i8`)\n  --> crates/ws-lockbud-checks-this1/src/main.rs:96:24\n   |\n96 |             h_aliases: host_aliases.as_mut_slice().as_mut_ptr() as *mut *mut i8,\n   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `host_aliases.as_mut_slice().as_mut_ptr()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n   = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n",
               "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n   --> crates/ws-lockbud-checks-this1/src/main.rs:122:14\n    |\n122 |         days[date.tm_wday as usize],\n    |              ^^^^^^^^^^^^^^^^^^^^^ help: try: `date.tm_wday`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
@@ -24,11 +29,6 @@
               "warning: creating a mutable reference to mutable static\n  --> crates/ws-lockbud-checks-this1/src/main.rs:83:46\n   |\n83 |           let mut host_aliases: Vec<*mut i8> = HOST_ALIASES\n   |  ______________________________________________^\n84 | |             .as_mut()\n   | |_____________________^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n",
               "warning: creating a mutable reference to mutable static\n  --> crates/ws-lockbud-checks-this1/src/main.rs:95:21\n   |\n95 |             h_name: HOST_NAME.as_mut().unwrap().as_mut_ptr() as *mut c_char,\n   |                     ^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
               "warning: creating a shared reference to mutable static\n   --> crates/ws-lockbud-checks-this1/src/main.rs:101:9\n    |\n101 |         &HOST_ENTRY as *const hostent\n    |         ^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\nhelp: use `&raw const` instead to create a raw pointer\n    |\n101 |         &raw const HOST_ENTRY as *const hostent\n    |          +++++++++\n\n"
-            ],
-            "Mirai": [
-              "warning: creating a mutable reference to mutable static is discouraged\n  --> crates/ws-lockbud-checks-this1/src/main.rs:83:46\n   |\n83 |           let mut host_aliases: Vec<*mut i8> = HOST_ALIASES\n   |  ______________________________________________^\n84 | |             .as_mut()\n   | |_____________________^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n",
-              "warning: creating a mutable reference to mutable static is discouraged\n  --> crates/ws-lockbud-checks-this1/src/main.rs:95:21\n   |\n95 |             h_name: HOST_NAME.as_mut().unwrap().as_mut_ptr() as *mut c_char,\n   |                     ^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
-              "warning: creating a shared reference to mutable static is discouraged\n   --> crates/ws-lockbud-checks-this1/src/main.rs:101:9\n    |\n101 |         &HOST_ENTRY as *const hostent\n    |         ^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\nhelp: use `&raw const` instead to create a raw pointer\n    |\n101 |         &raw const HOST_ENTRY as *const hostent\n    |         ~~~~~~~~~~\n\n"
             ]
           }
         },
@@ -205,11 +205,11 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: function `test_order_unsafe` is never used\n  --> rudra-checks-this/src/order_unsafe.rs:10:4\n   |\n10 | fn test_order_unsafe<I: Iterator<Item = impl Debug>>(mut iter: I) {\n   |    ^^^^^^^^^^^^^^^^^\n\n"
-            ],
             "Mirai": [
               "warning: function `test_order_unsafe` is never used\n  --> rudra-checks-this/src/order_unsafe.rs:10:4\n   |\n10 | fn test_order_unsafe<I: Iterator<Item = impl Debug>>(mut iter: I) {\n   |    ^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: function `test_order_unsafe` is never used\n  --> rudra-checks-this/src/order_unsafe.rs:10:4\n   |\n10 | fn test_order_unsafe<I: Iterator<Item = impl Debug>>(mut iter: I) {\n   |    ^^^^^^^^^^^^^^^^^\n\n"
             ]
           }
         },
@@ -218,10 +218,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: struct `Atom` is never constructed\n --> rudra-checks-this/src/wild_send.rs:8:8\n  |\n8 | struct Atom<P>(P);\n  |        ^^^^\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: struct `Atom` is never constructed\n --> rudra-checks-this/src/wild_send.rs:8:8\n  |\n8 | struct Atom<P>(P);\n  |        ^^^^\n\n"
             ]
           }
@@ -557,11 +557,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
-            ],
             "Mirai": [
               "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n",
+              "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
+            ],
+            "Clippy(Warn)": [
               "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
             ],
             "Clippy(Error)": [

@@ -11,14 +11,14 @@
           "features": "",
           "count": 7,
           "kinds": {
-            "Clippy(Error)": [
-              "error: calling `set_len()` immediately after reserving a buffer creates uninitialized values\n  --> rudra-checks-this/src/vec_push_all.rs:13:9\n   |\n13 |         self.0.reserve(to_push.len());\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n...\n16 |             self.0.set_len(self.0.len() + to_push.len());\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: initialize the buffer or wrap the content in `MaybeUninit`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninit_vec\n   = note: `#[deny(clippy::uninit_vec)]` on by default\n\n",
-              "error: calling `set_len()` immediately after reserving a buffer creates uninitialized values\n  --> rudra-checks-this/src/vec_push_all.rs:13:9\n   |\n13 |         self.0.reserve(to_push.len());\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n...\n16 |             self.0.set_len(self.0.len() + to_push.len());\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: initialize the buffer or wrap the content in `MaybeUninit`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninit_vec\n   = note: `#[deny(clippy::uninit_vec)]` on by default\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: struct `MyVec` is never constructed\n --> rudra-checks-this/src/vec_push_all.rs:8:12\n  |\n8 | pub struct MyVec<T>(Vec<T>);\n  |            ^^^^^\n\n",
               "warning: method `push_all` is never used\n  --> rudra-checks-this/src/vec_push_all.rs:12:8\n   |\n10 | impl<T: Clone> MyVec<T> {\n   | ----------------------- method in this implementation\n11 |     // Example from: https://doc.rust-lang.org/nomicon/exception-safety.html#vecpush_all\n12 |     fn push_all(&mut self, to_push: &[T]) {\n   |        ^^^^^^^^\n\n",
               "warning: use of `offset` with a `usize` casted to an `isize`\n  --> rudra-checks-this/src/vec_push_all.rs:20:17\n   |\n20 |                 self.0.as_mut_ptr().offset(i as isize).write(x.clone());\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `self.0.as_mut_ptr().add(i)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_offset_with_cast\n   = note: `#[warn(clippy::ptr_offset_with_cast)]` on by default\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: calling `set_len()` immediately after reserving a buffer creates uninitialized values\n  --> rudra-checks-this/src/vec_push_all.rs:13:9\n   |\n13 |         self.0.reserve(to_push.len());\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n...\n16 |             self.0.set_len(self.0.len() + to_push.len());\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: initialize the buffer or wrap the content in `MaybeUninit`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninit_vec\n   = note: `#[deny(clippy::uninit_vec)]` on by default\n\n",
+              "error: calling `set_len()` immediately after reserving a buffer creates uninitialized values\n  --> rudra-checks-this/src/vec_push_all.rs:13:9\n   |\n13 |         self.0.reserve(to_push.len());\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n...\n16 |             self.0.set_len(self.0.len() + to_push.len());\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: initialize the buffer or wrap the content in `MaybeUninit`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninit_vec\n   = note: `#[deny(clippy::uninit_vec)]` on by default\n\n"
             ],
             "Mirai": [
               "warning: struct `MyVec` is never constructed\n --> rudra-checks-this/src/vec_push_all.rs:8:12\n  |\n8 | pub struct MyVec<T>(Vec<T>);\n  |            ^^^^^\n\n",
@@ -31,11 +31,11 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Mirai": [
-              "warning: function `test_order_unsafe` is never used\n  --> rudra-checks-this/src/order_unsafe.rs:10:4\n   |\n10 | fn test_order_unsafe<I: Iterator<Item = impl Debug>>(mut iter: I) {\n   |    ^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: function `test_order_unsafe` is never used\n  --> rudra-checks-this/src/order_unsafe.rs:10:4\n   |\n10 | fn test_order_unsafe<I: Iterator<Item = impl Debug>>(mut iter: I) {\n   |    ^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Mirai": [
+              "warning: function `test_order_unsafe` is never used\n  --> rudra-checks-this/src/order_unsafe.rs:10:4\n   |\n10 | fn test_order_unsafe<I: Iterator<Item = impl Debug>>(mut iter: I) {\n   |    ^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n"
             ]
           }
         },
@@ -185,6 +185,12 @@
           "features": "",
           "count": 12,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: variables can be used directly in the `format!` string\n  --> crates/ws-lockbud-checks-this2/src/main.rs:28:5\n   |\n28 |     println!(\"{:?}\", a);\n   |     ^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n   = note: `#[warn(clippy::uninlined_format_args)]` on by default\nhelp: change this to\n   |\n28 -     println!(\"{:?}\", a);\n28 +     println!(\"{a:?}\");\n   |\n\n",
+              "warning: variables can be used directly in the `format!` string\n  --> crates/ws-lockbud-checks-this2/src/main.rs:37:5\n   |\n37 |     println!(\"{:?}\", a);\n   |     ^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n37 -     println!(\"{:?}\", a);\n37 +     println!(\"{a:?}\");\n   |\n\n",
+              "warning: variables can be used directly in the `format!` string\n  --> crates/ws-lockbud-checks-this2/src/main.rs:48:5\n   |\n48 |     println!(\"{:?}\", a);\n   |     ^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n48 -     println!(\"{:?}\", a);\n48 +     println!(\"{a:?}\");\n   |\n\n",
+              "warning: variables can be used directly in the `format!` string\n  --> crates/ws-lockbud-checks-this2/src/main.rs:63:5\n   |\n63 |     println!(\"{:?}\", a);\n   |     ^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n63 -     println!(\"{:?}\", a);\n63 +     println!(\"{a:?}\");\n   |\n\n"
+            ],
             "Mirai": [
               "warning: [MIRAI] possible attempt to add with overflow\n  --> crates/ws-lockbud-checks-this2/src/main.rs:23:14\n   |\n23 |     let v3 = v + 1;\n   |              ^^^^^\n\n",
               "warning: [MIRAI] possible attempt to add with overflow\n  --> crates/ws-lockbud-checks-this2/src/main.rs:24:27\n   |\n24 |     let v4 = if v3 > 10 { v3 + 2 } else { v3 - 1 };\n   |                           ^^^^^^\n\n",
@@ -194,12 +200,6 @@
               "warning: [MIRAI] possible attempt to add with overflow\n  --> crates/ws-lockbud-checks-this2/src/main.rs:44:27\n   |\n44 |     let v4 = if v3 > 10 { v3 + 2 } else { v3 - 1 };\n   |                           ^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to add with overflow\n  --> crates/ws-lockbud-checks-this2/src/main.rs:54:14\n   |\n54 |     let v3 = v + 1;\n   |              ^^^^^\n\n",
               "warning: [MIRAI] possible attempt to add with overflow\n  --> crates/ws-lockbud-checks-this2/src/main.rs:55:27\n   |\n55 |     let v4 = if v3 > 10 { v3 + 2 } else { v3 - 1 };\n   |                           ^^^^^^\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: variables can be used directly in the `format!` string\n  --> crates/ws-lockbud-checks-this2/src/main.rs:28:5\n   |\n28 |     println!(\"{:?}\", a);\n   |     ^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n   = note: `#[warn(clippy::uninlined_format_args)]` on by default\nhelp: change this to\n   |\n28 -     println!(\"{:?}\", a);\n28 +     println!(\"{a:?}\");\n   |\n\n",
-              "warning: variables can be used directly in the `format!` string\n  --> crates/ws-lockbud-checks-this2/src/main.rs:37:5\n   |\n37 |     println!(\"{:?}\", a);\n   |     ^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n37 -     println!(\"{:?}\", a);\n37 +     println!(\"{a:?}\");\n   |\n\n",
-              "warning: variables can be used directly in the `format!` string\n  --> crates/ws-lockbud-checks-this2/src/main.rs:48:5\n   |\n48 |     println!(\"{:?}\", a);\n   |     ^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n48 -     println!(\"{:?}\", a);\n48 +     println!(\"{a:?}\");\n   |\n\n",
-              "warning: variables can be used directly in the `format!` string\n  --> crates/ws-lockbud-checks-this2/src/main.rs:63:5\n   |\n63 |     println!(\"{:?}\", a);\n   |     ^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n63 -     println!(\"{:?}\", a);\n63 +     println!(\"{a:?}\");\n   |\n\n"
             ]
           }
         },
@@ -445,15 +445,15 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Error)": [
-              "error: approximate value of `f{32, 64}::consts::PI` found\n --> src/main.rs:2:13\n  |\n2 |     let a = 3.14;\n  |             ^^^^\n  |\n  = help: consider using the constant directly\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#approx_constant\n  = note: `#[deny(clippy::approx_constant)]` on by default\n\n"
+            "Mirai": [
+              "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n",
+              "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
             ],
             "Clippy(Warn)": [
               "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
             ],
-            "Mirai": [
-              "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n",
-              "warning: unused variable: `a`\n --> src/main.rs:2:9\n  |\n2 |     let a = 3.14;\n  |         ^ help: if this is intentional, prefix it with an underscore: `_a`\n  |\n  = note: `#[warn(unused_variables)]` on by default\n\n"
+            "Clippy(Error)": [
+              "error: approximate value of `f{32, 64}::consts::PI` found\n --> src/main.rs:2:13\n  |\n2 |     let a = 3.14;\n  |             ^^^^\n  |\n  = help: consider using the constant directly\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#approx_constant\n  = note: `#[deny(clippy::approx_constant)]` on by default\n\n"
             ]
           }
         },
