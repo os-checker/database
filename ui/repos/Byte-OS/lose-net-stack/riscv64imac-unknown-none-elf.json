@@ -15,6 +15,9 @@
           "features": "",
           "count": 22,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: operator precedence can trip the unwary\n  --> src/lib.rs:68:24\n   |\n68 |         let offset = ((tcp_header.offset >> 4 & 0xf) as usize - 5) * 4;\n   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(tcp_header.offset >> 4) & 0xf`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 3 to 3)\n-mod net;\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 6 to 6)\n+mod net;\n",
@@ -37,9 +40,6 @@
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 122 to 126)\n-                IPv4::from_u32(arp_header.spa.to_be()), \n-                MacAddress::new(arp_header.sha), \n-                IPv4::from_u32(arp_header.tpa.to_be()), \n-                MacAddress::new(arp_header.tha), \n-                rtype\n+                IPv4::from_u32(arp_header.spa.to_be()),\n+                MacAddress::new(arp_header.sha),\n+                IPv4::from_u32(arp_header.tpa.to_be()),\n+                MacAddress::new(arp_header.tha),\n+                rtype,\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 133 to 133)\n-        let eth_header = unsafe{data_ptr_iter.next::<Eth>()}.unwrap();\n+        let eth_header = unsafe { data_ptr_iter.next::<Eth>() }.unwrap();\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/lib.rs (original lines from 137 to 137)\n-            _ => Packet::None // Unsupported type\n+            _ => Packet::None, // Unsupported type\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: operator precedence can trip the unwary\n  --> src/lib.rs:68:24\n   |\n68 |         let offset = ((tcp_header.offset >> 4 & 0xf) as usize - 5) * 4;\n   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(tcp_header.offset >> 4) & 0xf`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
             ]
           }
         },
@@ -108,9 +108,6 @@
           "features": "",
           "count": 15,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/packets/tcp.rs:63:34\n   |\n63 |         tcp_data.copy_from_slice(&self.data);\n   |                                  ^^^^^^^^^^ help: change this to: `self.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 4 to 4)\n-use crate::utils::{UnsafeRefIter, check_sum};\n+use crate::net::{Eth, Ip, TcpFlags, ETH_LEN, IP_LEN, TCP, TCP_LEN};\n+use crate::utils::{check_sum, UnsafeRefIter};\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 7 to 7)\n-use crate::net::{TCP_LEN, IP_LEN, ETH_LEN, Eth, Ip, TCP, TcpFlags};\n",
@@ -126,6 +123,9 @@
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 90 to 90)\n-        \n+\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 108 to 108)\n-            data: TCP_EMPTY_DATA\n+            data: TCP_EMPTY_DATA,\n",
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/packets/tcp.rs (original lines from 112 to 112)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/packets/tcp.rs:63:34\n   |\n63 |         tcp_data.copy_from_slice(&self.data);\n   |                                  ^^^^^^^^^^ help: change this to: `self.data`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
             ]
           }
         },
@@ -180,13 +180,13 @@
           "features": "",
           "count": 10,
           "kinds": {
-            "Clippy(Error)": [
-              "error: type `addr::IPv4` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:17:5\n   |\n17 | /     pub fn to_string(&self) -> String {\n18 | |         format!(\"{}.{}.{}.{}\", (self.0 >> 24) & 0xff, (self.0 >> 16) & 0xff, (self.0 >> 8) & 0xff, self.0 & 0xff)\n19 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::IPv4`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n   = note: `#[deny(clippy::inherent_to_string_shadow_display)]` on by default\n\n",
-              "error: type `addr::MacAddress` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:49:5\n   |\n49 | /     pub fn to_string(&self) -> String {\n50 | |         format!(\"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\", self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5])\n51 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::MacAddress`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: operator precedence can trip the unwary\n  --> src/addr.rs:10:14\n   |\n10 |         IPv4((a1 as u32) << 24 | (a2 as u32) << 16 | (a3 as u32) << 8 | (a4 as u32))\n   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(a1 as u32) << 24 | (a2 as u32) << 16 | ((a3 as u32) << 8)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n   = note: `#[warn(clippy::precedence)]` on by default\n\n",
               "warning: operator precedence can trip the unwary\n  --> src/addr.rs:10:14\n   |\n10 |         IPv4((a1 as u32) << 24 | (a2 as u32) << 16 | (a3 as u32) << 8 | (a4 as u32))\n   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `((a1 as u32) << 24) | ((a2 as u32) << 16)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: type `addr::IPv4` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:17:5\n   |\n17 | /     pub fn to_string(&self) -> String {\n18 | |         format!(\"{}.{}.{}.{}\", (self.0 >> 24) & 0xff, (self.0 >> 16) & 0xff, (self.0 >> 8) & 0xff, self.0 & 0xff)\n19 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::IPv4`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n   = note: `#[deny(clippy::inherent_to_string_shadow_display)]` on by default\n\n",
+              "error: type `addr::MacAddress` implements inherent method `to_string(&self) -> String` which shadows the implementation of `Display`\n  --> src/addr.rs:49:5\n   |\n49 | /     pub fn to_string(&self) -> String {\n50 | |         format!(\"{:x}:{:x}:{:x}:{:x}:{:x}:{:x}\", self.0[0], self.0[1], self.0[2], self.0[3], self.0[4], self.0[5])\n51 | |     }\n   | |_____^\n   |\n   = help: remove the inherent method from type `addr::MacAddress`\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#inherent_to_string_shadow_display\n\n"
             ],
             "Unformatted": [
               "file: /home/runner/check/batch_1/Byte-OS/lose-net-stack/src/addr.rs (original lines from 1 to 1)\n-use core::fmt::{Display, Debug};\n+use core::fmt::{Debug, Display};\n",
