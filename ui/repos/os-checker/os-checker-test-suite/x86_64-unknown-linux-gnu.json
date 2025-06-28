@@ -8,15 +8,35 @@
       "user": "os-checker",
       "repo": "os-checker-test-suite",
       "pkg": "atomvchecker-checks-this",
-      "count": 1,
+      "count": 3,
       "raw_reports": [
         {
           "file": "[AtomVChecker] memory ordering misuse detection",
           "features": "",
           "count": 1,
           "kinds": {
-            "Rapx": [
-              "[2025-06-28T01:39:23Z WARN  atomvchecker::callbacks] [\n      {\n        \"AtomicCorrelationViolation\": {\n          \"bug_kind\": \"AtomicCorrelationViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"atomic\": \"src/main.rs:177:45: 177:65\"\n          },\n          \"explanation\": \"Using an atomic operation with a weaker memory ordering than necessary can lead to an inconsistent memory state. Using Release is sufficient to ensure the program's correctness.\"\n        }\n      },\n      {\n        \"AtomicCorrelationViolation\": {\n          \"bug_kind\": \"AtomicCorrelationViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"atomic\": \"src/main.rs:298:41: 298:54\"\n          },\n          \"explanation\": \"Using an atomic operation with a weaker memory ordering than necessary can lead to an inconsistent memory state. Using Acquire is sufficient to ensure the program's correctness.\"\n        }\n      }\n    ]\n[2025-06-28T01:39:23Z WARN  atomvchecker::callbacks] crate atomvchecker_checks_this contains atomic_correlation_violation: { possibly: 2 }"
+            "Atomvchecker": [
+              "[2025-06-28T02:12:40Z WARN  atomvchecker::callbacks] [\n      {\n        \"AtomicCorrelationViolation\": {\n          \"bug_kind\": \"AtomicCorrelationViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"atomic\": \"src/main.rs:298:41: 298:54\"\n          },\n          \"explanation\": \"Using an atomic operation with a weaker memory ordering than necessary can lead to an inconsistent memory state. Using Acquire is sufficient to ensure the program's correctness.\"\n        }\n      },\n      {\n        \"AtomicCorrelationViolation\": {\n          \"bug_kind\": \"AtomicCorrelationViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"atomic\": \"src/main.rs:177:45: 177:65\"\n          },\n          \"explanation\": \"Using an atomic operation with a weaker memory ordering than necessary can lead to an inconsistent memory state. Using Release is sufficient to ensure the program's correctness.\"\n        }\n      }\n    ]\n[2025-06-28T02:12:40Z WARN  atomvchecker::callbacks] crate atomvchecker_checks_this contains atomic_correlation_violation: { possibly: 2 }"
+            ]
+          }
+        },
+        {
+          "file": "src/main.rs:177:45: 177:65",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Atomvchecker": [
+              "{\n  \"bug_kind\": \"AtomicCorrelationViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"atomic\": \"src/main.rs:177:45: 177:65\"\n  },\n  \"explanation\": \"Using an atomic operation with a weaker memory ordering than necessary can lead to an inconsistent memory state. Using Release is sufficient to ensure the program's correctness.\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "src/main.rs:298:41: 298:54",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Atomvchecker": [
+              "{\n  \"bug_kind\": \"AtomicCorrelationViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"atomic\": \"src/main.rs:298:41: 298:54\"\n  },\n  \"explanation\": \"Using an atomic operation with a weaker memory ordering than necessary can lead to an inconsistent memory state. Using Acquire is sufficient to ensure the program's correctness.\"\n}"
             ]
           }
         }
