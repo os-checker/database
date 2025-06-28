@@ -1,0 +1,124 @@
+{
+  "repo": {
+    "user": "os-module",
+    "repo": "pager"
+  },
+  "data": [
+    {
+      "user": "os-module",
+      "repo": "pager",
+      "pkg": "pager",
+      "count": 17,
+      "raw_reports": [
+        {
+          "file": "src/buddy.rs",
+          "features": "",
+          "count": 6,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: variables can be used directly in the `format!` string\n  --> src/buddy.rs:51:21\n   |\n51 |         f.write_fmt(format_args!(\"Zone<{MAX_ORDER}>:\\n\", MAX_ORDER = MAX_ORDER))?;\n   |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n51 -         f.write_fmt(format_args!(\"Zone<{MAX_ORDER}>:\\n\", MAX_ORDER = MAX_ORDER))?;\n51 +         f.write_fmt(format_args!(\"Zone<{MAX_ORDER}>:\\n\"))?;\n   |\n\n",
+              "warning: you should consider adding a `Default` implementation for `Zone<MAX_ORDER>`\n  --> src/buddy.rs:78:5\n   |\n78 | /     pub const fn new() -> Self {\n79 | |         Self {\n80 | |             manage_pages: 0,\n81 | |             start_page: 0,\n...  |\n84 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n76 + impl<const MAX_ORDER: usize> Default for Zone<MAX_ORDER> {\n77 +     fn default() -> Self {\n78 +         Self::new()\n79 +     }\n80 + }\n   |\n\n",
+              "warning: variables can be used directly in the `format!` string\n  --> src/buddy.rs:91:9\n   |\n91 | /         trace!(\n92 | |             \"--{:#x?}-{:#x?}-{:#x?}  {order}\",\n93 | |             start_page,\n94 | |             buddy,\n95 | |             end_page\n96 | |         );\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> src/buddy.rs:149:9\n    |\n149 |         trace!(\"free_inner:{:#x?}, buddy:{:#x?}\", page, buddy);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n149 -         trace!(\"free_inner:{:#x?}, buddy:{:#x?}\", page, buddy);\n149 +         trace!(\"free_inner:{page:#x?}, buddy:{buddy:#x?}\");\n    |\n\n",
+              "warning: use `core::ptr::eq` when comparing raw pointers\n   --> src/buddy.rs:156:25\n    |\n156 |             .any(|head| head == buddy_list_head as *mut ListHead);\n    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `core::ptr::eq(head, buddy_list_head)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_eq\n    = note: `#[warn(clippy::ptr_eq)]` on by default\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> src/buddy.rs:188:9\n    |\n188 |         trace!(\"page: {:#x?}-{:#x?}\", start_page, end_page);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n188 -         trace!(\"page: {:#x?}-{:#x?}\", start_page, end_page);\n188 +         trace!(\"page: {start_page:#x?}-{end_page:#x?}\");\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/bitmap.rs",
+          "features": "",
+          "count": 5,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_6/os-module/pager/src/bitmap.rs (original lines from 213 to 213)\n-        }else {\n+        } else {\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: doc list item without indentation\n  --> src/bitmap.rs:21:5\n   |\n21 | /// If the number of physical pages is less than 4096*8, space may be wasted\n   |     ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n21 | ///    If the number of physical pages is less than 4096*8, space may be wasted\n   |     +++\n\n",
+              "warning: variables can be used directly in the `format!` string\n  --> src/bitmap.rs:37:21\n   |\n37 |         f.write_fmt(format_args!(\"Bitmap<{N}>:\\n\", N = N))?;\n   |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n   = note: `#[warn(clippy::uninlined_format_args)]` on by default\nhelp: change this to\n   |\n37 -         f.write_fmt(format_args!(\"Bitmap<{N}>:\\n\", N = N))?;\n37 +         f.write_fmt(format_args!(\"Bitmap<{N}>:\\n\"))?;\n   |\n\n",
+              "warning: variables can be used directly in the `format!` string\n  --> src/bitmap.rs:43:29\n   |\n43 |                 f.write_fmt(format_args!(\"{:b}\", x)).unwrap();\n   |                             ^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n43 -                 f.write_fmt(format_args!(\"{:b}\", x)).unwrap();\n43 +                 f.write_fmt(format_args!(\"{x:b}\")).unwrap();\n   |\n\n",
+              "warning: manually reimplementing `div_ceil`\n   --> src/bitmap.rs:197:32\n    |\n197 |             let bitmap_pages = (self.max + 4096 * 8 - 1) / (4096 * 8);\n    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `self.max.div_ceil((4096 * 8))`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n    = note: `#[warn(clippy::manual_div_ceil)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Geiger] Unsafe code statistics",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Geiger": [
+              "pkg=pager, checker=Geiger\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_6/os-module/pager\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\ntimestamp=2025-06-28 15:44:23.469433973 +08:00:00\n\n\nMetric output format: x/y\n    x = unsafe code used by the build\n    y = total unsafe code found in the crate\n\nSymbols:\n    :) = No `unsafe` usage found, declares #![forbid(unsafe_code)]\n    ?  = No `unsafe` usage found, missing #![forbid(unsafe_code)]\n    !  = `unsafe` usage found\n\nFunctions  Expressions  Impls  Traits  Methods  Dependency\n\n0/0        56/82        0/0    0/0     0/0      !  pager 0.1.0\n0/0        6/6          2/2    0/0     0/0      !  |-- doubly-linked-list 0.2.0\n0/0        24/24        0/0    0/0     0/0      !  |   `-- volatile 0.4.6\n2/2        18/18        1/1    0/0     0/0      !  |-- log 0.4.27\n0/0        2/2          0/0    0/0     0/0      !  `-- preprint 0.1.0\n\n2/2        106/132      3/3    0/0     0/0\n\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T07:44:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T07:44:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=pager, checker=Outdated\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_6/os-module/pager\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 15:44:14.577735371 +08:00:00\n\nName        Project  Compat  Latest  Kind         Platform\n----        -------  ------  ------  ----         --------\nenv_logger  0.10.2   ---     0.11.8  Development  ---\nrand        0.8.5    ---     0.9.1   Development  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=pager, checker=SemverChecks\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_6/os-module/pager\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-06-28 15:44:11.846904726 +08:00:00\n\n\nstdout:\n\n--- failure struct_missing: pub struct removed or renamed ---\n\nDescription:\nA publicly-visible struct cannot be imported by its prior path. A `pub use` may have been removed, or the struct itself may have been renamed or removed entirely.\n        ref: https://doc.rust-lang.org/cargo/reference/semver.html#item-remove\n       impl: https://github.com/obi1kenobi/cargo-semver-checks/tree/v0.41.0/src/lints/struct_missing.ron\n\nFailed in:\n  struct pager::Pager, previously in file /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pager-0.1.0/src/lib.rs:11\n\nstderr:\n    Building pager v0.1.0 (current)\n       Built [   0.338s] (current)\n     Parsing pager v0.1.0 (current)\n      Parsed [   0.001s] (current)\n    Building pager v0.1.0 (baseline)\n       Built [   0.857s] (baseline)\n     Parsing pager v0.1.0 (baseline)\n      Parsed [   0.002s] (baseline)\n    Checking pager v0.1.0 -> v0.1.0 (no change; assume minor)\n     Checked [   0.010s] 140 checks: 139 pass, 1 fail, 0 warn, 37 skip\n\n     Summary semver requires new major version: 1 major and 0 minor checks failed\n    Finished [   1.840s] pager\n"
+            ]
+          }
+        },
+        {
+          "file": "src/error.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: variables can be used directly in the `format!` string\n  --> src/error.rs:21:43\n   |\n21 |             PagerError::OutOfMemory(x) => write!(f, \"{} Out of memory\", x),\n   |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n21 -             PagerError::OutOfMemory(x) => write!(f, \"{} Out of memory\", x),\n21 +             PagerError::OutOfMemory(x) => write!(f, \"{x} Out of memory\"),\n   |\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "repo": {
+    "user": "ZR233",
+    "repo": "arm-gic-driver"
+  },
+  "data": [
+    {
+      "user": "ZR233",
+      "repo": "arm-gic-driver",
+      "pkg": "arm-gic-driver",
+      "count": 6,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.20.2/src/imp_std.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.20.2/src/imp_std.rs:218:18: 218:55 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.20.2/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}",
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.20.2/src/imp_std.rs:222:13: 222:53 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.20.2/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.22/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T06:41:05Z WARN  lockbud::callbacks] [\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.20.2/src/imp_std.rs:218:18: 218:55 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.20.2/src/imp_std.rs:238:5: 238:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      },\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.20.2/src/imp_std.rs:222:13: 222:53 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.20.2/src/imp_std.rs:238:5: 238:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      }\n    ]\n[2025-06-28T06:41:05Z WARN  lockbud::callbacks] crate once_cell contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 2 }\n[2025-06-28T06:41:05Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.22/src/lib.rs:1447:11: 1447:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.22/src/lib.rs:1450:13: 1450:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T06:41:05Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=arm-gic-driver, checker=Udeps\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_2/ZR233/arm-gic-driver\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none-softfloat \ntimestamp=2025-06-28 14:41:23.26948675 +08:00:00\n\n\nstdout:\nunused dependencies:\n`arm-gic-driver v0.3.1 (/home/runner/check/batch_2/ZR233/arm-gic-driver)`\n└─── dependencies\n     ├─── \"bitflags\"\n     └─── \"enum_dispatch\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n   Compiling proc-macro2 v1.0.92\n   Compiling unicode-ident v1.0.14\n   Compiling once_cell v1.20.2\n    Checking tock-registers v0.9.0\n    Checking bitflags v2.6.0\n    Checking aarch64-cpu v10.0.0\n    Checking log v0.4.22\n   Compiling quote v1.0.38\n   Compiling syn v2.0.95\n   Compiling enum_dispatch v0.3.13\n    Checking arm-gic-driver v0.3.1 (/home/runner/check/batch_2/ZR233/arm-gic-driver)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.59s\ninfo: Loading depinfo from \"/home/runner/check/batch_2/ZR233/arm-gic-driver/target/aarch64-unknown-none-softfloat/debug/deps/arm_gic_driver-8a57b3e05b36b06e.d\"\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=arm-gic-driver, checker=Outdated\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_2/ZR233/arm-gic-driver\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 14:41:19.651323682 +08:00:00\n\nName      Project  Compat  Latest  Kind    Platform\n----      -------  ------  ------  ----    --------\nbitflags  2.6.0    2.9.1   2.9.1   Normal  ---\nlog       0.4.22   0.4.27  0.4.27  Normal  ---\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

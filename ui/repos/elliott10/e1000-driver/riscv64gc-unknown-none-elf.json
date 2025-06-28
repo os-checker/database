@@ -1,0 +1,282 @@
+{
+  "repo": {
+    "user": "elliott10",
+    "repo": "e1000-driver"
+  },
+  "data": [
+    {
+      "user": "elliott10",
+      "repo": "e1000-driver",
+      "pkg": "e1000-driver",
+      "count": 29,
+      "raw_reports": [
+        {
+          "file": "examples/src/boot/sbi.rs",
+          "features": "",
+          "count": 11,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 3 to 4)\n-pub fn console_putchar(ch: usize){\n-\tsbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n+pub fn console_putchar(ch: usize) {\n+    sbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 8 to 8)\n-\treturn sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n+    return sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 11 to 23)\n-pub fn console_putchar_u8(ch: u8){\n-\tlet ret: isize;\n-\t//let arg0: char = ch as char;\n-\tlet arg0: u8 = ch;\n-\tlet arg1: usize = 0;\n-\tlet arg2: usize = 0;\n-\tlet which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n-\tunsafe{\n-\t\tasm!(\"ecall\",\n-\t\t     lateout(\"x10\") ret,\n-\t\t     in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-             );\n-\t}\n+pub fn console_putchar_u8(ch: u8) {\n+    let ret: isize;\n+    //let arg0: char = ch as char;\n+    let arg0: u8 = ch;\n+    let arg1: usize = 0;\n+    let arg2: usize = 0;\n+    let which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n+    unsafe {\n+        asm!(\"ecall\",\n+        lateout(\"x10\") ret,\n+        in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 26 to 28)\n-fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize{\n-\tlet ret: isize;\n-\tunsafe{\n+fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize {\n+    let ret: isize;\n+    unsafe {\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 30 to 34)\n-             lateout(\"x10\") ret,\n-             in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-            );\n-\t}\n-\tret\n+         lateout(\"x10\") ret,\n+         in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n+    ret\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 37 to 39)\n-pub fn set_timer(stime_value: u64){\n-\t#[cfg(target_pointer_width = \"32\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n+pub fn set_timer(stime_value: u64) {\n+    #[cfg(target_pointer_width = \"32\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 41 to 42)\n-\t#[cfg(target_pointer_width = \"64\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n+    #[cfg(target_pointer_width = \"64\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 44 to 45)\n-pub fn clear_ipi(){\n-\tsbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n+pub fn clear_ipi() {\n+    sbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 48 to 49)\n-pub fn send_ipi(sipi_value: usize){\n-\tsbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n+pub fn send_ipi(sipi_value: usize) {\n+    sbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 52 to 53)\n-pub fn set_s_insn(entry: usize){\n-\tsbi_call(SBI_SET_SINSN, entry, 0, 0);\n+pub fn set_s_insn(entry: usize) {\n+    sbi_call(SBI_SET_SINSN, entry, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 56 to 57)\n-pub fn shutdown(){\n-\tsbi_call(SBI_SHUTDOWN, 0, 0, 0);\n+pub fn shutdown() {\n+    sbi_call(SBI_SHUTDOWN, 0, 0, 0);\n"
+            ]
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 4,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/src/lib.rs (original lines from 9 to 9)\n-mod utils;\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/src/lib.rs (original lines from 12 to 12)\n+mod utils;\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/src/lib.rs (original lines from 17 to 17)\n-\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/src/lib.rs (original lines from 23 to 25)\n-    fn it_works() {\n-\n-    }\n+    fn it_works() {}\n"
+            ]
+          }
+        },
+        {
+          "file": "examples/src/boot/lang_items.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/lang_items.rs (original lines from 4 to 7)\n-fn panic(info: &PanicInfo) -> !{\n-\tprintln!(\"{}\", info);\n-\tcrate::boot::sbi::shutdown();\n-\tunreachable!()\n+fn panic(info: &PanicInfo) -> ! {\n+    println!(\"{}\", info);\n+    crate::boot::sbi::shutdown();\n+    unreachable!()\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/lang_items.rs (original lines from 11 to 12)\n-pub extern \"C\" fn abort() -> !{\n-\tpanic!(\"abort!\");\n+pub extern \"C\" fn abort() -> ! {\n+    panic!(\"abort!\");\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/lang_items.rs (original lines from 14 to 14)\n-\n"
+            ]
+          }
+        },
+        {
+          "file": "src/pci.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/src/pci.rs (original lines from 3 to 3)\n-use volatile::Volatile;\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/src/pci.rs (original lines from 5 to 5)\n+use volatile::Volatile;\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/src/pci.rs (original lines from 22 to 22)\n-        let deve_id = unsafe{ (*pci_base).read() };\n+        let deve_id = unsafe { (*pci_base).read() };\n"
+            ]
+          }
+        },
+        {
+          "file": "examples/src/pci_impl.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/pci_impl.rs (original lines from 2 to 2)\n-use pci::{PortOps, CSpaceAccessMethod};\n+use pci::{CSpaceAccessMethod, PortOps};\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/pci_impl.rs (original lines from 9 to 9)\n-pub const PCI_COMMAND_INTX_DISABLE:u16 = 0x400;\n+pub const PCI_COMMAND_INTX_DISABLE: u16 = 0x400;\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T06:33:23Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T06:33:23Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Rapx] memory safety detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Rapx": [
+              "pkg=e1000-driver, checker=Rapx\ntoolchain=nightly-2023-02-23, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_4/elliott10/e1000-driver\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf \ntimestamp=2025-06-28 14:33:27.966360519 +08:00:00\n\nOver visited: DefId(0:50 ~ e1000_driver[7073]::e1000::e1000::{impl#0}::e1000_init)\nOver visited: DefId(0:51 ~ e1000_driver[7073]::e1000::e1000::{impl#0}::e1000_transmit)\nwarning: Dangling pointer detected.\n   --> src/e1000/e1000.rs:314:1\n    |\n314 | / pub fn e1000_recv(&mut self) -> Option<Vec<Vec<u8>>> {\n315 | |         // Check for packets that have arrived from the e1000\n...   |\n363 | |         }\n364 | |     }\n    | |_____- Dangling pointer detected.\n    |\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=e1000-driver, checker=Outdated\ntoolchain=nightly-2023-02-23, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_4/elliott10/e1000-driver\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 14:33:30.384897111 +08:00:00\n\nName      Project  Compat  Latest  Kind    Platform\n----      -------  ------  ------  ----    --------\nvolatile  0.3.0    ---     0.6.1   Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "examples/src/boot/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/mod.rs (original lines from 17 to 17)\n-\n"
+            ]
+          }
+        },
+        {
+          "file": "examples/src/e1000.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/e1000.rs (original lines from 126 to 126)\n+\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "elliott10",
+      "repo": "e1000-driver",
+      "pkg": "e1000-driver-test",
+      "count": 23,
+      "raw_reports": [
+        {
+          "file": "src/boot/sbi.rs",
+          "features": "",
+          "count": 11,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 3 to 4)\n-pub fn console_putchar(ch: usize){\n-\tsbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n+pub fn console_putchar(ch: usize) {\n+    sbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 8 to 8)\n-\treturn sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n+    return sbi_call(SBI_CONSOLE_GETCHAR, 0, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 11 to 23)\n-pub fn console_putchar_u8(ch: u8){\n-\tlet ret: isize;\n-\t//let arg0: char = ch as char;\n-\tlet arg0: u8 = ch;\n-\tlet arg1: usize = 0;\n-\tlet arg2: usize = 0;\n-\tlet which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n-\tunsafe{\n-\t\tasm!(\"ecall\",\n-\t\t     lateout(\"x10\") ret,\n-\t\t     in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-             );\n-\t}\n+pub fn console_putchar_u8(ch: u8) {\n+    let ret: isize;\n+    //let arg0: char = ch as char;\n+    let arg0: u8 = ch;\n+    let arg1: usize = 0;\n+    let arg2: usize = 0;\n+    let which: usize = 1; //SBI_ECALL_CONSOLE_PUTCHAR\n+    unsafe {\n+        asm!(\"ecall\",\n+        lateout(\"x10\") ret,\n+        in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 26 to 28)\n-fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize{\n-\tlet ret: isize;\n-\tunsafe{\n+fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> isize {\n+    let ret: isize;\n+    unsafe {\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 30 to 34)\n-             lateout(\"x10\") ret,\n-             in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n-            );\n-\t}\n-\tret\n+         lateout(\"x10\") ret,\n+         in(\"x10\") arg0, in(\"x11\") arg1, in(\"x12\") arg2, in(\"x17\") which\n+        );\n+    }\n+    ret\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 37 to 39)\n-pub fn set_timer(stime_value: u64){\n-\t#[cfg(target_pointer_width = \"32\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n+pub fn set_timer(stime_value: u64) {\n+    #[cfg(target_pointer_width = \"32\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, (stime_value >> 32), 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 41 to 42)\n-\t#[cfg(target_pointer_width = \"64\")]\n-\tsbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n+    #[cfg(target_pointer_width = \"64\")]\n+    sbi_call(SBI_SET_TIMER, stime_value as usize, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 44 to 45)\n-pub fn clear_ipi(){\n-\tsbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n+pub fn clear_ipi() {\n+    sbi_call(SBI_CLEAR_IPI, 0, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 48 to 49)\n-pub fn send_ipi(sipi_value: usize){\n-\tsbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n+pub fn send_ipi(sipi_value: usize) {\n+    sbi_call(SBI_SEND_IPI, sipi_value, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 52 to 53)\n-pub fn set_s_insn(entry: usize){\n-\tsbi_call(SBI_SET_SINSN, entry, 0, 0);\n+pub fn set_s_insn(entry: usize) {\n+    sbi_call(SBI_SET_SINSN, entry, 0, 0);\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/sbi.rs (original lines from 56 to 57)\n-pub fn shutdown(){\n-\tsbi_call(SBI_SHUTDOWN, 0, 0, 0);\n+pub fn shutdown() {\n+    sbi_call(SBI_SHUTDOWN, 0, 0, 0);\n"
+            ]
+          }
+        },
+        {
+          "file": "src/boot/lang_items.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/lang_items.rs (original lines from 4 to 7)\n-fn panic(info: &PanicInfo) -> !{\n-\tprintln!(\"{}\", info);\n-\tcrate::boot::sbi::shutdown();\n-\tunreachable!()\n+fn panic(info: &PanicInfo) -> ! {\n+    println!(\"{}\", info);\n+    crate::boot::sbi::shutdown();\n+    unreachable!()\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/lang_items.rs (original lines from 11 to 12)\n-pub extern \"C\" fn abort() -> !{\n-\tpanic!(\"abort!\");\n+pub extern \"C\" fn abort() -> ! {\n+    panic!(\"abort!\");\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/lang_items.rs (original lines from 14 to 14)\n-\n"
+            ]
+          }
+        },
+        {
+          "file": "src/pci_impl.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/pci_impl.rs (original lines from 2 to 2)\n-use pci::{PortOps, CSpaceAccessMethod};\n+use pci::{CSpaceAccessMethod, PortOps};\n",
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/pci_impl.rs (original lines from 9 to 9)\n-pub const PCI_COMMAND_INTX_DISABLE:u16 = 0x400;\n+pub const PCI_COMMAND_INTX_DISABLE: u16 = 0x400;\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T06:33:24Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T06:33:24Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Rapx] memory safety detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Rapx": [
+              "pkg=e1000-driver-test, checker=Rapx\ntoolchain=nightly-2024-01-31, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_4/elliott10/e1000-driver/examples\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf \ntimestamp=2025-06-28 14:33:30.174359013 +08:00:00\n\nwarning: Memory Leak detected.\n  --> src/e1000.rs:22:21\n   |\n10 | fn dma_alloc_coherent(&mut self, pages: usize) -> (usize, usize) {\n11 |         let paddr: Box<[u32]> = if pages == 1 {\n12 |             Box::new([0; 1024]) // 4096\n13 |         } else if pages == 8 {\n14 |             Box::new([0; 1024 * 8]) // 4096\n15 |         } else {\n16 |             info!(\"Alloc {} pages failed\", pages);\n17 |             Box::new([0; 1024])\n18 |         };\n19 |\n20 |         let len = paddr.len();\n21 |\n22 |         let paddr = Box::into_raw(paddr) as *const u32 as usize;\n   |                     -------------------- Memory Leak Candidates.\n23 |         let vaddr = paddr;\n24 |         println!(\"alloc paddr: {:#x}, len={}\", paddr, len);\n25 |\n26 |         (vaddr, paddr)\n27 |     }\n   |\nOver visited: DefId(0:136 ~ e1000_driver_test[957e]::walk_dt_node)\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=e1000-driver-test, checker=Udeps\ntoolchain=nightly-2024-01-31, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_4/elliott10/e1000-driver/examples\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2025-06-28 14:33:31.729455281 +08:00:00\n\n\nstdout:\nunused dependencies:\n`e1000-driver-test v0.2.0 (/home/runner/check/batch_4/elliott10/e1000-driver/examples)`\n└─── dependencies\n     └─── \"riscv\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\nwarning: `/home/runner/check/batch_4/elliott10/e1000-driver/examples/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nwarning: `/home/runner/check/batch_4/elliott10/e1000-driver/examples/.cargo/config` is deprecated in favor of `config.toml`\nnote: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`\nwarning: no edition set: defaulting to the 2015 edition while the latest is 2024\n    Checking nb v1.1.0\n    Checking void v1.0.2\n    Checking log v0.4.27\n   Compiling riscv v0.8.0\n    Checking spin v0.9.8\n    Checking nb v0.1.3\n    Checking embedded-hal v0.2.7\n    Checking volatile v0.3.0\n    Checking spin v0.7.1\n    Checking bit_field v0.10.2\n    Checking bare-metal v1.0.0\n    Checking bitflags v1.3.2\n    Checking e1000-driver v0.2.0 (/home/runner/check/batch_4/elliott10/e1000-driver)\n    Checking buddy_system_allocator v0.6.0\n    Checking pci v0.1.0 (https://github.com/elliott10/pci-rs.git?rev=583a15bf#583a15bf)\nwarning: constant `alloc_tx_ring_pages` should have an upper case name\n  --> /home/runner/check/batch_4/elliott10/e1000-driver/src/e1000/e1000.rs:14:7\n   |\n14 | const alloc_tx_ring_pages: usize =\n   |       ^^^^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(non_upper_case_globals)]` on by default\nhelp: convert the identifier to upper case\n   |\n14 - const alloc_tx_ring_pages: usize =\n14 + const ALLOC_TX_RING_PAGES: usize =\n   |\n\nwarning: constant `alloc_rx_ring_pages` should have an upper case name\n  --> /home/runner/check/batch_4/elliott10/e1000-driver/src/e1000/e1000.rs:16:7\n   |\n16 | const alloc_rx_ring_pages: usize =\n   |       ^^^^^^^^^^^^^^^^^^^\n   |\nhelp: convert the identifier to upper case\n   |\n16 - const alloc_rx_ring_pages: usize =\n16 + const ALLOC_RX_RING_PAGES: usize =\n   |\n\nwarning: constant `alloc_tx_buffer_pages` should have an upper case name\n  --> /home/runner/check/batch_4/elliott10/e1000-driver/src/e1000/e1000.rs:19:7\n   |\n19 | const alloc_tx_buffer_pages: usize = ((TX_RING_SIZE * MBUF_SIZE) + (PAGE_SIZE - 1)) / PAGE_SIZE;\n   |       ^^^^^^^^^^^^^^^^^^^^^\n   |\nhelp: convert the identifier to upper case\n   |\n19 - const alloc_tx_buffer_pages: usize = ((TX_RING_SIZE * MBUF_SIZE) + (PAGE_SIZE - 1)) / PAGE_SIZE;\n19 + const ALLOC_TX_BUFFER_PAGES: usize = ((TX_RING_SIZE * MBUF_SIZE) + (PAGE_SIZE - 1)) / PAGE_SIZE;\n   |\n\nwarning: constant `alloc_rx_buffer_pages` should have an upper case name\n  --> /home/runner/check/batch_4/elliott10/e1000-driver/src/e1000/e1000.rs:20:7\n   |\n20 | const alloc_rx_buffer_pages: usize = ((RX_RING_SIZE * MBUF_SIZE) + (PAGE_SIZE - 1)) / PAGE_SIZE;\n   |       ^^^^^^^^^^^^^^^^^^^^^\n   |\nhelp: convert the identifier to upper case\n   |\n20 - const alloc_rx_buffer_pages: usize = ((RX_RING_SIZE * MBUF_SIZE) + (PAGE_SIZE - 1)) / PAGE_SIZE;\n20 + const ALLOC_RX_BUFFER_PAGES: usize = ((RX_RING_SIZE * MBUF_SIZE) + (PAGE_SIZE - 1)) / PAGE_SIZE;\n   |\n\n    Checking lazy_static v1.5.0\nwarning: `e1000-driver` (lib) generated 4 warnings (run `cargo fix --lib -p e1000-driver` to apply 4 suggestions)\n    Checking cfg-if v1.0.1\n    Checking device_tree v1.0.3 (https://github.com/rcore-os/device_tree-rs?rev=2f2e55fb#2f2e55fb)\n    Checking e1000-driver-test v0.2.0 (/home/runner/check/batch_4/elliott10/e1000-driver/examples)\nwarning: unused import: `vec`\n --> src/e1000.rs:1:25\n  |\n1 | use alloc::{boxed::Box, vec};\n  |                         ^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\nwarning: unused imports: `boxed::Box` and `vec`\n  --> src/main.rs:17:13\n   |\n17 | use alloc::{boxed::Box, format, vec, vec::Vec};\n   |             ^^^^^^^^^^          ^^^\n\nwarning: value assigned to `ret` is never read\n  --> src/boot/sbi.rs:20:23\n   |\n20 |              lateout(\"x10\") ret,\n   |                             ^^^\n   |\n   = help: maybe it is overwritten before being read?\n   = note: `#[warn(unused_assignments)]` on by default\n\nwarning: value assigned to `cycle` is never read\n   --> src/e1000.rs:101:13\n    |\n101 |     let mut cycle: u64 = 0;\n    |             ^^^^^\n    |\n    = help: maybe it is overwritten before being read?\n\nwarning: variable does not need to be mutable\n   --> src/main.rs:151:21\n    |\n151 |                 let mut e1000_device =\n    |                     ----^^^^^^^^^^^^\n    |                     |\n    |                     help: remove this `mut`\n    |\n    = note: `#[warn(unused_mut)]` on by default\n\nwarning: unused `Result` that must be used\n  --> src/main.rs:31:5\n   |\n31 |     logger::init(\"DEBUG\");\n   |     ^^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: this `Result` may be an `Err` variant, which should be handled\n   = note: `#[warn(unused_must_use)]` on by default\nhelp: use `let _ = ...` to ignore the resulting value\n   |\n31 |     let _ = logger::init(\"DEBUG\");\n   |     +++++++\n\nwarning: creating a mutable reference to mutable static\n  --> src/boot/mod.rs:29:19\n   |\n29 |             .init(HEAP.as_mut_ptr() as usize, KERNEL_HEAP_SIZE);\n   |                   ^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\nwarning: `e1000-driver-test` (bin \"e1000-driver-test\") generated 7 warnings (run `cargo fix --bin \"e1000-driver-test\"` to apply 3 suggestions)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.62s\ninfo: Loading depinfo from \"/home/runner/check/batch_4/elliott10/e1000-driver/examples/target/riscv64gc-unknown-none-elf/debug/deps/e1000_driver_test-2b208b5012ae3c04.d\"\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=e1000-driver-test, checker=Outdated\ntoolchain=nightly-2024-01-31, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_4/elliott10/e1000-driver/examples\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 14:33:30.629842927 +08:00:00\n\nName                    Project  Compat  Latest  Kind    Platform\n----                    -------  ------  ------  ----    --------\nbuddy_system_allocator  0.6.0    ---     0.11.0  Normal  ---\nriscv                   0.8.0    ---     0.14.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "src/boot/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/boot/mod.rs (original lines from 17 to 17)\n-\n"
+            ]
+          }
+        },
+        {
+          "file": "src/e1000.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/elliott10/e1000-driver/examples/src/e1000.rs (original lines from 126 to 126)\n+\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

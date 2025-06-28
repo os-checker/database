@@ -1,0 +1,801 @@
+{
+  "repo": {
+    "user": "Godones",
+    "repo": "rCoreloongArch"
+  },
+  "data": [
+    {
+      "user": "Godones",
+      "repo": "rCoreloongArch",
+      "pkg": "kernel",
+      "count": 50,
+      "raw_reports": [
+        {
+          "file": "kernel/src/mm/page_table.rs",
+          "features": "",
+          "count": 6,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: manual implementation of an assign operation\n  --> kernel/src/mm/page_table.rs:64:9\n   |\n64 |         bits = bits | flags.bits;\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^ help: replace it with: `bits |= flags.bits`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n   = note: `#[warn(clippy::assign_op_pattern)]` on by default\n\n",
+              "warning: this boolean expression can be simplified\n  --> kernel/src/mm/page_table.rs:97:9\n   |\n97 |         !((self.flags() & PTEFlags::NR) != PTEFlags::empty())\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `((self.flags() & PTEFlags::NR) == PTEFlags::empty())`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#nonminimal_bool\n   = note: `#[warn(clippy::nonminimal_bool)]` on by default\n\n",
+              "warning: this boolean expression can be simplified\n   --> kernel/src/mm/page_table.rs:101:9\n    |\n101 |         !((self.flags() & PTEFlags::NX) != PTEFlags::empty())\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `((self.flags() & PTEFlags::NX) == PTEFlags::empty())`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#nonminimal_bool\n\n",
+              "warning: the loop variable `i` is used to index `idxs`\n   --> kernel/src/mm/page_table.rs:142:18\n    |\n142 |         for i in 0..3 {\n    |                  ^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\n    = note: `#[warn(clippy::needless_range_loop)]` on by default\nhelp: consider using an iterator and enumerate()\n    |\n142 |         for (i, <item>) in idxs.iter_mut().enumerate() {\n    |             ~~~~~~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
+              "warning: the loop variable `i` is used to index `idxs`\n   --> kernel/src/mm/page_table.rs:165:18\n    |\n165 |         for i in 0..3 {\n    |                  ^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator and enumerate()\n    |\n165 |         for (i, <item>) in idxs.iter_mut().enumerate() {\n    |             ~~~~~~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
+              "warning: using `clone` on type `PageTableEntry` which implements the `Copy` trait\n   --> kernel/src/mm/page_table.rs:189:38\n    |\n189 |         self.find_pte(vpn).map(|pte| pte.clone())\n    |                                      ^^^^^^^^^^^ help: try dereferencing it: `*pte`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/mm/address.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: using `clone` on type `PhysPageNum` which implements the `Copy` trait\n   --> kernel/src/mm/address.rs:174:28\n    |\n174 |         let pa: PhysAddr = self.clone().into();\n    |                            ^^^^^^^^^^^^ help: try dereferencing it: `(*self)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n    = note: `#[warn(clippy::clone_on_copy)]` on by default\n\n",
+              "warning: using `clone` on type `PhysPageNum` which implements the `Copy` trait\n   --> kernel/src/mm/address.rs:180:28\n    |\n180 |         let pa: PhysAddr = self.clone().into();\n    |                            ^^^^^^^^^^^^ help: try dereferencing it: `(*self)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n",
+              "warning: using `clone` on type `PhysPageNum` which implements the `Copy` trait\n   --> kernel/src/mm/address.rs:185:28\n    |\n185 |         let pa: PhysAddr = self.clone().into();\n    |                            ^^^^^^^^^^^^ help: try dereferencing it: `(*self)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/mm/frame_allocator.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: this `else { if .. }` block can be collapsed\n  --> kernel/src/mm/frame_allocator.rs:68:16\n   |\n68 |           } else {\n   |  ________________^\n69 | |             if self.current == self.end {\n70 | |                 ans = None\n71 | |             } else {\n...  |\n75 | |         }\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\n   = note: `#[warn(clippy::collapsible_else_if)]` on by default\nhelp: collapse nested if block\n   |\n68 ~         } else if self.current == self.end {\n69 +             ans = None\n70 +         } else {\n71 +             self.current += 1;\n72 +             ans = Some((self.current - 1).into())\n73 +         }\n   |\n\n",
+              "warning: called `is_some()` after searching an `Iterator` with `find`\n  --> kernel/src/mm/frame_allocator.rs:81:56\n   |\n81 |         if ppn >= self.current || self.recycled.iter().find(|&v| *v == ppn).is_some() {\n   |                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using: `any(|v| *v == ppn)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#search_is_some\n   = note: `#[warn(clippy::search_is_some)]` on by default\n\n",
+              "warning: redundant closure\n   --> kernel/src/mm/frame_allocator.rs:116:14\n    |\n116 |         .map(|ppn| FrameTracker::new(ppn))\n    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace the closure with the function itself: `FrameTracker::new`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_closure\n    = note: `#[warn(clippy::redundant_closure)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/task/id.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: returning the result of a `let` binding from a block\n  --> kernel/src/task/id.rs:95:9\n   |\n94 |         let top = phys_to_virt!(top.0 + PAGE_SIZE);\n   |         ------------------------------------------- unnecessary `let` binding\n95 |         top\n   |         ^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\n   = note: `#[warn(clippy::let_and_return)]` on by default\nhelp: return the expression directly\n   |\n94 ~         \n95 ~         $pa + crate::loongarch::VIRT_BIAS\n   |\n\n",
+              "warning: using `clone` on type `TrapContext` which implements the `Copy` trait\n   --> kernel/src/task/id.rs:100:28\n    |\n100 |         let trap_context = kernel_stack.get_trap_cx().clone();\n    |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try dereferencing it: `*kernel_stack.get_trap_cx()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n",
+              "warning: returning the result of a `let` binding from a block\n   --> kernel/src/task/id.rs:114:9\n    |\n113 |         let addr = self.get_virt_top() - core::mem::size_of::<TrapContext>();\n    |         --------------------------------------------------------------------- unnecessary `let` binding\n114 |         addr\n    |         ^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\nhelp: return the expression directly\n    |\n113 ~         \n114 ~         self.get_virt_top() - core::mem::size_of::<TrapContext>()\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: the type `[&mut [net::ethernet::intel::ixgbe::IXGBESendDesc]; 4]` does not permit being left uninitialized\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                      |\n    |                      this code causes undefined behavior when executed\n    |                      help: use `MaybeUninit<T>` instead, and only call `assume_init` after initialization is done\n    |\n    = note: references must be non-null\n    = note: `#[warn(invalid_value)]` on by default\n\n",
+              "warning: the type `[&mut [net::ethernet::intel::ixgbe::IXGBESendDesc]; 4]` does not permit being left uninitialized\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                      |\n    |                      this code causes undefined behavior when executed\n    |                      help: use `MaybeUninit<T>` instead, and only call `assume_init` after initialization is done\n    |\n    = note: references must be non-null\n    = note: `#[warn(invalid_value)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/fs/inode.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: deref which would be done by auto-deref\n   --> kernel/src/fs/inode.rs:134:63\n    |\n134 |             let read_size = inner.inode.read_at(inner.offset, *slice);\n    |                                                               ^^^^^^ help: try: `slice`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n    = note: `#[warn(clippy::explicit_auto_deref)]` on by default\n\n",
+              "warning: deref which would be done by auto-deref\n   --> kernel/src/fs/inode.rs:147:65\n    |\n147 |             let write_size = inner.inode.write_at(inner.offset, *slice);\n    |                                                                 ^^^^^^ help: try: `slice`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/fs/stdio.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: casting to the same type is unnecessary (`u8` -> `u8`)\n  --> kernel/src/fs/stdio.rs:29:18\n   |\n29 |         let ch = c as u8;\n   |                  ^^^^^^^ help: try: `c`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n   = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n",
+              "warning: deref which would be done by auto-deref\n  --> kernel/src/fs/stdio.rs:52:47\n   |\n52 |             print!(\"{}\", core::str::from_utf8(*buffer).unwrap());\n   |                                               ^^^^^^^ help: try: `buffer`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/mm/memory_set.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unneeded late initialization\n   --> kernel/src/mm/memory_set.rs:182:9\n    |\n182 |         let ppn: PhysPageNum;\n    |         ^^^^^^^^^^^^^^^^^^^^^ created here\n183 |         let frame = frame_alloc().unwrap();\n184 |         ppn = frame.ppn;\n    |         ^^^^^^^^^^^^^^^ initialised here\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_late_init\n    = note: `#[warn(clippy::needless_late_init)]` on by default\nhelp: move the declaration `ppn` here\n    |\n182 ~         \n183 |         let frame = frame_alloc().unwrap();\n184 ~         let ppn: PhysPageNum = frame.ppn;\n    |\n\n",
+              "warning: unneeded late initialization\n   --> kernel/src/mm/memory_set.rs:182:9\n    |\n182 |         let ppn: PhysPageNum;\n    |         ^^^^^^^^^^^^^^^^^^^^^ created here\n183 |         let frame = frame_alloc().unwrap();\n184 |         ppn = frame.ppn;\n    |         ^^^^^^^^^^^^^^^ initialised here\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_late_init\n    = note: `#[warn(clippy::needless_late_init)]` on by default\nhelp: move the declaration `ppn` here\n    |\n182 ~         \n183 |         let frame = frame_alloc().unwrap();\n184 ~         let ppn: PhysPageNum = frame.ppn;\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/mm/mod.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: `crate` references the macro call's crate\n  --> kernel/src/mm/mod.rs:27:15\n   |\n27 |         $va - crate::loongarch::VIRT_BIAS\n   |               ^^^^^ help: to reference the macro definition's crate, use: `$crate`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#crate_in_macro_def\n   = note: `#[warn(clippy::crate_in_macro_def)]` on by default\n\n",
+              "warning: `crate` references the macro call's crate\n  --> kernel/src/mm/mod.rs:34:15\n   |\n34 |         $pa + crate::loongarch::VIRT_BIAS\n   |               ^^^^^ help: to reference the macro definition's crate, use: `$crate`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#crate_in_macro_def\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/mm/system_allocator/mod.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: the loop variable `i` is used to index `v`\n  --> kernel/src/mm/system_allocator/mod.rs:62:14\n   |\n62 |     for i in 0..500 {\n   |              ^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator and enumerate()\n   |\n62 |     for (i, <item>) in v.iter().enumerate().take(500) {\n   |         ~~~~~~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
+              "warning: creating a shared reference to mutable static is discouraged\n  --> kernel/src/mm/system_allocator/mod.rs:37:19\n   |\n37 |             .init(HEAP_SPACE.as_ptr() as usize, KERNEL_HEAP_SIZE);\n   |                   ^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/task/mod.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: module has the same name as its containing module\n --> kernel/src/task/mod.rs:8:1\n  |\n8 | mod task;\n  | ^^^^^^^^^\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#module_inception\n  = note: `#[warn(clippy::module_inception)]` on by default\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> kernel/src/task/mod.rs:113:45\n    |\n113 |             remove_inactive_task(Arc::clone(&task));\n    |                                             ^^^^^ help: change this to: `task`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n    = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/trap/mod.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: module has the same name as its containing module\n --> kernel/src/trap/mod.rs:2:1\n  |\n2 | mod trap;\n  | ^^^^^^^^^\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#module_inception\n\n",
+              "warning: used `assert_eq!` with a literal bool\n   --> kernel/src/trap/mod.rs:252:5\n    |\n252 |     assert_eq!(tlbidx.ne(), false);\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bool_assert_comparison\n    = note: `#[warn(clippy::bool_assert_comparison)]` on by default\nhelp: replace it with `assert!(..)`\n    |\n252 -     assert_eq!(tlbidx.ne(), false);\n252 +     assert!(!tlbidx.ne());\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_1/Godones/rCoreloongArch/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     xmas-elf\nVersion:   0.8.0\nTitle:     Potential out-of-bounds read with a malformed ELF file and the HashTable API.\nDate:      2025-03-26\nID:        RUSTSEC-2025-0018\nURL:       https://rustsec.org/advisories/RUSTSEC-2025-0018\nSolution:  Upgrade to >=0.10\nDependency tree:\nxmas-elf 0.8.0\n├── stack_trace 0.1.0\n│   └── kernel 0.1.0\n└── kernel 0.1.0\n\nCrate:     atty\nVersion:   0.2.14\nWarning:   unmaintained\nTitle:     `atty` is unmaintained\nDate:      2024-09-25\nID:        RUSTSEC-2024-0375\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0375\nDependency tree:\natty 0.2.14\n└── clap 3.2.25\n    └── easy-fs-fuse 0.1.0\n\nCrate:     atty\nVersion:   0.2.14\nWarning:   unsound\nTitle:     Potential unaligned read\nDate:      2021-07-04\nID:        RUSTSEC-2021-0145\nURL:       https://rustsec.org/advisories/RUSTSEC-2021-0145\n\n\n{\n  \"database\": {\n    \"advisory-count\": 787,\n    \"last-commit\": \"7573f55ba337263f61167dbb0ea926cdc7c8eb5d\",\n    \"last-updated\": \"2025-06-17T11:04:25+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 76\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": true,\n    \"count\": 1,\n    \"list\": [\n      {\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2025-0018\",\n          \"package\": \"xmas-elf\",\n          \"title\": \"Potential out-of-bounds read with a malformed ELF file and the HashTable API.\",\n          \"description\": \"Affected versions of this crate only validated the `index` argument of\\n`HashTable::get_bucket` and `HashTable::get_chain` against the input-controlled\\n`bucket_count` and `chain_count` fields, but not against the size of the ELF\\nsection. As a result, a malformed ELF file could trigger out-of-bounds reads in\\na consumer of the HashTable API by setting these fields to inappropriately large\\nvalues that would fall outside the relevant hash table section, and by\\nintroducing correspondingly out-of-bounds hash table indexes elsewhere in the ELF\\nfile.\",\n          \"date\": \"2025-03-26\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [\n            \"memory-exposure\"\n          ],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": null,\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/nrc/xmas-elf/issues/86\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"versions\": {\n          \"patched\": [\n            \">=0.10\"\n          ],\n          \"unaffected\": []\n        },\n        \"affected\": {\n          \"arch\": [],\n          \"os\": [],\n          \"functions\": {\n            \"xmas_elf::hash::HashTable::get_bucket\": [\n              \"<0.10\"\n            ],\n            \"xmas_elf::hash::HashTable::get_chain\": [\n              \"<0.10\"\n            ]\n          }\n        },\n        \"package\": {\n          \"name\": \"xmas-elf\",\n          \"version\": \"0.8.0\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8d29b4d8e7beaceb4e77447ba941a7600d23d0319ab52da0461abea214832d5a\",\n          \"dependencies\": [\n            {\n              \"name\": \"zero\",\n              \"version\": \"0.1.3\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        }\n      }\n    ]\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.174\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0375\",\n          \"package\": \"atty\",\n          \"title\": \"`atty` is unmaintained\",\n          \"description\": \"The maintainer of `atty` has [published](https://github.com/softprops/atty/commit/5bfdbe9e48c6ca6a4909e8d5b04f5e843a257e93) an official notice that the crate is no longer\\nunder development, and that users should instead rely on the functionality in the standard library's [`IsTerminal`](https://doc.rust-lang.org/std/io/trait.IsTerminal.html) trait.\\n\\n## Alternative(s)\\n\\n- [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0 and the recommended replacement per the `atty` maintainer.\\n- [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2024-09-25\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/57\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ],\n    \"unsound\": [\n      {\n        \"kind\": \"unsound\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.174\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2021-0145\",\n          \"package\": \"atty\",\n          \"title\": \"Potential unaligned read\",\n          \"description\": \"On windows, `atty` dereferences a potentially unaligned pointer.\\n\\nIn practice however, the pointer won't be unaligned unless a custom global allocator is used.\\n\\nIn particular, the `System` allocator on windows uses `HeapAlloc`, which guarantees a large enough alignment.\\n\\n# atty is Unmaintained\\n\\nA Pull Request with a fix has been provided over a year ago but the maintainer seems to be unreachable.\\n\\nLast release of `atty` was almost 3 years ago.\\n\\n## Possible Alternative(s)\\n\\nThe below list has not been vetted in any way and may or may not contain alternatives;\\n\\n - [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0\\n - [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2021-07-04\",\n          \"aliases\": [\n            \"GHSA-g98v-hv3f-hcfr\"\n          ],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [\n            \"unaligned-read\"\n          ],\n          \"cvss\": null,\n          \"informational\": \"unsound\",\n          \"references\": [\n            \"https://github.com/softprops/atty/pull/51\",\n            \"https://github.com/softprops/atty/issues/57\"\n          ],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/50\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": {\n          \"arch\": [],\n          \"os\": [\n            \"windows\"\n          ],\n          \"functions\": {}\n        },\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) audit",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=kernel, checker=Audit\n// toolchain=nightly-2025-01-01, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/kernel\n// cmd=cargo audit\n// timestamp=2025-06-28 12:34:55.19767475 +08:00:00\n    Fetching advisory database from `https://github.com/RustSec/advisory-db.git`\n      Loaded 787 security advisories (from /home/runner/.cargo/advisory-db)\n    Updating crates.io index\n    Scanning Cargo.lock for vulnerabilities (76 crate dependencies)\nerror: 1 vulnerability found!\nwarning: 2 allowed warnings found\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=kernel, checker=Clippy\n// toolchain=nightly-2025-01-01, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/kernel\n// cmd=cargo clippy --target loongarch64-unknown-none  --no-deps\n// timestamp=2025-06-28 12:34:38.311503949 +08:00:00\n   Compiling num-traits v0.2.19\n   Compiling az v1.2.1\n   Compiling memchr v2.3.4\n   Compiling version_check v0.9.5\n    Checking byteorder v1.5.0\n    Checking micromath v1.1.1\n   Compiling nom v6.2.2\n    Checking lazy_static v1.5.0\n    Checking zero v0.1.3\n    Checking xmas-elf v0.8.0\n    Checking float-cmp v0.8.0\n    Checking rustc-demangle v0.1.25\n    Checking virtio-input-decoder v0.1.4\n    Checking bitflags v2.9.1\n    Checking rlibc v1.0.0\n   Compiling kernel v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/kernel)\n    Checking oorandom v11.1.5\n    Checking isomorphic_drivers v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/isomorphic_drivers)\n    Checking embedded-graphics-core v0.3.3\n    Checking stack_trace v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/stack_trace)\n    Checking loongArch64 v0.2.5\n    Checking easy-fs v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs)\n    Checking embedded-graphics v0.7.1\n    Checking pci v0.0.1 (/home/runner/check/batch_1/Godones/rCoreloongArch/pci)\n    Checking buddy_system_allocator v0.11.0\n    Checking tinybmp v0.3.3\n    Checking vbe v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/vbe)\nerror: could not compile `kernel` (bin \"kernel\") due to 1 previous error; 35 warnings emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=kernel, checker=Udeps\n// toolchain=nightly-2025-01-01, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/kernel\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target loongarch64-unknown-none \n// timestamp=2025-06-28 12:37:06.951462056 +08:00:00\n   Compiling num-traits v0.2.19\n   Compiling az v1.2.1\n   Compiling memchr v2.3.4\n   Compiling version_check v0.9.5\n    Checking byteorder v1.5.0\n   Compiling nom v6.2.2\n    Checking micromath v1.1.1\n    Checking lazy_static v1.5.0\n    Checking zero v0.1.3\n    Checking xmas-elf v0.8.0\n    Checking float-cmp v0.8.0\n   Compiling kernel v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/kernel)\n    Checking bitflags v2.9.1\n    Checking rustc-demangle v0.1.25\n    Checking virtio-input-decoder v0.1.4\n    Checking rlibc v1.0.0\n    Checking embedded-graphics-core v0.3.3\n    Checking oorandom v11.1.5\n    Checking isomorphic_drivers v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/isomorphic_drivers)\n    Checking stack_trace v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/stack_trace)\n    Checking loongArch64 v0.2.5\nwarning: the type `[&mut [IXGBESendDesc]; 4]` does not permit being left uninitialized\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                      |\n    |                      this code causes undefined behavior when executed\n    |                      help: use `MaybeUninit<T>` instead, and only call `assume_init` after initialization is done\n    |\n    = note: references must be non-null\n    = note: `#[warn(invalid_value)]` on by default\n\nwarning: `isomorphic_drivers` (lib) generated 1 warning\n    Checking easy-fs v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs)\n    Checking embedded-graphics v0.7.1\n    Checking pci v0.0.1 (/home/runner/check/batch_1/Godones/rCoreloongArch/pci)\n    Checking buddy_system_allocator v0.11.0\nwarning: lifetime flowing from input to output with different syntax can be confusing\n   --> pci/src/lib.rs:591:10\n    |\n591 |     ops: &T,\n    |          ^^ this lifetime flows to the output\n...\n594 | ) -> BusScan<T> {\n    |      ---------- the lifetime gets resolved as `'_`\n    |\n    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n594 | ) -> BusScan<'_, T> {\n    |              +++\n\nwarning: `pci` (lib) generated 1 warning\n    Checking tinybmp v0.3.3\n    Checking vbe v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/vbe)\nerror: unsafe attribute used without unsafe\n --> kernel/src/trap/trap.rs:1:3\n  |\n1 | #[naked]\n  |   ^^^^^ usage of unsafe attribute\n  |\nhelp: wrap the attribute in `unsafe(...)`\n  |\n1 | #[unsafe(naked)]\n  |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n  --> kernel/src/trap/trap.rs:94:3\n   |\n94 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n94 | #[unsafe(naked)]\n   |   +++++++     +\n\nwarning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> kernel/src/main.rs:5:12\n  |\n5 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: `kernel` (bin \"kernel\") generated 1 warning\nerror: could not compile `kernel` (bin \"kernel\") due to 2 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T04:35:33Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T04:35:33Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2025-06-28T04:35:38Z WARN  lockbud::callbacks] [\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at kernel/src/task/processor.rs:75:17: 75:61 (#0) after dropped at kernel/src/task/processor.rs:78:5: 78:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      }\n    ]\n[2025-06-28T04:35:38Z WARN  lockbud::callbacks] crate kernel contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 1 }"
+            ]
+          }
+        },
+        {
+          "file": "[Rapx] memory safety detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Rapx": [
+              "pkg=kernel, checker=Rapx\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/kernel\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target loongarch64-unknown-none \ntimestamp=2025-06-28 12:36:16.016608054 +08:00:00\n\nwarning: Use after free detected.\n   --> easy-fs/src/block_cache.rs:119:13\n    |\n119 |             self.queue.push_back((block_id, Arc::clone(&block_cache)));\n    |             ----------------------------------------------------------\n    |             |\n    |             Use after free detected.\n    |             Use after free detected.\n    |\nOver visited: DefId(0:119 ~ pci[e677]::{impl#32}::fmt)\nOver visited: DefId(0:279 ~ pci[e677]::{impl#57}::fmt)\nOver visited: DefId(0:439 ~ pci[e677]::{impl#82}::fmt)\nOver visited: DefId(0:377 ~ isomorphic_drivers[47d9]::net::ethernet::intel::ixgbe::{impl#0}::new)\nOver visited: DefId(0:434 ~ isomorphic_drivers[47d9]::block::ahci::{impl#13}::fmt)\nOver visited: DefId(0:619 ~ isomorphic_drivers[47d9]::block::ahci::{impl#38}::fmt)\nOver visited: DefId(0:764 ~ isomorphic_drivers[47d9]::net::ethernet::intel::e1000::{impl#16}::fmt)\nOver visited: DefId(0:933 ~ isomorphic_drivers[47d9]::net::ethernet::intel::ixgbe::{impl#16}::fmt)\nOver visited: DefId(0:141 ~ kernel[3a41]::info::print_machine_info)\nOver visited: DefId(0:143 ~ kernel[3a41]::info::test_csr_register)\nOver visited: DefId(0:285 ~ kernel[3a41]::loongarch::driver::pckbd::i8042_init)\nOver visited: DefId(0:1037 ~ kernel[3a41]::syscall::gui::create_desktop)\nOver visited: DefId(0:1581 ~ kernel[3a41]::fs::inode::{impl#13}::fmt)\nOver visited: DefId(0:1801 ~ kernel[3a41]::mm::memory_set::{impl#12}::fmt)\nOver visited: DefId(0:1919 ~ kernel[3a41]::mm::page_table::{impl#15}::fmt)\nOver visited: DefId(0:2172 ~ kernel[3a41]::task::signal::{impl#9}::fmt)\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=kernel, checker=Udeps\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/kernel\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target loongarch64-unknown-none \ntimestamp=2025-06-28 12:37:09.642746897 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling num-traits v0.2.19\n   Compiling az v1.2.1\n   Compiling memchr v2.3.4\n   Compiling version_check v0.9.5\n    Checking byteorder v1.5.0\n   Compiling nom v6.2.2\n    Checking micromath v1.1.1\n    Checking lazy_static v1.5.0\n    Checking zero v0.1.3\n    Checking xmas-elf v0.8.0\n    Checking float-cmp v0.8.0\n   Compiling kernel v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/kernel)\n    Checking bitflags v2.9.1\n    Checking rustc-demangle v0.1.25\n    Checking virtio-input-decoder v0.1.4\n    Checking rlibc v1.0.0\n    Checking embedded-graphics-core v0.3.3\n    Checking oorandom v11.1.5\n    Checking isomorphic_drivers v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/isomorphic_drivers)\n    Checking stack_trace v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/stack_trace)\n    Checking loongArch64 v0.2.5\nwarning: the type `[&mut [IXGBESendDesc]; 4]` does not permit being left uninitialized\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                      |\n    |                      this code causes undefined behavior when executed\n    |                      help: use `MaybeUninit<T>` instead, and only call `assume_init` after initialization is done\n    |\n    = note: references must be non-null\n    = note: `#[warn(invalid_value)]` on by default\n\nwarning: `isomorphic_drivers` (lib) generated 1 warning\n    Checking easy-fs v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs)\n    Checking embedded-graphics v0.7.1\n    Checking pci v0.0.1 (/home/runner/check/batch_1/Godones/rCoreloongArch/pci)\n    Checking buddy_system_allocator v0.11.0\nwarning: lifetime flowing from input to output with different syntax can be confusing\n   --> pci/src/lib.rs:591:10\n    |\n591 |     ops: &T,\n    |          ^^ this lifetime flows to the output\n...\n594 | ) -> BusScan<T> {\n    |      ---------- the lifetime gets resolved as `'_`\n    |\n    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n594 | ) -> BusScan<'_, T> {\n    |              +++\n\nwarning: `pci` (lib) generated 1 warning\n    Checking tinybmp v0.3.3\n    Checking vbe v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/vbe)\nerror: unsafe attribute used without unsafe\n --> kernel/src/trap/trap.rs:1:3\n  |\n1 | #[naked]\n  |   ^^^^^ usage of unsafe attribute\n  |\nhelp: wrap the attribute in `unsafe(...)`\n  |\n1 | #[unsafe(naked)]\n  |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n  --> kernel/src/trap/trap.rs:94:3\n   |\n94 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n94 | #[unsafe(naked)]\n   |   +++++++     +\n\nwarning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> kernel/src/main.rs:5:12\n  |\n5 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: `kernel` (bin \"kernel\") generated 1 warning\nerror: could not compile `kernel` (bin \"kernel\") due to 2 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=kernel, checker=Outdated\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/kernel\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 12:36:34.920786741 +08:00:00\n\nName      Project  Compat  Latest  Kind    Platform\n----      -------  ------  ------  ----    --------\nbitflags  1.3.2    ---     2.9.1   Normal  ---\nxmas-elf  0.8.0    ---     0.10.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/config.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: digits of hex, binary or octal literal not in groups of equal size\n  --> kernel/src/config.rs:21:31\n   |\n21 | pub const MEMORY_END: usize = 0x000000000_1000_0000 + VIRT_BIAS;\n   |                               ^^^^^^^^^^^^^^^^^^^^^ help: consider: `0x0000_0000_0000_1000_0000`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unusual_byte_groupings\n   = note: `#[warn(clippy::unusual_byte_groupings)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/loongarch/driver/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: mutable borrow from immutable input(s)\n  --> kernel/src/loongarch/driver/mod.rs:60:26\n   |\n60 |     pub fn get(&self) -> &mut T {\n   |                          ^^^^^^\n   |\nnote: immutable borrow here\n  --> kernel/src/loongarch/driver/mod.rs:60:16\n   |\n60 |     pub fn get(&self) -> &mut T {\n   |                ^^^^^\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#mut_from_ref\n   = note: `#[deny(clippy::mut_from_ref)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/loongarch/rtc.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unneeded `return` statement\n  --> kernel/src/loongarch/rtc.rs:21:5\n   |\n21 | /     return RtcTime {\n22 | |         year,\n23 | |         month: mon,\n24 | |         day,\n...  |\n27 | |         second: sec,\n28 | |     };\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n   = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n   |\n21 ~     RtcTime {\n22 +         year,\n23 +         month: mon,\n24 +         day,\n25 +         hour,\n26 +         minute: min,\n27 +         second: sec,\n28 ~     }\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/mm/system_allocator/buddy.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: this is an outer doc comment and does not apply to the parent module or crate\n --> kernel/src/mm/system_allocator/buddy.rs:8:1\n  |\n8 | / ///! buddy分配器\n9 | | ///! 使用bump分配器分配内存然后在buddy分配器中进行分配管理\n  | |__________________________________________________________^\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#suspicious_doc_comments\n  = note: `#[warn(clippy::suspicious_doc_comments)]` on by default\nhelp: use an inner doc comment to document the parent module or crate\n  |\n8 ~ //! buddy分配器\n9 ~ //! 使用bump分配器分配内存然后在buddy分配器中进行分配管理\n  |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/mm/system_allocator/common.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: this is an outer doc comment and does not apply to the parent module or crate\n --> kernel/src/mm/system_allocator/common.rs:1:1\n  |\n1 | ///! 堆分配器的通用函数\n  | ^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#suspicious_doc_comments\nhelp: use an inner doc comment to document the parent module or crate\n  |\n1 | //! 堆分配器的通用函数\n  |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/syscall/signal.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: this if-then-else expression returns a bool literal\n  --> kernel/src/syscall/signal.rs:18:5\n   |\n18 | /     if action == 0\n19 | |         || old_action == 0\n20 | |         || signal == SignalFlags::SIGKILL\n21 | |         || signal == SignalFlags::SIGSTOP\n...  |\n25 | |         false\n26 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_bool\n   = note: `#[warn(clippy::needless_bool)]` on by default\nhelp: you can reduce it to\n   |\n18 ~     action == 0\n19 +         || old_action == 0\n20 +         || signal == SignalFlags::SIGKILL || signal == SignalFlags::SIGSTOP\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/task/processor.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: returning the result of a `let` binding from a block\n  --> kernel/src/task/processor.rs:98:5\n   |\n97 |     let token = task.get_user_token();\n   |     ---------------------------------- unnecessary `let` binding\n98 |     token\n   |     ^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#let_and_return\nhelp: return the expression directly\n   |\n97 ~     \n98 ~     task.get_user_token()\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/task/processor.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at kernel/src/task/processor.rs:75:17: 75:61 (#0) after dropped at kernel/src/task/processor.rs:78:5: 78:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "kernel/src/timer.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: non-canonical implementation of `partial_cmp` on an `Ord` type\n  --> kernel/src/timer.rs:27:1\n   |\n27 | /  impl PartialOrd for TimerCondVar {\n28 | |      fn partial_cmp(&self, other: &Self) -> Option<Ordering> {\n   | | _____________________________________________________________-\n29 | ||         let a = -(self.expire_ms as isize);\n30 | ||         let b = -(other.expire_ms as isize);\n31 | ||         Some(a.cmp(&b))\n32 | ||     }\n   | ||_____- help: change this to: `{ Some(self.cmp(other)) }`\n33 | |  }\n   | |__^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#non_canonical_partial_ord_impl\n   = note: `#[warn(clippy::non_canonical_partial_ord_impl)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/loongarch/extioi.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_1/Godones/rCoreloongArch/kernel/src/loongarch/extioi.rs (original lines from 4 to 9)\n-use crate::{loongarch::{\n-    iocsr_read_b, iocsr_read_d, iocsr_write_b, iocsr_write_d, iocsr_write_h, iocsr_write_w,\n-    KEYBOARD_IRQ, LOONGARCH_IOCSR_EXRIOI_NODETYPE_BASE, LOONGARCH_IOCSR_EXTIOI_EN_BASE,\n-    LOONGARCH_IOCSR_EXTIOI_ISR_BASE, LOONGARCH_IOCSR_EXTIOI_MAP_BASE,\n-    LOONGARCH_IOCSR_EXTIOI_ROUTE_BASE, MOUSE_IRQ, UART0_IRQ,\n-}, println};\n+use crate::{\n+    loongarch::{\n+        iocsr_read_b, iocsr_read_d, iocsr_write_b, iocsr_write_d, iocsr_write_h, iocsr_write_w,\n+        KEYBOARD_IRQ, LOONGARCH_IOCSR_EXRIOI_NODETYPE_BASE, LOONGARCH_IOCSR_EXTIOI_EN_BASE,\n+        LOONGARCH_IOCSR_EXTIOI_ISR_BASE, LOONGARCH_IOCSR_EXTIOI_MAP_BASE,\n+        LOONGARCH_IOCSR_EXTIOI_ROUTE_BASE, MOUSE_IRQ, UART0_IRQ,\n+    },\n+    println,\n+};\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Godones",
+      "repo": "rCoreloongArch",
+      "pkg": "isomorphic_drivers",
+      "count": 37,
+      "raw_reports": [
+        {
+          "file": "isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs",
+          "features": "",
+          "count": 16,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: this operation will always return zero. This is likely not the intended outcome\n  --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:98:27\n   |\n98 | const IXGBE_CTRL: usize = 0x00000 / 4;\n   |                           ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#erasing_op\n   = note: `#[deny(clippy::erasing_op)]` on by default\n\n",
+              "error: this call for this type may be undefined behavior\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninit_assumed_init\n    = note: `#[deny(clippy::uninit_assumed_init)]` on by default\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: operator precedence can trip the unwary\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:335:33\n    |\n335 |         ixgbe[IXGBE_CTRL].write(1 << 3 | 1 << 26);\n    |                                 ^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(1 << 3) | (1 << 26)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:336:43\n    |\n336 |         while ixgbe[IXGBE_CTRL].read() & (1 << 3 | 1 << 26) != 0 {}\n    |                                           ^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(1 << 3) | (1 << 26)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:634:33\n    |\n634 |         ixgbe[IXGBE_CTRL].write(1 << 3 | 1 << 26);\n    |                                 ^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(1 << 3) | (1 << 26)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: operator precedence can trip the unwary\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:635:43\n    |\n635 |         while ixgbe[IXGBE_CTRL].read() & (1 << 3 | 1 << 26) != 0 {\n    |                                           ^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `(1 << 3) | (1 << 26)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: the loop variable `i` is only used to index `ixgbe`\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:388:18\n    |\n388 |         for i in IXGBE_PFUTA..IXGBE_PFUTA_END {\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator\n    |\n388 |         for <item> in ixgbe.iter_mut().take(IXGBE_PFUTA_END).skip(IXGBE_PFUTA) {\n    |             ~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
+              "warning: the loop variable `i` is only used to index `ixgbe`\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:392:18\n    |\n392 |         for i in IXGBE_VFTA..IXGBE_VFTA_END {\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator\n    |\n392 |         for <item> in ixgbe.iter_mut().take(IXGBE_VFTA_END).skip(IXGBE_VFTA) {\n    |             ~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
+              "warning: the loop variable `i` is only used to index `ixgbe`\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:396:18\n    |\n396 |         for i in IXGBE_PFVLVF..IXGBE_PFVLVF_END {\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator\n    |\n396 |         for <item> in ixgbe.iter_mut().take(IXGBE_PFVLVF_END).skip(IXGBE_PFVLVF) {\n    |             ~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
+              "warning: the loop variable `i` is only used to index `ixgbe`\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:400:18\n    |\n400 |         for i in IXGBE_MPSAR..IXGBE_MPSAR_END {\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator\n    |\n400 |         for <item> in ixgbe.iter_mut().take(IXGBE_MPSAR_END).skip(IXGBE_MPSAR) {\n    |             ~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
+              "warning: the loop variable `i` is only used to index `ixgbe`\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:404:18\n    |\n404 |         for i in IXGBE_PFVLVFB..IXGBE_PFVLVFB_END {\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator\n    |\n404 |         for <item> in ixgbe.iter_mut().take(IXGBE_PFVLVFB_END).skip(IXGBE_PFVLVFB) {\n    |             ~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
+              "warning: the loop variable `i` is only used to index `ixgbe`\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:410:18\n    |\n410 |         for i in IXGBE_MTA..IXGBE_MTA_END {\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator\n    |\n410 |         for <item> in ixgbe.iter_mut().take(IXGBE_MTA_END).skip(IXGBE_MTA) {\n    |             ~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
+              "warning: this operation has no effect\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:453:32\n    |\n453 |             *x = (*x & !0xf) | (8 << 0) | (1 << 28);\n    |                                ^^^^^^^^ help: consider reducing it to: `8`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n\n",
+              "warning: the loop variable `i` is used to index `send_queue`\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:526:22\n    |\n526 |             for i in 0..IXGBE_SEND_DESC_NUM {\n    |                      ^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator and enumerate()\n    |\n526 |             for (i, <item>) in send_queue.iter_mut().enumerate().take(IXGBE_SEND_DESC_NUM) {\n    |                 ~~~~~~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
+              "warning: the type `[&mut [net::ethernet::intel::ixgbe::IXGBESendDesc]; 4]` does not permit being left uninitialized\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                      |\n    |                      this code causes undefined behavior when executed\n    |                      help: use `MaybeUninit<T>` instead, and only call `assume_init` after initialization is done\n    |\n    = note: references must be non-null\n    = note: `#[warn(invalid_value)]` on by default\n\n",
+              "warning: the type `[&mut [net::ethernet::intel::ixgbe::IXGBESendDesc]; 4]` does not permit being left uninitialized\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                      |\n    |                      this code causes undefined behavior when executed\n    |                      help: use `MaybeUninit<T>` instead, and only call `assume_init` after initialization is done\n    |\n    = note: references must be non-null\n    = note: `#[warn(invalid_value)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "isomorphic_drivers/src/net/ethernet/intel/e1000.rs",
+          "features": "",
+          "count": 8,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: operator precedence can trip the unwary\n   --> isomorphic_drivers/src/net/ethernet/intel/e1000.rs:132:19\n    |\n132 |             ral = ral | (mac.as_bytes()[i] as u32) << (i * 8);\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `ral | ((mac.as_bytes()[i] as u32) << (i * 8))`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n    = note: `#[warn(clippy::precedence)]` on by default\n\n",
+              "warning: operator precedence can trip the unwary\n   --> isomorphic_drivers/src/net/ethernet/intel/e1000.rs:135:19\n    |\n135 |             rah = rah | (mac.as_bytes()[i + 4] as u32) << (i * 8);\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `rah | ((mac.as_bytes()[i + 4] as u32) << (i * 8))`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: the loop variable `i` is only used to index `send_queue`\n   --> isomorphic_drivers/src/net/ethernet/intel/e1000.rs:117:18\n    |\n117 |         for i in 0..send_queue.len() {\n    |                  ^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\n    = note: `#[warn(clippy::needless_range_loop)]` on by default\nhelp: consider using an iterator\n    |\n117 |         for <item> in &mut send_queue {\n    |             ~~~~~~    ~~~~~~~~~~~~~~~\n\n",
+              "warning: manual implementation of an assign operation\n   --> isomorphic_drivers/src/net/ethernet/intel/e1000.rs:132:13\n    |\n132 |             ral = ral | (mac.as_bytes()[i] as u32) << (i * 8);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace it with: `ral |= (mac.as_bytes()[i] as u32) << (i * 8)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n    = note: `#[warn(clippy::assign_op_pattern)]` on by default\n\n",
+              "warning: manual implementation of an assign operation\n   --> isomorphic_drivers/src/net/ethernet/intel/e1000.rs:135:13\n    |\n135 |             rah = rah | (mac.as_bytes()[i + 4] as u32) << (i * 8);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace it with: `rah |= (mac.as_bytes()[i + 4] as u32) << (i * 8)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n\n",
+              "warning: the loop variable `i` is only used to index `e1000`\n   --> isomorphic_drivers/src/net/ethernet/intel/e1000.rs:143:18\n    |\n143 |         for i in E1000_MTA..E1000_RAL {\n    |                  ^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator\n    |\n143 |         for <item> in e1000.iter_mut().take(E1000_RAL).skip(E1000_MTA) {\n    |             ~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n",
+              "warning: the loop variable `i` is only used to index `recv_queue`\n   --> isomorphic_drivers/src/net/ethernet/intel/e1000.rs:164:18\n    |\n164 |         for i in 0..recv_queue.len() {\n    |                  ^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator\n    |\n164 |         for <item> in &mut recv_queue {\n    |             ~~~~~~    ~~~~~~~~~~~~~~~\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> isomorphic_drivers/src/net/ethernet/intel/e1000.rs:258:32\n    |\n258 |         target.copy_from_slice(&buffer);\n    |                                ^^^^^^^ help: change this to: `buffer`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n    = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "isomorphic_drivers/src/block/ahci.rs",
+          "features": "",
+          "count": 6,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: empty doc comment\n  --> isomorphic_drivers/src/block/ahci.rs:14:1\n   |\n14 | ///\n   | ^^^\n   |\n   = help: consider removing or filling it\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#empty_docs\n   = note: `#[warn(clippy::empty_docs)]` on by default\n\n",
+              "warning: this operation has no effect\n   --> isomorphic_drivers/src/block/ahci.rs:278:22\n    |\n278 |         self.lba_0 = (lba >> 0) as u8;\n    |                      ^^^^^^^^^^ help: consider reducing it to: `lba`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n    = note: `#[warn(clippy::identity_op)]` on by default\n\n",
+              "warning: unneeded `return` statement\n   --> isomorphic_drivers/src/block/ahci.rs:513:5\n    |\n513 |     return String::from_utf8(swapped_data).unwrap();\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n    = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n    |\n513 -     return String::from_utf8(swapped_data).unwrap();\n513 +     String::from_utf8(swapped_data).unwrap()\n    |\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: incompatible bit mask: `_ | 32768` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:328:19\n    |\n328 |             while port.command.read() | (1 << 15) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
+              "error: incompatible bit mask: `_ | 16384` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:335:19\n    |\n335 |             while port.command.read() | (1 << 14) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n",
+              "error: incompatible bit mask: `_ | 1` can never be equal to `0`\n   --> isomorphic_drivers/src/block/ahci.rs:399:19\n    |\n399 |             while port.command.read() | (1 << 0) == 0 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=isomorphic_drivers, checker=Clippy\n// toolchain=nightly-2025-01-01, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/isomorphic_drivers\n// cmd=cargo clippy --target loongarch64-unknown-none  --no-deps\n// timestamp=2025-06-28 12:34:37.738005316 +08:00:00\n    Checking log v0.4.27\n    Checking volatile v0.3.0\n    Checking bit_field v0.10.2\n    Checking spin v0.9.8\n    Checking bitflags v1.3.2\n    Checking isomorphic_drivers v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/isomorphic_drivers)\nerror: could not compile `isomorphic_drivers` (lib) due to 5 previous errors; 24 warnings emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=isomorphic_drivers, checker=SemverChecks\n// toolchain=nightly-2025-01-01, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/isomorphic_drivers\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \n// timestamp=2025-06-28 12:34:46.838453833 +08:00:00\n    Building isomorphic_drivers v0.1.0 (current)\n       Built [   0.818s] (current)\n     Parsing isomorphic_drivers v0.1.0 (current)\n      Parsed [   0.005s] (current)\nerror: isomorphic_drivers not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T04:35:33Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T04:35:33Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=isomorphic_drivers, checker=Udeps\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/isomorphic_drivers\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target loongarch64-unknown-none \ntimestamp=2025-06-28 12:37:06.950224682 +08:00:00\n\n\nstdout:\nunused dependencies:\n`isomorphic_drivers v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/isomorphic_drivers)`\n└─── dependencies\n     └─── \"spin\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking spin v0.9.8\n    Checking bit_field v0.10.2\n    Checking volatile v0.3.0\n    Checking bitflags v1.3.2\n    Checking log v0.4.27\n    Checking isomorphic_drivers v0.1.0 (/home/runner/check/batch_1/Godones/rCoreloongArch/isomorphic_drivers)\nwarning: the type `[&mut [IXGBESendDesc]; 4]` does not permit being left uninitialized\n   --> isomorphic_drivers/src/net/ethernet/intel/ixgbe.rs:518:22\n    |\n518 |             unsafe { MaybeUninit::uninit().assume_init() };\n    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |                      |\n    |                      this code causes undefined behavior when executed\n    |                      help: use `MaybeUninit<T>` instead, and only call `assume_init` after initialization is done\n    |\n    = note: references must be non-null\n    = note: `#[warn(invalid_value)]` on by default\n\nwarning: `isomorphic_drivers` (lib) generated 1 warning\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.32s\ninfo: Loading depinfo from \"/home/runner/check/batch_1/Godones/rCoreloongArch/target/loongarch64-unknown-none/debug/deps/isomorphic_drivers-3f7686f066280b97.d\"\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=isomorphic_drivers, checker=Outdated\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/isomorphic_drivers\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 12:36:34.274592638 +08:00:00\n\nName      Project  Compat  Latest  Kind    Platform\n----      -------  ------  ------  ----    --------\nbitflags  1.3.2    ---     2.9.1   Normal  ---\nspin      0.9.8    ---     0.10.0  Normal  ---\nvolatile  0.3.0    ---     0.6.1   Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=isomorphic_drivers, checker=SemverChecks\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/isomorphic_drivers\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \ntimestamp=2025-06-28 12:34:48.188105545 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building isomorphic_drivers v0.1.0 (current)\n       Built [   0.818s] (current)\n     Parsing isomorphic_drivers v0.1.0 (current)\n      Parsed [   0.005s] (current)\nerror: isomorphic_drivers not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Godones",
+      "repo": "rCoreloongArch",
+      "pkg": "user_lib",
+      "count": 17,
+      "raw_reports": [
+        {
+          "file": "user/src/bin/stackless_coroutine.rs",
+          "features": "",
+          "count": 5,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: the following explicit lifetimes could be elided: 'a\n  --> user/src/bin/stackless_coroutine.rs:28:15\n   |\n28 |     fn waiter<'a>(&'a mut self) -> Waiter<'a> {\n   |               ^^   ^^                     ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n   = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n   |\n28 -     fn waiter<'a>(&'a mut self) -> Waiter<'a> {\n28 +     fn waiter(&mut self) -> Waiter<'_> {\n   |\n\n",
+              "warning: the following explicit lifetimes could be elided: 'a\n  --> user/src/bin/stackless_coroutine.rs:28:15\n   |\n28 |     fn waiter<'a>(&'a mut self) -> Waiter<'a> {\n   |               ^^   ^^                     ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n   = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n   |\n28 -     fn waiter<'a>(&'a mut self) -> Waiter<'a> {\n28 +     fn waiter(&mut self) -> Waiter<'_> {\n   |\n\n",
+              "warning: the following explicit lifetimes could be elided: 'a\n  --> user/src/bin/stackless_coroutine.rs:28:15\n   |\n28 |     fn waiter<'a>(&'a mut self) -> Waiter<'a> {\n   |               ^^   ^^                     ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n   = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n   |\n28 -     fn waiter<'a>(&'a mut self) -> Waiter<'a> {\n28 +     fn waiter(&mut self) -> Waiter<'_> {\n   |\n\n",
+              "warning: the following explicit lifetimes could be elided: 'a\n  --> user/src/bin/stackless_coroutine.rs:37:6\n   |\n37 | impl<'a> Future for Waiter<'a> {\n   |      ^^                    ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n   |\n37 - impl<'a> Future for Waiter<'a> {\n37 + impl Future for Waiter<'_> {\n   |\n\n",
+              "warning: the following explicit lifetimes could be elided: 'a\n  --> user/src/bin/stackless_coroutine.rs:37:6\n   |\n37 | impl<'a> Future for Waiter<'a> {\n   |      ^^                    ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\nhelp: elide the lifetimes\n   |\n37 - impl<'a> Future for Waiter<'a> {\n37 + impl Future for Waiter<'_> {\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "user/src/bin/usertests.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: manual implementation of an assign operation\n   --> user/src/bin/usertests.rs:100:17\n    |\n100 |                 pass_num = pass_num + 1;\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^ help: replace it with: `pass_num += 1`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n    = note: `#[warn(clippy::assign_op_pattern)]` on by default\n\n",
+              "warning: unneeded `return` statement\n   --> user/src/bin/usertests.rs:138:5\n    |\n138 |     return -1;\n    |     ^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n    = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n    |\n138 -     return -1;\n138 +     -1\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=user_lib, checker=SemverChecks\n// toolchain=nightly-2025-01-01, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/user\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \n// timestamp=2025-06-28 12:34:50.429814786 +08:00:00\n    Building user_lib v0.1.0 (current)\n       Built [   0.827s] (current)\n     Parsing user_lib v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: user_lib not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[Rapx] memory safety detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Rapx": [
+              "pkg=user_lib, checker=Rapx\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/user\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target loongarch64-unknown-none \ntimestamp=2025-06-28 12:36:27.383795681 +08:00:00\n\nOver visited: DefId(0:206 ~ user_lib[1181]::fs::{impl#8}::fmt)\nOver visited: DefId(0:311 ~ user_lib[1181]::sign::{impl#8}::fmt)\nwarning: Use after free detected.\n  --> user/src/bin/user_shell.rs:55:33\n   |\n55 |             if let Some((idx, _)) = args_copy\n   |  ___________________________________---------\n   | |                                   |\n   | | __________________________________Use after free detected.\n   | || _________________________________|\n   | |||\n56 | |||             .iter()\n   | |||___________________- Use after free detected.\n57 |  ||             .enumerate()\n   |  ||________________________- Use after free detected.\n58 |   |             .find(|(_, arg)| arg.as_str() == \">\\0\")\n   |   |___________________________________________________- Use after free detected.\n59 |             {\n60 |                 output = args_copy[idx + 1].clone();\n   |                          --------------------------\n   |                          |        |\n   |                          |        Use after free detected.\n   |                          Use after free detected.\n   |                          Use after free detected.\n   |                          Use after free detected.\n61 |                 args_copy.drain(idx..=idx + 1);\n   |                 ------------------------------\n   |                 |\n   |                 Use after free detected.\n   |                 Use after free detected.\n62 |             }\n63 |\n64 |             let mut args_addr: Vec<*const u8> = args_copy.iter().map(|arg| arg.as_ptr()).collect();\n   |                                                 --------------------------------------------------\n   |                                                 |\n   |                                                 Use after free detected.\n   |                                                 Use after free detected.\n   |                                                 Use after free detected.\n   |                                                 Use after free detected.\n65 |             args_addr.push(core::ptr::null::<u8>());\n66 |\n67 |             Self {\n   |  ___________-\n68 | |               input,\n69 | |               output,\n70 | |               args_copy,\n   | |               --------- Use after free detected.\n71 | |               args_addr,\n72 | |           }\n   | |___________- Use after free detected.\n   |\nwarning: Dangling pointer detected.\n  --> user/src/bin/user_shell.rs:29:1\n   |\n29 | / pub fn new(command: &str) -> Self {\n30 | |         let args: Vec<_> = command.split(' ').collect();\n...  |\n72 | |         }\n73 | |     }\n   | |_____- Dangling pointer detected.\n   |\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=user_lib, checker=Outdated\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/user\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 12:36:37.032697284 +08:00:00\n\nName      Project  Compat  Latest  Kind    Platform\n----      -------  ------  ------  ----    --------\nbitflags  1.3.2    ---     2.9.1   Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=user_lib, checker=SemverChecks\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/user\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \ntimestamp=2025-06-28 12:34:51.783447701 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building user_lib v0.1.0 (current)\n       Built [   0.827s] (current)\n     Parsing user_lib v0.1.0 (current)\n      Parsed [   0.002s] (current)\nerror: user_lib not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "user/src/bin/phil_din_mutex.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: useless conversion to the same type: `core::ops::Range<usize>`\n  --> user/src/bin/phil_din_mutex.rs:85:15\n   |\n85 |     for id in (0..N).into_iter().chain(0..=0) {\n   |               ^^^^^^^^^^^^^^^^^^ help: consider removing `.into_iter()`: `(0..N)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n   = note: `#[warn(clippy::useless_conversion)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "user/src/bin/sync_sem.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: useless use of `vec!`\n  --> user/src/bin/sync_sem.rs:36:19\n   |\n36 |       let threads = vec![\n   |  ___________________^\n37 | |         thread_create(first as usize, 0),\n38 | |         thread_create(second as usize, 0),\n39 | |     ];\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_vec\n   = note: `#[warn(clippy::useless_vec)]` on by default\nhelp: you can use an array directly\n   |\n36 ~     let threads = [thread_create(first as usize, 0),\n37 ~         thread_create(second as usize, 0)];\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "user/src/bin/test_condvar.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: useless use of `vec!`\n  --> user/src/bin/test_condvar.rs:49:19\n   |\n49 |       let threads = vec![\n   |  ___________________^\n50 | |         thread_create(first as usize, 0),\n51 | |         thread_create(second as usize, 0),\n52 | |     ];\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_vec\n   = note: `#[warn(clippy::useless_vec)]` on by default\nhelp: you can use an array directly\n   |\n49 ~     let threads = [thread_create(first as usize, 0),\n50 ~         thread_create(second as usize, 0)];\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "user/src/bin/threads.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: useless use of `vec!`\n  --> user/src/bin/threads.rs:35:13\n   |\n35 |       let v = vec![\n   |  _____________^\n36 | |         thread_create(thread_a as usize, 0),\n37 | |         thread_create(thread_b as usize, 0),\n38 | |         thread_create(thread_c as usize, 0),\n39 | |     ];\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_vec\n   = note: `#[warn(clippy::useless_vec)]` on by default\nhelp: you can use an array directly\n   |\n35 ~     let v = [thread_create(thread_a as usize, 0),\n36 +         thread_create(thread_b as usize, 0),\n37 ~         thread_create(thread_c as usize, 0)];\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "user/src/bin/usertests_simple.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: deref which would be done by auto-deref\n  --> user/src/bin/usertests_simple.rs:29:18\n   |\n29 |             exec(*test, &[core::ptr::null::<u8>()]);\n   |                  ^^^^^ help: try: `test`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n   = note: `#[warn(clippy::explicit_auto_deref)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "user/src/syscall.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: empty line after doc comment\n  --> user/src/syscall.rs:75:1\n   |\n75 | / /// -1，否则不应该返回。 syscall ID：221\n76 | |\n   | |_^\n77 |   pub fn sys_exec(path: &str, args: &[*const u8]) -> isize {\n   |   -------------------------------------------------------- the comment documents this function\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#empty_line_after_doc_comments\n   = note: `#[warn(clippy::empty_line_after_doc_comments)]` on by default\n   = help: if the empty line is unintentional remove it\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Godones",
+      "repo": "rCoreloongArch",
+      "pkg": "easy-fs",
+      "count": 10,
+      "raw_reports": [
+        {
+          "file": "easy-fs/src/layout.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: manually reimplementing `div_ceil`\n   --> easy-fs/src/layout.rs:116:9\n    |\n116 |         (size + BLOCK_SZ as u32 - 1) / BLOCK_SZ as u32\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `size.div_ceil(BLOCK_SZ as u32)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n\n",
+              "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n   --> easy-fs/src/layout.rs:121:25\n    |\n121 |         let mut total = data_blocks as usize;\n    |                         ^^^^^^^^^^^^^^^^^^^^ help: try: `data_blocks`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: manually reimplementing `div_ceil`\n   --> easy-fs/src/layout.rs:131:17\n    |\n131 |                 (data_blocks - INDIRECT1_BOUND + INODE_INDIRECT1_COUNT - 1) / INODE_INDIRECT1_COUNT;\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `(data_blocks - INDIRECT1_BOUND).div_ceil(INODE_INDIRECT1_COUNT)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n\n"
+            ]
+          }
+        },
+        {
+          "file": "easy-fs/src/bitmap.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n  --> easy-fs/src/bitmap.rs:33:28\n   |\n33 |                 block_id + self.start_block_id as usize,\n   |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `self.start_block_id`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n   = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n",
+              "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n  --> easy-fs/src/bitmap.rs:46:68\n   |\n46 |                     Some(block_id * BLOCK_BITS + bits64_pos * 64 + inner_pos as usize)\n   |                                                                    ^^^^^^^^^^^^^^^^^^ help: try: `inner_pos`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=easy-fs, checker=SemverChecks\n// toolchain=nightly-2025-01-01, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \n// timestamp=2025-06-28 12:34:44.834665064 +08:00:00\n    Building easy-fs v0.1.0 (current)\n       Built [   0.769s] (current)\n     Parsing easy-fs v0.1.0 (current)\n      Parsed [   0.002s] (current)\n    Building easy-fs v0.1.0 (baseline)\nerror: running cargo-doc on crate 'easy-fs' failed with output:\n-----\n Documenting easy-fs v0.1.0\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `loongarch64-unknown-none` target may not support the standard library\n  = note: `std` is required by `easy_fs` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:1:5\n  |\n1 | use std::{fs::OpenOptions, io::{Read, Seek, SeekFrom, Write}, path::Path};\n  |     ^^^ can't find crate\n  |\n  = note: the `loongarch64-unknown-none` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find attribute `derive` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:53:3\n   |\n53 | #[derive(Clone, Copy, PartialEq)]\n   |   ^^^^^^\n   |\nhelp: consider importing this attribute macro\n   |\n1  + use core::prelude::rust_2024::derive;\n   |\n\nerror: cannot find macro `assert_ne` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:48:9\n   |\n48 |         assert_ne!(n, 0);\n   |         ^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n1  + use core::assert_ne;\n   |\n\nerror: cannot find macro `assert_ne` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:42:9\n   |\n42 |         assert_ne!(n, 0);\n   |         ^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n1  + use core::assert_ne;\n   |\n\nerror[E0463]: can't find crate for `std`\n --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:4:12\n  |\n4 |     file : std::fs::File,\n  |            ^^^ can't find crate\n  |\n  = note: the `loongarch64-unknown-none` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0412]: cannot find type `String` in this scope\n --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:8:25\n  |\n8 |     pub fn open(path : &String, option : Option)->Self {\n  |                         ^^^^^^ not found in this scope\n\nerror[E0412]: cannot find type `String` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:15:27\n   |\n15 |     pub fn exists(path : &String)->bool {\n   |                           ^^^^^^ not found in this scope\n\nerror[E0412]: cannot find type `String` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:19:28\n   |\n19 |     pub fn is_file(path : &String)->bool {\n   |                            ^^^^^^ not found in this scope\n\nSome errors have detailed explanations: E0412, E0463.\nFor more information about an error, try `rustc --explain E0412`.\nerror: could not document `easy-fs`\n\n-----\n\nerror: failed to build rustdoc for crate easy-fs v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add easy-fs@=0.1.0 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate easy-fs v0.1.0\n"
+            ]
+          }
+        },
+        {
+          "file": "[Rapx] memory safety detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Rapx": [
+              "pkg=easy-fs, checker=Rapx\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target loongarch64-unknown-none \ntimestamp=2025-06-28 12:35:45.480037035 +08:00:00\n\nwarning: Use after free detected.\n   --> easy-fs/src/block_cache.rs:119:13\n    |\n119 |             self.queue.push_back((block_id, Arc::clone(&block_cache)));\n    |             ----------------------------------------------------------\n    |             |\n    |             Use after free detected.\n    |             Use after free detected.\n    |\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=easy-fs, checker=SemverChecks\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/easy-fs\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \ntimestamp=2025-06-28 12:34:46.83600247 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building easy-fs v0.1.0 (current)\n       Built [   0.769s] (current)\n     Parsing easy-fs v0.1.0 (current)\n      Parsed [   0.002s] (current)\n    Building easy-fs v0.1.0 (baseline)\nerror: running cargo-doc on crate 'easy-fs' failed with output:\n-----\n Documenting easy-fs v0.1.0\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `loongarch64-unknown-none` target may not support the standard library\n  = note: `std` is required by `easy_fs` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:1:5\n  |\n1 | use std::{fs::OpenOptions, io::{Read, Seek, SeekFrom, Write}, path::Path};\n  |     ^^^ can't find crate\n  |\n  = note: the `loongarch64-unknown-none` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find attribute `derive` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:53:3\n   |\n53 | #[derive(Clone, Copy, PartialEq)]\n   |   ^^^^^^\n   |\nhelp: consider importing this attribute macro\n   |\n1  + use core::prelude::rust_2024::derive;\n   |\n\nerror: cannot find macro `assert_ne` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:48:9\n   |\n48 |         assert_ne!(n, 0);\n   |         ^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n1  + use core::assert_ne;\n   |\n\nerror: cannot find macro `assert_ne` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:42:9\n   |\n42 |         assert_ne!(n, 0);\n   |         ^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n1  + use core::assert_ne;\n   |\n\nerror[E0463]: can't find crate for `std`\n --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:4:12\n  |\n4 |     file : std::fs::File,\n  |            ^^^ can't find crate\n  |\n  = note: the `loongarch64-unknown-none` target may not support the standard library\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0412]: cannot find type `String` in this scope\n --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:8:25\n  |\n8 |     pub fn open(path : &String, option : Option)->Self {\n  |                         ^^^^^^ not found in this scope\n\nerror[E0412]: cannot find type `String` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:15:27\n   |\n15 |     pub fn exists(path : &String)->bool {\n   |                           ^^^^^^ not found in this scope\n\nerror[E0412]: cannot find type `String` in this scope\n  --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/easy-fs-0.1.0/src/file.rs:19:28\n   |\n19 |     pub fn is_file(path : &String)->bool {\n   |                            ^^^^^^ not found in this scope\n\nSome errors have detailed explanations: E0412, E0463.\nFor more information about an error, try `rustc --explain E0412`.\nerror: could not document `easy-fs`\n\n-----\n\nerror: failed to build rustdoc for crate easy-fs v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add easy-fs@=0.1.0 &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate easy-fs v0.1.0\n"
+            ]
+          }
+        },
+        {
+          "file": "easy-fs/src/efs.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: manually reimplementing `div_ceil`\n  --> easy-fs/src/efs.rs:35:13\n   |\n35 |             ((inode_num * core::mem::size_of::<DiskInode>() + BLOCK_SZ - 1) / BLOCK_SZ) as u32;\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `(inode_num * core::mem::size_of::<DiskInode>()).div_ceil(BLOCK_SZ)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n   = note: `#[warn(clippy::manual_div_ceil)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "easy-fs/src/vfs.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n  --> easy-fs/src/vfs.rs:56:29\n   |\n56 |                 return Some(dirent.inode_number() as u32);\n   |                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `dirent.inode_number()`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Godones",
+      "repo": "rCoreloongArch",
+      "pkg": "stack_trace",
+      "count": 5,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=stack_trace, checker=SemverChecks\n// toolchain=nightly-2025-01-01, target=loongarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/stack_trace\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \n// timestamp=2025-06-28 12:34:49.398008996 +08:00:00\n    Building stack_trace v0.1.0 (current)\n       Built [   0.485s] (current)\n     Parsing stack_trace v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: stack_trace not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T04:35:33Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T04:35:33Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=stack_trace, checker=Outdated\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/stack_trace\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 12:36:36.414429567 +08:00:00\n\nName      Project  Compat  Latest  Kind    Platform\n----      -------  ------  ------  ----    --------\nxmas-elf  0.8.0    ---     0.10.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=stack_trace, checker=SemverChecks\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/stack_trace\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target loongarch64-unknown-none \ntimestamp=2025-06-28 12:34:50.427904677 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building stack_trace v0.1.0 (current)\n       Built [   0.485s] (current)\n     Parsing stack_trace v0.1.0 (current)\n      Parsed [   0.001s] (current)\nerror: stack_trace not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Godones",
+      "repo": "rCoreloongArch",
+      "pkg": "pci",
+      "count": 2,
+      "raw_reports": [
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=pci, checker=Udeps\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/pci\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target loongarch64-unknown-none \ntimestamp=2025-06-28 12:37:09.835510755 +08:00:00\n\n\nstdout:\nunused dependencies:\n`pci v0.0.1 (/home/runner/check/batch_1/Godones/rCoreloongArch/pci)`\n└─── dependencies\n     └─── \"bit_field\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking pci v0.0.1 (/home/runner/check/batch_1/Godones/rCoreloongArch/pci)\nwarning: lifetime flowing from input to output with different syntax can be confusing\n   --> pci/src/lib.rs:591:10\n    |\n591 |     ops: &T,\n    |          ^^ this lifetime flows to the output\n...\n594 | ) -> BusScan<T> {\n    |      ---------- the lifetime gets resolved as `'_`\n    |\n    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n594 | ) -> BusScan<'_, T> {\n    |              +++\n\nwarning: `pci` (lib) generated 1 warning\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.16s\ninfo: Loading depinfo from \"/home/runner/check/batch_1/Godones/rCoreloongArch/target/loongarch64-unknown-none/debug/deps/pci-33490270a2b535c8.d\"\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=pci, checker=Outdated\ntoolchain=nightly-2025-01-01, target=loongarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Godones/rCoreloongArch/pci\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 12:36:35.773996025 +08:00:00\n\nName      Project  Compat  Latest  Kind    Platform\n----      -------  ------  ------  ----    --------\nbitflags  1.3.2    ---     2.9.1   Normal  ---\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}
