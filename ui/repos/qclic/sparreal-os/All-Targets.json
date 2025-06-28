@@ -61,15 +61,15 @@
           "features": "",
           "count": 6,
           "kinds": {
+            "Mirai": [
+              "error[E0432]: unresolved import `mmu`\n  --> crates/sparreal-kernel/src/mem/mod.rs:11:5\n   |\n11 | use mmu::RegionKind;\n   |     ^^^ use of undeclared crate or module `mmu`\n\n",
+              "error[E0599]: no method named `as_usize` found for struct `mem::addr::Phys` in the current scope\n   --> crates/sparreal-kernel/src/mem/mod.rs:137:38\n    |\n137 |         NonNull::new_unchecked(paddr.as_usize() as *mut u8)\n    |                                      ^^^^^^^^ method not found in `Phys<u8>`\n    |\n   ::: crates/sparreal-kernel/src/mem/addr.rs:69:9\n    |\n69  |         pub struct $name<T>($t, core::marker::PhantomData<T>);\n    |         ------------------------------------------------------ method `as_usize` not found for this struct\n\n"
+            ],
             "Clippy(Error)": [
               "error[E0432]: unresolved import `mmu`\n  --> crates/sparreal-kernel/src/mem/mod.rs:11:5\n   |\n11 | use mmu::RegionKind;\n   |     ^^^ use of unresolved module or unlinked crate `mmu`\n   |\n   = help: if you wanted to use a crate named `mmu`, use `cargo add mmu` to add it to your `Cargo.toml`\n\n",
               "error[E0599]: no method named `as_usize` found for struct `mem::addr::Phys` in the current scope\n   --> crates/sparreal-kernel/src/mem/mod.rs:137:38\n    |\n137 |         NonNull::new_unchecked(paddr.as_usize() as *mut u8)\n    |                                      ^^^^^^^^ method not found in `mem::addr::Phys<u8>`\n    |\n   ::: crates/sparreal-kernel/src/mem/addr.rs:69:9\n    |\n69  |         pub struct $name<T>($t, core::marker::PhantomData<T>);\n    |         ------------------------------------------------------ method `as_usize` not found for this struct\n\n",
               "error[E0432]: unresolved import `mmu`\n  --> crates/sparreal-kernel/src/mem/mod.rs:11:5\n   |\n11 | use mmu::RegionKind;\n   |     ^^^ use of unresolved module or unlinked crate `mmu`\n   |\n   = help: if you wanted to use a crate named `mmu`, use `cargo add mmu` to add it to your `Cargo.toml`\n\n",
               "error[E0599]: no method named `as_usize` found for struct `mem::addr::Phys` in the current scope\n   --> crates/sparreal-kernel/src/mem/mod.rs:137:38\n    |\n137 |         NonNull::new_unchecked(paddr.as_usize() as *mut u8)\n    |                                      ^^^^^^^^ method not found in `mem::addr::Phys<u8>`\n    |\n   ::: crates/sparreal-kernel/src/mem/addr.rs:69:9\n    |\n69  |         pub struct $name<T>($t, core::marker::PhantomData<T>);\n    |         ------------------------------------------------------ method `as_usize` not found for this struct\n\n"
-            ],
-            "Mirai": [
-              "error[E0432]: unresolved import `mmu`\n  --> crates/sparreal-kernel/src/mem/mod.rs:11:5\n   |\n11 | use mmu::RegionKind;\n   |     ^^^ use of undeclared crate or module `mmu`\n\n",
-              "error[E0599]: no method named `as_usize` found for struct `mem::addr::Phys` in the current scope\n   --> crates/sparreal-kernel/src/mem/mod.rs:137:38\n    |\n137 |         NonNull::new_unchecked(paddr.as_usize() as *mut u8)\n    |                                      ^^^^^^^^ method not found in `Phys<u8>`\n    |\n   ::: crates/sparreal-kernel/src/mem/addr.rs:69:9\n    |\n69  |         pub struct $name<T>($t, core::marker::PhantomData<T>);\n    |         ------------------------------------------------------ method `as_usize` not found for this struct\n\n"
             ]
           }
         },
@@ -78,13 +78,13 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Mirai": [
-              "error[E0432]: unresolved import `crate::platform_if::MMUImpl`\n --> crates/sparreal-kernel/src/mem/region.rs:4:26\n  |\n4 | use crate::platform_if::{MMUImpl, PlatformImpl};\n  |                          ^^^^^^^ no `MMUImpl` in `platform_if`\n\n",
-              "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/region.rs:6:13\n   |\n6  | use super::{mmu::BootRegion, once::OnceStatic};\n   |             ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n"
-            ],
             "Clippy(Error)": [
               "error[E0432]: unresolved import `crate::platform_if::MMUImpl`\n --> crates/sparreal-kernel/src/mem/region.rs:4:26\n  |\n4 | use crate::platform_if::{MMUImpl, PlatformImpl};\n  |                          ^^^^^^^ no `MMUImpl` in `platform_if`\n\n",
               "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/region.rs:6:13\n   |\n6  | use super::{mmu::BootRegion, once::OnceStatic};\n   |             ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n",
+              "error[E0432]: unresolved import `crate::platform_if::MMUImpl`\n --> crates/sparreal-kernel/src/mem/region.rs:4:26\n  |\n4 | use crate::platform_if::{MMUImpl, PlatformImpl};\n  |                          ^^^^^^^ no `MMUImpl` in `platform_if`\n\n",
+              "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/region.rs:6:13\n   |\n6  | use super::{mmu::BootRegion, once::OnceStatic};\n   |             ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Mirai": [
               "error[E0432]: unresolved import `crate::platform_if::MMUImpl`\n --> crates/sparreal-kernel/src/mem/region.rs:4:26\n  |\n4 | use crate::platform_if::{MMUImpl, PlatformImpl};\n  |                          ^^^^^^^ no `MMUImpl` in `platform_if`\n\n",
               "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/region.rs:6:13\n   |\n6  | use super::{mmu::BootRegion, once::OnceStatic};\n   |             ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n"
             ]
@@ -95,13 +95,13 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Clippy(Error)": [
-              "error[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\n",
-              "error[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\n",
+            "Mirai": [
               "error[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\n",
               "error[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\n"
             ],
-            "Mirai": [
+            "Clippy(Error)": [
+              "error[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\n",
+              "error[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\n",
               "error[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\n",
               "error[E0432]: unresolved imports `crate::platform_if::RegionKind`, `crate::platform_if::is_mmu_enabled`\n  --> crates/sparreal-kernel/src/platform/fdt.rs:10:26\n   |\n10 | use crate::platform_if::{RegionKind, is_mmu_enabled};\n   |                          ^^^^^^^^^^  ^^^^^^^^^^^^^^ no `is_mmu_enabled` in `platform_if`\n   |                          |\n   |                          no `RegionKind` in `platform_if`\n\n"
             ]
@@ -112,13 +112,13 @@
           "features": "",
           "count": 5,
           "kinds": {
-            "Mirai": [
-              "error[E0425]: cannot find function `set_mmu_enabled` in this scope\n  --> crates/sparreal-kernel/src/boot/mod.rs:29:5\n   |\n29 |     set_mmu_enabled();\n   |     ^^^^^^^^^^^^^^^ not found in this scope\n\n"
-            ],
             "Clippy(Error)": [
               "error: `#[repr(align(...))]` is not supported on function items\n  --> crates/sparreal-kernel/src/boot/mod.rs:26:8\n   |\n26 | #[repr(align(0x10))]\n   |        ^^^^^^^^^^^\n   |\nhelp: use `#[align(...)]` instead\n  --> crates/sparreal-kernel/src/boot/mod.rs:26:8\n   |\n26 | #[repr(align(0x10))]\n   |        ^^^^^^^^^^^\n\n",
               "error[E0425]: cannot find function `set_mmu_enabled` in this scope\n  --> crates/sparreal-kernel/src/boot/mod.rs:29:5\n   |\n29 |     set_mmu_enabled();\n   |     ^^^^^^^^^^^^^^^ not found in this scope\n\n",
               "error: `#[repr(align(...))]` is not supported on function items\n  --> crates/sparreal-kernel/src/boot/mod.rs:26:8\n   |\n26 | #[repr(align(0x10))]\n   |        ^^^^^^^^^^^\n   |\nhelp: use `#[align(...)]` instead\n  --> crates/sparreal-kernel/src/boot/mod.rs:26:8\n   |\n26 | #[repr(align(0x10))]\n   |        ^^^^^^^^^^^\n\n",
+              "error[E0425]: cannot find function `set_mmu_enabled` in this scope\n  --> crates/sparreal-kernel/src/boot/mod.rs:29:5\n   |\n29 |     set_mmu_enabled();\n   |     ^^^^^^^^^^^^^^^ not found in this scope\n\n"
+            ],
+            "Mirai": [
               "error[E0425]: cannot find function `set_mmu_enabled` in this scope\n  --> crates/sparreal-kernel/src/boot/mod.rs:29:5\n   |\n29 |     set_mmu_enabled();\n   |     ^^^^^^^^^^^^^^^ not found in this scope\n\n"
             ]
           }
@@ -128,11 +128,11 @@
           "features": "",
           "count": 3,
           "kinds": {
-            "Mirai": [
-              "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/cache.rs:7:33\n   |\n7  | use super::{PhysAddr, VirtAddr, mmu::RegionKind};\n   |                                 ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n"
-            ],
             "Clippy(Error)": [
               "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/cache.rs:7:33\n   |\n7  | use super::{PhysAddr, VirtAddr, mmu::RegionKind};\n   |                                 ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n",
+              "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/cache.rs:7:33\n   |\n7  | use super::{PhysAddr, VirtAddr, mmu::RegionKind};\n   |                                 ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Mirai": [
               "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/cache.rs:7:33\n   |\n7  | use super::{PhysAddr, VirtAddr, mmu::RegionKind};\n   |                                 ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n"
             ]
           }

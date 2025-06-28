@@ -53,6 +53,9 @@
           "features": "",
           "count": 8,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: `#[inline]` is ignored on externally exported functions\n   --> src/utils.rs:149:1\n    |\n149 | #[inline]\n    | ^^^^^^^^^\n    |\n    = help: externally exported functions are functions with `#[no_mangle]`, `#[export_name]`, or `#[linkage]`\n    = note: `#[warn(unused_attributes)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/utils.rs (original lines from 83 to 83)\n-\n",
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/utils.rs (original lines from 101 to 103)\n-    unsafe {\n-        & *(addr as *mut T)\n-    }\n+    unsafe { &*(addr as *mut T) }\n",
@@ -61,9 +64,6 @@
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/utils.rs (original lines from 139 to 139)\n-    #[cfg(feature = \"ENABLE_SMP\")] {\n+    #[cfg(feature = \"ENABLE_SMP\")]\n+    {\n",
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/utils.rs (original lines from 143 to 143)\n-    #[cfg(not(feature = \"ENABLE_SMP\"))] {\n+    #[cfg(not(feature = \"ENABLE_SMP\"))]\n+    {\n",
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/utils.rs (original lines from 158 to 158)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: `#[inline]` is ignored on externally exported functions\n   --> src/utils.rs:149:1\n    |\n149 | #[inline]\n    | ^^^^^^^^^\n    |\n    = help: externally exported functions are functions with `#[no_mangle]`, `#[export_name]`, or `#[linkage]`\n    = note: `#[warn(unused_attributes)]` on by default\n\n"
             ]
           }
         },
@@ -198,12 +198,12 @@
           "features": "",
           "count": 3,
           "kinds": {
-            "Clippy(Error)": [
-              "error: C-like enum variant discriminant is not portable to 32-bit targets\n  --> src/structures.rs:11:5\n   |\n11 |     padding = isize::MAX - 1,\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#enum_clike_unportable_variant\n   = note: `#[deny(clippy::enum_clike_unportable_variant)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/structures.rs (original lines from 14 to 14)\n-\n",
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/structures.rs (original lines from 32 to 32)\n+\n"
+            ],
+            "Clippy(Error)": [
+              "error: C-like enum variant discriminant is not portable to 32-bit targets\n  --> src/structures.rs:11:5\n   |\n11 |     padding = isize::MAX - 1,\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#enum_clike_unportable_variant\n   = note: `#[deny(clippy::enum_clike_unportable_variant)]` on by default\n\n"
             ]
           }
         },

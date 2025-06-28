@@ -220,10 +220,6 @@
           "features": "",
           "count": 114,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: casting integer literal to `u64` is unnecessary\n   --> src/fxmac_const.rs:538:7\n    |\n538 |     (!(0 as u64) - (1 << l) + 1) &\n    |       ^^^^^^^^^^ help: try: `0_u64`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n",
-              "warning: casting integer literal to `u64` is unnecessary\n   --> src/fxmac_const.rs:539:8\n    |\n539 |      (!(0 as u64) >> (BITS_PER_LONG - 1 - h))\n    |        ^^^^^^^^^^ help: try: `0_u64`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/fxmac_const.rs (original lines from 4 to 4)\n-pub(crate) const FXMAC_RX_BUF_UNIT:u32 = 64; /* Number of receive buffer bytes as a unit, this is HW setup */\n+pub(crate) const FXMAC_RX_BUF_UNIT: u32 = 64; /* Number of receive buffer bytes as a unit, this is HW setup */\n",
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/fxmac_const.rs (original lines from 6 to 7)\n-pub(crate) const FXMAC_MAX_RXBD:u32 = 128;/* Size of RX buffer descriptor queues */\n-pub(crate) const FXMAC_MAX_TXBD:u32 = 128;/* Size of TX buffer descriptor queues */\n+pub(crate) const FXMAC_MAX_RXBD: u32 = 128; /* Size of RX buffer descriptor queues */\n+pub(crate) const FXMAC_MAX_TXBD: u32 = 128; /* Size of TX buffer descriptor queues */\n",
@@ -337,6 +333,10 @@
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/fxmac_const.rs (original lines from 658 to 664)\n-pub(crate) const FXMAC_SPEED_10:u32 = 10;\n-pub(crate) const FXMAC_SPEED_100:u32 = 100;\n-pub(crate) const FXMAC_SPEED_1000:u32 = 1000;\n-pub(crate) const FXMAC_SPEED_2500:u32 = 2500;\n-pub(crate) const FXMAC_SPEED_5000:u32 = 5000;\n-pub(crate) const FXMAC_SPEED_10000:u32 = 10000;\n-pub(crate) const FXMAC_SPEED_25000:u32 = 25000;\n+pub(crate) const FXMAC_SPEED_10: u32 = 10;\n+pub(crate) const FXMAC_SPEED_100: u32 = 100;\n+pub(crate) const FXMAC_SPEED_1000: u32 = 1000;\n+pub(crate) const FXMAC_SPEED_2500: u32 = 2500;\n+pub(crate) const FXMAC_SPEED_5000: u32 = 5000;\n+pub(crate) const FXMAC_SPEED_10000: u32 = 10000;\n+pub(crate) const FXMAC_SPEED_25000: u32 = 25000;\n",
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/fxmac_const.rs (original lines from 667 to 668)\n-pub(crate) const FXMAC_CAPS_ISR_CLEAR_ON_WRITE:u32 =   0x00000001; /* irq status parameters need to be written to clear after they have been read */\n-pub(crate) const FXMAC_CAPS_TAILPTR:u32 =              0x00000002; /* use tail ptr */\n+pub(crate) const FXMAC_CAPS_ISR_CLEAR_ON_WRITE: u32 = 0x00000001; /* irq status parameters need to be written to clear after they have been read */\n+pub(crate) const FXMAC_CAPS_TAILPTR: u32 = 0x00000002; /* use tail ptr */\n",
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/fxmac_const.rs (original lines from 683 to 683)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: casting integer literal to `u64` is unnecessary\n   --> src/fxmac_const.rs:538:7\n    |\n538 |     (!(0 as u64) - (1 << l) + 1) &\n    |       ^^^^^^^^^^ help: try: `0_u64`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n",
+              "warning: casting integer literal to `u64` is unnecessary\n   --> src/fxmac_const.rs:539:8\n    |\n539 |      (!(0 as u64) >> (BITS_PER_LONG - 1 - h))\n    |        ^^^^^^^^^^ help: try: `0_u64`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n"
             ]
           }
         },
@@ -564,15 +564,15 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_HI_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_HI_MASK` in the value namespace is also re-exported here\n   |\n   = note: `#[warn(ambiguous_glob_reexports)]` on by default\n\n",
-              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_LO_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_LO_MASK` in the value namespace is also re-exported here\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/lib.rs (original lines from 37 to 38)\n-mod utils;\n-mod fxmac_phy;\n+mod fxmac;\n",
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/lib.rs (original lines from 41 to 41)\n-mod fxmac;\n+mod fxmac_phy;\n+mod utils;\n",
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/lib.rs (original lines from 52 to 52)\n-pub trait KernelFunc{\n+pub trait KernelFunc {\n",
               "file: /home/runner/check/batch_4/elliott10/fxmac_rs/src/lib.rs (original lines from 72 to 73)\n-    fn it_works() {\n-    }\n+    fn it_works() {}\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_HI_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_HI_MASK` in the value namespace is also re-exported here\n   |\n   = note: `#[warn(ambiguous_glob_reexports)]` on by default\n\n",
+              "warning: ambiguous glob re-exports\n  --> src/lib.rs:43:9\n   |\n43 | pub use fxmac::*;\n   |         ^^^^^^^^ the name `ULONG64_LO_MASK` in the value namespace is first re-exported here\n44 | pub use fxmac_dma::*;\n   |         ------------ but the name `ULONG64_LO_MASK` in the value namespace is also re-exported here\n\n"
             ]
           }
         },
