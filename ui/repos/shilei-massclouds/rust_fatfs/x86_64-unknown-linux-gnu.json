@@ -1,0 +1,238 @@
+{
+  "repo": {
+    "user": "shilei-massclouds",
+    "repo": "rust_fatfs"
+  },
+  "data": [
+    {
+      "user": "shilei-massclouds",
+      "repo": "rust_fatfs",
+      "pkg": "rust_fatfs",
+      "count": 52,
+      "raw_reports": [
+        {
+          "file": "tests/format.rs",
+          "features": "",
+          "count": 20,
+          "kinds": {
+            "Mirai": [
+              "error[E0432]: unresolved import `fatfs`\n --> tests/format.rs:4:5\n  |\n4 | use fatfs::{DefaultTimeProvider, LossyOemCpConverter, StdIoWrapper};\n  |     ^^^^^ use of undeclared crate or module `fatfs`\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:68:31\n   |\n68 |     let mut buffered_stream = fatfs::StdIoWrapper::from(BufStream::new(storage_cur));\n   |                               ^^^^^ use of undeclared crate or module `fatfs`\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:16:25\n   |\n16 |     if fs.fat_type() == fatfs::FatType::Fat32 {\n   |                         ^^^^^ use of undeclared crate or module `fatfs`\n   |\nhelp: consider importing this enum\n   |\n1  + use rust_fatfs::FatType;\n   |\nhelp: if you import `FatType`, refer to it directly\n   |\n16 -     if fs.fat_type() == fatfs::FatType::Fat32 {\n16 +     if fs.fat_type() == FatType::Fat32 {\n   |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:71:14\n   |\n71 |     let fs = fatfs::FileSystem::new(buffered_stream, fatfs::FsOptions::new()).expect(\"open fs\");\n   |              ^^^^^ use of undeclared crate or module `fatfs`\n   |\nhelp: consider importing this struct\n   |\n1  + use rust_fatfs::FileSystem;\n   |\nhelp: if you import `FileSystem`, refer to it directly\n   |\n71 -     let fs = fatfs::FileSystem::new(buffered_stream, fatfs::FsOptions::new()).expect(\"open fs\");\n71 +     let fs = FileSystem::new(buffered_stream, fatfs::FsOptions::new()).expect(\"open fs\");\n   |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:71:54\n   |\n71 |     let fs = fatfs::FileSystem::new(buffered_stream, fatfs::FsOptions::new()).expect(\"open fs\");\n   |                                                      ^^^^^ use of undeclared crate or module `fatfs`\n   |\nhelp: consider importing this struct\n   |\n1  + use rust_fatfs::FsOptions;\n   |\nhelp: if you import `FsOptions`, refer to it directly\n   |\n71 -     let fs = fatfs::FileSystem::new(buffered_stream, fatfs::FsOptions::new()).expect(\"open fs\");\n71 +     let fs = fatfs::FileSystem::new(buffered_stream, FsOptions::new()).expect(\"open fs\");\n   |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:79:16\n   |\n79 |     let opts = fatfs::FormatVolumeOptions::new();\n   |                ^^^^^ use of undeclared crate or module `fatfs`\n   |\nhelp: consider importing this struct\n   |\n1  + use rust_fatfs::FormatVolumeOptions;\n   |\nhelp: if you import `FormatVolumeOptions`, refer to it directly\n   |\n79 -     let opts = fatfs::FormatVolumeOptions::new();\n79 +     let opts = FormatVolumeOptions::new();\n   |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:81:31\n   |\n81 |     assert_eq!(fs.fat_type(), fatfs::FatType::Fat12);\n   |                               ^^^^^ use of undeclared crate or module `fatfs`\n   |\nhelp: consider importing this enum\n   |\n1  + use rust_fatfs::FatType;\n   |\nhelp: if you import `FatType`, refer to it directly\n   |\n81 -     assert_eq!(fs.fat_type(), fatfs::FatType::Fat12);\n81 +     assert_eq!(fs.fat_type(), FatType::Fat12);\n   |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:87:16\n   |\n87 |     let opts = fatfs::FormatVolumeOptions::new().fats(1);\n   |                ^^^^^ use of undeclared crate or module `fatfs`\n   |\nhelp: consider importing this struct\n   |\n1  + use rust_fatfs::FormatVolumeOptions;\n   |\nhelp: if you import `FormatVolumeOptions`, refer to it directly\n   |\n87 -     let opts = fatfs::FormatVolumeOptions::new().fats(1);\n87 +     let opts = FormatVolumeOptions::new().fats(1);\n   |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:89:31\n   |\n89 |     assert_eq!(fs.fat_type(), fatfs::FatType::Fat16);\n   |                               ^^^^^ use of undeclared crate or module `fatfs`\n   |\nhelp: consider importing this enum\n   |\n1  + use rust_fatfs::FatType;\n   |\nhelp: if you import `FatType`, refer to it directly\n   |\n89 -     assert_eq!(fs.fat_type(), fatfs::FatType::Fat16);\n89 +     assert_eq!(fs.fat_type(), FatType::Fat16);\n   |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:95:16\n   |\n95 |     let opts = fatfs::FormatVolumeOptions::new();\n   |                ^^^^^ use of undeclared crate or module `fatfs`\n   |\nhelp: consider importing this struct\n   |\n1  + use rust_fatfs::FormatVolumeOptions;\n   |\nhelp: if you import `FormatVolumeOptions`, refer to it directly\n   |\n95 -     let opts = fatfs::FormatVolumeOptions::new();\n95 +     let opts = FormatVolumeOptions::new();\n   |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:97:31\n   |\n97 |     assert_eq!(fs.fat_type(), fatfs::FatType::Fat16);\n   |                               ^^^^^ use of undeclared crate or module `fatfs`\n   |\nhelp: consider importing this enum\n   |\n1  + use rust_fatfs::FatType;\n   |\nhelp: if you import `FatType`, refer to it directly\n   |\n97 -     assert_eq!(fs.fat_type(), fatfs::FatType::Fat16);\n97 +     assert_eq!(fs.fat_type(), FatType::Fat16);\n   |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n   --> tests/format.rs:103:16\n    |\n103 |     let opts = fatfs::FormatVolumeOptions::new();\n    |                ^^^^^ use of undeclared crate or module `fatfs`\n    |\nhelp: consider importing this struct\n    |\n1   + use rust_fatfs::FormatVolumeOptions;\n    |\nhelp: if you import `FormatVolumeOptions`, refer to it directly\n    |\n103 -     let opts = fatfs::FormatVolumeOptions::new();\n103 +     let opts = FormatVolumeOptions::new();\n    |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n   --> tests/format.rs:105:31\n    |\n105 |     assert_eq!(fs.fat_type(), fatfs::FatType::Fat32);\n    |                               ^^^^^ use of undeclared crate or module `fatfs`\n    |\nhelp: consider importing this enum\n    |\n1   + use rust_fatfs::FatType;\n    |\nhelp: if you import `FatType`, refer to it directly\n    |\n105 -     assert_eq!(fs.fat_type(), fatfs::FatType::Fat32);\n105 +     assert_eq!(fs.fat_type(), FatType::Fat32);\n    |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n   --> tests/format.rs:111:16\n    |\n111 |     let opts = fatfs::FormatVolumeOptions::new().bytes_per_sector(4096);\n    |                ^^^^^ use of undeclared crate or module `fatfs`\n    |\nhelp: consider importing this struct\n    |\n1   + use rust_fatfs::FormatVolumeOptions;\n    |\nhelp: if you import `FormatVolumeOptions`, refer to it directly\n    |\n111 -     let opts = fatfs::FormatVolumeOptions::new().bytes_per_sector(4096);\n111 +     let opts = FormatVolumeOptions::new().bytes_per_sector(4096);\n    |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n   --> tests/format.rs:113:31\n    |\n113 |     assert_eq!(fs.fat_type(), fatfs::FatType::Fat32);\n    |                               ^^^^^ use of undeclared crate or module `fatfs`\n    |\nhelp: consider importing this enum\n    |\n1   + use rust_fatfs::FatType;\n    |\nhelp: if you import `FatType`, refer to it directly\n    |\n113 -     assert_eq!(fs.fat_type(), fatfs::FatType::Fat32);\n113 +     assert_eq!(fs.fat_type(), FatType::Fat32);\n    |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n   --> tests/format.rs:119:16\n    |\n119 |     let opts = fatfs::FormatVolumeOptions::new();\n    |                ^^^^^ use of undeclared crate or module `fatfs`\n    |\nhelp: consider importing this struct\n    |\n1   + use rust_fatfs::FormatVolumeOptions;\n    |\nhelp: if you import `FormatVolumeOptions`, refer to it directly\n    |\n119 -     let opts = fatfs::FormatVolumeOptions::new();\n119 +     let opts = FormatVolumeOptions::new();\n    |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n   --> tests/format.rs:128:16\n    |\n128 |     let opts = fatfs::FormatVolumeOptions::new()\n    |                ^^^^^ use of undeclared crate or module `fatfs`\n    |\nhelp: consider importing this struct\n    |\n1   + use rust_fatfs::FormatVolumeOptions;\n    |\nhelp: if you import `FormatVolumeOptions`, refer to it directly\n    |\n128 -     let opts = fatfs::FormatVolumeOptions::new()\n128 +     let opts = FormatVolumeOptions::new()\n    |\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:69:5\n   |\n69 |     fatfs::format_volume(&mut buffered_stream, opts).expect(\"format volume\");\n   |     ^^^^^ use of undeclared crate or module `fatfs`\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:12:5\n   |\n12 |     fatfs::FileSystem<StdIoWrapper<BufStream<io::Cursor<Vec<u8>>>>, DefaultTimeProvider, LossyOemCpConverter>;\n   |     ^^^^^ use of undeclared crate or module `fatfs`\n\n",
+              "error[E0433]: failed to resolve: use of undeclared crate or module `fatfs`\n  --> tests/format.rs:63:25\n   |\n63 | fn test_format_fs(opts: fatfs::FormatVolumeOptions, total_bytes: u64) -> FileSystem {\n   |                         ^^^^^ use of undeclared crate or module `fatfs`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/boot_sector.rs",
+          "features": "",
+          "count": 6,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: importing legacy numeric constants\n --> src/boot_sector.rs:2:5\n  |\n2 | use core::u16;\n  |     ^^^^^^^^^\n  |\n  = help: remove this import\n  = note: then `u16::<CONST>` will resolve to the respective associated constant\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#legacy_numeric_constants\n  = note: `#[warn(clippy::legacy_numeric_constants)]` on by default\n\n",
+              "warning: importing legacy numeric constants\n --> src/boot_sector.rs:3:5\n  |\n3 | use core::u8;\n  |     ^^^^^^^^\n  |\n  = help: remove this import\n  = note: then `u8::<CONST>` will resolve to the respective associated constant\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#legacy_numeric_constants\n\n",
+              "warning: manually reimplementing `div_ceil`\n   --> src/boot_sector.rs:366:9\n    |\n366 |         (root_dir_bytes + u32::from(self.bytes_per_sector) - 1) / u32::from(self.bytes_per_sector)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `root_dir_bytes.div_ceil(u32::from(self.bytes_per_sector))`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n    = note: `#[warn(clippy::manual_div_ceil)]` on by default\n\n",
+              "warning: manually reimplementing `div_ceil`\n   --> src/boot_sector.rs:402:9\n    |\n402 |         ((bytes + cluster_size - 1) / cluster_size) as u32\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `bytes.div_ceil(cluster_size)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n\n",
+              "warning: manually reimplementing `div_ceil`\n   --> src/boot_sector.rs:575:27\n    |\n575 |     let sectors_per_fat = (t1 + t2 - 1) / t2;\n    |                           ^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `t1.div_ceil(t2)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n\n",
+              "warning: manually reimplementing `div_ceil`\n   --> src/boot_sector.rs:633:9\n    |\n633 |         (root_dir_bytes + u32::from(bytes_per_sector) - 1) / u32::from(bytes_per_sector)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `root_dir_bytes.div_ceil(u32::from(bytes_per_sector))`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/file.rs",
+          "features": "",
+          "count": 6,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: usage of a legacy numeric constant\n  --> src/file.rs:10:28\n   |\n10 | const MAX_FILE_SIZE: u32 = core::u32::MAX;\n   |                            ^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#legacy_numeric_constants\nhelp: use the associated constant instead\n   |\n10 - const MAX_FILE_SIZE: u32 = core::u32::MAX;\n10 + const MAX_FILE_SIZE: u32 = u32::MAX;\n   |\n\n",
+              "warning: this could be rewritten as `let...else`\n  --> src/file.rs:95:9\n   |\n95 | /         let mut bytes_left = match self.size() {\n96 | |             Some(s) => s,\n97 | |             None => return None.into_iter().flatten(),\n98 | |         };\n   | |__________^ help: consider writing: `let Some(mut bytes_left) = self.size() else { return None.into_iter().flatten() };`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_let_else\n   = note: `#[warn(clippy::manual_let_else)]` implied by `#[warn(clippy::pedantic)]`\n\n",
+              "warning: this could be rewritten as `let...else`\n   --> src/file.rs:99:9\n    |\n99  | /         let first = match self.first_cluster {\n100 | |             Some(f) => f,\n101 | |             None => return None.into_iter().flatten(),\n102 | |         };\n    | |__________^ help: consider writing: `let Some(first) = self.first_cluster else { return None.into_iter().flatten() };`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_let_else\n\n",
+              "warning: this `map_or` can be simplified\n   --> src/file.rs:228:16\n    |\n228 |             if e.inner().size().map_or(false, |s| offset > s) {\n    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_map_or\n    = note: `#[warn(clippy::unnecessary_map_or)]` on by default\nhelp: use is_some_and instead\n    |\n228 -             if e.inner().size().map_or(false, |s| offset > s) {\n228 +             if e.inner().size().is_some_and(|s| offset > s) {\n    |\n\n",
+              "warning: this could be rewritten as `let...else`\n   --> src/file.rs:280:9\n    |\n280 | /         let current_cluster = match current_cluster_opt {\n281 | |             Some(n) => n,\n282 | |             None => return Ok(0),\n283 | |         };\n    | |__________^ help: consider writing: `let Some(current_cluster) = current_cluster_opt else { return Ok(0) };`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_let_else\n\n",
+              "warning: this could be rewritten as `let...else`\n   --> src/file.rs:424:9\n    |\n424 | /         let mut new_offset = if let Some(new_offset) = new_offset_opt {\n425 | |             new_offset\n426 | |         } else {\n427 | |             error!(\"Invalid seek offset\");\n428 | |             return Err(Error::InvalidInput);\n429 | |         };\n    | |__________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_let_else\nhelp: consider writing\n    |\n424 ~         let Some(mut new_offset) = new_offset_opt else {\n425 +             error!(\"Invalid seek offset\");\n426 +             return Err(Error::InvalidInput);\n427 +         };\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/fs.rs",
+          "features": "",
+          "count": 4,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: importing legacy numeric constants\n  --> src/fs.rs:10:5\n   |\n10 | use core::u32;\n   |     ^^^^^^^^^\n   |\n   = help: remove this import\n   = note: then `u32::<CONST>` will resolve to the respective associated constant\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#legacy_numeric_constants\n\n",
+              "warning: manually reimplementing `is_power_of_two`\n   --> src/fs.rs:966:13\n    |\n966 |             bytes_per_cluster.count_ones() == 1 && bytes_per_cluster >= 512,\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.is_power_of_two()`: `bytes_per_cluster.is_power_of_two()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_is_power_of_two\n    = note: `#[warn(clippy::manual_is_power_of_two)]` implied by `#[warn(clippy::pedantic)]`\n\n",
+              "warning: manually reimplementing `is_power_of_two`\n   --> src/fs.rs:996:13\n    |\n996 |             bytes_per_sector.count_ones() == 1 && bytes_per_sector >= 512,\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.is_power_of_two()`: `bytes_per_sector.is_power_of_two()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_is_power_of_two\n\n",
+              "warning: lifetime flowing from input to output with different syntax can be confusing\n   --> src/fs.rs:609:21\n    |\n609 |     pub fn root_dir(&self) -> Dir<IO, TP, OCC> {\n    |                     ^^^^^     ---------------- the lifetime gets resolved as `'_`\n    |                     |\n    |                     this lifetime flows to the output\n    |\n    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n609 |     pub fn root_dir(&self) -> Dir<'_, IO, TP, OCC> {\n    |                                   +++\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/dir.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unnecessary semicolon\n   --> src/dir.rs:183:14\n    |\n183 |             };\n    |              ^ help: remove\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_semicolon\nnote: the lint level is defined here\n   --> src/lib.rs:49:9\n    |\n49  | #![warn(clippy::pedantic)]\n    |         ^^^^^^^^^^^^^^^^\n    = note: `#[warn(clippy::unnecessary_semicolon)]` implied by `#[warn(clippy::pedantic)]`\n\n",
+              "warning: manually reimplementing `div_ceil`\n   --> src/dir.rs:739:37\n    |\n739 | const MAX_LONG_DIR_ENTRIES: usize = (MAX_LONG_NAME_LEN + LFN_PART_LEN - 1) / LFN_PART_LEN;\n    |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `MAX_LONG_NAME_LEN.div_ceil(LFN_PART_LEN)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n\n",
+              "warning: manually reimplementing `div_ceil`\n   --> src/dir.rs:955:27\n    |\n955 |         let num_entries = (name_utf16.len() + LFN_PART_LEN - 1) / LFN_PART_LEN;\n    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `name_utf16.len().div_ceil(LFN_PART_LEN)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/table.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unnecessary semicolon\n   --> src/table.rs:221:6\n    |\n221 |     };\n    |      ^ help: remove\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_semicolon\n\n",
+              "warning: unnecessary semicolon\n   --> src/table.rs:535:10\n    |\n535 |         };\n    |          ^ help: remove\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_semicolon\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) mirai",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=rust_fatfs, checker=Mirai\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_10/shilei-massclouds/rust_fatfs/rust_fatfs\n// cmd=cargo +nightly-2025-01-10 mirai --target x86_64-unknown-linux-gnu \n// timestamp=2025-06-28 14:36:11.52662249 +08:00:00\n    Checking log v0.4.27\n    Checking bitflags v1.3.2\n    Checking rust_fatfs v0.4.0 (/home/runner/check/batch_10/shilei-massclouds/rust_fatfs/rust_fatfs)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.05s\n   Compiling libc v0.2.174\n   Compiling memchr v2.7.5\n   Compiling regex-syntax v0.8.5\n   Compiling log v0.4.27\n   Compiling bitflags v1.3.2\n   Compiling termcolor v1.4.1\n   Compiling aho-corasick v1.1.3\n   Compiling humantime v2.2.0\n   Compiling rust_fatfs v0.4.0 (/home/runner/check/batch_10/shilei-massclouds/rust_fatfs/rust_fatfs)\n   Compiling atty v0.2.14\n   Compiling fscommon v0.1.1\n   Compiling regex-automata v0.4.9\n   Compiling regex v1.11.1\n   Compiling env_logger v0.9.3\nerror: could not compile `rust_fatfs` (test \"format\") due to 20 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=rust_fatfs, checker=SemverChecks\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_10/shilei-massclouds/rust_fatfs/rust_fatfs\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \n// timestamp=2025-06-28 14:36:08.97322457 +08:00:00\n    Building rust_fatfs v0.4.0 (current)\n       Built [   1.588s] (current)\n     Parsing rust_fatfs v0.4.0 (current)\n      Parsed [   0.010s] (current)\nerror: rust_fatfs not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     atty\nVersion:   0.2.14\nWarning:   unmaintained\nTitle:     `atty` is unmaintained\nDate:      2024-09-25\nID:        RUSTSEC-2024-0375\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0375\nDependency tree:\natty 0.2.14\n└── env_logger 0.9.3\n    └── rust_fatfs 0.4.0\n\nCrate:     atty\nVersion:   0.2.14\nWarning:   unsound\nTitle:     Potential unaligned read\nDate:      2021-07-04\nID:        RUSTSEC-2021-0145\nURL:       https://rustsec.org/advisories/RUSTSEC-2021-0145\n\n\n{\n  \"database\": {\n    \"advisory-count\": 787,\n    \"last-commit\": \"7573f55ba337263f61167dbb0ea926cdc7c8eb5d\",\n    \"last-updated\": \"2025-06-17T11:04:25+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 59\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.174\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0375\",\n          \"package\": \"atty\",\n          \"title\": \"`atty` is unmaintained\",\n          \"description\": \"The maintainer of `atty` has [published](https://github.com/softprops/atty/commit/5bfdbe9e48c6ca6a4909e8d5b04f5e843a257e93) an official notice that the crate is no longer\\nunder development, and that users should instead rely on the functionality in the standard library's [`IsTerminal`](https://doc.rust-lang.org/std/io/trait.IsTerminal.html) trait.\\n\\n## Alternative(s)\\n\\n- [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0 and the recommended replacement per the `atty` maintainer.\\n- [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2024-09-25\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/57\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ],\n    \"unsound\": [\n      {\n        \"kind\": \"unsound\",\n        \"package\": {\n          \"name\": \"atty\",\n          \"version\": \"0.2.14\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8\",\n          \"dependencies\": [\n            {\n              \"name\": \"hermit-abi\",\n              \"version\": \"0.1.19\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"libc\",\n              \"version\": \"0.2.174\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            },\n            {\n              \"name\": \"winapi\",\n              \"version\": \"0.3.9\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2021-0145\",\n          \"package\": \"atty\",\n          \"title\": \"Potential unaligned read\",\n          \"description\": \"On windows, `atty` dereferences a potentially unaligned pointer.\\n\\nIn practice however, the pointer won't be unaligned unless a custom global allocator is used.\\n\\nIn particular, the `System` allocator on windows uses `HeapAlloc`, which guarantees a large enough alignment.\\n\\n# atty is Unmaintained\\n\\nA Pull Request with a fix has been provided over a year ago but the maintainer seems to be unreachable.\\n\\nLast release of `atty` was almost 3 years ago.\\n\\n## Possible Alternative(s)\\n\\nThe below list has not been vetted in any way and may or may not contain alternatives;\\n\\n - [std::io::IsTerminal](https://doc.rust-lang.org/stable/std/io/trait.IsTerminal.html) - Stable since Rust 1.70.0\\n - [is-terminal](https://crates.io/crates/is-terminal) - Standalone crate supporting Rust older than 1.70.0\",\n          \"date\": \"2021-07-04\",\n          \"aliases\": [\n            \"GHSA-g98v-hv3f-hcfr\"\n          ],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [\n            \"unaligned-read\"\n          ],\n          \"cvss\": null,\n          \"informational\": \"unsound\",\n          \"references\": [\n            \"https://github.com/softprops/atty/pull/51\",\n            \"https://github.com/softprops/atty/issues/57\"\n          ],\n          \"source\": null,\n          \"url\": \"https://github.com/softprops/atty/issues/50\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": {\n          \"arch\": [],\n          \"os\": [\n            \"windows\"\n          ],\n          \"functions\": {}\n        },\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Geiger] Unsafe code statistics",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Geiger": [
+              "pkg=rust_fatfs, checker=Geiger\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_10/shilei-massclouds/rust_fatfs/rust_fatfs\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\ntimestamp=2025-06-28 14:36:33.314717967 +08:00:00\n\n\nMetric output format: x/y\n    x = unsafe code used by the build\n    y = total unsafe code found in the crate\n\nSymbols:\n    :) = No `unsafe` usage found, declares #![forbid(unsafe_code)]\n    ?  = No `unsafe` usage found, missing #![forbid(unsafe_code)]\n    !  = `unsafe` usage found\n\nFunctions  Expressions  Impls  Traits  Methods  Dependency\n\n0/0        0/0          0/0    0/0     0/0      ?  rust_fatfs 0.4.0\n0/0        0/0          0/0    0/0     0/0      ?  |-- bitflags 1.3.2\n2/2        18/18        1/1    0/0     0/0      !  `-- log 0.4.27\n\n2/2        18/18        1/1    0/0     0/0\n\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T06:36:16Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T06:36:16Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Rapx] memory safety detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Rapx": [
+              "pkg=rust_fatfs, checker=Rapx\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_10/shilei-massclouds/rust_fatfs/rust_fatfs\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-linux-gnu \ntimestamp=2025-06-28 14:36:23.398677239 +08:00:00\n\nOver visited: DefId(0:109 ~ rust_fatfs[c74a]::boot_sector::format_bpb)\nwarning: Dangling pointer detected.\n   --> src/dir.rs:127:1\n    |\n127 | / fn find_entry(\n128 | |         &self,\n...   |\n153 | |         Err(Error::NotFound) //(\"No such file or directory\"))\n154 | |     }\n    | |_____- Dangling pointer detected.\n    |\nwarning: Dangling pointer detected.\n   --> src/dir.rs:167:1\n    |\n167 | / fn check_for_existence(\n168 | |         &self,\n...   |\n191 | |         }\n192 | |     }\n    | |_____- Dangling pointer detected.\n    |\nOver visited: DefId(0:246 ~ rust_fatfs[c74a]::dir::{impl#7}::remove)\nOver visited: DefId(0:442 ~ rust_fatfs[c74a]::dir_entry::{impl#3}::deserialize)\nOver visited: DefId(0:589 ~ rust_fatfs[c74a]::file::{impl#5}::read)\nOver visited: DefId(0:594 ~ rust_fatfs[c74a]::file::{impl#6}::write)\nOver visited: DefId(0:600 ~ rust_fatfs[c74a]::file::{impl#7}::seek)\nOver visited: DefId(0:672 ~ rust_fatfs[c74a]::fs::{impl#4}::deserialize)\nOver visited: DefId(0:722 ~ rust_fatfs[c74a]::fs::{impl#9}::new)\nOver visited: DefId(0:880 ~ rust_fatfs[c74a]::fs::format_volume)\nwarning: Dangling pointer detected.\n   --> src/table.rs:123:1\n    |\n123 | / pub(crate) fn alloc_cluster<S, E>(\n124 | |     fat: &mut S,\n...   |\n152 | |     Ok(new_cluster)\n153 | | }\n    | |_- Dangling pointer detected.\n    |\nOver visited: DefId(0:1179 ~ rust_fatfs[c74a]::dir_entry::{impl#16}::fmt)\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=rust_fatfs, checker=Outdated\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_10/shilei-massclouds/rust_fatfs/rust_fatfs\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 14:36:24.187538962 +08:00:00\n\nName        Project  Compat  Latest  Kind         Platform\n----        -------  ------  ------  ----         --------\nbitflags    1.3.2    ---     2.9.1   Normal       ---\nenv_logger  0.9.3    ---     0.11.8  Development  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=rust_fatfs, checker=SemverChecks\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_10/shilei-massclouds/rust_fatfs/rust_fatfs\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-linux-gnu \ntimestamp=2025-06-28 14:36:11.180900759 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building rust_fatfs v0.4.0 (current)\n       Built [   1.588s] (current)\n     Parsing rust_fatfs v0.4.0 (current)\n      Parsed [   0.010s] (current)\nerror: rust_fatfs not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        },
+        {
+          "file": "src/dir_entry.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: matching over `()` is more explicit\n   --> src/dir_entry.rs:390:16\n    |\n390 |             Ok(_) => {}\n    |                ^ help: use `()` instead of `_`: `()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ignored_unit_patterns\n    = note: `#[warn(clippy::ignored_unit_patterns)]` implied by `#[warn(clippy::pedantic)]`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/io.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: item in documentation is missing backticks\n  --> src/io.rs:31:55\n   |\n31 |     /// (e. g. being close to end-of-file) or because read() was interrupted by a signal.\n   |                                                       ^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_markdown\n   = note: `#[warn(clippy::doc_markdown)]` implied by `#[warn(clippy::pedantic)]`\nhelp: try\n   |\n31 -     /// (e. g. being close to end-of-file) or because read() was interrupted by a signal.\n31 +     /// (e. g. being close to end-of-file) or because `read()` was interrupted by a signal.\n   |\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

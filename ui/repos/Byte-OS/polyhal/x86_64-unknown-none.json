@@ -1,0 +1,727 @@
+{
+  "repo": {
+    "user": "Byte-OS",
+    "repo": "polyhal"
+  },
+  "data": [
+    {
+      "user": "Byte-OS",
+      "repo": "polyhal",
+      "pkg": "polyhal",
+      "count": 23,
+      "raw_reports": [
+        {
+          "file": "polyhal/src/mem.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: creating a mutable reference to mutable static is discouraged\n  --> polyhal/src/mem.rs:69:30\n   |\n69 |         for (start, size) in MEM_AREA.iter_mut() {\n   |                              ^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
+              "warning: creating a shared reference to mutable static is discouraged\n   --> polyhal/src/mem.rs:130:14\n    |\n130 |     unsafe { MEM_AREA.iter() }\n    |              ^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
+              "warning: creating a mutable reference to mutable static is discouraged\n   --> polyhal/src/mem.rs:176:13\n    |\n176 |             MEM_AREA.push((start, end - start));\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/components/mem/x86_64.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: associated functions `complete_sync` and `ordering_sync` are never used\n --> polyhal/src/components/mem/x86_64.rs:5:12\n  |\n3 | impl Barrier {\n  | ------------ associated functions in this implementation\n4 |     #[inline]\n5 |     pub fn complete_sync() {}\n  |            ^^^^^^^^^^^^^\n...\n8 |     pub fn ordering_sync() {}\n  |            ^^^^^^^^^^^^^\n\n",
+              "warning: associated functions `complete_sync` and `ordering_sync` are never used\n --> polyhal/src/components/mem/x86_64.rs:5:12\n  |\n3 | impl Barrier {\n  | ------------ associated functions in this implementation\n4 |     #[inline]\n5 |     pub fn complete_sync() {}\n  |            ^^^^^^^^^^^^^\n...\n8 |     pub fn ordering_sync() {}\n  |            ^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/pagetable/x86_64.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: associated constants `VADDR_BITS` and `USER_VADDR_END` are never used\n   --> polyhal/src/pagetable/x86_64.rs:124:22\n    |\n118 | impl PageTable {\n    | -------------- associated constants in this implementation\n...\n124 |     pub(crate) const VADDR_BITS: usize = 48;\n    |                      ^^^^^^^^^^\n125 |     pub(crate) const USER_VADDR_END: usize = (1 << Self::VADDR_BITS) - 1;\n    |                      ^^^^^^^^^^^^^^\n\n",
+              "warning: associated constants `VADDR_BITS` and `USER_VADDR_END` are never used\n   --> polyhal/src/pagetable/x86_64.rs:124:22\n    |\n118 | impl PageTable {\n    | -------------- associated constants in this implementation\n...\n124 |     pub(crate) const VADDR_BITS: usize = 48;\n    |                      ^^^^^^^^^^\n125 |     pub(crate) const USER_VADDR_END: usize = (1 << Self::VADDR_BITS) - 1;\n    |                      ^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/utils/percpu.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: method `as_ref` can be confused for the standard trait method `std::convert::AsRef::as_ref`\n  --> polyhal/src/utils/percpu.rs:25:5\n   |\n25 | /     pub fn as_ref(&self) -> &T {\n26 | |         unsafe { self.get_mut_ptr().as_ref().unwrap() }\n27 | |     }\n   | |_____^\n   |\n   = help: consider implementing the trait `std::convert::AsRef` or choosing a less ambiguous method name\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_implement_trait\n   = note: `#[warn(clippy::should_implement_trait)]` on by default\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: mutable borrow from immutable input(s)\n  --> polyhal/src/utils/percpu.rs:21:30\n   |\n21 |     pub fn ref_mut(&self) -> &mut T {\n   |                              ^^^^^^\n   |\nnote: immutable borrow here\n  --> polyhal/src/utils/percpu.rs:21:20\n   |\n21 |     pub fn ref_mut(&self) -> &mut T {\n   |                    ^^^^^\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#mut_from_ref\n   = note: `#[deny(clippy::mut_from_ref)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_1/Byte-OS/polyhal/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.4.0\n│       ├── polyhal-trap 0.4.0\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.4.0\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.4.0\n│   ├── polyhal-boot 0.4.0\n│   └── polyhal 0.4.0\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.4.0\n    ├── polyhal-boot 0.4.0\n    └── polyhal 0.4.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 787,\n    \"last-commit\": \"7573f55ba337263f61167dbb0ea926cdc7c8eb5d\",\n    \"last-updated\": \"2025-06-17T11:04:25+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=polyhal, checker=Clippy\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal\n// cmd=cargo clippy --target x86_64-unknown-none  --no-deps\n// timestamp=2025-06-28 12:26:58.861774922 +08:00:00\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\nerror: could not compile `polyhal` (lib) due to 2 previous errors; 9 warnings emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=polyhal, checker=Rapx\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none \n// timestamp=2025-06-28 12:30:22.028737277 +08:00:00\n   Compiling autocfg v1.4.0\n   Compiling proc-macro2 v1.0.94\n    Checking bit_field v0.10.2\n    Checking bitflags v2.9.0\n   Compiling rustversion v1.0.20\n   Compiling paste v1.0.15\n    Checking bitflags v1.3.2\n   Compiling unicode-ident v1.0.18\n   Compiling hashbrown v0.15.3\n   Compiling equivalent v1.0.2\n   Compiling lock_api v0.4.12\n    Checking raw-cpuid v10.7.0\n   Compiling indexmap v2.9.0\n   Compiling x86 v0.52.0\n   Compiling toml_datetime v0.6.9\n   Compiling winnow v0.7.9\n   Compiling quote v1.0.40\n    Checking scopeguard v1.2.0\n    Checking volatile v0.4.6\n    Checking x86_64 v0.15.2\n   Compiling syn v2.0.100\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/addr.rs:406:51\n    |\n406 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> Option<usize>`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n406 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page.rs:307:51\n    |\n307 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&page::Page<_>, &page::Page<_>) -> Option<usize>`\n               found signature `fn(&page::Page<_>, &page::Page<_>) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n307 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page_table.rs:356:51\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&PageTableIndex, &PageTableIndex) -> Option<usize>`\n               found signature `fn(&PageTableIndex, &PageTableIndex) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0308]: mismatched types\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page_table.rs:357:9\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ---------------------- expected `(usize, Option<usize>)` because of return type\n357 |         Step::steps_between(&start.0, &end.0)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `Option<usize>`\n    |\n    = note: expected tuple `(usize, Option<usize>)`\n                found enum `Option<usize>`\n\nSome errors have detailed explanations: E0053, E0308.\nFor more information about an error, try `rustc --explain E0053`.\nerror: could not compile `x86_64` (lib) due to 4 previous errors\nwarning: build failed, waiting for other jobs to finish...\n04:30:27|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=polyhal, checker=SemverChecks\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-06-28 12:27:21.773764012 +08:00:00\n    Building polyhal v0.4.0 (current)\nerror: running cargo-doc on crate 'polyhal' failed with output:\n-----\n   Compiling autocfg v1.5.0\n   Compiling rustversion v1.0.21\n    Checking bitflags v2.9.1\n   Compiling proc-macro2 v1.0.95\n    Checking bit_field v0.10.2\n   Compiling unicode-ident v1.0.18\n    Checking bitflags v1.3.2\n   Compiling hashbrown v0.15.4\n   Compiling equivalent v1.0.2\n   Compiling paste v1.0.15\n   Compiling lock_api v0.4.13\n    Checking raw-cpuid v10.7.0\n   Compiling indexmap v2.10.0\n   Compiling winnow v0.7.11\n   Compiling x86 v0.52.0\n   Compiling toml_datetime v0.6.11\n   Compiling quote v1.0.40\n    Checking scopeguard v1.2.0\n    Checking volatile v0.4.6\n    Checking x86_64 v0.15.2\n   Compiling syn v2.0.104\n   Compiling toml_edit v0.22.27\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n    Checking log v0.4.27\n    Checking bit v0.1.1\n    Checking x2apic v0.5.0\n    Checking uart_16550 v0.3.2\n    Checking acpi v5.2.0\n    Checking multiboot v0.8.0\n    Checking spin v0.10.0\n    Checking raw-cpuid v11.5.0\n    Checking arrayvec v0.7.6\n    Checking lazyinit v0.2.2\n    Checking fdt-parser v0.4.17\n    Checking cfg-if v1.0.1\n   Compiling proc-macro-crate v3.3.0\n   Compiling polyhal-macro v0.4.0\n Documenting polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\nerror: unsafe attribute used without unsafe\n   --> /home/runner/check/batch_1/Byte-OS/polyhal/polyhal/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> /home/runner/check/batch_1/Byte-OS/polyhal/polyhal/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: could not document `polyhal`\n\n-----\n\nerror: failed to build rustdoc for crate polyhal v0.4.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/Byte-OS/polyhal/polyhal --features boot,default,fp_simd,graphic,logger,trap &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate polyhal v0.4.0\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=polyhal, checker=Udeps\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2025-06-28 12:32:48.753043132 +08:00:00\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n   Compiling polyhal-macro v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-macro)\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nwarning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> polyhal/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: `polyhal` (lib) generated 1 warning\nerror: could not compile `polyhal` (lib) due to 2 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T04:28:41Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T04:28:41Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=polyhal, checker=Udeps\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-06-28 12:32:49.23646693 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n   Compiling polyhal-macro v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-macro)\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nwarning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> polyhal/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: `polyhal` (lib) generated 1 warning\nerror: could not compile `polyhal` (lib) due to 2 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=polyhal, checker=Outdated\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 12:32:26.969693232 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  cfg(target_arch = \"aarch64\")\nautocfg         1.4.0    1.5.0   1.5.0   Build   ---\nbitflags        2.9.0    2.9.1   2.9.1   Normal  ---\ncfg-if          1.0.0    1.0.1   1.0.1   Normal  ---\nfdt-parser      0.4.10   0.4.17  0.4.17  Normal  ---\nlazyinit        0.2.1    0.2.2   0.2.2   Normal  ---\nlog             0.4.26   0.4.27  0.4.27  Normal  ---\nloongArch64     0.2.4    0.2.5   0.2.5   Normal  cfg(target_arch = \"loongarch64\")\nriscv           0.13.0   ---     0.14.0  Normal  cfg(target_arch = \"riscv64\")\nsbi-rt          0.0.2    ---     0.0.3   Normal  cfg(target_arch = \"riscv64\")\ntock-registers  0.8.1    ---     0.9.0   Normal  cfg(target_arch = \"aarch64\")\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=polyhal, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-06-28 12:27:27.996692804 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building polyhal v0.4.0 (current)\nerror: running cargo-doc on crate 'polyhal' failed with output:\n-----\n   Compiling autocfg v1.5.0\n   Compiling rustversion v1.0.21\n    Checking bitflags v2.9.1\n   Compiling proc-macro2 v1.0.95\n    Checking bit_field v0.10.2\n   Compiling unicode-ident v1.0.18\n    Checking bitflags v1.3.2\n   Compiling hashbrown v0.15.4\n   Compiling equivalent v1.0.2\n   Compiling paste v1.0.15\n   Compiling lock_api v0.4.13\n    Checking raw-cpuid v10.7.0\n   Compiling indexmap v2.10.0\n   Compiling winnow v0.7.11\n   Compiling x86 v0.52.0\n   Compiling toml_datetime v0.6.11\n   Compiling quote v1.0.40\n    Checking scopeguard v1.2.0\n    Checking volatile v0.4.6\n    Checking x86_64 v0.15.2\n   Compiling syn v2.0.104\n   Compiling toml_edit v0.22.27\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n    Checking log v0.4.27\n    Checking bit v0.1.1\n    Checking x2apic v0.5.0\n    Checking uart_16550 v0.3.2\n    Checking acpi v5.2.0\n    Checking multiboot v0.8.0\n    Checking spin v0.10.0\n    Checking raw-cpuid v11.5.0\n    Checking arrayvec v0.7.6\n    Checking lazyinit v0.2.2\n    Checking fdt-parser v0.4.17\n    Checking cfg-if v1.0.1\n   Compiling proc-macro-crate v3.3.0\n   Compiling polyhal-macro v0.4.0\n Documenting polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\nerror: unsafe attribute used without unsafe\n   --> /home/runner/check/batch_1/Byte-OS/polyhal/polyhal/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> /home/runner/check/batch_1/Byte-OS/polyhal/polyhal/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: could not document `polyhal`\n\n-----\n\nerror: failed to build rustdoc for crate polyhal v0.4.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/Byte-OS/polyhal/polyhal --features boot,default,fp_simd,graphic,logger,trap &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate polyhal v0.4.0\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/arch/x86_64/apic.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: creating a mutable reference to mutable static is discouraged\n  --> polyhal/src/arch/x86_64/apic.rs:31:14\n   |\n31 |     unsafe { LOCAL_APIC.as_mut().unwrap() }\n   |              ^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/components/mem/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: struct `Barrier` is never constructed\n --> polyhal/src/components/mem/mod.rs:8:12\n  |\n8 | pub struct Barrier;\n  |            ^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/components/percpu/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: this public function might dereference a raw pointer but is not marked `unsafe`\n  --> polyhal/src/components/percpu/mod.rs:35:49\n   |\n35 |         copy_nonoverlapping(start as *const u8, dst, size);\n   |                                                 ^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#not_unsafe_ptr_arg_deref\n   = note: `#[deny(clippy::not_unsafe_ptr_arg_deref)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/debug_console/x86_64/vga_text.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: casting raw pointers to the same type and constness is unnecessary (`*mut debug_console::x86_64::vga_text::FChar` -> `*mut debug_console::x86_64::vga_text::FChar`)\n  --> polyhal/src/debug_console/x86_64/vga_text.rs:37:26\n   |\n37 |         let vga_buffer = Self::VGA_BUFFER_PTR as *mut FChar;\n   |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::VGA_BUFFER_PTR`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n   = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Byte-OS",
+      "repo": "polyhal",
+      "pkg": "example",
+      "count": 22,
+      "raw_reports": [
+        {
+          "file": "polyhal/src/mem.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: creating a mutable reference to mutable static is discouraged\n  --> polyhal/src/mem.rs:69:30\n   |\n69 |         for (start, size) in MEM_AREA.iter_mut() {\n   |                              ^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
+              "warning: creating a shared reference to mutable static is discouraged\n   --> polyhal/src/mem.rs:130:14\n    |\n130 |     unsafe { MEM_AREA.iter() }\n    |              ^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
+              "warning: creating a mutable reference to mutable static is discouraged\n   --> polyhal/src/mem.rs:176:13\n    |\n176 |             MEM_AREA.push((start, end - start));\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n"
+            ]
+          }
+        },
+        {
+          "file": "example/src/main.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: empty `loop {}` wastes CPU cycles\n   --> example/src/main.rs:133:5\n    |\n133 |     loop {}\n    |     ^^^^^^^\n    |\n    = help: you should either use `panic!()` or add a call pausing or sleeping the thread to the loop body\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#empty_loop\n    = note: `#[warn(clippy::empty_loop)]` on by default\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: variables in the condition are not mutated in the loop body\n   --> example/src/main.rs:108:11\n    |\n108 |     while *TIMER_TICKS <= 5 {\n    |           ^^^^^^^^^^^^^^^^^\n    |\n    = note: this may lead to an infinite or to a never running loop\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#while_immutable_condition\n    = note: `#[deny(clippy::while_immutable_condition)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/components/mem/x86_64.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: associated functions `complete_sync` and `ordering_sync` are never used\n --> polyhal/src/components/mem/x86_64.rs:5:12\n  |\n3 | impl Barrier {\n  | ------------ associated functions in this implementation\n4 |     #[inline]\n5 |     pub fn complete_sync() {}\n  |            ^^^^^^^^^^^^^\n...\n8 |     pub fn ordering_sync() {}\n  |            ^^^^^^^^^^^^^\n\n",
+              "warning: associated functions `complete_sync` and `ordering_sync` are never used\n --> polyhal/src/components/mem/x86_64.rs:5:12\n  |\n3 | impl Barrier {\n  | ------------ associated functions in this implementation\n4 |     #[inline]\n5 |     pub fn complete_sync() {}\n  |            ^^^^^^^^^^^^^\n...\n8 |     pub fn ordering_sync() {}\n  |            ^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/pagetable/x86_64.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: associated constants `VADDR_BITS` and `USER_VADDR_END` are never used\n   --> polyhal/src/pagetable/x86_64.rs:124:22\n    |\n118 | impl PageTable {\n    | -------------- associated constants in this implementation\n...\n124 |     pub(crate) const VADDR_BITS: usize = 48;\n    |                      ^^^^^^^^^^\n125 |     pub(crate) const USER_VADDR_END: usize = (1 << Self::VADDR_BITS) - 1;\n    |                      ^^^^^^^^^^^^^^\n\n",
+              "warning: associated constants `VADDR_BITS` and `USER_VADDR_END` are never used\n   --> polyhal/src/pagetable/x86_64.rs:124:22\n    |\n118 | impl PageTable {\n    | -------------- associated constants in this implementation\n...\n124 |     pub(crate) const VADDR_BITS: usize = 48;\n    |                      ^^^^^^^^^^\n125 |     pub(crate) const USER_VADDR_END: usize = (1 << Self::VADDR_BITS) - 1;\n    |                      ^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_1/Byte-OS/polyhal/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.4.0\n│       ├── polyhal-trap 0.4.0\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.4.0\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.4.0\n│   ├── polyhal-boot 0.4.0\n│   └── polyhal 0.4.0\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.4.0\n    ├── polyhal-boot 0.4.0\n    └── polyhal 0.4.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 787,\n    \"last-commit\": \"7573f55ba337263f61167dbb0ea926cdc7c8eb5d\",\n    \"last-updated\": \"2025-06-17T11:04:25+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=example, checker=Clippy\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/example\n// cmd=cargo clippy --target x86_64-unknown-none  --no-deps\n// timestamp=2025-06-28 12:26:52.134115834 +08:00:00\n    Checking bitflags v2.9.0\n    Checking bit_field v0.10.2\n   Compiling rustversion v1.0.20\n   Compiling lock_api v0.4.12\n    Checking bitflags v1.3.2\n    Checking scopeguard v1.2.0\n   Compiling x86 v0.52.0\n    Checking raw-cpuid v10.7.0\n    Checking volatile v0.4.6\n    Checking log v0.4.26\n    Checking bit v0.1.1\n    Checking acpi v5.2.0\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n    Checking spin v0.10.0\n    Checking multiboot v0.8.0\n    Checking raw-cpuid v11.5.0\n    Checking cfg-if v1.0.0\n    Checking fdt-parser v0.4.10\n    Checking arrayvec v0.7.6\n    Checking x86_64 v0.15.2\n    Checking lazyinit v0.2.1\n    Checking byteorder v1.5.0\n    Checking zerocopy v0.7.35\n    Checking spin v0.9.8\n   Compiling example v0.1.0 (/home/runner/check/batch_1/Byte-OS/polyhal/example)\n    Checking virtio-drivers v0.7.5\n    Checking buddy_system_allocator v0.11.0\n    Checking uart_16550 v0.3.2\n    Checking x2apic v0.5.0\n    Checking polyhal-trap v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap)\n    Checking polyhal-boot v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot)\nerror: could not compile `example` (bin \"example\") due to 1 previous error; 3 warnings emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=example, checker=Lockbud\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/example\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target x86_64-unknown-none \n// timestamp=2025-06-28 12:28:41.267366047 +08:00:00\n   Compiling bitflags v2.9.0\n   Compiling bit_field v0.10.2\n   Compiling scopeguard v1.2.0\n   Compiling bitflags v1.3.2\n   Compiling raw-cpuid v10.7.0\n   Compiling lock_api v0.4.12\n   Compiling volatile v0.4.6\n   Compiling log v0.4.26\n   Compiling x86_64 v0.15.2\n   Compiling bit v0.1.1\n[2025-06-28T04:28:41Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T04:28:41Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling acpi v5.2.0\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n   Compiling spin v0.10.0\n   Compiling raw-cpuid v11.5.0\n   Compiling multiboot v0.8.0\n   Compiling x86 v0.52.0\n   Compiling lazyinit v0.2.1\n   Compiling x2apic v0.5.0\n   Compiling cfg-if v1.0.0\n   Compiling arrayvec v0.7.6\n   Compiling fdt-parser v0.4.10\n   Compiling byteorder v1.5.0\n   Compiling zerocopy v0.7.35\n   Compiling spin v0.9.8\n   Compiling uart_16550 v0.3.2\n   Compiling example v0.1.0 (/home/runner/check/batch_1/Byte-OS/polyhal/example)\n   Compiling buddy_system_allocator v0.11.0\n   Compiling virtio-drivers v0.7.5\nwarning: struct `Barrier` is never constructed\n --> polyhal/src/components/mem/mod.rs:8:12\n  |\n8 | pub struct Barrier;\n  |            ^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\nwarning: associated functions `complete_sync` and `ordering_sync` are never used\n --> polyhal/src/components/mem/x86_64.rs:5:12\n  |\n3 | impl Barrier {\n  | ------------ associated functions in this implementation\n4 |     #[inline]\n5 |     pub fn complete_sync() {}\n  |            ^^^^^^^^^^^^^\n...\n8 |     pub fn ordering_sync() {}\n  |            ^^^^^^^^^^^^^\n\nwarning: associated constants `VADDR_BITS` and `USER_VADDR_END` are never used\n   --> polyhal/src/pagetable/x86_64.rs:124:22\n    |\n118 | impl PageTable {\n    | -------------- associated constants in this implementation\n...\n124 |     pub(crate) const VADDR_BITS: usize = 48;\n    |                      ^^^^^^^^^^\n125 |     pub(crate) const USER_VADDR_END: usize = (1 << Self::VADDR_BITS) - 1;\n    |                      ^^^^^^^^^^^^^^\n\nwarning: creating a mutable reference to mutable static is discouraged\n  --> polyhal/src/arch/x86_64/apic.rs:31:14\n   |\n31 |     unsafe { LOCAL_APIC.as_mut().unwrap() }\n   |              ^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\nwarning: creating a mutable reference to mutable static is discouraged\n  --> polyhal/src/mem.rs:69:30\n   |\n69 |         for (start, size) in MEM_AREA.iter_mut() {\n   |                              ^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\nwarning: creating a shared reference to mutable static is discouraged\n   --> polyhal/src/mem.rs:130:14\n    |\n130 |     unsafe { MEM_AREA.iter() }\n    |              ^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\nwarning: creating a mutable reference to mutable static is discouraged\n   --> polyhal/src/mem.rs:176:13\n    |\n176 |             MEM_AREA.push((start, end - start));\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n   Compiling polyhal-trap v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap)\n   Compiling polyhal-boot v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot)\nwarning: `polyhal` (lib) generated 7 warnings\nwarning: creating a shared reference to mutable static is discouraged\n  --> example/src/allocator.rs:14:19\n   |\n14 |             .init(HEAP_SPACE.as_ptr() as usize, KERNEL_HEAP_SIZE);\n   |                   ^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\nerror: linking with `rust-lld` failed: exit status: 1\n  |\n  = note:  \"rust-lld\" \"-flavor\" \"gnu\" \"/tmp/rustcDKium5/symbols.o\" \"<4 object files omitted>\" \"--as-needed\" \"-Bstatic\" \"/home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/{libpolyhal_trap-338efc114ea41b71.rlib,libpolyhal_boot-55e4abb50492fee2.rlib,libmultiboot-337caa1e7780fabc.rlib,libvirtio_drivers-ea3e02bdcf8a0ffb.rlib,libzerocopy-71eb4c9270829228.rlib,libbyteorder-6c9da6ab473b30af.rlib,libpolyhal-d4b8a35d6af2bbdd.rlib,libraw_cpuid-5d8dc9fa77760119.rlib,libx2apic-0c846c4801aeb7d1.rlib,libx86_64-812459b80850b398.rlib,libvolatile-3555d236b3621080.rlib,libbit-72057a6aa0585b0f.rlib,libacpi-64acd72408f03892.rlib,libuart_16550-5ddac1a414c84b12.rlib,libx86-b197844c78201683.rlib,libraw_cpuid-6fda4f50684b4a2c.rlib,libbit_field-8221603e4ddf65e0.rlib,libbitflags-8b0fdcc66d6d828f.rlib,libbitflags-8a02936487e409ca.rlib,libcfg_if-dd7e286e90aa1c68.rlib,libfdt_parser-771aab8c999d0065.rlib,libarrayvec-17908377140cf943.rlib,liblazyinit-a1dc4750a6ec177e.rlib,libspin-bc8bdb8a0ad82a18.rlib,liblog-41b3311d6f122d5d.rlib,libbuddy_system_allocator-0267c65ab52954b6.rlib}.rlib\" \"<sysroot>/lib/rustlib/x86_64-unknown-none/lib/{liballoc-*}.rlib\" \"/home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/{libspin-610e0004e84a3788.rlib,liblock_api-d2e746842835e345.rlib,libscopeguard-48c22c9faa682bd2.rlib}.rlib\" \"<sysroot>/lib/rustlib/x86_64-unknown-none/lib/{librustc_std_workspace_core-*,libcore-*,libcompiler_builtins-*}.rlib\" \"-Bdynamic\" \"--eh-frame-hdr\" \"-z\" \"noexecstack\" \"-o\" \"/home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/example-a311f9164633c56c\" \"--gc-sections\" \"-pie\" \"-z\" \"relro\" \"-z\" \"now\" \"-Texample/linker_x86_64.lds\"\n  = note: some arguments are omitted. use `--verbose` to show all linker arguments\n  = note: rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x0) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x8) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x10) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x18) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x20) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x28) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x30) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x38) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x40) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x48) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x50) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x58) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x60) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x68) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x70) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x78) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x80) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x88) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x90) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: relocation R_X86_64_64 cannot be used against local symbol; recompile with -fPIC\n          >>> defined in /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib(polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o)\n          >>> referenced by polyhal_trap.ece46e94609ba4b2-cgu.0\n          >>>               polyhal_trap-338efc114ea41b71.polyhal_trap.ece46e94609ba4b2-cgu.0.rcgu.o:(.rodata+0x98) in archive /home/runner/check/batch_1/Byte-OS/polyhal/target/x86_64-unknown-none/debug/deps/libpolyhal_trap-338efc114ea41b71.rlib\n          \n          rust-lld: error: too many errors emitted, stopping now (use --error-limit=0 to see all errors)\n          \n\nwarning: `example` (bin \"example\") generated 1 warning\nerror: could not compile `example` (bin \"example\") due to 1 previous error; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=example, checker=Rapx\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/example\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none \n// timestamp=2025-06-28 12:29:36.049505909 +08:00:00\n   Compiling proc-macro2 v1.0.94\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.4.0\n    Checking bitflags v2.9.0\n    Checking bit_field v0.10.2\n   Compiling rustversion v1.0.20\n    Checking bitflags v1.3.2\n   Compiling paste v1.0.15\n   Compiling lock_api v0.4.12\n   Compiling hashbrown v0.15.3\n    Checking scopeguard v1.2.0\n   Compiling equivalent v1.0.2\n   Compiling quote v1.0.40\n   Compiling indexmap v2.9.0\n   Compiling syn v2.0.100\n    Checking raw-cpuid v10.7.0\n   Compiling toml_datetime v0.6.9\n   Compiling x86 v0.52.0\n   Compiling winnow v0.7.9\n    Checking log v0.4.26\n    Checking volatile v0.4.6\n    Checking x86_64 v0.15.2\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/addr.rs:406:51\n    |\n406 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> Option<usize>`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n406 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page.rs:307:51\n    |\n307 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&page::Page<_>, &page::Page<_>) -> Option<usize>`\n               found signature `fn(&page::Page<_>, &page::Page<_>) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n307 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page_table.rs:356:51\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&PageTableIndex, &PageTableIndex) -> Option<usize>`\n               found signature `fn(&PageTableIndex, &PageTableIndex) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0308]: mismatched types\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page_table.rs:357:9\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ---------------------- expected `(usize, Option<usize>)` because of return type\n357 |         Step::steps_between(&start.0, &end.0)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `Option<usize>`\n    |\n    = note: expected tuple `(usize, Option<usize>)`\n                found enum `Option<usize>`\n\n   Compiling toml_edit v0.22.26\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\nSome errors have detailed explanations: E0053, E0308.\nFor more information about an error, try `rustc --explain E0053`.\nerror: could not compile `x86_64` (lib) due to 4 previous errors\nwarning: build failed, waiting for other jobs to finish...\n04:29:42|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=example, checker=Udeps\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/example\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2025-06-28 12:32:43.761284155 +08:00:00\n    Checking bitflags v2.9.0\n    Checking bit_field v0.10.2\n   Compiling rustversion v1.0.20\n   Compiling lock_api v0.4.12\n    Checking scopeguard v1.2.0\n    Checking bitflags v1.3.2\n   Compiling x86 v0.52.0\n    Checking raw-cpuid v10.7.0\n    Checking log v0.4.26\n    Checking volatile v0.4.6\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n    Checking bit v0.1.1\n   Compiling polyhal-macro v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-macro)\n    Checking acpi v5.2.0\n    Checking spin v0.10.0\n    Checking multiboot v0.8.0\n    Checking raw-cpuid v11.5.0\n    Checking arrayvec v0.7.6\n    Checking x86_64 v0.15.2\n    Checking lazyinit v0.2.1\n    Checking fdt-parser v0.4.10\n    Checking cfg-if v1.0.0\n    Checking byteorder v1.5.0\n    Checking zerocopy v0.7.35\n    Checking spin v0.9.8\n    Checking uart_16550 v0.3.2\n    Checking x2apic v0.5.0\n   Compiling example v0.1.0 (/home/runner/check/batch_1/Byte-OS/polyhal/example)\n    Checking buddy_system_allocator v0.11.0\n    Checking virtio-drivers v0.7.5\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nwarning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> polyhal/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: `polyhal` (lib) generated 1 warning\nerror: could not compile `polyhal` (lib) due to 2 previous errors; 1 warning emitted\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T04:28:41Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T04:28:41Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=example, checker=Udeps\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/example\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-06-28 12:32:46.782678596 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking bitflags v2.9.0\n    Checking bit_field v0.10.2\n   Compiling rustversion v1.0.20\n   Compiling lock_api v0.4.12\n    Checking scopeguard v1.2.0\n    Checking bitflags v1.3.2\n   Compiling x86 v0.52.0\n    Checking raw-cpuid v10.7.0\n    Checking log v0.4.26\n    Checking volatile v0.4.6\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n    Checking bit v0.1.1\n   Compiling polyhal-macro v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-macro)\n    Checking acpi v5.2.0\n    Checking spin v0.10.0\n    Checking multiboot v0.8.0\n    Checking raw-cpuid v11.5.0\n    Checking arrayvec v0.7.6\n    Checking x86_64 v0.15.2\n    Checking lazyinit v0.2.1\n    Checking fdt-parser v0.4.10\n    Checking cfg-if v1.0.0\n    Checking byteorder v1.5.0\n    Checking zerocopy v0.7.35\n    Checking spin v0.9.8\n    Checking uart_16550 v0.3.2\n    Checking x2apic v0.5.0\n   Compiling example v0.1.0 (/home/runner/check/batch_1/Byte-OS/polyhal/example)\n    Checking buddy_system_allocator v0.11.0\n    Checking virtio-drivers v0.7.5\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nwarning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> polyhal/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: `polyhal` (lib) generated 1 warning\nerror: could not compile `polyhal` (lib) due to 2 previous errors; 1 warning emitted\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=example, checker=Outdated\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/example\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 12:32:23.929639124 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\nlog             0.4.26   0.4.27  0.4.27  Normal  ---\nvirtio-drivers  0.7.5    ---     0.11.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "example/src/allocator.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: creating a shared reference to mutable static is discouraged\n  --> example/src/allocator.rs:14:19\n   |\n14 |             .init(HEAP_SPACE.as_ptr() as usize, KERNEL_HEAP_SIZE);\n   |                   ^^^^^^^^^^^^^^^^^^^ shared reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "example/src/frame.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: manually reimplementing `div_ceil`\n  --> example/src/frame.rs:12:9\n   |\n12 |         (_end as usize + PAGE_SIZE - 1) / PAGE_SIZE\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `(_end as usize).div_ceil(PAGE_SIZE)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n   = note: `#[warn(clippy::manual_div_ceil)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/arch/x86_64/apic.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: creating a mutable reference to mutable static is discouraged\n  --> polyhal/src/arch/x86_64/apic.rs:31:14\n   |\n31 |     unsafe { LOCAL_APIC.as_mut().unwrap() }\n   |              ^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/components/mem/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: struct `Barrier` is never constructed\n --> polyhal/src/components/mem/mod.rs:8:12\n  |\n8 | pub struct Barrier;\n  |            ^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Byte-OS",
+      "repo": "polyhal",
+      "pkg": "polyhal-boot",
+      "count": 18,
+      "raw_reports": [
+        {
+          "file": "polyhal/src/mem.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: creating a mutable reference to mutable static is discouraged\n  --> polyhal/src/mem.rs:69:30\n   |\n69 |         for (start, size) in MEM_AREA.iter_mut() {\n   |                              ^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
+              "warning: creating a shared reference to mutable static is discouraged\n   --> polyhal/src/mem.rs:130:14\n    |\n130 |     unsafe { MEM_AREA.iter() }\n    |              ^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
+              "warning: creating a mutable reference to mutable static is discouraged\n   --> polyhal/src/mem.rs:176:13\n    |\n176 |             MEM_AREA.push((start, end - start));\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/components/mem/x86_64.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: associated functions `complete_sync` and `ordering_sync` are never used\n --> polyhal/src/components/mem/x86_64.rs:5:12\n  |\n3 | impl Barrier {\n  | ------------ associated functions in this implementation\n4 |     #[inline]\n5 |     pub fn complete_sync() {}\n  |            ^^^^^^^^^^^^^\n...\n8 |     pub fn ordering_sync() {}\n  |            ^^^^^^^^^^^^^\n\n",
+              "warning: associated functions `complete_sync` and `ordering_sync` are never used\n --> polyhal/src/components/mem/x86_64.rs:5:12\n  |\n3 | impl Barrier {\n  | ------------ associated functions in this implementation\n4 |     #[inline]\n5 |     pub fn complete_sync() {}\n  |            ^^^^^^^^^^^^^\n...\n8 |     pub fn ordering_sync() {}\n  |            ^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/pagetable/x86_64.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: associated constants `VADDR_BITS` and `USER_VADDR_END` are never used\n   --> polyhal/src/pagetable/x86_64.rs:124:22\n    |\n118 | impl PageTable {\n    | -------------- associated constants in this implementation\n...\n124 |     pub(crate) const VADDR_BITS: usize = 48;\n    |                      ^^^^^^^^^^\n125 |     pub(crate) const USER_VADDR_END: usize = (1 << Self::VADDR_BITS) - 1;\n    |                      ^^^^^^^^^^^^^^\n\n",
+              "warning: associated constants `VADDR_BITS` and `USER_VADDR_END` are never used\n   --> polyhal/src/pagetable/x86_64.rs:124:22\n    |\n118 | impl PageTable {\n    | -------------- associated constants in this implementation\n...\n124 |     pub(crate) const VADDR_BITS: usize = 48;\n    |                      ^^^^^^^^^^\n125 |     pub(crate) const USER_VADDR_END: usize = (1 << Self::VADDR_BITS) - 1;\n    |                      ^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_1/Byte-OS/polyhal/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.4.0\n│       ├── polyhal-trap 0.4.0\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.4.0\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.4.0\n│   ├── polyhal-boot 0.4.0\n│   └── polyhal 0.4.0\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.4.0\n    ├── polyhal-boot 0.4.0\n    └── polyhal 0.4.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 787,\n    \"last-commit\": \"7573f55ba337263f61167dbb0ea926cdc7c8eb5d\",\n    \"last-updated\": \"2025-06-17T11:04:25+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=polyhal-boot, checker=Rapx\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none \n// timestamp=2025-06-28 12:31:06.922808081 +08:00:00\n   Compiling autocfg v1.4.0\n    Checking bit_field v0.10.2\n   Compiling proc-macro2 v1.0.94\n   Compiling rustversion v1.0.20\n    Checking bitflags v2.9.0\n   Compiling equivalent v1.0.2\n   Compiling unicode-ident v1.0.18\n   Compiling paste v1.0.15\n    Checking bitflags v1.3.2\n   Compiling hashbrown v0.15.3\n   Compiling lock_api v0.4.12\n    Checking raw-cpuid v10.7.0\n   Compiling indexmap v2.9.0\n   Compiling x86 v0.52.0\n   Compiling winnow v0.7.9\n   Compiling toml_datetime v0.6.9\n   Compiling quote v1.0.40\n    Checking scopeguard v1.2.0\n    Checking volatile v0.4.6\n    Checking x86_64 v0.15.2\n   Compiling syn v2.0.100\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/addr.rs:406:51\n    |\n406 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> Option<usize>`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n406 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page.rs:307:51\n    |\n307 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&page::Page<_>, &page::Page<_>) -> Option<usize>`\n               found signature `fn(&page::Page<_>, &page::Page<_>) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n307 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page_table.rs:356:51\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&PageTableIndex, &PageTableIndex) -> Option<usize>`\n               found signature `fn(&PageTableIndex, &PageTableIndex) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0308]: mismatched types\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page_table.rs:357:9\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ---------------------- expected `(usize, Option<usize>)` because of return type\n357 |         Step::steps_between(&start.0, &end.0)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `Option<usize>`\n    |\n    = note: expected tuple `(usize, Option<usize>)`\n                found enum `Option<usize>`\n\nSome errors have detailed explanations: E0053, E0308.\nFor more information about an error, try `rustc --explain E0053`.\nerror: could not compile `x86_64` (lib) due to 4 previous errors\nwarning: build failed, waiting for other jobs to finish...\n04:31:12|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=polyhal-boot, checker=SemverChecks\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-06-28 12:27:47.314222643 +08:00:00\n    Building polyhal-boot v0.4.0 (current)\nerror: running cargo-doc on crate 'polyhal-boot' failed with output:\n-----\n   Compiling autocfg v1.5.0\n    Checking bitflags v2.9.1\n    Checking bit_field v0.10.2\n   Compiling rustversion v1.0.21\n   Compiling proc-macro2 v1.0.95\n   Compiling paste v1.0.15\n   Compiling hashbrown v0.15.4\n   Compiling unicode-ident v1.0.18\n   Compiling equivalent v1.0.2\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n   Compiling lock_api v0.4.13\n   Compiling indexmap v2.10.0\n   Compiling x86 v0.52.0\n   Compiling toml_datetime v0.6.11\n   Compiling winnow v0.7.11\n   Compiling quote v1.0.40\n    Checking scopeguard v1.2.0\n    Checking volatile v0.4.6\n    Checking x86_64 v0.15.2\n   Compiling syn v2.0.104\n   Compiling polyhal v0.4.0\n    Checking bit v0.1.1\n    Checking log v0.4.27\n   Compiling toml_edit v0.22.27\n    Checking uart_16550 v0.3.2\n    Checking acpi v5.2.0\n    Checking x2apic v0.5.0\n    Checking spin v0.10.0\n    Checking multiboot v0.8.0\n    Checking raw-cpuid v11.5.0\n    Checking fdt-parser v0.4.17\n    Checking arrayvec v0.7.6\n    Checking lazyinit v0.2.2\n    Checking cfg-if v1.0.1\n   Compiling proc-macro-crate v3.3.0\n   Compiling polyhal-macro v0.4.0\nerror: unsafe attribute used without unsafe\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/polyhal-0.4.0/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/polyhal-0.4.0/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: could not compile `polyhal` (lib) due to 2 previous errors\n\n-----\n\nerror: failed to build rustdoc for crate polyhal-boot v0.4.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot --features graphic &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate polyhal-boot v0.4.0\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=polyhal-boot, checker=Udeps\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2025-06-28 12:32:52.488213909 +08:00:00\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n   Compiling polyhal-macro v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-macro)\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nwarning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> polyhal/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: `polyhal` (lib) generated 1 warning\nerror: could not compile `polyhal` (lib) due to 2 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T04:28:41Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T04:28:41Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=polyhal-boot, checker=Udeps\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-06-28 12:32:52.970242362 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n   Compiling polyhal-macro v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-macro)\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nwarning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> polyhal/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: `polyhal` (lib) generated 1 warning\nerror: could not compile `polyhal` (lib) due to 2 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=polyhal-boot, checker=Outdated\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 12:32:29.943361358 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  cfg(target_arch = \"aarch64\")\ncfg-if          1.0.0    1.0.1   1.0.1   Normal  ---\nloongArch64     0.2.4    0.2.5   0.2.5   Normal  cfg(target_arch = \"loongarch64\")\nriscv           0.13.0   ---     0.14.0  Normal  cfg(target_arch = \"riscv64\")\ntock-registers  0.8.1    ---     0.9.0   Normal  cfg(target_arch = \"aarch64\")\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=polyhal-boot, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-06-28 12:27:53.654657085 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building polyhal-boot v0.4.0 (current)\nerror: running cargo-doc on crate 'polyhal-boot' failed with output:\n-----\n   Compiling autocfg v1.5.0\n    Checking bitflags v2.9.1\n    Checking bit_field v0.10.2\n   Compiling rustversion v1.0.21\n   Compiling proc-macro2 v1.0.95\n   Compiling paste v1.0.15\n   Compiling hashbrown v0.15.4\n   Compiling unicode-ident v1.0.18\n   Compiling equivalent v1.0.2\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n   Compiling lock_api v0.4.13\n   Compiling indexmap v2.10.0\n   Compiling x86 v0.52.0\n   Compiling toml_datetime v0.6.11\n   Compiling winnow v0.7.11\n   Compiling quote v1.0.40\n    Checking scopeguard v1.2.0\n    Checking volatile v0.4.6\n    Checking x86_64 v0.15.2\n   Compiling syn v2.0.104\n   Compiling polyhal v0.4.0\n    Checking bit v0.1.1\n    Checking log v0.4.27\n   Compiling toml_edit v0.22.27\n    Checking uart_16550 v0.3.2\n    Checking acpi v5.2.0\n    Checking x2apic v0.5.0\n    Checking spin v0.10.0\n    Checking multiboot v0.8.0\n    Checking raw-cpuid v11.5.0\n    Checking fdt-parser v0.4.17\n    Checking arrayvec v0.7.6\n    Checking lazyinit v0.2.2\n    Checking cfg-if v1.0.1\n   Compiling proc-macro-crate v3.3.0\n   Compiling polyhal-macro v0.4.0\nerror: unsafe attribute used without unsafe\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/polyhal-0.4.0/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/polyhal-0.4.0/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: could not compile `polyhal` (lib) due to 2 previous errors\n\n-----\n\nerror: failed to build rustdoc for crate polyhal-boot v0.4.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/Byte-OS/polyhal/polyhal-boot --features graphic &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate polyhal-boot v0.4.0\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/arch/x86_64/apic.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: creating a mutable reference to mutable static is discouraged\n  --> polyhal/src/arch/x86_64/apic.rs:31:14\n   |\n31 |     unsafe { LOCAL_APIC.as_mut().unwrap() }\n   |              ^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/components/mem/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: struct `Barrier` is never constructed\n --> polyhal/src/components/mem/mod.rs:8:12\n  |\n8 | pub struct Barrier;\n  |            ^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Byte-OS",
+      "repo": "polyhal",
+      "pkg": "polyhal-trap",
+      "count": 18,
+      "raw_reports": [
+        {
+          "file": "polyhal/src/mem.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: creating a mutable reference to mutable static is discouraged\n  --> polyhal/src/mem.rs:69:30\n   |\n69 |         for (start, size) in MEM_AREA.iter_mut() {\n   |                              ^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n",
+              "warning: creating a shared reference to mutable static is discouraged\n   --> polyhal/src/mem.rs:130:14\n    |\n130 |     unsafe { MEM_AREA.iter() }\n    |              ^^^^^^^^^^^^^^^ shared reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: shared references to mutable statics are dangerous; it's undefined behavior if the static is mutated or if a mutable reference is created for it while the shared reference lives\n\n",
+              "warning: creating a mutable reference to mutable static is discouraged\n   --> polyhal/src/mem.rs:176:13\n    |\n176 |             MEM_AREA.push((start, end - start));\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n    = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/components/mem/x86_64.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: associated functions `complete_sync` and `ordering_sync` are never used\n --> polyhal/src/components/mem/x86_64.rs:5:12\n  |\n3 | impl Barrier {\n  | ------------ associated functions in this implementation\n4 |     #[inline]\n5 |     pub fn complete_sync() {}\n  |            ^^^^^^^^^^^^^\n...\n8 |     pub fn ordering_sync() {}\n  |            ^^^^^^^^^^^^^\n\n",
+              "warning: associated functions `complete_sync` and `ordering_sync` are never used\n --> polyhal/src/components/mem/x86_64.rs:5:12\n  |\n3 | impl Barrier {\n  | ------------ associated functions in this implementation\n4 |     #[inline]\n5 |     pub fn complete_sync() {}\n  |            ^^^^^^^^^^^^^\n...\n8 |     pub fn ordering_sync() {}\n  |            ^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/pagetable/x86_64.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: associated constants `VADDR_BITS` and `USER_VADDR_END` are never used\n   --> polyhal/src/pagetable/x86_64.rs:124:22\n    |\n118 | impl PageTable {\n    | -------------- associated constants in this implementation\n...\n124 |     pub(crate) const VADDR_BITS: usize = 48;\n    |                      ^^^^^^^^^^\n125 |     pub(crate) const USER_VADDR_END: usize = (1 << Self::VADDR_BITS) - 1;\n    |                      ^^^^^^^^^^^^^^\n\n",
+              "warning: associated constants `VADDR_BITS` and `USER_VADDR_END` are never used\n   --> polyhal/src/pagetable/x86_64.rs:124:22\n    |\n118 | impl PageTable {\n    | -------------- associated constants in this implementation\n...\n124 |     pub(crate) const VADDR_BITS: usize = 48;\n    |                      ^^^^^^^^^^\n125 |     pub(crate) const USER_VADDR_END: usize = (1 << Self::VADDR_BITS) - 1;\n    |                      ^^^^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_1/Byte-OS/polyhal/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── polyhal 0.4.0\n│       ├── polyhal-trap 0.4.0\n│       │   └── example 0.1.0\n│       ├── polyhal-boot 0.4.0\n│       │   └── example 0.1.0\n│       └── example 0.1.0\n├── riscv 0.13.0\n│   ├── polyhal-trap 0.4.0\n│   ├── polyhal-boot 0.4.0\n│   └── polyhal 0.4.0\n└── multiboot 0.8.0\n    ├── polyhal-trap 0.4.0\n    ├── polyhal-boot 0.4.0\n    └── polyhal 0.4.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 787,\n    \"last-commit\": \"7573f55ba337263f61167dbb0ea926cdc7c8eb5d\",\n    \"last-updated\": \"2025-06-17T11:04:25+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 62\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=polyhal-trap, checker=Rapx\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none \n// timestamp=2025-06-28 12:32:08.532080517 +08:00:00\n   Compiling autocfg v1.4.0\n    Checking bitflags v2.9.0\n   Compiling rustversion v1.0.20\n   Compiling proc-macro2 v1.0.94\n    Checking bit_field v0.10.2\n   Compiling equivalent v1.0.2\n    Checking bitflags v1.3.2\n   Compiling hashbrown v0.15.3\n   Compiling paste v1.0.15\n   Compiling unicode-ident v1.0.18\n   Compiling lock_api v0.4.12\n    Checking raw-cpuid v10.7.0\n   Compiling indexmap v2.9.0\n   Compiling winnow v0.7.9\n   Compiling x86 v0.52.0\n   Compiling toml_datetime v0.6.9\n   Compiling quote v1.0.40\n    Checking scopeguard v1.2.0\n    Checking volatile v0.4.6\n   Compiling syn v2.0.100\n    Checking x86_64 v0.15.2\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/addr.rs:406:51\n    |\n406 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> Option<usize>`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n406 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page.rs:307:51\n    |\n307 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&page::Page<_>, &page::Page<_>) -> Option<usize>`\n               found signature `fn(&page::Page<_>, &page::Page<_>) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n307 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page_table.rs:356:51\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&PageTableIndex, &PageTableIndex) -> Option<usize>`\n               found signature `fn(&PageTableIndex, &PageTableIndex) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\nerror[E0308]: mismatched types\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.15.2/src/structures/paging/page_table.rs:357:9\n    |\n356 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ---------------------- expected `(usize, Option<usize>)` because of return type\n357 |         Step::steps_between(&start.0, &end.0)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `(usize, Option<usize>)`, found `Option<usize>`\n    |\n    = note: expected tuple `(usize, Option<usize>)`\n                found enum `Option<usize>`\n\n   Compiling toml_edit v0.22.26\nSome errors have detailed explanations: E0053, E0308.\nFor more information about an error, try `rustc --explain E0053`.\nerror: could not compile `x86_64` (lib) due to 4 previous errors\nwarning: build failed, waiting for other jobs to finish...\n04:32:14|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=polyhal-trap, checker=SemverChecks\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-06-28 12:28:13.081323414 +08:00:00\n    Building polyhal-trap v0.4.0 (current)\nerror: running cargo-doc on crate 'polyhal-trap' failed with output:\n-----\n   Compiling autocfg v1.5.0\n    Checking bitflags v2.9.1\n   Compiling rustversion v1.0.21\n   Compiling proc-macro2 v1.0.95\n    Checking bit_field v0.10.2\n   Compiling unicode-ident v1.0.18\n   Compiling equivalent v1.0.2\n   Compiling paste v1.0.15\n    Checking bitflags v1.3.2\n   Compiling hashbrown v0.15.4\n    Checking raw-cpuid v10.7.0\n   Compiling lock_api v0.4.13\n   Compiling indexmap v2.10.0\n   Compiling x86 v0.52.0\n   Compiling winnow v0.7.11\n   Compiling toml_datetime v0.6.11\n   Compiling quote v1.0.40\n    Checking scopeguard v1.2.0\n    Checking volatile v0.4.6\n    Checking x86_64 v0.15.2\n   Compiling syn v2.0.104\n   Compiling polyhal v0.4.0\n    Checking bit v0.1.1\n   Compiling toml_edit v0.22.27\n    Checking log v0.4.27\n    Checking acpi v5.2.0\n    Checking uart_16550 v0.3.2\n    Checking x2apic v0.5.0\n    Checking spin v0.10.0\n    Checking multiboot v0.8.0\n    Checking raw-cpuid v11.5.0\n    Checking cfg-if v1.0.1\n    Checking lazyinit v0.2.2\n    Checking arrayvec v0.7.6\n    Checking fdt-parser v0.4.17\n   Compiling proc-macro-crate v3.3.0\n   Compiling polyhal-macro v0.4.0\nerror: unsafe attribute used without unsafe\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/polyhal-0.4.0/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/polyhal-0.4.0/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: could not compile `polyhal` (lib) due to 2 previous errors\n\n-----\n\nerror: failed to build rustdoc for crate polyhal-trap v0.4.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate polyhal-trap v0.4.0\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=polyhal-trap, checker=Udeps\n// toolchain=nightly-2025-02-01, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2025-06-28 12:32:57.422699059 +08:00:00\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n   Compiling polyhal-macro v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-macro)\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nwarning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> polyhal/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: `polyhal` (lib) generated 1 warning\nerror: could not compile `polyhal` (lib) due to 2 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T04:28:41Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.26/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T04:28:41Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=polyhal-trap, checker=Udeps\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-06-28 12:32:57.910263829 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling polyhal v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal)\n   Compiling polyhal-macro v0.4.0 (/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-macro)\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> polyhal/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nwarning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> polyhal/src/lib.rs:3:12\n  |\n3 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: `polyhal` (lib) generated 1 warning\nerror: could not compile `polyhal` (lib) due to 2 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=polyhal-trap, checker=Outdated\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 12:32:36.229471086 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.4.0    ---     10.0.0  Normal  cfg(target_arch = \"aarch64\")\nbitflags        2.9.0    2.9.1   2.9.1   Normal  ---\nlog             0.4.26   0.4.27  0.4.27  Normal  ---\nloongArch64     0.2.4    0.2.5   0.2.5   Normal  cfg(target_arch = \"loongarch64\")\nriscv           0.13.0   ---     0.14.0  Normal  cfg(target_arch = \"riscv64\")\ntock-registers  0.8.1    ---     0.9.0   Normal  cfg(target_arch = \"aarch64\")\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=polyhal-trap, checker=SemverChecks\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-06-28 12:28:19.398131229 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building polyhal-trap v0.4.0 (current)\nerror: running cargo-doc on crate 'polyhal-trap' failed with output:\n-----\n   Compiling autocfg v1.5.0\n    Checking bitflags v2.9.1\n   Compiling rustversion v1.0.21\n   Compiling proc-macro2 v1.0.95\n    Checking bit_field v0.10.2\n   Compiling unicode-ident v1.0.18\n   Compiling equivalent v1.0.2\n   Compiling paste v1.0.15\n    Checking bitflags v1.3.2\n   Compiling hashbrown v0.15.4\n    Checking raw-cpuid v10.7.0\n   Compiling lock_api v0.4.13\n   Compiling indexmap v2.10.0\n   Compiling x86 v0.52.0\n   Compiling winnow v0.7.11\n   Compiling toml_datetime v0.6.11\n   Compiling quote v1.0.40\n    Checking scopeguard v1.2.0\n    Checking volatile v0.4.6\n    Checking x86_64 v0.15.2\n   Compiling syn v2.0.104\n   Compiling polyhal v0.4.0\n    Checking bit v0.1.1\n   Compiling toml_edit v0.22.27\n    Checking log v0.4.27\n    Checking acpi v5.2.0\n    Checking uart_16550 v0.3.2\n    Checking x2apic v0.5.0\n    Checking spin v0.10.0\n    Checking multiboot v0.8.0\n    Checking raw-cpuid v11.5.0\n    Checking cfg-if v1.0.1\n    Checking lazyinit v0.2.2\n    Checking arrayvec v0.7.6\n    Checking fdt-parser v0.4.17\n   Compiling proc-macro-crate v3.3.0\n   Compiling polyhal-macro v0.4.0\nerror: unsafe attribute used without unsafe\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/polyhal-0.4.0/src/components/kcontext/x86_64.rs:150:3\n    |\n150 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n150 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: unsafe attribute used without unsafe\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/polyhal-0.4.0/src/components/kcontext/x86_64.rs:188:3\n    |\n188 | #[naked]\n    |   ^^^^^ usage of unsafe attribute\n    |\nhelp: wrap the attribute in `unsafe(...)`\n    |\n188 | #[unsafe(naked)]\n    |   +++++++     +\n\nerror: could not compile `polyhal` (lib) due to 2 previous errors\n\n-----\n\nerror: failed to build rustdoc for crate polyhal-trap v0.4.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/Byte-OS/polyhal/polyhal-trap &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate polyhal-trap v0.4.0\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/arch/x86_64/apic.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: creating a mutable reference to mutable static is discouraged\n  --> polyhal/src/arch/x86_64/apic.rs:31:14\n   |\n31 |     unsafe { LOCAL_APIC.as_mut().unwrap() }\n   |              ^^^^^^^^^^^^^^^^^^^ mutable reference to mutable static\n   |\n   = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/static-mut-references.html>\n   = note: mutable references to mutable statics are dangerous; it's undefined behavior if any other pointer to the static is used or if any other reference is created for the static while the mutable reference lives\n   = note: `#[warn(static_mut_refs)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "polyhal/src/components/mem/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: struct `Barrier` is never constructed\n --> polyhal/src/components/mem/mod.rs:8:12\n  |\n8 | pub struct Barrier;\n  |            ^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "Byte-OS",
+      "repo": "polyhal",
+      "pkg": "polyhal-macro",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=polyhal-macro, checker=Outdated\ntoolchain=nightly-2025-02-01, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/Byte-OS/polyhal/polyhal-macro\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 12:32:33.175110618 +08:00:00\n\nName         Project  Compat   Latest   Kind    Platform\n----         -------  ------   ------   ----    --------\nproc-macro2  1.0.94   1.0.95   1.0.95   Normal  ---\nsyn          2.0.100  2.0.104  2.0.104  Normal  ---\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

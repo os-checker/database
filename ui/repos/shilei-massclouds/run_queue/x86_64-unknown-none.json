@@ -1,0 +1,231 @@
+{
+  "repo": {
+    "user": "shilei-massclouds",
+    "repo": "run_queue"
+  },
+  "data": [
+    {
+      "user": "shilei-massclouds",
+      "repo": "run_queue",
+      "pkg": "run_queue",
+      "count": 21,
+      "raw_reports": [
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 7,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/lib.rs (original lines from 3 to 3)\n+use crate::run_queue::RUN_QUEUE;\n",
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/lib.rs (original lines from 5 to 6)\n-use taskctx::CtxRef;\n-use crate::run_queue::RUN_QUEUE;\n",
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/lib.rs (original lines from 8 to 8)\n-use taskctx::{Tid, SchedInfo};\n+use taskctx::CtxRef;\n+use taskctx::{SchedInfo, Tid};\n",
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/lib.rs (original lines from 42 to 42)\n-    F: FnOnce() + 'static\n+    F: FnOnce() + 'static,\n",
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/lib.rs (original lines from 53 to 53)\n-    sched_info.thread.get_mut().init(task_entry as usize, sp.into(), 0.into());\n",
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/lib.rs (original lines from 55 to 55)\n+        .thread\n+        .get_mut()\n+        .init(task_entry as usize, sp.into(), 0.into());\n+    sched_info\n",
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/lib.rs (original lines from 77 to 77)\n-        unsafe { (*ctid_ptr) = ctx.tid(); }\n+        unsafe {\n+            (*ctid_ptr) = ctx.tid();\n+        }\n"
+            ]
+          }
+        },
+        {
+          "file": "src/run_queue.rs",
+          "features": "",
+          "count": 5,
+          "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/run_queue.rs (original lines from 5 to 5)\n-use taskctx::TaskState;\n",
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/run_queue.rs (original lines from 7 to 7)\n+use taskctx::TaskState;\n",
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/run_queue.rs (original lines from 58 to 58)\n-        if self.scheduler.task_tick(&Arc::new(SchedItem::new(curr.as_ctx_ref().clone()))) {\n+        if self\n+            .scheduler\n+            .task_tick(&Arc::new(SchedItem::new(curr.as_ctx_ref().clone())))\n+        {\n",
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/run_queue.rs (original lines from 177 to 179)\n-        let next = self.scheduler.pick_next_task().unwrap_or_else(|| {\n-            self.idle.clone()\n-        });\n+        let next = self\n+            .scheduler\n+            .pick_next_task()\n+            .unwrap_or_else(|| self.idle.clone());\n",
+              "file: /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue/src/run_queue.rs (original lines from 184 to 184)\n-        debug!(\"============ context switch: {} -> {}\", prev_task.tid(), next_task.tid());\n+        debug!(\n+            \"============ context switch: {} -> {}\",\n+            prev_task.tid(),\n+            next_task.tid()\n+        );\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_9/shilei-massclouds/run_queue/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n└── x2apic 0.4.3\n    ├── axhal 0.1.0\n    │   ├── taskctx 0.1.0\n    │   │   ├── run_queue 0.1.0\n    │   │   │   └── rt_run_queue 0.1.0\n    │   │   ├── run_queue 0.1.0\n    │   │   └── rt_run_queue 0.1.0\n    │   ├── run_queue 0.1.0\n    │   ├── run_queue 0.1.0\n    │   ├── rt_run_queue 0.1.0\n    │   ├── page_table_entry 0.1.0\n    │   │   └── page_table 0.1.0\n    │   │       ├── taskctx 0.1.0\n    │   │       └── rt_run_queue 0.1.0\n    │   ├── page_table 0.1.0\n    │   └── axalloc 0.1.0\n    │       ├── rt_run_queue 0.1.0\n    │       └── page_table 0.1.0\n    └── arch_boot 0.1.0\n        └── rt_run_queue 0.1.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 787,\n    \"last-commit\": \"7573f55ba337263f61167dbb0ea926cdc7c8eb5d\",\n    \"last-updated\": \"2025-06-17T11:04:25+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 74\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=run_queue, checker=Lockbud\n// toolchain=nightly-2024-01-18, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target x86_64-unknown-none \n// timestamp=2025-06-28 11:26:18.497712322 +08:00:00\n[2025-06-28T03:26:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T03:26:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling early_console v0.1.0 (ssh://git@github.com/shilei-massclouds/early_console#8bc0d219)\n   Compiling x2apic v0.4.3\n   Compiling percpu2 v0.1.0 (ssh://git@github.com/shilei-massclouds/percpu2#2fa7f00e)\n   Compiling allocator v0.1.0 (ssh://git@github.com/shilei-massclouds/allocator#d93ad046)\nerror[E0432]: unresolved imports `platform::getchar`, `platform::putchar`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:12:20\n   |\n12 | pub use platform::{getchar, putchar};\n   |                    ^^^^^^^  ^^^^^^^ no `putchar` in `platform`\n   |                    |\n   |                    no `getchar` in `platform`\n\nerror[E0433]: failed to resolve: unresolved import\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/platform/dummy/mod.rs:31:69\n   |\n31 |     pub(crate) fn platform_regions() -> impl Iterator<Item = crate::mem::MemRegion> {\n   |                                                                     ^^^\n   |                                                                     |\n   |                                                                     unresolved import\n   |                                                                     help: a similar path exists: `core::mem`\n\nerror[E0425]: cannot find function `console_init` in module `platform`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:17:15\n   |\n17 |     platform::console_init();\n   |               ^^^^^^^^^^^^ not found in `platform`\n\nerror[E0425]: cannot find function `putchar` in module `platform`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:23:19\n   |\n23 |         platform::putchar(*c);\n   |                   ^^^^^^^ not found in `platform`\n   |\nhelp: consider importing this function\n   |\n12 + use crate::platform::console::putchar;\n   |\nhelp: if you import `putchar`, refer to it directly\n   |\n23 -         platform::putchar(*c);\n23 +         putchar(*c);\n   |\n\nerror[E0425]: cannot find function `getchar` in module `platform`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:31:36\n   |\n31 |         if let Some(c) = platform::getchar() {\n   |                                    ^^^^^^^ not found in `platform`\n   |\nhelp: consider importing this function\n   |\n12 + use crate::platform::console::getchar;\n   |\nhelp: if you import `getchar`, refer to it directly\n   |\n31 -         if let Some(c) = platform::getchar() {\n31 +         if let Some(c) = getchar() {\n   |\n\nSome errors have detailed explanations: E0425, E0432, E0433.\nFor more information about an error, try `rustc --explain E0425`.\nerror: could not compile `early_console` (lib) due to 5 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=run_queue, checker=Rapx\n// toolchain=nightly-2024-01-18, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none \n// timestamp=2025-06-28 11:26:54.383654611 +08:00:00\n   Compiling equivalent v1.0.2\n   Compiling serde v1.0.219\n   Compiling hashbrown v0.15.4\n   Compiling winnow v0.5.40\n   Compiling toml_datetime v0.6.11\n   Compiling proc-macro2 v1.0.95\n   Compiling indexmap v2.10.0\n   Compiling unicode-ident v1.0.18\n    Checking bit_field v0.10.2\n   Compiling quote v1.0.40\n   Compiling toml_edit v0.19.15\n    Checking cfg-if v1.0.1\n   Compiling rustversion v1.0.21\n    Checking bitflags v2.9.1\n    Checking volatile v0.4.6\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n    Checking x86_64 v0.14.13\n    Checking kernel_guard_base v0.1.0 (ssh://git@github.com/shilei-massclouds/kernel_guard_base#4e672f3e)\n    Checking log v0.4.27\n   Compiling paste v1.0.15\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.13/src/addr.rs:387:51\n    |\n387 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> Option<usize>`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n387 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\n   Compiling x86 v0.52.0\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.13/src/structures/paging/page.rs:284:51\n    |\n284 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&Page<_>, &Page<_>) -> Option<usize>`\n               found signature `fn(&Page<_>, &Page<_>) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n284 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\n   Compiling syn v1.0.109\n    Checking spinbase v0.1.0 (ssh://git@github.com/shilei-massclouds/spinbase.git#a3496db8)\n   Compiling syn v2.0.104\n   Compiling axerrno v0.1.0 (ssh://git@github.com/shilei-massclouds/axerrno#892169aa)\nFor more information about this error, try `rustc --explain E0053`.\nerror: could not compile `x86_64` (lib) due to 2 previous errors\nwarning: build failed, waiting for other jobs to finish...\n03:27:01|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=run_queue, checker=SemverChecks\n// toolchain=nightly-2024-01-18, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-06-28 11:25:53.584307946 +08:00:00\n    Building run_queue v0.1.0 (current)\nerror: running cargo-doc on crate 'run_queue' failed with output:\n-----\n   Compiling hashbrown v0.15.4\n   Compiling serde v1.0.219\n   Compiling equivalent v1.0.2\n   Compiling toml_datetime v0.6.11\n   Compiling winnow v0.5.40\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling indexmap v2.10.0\n    Checking bit_field v0.10.2\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `bit_field` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate run_queue v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue --features default,preempt,sched_cfs &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate run_queue v0.1.0\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=run_queue, checker=Udeps\n// toolchain=nightly-2024-01-18, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2025-06-28 11:29:21.121625 +08:00:00\n    Checking bit_field v0.10.2\n    Checking cfg-if v1.0.1\n   Compiling rustversion v1.0.21\n    Checking bitflags v2.9.1\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `bit_field` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nerror: could not compile `bitflags` (lib) due to 1 previous error\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T03:26:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T03:26:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=run_queue, checker=Udeps\ntoolchain=nightly-2024-01-18, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-06-28 11:29:21.508370222 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking bit_field v0.10.2\n    Checking cfg-if v1.0.1\n   Compiling rustversion v1.0.21\n    Checking bitflags v2.9.1\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `bit_field` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nerror: could not compile `bitflags` (lib) due to 1 previous error\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=run_queue, checker=SemverChecks\ntoolchain=nightly-2024-01-18, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-06-28 11:26:02.145948402 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building run_queue v0.1.0 (current)\nerror: running cargo-doc on crate 'run_queue' failed with output:\n-----\n   Compiling hashbrown v0.15.4\n   Compiling serde v1.0.219\n   Compiling equivalent v1.0.2\n   Compiling toml_datetime v0.6.11\n   Compiling winnow v0.5.40\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling indexmap v2.10.0\n    Checking bit_field v0.10.2\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `bit_field` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate run_queue v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_9/shilei-massclouds/run_queue/run_queue --features default,preempt,sched_cfs &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate run_queue v0.1.0\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "shilei-massclouds",
+      "repo": "run_queue",
+      "pkg": "rt_run_queue",
+      "count": 7,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/check/batch_9/shilei-massclouds/run_queue/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n└── x2apic 0.4.3\n    ├── axhal 0.1.0\n    │   ├── taskctx 0.1.0\n    │   │   ├── run_queue 0.1.0\n    │   │   │   └── rt_run_queue 0.1.0\n    │   │   ├── run_queue 0.1.0\n    │   │   └── rt_run_queue 0.1.0\n    │   ├── run_queue 0.1.0\n    │   ├── run_queue 0.1.0\n    │   ├── rt_run_queue 0.1.0\n    │   ├── page_table_entry 0.1.0\n    │   │   └── page_table 0.1.0\n    │   │       ├── taskctx 0.1.0\n    │   │       └── rt_run_queue 0.1.0\n    │   ├── page_table 0.1.0\n    │   └── axalloc 0.1.0\n    │       ├── rt_run_queue 0.1.0\n    │       └── page_table 0.1.0\n    └── arch_boot 0.1.0\n        └── rt_run_queue 0.1.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 787,\n    \"last-commit\": \"7573f55ba337263f61167dbb0ea926cdc7c8eb5d\",\n    \"last-updated\": \"2025-06-17T11:04:25+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 74\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=rt_run_queue, checker=Lockbud\n// toolchain=nightly-2024-01-18, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_9/shilei-massclouds/run_queue/rt_run_queue\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target x86_64-unknown-none \n// timestamp=2025-06-28 11:26:12.004416935 +08:00:00\n   Compiling bit_field v0.10.2\n   Compiling cfg-if v1.0.1\n   Compiling rustversion v1.0.21\n   Compiling bitflags v2.9.1\n   Compiling axconfig v0.1.0 (ssh://git@github.com/shilei-massclouds/axconfig.git#51b81e4a)\n   Compiling volatile v0.4.6\n   Compiling bitflags v1.3.2\n   Compiling raw-cpuid v10.7.0\n   Compiling log v0.4.27\n   Compiling paste v1.0.15\n[2025-06-28T03:26:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T03:26:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling x86 v0.52.0\n   Compiling kernel_guard_base v0.1.0 (ssh://git@github.com/shilei-massclouds/kernel_guard_base#4e672f3e)\n   Compiling early_console v0.1.0 (ssh://git@github.com/shilei-massclouds/early_console#8bc0d219)\n   Compiling spinbase v0.1.0 (ssh://git@github.com/shilei-massclouds/spinbase.git#a3496db8)\n   Compiling bit v0.1.1\n   Compiling percpu2 v0.1.0 (ssh://git@github.com/shilei-massclouds/percpu2#2fa7f00e)\n   Compiling axerrno v0.1.0 (ssh://git@github.com/shilei-massclouds/axerrno#892169aa)\n   Compiling percpu_macros2 v0.1.0 (ssh://git@github.com/shilei-massclouds/percpu2#2fa7f00e)\n   Compiling raw-cpuid v11.5.0\n   Compiling x86_64 v0.14.13\n   Compiling axhal v0.1.0 (ssh://git@github.com/shilei-massclouds/axhal.git#db90ff50)\n   Compiling lazy_init v0.1.0 (ssh://git@github.com/shilei-massclouds/lazy_init.git#3cee00cf)\n   Compiling static_assertions v1.1.0\n   Compiling const-default v1.0.0\n   Compiling ratio v0.1.0 (ssh://git@github.com/shilei-massclouds/ratio#bc2f2303)\n   Compiling memory_addr v0.1.0 (ssh://git@github.com/shilei-massclouds/memory_addr#8d24a00e)\n   Compiling rlsf v0.2.1\n   Compiling bitmap-allocator v0.1.0 (https://github.com/rcore-os/bitmap-allocator.git?rev=88e871a#88e871a5)\n   Compiling tock-registers v0.8.1\n   Compiling aarch64-cpu v9.4.0\nerror[E0432]: unresolved imports `platform::getchar`, `platform::putchar`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:12:20\n   |\n12 | pub use platform::{getchar, putchar};\n   |                    ^^^^^^^  ^^^^^^^ no `putchar` in `platform`\n   |                    |\n   |                    no `getchar` in `platform`\n\nerror[E0433]: failed to resolve: unresolved import\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/platform/dummy/mod.rs:31:69\n   |\n31 |     pub(crate) fn platform_regions() -> impl Iterator<Item = crate::mem::MemRegion> {\n   |                                                                     ^^^\n   |                                                                     |\n   |                                                                     unresolved import\n   |                                                                     help: a similar path exists: `core::mem`\n\nerror[E0425]: cannot find function `console_init` in module `platform`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:17:15\n   |\n17 |     platform::console_init();\n   |               ^^^^^^^^^^^^ not found in `platform`\n\nerror[E0425]: cannot find function `putchar` in module `platform`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:23:19\n   |\n23 |         platform::putchar(*c);\n   |                   ^^^^^^^ not found in `platform`\n   |\nhelp: consider importing this function\n   |\n12 + use crate::platform::console::putchar;\n   |\nhelp: if you import `putchar`, refer to it directly\n   |\n23 -         platform::putchar(*c);\n23 +         putchar(*c);\n   |\n\nerror[E0425]: cannot find function `getchar` in module `platform`\n  --> /home/runner/.cargo/git/checkouts/early_console-27aa013ee5514833/8bc0d21/early_console/src/lib.rs:31:36\n   |\n31 |         if let Some(c) = platform::getchar() {\n   |                                    ^^^^^^^ not found in `platform`\n   |\nhelp: consider importing this function\n   |\n12 + use crate::platform::console::getchar;\n   |\nhelp: if you import `getchar`, refer to it directly\n   |\n31 -         if let Some(c) = platform::getchar() {\n31 +         if let Some(c) = getchar() {\n   |\n\nSome errors have detailed explanations: E0425, E0432, E0433.\nFor more information about an error, try `rustc --explain E0425`.\nerror: could not compile `early_console` (lib) due to 5 previous errors\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=rt_run_queue, checker=Rapx\n// toolchain=nightly-2024-01-18, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_9/shilei-massclouds/run_queue/rt_run_queue\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target x86_64-unknown-none \n// timestamp=2025-06-28 11:26:34.352318524 +08:00:00\n   Compiling hashbrown v0.15.4\n   Compiling equivalent v1.0.2\n   Compiling serde v1.0.219\n   Compiling toml_datetime v0.6.11\n   Compiling winnow v0.5.40\n   Compiling proc-macro2 v1.0.95\n   Compiling indexmap v2.10.0\n    Checking bit_field v0.10.2\n   Compiling unicode-ident v1.0.18\n    Checking cfg-if v1.0.1\n   Compiling rustversion v1.0.21\n   Compiling quote v1.0.40\n   Compiling toml_edit v0.19.15\n    Checking bitflags v2.9.1\n    Checking volatile v0.4.6\n    Checking bitflags v1.3.2\n    Checking raw-cpuid v10.7.0\n    Checking x86_64 v0.14.13\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.13/src/addr.rs:387:51\n    |\n387 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> Option<usize>`\n               found signature `fn(&addr::VirtAddr, &addr::VirtAddr) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n387 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\n   Compiling x86 v0.52.0\nerror[E0053]: method `steps_between` has an incompatible type for trait\n   --> /home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/x86_64-0.14.13/src/structures/paging/page.rs:284:51\n    |\n284 |     fn steps_between(start: &Self, end: &Self) -> (usize, Option<usize>) {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^ expected `Option<usize>`, found `(usize, Option<usize>)`\n    |\n    = note: expected signature `fn(&Page<_>, &Page<_>) -> Option<usize>`\n               found signature `fn(&Page<_>, &Page<_>) -> (usize, Option<usize>)`\nhelp: change the output type to match the trait\n    |\n284 |     fn steps_between(start: &Self, end: &Self) -> Option<usize> {\n    |                                                   ~~~~~~~~~~~~~\n\n   Compiling paste v1.0.15\n    Checking log v0.4.27\n    Checking kernel_guard_base v0.1.0 (ssh://git@github.com/shilei-massclouds/kernel_guard_base#4e672f3e)\n   Compiling syn v1.0.109\n    Checking spinbase v0.1.0 (ssh://git@github.com/shilei-massclouds/spinbase.git#a3496db8)\nFor more information about this error, try `rustc --explain E0053`.\nerror: could not compile `x86_64` (lib) due to 2 previous errors\nwarning: build failed, waiting for other jobs to finish...\n03:26:39|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=rt_run_queue, checker=Udeps\n// toolchain=nightly-2024-01-18, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_9/shilei-massclouds/run_queue/rt_run_queue\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2025-06-28 11:29:20.373808383 +08:00:00\n   Compiling axconfig v0.1.0 (ssh://git@github.com/shilei-massclouds/axconfig.git#51b81e4a)\n    Checking bit_field v0.10.2\n    Checking cfg-if v1.0.1\n   Compiling rustversion v1.0.21\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `bit_field` (lib) due to 1 previous error\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-06-28T03:26:12Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T03:26:12Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=rt_run_queue, checker=Udeps\ntoolchain=nightly-2024-01-18, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_9/shilei-massclouds/run_queue/rt_run_queue\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-06-28 11:29:20.710661433 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling axconfig v0.1.0 (ssh://git@github.com/shilei-massclouds/axconfig.git#51b81e4a)\n    Checking bit_field v0.10.2\n    Checking cfg-if v1.0.1\n   Compiling rustversion v1.0.21\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `bit_field` (lib) due to 1 previous error\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

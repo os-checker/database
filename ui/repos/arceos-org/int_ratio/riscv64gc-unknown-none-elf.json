@@ -1,0 +1,43 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "int_ratio"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "int_ratio",
+      "pkg": "int_ratio",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "(virtual) atomvchecker",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=int_ratio, checker=Atomvchecker\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/arceos-org/int_ratio\n// cmd=cargo +nightly-2023-03-09 atomvchecker -k atomicity_violation -- --target riscv64gc-unknown-none-elf \n// timestamp=2025-06-28 14:12:34.123768065 +08:00:00\n   Compiling int_ratio v0.1.2 (/home/runner/check/batch_4/arceos-org/int_ratio)\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not be installed\n  = help: consider downloading the target with `rustup target add riscv64gc-unknown-none-elf`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `compiler_builtins`\n\nerror[E0463]: can't find crate for `core`\n --> src/lib.rs:4:5\n  |\n4 | use core::{cmp::PartialEq, fmt};\n  |     ^^^^ can't find crate\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not be installed\n  = help: consider downloading the target with `rustup target add riscv64gc-unknown-none-elf`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `write` in this scope\n   --> src/lib.rs:151:9\n    |\n151 |         write!(\n    |         ^^^^^\n\nerror: cannot find macro `assert` in this scope\n  --> src/lib.rs:55:9\n   |\n55 |         assert!(!(denominator == 0 && numerator != 0));\n   |         ^^^^^^\n\nerror: cannot find attribute `derive` in this scope\n  --> src/lib.rs:13:3\n   |\n13 | #[derive(Clone, Copy)]\n   |   ^^^^^^\n\nerror: cannot find macro `include_str` in this scope\n --> src/lib.rs:2:10\n  |\n2 | #![doc = include_str!(\"../README.md\")]\n  |          ^^^^^^^^^^^\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `int_ratio` (lib) due to 7 previous errors\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

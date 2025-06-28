@@ -1,0 +1,60 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "flatten_objects"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "flatten_objects",
+      "pkg": "flatten_objects",
+      "count": 9,
+      "raw_reports": [
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 8,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `FlattenObjects<T, CAP>`\n  --> src/lib.rs:77:5\n   |\n77 | /     pub const fn new() -> Self {\n78 | |         Self {\n79 | |             objects: [const { MaybeUninit::uninit() }; CAP],\n...  |\n84 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n53 + impl<T, const CAP: usize> Default for FlattenObjects<T, CAP>\n54 + where\n55 +     BitsImpl<{ CAP }>: Bits,\n56 +  {\n57 +     fn default() -> Self {\n58 +         Self::new()\n59 +     }\n60 + }\n   |\n\n",
+              "warning: lifetime flowing from input to output with different syntax can be confusing\n   --> src/lib.rs:344:16\n    |\n344 |     pub fn ids(&self) -> Iter<CAP> {\n    |                ^^^^^     --------- the lifetime gets resolved as `'_`\n    |                |\n    |                this lifetime flows to the output\n    |\n    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n344 |     pub fn ids(&self) -> Iter<'_, CAP> {\n    |                               +++\n\n",
+              "warning: you should consider adding a `Default` implementation for `FlattenObjects<T, CAP>`\n  --> src/lib.rs:77:5\n   |\n77 | /     pub const fn new() -> Self {\n78 | |         Self {\n79 | |             objects: [const { MaybeUninit::uninit() }; CAP],\n...  |\n84 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n53 + impl<T, const CAP: usize> Default for FlattenObjects<T, CAP>\n54 + where\n55 +     BitsImpl<{ CAP }>: Bits,\n56 +  {\n57 +     fn default() -> Self {\n58 +         Self::new()\n59 +     }\n60 + }\n   |\n\n",
+              "warning: lifetime flowing from input to output with different syntax can be confusing\n   --> src/lib.rs:344:16\n    |\n344 |     pub fn ids(&self) -> Iter<CAP> {\n    |                ^^^^^     --------- the lifetime gets resolved as `'_`\n    |                |\n    |                this lifetime flows to the output\n    |\n    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n344 |     pub fn ids(&self) -> Iter<'_, CAP> {\n    |                               +++\n\n",
+              "warning: you should consider adding a `Default` implementation for `FlattenObjects<T, CAP>`\n  --> src/lib.rs:77:5\n   |\n77 | /     pub const fn new() -> Self {\n78 | |         Self {\n79 | |             objects: [const { MaybeUninit::uninit() }; CAP],\n...  |\n84 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n53 + impl<T, const CAP: usize> Default for FlattenObjects<T, CAP>\n54 + where\n55 +     BitsImpl<{ CAP }>: Bits,\n56 +  {\n57 +     fn default() -> Self {\n58 +         Self::new()\n59 +     }\n60 + }\n   |\n\n",
+              "warning: lifetime flowing from input to output with different syntax can be confusing\n   --> src/lib.rs:344:16\n    |\n344 |     pub fn ids(&self) -> Iter<CAP> {\n    |                ^^^^^     --------- the lifetime gets resolved as `'_`\n    |                |\n    |                this lifetime flows to the output\n    |\n    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n344 |     pub fn ids(&self) -> Iter<'_, CAP> {\n    |                               +++\n\n",
+              "warning: you should consider adding a `Default` implementation for `FlattenObjects<T, CAP>`\n  --> src/lib.rs:77:5\n   |\n77 | /     pub const fn new() -> Self {\n78 | |         Self {\n79 | |             objects: [const { MaybeUninit::uninit() }; CAP],\n...  |\n84 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n53 + impl<T, const CAP: usize> Default for FlattenObjects<T, CAP>\n54 + where\n55 +     BitsImpl<{ CAP }>: Bits,\n56 +  {\n57 +     fn default() -> Self {\n58 +         Self::new()\n59 +     }\n60 + }\n   |\n\n",
+              "warning: lifetime flowing from input to output with different syntax can be confusing\n   --> src/lib.rs:344:16\n    |\n344 |     pub fn ids(&self) -> Iter<CAP> {\n    |                ^^^^^     --------- the lifetime gets resolved as `'_`\n    |                |\n    |                this lifetime flows to the output\n    |\n    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n344 |     pub fn ids(&self) -> Iter<'_, CAP> {\n    |                               +++\n\n"
+            ]
+          }
+        },
+        {
+          "file": "[Geiger] Unsafe code statistics",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Geiger": [
+              "pkg=flatten_objects, checker=Geiger\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_3/arceos-org/flatten_objects\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\ntimestamp=2025-06-28 15:26:38.158983977 +08:00:00\n\n\nMetric output format: x/y\n    x = unsafe code used by the build\n    y = total unsafe code found in the crate\n\nSymbols:\n    :) = No `unsafe` usage found, declares #![forbid(unsafe_code)]\n    ?  = No `unsafe` usage found, missing #![forbid(unsafe_code)]\n    !  = `unsafe` usage found\n\nFunctions  Expressions  Impls  Traits  Methods  Dependency\n\n0/0        18/18        0/0    0/0     0/0      !  flatten_objects 0.2.3\n0/0        117/117      0/0    0/0     9/9      !  `-- bitmaps 3.2.1\n\n0/0        135/135      0/0    0/0     9/9\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}
