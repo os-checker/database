@@ -97,12 +97,12 @@
           "features": "",
           "count": 3,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: use of deprecated associated function `talc::Span::from_const_array`: Conversion from const references encourages UB. This will be removed in a future release.\n  --> qemu/src/boot.rs:19:46\n   |\n19 |     Talc::new(unsafe { ClaimOnOom::new(Span::from_const_array(core::ptr::addr_of!(KERNEL_HEAP))) })\n   |                                              ^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(deprecated)]` on by default\n\n"
+            ],
             "Clippy(Error)": [
               "error: unsafe attribute used without unsafe\n  --> qemu/src/boot.rs:26:3\n   |\n26 | #[naked]\n   |   ^^^^^ usage of unsafe attribute\n   |\nhelp: wrap the attribute in `unsafe(...)`\n   |\n26 | #[unsafe(naked)]\n   |   +++++++     +\n\n",
               "error[E0787]: the `asm!` macro is not allowed in naked functions\n  --> qemu/src/boot.rs:31:9\n   |\n31 | /         asm!(\"\\\n32 | |         mv tp, a0\n33 | |         mv gp, a1\n34 | |         add t0, a0, 1\n...  |\n45 | |         options(noreturn)\n46 | |         );\n   | |_________^ consider using the `naked_asm!` macro instead\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: use of deprecated associated function `talc::Span::from_const_array`: Conversion from const references encourages UB. This will be removed in a future release.\n  --> qemu/src/boot.rs:19:46\n   |\n19 |     Talc::new(unsafe { ClaimOnOom::new(Span::from_const_array(core::ptr::addr_of!(KERNEL_HEAP))) })\n   |                                              ^^^^^^^^^^^^^^^^\n   |\n   = note: `#[warn(deprecated)]` on by default\n\n"
             ]
           }
         },
