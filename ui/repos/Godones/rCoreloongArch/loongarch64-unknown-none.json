@@ -396,15 +396,15 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Clippy(Error)": [
-              "error: incompatible bit mask: `_ | 32768` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:328:19\n    |\n328 |             while port.command.read() | (1 << 15) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
-              "error: incompatible bit mask: `_ | 16384` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:335:19\n    |\n335 |             while port.command.read() | (1 << 14) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n",
-              "error: incompatible bit mask: `_ | 1` can never be equal to `0`\n   --> isomorphic_drivers/src/block/ahci.rs:399:19\n    |\n399 |             while port.command.read() | (1 << 0) == 0 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: empty doc comment\n  --> isomorphic_drivers/src/block/ahci.rs:14:1\n   |\n14 | ///\n   | ^^^\n   |\n   = help: consider removing or filling it\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#empty_docs\n   = note: `#[warn(clippy::empty_docs)]` on by default\n\n",
               "warning: this operation has no effect\n   --> isomorphic_drivers/src/block/ahci.rs:278:22\n    |\n278 |         self.lba_0 = (lba >> 0) as u8;\n    |                      ^^^^^^^^^^ help: consider reducing it to: `lba`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n    = note: `#[warn(clippy::identity_op)]` on by default\n\n",
               "warning: unneeded `return` statement\n   --> isomorphic_drivers/src/block/ahci.rs:513:5\n    |\n513 |     return String::from_utf8(swapped_data).unwrap();\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n    = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n    |\n513 -     return String::from_utf8(swapped_data).unwrap();\n513 +     String::from_utf8(swapped_data).unwrap()\n    |\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: incompatible bit mask: `_ | 32768` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:328:19\n    |\n328 |             while port.command.read() | (1 << 15) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n    = note: `#[deny(clippy::bad_bit_mask)]` on by default\n\n",
+              "error: incompatible bit mask: `_ | 16384` can never be equal to `1`\n   --> isomorphic_drivers/src/block/ahci.rs:335:19\n    |\n335 |             while port.command.read() | (1 << 14) == 1 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n",
+              "error: incompatible bit mask: `_ | 1` can never be equal to `0`\n   --> isomorphic_drivers/src/block/ahci.rs:399:19\n    |\n399 |             while port.command.read() | (1 << 0) == 0 {}\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bad_bit_mask\n\n"
             ]
           }
         },

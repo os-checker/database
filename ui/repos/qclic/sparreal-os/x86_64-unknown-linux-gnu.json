@@ -68,11 +68,11 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Mirai": [
+            "Clippy(Error)": [
               "error[E0432]: unresolved import `crate::platform_if::MMUImpl`\n --> crates/sparreal-kernel/src/mem/region.rs:4:26\n  |\n4 | use crate::platform_if::{MMUImpl, PlatformImpl};\n  |                          ^^^^^^^ no `MMUImpl` in `platform_if`\n\n",
               "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/region.rs:6:13\n   |\n6  | use super::{mmu::BootRegion, once::OnceStatic};\n   |             ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n"
             ],
-            "Clippy(Error)": [
+            "Mirai": [
               "error[E0432]: unresolved import `crate::platform_if::MMUImpl`\n --> crates/sparreal-kernel/src/mem/region.rs:4:26\n  |\n4 | use crate::platform_if::{MMUImpl, PlatformImpl};\n  |                          ^^^^^^^ no `MMUImpl` in `platform_if`\n\n",
               "error[E0432]: unresolved import `super::mmu`\n  --> crates/sparreal-kernel/src/mem/region.rs:6:13\n   |\n6  | use super::{mmu::BootRegion, once::OnceStatic};\n   |             ^^^ could not find `mmu` in `super`\n   |\nnote: found an item that was configured out\n  --> crates/sparreal-kernel/src/mem/mod.rs:20:9\n   |\n20 | pub mod mmu;\n   |         ^^^\nnote: the item is gated behind the `mmu` feature\n  --> crates/sparreal-kernel/src/mem/mod.rs:19:7\n   |\n19 | #[cfg(feature = \"mmu\")]\n   |       ^^^^^^^^^^^^^^^\n\n"
             ]
@@ -98,11 +98,11 @@
           "features": "",
           "count": 3,
           "kinds": {
-            "Clippy(Error)": [
-              "error: `#[repr(align(...))]` is not supported on function items\n  --> crates/sparreal-kernel/src/boot/mod.rs:26:8\n   |\n26 | #[repr(align(0x10))]\n   |        ^^^^^^^^^^^\n   |\nhelp: use `#[align(...)]` instead\n  --> crates/sparreal-kernel/src/boot/mod.rs:26:8\n   |\n26 | #[repr(align(0x10))]\n   |        ^^^^^^^^^^^\n\n",
+            "Mirai": [
               "error[E0425]: cannot find function `set_mmu_enabled` in this scope\n  --> crates/sparreal-kernel/src/boot/mod.rs:29:5\n   |\n29 |     set_mmu_enabled();\n   |     ^^^^^^^^^^^^^^^ not found in this scope\n\n"
             ],
-            "Mirai": [
+            "Clippy(Error)": [
+              "error: `#[repr(align(...))]` is not supported on function items\n  --> crates/sparreal-kernel/src/boot/mod.rs:26:8\n   |\n26 | #[repr(align(0x10))]\n   |        ^^^^^^^^^^^\n   |\nhelp: use `#[align(...)]` instead\n  --> crates/sparreal-kernel/src/boot/mod.rs:26:8\n   |\n26 | #[repr(align(0x10))]\n   |        ^^^^^^^^^^^\n\n",
               "error[E0425]: cannot find function `set_mmu_enabled` in this scope\n  --> crates/sparreal-kernel/src/boot/mod.rs:29:5\n   |\n29 |     set_mmu_enabled();\n   |     ^^^^^^^^^^^^^^^ not found in this scope\n\n"
             ]
           }
