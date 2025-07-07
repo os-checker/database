@@ -30,14 +30,14 @@
           "features": "",
           "count": 5,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_6/os-module/pager/src/bitmap.rs (original lines from 213 to 213)\n-        }else {\n+        } else {\n"
-            ],
             "Clippy(Warn)": [
               "warning: doc list item without indentation\n  --> src/bitmap.rs:21:5\n   |\n21 | /// If the number of physical pages is less than 4096*8, space may be wasted\n   |     ^\n   |\n   = help: if this is supposed to be its own paragraph, add a blank line\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_lazy_continuation\n   = note: `#[warn(clippy::doc_lazy_continuation)]` on by default\nhelp: indent this line\n   |\n21 | ///    If the number of physical pages is less than 4096*8, space may be wasted\n   |     +++\n\n",
               "warning: variables can be used directly in the `format!` string\n  --> src/bitmap.rs:37:21\n   |\n37 |         f.write_fmt(format_args!(\"Bitmap<{N}>:\\n\", N = N))?;\n   |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n   = note: `#[warn(clippy::uninlined_format_args)]` on by default\nhelp: change this to\n   |\n37 -         f.write_fmt(format_args!(\"Bitmap<{N}>:\\n\", N = N))?;\n37 +         f.write_fmt(format_args!(\"Bitmap<{N}>:\\n\"))?;\n   |\n\n",
               "warning: variables can be used directly in the `format!` string\n  --> src/bitmap.rs:43:29\n   |\n43 |                 f.write_fmt(format_args!(\"{:b}\", x)).unwrap();\n   |                             ^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n43 -                 f.write_fmt(format_args!(\"{:b}\", x)).unwrap();\n43 +                 f.write_fmt(format_args!(\"{x:b}\")).unwrap();\n   |\n\n",
               "warning: manually reimplementing `div_ceil`\n   --> src/bitmap.rs:197:32\n    |\n197 |             let bitmap_pages = (self.max + 4096 * 8 - 1) / (4096 * 8);\n    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using `.div_ceil()`: `self.max.div_ceil((4096 * 8))`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_div_ceil\n    = note: `#[warn(clippy::manual_div_ceil)]` on by default\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_6/os-module/pager/src/bitmap.rs (original lines from 213 to 213)\n-        }else {\n+        } else {\n"
             ]
           }
         },
