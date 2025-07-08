@@ -42,13 +42,13 @@
           "features": "",
           "count": 4,
           "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/event.rs (original lines from 125 to 127)\n-                Allowed::TransferEvent(c)=>{\n-                    \n-                }\n+                Allowed::TransferEvent(c) => {}\n"
+            ],
             "Clippy(Warn)": [
               "warning: unused variable: `c`\n   --> src/host/xhci/event.rs:125:40\n    |\n125 |                 Allowed::TransferEvent(c)=>{\n    |                                        ^ help: if this is intentional, prefix it with an underscore: `_c`\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/event.rs:105:21\n    |\n105 |                     trace!(\"[EVENT] << {:?} @{:X}\", allowed, addr);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n105 -                     trace!(\"[EVENT] << {:?} @{:X}\", allowed, addr);\n105 +                     trace!(\"[EVENT] << {allowed:?} @{addr:X}\");\n    |\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/event.rs:129:21\n    |\n129 |                     debug!(\"unhandled event {:?}\", allowed);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n129 -                     debug!(\"unhandled event {:?}\", allowed);\n129 +                     debug!(\"unhandled event {allowed:?}\");\n    |\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/event.rs (original lines from 125 to 127)\n-                Allowed::TransferEvent(c)=>{\n-                    \n-                }\n+                Allowed::TransferEvent(c) => {}\n"
             ]
           }
         },

@@ -53,6 +53,9 @@
           "features": "",
           "count": 8,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: `#[inline]` is ignored on externally exported functions\n   --> src/utils.rs:149:1\n    |\n149 | #[inline]\n    | ^^^^^^^^^\n    |\n    = help: externally exported functions are functions with `#[no_mangle]`, `#[export_name]`, or `#[linkage]`\n    = note: `#[warn(unused_attributes)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/utils.rs (original lines from 83 to 83)\n-\n",
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/utils.rs (original lines from 101 to 103)\n-    unsafe {\n-        & *(addr as *mut T)\n-    }\n+    unsafe { &*(addr as *mut T) }\n",
@@ -61,9 +64,6 @@
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/utils.rs (original lines from 139 to 139)\n-    #[cfg(feature = \"ENABLE_SMP\")] {\n+    #[cfg(feature = \"ENABLE_SMP\")]\n+    {\n",
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/utils.rs (original lines from 143 to 143)\n-    #[cfg(not(feature = \"ENABLE_SMP\"))] {\n+    #[cfg(not(feature = \"ENABLE_SMP\"))]\n+    {\n",
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/utils.rs (original lines from 158 to 158)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: `#[inline]` is ignored on externally exported functions\n   --> src/utils.rs:149:1\n    |\n149 | #[inline]\n    | ^^^^^^^^^\n    |\n    = help: externally exported functions are functions with `#[no_mangle]`, `#[export_name]`, or `#[linkage]`\n    = note: `#[warn(unused_attributes)]` on by default\n\n"
             ]
           }
         },
@@ -134,13 +134,13 @@
           "features": "",
           "count": 4,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: function `kernel_stack_alloc` is never used\n --> src/deps.rs:3:12\n  |\n3 |     pub fn kernel_stack_alloc();\n  |            ^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/deps.rs (original lines from 1 to 1)\n-\n",
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/deps.rs (original lines from 5 to 6)\n-\n-\n",
               "file: /home/runner/check/batch_7/rel4team/sel4_common/src/deps.rs (original lines from 12 to 12)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: function `kernel_stack_alloc` is never used\n --> src/deps.rs:3:12\n  |\n3 |     pub fn kernel_stack_alloc();\n  |            ^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\n"
             ]
           }
         },

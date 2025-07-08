@@ -70,11 +70,11 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Error)": [
-              "error: mutable borrow from immutable input(s)\n  --> polyhal/src/utils/percpu.rs:21:30\n   |\n21 |     pub fn ref_mut(&self) -> &mut T {\n   |                              ^^^^^^\n   |\nnote: immutable borrow here\n  --> polyhal/src/utils/percpu.rs:21:20\n   |\n21 |     pub fn ref_mut(&self) -> &mut T {\n   |                    ^^^^^\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#mut_from_ref\n   = note: `#[deny(clippy::mut_from_ref)]` on by default\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: method `as_ref` can be confused for the standard trait method `std::convert::AsRef::as_ref`\n  --> polyhal/src/utils/percpu.rs:25:5\n   |\n25 | /     pub fn as_ref(&self) -> &T {\n26 | |         unsafe { self.get_mut_ptr().as_ref().unwrap() }\n27 | |     }\n   | |_____^\n   |\n   = help: consider implementing the trait `std::convert::AsRef` or choosing a less ambiguous method name\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_implement_trait\n   = note: `#[warn(clippy::should_implement_trait)]` on by default\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: mutable borrow from immutable input(s)\n  --> polyhal/src/utils/percpu.rs:21:30\n   |\n21 |     pub fn ref_mut(&self) -> &mut T {\n   |                              ^^^^^^\n   |\nnote: immutable borrow here\n  --> polyhal/src/utils/percpu.rs:21:20\n   |\n21 |     pub fn ref_mut(&self) -> &mut T {\n   |                    ^^^^^\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#mut_from_ref\n   = note: `#[deny(clippy::mut_from_ref)]` on by default\n\n"
             ]
           }
         },
@@ -232,11 +232,11 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Error)": [
-              "error: variables in the condition are not mutated in the loop body\n   --> example/src/main.rs:108:11\n    |\n108 |     while *TIMER_TICKS <= 5 {\n    |           ^^^^^^^^^^^^^^^^^\n    |\n    = note: this may lead to an infinite or to a never running loop\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#while_immutable_condition\n    = note: `#[deny(clippy::while_immutable_condition)]` on by default\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: empty `loop {}` wastes CPU cycles\n   --> example/src/main.rs:133:5\n    |\n133 |     loop {}\n    |     ^^^^^^^\n    |\n    = help: you should either use `panic!()` or add a call pausing or sleeping the thread to the loop body\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#empty_loop\n    = note: `#[warn(clippy::empty_loop)]` on by default\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: variables in the condition are not mutated in the loop body\n   --> example/src/main.rs:108:11\n    |\n108 |     while *TIMER_TICKS <= 5 {\n    |           ^^^^^^^^^^^^^^^^^\n    |\n    = note: this may lead to an infinite or to a never running loop\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#while_immutable_condition\n    = note: `#[deny(clippy::while_immutable_condition)]` on by default\n\n"
             ]
           }
         },
