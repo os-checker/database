@@ -1,0 +1,107 @@
+{
+  "repo": {
+    "user": "drivercraft",
+    "repo": "nvme"
+  },
+  "data": [
+    {
+      "user": "drivercraft",
+      "repo": "nvme",
+      "pkg": "nvme-driver",
+      "count": 11,
+      "raw_reports": [
+        {
+          "file": "src/nvme.rs",
+          "features": "",
+          "count": 5,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: variables can be used directly in the `format!` string\n  --> src/nvme.rs:76:9\n   |\n76 |         debug!(\"Controller: {:?}\", controller);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n   = note: `#[warn(clippy::uninlined_format_args)]` on by default\nhelp: change this to\n   |\n76 -         debug!(\"Controller: {:?}\", controller);\n76 +         debug!(\"Controller: {controller:?}\");\n   |\n\n",
+              "warning: variables can be used directly in the `format!` string\n  --> src/nvme.rs:89:9\n   |\n89 |         debug!(\"Controller: {:?}\", controller);\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n89 -         debug!(\"Controller: {:?}\", controller);\n89 +         debug!(\"Controller: {controller:?}\");\n   |\n\n",
+              "warning: variables can be used directly in the `format!` string\n  --> src/nvme.rs:99:17\n   |\n99 |                 debug!(\"Namespace: {:?}\", ns);\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n99 -                 debug!(\"Namespace: {:?}\", ns);\n99 +                 debug!(\"Namespace: {ns:?}\");\n   |\n\n",
+              "warning: manual implementation of `.is_multiple_of()`\n   --> src/nvme.rs:213:13\n    |\n213 |             buff.len() % ns.lba_size == 0,\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace with: `buff.len().is_multiple_of(ns.lba_size)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_is_multiple_of\n    = note: `#[warn(clippy::manual_is_multiple_of)]` on by default\n\n",
+              "warning: manual implementation of `.is_multiple_of()`\n   --> src/nvme.rs:235:13\n    |\n235 |             buff.len() % ns.lba_size == 0,\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace with: `buff.len().is_multiple_of(ns.lba_size)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_is_multiple_of\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=nvme-driver, checker=Rapx\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/nvme\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none \n// timestamp=2025-07-09 18:24:20.721235957 +08:00:00\n    Updating crates.io index\n Downloading crates ...\nerror: failed to download `bare-test-macros v0.2.0`\n\nCaused by:\n  unable to get packages from source\n\nCaused by:\n  failed to parse manifest at `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bare-test-macros-0.2.0/Cargo.toml`\n\nCaused by:\n  feature `edition2024` is required\n\n  The package requires the Cargo feature called `edition2024`, but that feature is not stabilized in this version of Cargo (1.83.0-nightly (15fbd2f60 2024-10-08)).\n  Consider trying a more recent nightly release.\n  See https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#edition-2024 for more information about the status of this feature.\n10:24:21|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n└── rdrive 0.15.3\n    └── sparreal-kernel 0.9.4\n        ├── sparreal-rt 0.9.8\n        │   └── bare-test 0.4.1\n        │       └── nvme-driver 0.3.1\n        └── bare-test 0.4.1\n\n\n{\n  \"database\": {\n    \"advisory-count\": 787,\n    \"last-commit\": \"7573f55ba337263f61167dbb0ea926cdc7c8eb5d\",\n    \"last-updated\": \"2025-06-17T11:04:25+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 282\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-07-09T10:24:15Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-07-09T10:24:15Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=nvme-driver, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/nvme\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-07-09 18:24:23.716777882 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\ntock-registers  0.9.0    ---     0.10.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "src/queue.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: method `do_not_retry` is never used\n   --> src/queue.rs:212:12\n    |\n203 | impl CompletionStatus {\n    | --------------------- method in this implementation\n...\n212 |     pub fn do_not_retry(&self) -> bool {\n    |            ^^^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

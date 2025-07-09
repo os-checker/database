@@ -1,0 +1,114 @@
+{
+  "repo": {
+    "user": "rcore-os",
+    "repo": "arm-gic-driver"
+  },
+  "data": [
+    {
+      "user": "rcore-os",
+      "repo": "arm-gic-driver",
+      "pkg": "arm-gic-driver",
+      "count": 9,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:218:18: 218:55 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}",
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:222:13: 222:53 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arm-gic-driver, checker=SemverChecks\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_5/rcore-os/arm-gic-driver\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-07-09 18:13:48.033978324 +08:00:00\n    Building arm-gic-driver v0.14.9 (current)\nerror: running cargo-doc on crate 'arm-gic-driver' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling thiserror v2.0.12\n    Checking as-any v0.3.2\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `as-any` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate arm-gic-driver v0.14.9\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_5/rcore-os/arm-gic-driver &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate arm-gic-driver v0.14.9\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=arm-gic-driver, checker=Udeps\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_5/rcore-os/arm-gic-driver\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none \n// timestamp=2025-07-09 18:14:07.937131936 +08:00:00\n   Compiling proc-macro2 v1.0.95\n    Checking as-any v0.3.2\n   Compiling thiserror v2.0.12\n   Compiling once_cell v1.21.3\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `as-any` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-07-09T10:13:58Z WARN  lockbud::callbacks] [\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:218:18: 218:55 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:238:5: 238:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      },\n      {\n        \"UseAfterFree\": {\n          \"bug_kind\": \"UseAfterFree\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:222:13: 222:53 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:238:5: 238:6 (#0)\",\n          \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n        }\n      }\n    ]\n[2025-07-09T10:13:58Z WARN  lockbud::callbacks] crate once_cell contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 0 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 2 }\n[2025-07-09T10:13:58Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-07-09T10:13:58Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=arm-gic-driver, checker=Udeps\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_5/rcore-os/arm-gic-driver\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none \ntimestamp=2025-07-09 18:14:08.174473193 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling proc-macro2 v1.0.95\n    Checking as-any v0.3.2\n   Compiling thiserror v2.0.12\n   Compiling once_cell v1.21.3\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `as-any` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=arm-gic-driver, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_5/rcore-os/arm-gic-driver\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-07-09 18:14:07.169636652 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\ntock-registers  0.9.0    ---     0.10.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=arm-gic-driver, checker=SemverChecks\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_5/rcore-os/arm-gic-driver\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-07-09 18:13:48.640926053 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building arm-gic-driver v0.14.9 (current)\nerror: running cargo-doc on crate 'arm-gic-driver' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling thiserror v2.0.12\n    Checking as-any v0.3.2\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `as-any` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate arm-gic-driver v0.14.9\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_5/rcore-os/arm-gic-driver &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate arm-gic-driver v0.14.9\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}
