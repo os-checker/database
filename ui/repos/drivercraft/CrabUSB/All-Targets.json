@@ -15,9 +15,6 @@
           "features": "",
           "count": 16,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/mod.rs (original lines from 540 to 541)\n-        let packet_size = data\n-            .last().map(|&len| if len == 0 { 8u8 } else { len });\n+        let packet_size = data.last().map(|&len| if len == 0 { 8u8 } else { len });\n"
-            ],
             "Clippy(Warn)": [
               "warning: unused import: `dma_api::DVec`\n  --> src/host/xhci/mod.rs:11:5\n   |\n11 | use dma_api::DVec;\n   |     ^^^^^^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\n",
               "warning: unused variable: `packet_size`\n   --> src/host/xhci/mod.rs:540:13\n    |\n540 |         let packet_size = data\n    |             ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_packet_size`\n    |\n    = note: `#[warn(unused_variables)]` on by default\n\n",
@@ -34,6 +31,9 @@
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/mod.rs:519:9\n    |\n519 |         debug!(\"Slot {} address complete\", slot_id);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n519 -         debug!(\"Slot {} address complete\", slot_id);\n519 +         debug!(\"Slot {slot_id} address complete\");\n    |\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/mod.rs:562:9\n    |\n562 |         trace!(\"ring0: {:#x}\", transfer_ring_0_addr);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n562 -         trace!(\"ring0: {:#x}\", transfer_ring_0_addr);\n562 +         trace!(\"ring0: {transfer_ring_0_addr:#x}\");\n    |\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/mod.rs:615:9\n    |\n615 |         debug!(\"Address slot ok {:?}\", result);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n615 -         debug!(\"Address slot ok {:?}\", result);\n615 +         debug!(\"Address slot ok {result:?}\");\n    |\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/mod.rs (original lines from 540 to 541)\n-        let packet_size = data\n-            .last().map(|&len| if len == 0 { 8u8 } else { len });\n+        let packet_size = data.last().map(|&len| if len == 0 { 8u8 } else { len });\n"
             ]
           }
         },
@@ -42,13 +42,13 @@
           "features": "",
           "count": 4,
           "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/event.rs (original lines from 125 to 127)\n-                Allowed::TransferEvent(c)=>{\n-                    \n-                }\n+                Allowed::TransferEvent(c) => {}\n"
+            ],
             "Clippy(Warn)": [
               "warning: unused variable: `c`\n   --> src/host/xhci/event.rs:125:40\n    |\n125 |                 Allowed::TransferEvent(c)=>{\n    |                                        ^ help: if this is intentional, prefix it with an underscore: `_c`\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/event.rs:105:21\n    |\n105 |                     trace!(\"[EVENT] << {:?} @{:X}\", allowed, addr);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n105 -                     trace!(\"[EVENT] << {:?} @{:X}\", allowed, addr);\n105 +                     trace!(\"[EVENT] << {allowed:?} @{addr:X}\");\n    |\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/event.rs:129:21\n    |\n129 |                     debug!(\"unhandled event {:?}\", allowed);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n129 -                     debug!(\"unhandled event {:?}\", allowed);\n129 +                     debug!(\"unhandled event {allowed:?}\");\n    |\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/event.rs (original lines from 125 to 127)\n-                Allowed::TransferEvent(c)=>{\n-                    \n-                }\n+                Allowed::TransferEvent(c) => {}\n"
             ]
           }
         },
