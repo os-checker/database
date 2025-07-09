@@ -1,7 +1,7 @@
 {
   "user": "arceos-hypervisor",
   "repo": "x86_vcpu",
-  "runs_total_count": 152,
+  "runs_total_count": 151,
   "workflows": [
     {
       "run": {
@@ -4481,40 +4481,6 @@
             "id": 44318170792
           }
         ]
-      }
-    },
-    {
-      "run": {
-        "name": "CI",
-        "head_branch": "master",
-        "head_sha": "b6cd803405668aa373953f3fb9b719c4ab3734d8",
-        "head_commit": {
-          "message": "test ci",
-          "timestamp": "2025-06-09T15:21:08Z"
-        },
-        "display_title": "update ci, changed to #[unsafe(naked)], fix Accesswidth import",
-        "html_url": "https://github.com/arceos-hypervisor/x86_vcpu/actions/runs/15538249102",
-        "event": "pull_request",
-        "status": "completed",
-        "conclusion": "action_required",
-        "run_attempt": 1,
-        "run_started_at": "2025-06-09T15:28:25Z",
-        "created_at": "2025-06-09T15:28:25Z",
-        "updated_at": "2025-06-09T15:28:25Z",
-        "duration_sec": 0,
-        "actor": {
-          "login": "lkdWind"
-        },
-        "triggering_actor": {
-          "login": "lkdWind"
-        },
-        "id": 15538249102,
-        "jobs_url": "https://api.github.com/repos/arceos-hypervisor/x86_vcpu/actions/runs/15538249102/jobs",
-        "logs_url": "https://api.github.com/repos/arceos-hypervisor/x86_vcpu/actions/runs/15538249102/logs"
-      },
-      "jobs": {
-        "total_count": 0,
-        "jobs": []
       }
     },
     {
@@ -9313,6 +9279,326 @@
               }
             ],
             "id": 41419262900
+          }
+        ]
+      }
+    },
+    {
+      "run": {
+        "name": "CI",
+        "head_branch": "INVALID_GUEST_STATE",
+        "head_sha": "533a448266a86204794b34503b1cd7de7f0bea77",
+        "head_commit": {
+          "message": "[debug] save more segment registers",
+          "timestamp": "2025-04-30T01:44:43Z"
+        },
+        "display_title": "[debug] save more segment registers",
+        "html_url": "https://github.com/arceos-hypervisor/x86_vcpu/actions/runs/14744931895",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "run_started_at": "2025-04-30T01:45:32Z",
+        "created_at": "2025-04-30T01:45:32Z",
+        "updated_at": "2025-04-30T01:46:11Z",
+        "duration_sec": 39,
+        "actor": {
+          "login": "hky1999"
+        },
+        "triggering_actor": {
+          "login": "hky1999"
+        },
+        "id": 14744931895,
+        "jobs_url": "https://api.github.com/repos/arceos-hypervisor/x86_vcpu/actions/runs/14744931895/jobs",
+        "logs_url": "https://api.github.com/repos/arceos-hypervisor/x86_vcpu/actions/runs/14744931895/logs"
+      },
+      "jobs": {
+        "total_count": 3,
+        "jobs": [
+          {
+            "name": "ci (nightly, x86_64-unknown-none)",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-hypervisor/x86_vcpu/actions/runs/14744931895/job/41390365621",
+            "status": "completed",
+            "conclusion": "failure",
+            "created_at": "2025-04-30T01:45:33Z",
+            "started_at": "2025-04-30T01:45:40Z",
+            "completed_at": "2025-04-30T01:46:04Z",
+            "duration_sec": 24,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2025-04-30T01:45:40Z",
+                "completed_at": "2025-04-30T01:45:41Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2025-04-30T01:45:41Z",
+                "completed_at": "2025-04-30T01:45:42Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2025-04-30T01:45:42Z",
+                "completed_at": "2025-04-30T01:45:55Z",
+                "duration_sec": 13
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2025-04-30T01:45:55Z",
+                "completed_at": "2025-04-30T01:45:55Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2025-04-30T01:45:55Z",
+                "completed_at": "2025-04-30T01:45:55Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 6,
+                "started_at": "2025-04-30T01:45:55Z",
+                "completed_at": "2025-04-30T01:46:02Z",
+                "duration_sec": 7
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2025-04-30T01:46:02Z",
+                "completed_at": "2025-04-30T01:46:02Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2025-04-30T01:46:02Z",
+                "completed_at": "2025-04-30T01:46:02Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2025-04-30T01:46:02Z",
+                "completed_at": "2025-04-30T01:46:02Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2025-04-30T01:46:02Z",
+                "completed_at": "2025-04-30T01:46:02Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 41390365621
+          },
+          {
+            "name": "doc",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-hypervisor/x86_vcpu/actions/runs/14744931895/job/41390365624",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2025-04-30T01:45:33Z",
+            "started_at": "2025-04-30T01:45:37Z",
+            "completed_at": "2025-04-30T01:45:59Z",
+            "duration_sec": 22,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2025-04-30T01:45:38Z",
+                "completed_at": "2025-04-30T01:45:40Z",
+                "duration_sec": 2
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2025-04-30T01:45:40Z",
+                "completed_at": "2025-04-30T01:45:41Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2025-04-30T01:45:41Z",
+                "completed_at": "2025-04-30T01:45:50Z",
+                "duration_sec": 9
+              },
+              {
+                "name": "Build docs",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2025-04-30T01:45:50Z",
+                "completed_at": "2025-04-30T01:45:58Z",
+                "duration_sec": 8
+              },
+              {
+                "name": "Deploy to Github Pages",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 5,
+                "started_at": "2025-04-30T01:45:58Z",
+                "completed_at": "2025-04-30T01:45:58Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10,
+                "started_at": "2025-04-30T01:45:58Z",
+                "completed_at": "2025-04-30T01:45:58Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 11,
+                "started_at": "2025-04-30T01:45:58Z",
+                "completed_at": "2025-04-30T01:45:58Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 41390365624
+          },
+          {
+            "name": "ci (nightly-2024-12-25, x86_64-unknown-none)",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-hypervisor/x86_vcpu/actions/runs/14744931895/job/41390365627",
+            "status": "completed",
+            "conclusion": "failure",
+            "created_at": "2025-04-30T01:45:33Z",
+            "started_at": "2025-04-30T01:45:37Z",
+            "completed_at": "2025-04-30T01:46:11Z",
+            "duration_sec": 34,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2025-04-30T01:45:37Z",
+                "completed_at": "2025-04-30T01:45:38Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2025-04-30T01:45:38Z",
+                "completed_at": "2025-04-30T01:45:39Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2025-04-30T01:45:39Z",
+                "completed_at": "2025-04-30T01:46:02Z",
+                "duration_sec": 23
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2025-04-30T01:46:02Z",
+                "completed_at": "2025-04-30T01:46:02Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2025-04-30T01:46:02Z",
+                "completed_at": "2025-04-30T01:46:02Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 6,
+                "started_at": "2025-04-30T01:46:02Z",
+                "completed_at": "2025-04-30T01:46:09Z",
+                "duration_sec": 7
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2025-04-30T01:46:09Z",
+                "completed_at": "2025-04-30T01:46:09Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2025-04-30T01:46:09Z",
+                "completed_at": "2025-04-30T01:46:09Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2025-04-30T01:46:09Z",
+                "completed_at": "2025-04-30T01:46:09Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2025-04-30T01:46:09Z",
+                "completed_at": "2025-04-30T01:46:09Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 41390365627
           }
         ]
       }
