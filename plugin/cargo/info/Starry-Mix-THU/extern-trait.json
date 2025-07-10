@@ -1,0 +1,136 @@
+{
+  "user": "Starry-Mix-THU",
+  "repo": "extern-trait",
+  "timestamp": {
+    "start": 1752111798776,
+    "end": 1752111798812
+  },
+  "pkgs": {
+    "extern-trait": {
+      "version": "0.2.0",
+      "dependencies": 3,
+      "lib": false,
+      "bin": false,
+      "testcases": {
+        "tests": [
+          {
+            "id": "extern-trait::arc",
+            "kind": "test",
+            "binary_name": "arc",
+            "testcases": [
+              {
+                "name": "test_resource",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling quote v1.0.40\n   Compiling syn v2.0.104\n   Compiling extern-trait v0.2.0 (/tmp/os-checker-plugin-cargo/Starry-Mix-THU/extern-trait)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.00s\n     Running tests/arc.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/arc-f560d2a83119a082)\nerror: Undefined Behavior: calling a function with return type resource_impl::ActualResource passing return place of type ResourceProxy\n  --> tests/arc.rs:3:1\n   |\n3  | #[extern_trait(ResourceProxy)]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n   |\n   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n   = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n   = help: if you think this code should be accepted anyway, please report an issue with Miri\n   = note: BACKTRACE on thread `test_resource`:\n   = note: inside `<ResourceProxy as Resource>::new` at tests/arc.rs:3:1: 3:31\nnote: inside `test_resource`\n  --> tests/arc.rs:46:15\n   |\n46 |     let res = ResourceProxy::new();\n   |               ^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n  --> tests/arc.rs:38:19\n   |\n37 | #[test]\n   | ------- in this procedural macro expansion\n38 | fn test_resource() {\n   |                   ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p extern-trait --test arc`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-Mix-THU/extern-trait/target/miri/x86_64-unknown-linux-gnu/debug/deps/arc-f560d2a83119a082 test_resource` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 4
+          },
+          {
+            "id": "extern-trait::atomic",
+            "kind": "test",
+            "binary_name": "atomic",
+            "testcases": [
+              {
+                "name": "test_atomic",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "   Compiling extern-trait v0.2.0 (/tmp/os-checker-plugin-cargo/Starry-Mix-THU/extern-trait)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.02s\n     Running tests/atomic.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/atomic-e59598bda819db9a)\nerror: Undefined Behavior: calling a function with return type atomic_impl::AtomicImpl passing return place of type AtomicProxy\n  --> tests/atomic.rs:3:1\n   |\n3  | #[extern_trait(AtomicProxy)]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n   |\n   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n   = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n   = help: if you think this code should be accepted anyway, please report an issue with Miri\n   = note: BACKTRACE on thread `test_atomic`:\n   = note: inside `<AtomicProxy as Atomic>::new` at tests/atomic.rs:3:1: 3:29\nnote: inside `test_atomic`\n  --> tests/atomic.rs:36:18\n   |\n36 |     let atomic = AtomicProxy::new(0);\n   |                  ^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n  --> tests/atomic.rs:35:17\n   |\n34 | #[test]\n   | ------- in this procedural macro expansion\n35 | fn test_atomic() {\n   |                 ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p extern-trait --test atomic`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-Mix-THU/extern-trait/target/miri/x86_64-unknown-linux-gnu/debug/deps/atomic-e59598bda819db9a test_atomic` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 4
+          },
+          {
+            "id": "extern-trait::reflect",
+            "kind": "test",
+            "binary_name": "reflect",
+            "testcases": [
+              {
+                "name": "test_any",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "   Compiling extern-trait v0.2.0 (/tmp/os-checker-plugin-cargo/Starry-Mix-THU/extern-trait)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.02s\n     Running tests/reflect.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/reflect-da41c08a1c1e7f26)\nerror: Undefined Behavior: calling a function with return type AnyImpl passing return place of type AnyProxy\n  --> tests/reflect.rs:3:1\n   |\n3  | #[extern_trait(AnyProxy)]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n   |\n   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n   = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n   = help: if you think this code should be accepted anyway, please report an issue with Miri\n   = note: BACKTRACE on thread `test_any`:\n   = note: inside `AnyProxy::from_impl::<AnyImpl>` at tests/reflect.rs:3:1: 3:26\nnote: inside `test_any`\n  --> tests/reflect.rs:17:23\n   |\n17 |         let mut any = AnyProxy::from_impl(any);\n   |                       ^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n  --> tests/reflect.rs:13:14\n   |\n12 | #[test]\n   | ------- in this procedural macro expansion\n13 | fn test_any() {\n   |              ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p extern-trait --test reflect`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-Mix-THU/extern-trait/target/miri/x86_64-unknown-linux-gnu/debug/deps/reflect-da41c08a1c1e7f26 test_any` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 4
+          },
+          {
+            "id": "extern-trait::size",
+            "kind": "test",
+            "binary_name": "size",
+            "testcases": [
+              {
+                "name": "test_tuple",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "   Compiling extern-trait v0.2.0 (/tmp/os-checker-plugin-cargo/Starry-Mix-THU/extern-trait)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running tests/size.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/size-6b930cb810ace1ae)\nerror: Undefined Behavior: calling a function with return type tuple_impl::TupleImpl passing return place of type TupleProxy\n  --> tests/size.rs:3:1\n   |\n3  | #[extern_trait(TupleProxy)]\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n   |\n   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n   = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n   = help: if you think this code should be accepted anyway, please report an issue with Miri\n   = note: BACKTRACE on thread `test_tuple`:\n   = note: inside `<TupleProxy as Tuple>::new` at tests/size.rs:3:1: 3:28\nnote: inside `test_tuple`\n  --> tests/size.rs:29:17\n   |\n29 |     let tuple = TupleProxy::new(1, 2);\n   |                 ^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n  --> tests/size.rs:28:16\n   |\n27 | #[test]\n   | ------- in this procedural macro expansion\n28 | fn test_tuple() {\n   |                ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p extern-trait --test size`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-Mix-THU/extern-trait/target/miri/x86_64-unknown-linux-gnu/debug/deps/size-6b930cb810ace1ae test_tuple` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 4
+          },
+          {
+            "id": "extern-trait::static",
+            "kind": "test",
+            "binary_name": "static",
+            "testcases": [
+              {
+                "name": "test_static",
+                "status": "ok",
+                "duration_ms": 3,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 3
+          }
+        ],
+        "failed": 0,
+        "duration_ms": 19,
+        "pkg_tests_count": 5,
+        "workspace_tests_count": 5
+      },
+      "tests": 5,
+      "examples": 0,
+      "benches": 0,
+      "authors": [
+        "Asakura Mizu <asakuramizu111@gmail.com>"
+      ],
+      "description": "Opaque foreign trait implementation",
+      "documentation": null,
+      "readme": "README.md",
+      "homepage": null,
+      "keywords": [
+        "extern",
+        "ffi",
+        "trait"
+      ],
+      "categories": [],
+      "rust_version": null,
+      "diag_total_count": null,
+      "last_commit_time": "2025-06-26T05:42:45Z",
+      "release_count": 3,
+      "last_release_size": 13004,
+      "last_release_time": "2025-06-26T07:57:08Z"
+    }
+  }
+}

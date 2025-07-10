@@ -1,0 +1,97 @@
+{
+  "user": "rcore-os",
+  "repo": "serial-async",
+  "timestamp": {
+    "start": 1752114034585,
+    "end": 1752114034753
+  },
+  "pkgs": {
+    "serial-async": {
+      "version": "0.2.0",
+      "dependencies": 3,
+      "lib": true,
+      "bin": false,
+      "testcases": {
+        "tests": [
+          {
+            "id": "serial-async::test",
+            "kind": "test",
+            "binary_name": "test",
+            "testcases": [
+              {
+                "name": "test_rx_async",
+                "status": "ok",
+                "duration_ms": 259,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling libc v0.2.172\n   Compiling futures-sink v0.3.31\n   Compiling pin-project-lite v0.2.16\n   Compiling futures-core v0.3.31\n   Compiling pin-utils v0.1.0\n   Compiling thiserror v2.0.12\n   Compiling autocfg v1.4.0\n   Compiling futures-task v0.3.31\n   Compiling parking_lot_core v0.9.10\n   Compiling lock_api v0.4.12\n   Compiling futures-util v0.3.31\n   Compiling quote v1.0.40\n   Compiling syn v2.0.101\n   Compiling futures-channel v0.3.31\n   Compiling smallvec v1.15.0\n   Compiling scopeguard v1.2.0\n   Compiling futures-io v0.3.31\n   Compiling cfg-if v1.0.0\n   Compiling spin_on v0.1.1\n   Compiling signal-hook-registry v1.4.5\n   Compiling parking_lot v0.12.3\n   Compiling mio v1.0.4\n   Compiling socket2 v0.5.9\n   Compiling bytes v1.10.1\n   Compiling futures v0.3.31\n   Compiling thiserror-impl v2.0.12\n   Compiling tokio-macros v2.5.0\n   Compiling tokio v1.45.1\n   Compiling rdif-base v0.3.3\n   Compiling rdif-serial v0.1.3\n   Compiling serial-async v0.2.0 (/tmp/os-checker-plugin-cargo/rcore-os/serial-async)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.24s\n     Running tests/test.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test-40e85c9e6a4ad16d)\nerror: test failed, to rerun pass `-p serial-async --test test`\n",
+                "miri_timeout": false
+              },
+              {
+                "name": "test_take",
+                "status": "ok",
+                "duration_ms": 16,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.09s\n     Running tests/test.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test-40e85c9e6a4ad16d)\nerror: the main thread terminated without waiting for all remaining threads\n\nnote: set `MIRIFLAGS=-Zmiri-ignore-leaks` to disable this check\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p serial-async --test test`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/rcore-os/serial-async/target/miri/x86_64-unknown-linux-gnu/debug/deps/test-40e85c9e6a4ad16d test_take` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_timeout": false
+              },
+              {
+                "name": "test_tx",
+                "status": "ok",
+                "duration_ms": 275,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.04s\n     Running tests/test.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test-40e85c9e6a4ad16d)\nerror: test failed, to rerun pass `-p serial-async --test test`\n",
+                "miri_timeout": false
+              },
+              {
+                "name": "test_tx_async",
+                "status": "ok",
+                "duration_ms": 686,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.10s\n     Running tests/test.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test-40e85c9e6a4ad16d)\nerror: the main thread terminated without waiting for all remaining threads\n\nnote: set `MIRIFLAGS=-Zmiri-ignore-leaks` to disable this check\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p serial-async --test test`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/rcore-os/serial-async/target/miri/x86_64-unknown-linux-gnu/debug/deps/test-40e85c9e6a4ad16d test_tx_async` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 1236
+          }
+        ],
+        "failed": 0,
+        "duration_ms": 1236,
+        "pkg_tests_count": 4,
+        "workspace_tests_count": 4
+      },
+      "tests": 1,
+      "examples": 0,
+      "benches": 0,
+      "authors": [
+        "周睿 <zrufo747@outlook.com>"
+      ],
+      "description": "A library that makes creating asynchronous serial drivers even simpler.",
+      "documentation": null,
+      "readme": "README.md",
+      "homepage": null,
+      "keywords": [
+        "no-std",
+        "serial",
+        "uart",
+        "async"
+      ],
+      "categories": [
+        "no-std",
+        "embedded",
+        "hardware-support",
+        "asynchronous"
+      ],
+      "rust_version": null,
+      "diag_total_count": 3,
+      "last_commit_time": "2025-05-26T06:32:33Z",
+      "release_count": 2,
+      "last_release_size": 8785,
+      "last_release_time": "2025-05-26T06:32:49Z"
+    }
+  }
+}
