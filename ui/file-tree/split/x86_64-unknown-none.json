@@ -11,14 +11,6 @@
           "features": "",
           "count": 17,
           "kinds": {
-            "Clippy(Error)": [
-              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:315:13\n    |\n315 |             warn!(\"Queue {} is full\", queue_id);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n    = note: `#[deny(clippy::uninlined_format_args)]` implied by `#[deny(warnings)]`\nhelp: change this to\n    |\n315 -             warn!(\"Queue {} is full\", queue_id);\n315 +             warn!(\"Queue {queue_id} is full\");\n    |\n\n",
-              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:403:9\n    |\n403 | /         info!(\n404 | |             \"Initializing igb device@base: {:#x}, len: {:#x}, num_rx_queues: {}, num_tx_queues: {}\",\n405 | |             base, len, num_rx_queues, num_tx_queues\n406 | |         );\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n\n",
-              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:619:13\n    |\n619 |             info!(\"initializing rx queue {}\", i);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n619 -             info!(\"initializing rx queue {}\", i);\n619 +             info!(\"initializing rx queue {i}\");\n    |\n\n",
-              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:693:13\n    |\n693 |             info!(\"initializing tx queue {}\", i);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n693 -             info!(\"initializing tx queue {}\", i);\n693 +             info!(\"initializing tx queue {i}\");\n    |\n\n",
-              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:743:9\n    |\n743 |         debug!(\"starting rx queue {}\", queue_id);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n743 -         debug!(\"starting rx queue {}\", queue_id);\n743 +         debug!(\"starting rx queue {queue_id}\");\n    |\n\n",
-              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:795:9\n    |\n795 |         debug!(\"starting tx queue {}\", queue_id);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n795 -         debug!(\"starting tx queue {}\", queue_id);\n795 +         debug!(\"starting tx queue {queue_id}\");\n    |\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/igb.rs (original lines from 541 to 541)\n-        info!(\"CTRL:{:x}, STATUS:{:x}\", self.get_reg32(IGB_CTRL), self.get_reg32(IGB_STATUS));\n+        info!(\n+            \"CTRL:{:x}, STATUS:{:x}\",\n+            self.get_reg32(IGB_CTRL),\n+            self.get_reg32(IGB_STATUS)\n+        );\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/igb.rs (original lines from 547 to 547)\n-        info!(\"CTRL:{:x}, STATUS:{:x}\", self.get_reg32(IGB_CTRL), self.get_reg32(IGB_STATUS));\n+        info!(\n+            \"CTRL:{:x}, STATUS:{:x}\",\n+            self.get_reg32(IGB_CTRL),\n+            self.get_reg32(IGB_STATUS)\n+        );\n",
@@ -31,6 +23,14 @@
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/igb.rs (original lines from 687 to 687)\n-\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/igb.rs (original lines from 735 to 735)\n-        // final step: enable \n+        // final step: enable\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/igb.rs (original lines from 812 to 812)\n-        \n+\n"
+            ],
+            "Clippy(Error)": [
+              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:315:13\n    |\n315 |             warn!(\"Queue {} is full\", queue_id);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n    = note: `#[deny(clippy::uninlined_format_args)]` implied by `#[deny(warnings)]`\nhelp: change this to\n    |\n315 -             warn!(\"Queue {} is full\", queue_id);\n315 +             warn!(\"Queue {queue_id} is full\");\n    |\n\n",
+              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:403:9\n    |\n403 | /         info!(\n404 | |             \"Initializing igb device@base: {:#x}, len: {:#x}, num_rx_queues: {}, num_tx_queues: {}\",\n405 | |             base, len, num_rx_queues, num_tx_queues\n406 | |         );\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n\n",
+              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:619:13\n    |\n619 |             info!(\"initializing rx queue {}\", i);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n619 -             info!(\"initializing rx queue {}\", i);\n619 +             info!(\"initializing rx queue {i}\");\n    |\n\n",
+              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:693:13\n    |\n693 |             info!(\"initializing tx queue {}\", i);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n693 -             info!(\"initializing tx queue {}\", i);\n693 +             info!(\"initializing tx queue {i}\");\n    |\n\n",
+              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:743:9\n    |\n743 |         debug!(\"starting rx queue {}\", queue_id);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n743 -         debug!(\"starting rx queue {}\", queue_id);\n743 +         debug!(\"starting rx queue {queue_id}\");\n    |\n\n",
+              "error: variables can be used directly in the `format!` string\n   --> src/igb.rs:795:9\n    |\n795 |         debug!(\"starting tx queue {}\", queue_id);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n795 -         debug!(\"starting tx queue {}\", queue_id);\n795 +         debug!(\"starting tx queue {queue_id}\");\n    |\n\n"
             ]
           }
         },
@@ -56,14 +56,14 @@
           "features": "",
           "count": 5,
           "kinds": {
-            "Clippy(Error)": [
-              "error: variables can be used directly in the `format!` string\n   --> src/net_igb.rs:133:13\n    |\n133 |             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n133 -             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n133 +             log::error!(\"Failed to initialize ixgbe device: {err:?}\");\n    |\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 7 to 8)\n-use core::convert::From;\n-use core::{mem::ManuallyDrop, ptr::NonNull};\n+use crate::{IgbDevice, IgbError, IgbNetBuf, MemPool, NicDevice};\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 11 to 11)\n-use crate::{IgbDevice, IgbError, IgbNetBuf, MemPool, NicDevice};\n+use core::convert::From;\n+use core::{mem::ManuallyDrop, ptr::NonNull};\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 16 to 16)\n-\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 107 to 107)\n-\n"
+            ],
+            "Clippy(Error)": [
+              "error: variables can be used directly in the `format!` string\n   --> src/net_igb.rs:133:13\n    |\n133 |             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n133 -             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n133 +             log::error!(\"Failed to initialize ixgbe device: {err:?}\");\n    |\n\n"
             ]
           }
         },
@@ -72,13 +72,13 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/bullhh/igb_driver/src/lib.rs (original lines from 13 to 13)\n-mod interrupts;\n",
-              "file: /home/runner/check/batch_4/bullhh/igb_driver/src/lib.rs (original lines from 15 to 15)\n+mod interrupts;\n"
-            ],
             "Clippy(Error)": [
               "error: the feature `const_mut_refs` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> src/lib.rs:7:12\n  |\n7 | #![feature(const_mut_refs)]\n  |            ^^^^^^^^^^^^^^\n  |\nnote: the lint level is defined here\n --> src/lib.rs:4:9\n  |\n4 | #![deny(warnings)]\n  |         ^^^^^^^^\n  = note: `#[deny(stable_features)]` implied by `#[deny(warnings)]`\n\n",
               "error: the feature `const_slice_from_raw_parts_mut` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> src/lib.rs:8:12\n  |\n8 | #![feature(const_slice_from_raw_parts_mut)]\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/bullhh/igb_driver/src/lib.rs (original lines from 13 to 13)\n-mod interrupts;\n",
+              "file: /home/runner/check/batch_4/bullhh/igb_driver/src/lib.rs (original lines from 15 to 15)\n+mod interrupts;\n"
             ]
           }
         },
