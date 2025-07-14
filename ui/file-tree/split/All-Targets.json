@@ -34,9 +34,6 @@
               "warning: writing `&Vec` instead of `&[_]` involves a new object where a slice will do\n    --> src/mci_host/sd/mod.rs:1850:38\n     |\n1850 |     fn decode_scr(&mut self, rawscr: &Vec<u32>) {\n     |                                      ^^^^^^^^^ help: change this to: `&[u32]`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n\n",
               "warning: writing `&Vec` instead of `&[_]` involves a new object where a slice will do\n    --> src/mci_host/sd/mod.rs:1900:41\n     |\n1900 |     fn decode_status(&mut self, status: &Vec<u32>) {\n     |                                         ^^^^^^^^^ help: change this to: `&[u32]`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n\n"
             ],
-            "Clippy(Error)": [
-              "error: this loop never actually loops\n   --> src/mci_host/sd/mod.rs:625:13\n    |\n625 | /             loop {\n626 | |\n627 | |                 if self.current_timing == SdTimingMode::SDR12DefaultMode {\n628 | |                     /* if timing not specified, probe card capability from SDR104 mode */\n...   |\n687 | |                 break;\n688 | |             }\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#never_loop\n    = note: `#[deny(clippy::never_loop)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/sd/mod.rs (original lines from 2 to 4)\n-mod usr_param;\n-pub(crate) mod consts;\n-mod io_voltage;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/sd/mod.rs (original lines from 6 to 6)\n+pub(crate) mod consts;\n",
@@ -305,6 +302,9 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/sd/mod.rs (original lines from 2022 to 2022)\n-            },\n+            }\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/sd/mod.rs (original lines from 2025 to 2025)\n-            },\n+            }\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/sd/mod.rs (original lines from 2029 to 2029)\n+\n"
+            ],
+            "Clippy(Error)": [
+              "error: this loop never actually loops\n   --> src/mci_host/sd/mod.rs:625:13\n    |\n625 | /             loop {\n626 | |\n627 | |                 if self.current_timing == SdTimingMode::SDR12DefaultMode {\n628 | |                     /* if timing not specified, probe card capability from SDR104 mode */\n...   |\n687 | |                 break;\n688 | |             }\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#never_loop\n    = note: `#[deny(clippy::never_loop)]` on by default\n\n"
             ]
           }
         },
@@ -406,17 +406,6 @@
           "features": "",
           "count": 71,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: redundant pattern matching, consider using `is_ok()`\n   --> src/mci/mod.rs:124:16\n    |\n124 |         if let Ok(_) = self.reset() {\n    |         -------^^^^^--------------- help: try: `if self.reset().is_ok()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_pattern_matching\n    = note: `#[warn(clippy::redundant_pattern_matching)]` on by default\n\n",
-              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:205:37\n    |\n205 |                 if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
-              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:227:33\n    |\n227 |             if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
-              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:239:33\n    |\n239 |             if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mod.rs:256:26\n    |\n256 |         self.cur_cmd_set(&cmd_data);\n    |                          ^^^^^^^^^ help: change this to: `cmd_data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mod.rs:293:27\n    |\n293 |         self.cmd_transfer(&cmd_data)?;\n    |                           ^^^^^^^^^ help: change this to: `cmd_data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
-              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:392:34\n    |\n392 |             self.trans_bytes_set(data.datalen() as u32);\n    |                                  ^^^^^^^^^^^^^^^^^^^^^ help: try: `data.datalen()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
-              "warning: equality checks against false can be replaced by a negation\n   --> src/mci/mod.rs:458:12\n    |\n458 |         if false == self.is_ready {\n    |            ^^^^^^^^^^^^^^^^^^^^^^ help: try simplifying it as shown: `!self.is_ready`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bool_comparison\n    = note: `#[warn(clippy::bool_comparison)]` on by default\n\n",
-              "warning: using `clone` on type `MCIStatus` which implements the `Copy` trait\n   --> src/mci/mod.rs:636:29\n    |\n636 |         if reg_val.contains(busy_bits.clone()) {\n    |                             ^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `busy_bits`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 4 to 4)\n-pub mod regs;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 6 to 6)\n+pub mod regs;\n",
@@ -479,6 +468,17 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 655 to 658)\n-        reg.retry_for(|reg_val: MCIStatus|{\n-            reg.set_reg(MCICtrl::CONTROLLER_RESET);\n-            !reg_val.contains(MCIStatus::DATA_BUSY)\n-        }, Some(RETRIES_TIMEOUT))?;\n+        reg.retry_for(\n+            |reg_val: MCIStatus| {\n+                reg.set_reg(MCICtrl::CONTROLLER_RESET);\n+                !reg_val.contains(MCIStatus::DATA_BUSY)\n+            },\n+            Some(RETRIES_TIMEOUT),\n+        )?;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 667 to 669)\n-        reg.retry_for(|reg|{\n-            (MCICmd::START & reg).bits() == 0\n-        }, Some(RETRIES_TIMEOUT))?;\n+        reg.retry_for(\n+            |reg| (MCICmd::START & reg).bits() == 0,\n+            Some(RETRIES_TIMEOUT),\n+        )?;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 687 to 687)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: redundant pattern matching, consider using `is_ok()`\n   --> src/mci/mod.rs:124:16\n    |\n124 |         if let Ok(_) = self.reset() {\n    |         -------^^^^^--------------- help: try: `if self.reset().is_ok()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_pattern_matching\n    = note: `#[warn(clippy::redundant_pattern_matching)]` on by default\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:205:37\n    |\n205 |                 if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:227:33\n    |\n227 |             if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:239:33\n    |\n239 |             if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mod.rs:256:26\n    |\n256 |         self.cur_cmd_set(&cmd_data);\n    |                          ^^^^^^^^^ help: change this to: `cmd_data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mod.rs:293:27\n    |\n293 |         self.cmd_transfer(&cmd_data)?;\n    |                           ^^^^^^^^^ help: change this to: `cmd_data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:392:34\n    |\n392 |             self.trans_bytes_set(data.datalen() as u32);\n    |                                  ^^^^^^^^^^^^^^^^^^^^^ help: try: `data.datalen()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: equality checks against false can be replaced by a negation\n   --> src/mci/mod.rs:458:12\n    |\n458 |         if false == self.is_ready {\n    |            ^^^^^^^^^^^^^^^^^^^^^^ help: try simplifying it as shown: `!self.is_ready`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bool_comparison\n    = note: `#[warn(clippy::bool_comparison)]` on by default\n\n",
+              "warning: using `clone` on type `MCIStatus` which implements the `Copy` trait\n   --> src/mci/mod.rs:636:29\n    |\n636 |         if reg_val.contains(busy_bits.clone()) {\n    |                             ^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `busy_bits`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
             ],
             "Clippy(Error)": [
               "error: this comparison involving the minimum or maximum element for this type contains a case that is always true or always false\n   --> src/mci/mod.rs:336:48\n    |\n336 |         if wait_bits & reg_val != wait_bits && delay <= 0 {\n    |                                                ^^^^^^^^^^\n    |\n    = help: because `0` is the minimum value for this type, the case where the two sides are not equal never occurs, consider using `delay == 0` instead\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#absurd_extreme_comparisons\n    = note: `#[deny(clippy::absurd_extreme_comparisons)]` on by default\n\n"
@@ -698,12 +698,6 @@
           "features": "",
           "count": 26,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: this `if` statement can be collapsed\n   --> src/mci/mci_cmd.rs:110:13\n    |\n110 | /             if read {\n111 | |                 if MCITransMode::PIO == self.config.trans_mode() {\n112 | |                     self.pio_read_data(data)?;\n113 | |                 }\n114 | |             }\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\n    = note: `#[warn(clippy::collapsible_if)]` on by default\nhelp: collapse nested if block\n    |\n110 ~             if read && MCITransMode::PIO == self.config.trans_mode() {\n111 +                 self.pio_read_data(data)?;\n112 +             }\n    |\n\n",
-              "warning: the following explicit lifetimes could be elided: 'a\n  --> src/mci/mci_cmd.rs:44:32\n   |\n44 |     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n   |                                ^^                    ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n   = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n   |\n44 -     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n44 +     pub(crate) fn cmd_transfer(&self, cmd_data: &MCICmdData) -> MCIResult {\n   |\n\n",
-              "warning: the following explicit lifetimes could be elided: 'a\n  --> src/mci/mci_cmd.rs:44:32\n   |\n44 |     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n   |                                ^^                    ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n   = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n   |\n44 -     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n44 +     pub(crate) fn cmd_transfer(&self, cmd_data: &MCICmdData) -> MCIResult {\n   |\n\n",
-              "warning: using `clone` on type `MCICmdFlag` which implements the `Copy` trait\n   --> src/mci/mci_cmd.rs:118:20\n    |\n118 |         let flag = cmd_data.flag().clone();\n    |                    ^^^^^^^^^^^^^^^^^^^^^^^ help: try dereferencing it: `*cmd_data.flag()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n    = note: `#[warn(clippy::clone_on_copy)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_cmd.rs (original lines from 4 to 4)\n-use log::*;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_cmd.rs (original lines from 6 to 6)\n+use log::*;\n",
@@ -727,6 +721,12 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_cmd.rs (original lines from 151 to 152)\n-        self.interrupt_mask_set(MCIIntrType::GeneralIntr,(MCIIntMask::INTS_CMD_MASK | MCIIntMask::INTS_DATA_MASK).bits(),false);\n-        self.interrupt_mask_set(MCIIntrType::DmaIntr,MCIDMACIntEn::INTS_MASK.bits(),false);\n+        self.interrupt_mask_set(\n+            MCIIntrType::GeneralIntr,\n+            (MCIIntMask::INTS_CMD_MASK | MCIIntMask::INTS_DATA_MASK).bits(),\n+            false,\n+        );\n+        self.interrupt_mask_set(MCIIntrType::DmaIntr, MCIDMACIntEn::INTS_MASK.bits(), false);\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_cmd.rs (original lines from 159 to 159)\n-\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_cmd.rs (original lines from 161 to 161)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: this `if` statement can be collapsed\n   --> src/mci/mci_cmd.rs:110:13\n    |\n110 | /             if read {\n111 | |                 if MCITransMode::PIO == self.config.trans_mode() {\n112 | |                     self.pio_read_data(data)?;\n113 | |                 }\n114 | |             }\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\n    = note: `#[warn(clippy::collapsible_if)]` on by default\nhelp: collapse nested if block\n    |\n110 ~             if read && MCITransMode::PIO == self.config.trans_mode() {\n111 +                 self.pio_read_data(data)?;\n112 +             }\n    |\n\n",
+              "warning: the following explicit lifetimes could be elided: 'a\n  --> src/mci/mci_cmd.rs:44:32\n   |\n44 |     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n   |                                ^^                    ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n   = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n   |\n44 -     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n44 +     pub(crate) fn cmd_transfer(&self, cmd_data: &MCICmdData) -> MCIResult {\n   |\n\n",
+              "warning: the following explicit lifetimes could be elided: 'a\n  --> src/mci/mci_cmd.rs:44:32\n   |\n44 |     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n   |                                ^^                    ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n   = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n   |\n44 -     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n44 +     pub(crate) fn cmd_transfer(&self, cmd_data: &MCICmdData) -> MCIResult {\n   |\n\n",
+              "warning: using `clone` on type `MCICmdFlag` which implements the `Copy` trait\n   --> src/mci/mci_cmd.rs:118:20\n    |\n118 |         let flag = cmd_data.flag().clone();\n    |                    ^^^^^^^^^^^^^^^^^^^^^^^ help: try dereferencing it: `*cmd_data.flag()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n    = note: `#[warn(clippy::clone_on_copy)]` on by default\n\n"
             ]
           }
         },
@@ -735,6 +735,9 @@
           "features": "",
           "count": 22,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: unneeded `return` statement\n  --> src/iopad/mod.rs:79:9\n   |\n79 |         return (FioPadFunc::from(func), FioPadPull::from(pull), FioPadDrive::from(drive));\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n   = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n   |\n79 -         return (FioPadFunc::from(func), FioPadPull::from(pull), FioPadDrive::from(drive));\n79 +         (FioPadFunc::from(func), FioPadPull::from(pull), FioPadDrive::from(drive))\n   |\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/iopad/mod.rs (original lines from 1 to 2)\n-#![allow(unused)] \n-mod err;\n+#![allow(unused)]\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/iopad/mod.rs (original lines from 4 to 4)\n+mod err;\n",
@@ -757,9 +760,6 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/iopad/mod.rs (original lines from 125 to 125)\n-    pub fn delay_enable_set <T: FlagReg + XReg1 + BitsOps>(&mut self, dir:FioPadDelayDir, enable: bool) {\n+    pub fn delay_enable_set<T: FlagReg + XReg1 + BitsOps>(\n+        &mut self,\n+        dir: FioPadDelayDir,\n+        enable: bool,\n+    ) {\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/iopad/mod.rs (original lines from 144 to 144)\n-\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/iopad/mod.rs (original lines from 146 to 147)\n-\n-\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: unneeded `return` statement\n  --> src/iopad/mod.rs:79:9\n   |\n79 |         return (FioPadFunc::from(func), FioPadPull::from(pull), FioPadDrive::from(drive));\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n   = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n   |\n79 -         return (FioPadFunc::from(func), FioPadPull::from(pull), FioPadDrive::from(drive));\n79 +         (FioPadFunc::from(func), FioPadPull::from(pull), FioPadDrive::from(drive))\n   |\n\n"
             ]
           }
         },
@@ -880,11 +880,6 @@
           "features": "",
           "count": 17,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: this `else { if .. }` block can be collapsed\n   --> src/osa/mod.rs:105:16\n    |\n105 |           } else {\n    |  ________________^\n106 | |             if *event & event_type != 0 {\n107 | |                 return Ok(());\n108 | |             }\n109 | |         }\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\nhelp: collapse nested if block\n    |\n105 ~         } else if *event & event_type != 0 {\n106 +             return Ok(());\n107 +         }\n    |\n\n",
-              "warning: you should consider adding a `Default` implementation for `FMemp<'a>`\n  --> src/osa/mod.rs:34:5\n   |\n34 | /     pub fn new() -> Self {\n35 | |         Self {\n36 | |             tlsf_ptr: Tlsf::new(),\n37 | |             is_ready: false,\n38 | |         }\n39 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n   |\n32 + impl<'a> Default for FMemp<'a> {\n33 +     fn default() -> Self {\n34 +         Self::new()\n35 +     }\n36 + }\n   |\n\n",
-              "warning: method `default` can be confused for the standard trait method `std::default::Default::default`\n  --> src/osa/mod.rs:86:5\n   |\n86 | /     pub fn default() -> Self {\n87 | |         Self {\n88 | |             event_flag: AtomicU32::new(0),\n89 | |             handle: Semaphore::new(0),\n90 | |         }\n91 | |     }\n   | |_____^\n   |\n   = help: consider implementing the trait `std::default::Default` or choosing a less ambiguous method name\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_implement_trait\n   = note: `#[warn(clippy::should_implement_trait)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/mod.rs (original lines from 1 to 1)\n-use core::{alloc::Layout, mem::MaybeUninit, ptr::NonNull, sync::atomic::{AtomicU32, Ordering}};\n+use core::{\n+    alloc::Layout,\n+    mem::MaybeUninit,\n+    ptr::NonNull,\n+    sync::atomic::{AtomicU32, Ordering},\n+};\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/mod.rs (original lines from 6 to 6)\n+use lazy_static::*;\n",
@@ -900,6 +895,11 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/mod.rs (original lines from 124 to 124)\n-    pub static ref OSA_EVENT: Arc<OSAEvent> = \n+    pub static ref OSA_EVENT: Arc<OSAEvent> =\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/mod.rs (original lines from 132 to 132)\n-pub fn osa_event_wait(event_type: u32, _timeout_ms: u32, event: &mut u32, flags: u32) -> Result<(), &'static str> {\n+pub fn osa_event_wait(\n+    event_type: u32,\n+    _timeout_ms: u32,\n+    event: &mut u32,\n+    flags: u32,\n+) -> Result<(), &'static str> {\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/mod.rs (original lines from 143 to 143)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: this `else { if .. }` block can be collapsed\n   --> src/osa/mod.rs:105:16\n    |\n105 |           } else {\n    |  ________________^\n106 | |             if *event & event_type != 0 {\n107 | |                 return Ok(());\n108 | |             }\n109 | |         }\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\nhelp: collapse nested if block\n    |\n105 ~         } else if *event & event_type != 0 {\n106 +             return Ok(());\n107 +         }\n    |\n\n",
+              "warning: you should consider adding a `Default` implementation for `FMemp<'a>`\n  --> src/osa/mod.rs:34:5\n   |\n34 | /     pub fn new() -> Self {\n35 | |         Self {\n36 | |             tlsf_ptr: Tlsf::new(),\n37 | |             is_ready: false,\n38 | |         }\n39 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n   |\n32 + impl<'a> Default for FMemp<'a> {\n33 +     fn default() -> Self {\n34 +         Self::new()\n35 +     }\n36 + }\n   |\n\n",
+              "warning: method `default` can be confused for the standard trait method `std::default::Default::default`\n  --> src/osa/mod.rs:86:5\n   |\n86 | /     pub fn default() -> Self {\n87 | |         Self {\n88 | |             event_flag: AtomicU32::new(0),\n89 | |             handle: Semaphore::new(0),\n90 | |         }\n91 | |     }\n   | |_____^\n   |\n   = help: consider implementing the trait `std::default::Default` or choosing a less ambiguous method name\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_implement_trait\n   = note: `#[warn(clippy::should_implement_trait)]` on by default\n\n"
             ]
           }
         },
@@ -950,6 +950,9 @@
           "features": "",
           "count": 10,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: the loop variable `i` is only used to index `buf`\n  --> src/mci/mci_pio.rs:20:18\n   |\n20 |         for i in 0..wr_times {\n   |                  ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\n   = note: `#[warn(clippy::needless_range_loop)]` on by default\nhelp: consider using an iterator\n   |\n20 -         for i in 0..wr_times {\n20 +         for <item> in buf.iter().take(wr_times) {\n   |\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 1 to 4)\n-use log::*;\n-use super::mci_data::MCIData;\n-use super::MCI;\n-use super::err::*;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 6 to 6)\n+use super::err::*;\n+use super::mci_data::MCIData;\n",
@@ -960,9 +963,6 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 39 to 39)\n-            error!(\"Fifo do not support writing more than 0x{:x}.\",MCI_MAX_FIFO_CNT);\n+            error!(\n+                \"Fifo do not support writing more than 0x{:x}.\",\n+                MCI_MAX_FIFO_CNT\n+            );\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 47 to 47)\n-    \n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 49 to 49)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: the loop variable `i` is only used to index `buf`\n  --> src/mci/mci_pio.rs:20:18\n   |\n20 |         for i in 0..wr_times {\n   |                  ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\n   = note: `#[warn(clippy::needless_range_loop)]` on by default\nhelp: consider using an iterator\n   |\n20 -         for i in 0..wr_times {\n20 +         for <item> in buf.iter().take(wr_times) {\n   |\n\n"
             ]
           }
         },
@@ -971,11 +971,6 @@
           "features": "",
           "count": 10,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: manual slice size calculation\n  --> src/osa/pool_buffer.rs:34:19\n   |\n34 |         let len = src.len() * size_of::<T>();\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `core::mem::size_of_val(src)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_slice_size_calculation\n   = note: `#[warn(clippy::manual_slice_size_calculation)]` on by default\n\n",
-              "warning: using `clone` on type `NonNull<u8>` which implements the `Copy` trait\n   --> src/osa/pool_buffer.rs:112:9\n    |\n112 |         self.addr.clone()\n    |         ^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `self.addr`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n",
-              "warning: an implementation of `From` is preferred since it gives you `Into<_>` for free where the reverse isn't true\n   --> src/osa/pool_buffer.rs:122:1\n    |\n122 | impl Into<Vec<u32>> for PoolBuffer {\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: `impl From<Local> for Foreign` is allowed by the orphan rules, for more information see\n            https://doc.rust-lang.org/reference/items/implementations.html#trait-implementation-coherence\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#from_over_into\nhelp: replace the `Into` implementation with `From<osa::pool_buffer::PoolBuffer>`\n    |\n122 ~ impl From<PoolBuffer> for Vec<u32> {\n123 ~     fn from(val: PoolBuffer) -> Self {\n124 |         unsafe {\n125 ~            let slice = from_raw_parts(val.addr.as_ptr() as *const u32, val.size / 4);\n    |\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/pool_buffer.rs (original lines from 4 to 4)\n-use core::{ptr::{copy_nonoverlapping, write_bytes, NonNull}, slice::{from_raw_parts, from_raw_parts_mut}};\n+use core::{\n+    ptr::{copy_nonoverlapping, write_bytes, NonNull},\n+    slice::{from_raw_parts, from_raw_parts_mut},\n+};\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/pool_buffer.rs (original lines from 15 to 15)\n-    align: usize\n+    align: usize,\n",
@@ -984,6 +979,11 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/pool_buffer.rs (original lines from 102 to 102)\n-        unsafe { write_bytes(self.addr.as_ptr(), 0, self.size); }\n+        unsafe {\n+            write_bytes(self.addr.as_ptr(), 0, self.size);\n+        }\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/pool_buffer.rs (original lines from 125 to 126)\n-           let slice = from_raw_parts(self.addr.as_ptr() as *const u32, self.size / 4);\n-           slice.to_vec()\n+            let slice = from_raw_parts(self.addr.as_ptr() as *const u32, self.size / 4);\n+            slice.to_vec()\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/pool_buffer.rs (original lines from 130 to 130)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: manual slice size calculation\n  --> src/osa/pool_buffer.rs:34:19\n   |\n34 |         let len = src.len() * size_of::<T>();\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `core::mem::size_of_val(src)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_slice_size_calculation\n   = note: `#[warn(clippy::manual_slice_size_calculation)]` on by default\n\n",
+              "warning: using `clone` on type `NonNull<u8>` which implements the `Copy` trait\n   --> src/osa/pool_buffer.rs:112:9\n    |\n112 |         self.addr.clone()\n    |         ^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `self.addr`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n",
+              "warning: an implementation of `From` is preferred since it gives you `Into<_>` for free where the reverse isn't true\n   --> src/osa/pool_buffer.rs:122:1\n    |\n122 | impl Into<Vec<u32>> for PoolBuffer {\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: `impl From<Local> for Foreign` is allowed by the orphan rules, for more information see\n            https://doc.rust-lang.org/reference/items/implementations.html#trait-implementation-coherence\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#from_over_into\nhelp: replace the `Into` implementation with `From<osa::pool_buffer::PoolBuffer>`\n    |\n122 ~ impl From<PoolBuffer> for Vec<u32> {\n123 ~     fn from(val: PoolBuffer) -> Self {\n124 |         unsafe {\n125 ~            let slice = from_raw_parts(val.addr.as_ptr() as *const u32, val.size / 4);\n    |\n\n"
             ]
           }
         },
@@ -1064,17 +1064,17 @@
           "features": "",
           "count": 8,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
+              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
+              "warning: you should consider adding a `Default` implementation for `MCITiming`\n  --> src/mci/mci_timing.rs:17:5\n   |\n17 | /     pub fn new() -> Self {\n18 | |         MCITiming {\n19 | |             use_hold: false,\n20 | |             clk_div: 0,\n...  |\n25 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n16 + impl Default for MCITiming {\n17 +     fn default() -> Self {\n18 +         Self::new()\n19 +     }\n20 + }\n   |\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 13 to 13)\n-    pad_delay: MCIPadDelay //* 用于调整IO的延时 */\n+    pad_delay: MCIPadDelay, //* 用于调整IO的延时 */\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 36 to 36)\n-    pub(crate) fn pad_delay(&self,iopad:&mut IoPad,mci_id: MCIId) {\n+    pub(crate) fn pad_delay(&self, iopad: &mut IoPad, mci_id: MCIId) {\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 38 to 39)\n-            MCIPadDelay::Set => set_pad_delay(iopad,mci_id),\n-            MCIPadDelay::Unset => unset_pad_delay(iopad,mci_id),\n+            MCIPadDelay::Set => set_pad_delay(iopad, mci_id),\n+            MCIPadDelay::Unset => unset_pad_delay(iopad, mci_id),\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 98 to 98)\n-    pad_delay: MCIPadDelay::Set\n+    pad_delay: MCIPadDelay::Set,\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 183 to 183)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
-              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
-              "warning: you should consider adding a `Default` implementation for `MCITiming`\n  --> src/mci/mci_timing.rs:17:5\n   |\n17 | /     pub fn new() -> Self {\n18 | |         MCITiming {\n19 | |             use_hold: false,\n20 | |             clk_div: 0,\n...  |\n25 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n16 + impl Default for MCITiming {\n17 +     fn default() -> Self {\n18 +         Self::new()\n19 +     }\n20 + }\n   |\n\n"
             ]
           }
         },
@@ -1141,13 +1141,13 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: this `if` statement can be collapsed\n  --> src/osa/semaphore.rs:15:13\n   |\n15 | /             if current > 0 {\n16 | |                 if self.count.compare_exchange(\n17 | |                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n18 | |                 ).is_ok() {\n...  |\n21 | |             }\n   | |_____________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\nhelp: collapse nested if block\n   |\n15 ~             if current > 0 && self.count.compare_exchange(\n16 +                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n17 +                 ).is_ok() {\n18 +                 break;\n19 +             }\n   |\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/semaphore.rs (original lines from 9 to 9)\n-        Self { count: AtomicIsize::new(count) }\n+        Self {\n+            count: AtomicIsize::new(count),\n+        }\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/semaphore.rs (original lines from 16 to 18)\n-                if self.count.compare_exchange(\n-                    current, current - 1, Ordering::Acquire, Ordering::Relaxed\n-                ).is_ok() {\n+                if self\n+                    .count\n+                    .compare_exchange(current, current - 1, Ordering::Acquire, Ordering::Relaxed)\n+                    .is_ok()\n+                {\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/semaphore.rs (original lines from 30 to 30)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: this `if` statement can be collapsed\n  --> src/osa/semaphore.rs:15:13\n   |\n15 | /             if current > 0 {\n16 | |                 if self.count.compare_exchange(\n17 | |                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n18 | |                 ).is_ok() {\n...  |\n21 | |             }\n   | |_____________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\nhelp: collapse nested if block\n   |\n15 ~             if current > 0 && self.count.compare_exchange(\n16 +                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n17 +                 ).is_ok() {\n18 +                 break;\n19 +             }\n   |\n\n"
             ]
           }
         },
@@ -1451,14 +1451,14 @@
           "features": "",
           "count": 5,
           "kinds": {
-            "Clippy(Error)": [
-              "error: variables can be used directly in the `format!` string\n   --> src/net_igb.rs:133:13\n    |\n133 |             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n133 -             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n133 +             log::error!(\"Failed to initialize ixgbe device: {err:?}\");\n    |\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 7 to 8)\n-use core::convert::From;\n-use core::{mem::ManuallyDrop, ptr::NonNull};\n+use crate::{IgbDevice, IgbError, IgbNetBuf, MemPool, NicDevice};\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 11 to 11)\n-use crate::{IgbDevice, IgbError, IgbNetBuf, MemPool, NicDevice};\n+use core::convert::From;\n+use core::{mem::ManuallyDrop, ptr::NonNull};\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 16 to 16)\n-\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 107 to 107)\n-\n"
+            ],
+            "Clippy(Error)": [
+              "error: variables can be used directly in the `format!` string\n   --> src/net_igb.rs:133:13\n    |\n133 |             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n133 -             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n133 +             log::error!(\"Failed to initialize ixgbe device: {err:?}\");\n    |\n\n"
             ]
           }
         },
@@ -1467,13 +1467,13 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/bullhh/igb_driver/src/lib.rs (original lines from 13 to 13)\n-mod interrupts;\n",
-              "file: /home/runner/check/batch_4/bullhh/igb_driver/src/lib.rs (original lines from 15 to 15)\n+mod interrupts;\n"
-            ],
             "Clippy(Error)": [
               "error: the feature `const_mut_refs` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> src/lib.rs:7:12\n  |\n7 | #![feature(const_mut_refs)]\n  |            ^^^^^^^^^^^^^^\n  |\nnote: the lint level is defined here\n --> src/lib.rs:4:9\n  |\n4 | #![deny(warnings)]\n  |         ^^^^^^^^\n  = note: `#[deny(stable_features)]` implied by `#[deny(warnings)]`\n\n",
               "error: the feature `const_slice_from_raw_parts_mut` has been stable since 1.83.0 and no longer requires an attribute to enable\n --> src/lib.rs:8:12\n  |\n8 | #![feature(const_slice_from_raw_parts_mut)]\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/bullhh/igb_driver/src/lib.rs (original lines from 13 to 13)\n-mod interrupts;\n",
+              "file: /home/runner/check/batch_4/bullhh/igb_driver/src/lib.rs (original lines from 15 to 15)\n+mod interrupts;\n"
             ]
           }
         },
@@ -2530,60 +2530,6 @@
       ]
     },
     {
-      "user": "arceos-org",
-      "repo": "x86_rtc",
-      "pkg": "",
-      "count": 1,
-      "raw_reports": [
-        {
-          "file": "/home/runner/check/batch_4/arceos-org/x86_rtc",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-apple-darwin' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-linux-gnu' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      info: component 'rust-std' for target 'arm-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'armv7-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'i686-pc-windows-msvc' is up to date\n      info: component 'rust-std' for target 'i686-unknown-linux-gnu' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-linux-gnu'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"arceos-org\" repo=\"x86_rtc\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "drivercraft",
-      "repo": "sdmmc",
-      "pkg": "",
-      "count": 1,
-      "raw_reports": [
-        {
-          "file": "batch_4/drivercraft/sdmmc",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "\n   0: 无法解析 `batch_4/drivercraft/sdmmc` 内的 Rust 项目布局\n   1: 无法从 /home/runner/check/batch_4/drivercraft/sdmmc/Cargo.toml 中读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating crates.io index\n          Updating git repository `https://github.com/YanLien/rk3568_clk.git`\n      error: failed to get `rk3568_clk` as a dependency of package `sdmmc v0.1.0 (/home/runner/check/batch_4/drivercraft/sdmmc)`\n\n      Caused by:\n        failed to load source for dependency `rk3568_clk`\n\n      Caused by:\n        Unable to update https://github.com/YanLien/rk3568_clk.git#2120c28f\n\n      Caused by:\n        failed to clone into: /home/runner/.cargo/git/db/rk3568_clk-59c502460d8bd49d\n\n      Caused by:\n        revision 2120c28f91674bece2d1e1dea349919f929e7d89 not found\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted to find username/password via git's `credential.helper` support, but failed\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        failed to acquire username/password from local configuration\n   1: \n\nLocation:\n   src/layout/mod.rs:68\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::run_checker::run with user=\"drivercraft\" repo=\"sdmmc\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "drivercraft",
-      "repo": "aarch64-cpu-ext",
-      "pkg": "",
-      "count": 1,
-      "raw_reports": [
-        {
-          "file": "/home/runner/check/batch_4/drivercraft/aarch64-cpu-ext",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"aarch64-unknown-none-softfloat\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-apple-darwin' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-linux-gnu' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      info: downloading component 'rust-std' for 'aarch64-unknown-none-softfloat'\n      info: installing component 'rust-std' for 'aarch64-unknown-none-softfloat'\n      info: component 'rust-std' for target 'arm-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'armv7-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'i686-pc-windows-msvc' is up to date\n      info: component 'rust-std' for target 'i686-unknown-linux-gnu' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-linux-gnu'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"aarch64-unknown-none-softfloat\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"drivercraft\" repo=\"aarch64-cpu-ext\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
-            ]
-          }
-        }
-      ]
-    },
-    {
       "user": "drivercraft",
       "repo": "mbarrier",
       "pkg": "",
@@ -2614,6 +2560,60 @@
           "kinds": {
             "Cargo": [
               "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-apple-darwin' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-linux-gnu' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      info: component 'rust-std' for target 'arm-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'armv7-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'i686-pc-windows-msvc' is up to date\n      info: component 'rust-std' for target 'i686-unknown-linux-gnu' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-linux-gnu'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"drivercraft\" repo=\"dma-api\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "x86_rtc",
+      "pkg": "",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "/home/runner/check/batch_4/arceos-org/x86_rtc",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-apple-darwin' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-linux-gnu' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      info: component 'rust-std' for target 'arm-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'armv7-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'i686-pc-windows-msvc' is up to date\n      info: component 'rust-std' for target 'i686-unknown-linux-gnu' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-linux-gnu'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"arceos-org\" repo=\"x86_rtc\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "drivercraft",
+      "repo": "aarch64-cpu-ext",
+      "pkg": "",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "/home/runner/check/batch_4/drivercraft/aarch64-cpu-ext",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"aarch64-unknown-none-softfloat\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-apple-darwin' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-linux-gnu' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      info: downloading component 'rust-std' for 'aarch64-unknown-none-softfloat'\n      info: installing component 'rust-std' for 'aarch64-unknown-none-softfloat'\n      info: component 'rust-std' for target 'arm-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'armv7-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'i686-pc-windows-msvc' is up to date\n      info: component 'rust-std' for target 'i686-unknown-linux-gnu' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-linux-gnu'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"aarch64-unknown-none-softfloat\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"drivercraft\" repo=\"aarch64-cpu-ext\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "drivercraft",
+      "repo": "sdmmc",
+      "pkg": "",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "batch_4/drivercraft/sdmmc",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "\n   0: 无法解析 `batch_4/drivercraft/sdmmc` 内的 Rust 项目布局\n   1: 无法从 /home/runner/check/batch_4/drivercraft/sdmmc/Cargo.toml 中读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating crates.io index\n          Updating git repository `https://github.com/YanLien/rk3568_clk.git`\n      error: failed to get `rk3568_clk` as a dependency of package `sdmmc v0.1.0 (/home/runner/check/batch_4/drivercraft/sdmmc)`\n\n      Caused by:\n        failed to load source for dependency `rk3568_clk`\n\n      Caused by:\n        Unable to update https://github.com/YanLien/rk3568_clk.git#2120c28f\n\n      Caused by:\n        failed to clone into: /home/runner/.cargo/git/db/rk3568_clk-59c502460d8bd49d\n\n      Caused by:\n        revision 2120c28f91674bece2d1e1dea349919f929e7d89 not found\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted to find username/password via git's `credential.helper` support, but failed\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        failed to acquire username/password from local configuration\n   1: \n\nLocation:\n   src/layout/mod.rs:68\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::run_checker::run with user=\"drivercraft\" repo=\"sdmmc\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
             ]
           }
         }
