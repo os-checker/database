@@ -92,15 +92,15 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: unused import: `Msr::*`\n  --> src/vmx/percpu.rs:69:21\n   |\n69 |                 use Msr::*;\n   |                     ^^^^^^\n...\n76 |         if !cr_is_valid!(Cr0::read().bits(), CR0) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: `#[warn(unused_imports)]` on by default\n   = note: this warning originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
-              "warning: unused import: `Msr::*`\n  --> src/vmx/percpu.rs:69:21\n   |\n69 |                 use Msr::*;\n   |                     ^^^^^^\n...\n79 |         if !cr_is_valid!(Cr4::read().bits(), CR4) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this warning originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
-            ],
             "Clippy(Error)": [
               "error: cannot find macro `concat_idents` in this scope\n  --> src/vmx/percpu.rs:72:30\n   |\n72 |                 let fixed1 = concat_idents!(IA32_VMX_, $crx, _FIXED1).read();\n   |                              ^^^^^^^^^^^^^\n...\n79 |         if !cr_is_valid!(Cr4::read().bits(), CR4) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this error originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error: cannot find macro `concat_idents` in this scope\n  --> src/vmx/percpu.rs:71:30\n   |\n71 |                 let fixed0 = concat_idents!(IA32_VMX_, $crx, _FIXED0).read();\n   |                              ^^^^^^^^^^^^^\n...\n79 |         if !cr_is_valid!(Cr4::read().bits(), CR4) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this error originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error: cannot find macro `concat_idents` in this scope\n  --> src/vmx/percpu.rs:72:30\n   |\n72 |                 let fixed1 = concat_idents!(IA32_VMX_, $crx, _FIXED1).read();\n   |                              ^^^^^^^^^^^^^\n...\n76 |         if !cr_is_valid!(Cr0::read().bits(), CR0) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this error originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error: cannot find macro `concat_idents` in this scope\n  --> src/vmx/percpu.rs:71:30\n   |\n71 |                 let fixed0 = concat_idents!(IA32_VMX_, $crx, _FIXED0).read();\n   |                              ^^^^^^^^^^^^^\n...\n76 |         if !cr_is_valid!(Cr0::read().bits(), CR0) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this error originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: unused import: `Msr::*`\n  --> src/vmx/percpu.rs:69:21\n   |\n69 |                 use Msr::*;\n   |                     ^^^^^^\n...\n76 |         if !cr_is_valid!(Cr0::read().bits(), CR0) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: `#[warn(unused_imports)]` on by default\n   = note: this warning originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: unused import: `Msr::*`\n  --> src/vmx/percpu.rs:69:21\n   |\n69 |                 use Msr::*;\n   |                     ^^^^^^\n...\n79 |         if !cr_is_valid!(Cr4::read().bits(), CR4) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this warning originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
             ]
           }
         },
@@ -109,11 +109,11 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> src/lib.rs:4:12\n  |\n4 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
-            ],
             "Clippy(Error)": [
               "error[E0557]: feature has been removed\n --> src/lib.rs:3:12\n  |\n3 | #![feature(concat_idents)]\n  |            ^^^^^^^^^^^^^ feature has been removed\n  |\n  = note: removed in CURRENT_RUSTC_VERSION; see <https://github.com/rust-lang/rust/pull/142704> for more information\n  = note: use the `${concat(..)}` metavariable expression instead\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> src/lib.rs:4:12\n  |\n4 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
             ]
           }
         },
