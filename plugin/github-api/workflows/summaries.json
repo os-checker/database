@@ -1,6 +1,60 @@
 [
   {
     "user": "arceos-hypervisor",
+    "repo": "axaddrspace",
+    "runs": 84,
+    "last": {
+      "created_at": "2025-07-18T10:50:47Z",
+      "updated_at": "2025-07-18T10:50:47Z",
+      "duration_sec": 0,
+      "completed": true,
+      "success": false,
+      "head_branch": "feat/add-frame-tests",
+      "head_sha": "602e5ecb3a0d69fc71a95806d9615223f9b68e0b",
+      "head_commit": {
+        "message": "feat: Implement unit tests for PhysFrame\n\nIntroduces a `MockHal` to simulate memory management operations for `PhysFrame` testing.\n\nThe test suite utilizes global static variables (`NEXT_PADDR`, `MEMORY`, `DEALLOC_COUNT`, `ALLOC_FAIL`) to represent allocator state.\nThese variables are protected by atomics and a mutex to ensure thread-safety during concurrent access.\nA global `TEST_MUTEX` is implemented to enforce serial execution for tests that modify shared state, preventing interference across tests.\nSpecific tests perform resets for `DEALLOC_COUNT` or `ALLOC_FAIL` to manage state for their respective assertions.\n\nKey test cases include:\n- Successful frame allocation and deallocation (`test_alloc_dealloc_cycle`).\n- Allocation and zero-filling of frames (`test_alloc_zero`).\n- Writing data to allocated frames (`test_fill_operation`).\n- Handling access to uninitialized frames (`test_uninit_access`).\n- Simulating memory allocation failures (`test_alloc_no_memory`).",
+        "timestamp": "2025-07-18T10:48:14Z"
+      },
+      "workflows": [
+        {
+          "run": {
+            "name": "CI",
+            "head_branch": "feat/add-frame-tests",
+            "head_sha": "602e5ecb3a0d69fc71a95806d9615223f9b68e0b",
+            "head_commit": {
+              "message": "feat: Implement unit tests for PhysFrame\n\nIntroduces a `MockHal` to simulate memory management operations for `PhysFrame` testing.\n\nThe test suite utilizes global static variables (`NEXT_PADDR`, `MEMORY`, `DEALLOC_COUNT`, `ALLOC_FAIL`) to represent allocator state.\nThese variables are protected by atomics and a mutex to ensure thread-safety during concurrent access.\nA global `TEST_MUTEX` is implemented to enforce serial execution for tests that modify shared state, preventing interference across tests.\nSpecific tests perform resets for `DEALLOC_COUNT` or `ALLOC_FAIL` to manage state for their respective assertions.\n\nKey test cases include:\n- Successful frame allocation and deallocation (`test_alloc_dealloc_cycle`).\n- Allocation and zero-filling of frames (`test_alloc_zero`).\n- Writing data to allocated frames (`test_fill_operation`).\n- Handling access to uninitialized frames (`test_uninit_access`).\n- Simulating memory allocation failures (`test_alloc_no_memory`).",
+              "timestamp": "2025-07-18T10:48:14Z"
+            },
+            "display_title": "feat: Implement unit tests for PhysFrame",
+            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16368730693",
+            "event": "pull_request",
+            "status": "completed",
+            "conclusion": "action_required",
+            "run_attempt": 1,
+            "run_started_at": "2025-07-18T10:50:47Z",
+            "created_at": "2025-07-18T10:50:47Z",
+            "updated_at": "2025-07-18T10:50:47Z",
+            "duration_sec": 0,
+            "actor": {
+              "login": "manchangfengxu"
+            },
+            "triggering_actor": {
+              "login": "manchangfengxu"
+            },
+            "id": 16368730693,
+            "jobs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16368730693/jobs",
+            "logs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16368730693/logs"
+          },
+          "jobs": {
+            "total_count": 0,
+            "jobs": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "user": "arceos-hypervisor",
     "repo": "arm_vcpu",
     "runs": 259,
     "last": {
@@ -5192,60 +5246,6 @@
                 "id": 46145606038
               }
             ]
-          }
-        }
-      ]
-    }
-  },
-  {
-    "user": "arceos-hypervisor",
-    "repo": "axaddrspace",
-    "runs": 83,
-    "last": {
-      "created_at": "2025-07-16T15:26:22Z",
-      "updated_at": "2025-07-16T15:26:22Z",
-      "duration_sec": 0,
-      "completed": true,
-      "success": false,
-      "head_branch": "master",
-      "head_sha": "61b5f9b974d438382b88e87791dee73cf37fc553",
-      "head_commit": {
-        "message": "[feat]:Implement the function protect",
-        "timestamp": "2025-07-16T15:14:51Z"
-      },
-      "workflows": [
-        {
-          "run": {
-            "name": "CI",
-            "head_branch": "master",
-            "head_sha": "61b5f9b974d438382b88e87791dee73cf37fc553",
-            "head_commit": {
-              "message": "[feat]:Implement the function protect",
-              "timestamp": "2025-07-16T15:14:51Z"
-            },
-            "display_title": "[feat]:Implement the function protect",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16323660444",
-            "event": "pull_request",
-            "status": "completed",
-            "conclusion": "action_required",
-            "run_attempt": 1,
-            "run_started_at": "2025-07-16T15:26:22Z",
-            "created_at": "2025-07-16T15:26:22Z",
-            "updated_at": "2025-07-16T15:26:22Z",
-            "duration_sec": 0,
-            "actor": {
-              "login": "aluojibuzhu"
-            },
-            "triggering_actor": {
-              "login": "aluojibuzhu"
-            },
-            "id": 16323660444,
-            "jobs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16323660444/jobs",
-            "logs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16323660444/logs"
-          },
-          "jobs": {
-            "total_count": 0,
-            "jobs": []
           }
         }
       ]

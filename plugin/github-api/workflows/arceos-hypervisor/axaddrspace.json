@@ -1,8 +1,42 @@
 {
   "user": "arceos-hypervisor",
   "repo": "axaddrspace",
-  "runs_total_count": 83,
+  "runs_total_count": 84,
   "workflows": [
+    {
+      "run": {
+        "name": "CI",
+        "head_branch": "feat/add-frame-tests",
+        "head_sha": "602e5ecb3a0d69fc71a95806d9615223f9b68e0b",
+        "head_commit": {
+          "message": "feat: Implement unit tests for PhysFrame\n\nIntroduces a `MockHal` to simulate memory management operations for `PhysFrame` testing.\n\nThe test suite utilizes global static variables (`NEXT_PADDR`, `MEMORY`, `DEALLOC_COUNT`, `ALLOC_FAIL`) to represent allocator state.\nThese variables are protected by atomics and a mutex to ensure thread-safety during concurrent access.\nA global `TEST_MUTEX` is implemented to enforce serial execution for tests that modify shared state, preventing interference across tests.\nSpecific tests perform resets for `DEALLOC_COUNT` or `ALLOC_FAIL` to manage state for their respective assertions.\n\nKey test cases include:\n- Successful frame allocation and deallocation (`test_alloc_dealloc_cycle`).\n- Allocation and zero-filling of frames (`test_alloc_zero`).\n- Writing data to allocated frames (`test_fill_operation`).\n- Handling access to uninitialized frames (`test_uninit_access`).\n- Simulating memory allocation failures (`test_alloc_no_memory`).",
+          "timestamp": "2025-07-18T10:48:14Z"
+        },
+        "display_title": "feat: Implement unit tests for PhysFrame",
+        "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16368730693",
+        "event": "pull_request",
+        "status": "completed",
+        "conclusion": "action_required",
+        "run_attempt": 1,
+        "run_started_at": "2025-07-18T10:50:47Z",
+        "created_at": "2025-07-18T10:50:47Z",
+        "updated_at": "2025-07-18T10:50:47Z",
+        "duration_sec": 0,
+        "actor": {
+          "login": "manchangfengxu"
+        },
+        "triggering_actor": {
+          "login": "manchangfengxu"
+        },
+        "id": 16368730693,
+        "jobs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16368730693/jobs",
+        "logs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16368730693/logs"
+      },
+      "jobs": {
+        "total_count": 0,
+        "jobs": []
+      }
+    },
     {
       "run": {
         "name": "CI",
@@ -13533,106 +13567,6 @@
             "duration_sec": 17,
             "steps": [],
             "id": 39589744645
-          }
-        ]
-      }
-    },
-    {
-      "run": {
-        "name": "CI",
-        "head_branch": "master",
-        "head_sha": "2ed4d076e01f966710bd6480131abd3a9ffb8930",
-        "head_commit": {
-          "message": "Functions and types about device access and interrupt injection (#10)\n\n* move types about device access into this crate\n\n* add `LowerHex` for `Port/SysRegRange`\n\n* [refactor] introduce AxMmHal\n\n* add more comments\n\n* formatted\n\n* add more docs\n\n---------\n\nCo-authored-by: aarkegz <aarkegz@gmail.com>",
-          "timestamp": "2025-03-26T08:29:43Z"
-        },
-        "display_title": "Functions and types about device access and interrupt injection (#10)",
-        "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14078729495",
-        "event": "push",
-        "status": "completed",
-        "conclusion": "success",
-        "run_attempt": 1,
-        "run_started_at": "2025-03-26T08:29:45Z",
-        "created_at": "2025-03-26T08:29:45Z",
-        "updated_at": "2025-03-26T08:30:11Z",
-        "duration_sec": 26,
-        "actor": {
-          "login": "aarkegz"
-        },
-        "triggering_actor": {
-          "login": "aarkegz"
-        },
-        "id": 14078729495,
-        "jobs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/14078729495/jobs",
-        "logs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/14078729495/logs"
-      },
-      "jobs": {
-        "total_count": 5,
-        "jobs": [
-          {
-            "name": "ci (nightly, x86_64-unknown-none)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14078729495/job/39426640675",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-03-26T08:29:46Z",
-            "started_at": "2025-03-26T08:29:49Z",
-            "completed_at": "2025-03-26T08:30:07Z",
-            "duration_sec": 18,
-            "steps": [],
-            "id": 39426640675
-          },
-          {
-            "name": "doc",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14078729495/job/39426640682",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-03-26T08:29:46Z",
-            "started_at": "2025-03-26T08:29:49Z",
-            "completed_at": "2025-03-26T08:30:07Z",
-            "duration_sec": 18,
-            "steps": [],
-            "id": 39426640682
-          },
-          {
-            "name": "ci (nightly, aarch64-unknown-none-softfloat)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14078729495/job/39426640689",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-03-26T08:29:46Z",
-            "started_at": "2025-03-26T08:29:52Z",
-            "completed_at": "2025-03-26T08:30:10Z",
-            "duration_sec": 18,
-            "steps": [],
-            "id": 39426640689
-          },
-          {
-            "name": "ci (nightly, riscv64gc-unknown-none-elf)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14078729495/job/39426640691",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-03-26T08:29:46Z",
-            "started_at": "2025-03-26T08:29:50Z",
-            "completed_at": "2025-03-26T08:30:08Z",
-            "duration_sec": 18,
-            "steps": [],
-            "id": 39426640691
-          },
-          {
-            "name": "ci (nightly, x86_64-unknown-linux-gnu)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14078729495/job/39426640710",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-03-26T08:29:46Z",
-            "started_at": "2025-03-26T08:29:49Z",
-            "completed_at": "2025-03-26T08:30:07Z",
-            "duration_sec": 18,
-            "steps": [],
-            "id": 39426640710
           }
         ]
       }
