@@ -52,6 +52,12 @@
               "error: cannot find macro `concat_idents` in this scope\n   --> src/vmx/vcpu.rs:631:17\n    |\n631 |                 concat_idents!($seg, _LIMIT).write(0xffff)?;\n    |                 ^^^^^^^^^^^^^\n...\n643 |         set_guest_segment!(LDTR, 0x82); // present, system, LDT\n    |         ------------------------------ in this macro invocation\n    |\n    = note: this error originates in the macro `set_guest_segment` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error: cannot find macro `concat_idents` in this scope\n   --> src/vmx/vcpu.rs:632:17\n    |\n632 |                 concat_idents!($seg, _ACCESS_RIGHTS).write($access_rights)?;\n    |                 ^^^^^^^^^^^^^\n...\n643 |         set_guest_segment!(LDTR, 0x82); // present, system, LDT\n    |         ------------------------------ in this macro invocation\n    |\n    = note: this error originates in the macro `set_guest_segment` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
             ],
+            "Mirai": [
+              "warning: unused import: `vmx::vcpu`\n  --> src/vmx/vcpu.rs:35:71\n   |\n35 | use crate::{ept::GuestPageWalkInfo, msr::Msr, regs::GeneralRegisters, vmx::vcpu};\n   |                                                                       ^^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\n",
+              "warning: unreachable expression\n    --> src/vmx/vcpu.rs:1059:9\n     |\n1056 |         unimplemented!(\"apic access\");\n     |         ----------------------------- any code following this expression is unreachable\n...\n1059 |         self.advance_rip(exit_info.exit_instruction_length as _)\n     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression\n     |\n     = note: `#[warn(unreachable_code)]` on by default\n\n",
+              "warning: unused variable: `write`\n    --> src/vmx/vcpu.rs:1044:13\n     |\n1044 |         let write = match apic_access_exit_info.access_type {\n     |             ^^^^^ help: if this is intentional, prefix it with an underscore: `_write`\n     |\n     = note: `#[warn(unused_variables)]` on by default\n\n",
+              "warning: unused variable: `exit_info`\n    --> src/vmx/vcpu.rs:1041:38\n     |\n1041 |     fn handle_apic_access(&mut self, exit_info: &VmxExitInfo) -> AxResult {\n     |                                      ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_exit_info`\n\n"
+            ],
             "Clippy(Warn)": [
               "warning: unused import: `vmx::vcpu`\n  --> src/vmx/vcpu.rs:35:71\n   |\n35 | use crate::{ept::GuestPageWalkInfo, msr::Msr, regs::GeneralRegisters, vmx::vcpu};\n   |                                                                       ^^^^^^^^^\n\n",
               "warning: unused import: `VmcsGuest16::*`\n   --> src/vmx/vcpu.rs:626:21\n    |\n626 |                 use VmcsGuest16::*;\n    |                     ^^^^^^^^^^^^^^\n...\n636 |         set_guest_segment!(ES, 0x93); // 16-bit, present, data, read/write, accessed\n    |         ---------------------------- in this macro invocation\n    |\n    = note: this warning originates in the macro `set_guest_segment` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
@@ -84,12 +90,6 @@
               "warning: unnecessary `unsafe` block\n   --> src/vmx/vcpu.rs:921:9\n    |\n921 |         unsafe {\n    |         ^^^^^^ unnecessary `unsafe` block\n\n",
               "warning: unused variable: `write`\n    --> src/vmx/vcpu.rs:1044:13\n     |\n1044 |         let write = match apic_access_exit_info.access_type {\n     |             ^^^^^ help: if this is intentional, prefix it with an underscore: `_write`\n     |\n     = note: `#[warn(unused_variables)]` on by default\n\n",
               "warning: unused variable: `exit_info`\n    --> src/vmx/vcpu.rs:1041:38\n     |\n1041 |     fn handle_apic_access(&mut self, exit_info: &VmxExitInfo) -> AxResult {\n     |                                      ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_exit_info`\n\n"
-            ],
-            "Mirai": [
-              "warning: unused import: `vmx::vcpu`\n  --> src/vmx/vcpu.rs:35:71\n   |\n35 | use crate::{ept::GuestPageWalkInfo, msr::Msr, regs::GeneralRegisters, vmx::vcpu};\n   |                                                                       ^^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\n",
-              "warning: unreachable expression\n    --> src/vmx/vcpu.rs:1059:9\n     |\n1056 |         unimplemented!(\"apic access\");\n     |         ----------------------------- any code following this expression is unreachable\n...\n1059 |         self.advance_rip(exit_info.exit_instruction_length as _)\n     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression\n     |\n     = note: `#[warn(unreachable_code)]` on by default\n\n",
-              "warning: unused variable: `write`\n    --> src/vmx/vcpu.rs:1044:13\n     |\n1044 |         let write = match apic_access_exit_info.access_type {\n     |             ^^^^^ help: if this is intentional, prefix it with an underscore: `_write`\n     |\n     = note: `#[warn(unused_variables)]` on by default\n\n",
-              "warning: unused variable: `exit_info`\n    --> src/vmx/vcpu.rs:1041:38\n     |\n1041 |     fn handle_apic_access(&mut self, exit_info: &VmxExitInfo) -> AxResult {\n     |                                      ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_exit_info`\n\n"
             ]
           }
         },
@@ -98,15 +98,15 @@
           "features": "",
           "count": 6,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: unused import: `Msr::*`\n  --> src/vmx/percpu.rs:69:21\n   |\n69 |                 use Msr::*;\n   |                     ^^^^^^\n...\n76 |         if !cr_is_valid!(Cr0::read().bits(), CR0) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: `#[warn(unused_imports)]` on by default\n   = note: this warning originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: unused import: `Msr::*`\n  --> src/vmx/percpu.rs:69:21\n   |\n69 |                 use Msr::*;\n   |                     ^^^^^^\n...\n79 |         if !cr_is_valid!(Cr4::read().bits(), CR4) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this warning originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
+            ],
             "Clippy(Error)": [
               "error: cannot find macro `concat_idents` in this scope\n  --> src/vmx/percpu.rs:72:30\n   |\n72 |                 let fixed1 = concat_idents!(IA32_VMX_, $crx, _FIXED1).read();\n   |                              ^^^^^^^^^^^^^\n...\n79 |         if !cr_is_valid!(Cr4::read().bits(), CR4) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this error originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error: cannot find macro `concat_idents` in this scope\n  --> src/vmx/percpu.rs:71:30\n   |\n71 |                 let fixed0 = concat_idents!(IA32_VMX_, $crx, _FIXED0).read();\n   |                              ^^^^^^^^^^^^^\n...\n79 |         if !cr_is_valid!(Cr4::read().bits(), CR4) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this error originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error: cannot find macro `concat_idents` in this scope\n  --> src/vmx/percpu.rs:72:30\n   |\n72 |                 let fixed1 = concat_idents!(IA32_VMX_, $crx, _FIXED1).read();\n   |                              ^^^^^^^^^^^^^\n...\n76 |         if !cr_is_valid!(Cr0::read().bits(), CR0) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this error originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
               "error: cannot find macro `concat_idents` in this scope\n  --> src/vmx/percpu.rs:71:30\n   |\n71 |                 let fixed0 = concat_idents!(IA32_VMX_, $crx, _FIXED0).read();\n   |                              ^^^^^^^^^^^^^\n...\n76 |         if !cr_is_valid!(Cr0::read().bits(), CR0) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this error originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: unused import: `Msr::*`\n  --> src/vmx/percpu.rs:69:21\n   |\n69 |                 use Msr::*;\n   |                     ^^^^^^\n...\n76 |         if !cr_is_valid!(Cr0::read().bits(), CR0) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: `#[warn(unused_imports)]` on by default\n   = note: this warning originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
-              "warning: unused import: `Msr::*`\n  --> src/vmx/percpu.rs:69:21\n   |\n69 |                 use Msr::*;\n   |                     ^^^^^^\n...\n79 |         if !cr_is_valid!(Cr4::read().bits(), CR4) {\n   |             ------------------------------------- in this macro invocation\n   |\n   = note: this warning originates in the macro `cr_is_valid` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n"
             ]
           }
         },
@@ -115,11 +115,11 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> src/lib.rs:4:12\n  |\n4 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
-            ],
             "Clippy(Error)": [
               "error[E0557]: feature has been removed\n --> src/lib.rs:3:12\n  |\n3 | #![feature(concat_idents)]\n  |            ^^^^^^^^^^^^^ feature has been removed\n  |\n  = note: removed in CURRENT_RUSTC_VERSION; see <https://github.com/rust-lang/rust/pull/142704> for more information\n  = note: use the `${concat(..)}` metavariable expression instead\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable\n --> src/lib.rs:4:12\n  |\n4 | #![feature(naked_functions)]\n  |            ^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\n"
             ]
           }
         },
