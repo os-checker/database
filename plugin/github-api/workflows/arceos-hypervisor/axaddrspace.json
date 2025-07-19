@@ -1,8 +1,42 @@
 {
   "user": "arceos-hypervisor",
   "repo": "axaddrspace",
-  "runs_total_count": 84,
+  "runs_total_count": 85,
   "workflows": [
+    {
+      "run": {
+        "name": "CI",
+        "head_branch": "feat/add-frame-tests",
+        "head_sha": "785b0f273d86f80fb1f07b74231c449ed025900b",
+        "head_commit": {
+          "message": "feat: Enhance PhysFrame mock test suite for reliability and clarity\n\nThis commit significantly improves the test suite for `PhysFrame` by refining the mock allocator (`MockHal`) and ensuring better test isolation and readability.\n\nKey changes include:\n- Added `assert_matches` to `Cargo.toml` for more expressive error assertions in tests.\n- Introduced `BASE_PADDR` and `MEMORY_LEN` constants for clarity and maintainability of mock memory configuration.\n- Renamed `ALLOC_FAIL` to `ALLOC_SHOULD_FAIL` for better semantic clarity of its control purpose.\n- Implemented `MockHal::reset_state()` to ensure all shared static variables are reset to a clean state before each test, preventing test order dependency and random failures.\n- Updated `PhysFrame` tests to utilize `MockHal::reset_state()` for robust test isolation.\n- Refactored memory access assertions in `test_alloc_zero` and `test_fill_operation` to use slice iterators (`&[u8; PAGE_SIZE].iter().all()`) for improved safety, idiomatic Rust, and readability.\n- Added comprehensive documentation comments (`///`) to constants, static variables, `MockHal` struct, and its methods, enhancing code understanding.\n- Clarified the purpose of `Debug` derive on `MockHal` with a dedicated comment, explaining its necessity for satisfying `Result::unwrap_err()`'s `Debug` bound on its `T` type (`PhysFrame<MockHal>`) in test assertions.\n- Ensured `Cargo.toml` ends with a newline character for formatting consistency.",
+          "timestamp": "2025-07-19T13:40:08Z"
+        },
+        "display_title": "feat: Implement unit tests for PhysFrame",
+        "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16389277553",
+        "event": "pull_request",
+        "status": "completed",
+        "conclusion": "action_required",
+        "run_attempt": 1,
+        "run_started_at": "2025-07-19T13:42:37Z",
+        "created_at": "2025-07-19T13:42:37Z",
+        "updated_at": "2025-07-19T13:42:37Z",
+        "duration_sec": 0,
+        "actor": {
+          "login": "manchangfengxu"
+        },
+        "triggering_actor": {
+          "login": "manchangfengxu"
+        },
+        "id": 16389277553,
+        "jobs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16389277553/jobs",
+        "logs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16389277553/logs"
+      },
+      "jobs": {
+        "total_count": 0,
+        "jobs": []
+      }
+    },
     {
       "run": {
         "name": "CI",
@@ -13961,106 +13995,6 @@
             "duration_sec": 18,
             "steps": [],
             "id": 39679771517
-          }
-        ]
-      }
-    },
-    {
-      "run": {
-        "name": "CI",
-        "head_branch": "type15",
-        "head_sha": "ee2d9584f86a13a201c0a549ed4507c9a2f5e91c",
-        "head_commit": {
-          "message": "[fix] improve outputs msg",
-          "timestamp": "2025-03-28T13:59:43Z"
-        },
-        "display_title": "[fix] improve outputs msg",
-        "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14130618230",
-        "event": "push",
-        "status": "completed",
-        "conclusion": "success",
-        "run_attempt": 1,
-        "run_started_at": "2025-03-28T14:00:03Z",
-        "created_at": "2025-03-28T14:00:03Z",
-        "updated_at": "2025-03-28T14:00:29Z",
-        "duration_sec": 26,
-        "actor": {
-          "login": "hky1999"
-        },
-        "triggering_actor": {
-          "login": "hky1999"
-        },
-        "id": 14130618230,
-        "jobs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/14130618230/jobs",
-        "logs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/14130618230/logs"
-      },
-      "jobs": {
-        "total_count": 5,
-        "jobs": [
-          {
-            "name": "ci (nightly, aarch64-unknown-none-softfloat)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14130618230/job/39589744630",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-03-28T14:00:04Z",
-            "started_at": "2025-03-28T14:00:07Z",
-            "completed_at": "2025-03-28T14:00:28Z",
-            "duration_sec": 21,
-            "steps": [],
-            "id": 39589744630
-          },
-          {
-            "name": "doc",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14130618230/job/39589744632",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-03-28T14:00:04Z",
-            "started_at": "2025-03-28T14:00:06Z",
-            "completed_at": "2025-03-28T14:00:22Z",
-            "duration_sec": 16,
-            "steps": [],
-            "id": 39589744632
-          },
-          {
-            "name": "ci (nightly, x86_64-unknown-none)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14130618230/job/39589744637",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-03-28T14:00:04Z",
-            "started_at": "2025-03-28T14:00:07Z",
-            "completed_at": "2025-03-28T14:00:25Z",
-            "duration_sec": 18,
-            "steps": [],
-            "id": 39589744637
-          },
-          {
-            "name": "ci (nightly, x86_64-unknown-linux-gnu)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14130618230/job/39589744638",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-03-28T14:00:04Z",
-            "started_at": "2025-03-28T14:00:07Z",
-            "completed_at": "2025-03-28T14:00:24Z",
-            "duration_sec": 17,
-            "steps": [],
-            "id": 39589744638
-          },
-          {
-            "name": "ci (nightly, riscv64gc-unknown-none-elf)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/14130618230/job/39589744645",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-03-28T14:00:04Z",
-            "started_at": "2025-03-28T14:00:08Z",
-            "completed_at": "2025-03-28T14:00:25Z",
-            "duration_sec": 17,
-            "steps": [],
-            "id": 39589744645
           }
         ]
       }
