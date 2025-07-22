@@ -1,8 +1,42 @@
 {
   "user": "arceos-hypervisor",
   "repo": "axaddrspace",
-  "runs_total_count": 96,
+  "runs_total_count": 97,
   "workflows": [
+    {
+      "run": {
+        "name": "CI",
+        "head_branch": "feat/add-frame-tests",
+        "head_sha": "46e9581d51327f6e121774f7ef9fd8f142b4e4ac",
+        "head_commit": {
+          "message": "feat(test): Unify MockHal implementation and refine test infrastructure\n\nConsolidate the `MockHal` structure to implement both the `AxMmHal` and `PagingHandler` traits. This unified `MockHal` is now centrally located in `src/test_utils/mod.rs`.\n\nKey improvements include:\n\n- The `AlignedMemory` struct, which encapsulates the raw memory array for simulation, is explicitly annotated with `#[repr(align(4096))]` to ensure 4KB page alignment.\n- The `test_fill_multiple_frames()` test case has been refactored for improved clarity and efficiency.\n- Applied formatting improvements to logging macros (e.g., `debug!`, `warn!`) based on `cargo clippy` suggestions.",
+          "timestamp": "2025-07-22T09:37:56Z"
+        },
+        "display_title": "feat: Implement unit tests for PhysFrame",
+        "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16441552709",
+        "event": "pull_request",
+        "status": "completed",
+        "conclusion": "action_required",
+        "run_attempt": 1,
+        "run_started_at": "2025-07-22T10:22:57Z",
+        "created_at": "2025-07-22T10:22:57Z",
+        "updated_at": "2025-07-22T10:22:57Z",
+        "duration_sec": 0,
+        "actor": {
+          "login": "manchangfengxu"
+        },
+        "triggering_actor": {
+          "login": "manchangfengxu"
+        },
+        "id": 16441552709,
+        "jobs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16441552709/jobs",
+        "logs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16441552709/logs"
+      },
+      "jobs": {
+        "total_count": 0,
+        "jobs": []
+      }
+    },
     {
       "run": {
         "name": "CI",
@@ -12,7 +46,7 @@
           "message": "Add tests to src/address_apce/mod.rs",
           "timestamp": "2025-07-21T05:32:05Z"
         },
-        "display_title": "[feat]:Add some test cases and implement some of the functions",
+        "display_title": "[feat]:Add  test cases for address_apce and implement functions protect and flush_tlb",
         "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16409337378",
         "event": "pull_request",
         "status": "completed",
@@ -5888,7 +5922,7 @@
           "message": "[feat]:Implement the function protect",
           "timestamp": "2025-07-16T15:14:51Z"
         },
-        "display_title": "[feat]:Add some test cases and implement some of the functions",
+        "display_title": "[feat]:Add  test cases for address_apce and implement functions protect and flush_tlb",
         "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16323660444",
         "event": "pull_request",
         "status": "completed",
@@ -13829,534 +13863,6 @@
               }
             ],
             "id": 45688455308
-          }
-        ]
-      }
-    },
-    {
-      "run": {
-        "name": "CI",
-        "head_branch": "match-new-hal",
-        "head_sha": "7cc14f223dddd281ce428377702f9e2ae2ee5851",
-        "head_commit": {
-          "message": "更新 memory_set 依赖版本至 0.4",
-          "timestamp": "2025-07-10T02:41:57Z"
-        },
-        "display_title": "更新 memory_set 依赖版本至 0.4",
-        "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16184866685",
-        "event": "push",
-        "status": "completed",
-        "conclusion": "success",
-        "run_attempt": 1,
-        "run_started_at": "2025-07-10T02:42:07Z",
-        "created_at": "2025-07-10T02:42:07Z",
-        "updated_at": "2025-07-10T02:42:30Z",
-        "duration_sec": 23,
-        "actor": {
-          "login": "ZR233"
-        },
-        "triggering_actor": {
-          "login": "ZR233"
-        },
-        "id": 16184866685,
-        "jobs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16184866685/jobs",
-        "logs_url": "https://api.github.com/repos/arceos-hypervisor/axaddrspace/actions/runs/16184866685/logs"
-      },
-      "jobs": {
-        "total_count": 5,
-        "jobs": [
-          {
-            "name": "ci (nightly, x86_64-unknown-none)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16184866685/job/45688453991",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-07-10T02:42:07Z",
-            "started_at": "2025-07-10T02:42:10Z",
-            "completed_at": "2025-07-10T02:42:29Z",
-            "duration_sec": 19,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2025-07-10T02:42:10Z",
-                "completed_at": "2025-07-10T02:42:11Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2025-07-10T02:42:11Z",
-                "completed_at": "2025-07-10T02:42:12Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run dtolnay/rust-toolchain@nightly",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2025-07-10T02:42:12Z",
-                "completed_at": "2025-07-10T02:42:22Z",
-                "duration_sec": 10
-              },
-              {
-                "name": "Check rust version",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2025-07-10T02:42:22Z",
-                "completed_at": "2025-07-10T02:42:22Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Check code format",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2025-07-10T02:42:22Z",
-                "completed_at": "2025-07-10T02:42:23Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Clippy",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 6,
-                "started_at": "2025-07-10T02:42:23Z",
-                "completed_at": "2025-07-10T02:42:25Z",
-                "duration_sec": 2
-              },
-              {
-                "name": "Build",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 7,
-                "started_at": "2025-07-10T02:42:25Z",
-                "completed_at": "2025-07-10T02:42:27Z",
-                "duration_sec": 2
-              },
-              {
-                "name": "Unit test",
-                "status": "completed",
-                "conclusion": "skipped",
-                "number": 8,
-                "started_at": "2025-07-10T02:42:27Z",
-                "completed_at": "2025-07-10T02:42:27Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Post Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 16,
-                "started_at": "2025-07-10T02:42:27Z",
-                "completed_at": "2025-07-10T02:42:27Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 17,
-                "started_at": "2025-07-10T02:42:27Z",
-                "completed_at": "2025-07-10T02:42:27Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 45688453991
-          },
-          {
-            "name": "ci (nightly, x86_64-unknown-linux-gnu)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16184866685/job/45688453996",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-07-10T02:42:07Z",
-            "started_at": "2025-07-10T02:42:10Z",
-            "completed_at": "2025-07-10T02:42:29Z",
-            "duration_sec": 19,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2025-07-10T02:42:11Z",
-                "completed_at": "2025-07-10T02:42:12Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2025-07-10T02:42:12Z",
-                "completed_at": "2025-07-10T02:42:13Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run dtolnay/rust-toolchain@nightly",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2025-07-10T02:42:13Z",
-                "completed_at": "2025-07-10T02:42:23Z",
-                "duration_sec": 10
-              },
-              {
-                "name": "Check rust version",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2025-07-10T02:42:23Z",
-                "completed_at": "2025-07-10T02:42:23Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Check code format",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2025-07-10T02:42:23Z",
-                "completed_at": "2025-07-10T02:42:23Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Clippy",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 6,
-                "started_at": "2025-07-10T02:42:23Z",
-                "completed_at": "2025-07-10T02:42:25Z",
-                "duration_sec": 2
-              },
-              {
-                "name": "Build",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 7,
-                "started_at": "2025-07-10T02:42:25Z",
-                "completed_at": "2025-07-10T02:42:27Z",
-                "duration_sec": 2
-              },
-              {
-                "name": "Unit test",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 8,
-                "started_at": "2025-07-10T02:42:27Z",
-                "completed_at": "2025-07-10T02:42:28Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Post Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 16,
-                "started_at": "2025-07-10T02:42:28Z",
-                "completed_at": "2025-07-10T02:42:28Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 17,
-                "started_at": "2025-07-10T02:42:28Z",
-                "completed_at": "2025-07-10T02:42:28Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 45688453996
-          },
-          {
-            "name": "ci (nightly, aarch64-unknown-none-softfloat)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16184866685/job/45688453998",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-07-10T02:42:07Z",
-            "started_at": "2025-07-10T02:42:11Z",
-            "completed_at": "2025-07-10T02:42:30Z",
-            "duration_sec": 19,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2025-07-10T02:42:11Z",
-                "completed_at": "2025-07-10T02:42:12Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2025-07-10T02:42:12Z",
-                "completed_at": "2025-07-10T02:42:13Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run dtolnay/rust-toolchain@nightly",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2025-07-10T02:42:13Z",
-                "completed_at": "2025-07-10T02:42:23Z",
-                "duration_sec": 10
-              },
-              {
-                "name": "Check rust version",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2025-07-10T02:42:23Z",
-                "completed_at": "2025-07-10T02:42:24Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Check code format",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2025-07-10T02:42:24Z",
-                "completed_at": "2025-07-10T02:42:24Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Clippy",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 6,
-                "started_at": "2025-07-10T02:42:24Z",
-                "completed_at": "2025-07-10T02:42:26Z",
-                "duration_sec": 2
-              },
-              {
-                "name": "Build",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 7,
-                "started_at": "2025-07-10T02:42:26Z",
-                "completed_at": "2025-07-10T02:42:29Z",
-                "duration_sec": 3
-              },
-              {
-                "name": "Unit test",
-                "status": "completed",
-                "conclusion": "skipped",
-                "number": 8,
-                "started_at": "2025-07-10T02:42:29Z",
-                "completed_at": "2025-07-10T02:42:29Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Post Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 16,
-                "started_at": "2025-07-10T02:42:29Z",
-                "completed_at": "2025-07-10T02:42:29Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 17,
-                "started_at": "2025-07-10T02:42:29Z",
-                "completed_at": "2025-07-10T02:42:29Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 45688453998
-          },
-          {
-            "name": "ci (nightly, riscv64gc-unknown-none-elf)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16184866685/job/45688454008",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-07-10T02:42:07Z",
-            "started_at": "2025-07-10T02:42:11Z",
-            "completed_at": "2025-07-10T02:42:28Z",
-            "duration_sec": 17,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2025-07-10T02:42:11Z",
-                "completed_at": "2025-07-10T02:42:12Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2025-07-10T02:42:12Z",
-                "completed_at": "2025-07-10T02:42:13Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run dtolnay/rust-toolchain@nightly",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2025-07-10T02:42:13Z",
-                "completed_at": "2025-07-10T02:42:23Z",
-                "duration_sec": 10
-              },
-              {
-                "name": "Check rust version",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2025-07-10T02:42:23Z",
-                "completed_at": "2025-07-10T02:42:23Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Check code format",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2025-07-10T02:42:23Z",
-                "completed_at": "2025-07-10T02:42:24Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Clippy",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 6,
-                "started_at": "2025-07-10T02:42:24Z",
-                "completed_at": "2025-07-10T02:42:25Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Build",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 7,
-                "started_at": "2025-07-10T02:42:25Z",
-                "completed_at": "2025-07-10T02:42:26Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Unit test",
-                "status": "completed",
-                "conclusion": "skipped",
-                "number": 8,
-                "started_at": "2025-07-10T02:42:26Z",
-                "completed_at": "2025-07-10T02:42:26Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Post Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 16,
-                "started_at": "2025-07-10T02:42:26Z",
-                "completed_at": "2025-07-10T02:42:26Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 17,
-                "started_at": "2025-07-10T02:42:26Z",
-                "completed_at": "2025-07-10T02:42:26Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 45688454008
-          },
-          {
-            "name": "doc",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-hypervisor/axaddrspace/actions/runs/16184866685/job/45688454012",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-07-10T02:42:07Z",
-            "started_at": "2025-07-10T02:42:10Z",
-            "completed_at": "2025-07-10T02:42:26Z",
-            "duration_sec": 16,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2025-07-10T02:42:10Z",
-                "completed_at": "2025-07-10T02:42:13Z",
-                "duration_sec": 3
-              },
-              {
-                "name": "Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2025-07-10T02:42:13Z",
-                "completed_at": "2025-07-10T02:42:13Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Run dtolnay/rust-toolchain@nightly",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2025-07-10T02:42:13Z",
-                "completed_at": "2025-07-10T02:42:22Z",
-                "duration_sec": 9
-              },
-              {
-                "name": "Build docs",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2025-07-10T02:42:22Z",
-                "completed_at": "2025-07-10T02:42:24Z",
-                "duration_sec": 2
-              },
-              {
-                "name": "Deploy to Github Pages",
-                "status": "completed",
-                "conclusion": "skipped",
-                "number": 5,
-                "started_at": "2025-07-10T02:42:24Z",
-                "completed_at": "2025-07-10T02:42:24Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Post Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 10,
-                "started_at": "2025-07-10T02:42:24Z",
-                "completed_at": "2025-07-10T02:42:25Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 11,
-                "started_at": "2025-07-10T02:42:25Z",
-                "completed_at": "2025-07-10T02:42:25Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 45688454012
           }
         ]
       }
