@@ -4,7 +4,7 @@
     "repo": "axfs-ng-vfs",
     "timestamp": {
       "start": 1752976394258,
-      "end": 1753148729568
+      "end": 1753235187672
     },
     "pkgs": {
       "axfs-ng-vfs": {
@@ -73,7 +73,7 @@
     "repo": "axprocess",
     "timestamp": {
       "start": 1752976408320,
-      "end": 1753148729758
+      "end": 1753235187935
     },
     "pkgs": {
       "axprocess": {
@@ -330,21 +330,83 @@
     "user": "Starry-Mix-THU",
     "repo": "axptr",
     "timestamp": {
-      "start": 1752111775811,
-      "end": 1753148729963
+      "start": 1753235204911,
+      "end": 1753235204940
     },
     "pkgs": {
-      "axptr": {
+      "starry-vm": {
         "version": "0.1.0",
-        "dependencies": 5,
+        "dependencies": 3,
         "lib": true,
         "bin": false,
-        "testcases": null,
-        "tests": 0,
+        "testcases": {
+          "tests": [
+            {
+              "id": "starry-vm::test",
+              "kind": "test",
+              "binary_name": "test",
+              "testcases": [
+                {
+                  "name": "test_load",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling quote v1.0.40\n   Compiling syn v2.0.104\n   Compiling bytemuck_derive v1.10.0\n   Compiling extern-trait v0.1.1\n   Compiling bytemuck v1.23.1\n   Compiling starry-vm v0.1.0 (/tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.02s\n     Running tests/test.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test-1919d12d0738f1b8)\nwarning: integer-to-pointer cast\n   --> tests/test.rs:112:15\n    |\n112 |     let ptr = 0x3000 as *mut u8;\n    |               ^^^^^^^^^^^^^^^^^ integer-to-pointer cast\n    |\n    = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n    = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n    = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n    = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n    = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n    = note: BACKTRACE on thread `test_load`:\n    = note: inside `test_load` at tests/test.rs:112:15: 112:32\nnote: inside closure\n   --> tests/test.rs:107:15\n    |\n105 | #[test]\n    | ------- in this procedural macro expansion\n106 | #[cfg(feature = \"alloc\")]\n107 | fn test_load() {\n    |               ^\n\nerror: Undefined Behavior: calling a function with return type Vm passing return place of type starry_vm::VmImpl\n   --> /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:29:1\n    |\n29  | #[extern_trait(VmImpl)]\n    | ^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n    = help: if you think this code should be accepted anyway, please report an issue with Miri\n    = note: BACKTRACE on thread `test_load`:\n    = note: inside `<starry_vm::VmImpl as starry_vm::VmIo>::new` at /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:29:1: 29:24\nnote: inside `starry_vm::vm_write_slice::<u8>`\n   --> /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:61:5\n    |\n61  |     VmImpl::new().write(ptr.addr(), bytes)\n    |     ^^^^^^^^^^^^^\nnote: inside `test_load`\n   --> tests/test.rs:113:5\n    |\n113 |     vm_write_slice(ptr, MAGIC).unwrap();\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> tests/test.rs:107:15\n    |\n105 | #[test]\n    | ------- in this procedural macro expansion\n106 | #[cfg(feature = \"alloc\")]\n107 | fn test_load() {\n    |               ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 1 warning emitted\n\nerror: test failed, to rerun pass `-p starry-vm --test test`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/target/miri/x86_64-unknown-linux-gnu/debug/deps/test-1919d12d0738f1b8 test_load` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "test_load_until_nul",
+                  "status": "ok",
+                  "duration_ms": 5,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/test.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test-1919d12d0738f1b8)\nwarning: integer-to-pointer cast\n   --> tests/test.rs:123:15\n    |\n123 |     let ptr = 0x4000 as *mut u8;\n    |               ^^^^^^^^^^^^^^^^^ integer-to-pointer cast\n    |\n    = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n    = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n    = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n    = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n    = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n    = note: BACKTRACE on thread `test_load_until`:\n    = note: inside `test_load_until_nul` at tests/test.rs:123:15: 123:32\nnote: inside closure\n   --> tests/test.rs:120:25\n    |\n118 | #[test]\n    | ------- in this procedural macro expansion\n119 | #[cfg(feature = \"alloc\")]\n120 | fn test_load_until_nul() {\n    |                         ^\n\nerror: Undefined Behavior: calling a function with return type Vm passing return place of type starry_vm::VmImpl\n   --> /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:29:1\n    |\n29  | #[extern_trait(VmImpl)]\n    | ^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n    = help: if you think this code should be accepted anyway, please report an issue with Miri\n    = note: BACKTRACE on thread `test_load_until`:\n    = note: inside `<starry_vm::VmImpl as starry_vm::VmIo>::new` at /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:29:1: 29:24\nnote: inside `starry_vm::vm_load_until_nul::<u8>`\n   --> /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/vec.rs:43:18\n    |\n43  |     let mut vm = VmImpl::new();\n    |                  ^^^^^^^^^^^^^\nnote: inside `test_load_until_nul`\n   --> tests/test.rs:125:16\n    |\n125 |     assert_eq!(vm_load_until_nul(ptr).unwrap(), []);\n    |                ^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> tests/test.rs:120:25\n    |\n118 | #[test]\n    | ------- in this procedural macro expansion\n119 | #[cfg(feature = \"alloc\")]\n120 | fn test_load_until_nul() {\n    |                         ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 1 warning emitted\n\nerror: test failed, to rerun pass `-p starry-vm --test test`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/target/miri/x86_64-unknown-linux-gnu/debug/deps/test-1919d12d0738f1b8 test_load_until_nul` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "test_perm",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/test.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test-1919d12d0738f1b8)\nwarning: integer-to-pointer cast\n  --> tests/test.rs:66:24\n   |\n66 |         vm_write_slice(0x100 as *mut (), &[]),\n   |                        ^^^^^^^^^^^^^^^^ integer-to-pointer cast\n   |\n   = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n   = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n   = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n   = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n   = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n   = note: BACKTRACE on thread `test_perm`:\n   = note: inside `test_perm` at tests/test.rs:66:24: 66:40\nnote: inside closure\n  --> tests/test.rs:64:15\n   |\n63 | #[test]\n   | ------- in this procedural macro expansion\n64 | fn test_perm() {\n   |               ^\n\nerror: Undefined Behavior: calling a function with return type Vm passing return place of type starry_vm::VmImpl\n  --> /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:29:1\n   |\n29 | #[extern_trait(VmImpl)]\n   | ^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n   |\n   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n   = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n   = help: if you think this code should be accepted anyway, please report an issue with Miri\n   = note: BACKTRACE on thread `test_perm`:\n   = note: inside `<starry_vm::VmImpl as starry_vm::VmIo>::new` at /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:29:1: 29:24\nnote: inside `starry_vm::vm_write_slice::<()>`\n  --> /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:61:5\n   |\n61 |     VmImpl::new().write(ptr.addr(), bytes)\n   |     ^^^^^^^^^^^^^\nnote: inside `test_perm`\n  --> tests/test.rs:66:9\n   |\n66 |         vm_write_slice(0x100 as *mut (), &[]),\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n  --> tests/test.rs:64:15\n   |\n63 | #[test]\n   | ------- in this procedural macro expansion\n64 | fn test_perm() {\n   |               ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 1 warning emitted\n\nerror: test failed, to rerun pass `-p starry-vm --test test`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/target/miri/x86_64-unknown-linux-gnu/debug/deps/test-1919d12d0738f1b8 test_perm` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "test_ptr",
+                  "status": "ok",
+                  "duration_ms": 5,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/test.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test-1919d12d0738f1b8)\nwarning: integer-to-pointer cast\n  --> tests/test.rs:93:15\n   |\n93 |     let ptr = 0x2000 as *mut Foo;\n   |               ^^^^^^^^^^^^^^^^^^ integer-to-pointer cast\n   |\n   = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n   = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n   = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n   = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n   = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n   = note: BACKTRACE on thread `test_ptr`:\n   = note: inside `test_ptr` at tests/test.rs:93:15: 93:33\nnote: inside closure\n  --> tests/test.rs:73:14\n   |\n72 | #[test]\n   | ------- in this procedural macro expansion\n73 | fn test_ptr() {\n   |              ^\n\nerror: Undefined Behavior: calling a function with return type Vm passing return place of type starry_vm::VmImpl\n  --> /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:29:1\n   |\n29 | #[extern_trait(VmImpl)]\n   | ^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n   |\n   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n   = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n   = help: if you think this code should be accepted anyway, please report an issue with Miri\n   = note: BACKTRACE on thread `test_ptr`:\n   = note: inside `<starry_vm::VmImpl as starry_vm::VmIo>::new` at /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:29:1: 29:24\nnote: inside `starry_vm::vm_write_slice::<test_ptr::Foo>`\n  --> /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:61:5\n   |\n61 |     VmImpl::new().write(ptr.addr(), bytes)\n   |     ^^^^^^^^^^^^^\nnote: inside `test_ptr`\n  --> tests/test.rs:94:5\n   |\n94 |     vm_write_slice(ptr, &[A, B, C]).unwrap();\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n  --> tests/test.rs:73:14\n   |\n72 | #[test]\n   | ------- in this procedural macro expansion\n73 | fn test_ptr() {\n   |              ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 1 warning emitted\n\nerror: test failed, to rerun pass `-p starry-vm --test test`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/target/miri/x86_64-unknown-linux-gnu/debug/deps/test-1919d12d0738f1b8 test_ptr` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "test_slice",
+                  "status": "ok",
+                  "duration_ms": 3,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running tests/test.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test-1919d12d0738f1b8)\nwarning: integer-to-pointer cast\n  --> tests/test.rs:54:15\n   |\n54 |     let ptr = 0x1000 as *mut u8;\n   |               ^^^^^^^^^^^^^^^^^ integer-to-pointer cast\n   |\n   = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n   = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n   = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n   = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n   = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n   = note: BACKTRACE on thread `test_slice`:\n   = note: inside `test_slice` at tests/test.rs:54:15: 54:32\nnote: inside closure\n  --> tests/test.rs:51:16\n   |\n50 | #[test]\n   | ------- in this procedural macro expansion\n51 | fn test_slice() {\n   |                ^\n\nerror: Undefined Behavior: calling a function with return type Vm passing return place of type starry_vm::VmImpl\n  --> /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:29:1\n   |\n29 | #[extern_trait(VmImpl)]\n   | ^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n   |\n   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n   = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n   = help: if you think this code should be accepted anyway, please report an issue with Miri\n   = note: BACKTRACE on thread `test_slice`:\n   = note: inside `<starry_vm::VmImpl as starry_vm::VmIo>::new` at /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:29:1: 29:24\nnote: inside `starry_vm::vm_write_slice::<u8>`\n  --> /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/src/lib.rs:61:5\n   |\n61 |     VmImpl::new().write(ptr.addr(), bytes)\n   |     ^^^^^^^^^^^^^\nnote: inside `test_slice`\n  --> tests/test.rs:55:5\n   |\n55 |     vm_write_slice(ptr, DATA).unwrap();\n   |     ^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n  --> tests/test.rs:51:16\n   |\n50 | #[test]\n   | ------- in this procedural macro expansion\n51 | fn test_slice() {\n   |                ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 1 warning emitted\n\nerror: test failed, to rerun pass `-p starry-vm --test test`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-Mix-THU/axptr/target/miri/x86_64-unknown-linux-gnu/debug/deps/test-1919d12d0738f1b8 test_slice` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 21
+            }
+          ],
+          "failed": 0,
+          "duration_ms": 21,
+          "pkg_tests_count": 5,
+          "workspace_tests_count": 5
+        },
+        "tests": 1,
         "examples": 0,
         "benches": 0,
         "authors": [
-          "Mivik <mivikq@gmail.com>"
+          "Mivik <mivikq@gmail.com>",
+          "Asakura Mizu <asakuramizu111@gmail.com>"
         ],
         "description": "",
         "documentation": null,
@@ -353,8 +415,8 @@
         "keywords": [],
         "categories": [],
         "rust_version": null,
-        "diag_total_count": 16,
-        "last_commit_time": "2025-04-07T03:39:03Z",
+        "diag_total_count": 9,
+        "last_commit_time": "2025-07-22T17:22:42Z",
         "release_count": null,
         "last_release_size": null,
         "last_release_time": null
@@ -366,7 +428,7 @@
     "repo": "axsignal",
     "timestamp": {
       "start": 1752803219285,
-      "end": 1753148730155
+      "end": 1753235205206
     },
     "pkgs": {
       "axsignal": {
@@ -402,7 +464,7 @@
     "repo": "extern-trait",
     "timestamp": {
       "start": 1752111798776,
-      "end": 1753148730359
+      "end": 1753235205523
     },
     "pkgs": {
       "extern-trait": {
@@ -538,7 +600,7 @@
     "repo": "weak-map",
     "timestamp": {
       "start": 1752111862847,
-      "end": 1753148730652
+      "end": 1753235205773
     },
     "pkgs": {
       "weak-map": {
@@ -616,7 +678,7 @@
     "repo": "ostool",
     "timestamp": {
       "start": 1752111873205,
-      "end": 1753148730853
+      "end": 1753235206030
     },
     "pkgs": {
       "ostool": {
@@ -689,7 +751,7 @@
     "repo": "arm_gicv2",
     "timestamp": {
       "start": 1752111875878,
-      "end": 1753148731064
+      "end": 1753235206267
     },
     "pkgs": {
       "arm_gicv2": {
@@ -735,7 +797,7 @@
     "repo": "arm_vcpu",
     "timestamp": {
       "start": 1753062684434,
-      "end": 1753148731266
+      "end": 1753235206484
     },
     "pkgs": {
       "arm_vcpu": {
@@ -781,7 +843,7 @@
     "repo": "arm_vgic",
     "timestamp": {
       "start": 1752544113855,
-      "end": 1753148731484
+      "end": 1753235206724
     },
     "pkgs": {
       "arm_vgic": {
@@ -814,7 +876,7 @@
     "repo": "axaddrspace",
     "timestamp": {
       "start": 1753062692555,
-      "end": 1753148731710
+      "end": 1753235206939
     },
     "pkgs": {
       "axaddrspace": {
@@ -857,7 +919,7 @@
     "repo": "axvisor_api",
     "timestamp": {
       "start": 1752284678305,
-      "end": 1753148731909
+      "end": 1753235207187
     },
     "pkgs": {
       "axvisor_api": {
@@ -951,7 +1013,7 @@
     "repo": "riscv_vcpu",
     "timestamp": {
       "start": 1752371525640,
-      "end": 1753148732110
+      "end": 1753235207439
     },
     "pkgs": {
       "riscv_vcpu": {
@@ -984,7 +1046,7 @@
     "repo": "x86_vcpu",
     "timestamp": {
       "start": 1752371541169,
-      "end": 1753148732288
+      "end": 1753235207680
     },
     "pkgs": {
       "x86_vcpu": {
@@ -1017,7 +1079,7 @@
     "repo": "x86_vlapic",
     "timestamp": {
       "start": 1752371571589,
-      "end": 1753148732496
+      "end": 1753235207929
     },
     "pkgs": {
       "x86_vlapic": {
@@ -1084,7 +1146,7 @@
     "repo": "allocator",
     "timestamp": {
       "start": 1750123483050,
-      "end": 1753148732697
+      "end": 1753235208191
     },
     "pkgs": {
       "allocator": {
@@ -1198,7 +1260,7 @@
     "repo": "arceos",
     "timestamp": {
       "start": 1752371582458,
-      "end": 1753148732860
+      "end": 1753235208406
     },
     "err": "\n   0: Cloning into '/tmp/os-checker-plugin-cargo/arceos-org/arceos'...\n      Error: \n         0: The package `bwbench-client` is not in the repo.\n\n      Location:\n         src/config/deserialization.rs:126\n\n      Backtrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\n      Run with RUST_BACKTRACE=full to include source snippets.\n   0: \n\nLocation:\n   src/repo/os_checker.rs:27\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"7e52baa8bed7a9dbfc59acfb9e07d3f71551d651\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"arceos-org/arceos\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -1207,7 +1269,7 @@
     "repo": "arm_gicv2",
     "timestamp": {
       "start": 1740846061694,
-      "end": 1753148733052
+      "end": 1753235208624
     },
     "pkgs": {
       "arm_gicv2": {
@@ -1253,7 +1315,7 @@
     "repo": "arm_pl011",
     "timestamp": {
       "start": 1740846065436,
-      "end": 1753148733309
+      "end": 1753235208891
     },
     "pkgs": {
       "arm_pl011": {
@@ -1299,7 +1361,7 @@
     "repo": "arm_pl031",
     "timestamp": {
       "start": 1740846086345,
-      "end": 1753148733521
+      "end": 1753235209151
     },
     "pkgs": {
       "arm_pl031": {
@@ -1377,7 +1439,7 @@
     "repo": "axconfig-gen",
     "timestamp": {
       "start": 1752111961689,
-      "end": 1753148733784
+      "end": 1753235209405
     },
     "pkgs": {
       "axconfig-gen": {
@@ -1540,7 +1602,7 @@
     "repo": "axcpu",
     "timestamp": {
       "start": 1752630282455,
-      "end": 1753148734006
+      "end": 1753235209671
     },
     "pkgs": {
       "axcpu": {
@@ -1592,7 +1654,7 @@
     "repo": "axdriver_crates",
     "timestamp": {
       "start": 1740846107409,
-      "end": 1753148734228
+      "end": 1753235209942
     },
     "pkgs": {
       "axdriver_base": {
@@ -1801,7 +1863,7 @@
     "repo": "axerrno",
     "timestamp": {
       "start": 1740846116421,
-      "end": 1753148734454
+      "end": 1753235210187
     },
     "pkgs": {
       "axerrno": {
@@ -1867,7 +1929,7 @@
     "repo": "axfs_crates",
     "timestamp": {
       "start": 1752111980914,
-      "end": 1753148734655
+      "end": 1753235210466
     },
     "pkgs": {
       "axfs_devfs": {
@@ -2051,7 +2113,7 @@
     "repo": "axio",
     "timestamp": {
       "start": 1741655490816,
-      "end": 1753148734885
+      "end": 1753235210704
     },
     "pkgs": {
       "axio": {
@@ -2092,7 +2154,7 @@
     "repo": "axmm_crates",
     "timestamp": {
       "start": 1749863945933,
-      "end": 1753148735098
+      "end": 1753235210945
     },
     "pkgs": {
       "memory_addr": {
@@ -2401,7 +2463,7 @@
     "repo": "axplat_crates",
     "timestamp": {
       "start": 1752889380510,
-      "end": 1753148735307
+      "end": 1753235211182
     },
     "pkgs": {
       "axplat": {
@@ -2946,7 +3008,7 @@
     "repo": "axsched",
     "timestamp": {
       "start": 1752112366979,
-      "end": 1753148735488
+      "end": 1753235211479
     },
     "pkgs": {
       "axsched": {
@@ -3079,7 +3141,7 @@
     "repo": "cap_access",
     "timestamp": {
       "start": 1740846432452,
-      "end": 1753148735672
+      "end": 1753235211716
     },
     "pkgs": {
       "cap_access": {
@@ -3122,7 +3184,7 @@
     "repo": "cpumask",
     "timestamp": {
       "start": 1740846437925,
-      "end": 1753148735848
+      "end": 1753235211959
     },
     "pkgs": {
       "cpumask": {
@@ -3164,7 +3226,7 @@
     "repo": "crate_interface",
     "timestamp": {
       "start": 1748827314061,
-      "end": 1753148736067
+      "end": 1753235212182
     },
     "pkgs": {
       "crate_interface": {
@@ -3231,7 +3293,7 @@
     "repo": "ctor_bare",
     "timestamp": {
       "start": 1752112394464,
-      "end": 1753148736292
+      "end": 1753235212414
     },
     "pkgs": {
       "ctor_bare": {
@@ -3348,7 +3410,7 @@
     "repo": "dw_apb_uart",
     "timestamp": {
       "start": 1752112399661,
-      "end": 1753148736494
+      "end": 1753235212678
     },
     "pkgs": {
       "dw_apb_uart": {
@@ -3383,7 +3445,7 @@
     "repo": "flatten_objects",
     "timestamp": {
       "start": 1752112412590,
-      "end": 1753148736699
+      "end": 1753235212953
     },
     "pkgs": {
       "flatten_objects": {
@@ -3460,7 +3522,7 @@
     "repo": "handler_table",
     "timestamp": {
       "start": 1740846476792,
-      "end": 1753148736905
+      "end": 1753235213195
     },
     "pkgs": {
       "handler_table": {
@@ -3501,7 +3563,7 @@
     "repo": "int_ratio",
     "timestamp": {
       "start": 1749863959303,
-      "end": 1753148737149
+      "end": 1753235213444
     },
     "pkgs": {
       "int_ratio": {
@@ -3649,7 +3711,7 @@
     "repo": "kernel_guard",
     "timestamp": {
       "start": 1740846501030,
-      "end": 1753148737335
+      "end": 1753235213699
     },
     "pkgs": {
       "kernel_guard": {
@@ -3691,7 +3753,7 @@
     "repo": "kspin",
     "timestamp": {
       "start": 1740846556462,
-      "end": 1753148737549
+      "end": 1753235213986
     },
     "pkgs": {
       "kspin": {
@@ -3813,7 +3875,7 @@
     "repo": "lazyinit",
     "timestamp": {
       "start": 1749604842131,
-      "end": 1753148737748
+      "end": 1753235214226
     },
     "pkgs": {
       "lazyinit": {
@@ -3925,7 +3987,7 @@
     "repo": "linked_list_r4l",
     "timestamp": {
       "start": 1740846593304,
-      "end": 1753148737989
+      "end": 1753235214516
     },
     "pkgs": {
       "linked_list_r4l": {
@@ -4027,7 +4089,7 @@
     "repo": "page_table_multiarch",
     "timestamp": {
       "start": 1752716740629,
-      "end": 1753148738180
+      "end": 1753235214803
     },
     "pkgs": {
       "page_table_entry": {
@@ -4107,7 +4169,7 @@
     "repo": "percpu",
     "timestamp": {
       "start": 1740846619098,
-      "end": 1753148738444
+      "end": 1753235215044
     },
     "pkgs": {
       "percpu": {
@@ -4185,7 +4247,7 @@
     "repo": "riscv_goldfish",
     "timestamp": {
       "start": 1752112431984,
-      "end": 1753148738655
+      "end": 1753235215312
     },
     "pkgs": {
       "riscv_goldfish": {
@@ -4228,7 +4290,7 @@
     "repo": "riscv_plic",
     "timestamp": {
       "start": 1752112437079,
-      "end": 1753148738881
+      "end": 1753235215581
     },
     "pkgs": {
       "riscv_plic": {
@@ -4274,7 +4336,7 @@
     "repo": "slab_allocator",
     "timestamp": {
       "start": 1752112462039,
-      "end": 1753148739090
+      "end": 1753235215805
     },
     "pkgs": {
       "slab_allocator": {
@@ -4395,7 +4457,7 @@
     "repo": "timer_list",
     "timestamp": {
       "start": 1740847161768,
-      "end": 1753148739322
+      "end": 1753235216080
     },
     "pkgs": {
       "timer_list": {
@@ -4472,7 +4534,7 @@
     "repo": "tuple_for_each",
     "timestamp": {
       "start": 1752112493109,
-      "end": 1753148739515
+      "end": 1753235216309
     },
     "pkgs": {
       "tuple_for_each": {
@@ -4566,7 +4628,7 @@
     "repo": "x86_rtc",
     "timestamp": {
       "start": 1752112501247,
-      "end": 1753148739727
+      "end": 1753235216550
     },
     "pkgs": {
       "x86_rtc": {
@@ -4609,7 +4671,7 @@
     "repo": "igb_driver",
     "timestamp": {
       "start": 1752112506072,
-      "end": 1753148739929
+      "end": 1753235216776
     },
     "pkgs": {
       "igb_driver": {
@@ -4644,7 +4706,7 @@
     "repo": "CrabUSB",
     "timestamp": {
       "start": 1752112516502,
-      "end": 1753148740155
+      "end": 1753235217007
     },
     "pkgs": {
       "crab-usb": {
@@ -4687,16 +4749,113 @@
     "user": "drivercraft",
     "repo": "aarch64-cpu-ext",
     "timestamp": {
-      "start": 1752112519410,
-      "end": 1753148740379
+      "start": 1753235234189,
+      "end": 1753235234198
     },
     "pkgs": {
       "aarch64-cpu-ext": {
-        "version": "0.1.0",
+        "version": "0.1.4",
         "dependencies": 2,
         "lib": true,
         "bin": false,
-        "testcases": null,
+        "testcases": {
+          "tests": [
+            {
+              "id": "aarch64-cpu-ext",
+              "kind": "lib",
+              "binary_name": "aarch64_cpu_ext",
+              "testcases": [
+                {
+                  "name": "structures::tte::tests::test_address_extraction_16k_48bit",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "structures::tte::tests::test_address_extraction_16k_52bit",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "structures::tte::tests::test_address_extraction_4k_48bit",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "structures::tte::tests::test_address_extraction_4k_52bit",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "structures::tte::tests::test_address_extraction_64k_48bit",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "structures::tte::tests::test_address_extraction_64k_52bit",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "structures::tte::tests::test_granule_constants",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "structures::tte::tests::test_invalid_tte_address",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "test::it_works",
+                  "status": "ok",
+                  "duration_ms": 3,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 35
+            }
+          ],
+          "failed": 0,
+          "duration_ms": 35,
+          "pkg_tests_count": 9,
+          "workspace_tests_count": 9
+        },
         "tests": 0,
         "examples": 0,
         "benches": 0,
@@ -4720,11 +4879,11 @@
           "no-std"
         ],
         "rust_version": null,
-        "diag_total_count": null,
-        "last_commit_time": "2025-07-03T07:35:23Z",
-        "release_count": 1,
-        "last_release_size": 10209,
-        "last_release_time": "2025-07-03T07:36:07Z"
+        "diag_total_count": 2,
+        "last_commit_time": "2025-07-22T06:22:55Z",
+        "release_count": 5,
+        "last_release_size": 15640,
+        "last_release_time": "2025-07-22T06:23:12Z"
       }
     }
   },
@@ -4733,7 +4892,7 @@
     "repo": "dma-api",
     "timestamp": {
       "start": 1752889391253,
-      "end": 1753148740585
+      "end": 1753235234507
     },
     "pkgs": {
       "dma-api": {
@@ -4774,7 +4933,7 @@
     "repo": "fdt-parser",
     "timestamp": {
       "start": 1752113765712,
-      "end": 1753148740795
+      "end": 1753235234779
     },
     "pkgs": {
       "dtb-tool": {
@@ -5064,7 +5223,7 @@
     "repo": "mbarrier",
     "timestamp": {
       "start": 1752113773347,
-      "end": 1753148740994
+      "end": 1753235235036
     },
     "pkgs": {
       "mbarrier": {
@@ -5133,7 +5292,7 @@
     "repo": "nvme",
     "timestamp": {
       "start": 1752113780516,
-      "end": 1753148741268
+      "end": 1753235235274
     },
     "pkgs": {
       "nvme-driver": {
@@ -5176,7 +5335,7 @@
     "repo": "pcie",
     "timestamp": {
       "start": 1752113787605,
-      "end": 1753148741486
+      "end": 1753235235524
     },
     "pkgs": {
       "pcie": {
@@ -5219,7 +5378,7 @@
     "repo": "phytium-mci",
     "timestamp": {
       "start": 1752198213570,
-      "end": 1753148741671
+      "end": 1753235235770
     },
     "pkgs": {
       "phytium-mci": {
@@ -5252,7 +5411,7 @@
     "repo": "rdrive",
     "timestamp": {
       "start": 1752113902714,
-      "end": 1753148741872
+      "end": 1753235236034
     },
     "pkgs": {
       "enumerate": {
@@ -5794,7 +5953,7 @@
     "repo": "sdmmc",
     "timestamp": {
       "start": 1752198215574,
-      "end": 1753148742122
+      "end": 1753235236282
     },
     "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error:     Updating crates.io index\n          Updating git repository `https://github.com/YanLien/rk3568_clk.git`\n      error: failed to get `rk3568_clk` as a dependency of package `sdmmc v0.1.0 (/tmp/os-checker-plugin-cargo/drivercraft/sdmmc)`\n\n      Caused by:\n        failed to load source for dependency `rk3568_clk`\n\n      Caused by:\n        Unable to update https://github.com/YanLien/rk3568_clk.git#2120c28f\n\n      Caused by:\n        failed to fetch into: /home/runner/.cargo/git/db/rk3568_clk-59c502460d8bd49d\n\n      Caused by:\n        revision 2120c28f91674bece2d1e1dea349919f929e7d89 not found\n\n      Caused by:\n        failed to authenticate when downloading repository\n\n        * attempted to find username/password via git's `credential.helper` support, but failed\n\n        if the git CLI succeeds then `net.git-fetch-with-cli` may help here\n        https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli\n\n      Caused by:\n        failed to acquire username/password from local configuration\n   0: \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"7ba0222ada46fd5759af24f405780d73581e36fd\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"drivercraft/sdmmc\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
@@ -5803,7 +5962,7 @@
     "repo": "any-uart",
     "timestamp": {
       "start": 1752113931406,
-      "end": 1753148742394
+      "end": 1753235236583
     },
     "pkgs": {
       "any-uart": {
@@ -5871,7 +6030,7 @@
     "repo": "arm-gic-driver",
     "timestamp": {
       "start": 1752113935863,
-      "end": 1753148742573
+      "end": 1753235236808
     },
     "pkgs": {
       "arm-gic-driver": {
@@ -5916,7 +6075,7 @@
     "repo": "serial-async",
     "timestamp": {
       "start": 1752114034585,
-      "end": 1753148742766
+      "end": 1753235237046
     },
     "pkgs": {
       "serial-async": {
