@@ -280,6 +280,9 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/sd/mod.rs (original lines from 2025 to 2025)\n-            },\n+            }\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/sd/mod.rs (original lines from 2029 to 2029)\n+\n"
             ],
+            "Clippy(Error)": [
+              "error: this loop never actually loops\n   --> src/mci_host/sd/mod.rs:625:13\n    |\n625 | /             loop {\n626 | |\n627 | |                 if self.current_timing == SdTimingMode::SDR12DefaultMode {\n628 | |                     /* if timing not specified, probe card capability from SDR104 mode */\n...   |\n687 | |                 break;\n688 | |             }\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#never_loop\n    = note: `#[deny(clippy::never_loop)]` on by default\n\n"
+            ],
             "Clippy(Warn)": [
               "warning: this `else { if .. }` block can be collapsed\n  --> src/mci_host/sd/mod.rs:94:16\n   |\n94 |           } else {\n   |  ________________^\n95 | |             if sd_card.sdmmc_config().is_err() {\n96 | |                 panic!(\"Config fail!\");\n97 | |             }\n98 | |         }\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\n   = note: `#[warn(clippy::collapsible_else_if)]` on by default\nhelp: collapse nested if block\n   |\n94 ~         } else if sd_card.sdmmc_config().is_err() {\n95 +             panic!(\"Config fail!\");\n96 +         }\n   |\n\n",
               "warning: this `else { if .. }` block can be collapsed\n   --> src/mci_host/sd/mod.rs:497:15\n    |\n497 |           }else {\n    |  _______________^\n498 | |             if self.usr_param.power_off_delay_ms == 0 {\n499 | |                 SD_POWER_OFF_DELAY_MS\n500 | |             } else {\n...   |\n503 | |         };\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\nhelp: collapse nested if block\n    |\n497 ~         }else if self.usr_param.power_off_delay_ms == 0 {\n498 +             SD_POWER_OFF_DELAY_MS\n499 +         } else {\n500 +             self.usr_param.power_off_delay_ms\n501 ~         };\n    |\n\n",
@@ -302,9 +305,6 @@
               "warning: manual implementation of an assign operation\n    --> src/mci_host/sd/mod.rs:1793:17\n     |\n1793 |                 self.block_count = self.block_count / self.base.block_size;\n     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace it with: `self.block_count /= self.base.block_size`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n\n",
               "warning: writing `&Vec` instead of `&[_]` involves a new object where a slice will do\n    --> src/mci_host/sd/mod.rs:1850:38\n     |\n1850 |     fn decode_scr(&mut self, rawscr: &Vec<u32>) {\n     |                                      ^^^^^^^^^ help: change this to: `&[u32]`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n\n",
               "warning: writing `&Vec` instead of `&[_]` involves a new object where a slice will do\n    --> src/mci_host/sd/mod.rs:1900:41\n     |\n1900 |     fn decode_status(&mut self, status: &Vec<u32>) {\n     |                                         ^^^^^^^^^ help: change this to: `&[u32]`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n\n"
-            ],
-            "Clippy(Error)": [
-              "error: this loop never actually loops\n   --> src/mci_host/sd/mod.rs:625:13\n    |\n625 | /             loop {\n626 | |\n627 | |                 if self.current_timing == SdTimingMode::SDR12DefaultMode {\n628 | |                     /* if timing not specified, probe card capability from SDR104 mode */\n...   |\n687 | |                 break;\n688 | |             }\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#never_loop\n    = note: `#[deny(clippy::never_loop)]` on by default\n\n"
             ]
           }
         },
@@ -406,6 +406,20 @@
           "features": "",
           "count": 71,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: redundant pattern matching, consider using `is_ok()`\n   --> src/mci/mod.rs:124:16\n    |\n124 |         if let Ok(_) = self.reset() {\n    |         -------^^^^^--------------- help: try: `if self.reset().is_ok()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_pattern_matching\n    = note: `#[warn(clippy::redundant_pattern_matching)]` on by default\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:205:37\n    |\n205 |                 if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:227:33\n    |\n227 |             if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:239:33\n    |\n239 |             if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mod.rs:256:26\n    |\n256 |         self.cur_cmd_set(&cmd_data);\n    |                          ^^^^^^^^^ help: change this to: `cmd_data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mod.rs:293:27\n    |\n293 |         self.cmd_transfer(&cmd_data)?;\n    |                           ^^^^^^^^^ help: change this to: `cmd_data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:392:34\n    |\n392 |             self.trans_bytes_set(data.datalen() as u32);\n    |                                  ^^^^^^^^^^^^^^^^^^^^^ help: try: `data.datalen()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: equality checks against false can be replaced by a negation\n   --> src/mci/mod.rs:458:12\n    |\n458 |         if false == self.is_ready {\n    |            ^^^^^^^^^^^^^^^^^^^^^^ help: try simplifying it as shown: `!self.is_ready`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bool_comparison\n    = note: `#[warn(clippy::bool_comparison)]` on by default\n\n",
+              "warning: using `clone` on type `MCIStatus` which implements the `Copy` trait\n   --> src/mci/mod.rs:636:29\n    |\n636 |         if reg_val.contains(busy_bits.clone()) {\n    |                             ^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `busy_bits`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: this comparison involving the minimum or maximum element for this type contains a case that is always true or always false\n   --> src/mci/mod.rs:336:48\n    |\n336 |         if wait_bits & reg_val != wait_bits && delay <= 0 {\n    |                                                ^^^^^^^^^^\n    |\n    = help: because `0` is the minimum value for this type, the case where the two sides are not equal never occurs, consider using `delay == 0` instead\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#absurd_extreme_comparisons\n    = note: `#[deny(clippy::absurd_extreme_comparisons)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 4 to 4)\n-pub mod regs;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 6 to 6)\n+pub mod regs;\n",
@@ -468,20 +482,6 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 655 to 658)\n-        reg.retry_for(|reg_val: MCIStatus|{\n-            reg.set_reg(MCICtrl::CONTROLLER_RESET);\n-            !reg_val.contains(MCIStatus::DATA_BUSY)\n-        }, Some(RETRIES_TIMEOUT))?;\n+        reg.retry_for(\n+            |reg_val: MCIStatus| {\n+                reg.set_reg(MCICtrl::CONTROLLER_RESET);\n+                !reg_val.contains(MCIStatus::DATA_BUSY)\n+            },\n+            Some(RETRIES_TIMEOUT),\n+        )?;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 667 to 669)\n-        reg.retry_for(|reg|{\n-            (MCICmd::START & reg).bits() == 0\n-        }, Some(RETRIES_TIMEOUT))?;\n+        reg.retry_for(\n+            |reg| (MCICmd::START & reg).bits() == 0,\n+            Some(RETRIES_TIMEOUT),\n+        )?;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 687 to 687)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: redundant pattern matching, consider using `is_ok()`\n   --> src/mci/mod.rs:124:16\n    |\n124 |         if let Ok(_) = self.reset() {\n    |         -------^^^^^--------------- help: try: `if self.reset().is_ok()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_pattern_matching\n    = note: `#[warn(clippy::redundant_pattern_matching)]` on by default\n\n",
-              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:205:37\n    |\n205 |                 if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
-              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:227:33\n    |\n227 |             if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
-              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:239:33\n    |\n239 |             if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mod.rs:256:26\n    |\n256 |         self.cur_cmd_set(&cmd_data);\n    |                          ^^^^^^^^^ help: change this to: `cmd_data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mod.rs:293:27\n    |\n293 |         self.cmd_transfer(&cmd_data)?;\n    |                           ^^^^^^^^^ help: change this to: `cmd_data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
-              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:392:34\n    |\n392 |             self.trans_bytes_set(data.datalen() as u32);\n    |                                  ^^^^^^^^^^^^^^^^^^^^^ help: try: `data.datalen()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
-              "warning: equality checks against false can be replaced by a negation\n   --> src/mci/mod.rs:458:12\n    |\n458 |         if false == self.is_ready {\n    |            ^^^^^^^^^^^^^^^^^^^^^^ help: try simplifying it as shown: `!self.is_ready`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bool_comparison\n    = note: `#[warn(clippy::bool_comparison)]` on by default\n\n",
-              "warning: using `clone` on type `MCIStatus` which implements the `Copy` trait\n   --> src/mci/mod.rs:636:29\n    |\n636 |         if reg_val.contains(busy_bits.clone()) {\n    |                             ^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `busy_bits`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
-            ],
-            "Clippy(Error)": [
-              "error: this comparison involving the minimum or maximum element for this type contains a case that is always true or always false\n   --> src/mci/mod.rs:336:48\n    |\n336 |         if wait_bits & reg_val != wait_bits && delay <= 0 {\n    |                                                ^^^^^^^^^^\n    |\n    = help: because `0` is the minimum value for this type, the case where the two sides are not equal never occurs, consider using `delay == 0` instead\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#absurd_extreme_comparisons\n    = note: `#[deny(clippy::absurd_extreme_comparisons)]` on by default\n\n"
             ]
           }
         },
@@ -768,9 +768,6 @@
           "features": "",
           "count": 21,
           "kinds": {
-            "Clippy(Error)": [
-              "error: this `if` has the same condition as a previous `if`\n   --> src/mci/mci_intr.rs:128:13\n    |\n128 |     else if events.contains(MCIRawInts::CMD_BIT) { // handle cmd done\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\nnote: same as this\n   --> src/mci/mci_intr.rs:121:13\n    |\n121 |     else if events.contains(MCIRawInts::CMD_BIT)\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ifs_same_cond\n    = note: `#[deny(clippy::ifs_same_cond)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_intr.rs (original lines from 16 to 16)\n-use super::MCI;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_intr.rs (original lines from 19 to 19)\n+use super::MCI;\n",
@@ -792,6 +789,9 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_intr.rs (original lines from 204 to 206)\n-    if status & MCIRawInts::RE_BIT.bits() != 0 ||\n-        status & MCIRawInts::RTO_BIT.bits() != 0 \n-    {\n+    if status & MCIRawInts::RE_BIT.bits() != 0 || status & MCIRawInts::RTO_BIT.bits() != 0 {\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_intr.rs (original lines from 210 to 212)\n-    if dmac_status & MCIDMACIntEn::DU.bits() != 0 || \n-        status & MCIRawInts::DCRC_BIT.bits() != 0 || \n-        status & MCIRawInts::RCRC_BIT.bits() != 0\n+    if dmac_status & MCIDMACIntEn::DU.bits() != 0\n+        || status & MCIRawInts::DCRC_BIT.bits() != 0\n+        || status & MCIRawInts::RCRC_BIT.bits() != 0\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_intr.rs (original lines from 218 to 220)\n-fn sdio_interrupt() {\n-\n-}\n+fn sdio_interrupt() {}\n"
+            ],
+            "Clippy(Error)": [
+              "error: this `if` has the same condition as a previous `if`\n   --> src/mci/mci_intr.rs:128:13\n    |\n128 |     else if events.contains(MCIRawInts::CMD_BIT) { // handle cmd done\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\nnote: same as this\n   --> src/mci/mci_intr.rs:121:13\n    |\n121 |     else if events.contains(MCIRawInts::CMD_BIT)\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ifs_same_cond\n    = note: `#[deny(clippy::ifs_same_cond)]` on by default\n\n"
             ]
           }
         },
@@ -950,9 +950,6 @@
           "features": "",
           "count": 10,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: the loop variable `i` is only used to index `buf`\n  --> src/mci/mci_pio.rs:20:18\n   |\n20 |         for i in 0..wr_times {\n   |                  ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\n   = note: `#[warn(clippy::needless_range_loop)]` on by default\nhelp: consider using an iterator\n   |\n20 -         for i in 0..wr_times {\n20 +         for <item> in buf.iter().take(wr_times) {\n   |\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 1 to 4)\n-use log::*;\n-use super::mci_data::MCIData;\n-use super::MCI;\n-use super::err::*;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 6 to 6)\n+use super::err::*;\n+use super::mci_data::MCIData;\n",
@@ -963,6 +960,9 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 39 to 39)\n-            error!(\"Fifo do not support writing more than 0x{:x}.\",MCI_MAX_FIFO_CNT);\n+            error!(\n+                \"Fifo do not support writing more than 0x{:x}.\",\n+                MCI_MAX_FIFO_CNT\n+            );\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 47 to 47)\n-    \n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 49 to 49)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: the loop variable `i` is only used to index `buf`\n  --> src/mci/mci_pio.rs:20:18\n   |\n20 |         for i in 0..wr_times {\n   |                  ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\n   = note: `#[warn(clippy::needless_range_loop)]` on by default\nhelp: consider using an iterator\n   |\n20 -         for i in 0..wr_times {\n20 +         for <item> in buf.iter().take(wr_times) {\n   |\n\n"
             ]
           }
         },
@@ -1064,17 +1064,17 @@
           "features": "",
           "count": 8,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
+              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
+              "warning: you should consider adding a `Default` implementation for `MCITiming`\n  --> src/mci/mci_timing.rs:17:5\n   |\n17 | /     pub fn new() -> Self {\n18 | |         MCITiming {\n19 | |             use_hold: false,\n20 | |             clk_div: 0,\n...  |\n25 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n16 + impl Default for MCITiming {\n17 +     fn default() -> Self {\n18 +         Self::new()\n19 +     }\n20 + }\n   |\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 13 to 13)\n-    pad_delay: MCIPadDelay //* 用于调整IO的延时 */\n+    pad_delay: MCIPadDelay, //* 用于调整IO的延时 */\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 36 to 36)\n-    pub(crate) fn pad_delay(&self,iopad:&mut IoPad,mci_id: MCIId) {\n+    pub(crate) fn pad_delay(&self, iopad: &mut IoPad, mci_id: MCIId) {\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 38 to 39)\n-            MCIPadDelay::Set => set_pad_delay(iopad,mci_id),\n-            MCIPadDelay::Unset => unset_pad_delay(iopad,mci_id),\n+            MCIPadDelay::Set => set_pad_delay(iopad, mci_id),\n+            MCIPadDelay::Unset => unset_pad_delay(iopad, mci_id),\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 98 to 98)\n-    pad_delay: MCIPadDelay::Set\n+    pad_delay: MCIPadDelay::Set,\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 183 to 183)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
-              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
-              "warning: you should consider adding a `Default` implementation for `MCITiming`\n  --> src/mci/mci_timing.rs:17:5\n   |\n17 | /     pub fn new() -> Self {\n18 | |         MCITiming {\n19 | |             use_hold: false,\n20 | |             clk_div: 0,\n...  |\n25 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n16 + impl Default for MCITiming {\n17 +     fn default() -> Self {\n18 +         Self::new()\n19 +     }\n20 + }\n   |\n\n"
             ]
           }
         },
@@ -1111,14 +1111,14 @@
           "features": "",
           "count": 5,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: all variants have the same postfix: `Mode`\n  --> src/mci_host/sd/consts.rs:4:1\n   |\n4  | / pub(crate) enum SdTimingMode {\n5  | |     SDR12DefaultMode = 0,\n6  | |     SDR25HighSpeedMode = 1,\n7  | |     SDR50Mode = 2,\n8  | |     SDR104Mode = 3,\n9  | |     DDR50Mode = 4,\n10 | | }\n   | |_^\n   |\n   = help: remove the postfixes and use full paths to the variants instead of glob imports\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#enum_variant_names\n   = note: `#[warn(clippy::enum_variant_names)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/sd/consts.rs (original lines from 37 to 44)\n-    SendRelativeAddress = 3,      // Send Relative Address\n-    Switch = 6,                   // Switch Function\n-    SendInterfaceCondition = 8,   // Send Interface Condition\n-    VoltageSwitch = 11,           // Voltage Switch\n-    SpeedClassControl = 20,       // Speed Class control\n-    SendTuningBlock = 19,         // Send Tuning Block\n-    EraseWriteBlockStart = 32,    // Write Block Start\n-    EraseWriteBlockEnd = 33,      // Write Block End\n+    SendRelativeAddress = 3,    // Send Relative Address\n+    Switch = 6,                 // Switch Function\n+    SendInterfaceCondition = 8, // Send Interface Condition\n+    VoltageSwitch = 11,         // Voltage Switch\n+    SpeedClassControl = 20,     // Speed Class control\n+    SendTuningBlock = 19,       // Send Tuning Block\n+    EraseWriteBlockStart = 32,  // Write Block Start\n+    EraseWriteBlockEnd = 33,    // Write Block End\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/sd/consts.rs (original lines from 49 to 55)\n-    SetBusWdith = 6,                    /* Set Bus Width */\n-    Status = 13,                        /* Send SD status */\n-    SendNumberWriteBlocks = 22,         /* Send Number Of Written Blocks */\n-    SetWriteBlockEraseCount = 23,       /* Set Write Block Erase Count */\n-    SendOperationCondition = 41,        /* Send Operation Condition */\n-    SetClearCardDetect = 42,            /* Set Connect/Disconnect pull up on detect pin */\n-    SendScr = 51,                       /* Send Scr */\n+    SetBusWdith = 6,              /* Set Bus Width */\n+    Status = 13,                  /* Send SD status */\n+    SendNumberWriteBlocks = 22,   /* Send Number Of Written Blocks */\n+    SetWriteBlockEraseCount = 23, /* Set Write Block Erase Count */\n+    SendOperationCondition = 41,  /* Send Operation Condition */\n+    SetClearCardDetect = 42,      /* Set Connect/Disconnect pull up on detect pin */\n+    SendScr = 51,                 /* Send Scr */\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/sd/consts.rs (original lines from 69 to 69)\n-    CurrentLimit = 3\n+    CurrentLimit = 3,\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/sd/consts.rs (original lines from 123 to 123)\n-pub(crate) const SD_CARD_ACCESS_WAIT_IDLE_TIMEOUT:u32 = 600;\n+pub(crate) const SD_CARD_ACCESS_WAIT_IDLE_TIMEOUT: u32 = 600;\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: all variants have the same postfix: `Mode`\n  --> src/mci_host/sd/consts.rs:4:1\n   |\n4  | / pub(crate) enum SdTimingMode {\n5  | |     SDR12DefaultMode = 0,\n6  | |     SDR25HighSpeedMode = 1,\n7  | |     SDR50Mode = 2,\n8  | |     SDR104Mode = 3,\n9  | |     DDR50Mode = 4,\n10 | | }\n   | |_^\n   |\n   = help: remove the postfixes and use full paths to the variants instead of glob imports\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#enum_variant_names\n   = note: `#[warn(clippy::enum_variant_names)]` on by default\n\n"
             ]
           }
         },
@@ -1141,13 +1141,13 @@
           "features": "",
           "count": 4,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: this `if` statement can be collapsed\n  --> src/osa/semaphore.rs:15:13\n   |\n15 | /             if current > 0 {\n16 | |                 if self.count.compare_exchange(\n17 | |                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n18 | |                 ).is_ok() {\n...  |\n21 | |             }\n   | |_____________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\nhelp: collapse nested if block\n   |\n15 ~             if current > 0 && self.count.compare_exchange(\n16 +                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n17 +                 ).is_ok() {\n18 +                 break;\n19 +             }\n   |\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/semaphore.rs (original lines from 9 to 9)\n-        Self { count: AtomicIsize::new(count) }\n+        Self {\n+            count: AtomicIsize::new(count),\n+        }\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/semaphore.rs (original lines from 16 to 18)\n-                if self.count.compare_exchange(\n-                    current, current - 1, Ordering::Acquire, Ordering::Relaxed\n-                ).is_ok() {\n+                if self\n+                    .count\n+                    .compare_exchange(current, current - 1, Ordering::Acquire, Ordering::Relaxed)\n+                    .is_ok()\n+                {\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/semaphore.rs (original lines from 30 to 30)\n+\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: this `if` statement can be collapsed\n  --> src/osa/semaphore.rs:15:13\n   |\n15 | /             if current > 0 {\n16 | |                 if self.count.compare_exchange(\n17 | |                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n18 | |                 ).is_ok() {\n...  |\n21 | |             }\n   | |_____________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\nhelp: collapse nested if block\n   |\n15 ~             if current > 0 && self.count.compare_exchange(\n16 +                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n17 +                 ).is_ok() {\n18 +                 break;\n19 +             }\n   |\n\n"
             ]
           }
         },
@@ -1406,6 +1406,9 @@
           "features": "",
           "count": 16,
           "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/mod.rs (original lines from 540 to 541)\n-        let packet_size = data\n-            .last().map(|&len| if len == 0 { 8u8 } else { len });\n+        let packet_size = data.last().map(|&len| if len == 0 { 8u8 } else { len });\n"
+            ],
             "Clippy(Warn)": [
               "warning: unused import: `dma_api::DVec`\n  --> src/host/xhci/mod.rs:11:5\n   |\n11 | use dma_api::DVec;\n   |     ^^^^^^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\n",
               "warning: unused variable: `packet_size`\n   --> src/host/xhci/mod.rs:540:13\n    |\n540 |         let packet_size = data\n    |             ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_packet_size`\n    |\n    = note: `#[warn(unused_variables)]` on by default\n\n",
@@ -1422,9 +1425,6 @@
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/mod.rs:519:9\n    |\n519 |         debug!(\"Slot {} address complete\", slot_id);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n519 -         debug!(\"Slot {} address complete\", slot_id);\n519 +         debug!(\"Slot {slot_id} address complete\");\n    |\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/mod.rs:562:9\n    |\n562 |         trace!(\"ring0: {:#x}\", transfer_ring_0_addr);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n562 -         trace!(\"ring0: {:#x}\", transfer_ring_0_addr);\n562 +         trace!(\"ring0: {transfer_ring_0_addr:#x}\");\n    |\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/mod.rs:615:9\n    |\n615 |         debug!(\"Address slot ok {:?}\", result);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n615 -         debug!(\"Address slot ok {:?}\", result);\n615 +         debug!(\"Address slot ok {result:?}\");\n    |\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/mod.rs (original lines from 540 to 541)\n-        let packet_size = data\n-            .last().map(|&len| if len == 0 { 8u8 } else { len });\n+        let packet_size = data.last().map(|&len| if len == 0 { 8u8 } else { len });\n"
             ]
           }
         },
@@ -1433,13 +1433,13 @@
           "features": "",
           "count": 4,
           "kinds": {
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/event.rs (original lines from 125 to 127)\n-                Allowed::TransferEvent(c)=>{\n-                    \n-                }\n+                Allowed::TransferEvent(c) => {}\n"
+            ],
             "Clippy(Warn)": [
               "warning: unused variable: `c`\n   --> src/host/xhci/event.rs:125:40\n    |\n125 |                 Allowed::TransferEvent(c)=>{\n    |                                        ^ help: if this is intentional, prefix it with an underscore: `_c`\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/event.rs:105:21\n    |\n105 |                     trace!(\"[EVENT] << {:?} @{:X}\", allowed, addr);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n105 -                     trace!(\"[EVENT] << {:?} @{:X}\", allowed, addr);\n105 +                     trace!(\"[EVENT] << {allowed:?} @{addr:X}\");\n    |\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/host/xhci/event.rs:129:21\n    |\n129 |                     debug!(\"unhandled event {:?}\", allowed);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n129 -                     debug!(\"unhandled event {:?}\", allowed);\n129 +                     debug!(\"unhandled event {allowed:?}\");\n    |\n\n"
-            ],
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/event.rs (original lines from 125 to 127)\n-                Allowed::TransferEvent(c)=>{\n-                    \n-                }\n+                Allowed::TransferEvent(c) => {}\n"
             ]
           }
         },
