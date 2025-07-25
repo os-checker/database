@@ -51,9 +51,6 @@
           "features": "",
           "count": 17,
           "kinds": {
-            "Mirai": [
-              "warning: constant `LAPIC_TRIG_LEVEL` is never used\n   --> src/consts.rs:201:11\n    |\n201 | pub const LAPIC_TRIG_LEVEL: bool = true;\n    |           ^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: constant `LAPIC_TRIG_LEVEL` is never used\n   --> src/consts.rs:201:11\n    |\n201 | pub const LAPIC_TRIG_LEVEL: bool = true;\n    |           ^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n",
               "warning: name `TPR` contains a capitalized acronym\n  --> src/consts.rs:67:5\n   |\n67 |     TPR,\n   |     ^^^ help: consider making the acronym lowercase, except the initial letter: `Tpr`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#upper_case_acronyms\n   = note: `#[warn(clippy::upper_case_acronyms)]` on by default\n\n",
@@ -71,6 +68,9 @@
               "warning: variables can be used directly in the `format!` string\n   --> src/consts.rs:167:42\n    |\n167 |             ApicRegOffset::ISR(index) => write!(f, \"{:?}\", index),\n    |                                          ^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n    = note: `#[warn(clippy::uninlined_format_args)]` on by default\nhelp: change this to\n    |\n167 -             ApicRegOffset::ISR(index) => write!(f, \"{:?}\", index),\n167 +             ApicRegOffset::ISR(index) => write!(f, \"{index:?}\"),\n    |\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/consts.rs:168:42\n    |\n168 |             ApicRegOffset::TMR(index) => write!(f, \"{:?}\", index),\n    |                                          ^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n168 -             ApicRegOffset::TMR(index) => write!(f, \"{:?}\", index),\n168 +             ApicRegOffset::TMR(index) => write!(f, \"{index:?}\"),\n    |\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/consts.rs:169:42\n    |\n169 |             ApicRegOffset::IRR(index) => write!(f, \"{:?}\", index),\n    |                                          ^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n169 -             ApicRegOffset::IRR(index) => write!(f, \"{:?}\", index),\n169 +             ApicRegOffset::IRR(index) => write!(f, \"{index:?}\"),\n    |\n\n"
+            ],
+            "Mirai": [
+              "warning: constant `LAPIC_TRIG_LEVEL` is never used\n   --> src/consts.rs:201:11\n    |\n201 | pub const LAPIC_TRIG_LEVEL: bool = true;\n    |           ^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\n"
             ]
           }
         },
@@ -128,10 +128,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: type alias `DestinationFormatRegisterLocal` is never used\n  --> src/regs/dfr.rs:38:10\n   |\n38 | pub type DestinationFormatRegisterLocal = LocalRegisterCopy<u32, DESTINATION_FORMAT::Register>;\n   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: type alias `DestinationFormatRegisterLocal` is never used\n  --> src/regs/dfr.rs:38:10\n   |\n38 | pub type DestinationFormatRegisterLocal = LocalRegisterCopy<u32, DESTINATION_FORMAT::Register>;\n   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
             ]
           }
