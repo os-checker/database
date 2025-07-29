@@ -8,52 +8,22 @@
       "user": "drivercraft",
       "repo": "CrabUSB",
       "pkg": "crab-usb",
-      "count": 18,
+      "count": 17,
       "raw_reports": [
         {
-          "file": "src/host/xhci/ring/trans.rs",
+          "file": "src/host/xhci/ring/cmd.rs",
           "features": "",
-          "count": 3,
-          "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/ring/trans.rs (original lines from 9 to 9)\n-    wait: RingWait<>,\n+    wait: RingWait,\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: unused import: `alloc::sync::Arc`\n --> src/host/xhci/ring/trans.rs:1:5\n  |\n1 | use alloc::sync::Arc;\n  |     ^^^^^^^^^^^^^^^^\n\n",
-              "warning: struct `TransferRing` is never constructed\n --> src/host/xhci/ring/trans.rs:7:12\n  |\n7 | pub struct TransferRing {\n  |            ^^^^^^^^^^^^\n\n"
-            ]
-          }
-        },
-        {
-          "file": "src/host/xhci/context.rs",
-          "features": "",
-          "count": 2,
+          "count": 8,
           "kinds": {
             "Clippy(Warn)": [
-              "warning: unused imports: `Ordering` and `fence`\n --> src/host/xhci/context.rs:3:20\n  |\n3 |     sync::atomic::{Ordering, fence},\n  |                    ^^^^^^^^  ^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
-              "warning: unused imports: `Ordering` and `fence`\n --> src/host/xhci/context.rs:3:20\n  |\n3 |     sync::atomic::{Ordering, fence},\n  |                    ^^^^^^^^  ^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n"
-            ]
-          }
-        },
-        {
-          "file": "src/host/xhci/event.rs",
-          "features": "",
-          "count": 2,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: unused variable: `slot_id`\n   --> src/host/xhci/event.rs:129:25\n    |\n129 |                     let slot_id = c.slot_id();\n    |                         ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_slot_id`\n    |\n    = note: `#[warn(unused_variables)]` on by default\n\n",
-              "warning: unused variable: `dci`\n   --> src/host/xhci/event.rs:130:25\n    |\n130 |                     let dci = c.endpoint_id();\n    |                         ^^^ help: if this is intentional, prefix it with an underscore: `_dci`\n\n"
-            ]
-          }
-        },
-        {
-          "file": "src/host/xhci/host.rs",
-          "features": "",
-          "count": 2,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: unused import: `alloc::collections::btree_map::BTreeMap`\n --> src/host/xhci/host.rs:1:5\n  |\n1 | use alloc::collections::btree_map::BTreeMap;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
-              "warning: struct `HostData` is never constructed\n --> src/host/xhci/host.rs:5:12\n  |\n5 | pub struct HostData {\n  |            ^^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` on by default\n\n"
+              "warning: unused import: `dma_api::Impl`\n --> src/host/xhci/ring/cmd.rs:2:5\n  |\n2 | use dma_api::Impl;\n  |     ^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
+              "warning: unused import: `wmb`\n --> src/host/xhci/ring/cmd.rs:3:20\n  |\n3 | use mbarrier::{mb, wmb};\n  |                    ^^^\n\n",
+              "warning: unused import: `TrbData`\n  --> src/host/xhci/ring/cmd.rs:18:22\n   |\n18 |         ring::{Ring, TrbData},\n   |                      ^^^^^^^\n\n",
+              "warning: struct `CommandRing` is never constructed\n  --> src/host/xhci/ring/cmd.rs:22:12\n   |\n22 | pub struct CommandRing {\n   |            ^^^^^^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n",
+              "warning: struct `Inner` is never constructed\n  --> src/host/xhci/ring/cmd.rs:34:8\n   |\n34 | struct Inner {\n   |        ^^^^^\n\n",
+              "warning: associated items `new`, `post_raw`, and `post` are never used\n  --> src/host/xhci/ring/cmd.rs:43:12\n   |\n42 | impl CommandRing {\n   | ---------------- associated items in this implementation\n43 |     pub fn new(reg: XhciRegisters) -> Result<Self> {\n   |            ^^^\n...\n52 |     fn post_raw(&mut self, trb: command::Allowed) -> impl Future<Output = CommandCompletion> {\n   |        ^^^^^^^^\n...\n67 |     pub async fn post(&mut self, trb: command::Allowed) -> Result<CommandCompletion> {\n   |                  ^^^^\n\n",
+              "warning: associated items `new`, `post_raw`, and `post` are never used\n  --> src/host/xhci/ring/cmd.rs:43:12\n   |\n42 | impl CommandRing {\n   | ---------------- associated items in this implementation\n43 |     pub fn new(reg: XhciRegisters) -> Result<Self> {\n   |            ^^^\n...\n52 |     fn post_raw(&mut self, trb: command::Allowed) -> impl Future<Output = CommandCompletion> {\n   |        ^^^^^^^^\n...\n67 |     pub async fn post(&mut self, trb: command::Allowed) -> Result<CommandCompletion> {\n   |                  ^^^^\n\n",
+              "warning: associated items `new`, `post_raw`, and `post` are never used\n  --> src/host/xhci/ring/cmd.rs:43:12\n   |\n42 | impl CommandRing {\n   | ---------------- associated items in this implementation\n43 |     pub fn new(reg: XhciRegisters) -> Result<Self> {\n   |            ^^^\n...\n52 |     fn post_raw(&mut self, trb: command::Allowed) -> impl Future<Output = CommandCompletion> {\n   |        ^^^^^^^^\n...\n67 |     pub async fn post(&mut self, trb: command::Allowed) -> Result<CommandCompletion> {\n   |                  ^^^^\n\n"
             ]
           }
         },
@@ -73,7 +43,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=crab-usb, checker=SemverChecks\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-07-29 4:36:40.146728596 +08:00:00\n    Building crab-usb v0.1.0 (current)\nerror: running cargo-doc on crate 'crab-usb' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate crab-usb v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/CrabUSB &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate crab-usb v0.1.0\n"
+              "// pkg_name=crab-usb, checker=SemverChecks\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-07-30 4:37:16.650224106 +08:00:00\n    Building crab-usb v0.1.0 (current)\nerror: running cargo-doc on crate 'crab-usb' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate crab-usb v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/CrabUSB &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate crab-usb v0.1.0\n"
             ]
           }
         },
@@ -83,7 +53,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=crab-usb, checker=Udeps\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none \n// timestamp=2025-07-29 4:36:54.216754761 +08:00:00\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
+              "// pkg_name=crab-usb, checker=Udeps\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none \n// timestamp=2025-07-30 4:37:31.07508434 +08:00:00\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
             ]
           }
         },
@@ -103,7 +73,7 @@
           "count": 1,
           "kinds": {
             "Lockbud(Possibly)": [
-              "[2025-07-28T20:36:48Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-07-28T20:36:48Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+              "[2025-07-29T20:37:24Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-07-29T20:37:24Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
             ]
           }
         },
@@ -113,7 +83,7 @@
           "count": 1,
           "kinds": {
             "Unused Deps": [
-              "pkg=crab-usb, checker=Udeps\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none \ntimestamp=2025-07-29 4:36:54.905711398 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
+              "pkg=crab-usb, checker=Udeps\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none \ntimestamp=2025-07-30 4:37:31.784867279 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
             ]
           }
         },
@@ -123,7 +93,7 @@
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=crab-usb, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-07-29 4:36:54.215849025 +08:00:00\n\nName  Project  Compat  Latest  Kind         Platform\n----  -------  ------  ------  ----         --------\npcie  0.2.7    ---     0.3.0   Development  ---\nspin  0.9.8    ---     0.10.0  Normal       ---\n"
+              "pkg=crab-usb, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-07-30 4:37:31.074114594 +08:00:00\n\nName  Project  Compat  Latest  Kind         Platform\n----  -------  ------  ------  ----         --------\npcie  0.2.7    ---     0.3.0   Development  ---\n"
             ]
           }
         },
@@ -133,17 +103,17 @@
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=crab-usb, checker=SemverChecks\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-07-29 4:36:41.272901755 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building crab-usb v0.1.0 (current)\nerror: running cargo-doc on crate 'crab-usb' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate crab-usb v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/CrabUSB &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate crab-usb v0.1.0\n"
+              "pkg=crab-usb, checker=SemverChecks\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-07-30 4:37:17.639609344 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building crab-usb v0.1.0 (current)\nerror: running cargo-doc on crate 'crab-usb' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate crab-usb v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/CrabUSB &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate crab-usb v0.1.0\n"
             ]
           }
         },
         {
-          "file": "src/wait.rs",
+          "file": "src/host/xhci/def.rs",
           "features": "",
           "count": 1,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: unused import: `cell::UnsafeCell`\n --> src/wait.rs:1:12\n  |\n1 | use core::{cell::UnsafeCell, task::Poll};\n  |            ^^^^^^^^^^^^^^^^\n\n"
+            "Unformatted": [
+              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/host/xhci/def.rs (original lines from 13 to 13)\n-\n"
             ]
           }
         }
