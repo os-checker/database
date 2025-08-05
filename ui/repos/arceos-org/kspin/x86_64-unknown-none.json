@@ -8,26 +8,15 @@
       "user": "arceos-org",
       "repo": "kspin",
       "pkg": "kspin",
-      "count": 3,
+      "count": 1,
       "raw_reports": [
-        {
-          "file": "src/base.rs",
-          "features": "",
-          "count": 2,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: lifetime flowing from input to output with different syntax can be confusing\n  --> src/base.rs:77:17\n   |\n77 |     pub fn lock(&self) -> BaseSpinLockGuard<G, T> {\n   |                 ^^^^^     ----------------------- the lifetime gets resolved as `'_`\n   |                 |\n   |                 this lifetime flows to the output\n   |\n   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n   |\n77 |     pub fn lock(&self) -> BaseSpinLockGuard<'_, G, T> {\n   |                                             +++\n\n",
-              "warning: lifetime flowing from input to output with different syntax can be confusing\n   --> src/base.rs:122:21\n    |\n122 |     pub fn try_lock(&self) -> Option<BaseSpinLockGuard<G, T>> {\n    |                     ^^^^^            ----------------------- the lifetime gets resolved as `'_`\n    |                     |\n    |                     this lifetime flows to the output\n    |\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n122 |     pub fn try_lock(&self) -> Option<BaseSpinLockGuard<'_, G, T>> {\n    |                                                        +++\n\n"
-            ]
-          }
-        },
         {
           "file": "[outdated direct dependencies]",
           "features": "",
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=kspin, checker=Outdated\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/arceos-org/kspin\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-06-28 14:14:52.182220599 +08:00:00\n\nName    Project  Compat  Latest  Kind    Platform\n----    -------  ------  ------  ----    --------\ncfg-if  1.0.0    1.0.1   1.0.1   Normal  ---\n"
+              "pkg=kspin, checker=Outdated\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_3/arceos-org/kspin\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-08-06 4:31:35.370862462 +08:00:00\n\nName    Project  Compat  Latest  Kind    Platform\n----    -------  ------  ------  ----    --------\ncfg-if  1.0.0    1.0.1   1.0.1   Normal  ---\n"
             ]
           }
         }

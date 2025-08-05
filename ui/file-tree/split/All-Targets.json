@@ -406,9 +406,6 @@
           "features": "",
           "count": 71,
           "kinds": {
-            "Clippy(Error)": [
-              "error: this comparison involving the minimum or maximum element for this type contains a case that is always true or always false\n   --> src/mci/mod.rs:336:48\n    |\n336 |         if wait_bits & reg_val != wait_bits && delay <= 0 {\n    |                                                ^^^^^^^^^^\n    |\n    = help: because `0` is the minimum value for this type, the case where the two sides are not equal never occurs, consider using `delay == 0` instead\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#absurd_extreme_comparisons\n    = note: `#[deny(clippy::absurd_extreme_comparisons)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 4 to 4)\n-pub mod regs;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mod.rs (original lines from 6 to 6)\n+pub mod regs;\n",
@@ -482,6 +479,9 @@
               "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:392:34\n    |\n392 |             self.trans_bytes_set(data.datalen() as u32);\n    |                                  ^^^^^^^^^^^^^^^^^^^^^ help: try: `data.datalen()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
               "warning: equality checks against false can be replaced by a negation\n   --> src/mci/mod.rs:458:12\n    |\n458 |         if false == self.is_ready {\n    |            ^^^^^^^^^^^^^^^^^^^^^^ help: try simplifying it as shown: `!self.is_ready`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bool_comparison\n    = note: `#[warn(clippy::bool_comparison)]` on by default\n\n",
               "warning: using `clone` on type `MCIStatus` which implements the `Copy` trait\n   --> src/mci/mod.rs:636:29\n    |\n636 |         if reg_val.contains(busy_bits.clone()) {\n    |                             ^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `busy_bits`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+            ],
+            "Clippy(Error)": [
+              "error: this comparison involving the minimum or maximum element for this type contains a case that is always true or always false\n   --> src/mci/mod.rs:336:48\n    |\n336 |         if wait_bits & reg_val != wait_bits && delay <= 0 {\n    |                                                ^^^^^^^^^^\n    |\n    = help: because `0` is the minimum value for this type, the case where the two sides are not equal never occurs, consider using `delay == 0` instead\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#absurd_extreme_comparisons\n    = note: `#[deny(clippy::absurd_extreme_comparisons)]` on by default\n\n"
             ]
           }
         },
@@ -490,6 +490,9 @@
           "features": "",
           "count": 39,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: empty line after outer attribute\n --> src/mci_host/mod.rs:1:1\n  |\n1 | / #[allow(unused)]\n2 | |\n  | |_^\n3 |   mod constants;\n  |   ------------- the attribute applies to this module\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#empty_line_after_outer_attr\n  = note: `#[warn(clippy::empty_line_after_outer_attr)]` on by default\n  = help: if the empty line is unintentional, remove it\nhelp: if the attribute should apply to the parent module use an inner attribute\n  |\n1 | #![allow(unused)]\n  |  +\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/mod.rs (original lines from 2 to 2)\n-\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/mod.rs (original lines from 4 to 4)\n+mod err;\n+mod mci_card_base;\n+mod mci_host_card_detect;\n",
@@ -529,9 +532,6 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/mod.rs (original lines from 193 to 193)\n-    \n+\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/mod.rs (original lines from 198 to 198)\n-        self.dev.init(addr,self)\n+        self.dev.init(addr, self)\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/mod.rs (original lines from 200 to 200)\n-\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: empty line after outer attribute\n --> src/mci_host/mod.rs:1:1\n  |\n1 | / #[allow(unused)]\n2 | |\n  | |_^\n3 |   mod constants;\n  |   ------------- the attribute applies to this module\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#empty_line_after_outer_attr\n  = note: `#[warn(clippy::empty_line_after_outer_attr)]` on by default\n  = help: if the empty line is unintentional, remove it\nhelp: if the attribute should apply to the parent module use an inner attribute\n  |\n1 | #![allow(unused)]\n  |  +\n\n"
             ]
           }
         },
@@ -582,19 +582,6 @@
           "features": "",
           "count": 30,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: you should consider adding a `Default` implementation for `FSdifIDmaDescList`\n  --> src/mci/mci_dma.rs:34:5\n   |\n34 | /     pub fn new() -> Self {\n35 | |         FSdifIDmaDescList {\n36 | |             first_desc: core::ptr::null_mut(),\n37 | |             first_desc_dma: 0,\n...  |\n41 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n   |\n33 + impl Default for FSdifIDmaDescList {\n34 +     fn default() -> Self {\n35 +         Self::new()\n36 +     }\n37 + }\n   |\n\n",
-              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:59:51\n   |\n59 |                     debug!(\"\\tattribute: 0x{:x}\", (*cur_desc).attribute);\n   |                                                   ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n   = note: `#[warn(clippy::explicit_auto_deref)]` on by default\n\n",
-              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:60:46\n   |\n60 |                     debug!(\"\\tnon1: 0x{:x}\", (*cur_desc).non1);\n   |                                              ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
-              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:61:45\n   |\n61 |                     debug!(\"\\tlen: 0x{:x}\", (*cur_desc).len);\n   |                                             ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
-              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:62:46\n   |\n62 |                     debug!(\"\\tnon2: 0x{:x}\", (*cur_desc).non2);\n   |                                              ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
-              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:63:49\n   |\n63 |                     debug!(\"\\taddr_lo: 0x{:x}\", (*cur_desc).addr_lo);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
-              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:64:49\n   |\n64 |                     debug!(\"\\taddr_hi: 0x{:x}\", (*cur_desc).addr_hi);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
-              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:65:49\n   |\n65 |                     debug!(\"\\tdesc_lo: 0x{:x}\", (*cur_desc).desc_lo);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
-              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:66:49\n   |\n66 |                     debug!(\"\\tdesc_hi: 0x{:x}\", (*cur_desc).desc_hi);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
-              "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n   --> src/mci/mci_dma.rs:138:20\n    |\n138 | ...   if next_desc_addr as usize % core::mem::size_of::<FSdifIDmaDesc>() != 0 { // make sure descriptor aligned and not cross page boundary\n    |          ^^^^^^^^^^^^^^^^^^^^^^^ help: try: `next_desc_addr`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n",
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mci_dma.rs:168:35\n    |\n168 |         self.setup_dma_descriptor(&data)?;\n    |                                   ^^^^^ help: change this to: `data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n    = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_dma.rs (original lines from 8 to 10)\n-use super::mci_data::MCIData;\n-use super::MCI;\n-use super::err::*;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_dma.rs (original lines from 12 to 12)\n+use super::err::*;\n+use super::mci_data::MCIData;\n",
@@ -615,6 +602,19 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_dma.rs (original lines from 165 to 165)\n-        self.interrupt_mask_set(MCIIntrType::GeneralIntr, MCIIntMask::INTS_DATA_MASK.bits(), true);\n+        self.interrupt_mask_set(\n+            MCIIntrType::GeneralIntr,\n+            MCIIntMask::INTS_DATA_MASK.bits(),\n+            true,\n+        );\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_dma.rs (original lines from 171 to 171)\n-        info!(\"Descriptor@{:p}, trans bytes: {}, block size: {}\", self.desc_list.first_desc, data_len, data.blksz());\n+        info!(\n+            \"Descriptor@{:p}, trans bytes: {}, block size: {}\",\n+            self.desc_list.first_desc,\n+            data_len,\n+            data.blksz()\n+        );\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_dma.rs (original lines from 180 to 180)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `FSdifIDmaDescList`\n  --> src/mci/mci_dma.rs:34:5\n   |\n34 | /     pub fn new() -> Self {\n35 | |         FSdifIDmaDescList {\n36 | |             first_desc: core::ptr::null_mut(),\n37 | |             first_desc_dma: 0,\n...  |\n41 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n   |\n33 + impl Default for FSdifIDmaDescList {\n34 +     fn default() -> Self {\n35 +         Self::new()\n36 +     }\n37 + }\n   |\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:59:51\n   |\n59 |                     debug!(\"\\tattribute: 0x{:x}\", (*cur_desc).attribute);\n   |                                                   ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n   = note: `#[warn(clippy::explicit_auto_deref)]` on by default\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:60:46\n   |\n60 |                     debug!(\"\\tnon1: 0x{:x}\", (*cur_desc).non1);\n   |                                              ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:61:45\n   |\n61 |                     debug!(\"\\tlen: 0x{:x}\", (*cur_desc).len);\n   |                                             ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:62:46\n   |\n62 |                     debug!(\"\\tnon2: 0x{:x}\", (*cur_desc).non2);\n   |                                              ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:63:49\n   |\n63 |                     debug!(\"\\taddr_lo: 0x{:x}\", (*cur_desc).addr_lo);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:64:49\n   |\n64 |                     debug!(\"\\taddr_hi: 0x{:x}\", (*cur_desc).addr_hi);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:65:49\n   |\n65 |                     debug!(\"\\tdesc_lo: 0x{:x}\", (*cur_desc).desc_lo);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:66:49\n   |\n66 |                     debug!(\"\\tdesc_hi: 0x{:x}\", (*cur_desc).desc_hi);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n   --> src/mci/mci_dma.rs:138:20\n    |\n138 | ...   if next_desc_addr as usize % core::mem::size_of::<FSdifIDmaDesc>() != 0 { // make sure descriptor aligned and not cross page boundary\n    |          ^^^^^^^^^^^^^^^^^^^^^^^ help: try: `next_desc_addr`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mci_dma.rs:168:35\n    |\n168 |         self.setup_dma_descriptor(&data)?;\n    |                                   ^^^^^ help: change this to: `data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n    = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
             ]
           }
         },
@@ -768,6 +768,9 @@
           "features": "",
           "count": 21,
           "kinds": {
+            "Clippy(Error)": [
+              "error: this `if` has the same condition as a previous `if`\n   --> src/mci/mci_intr.rs:128:13\n    |\n128 |     else if events.contains(MCIRawInts::CMD_BIT) { // handle cmd done\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\nnote: same as this\n   --> src/mci/mci_intr.rs:121:13\n    |\n121 |     else if events.contains(MCIRawInts::CMD_BIT)\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ifs_same_cond\n    = note: `#[deny(clippy::ifs_same_cond)]` on by default\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_intr.rs (original lines from 16 to 16)\n-use super::MCI;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_intr.rs (original lines from 19 to 19)\n+use super::MCI;\n",
@@ -789,9 +792,6 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_intr.rs (original lines from 204 to 206)\n-    if status & MCIRawInts::RE_BIT.bits() != 0 ||\n-        status & MCIRawInts::RTO_BIT.bits() != 0 \n-    {\n+    if status & MCIRawInts::RE_BIT.bits() != 0 || status & MCIRawInts::RTO_BIT.bits() != 0 {\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_intr.rs (original lines from 210 to 212)\n-    if dmac_status & MCIDMACIntEn::DU.bits() != 0 || \n-        status & MCIRawInts::DCRC_BIT.bits() != 0 || \n-        status & MCIRawInts::RCRC_BIT.bits() != 0\n+    if dmac_status & MCIDMACIntEn::DU.bits() != 0\n+        || status & MCIRawInts::DCRC_BIT.bits() != 0\n+        || status & MCIRawInts::RCRC_BIT.bits() != 0\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_intr.rs (original lines from 218 to 220)\n-fn sdio_interrupt() {\n-\n-}\n+fn sdio_interrupt() {}\n"
-            ],
-            "Clippy(Error)": [
-              "error: this `if` has the same condition as a previous `if`\n   --> src/mci/mci_intr.rs:128:13\n    |\n128 |     else if events.contains(MCIRawInts::CMD_BIT) { // handle cmd done\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\nnote: same as this\n   --> src/mci/mci_intr.rs:121:13\n    |\n121 |     else if events.contains(MCIRawInts::CMD_BIT)\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ifs_same_cond\n    = note: `#[deny(clippy::ifs_same_cond)]` on by default\n\n"
             ]
           }
         },
@@ -880,11 +880,6 @@
           "features": "",
           "count": 17,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: this `else { if .. }` block can be collapsed\n   --> src/osa/mod.rs:105:16\n    |\n105 |           } else {\n    |  ________________^\n106 | |             if *event & event_type != 0 {\n107 | |                 return Ok(());\n108 | |             }\n109 | |         }\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\nhelp: collapse nested if block\n    |\n105 ~         } else if *event & event_type != 0 {\n106 +             return Ok(());\n107 +         }\n    |\n\n",
-              "warning: you should consider adding a `Default` implementation for `FMemp<'a>`\n  --> src/osa/mod.rs:34:5\n   |\n34 | /     pub fn new() -> Self {\n35 | |         Self {\n36 | |             tlsf_ptr: Tlsf::new(),\n37 | |             is_ready: false,\n38 | |         }\n39 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n   |\n32 + impl<'a> Default for FMemp<'a> {\n33 +     fn default() -> Self {\n34 +         Self::new()\n35 +     }\n36 + }\n   |\n\n",
-              "warning: method `default` can be confused for the standard trait method `std::default::Default::default`\n  --> src/osa/mod.rs:86:5\n   |\n86 | /     pub fn default() -> Self {\n87 | |         Self {\n88 | |             event_flag: AtomicU32::new(0),\n89 | |             handle: Semaphore::new(0),\n90 | |         }\n91 | |     }\n   | |_____^\n   |\n   = help: consider implementing the trait `std::default::Default` or choosing a less ambiguous method name\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_implement_trait\n   = note: `#[warn(clippy::should_implement_trait)]` on by default\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/mod.rs (original lines from 1 to 1)\n-use core::{alloc::Layout, mem::MaybeUninit, ptr::NonNull, sync::atomic::{AtomicU32, Ordering}};\n+use core::{\n+    alloc::Layout,\n+    mem::MaybeUninit,\n+    ptr::NonNull,\n+    sync::atomic::{AtomicU32, Ordering},\n+};\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/mod.rs (original lines from 6 to 6)\n+use lazy_static::*;\n",
@@ -900,6 +895,11 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/mod.rs (original lines from 124 to 124)\n-    pub static ref OSA_EVENT: Arc<OSAEvent> = \n+    pub static ref OSA_EVENT: Arc<OSAEvent> =\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/mod.rs (original lines from 132 to 132)\n-pub fn osa_event_wait(event_type: u32, _timeout_ms: u32, event: &mut u32, flags: u32) -> Result<(), &'static str> {\n+pub fn osa_event_wait(\n+    event_type: u32,\n+    _timeout_ms: u32,\n+    event: &mut u32,\n+    flags: u32,\n+) -> Result<(), &'static str> {\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/mod.rs (original lines from 143 to 143)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: this `else { if .. }` block can be collapsed\n   --> src/osa/mod.rs:105:16\n    |\n105 |           } else {\n    |  ________________^\n106 | |             if *event & event_type != 0 {\n107 | |                 return Ok(());\n108 | |             }\n109 | |         }\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\nhelp: collapse nested if block\n    |\n105 ~         } else if *event & event_type != 0 {\n106 +             return Ok(());\n107 +         }\n    |\n\n",
+              "warning: you should consider adding a `Default` implementation for `FMemp<'a>`\n  --> src/osa/mod.rs:34:5\n   |\n34 | /     pub fn new() -> Self {\n35 | |         Self {\n36 | |             tlsf_ptr: Tlsf::new(),\n37 | |             is_ready: false,\n38 | |         }\n39 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n   |\n32 + impl<'a> Default for FMemp<'a> {\n33 +     fn default() -> Self {\n34 +         Self::new()\n35 +     }\n36 + }\n   |\n\n",
+              "warning: method `default` can be confused for the standard trait method `std::default::Default::default`\n  --> src/osa/mod.rs:86:5\n   |\n86 | /     pub fn default() -> Self {\n87 | |         Self {\n88 | |             event_flag: AtomicU32::new(0),\n89 | |             handle: Semaphore::new(0),\n90 | |         }\n91 | |     }\n   | |_____^\n   |\n   = help: consider implementing the trait `std::default::Default` or choosing a less ambiguous method name\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_implement_trait\n   = note: `#[warn(clippy::should_implement_trait)]` on by default\n\n"
             ]
           }
         },
@@ -950,9 +950,6 @@
           "features": "",
           "count": 10,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: the loop variable `i` is only used to index `buf`\n  --> src/mci/mci_pio.rs:20:18\n   |\n20 |         for i in 0..wr_times {\n   |                  ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\n   = note: `#[warn(clippy::needless_range_loop)]` on by default\nhelp: consider using an iterator\n   |\n20 -         for i in 0..wr_times {\n20 +         for <item> in buf.iter().take(wr_times) {\n   |\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 1 to 4)\n-use log::*;\n-use super::mci_data::MCIData;\n-use super::MCI;\n-use super::err::*;\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 6 to 6)\n+use super::err::*;\n+use super::mci_data::MCIData;\n",
@@ -963,6 +960,9 @@
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 39 to 39)\n-            error!(\"Fifo do not support writing more than 0x{:x}.\",MCI_MAX_FIFO_CNT);\n+            error!(\n+                \"Fifo do not support writing more than 0x{:x}.\",\n+                MCI_MAX_FIFO_CNT\n+            );\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 47 to 47)\n-    \n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_pio.rs (original lines from 49 to 49)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: the loop variable `i` is only used to index `buf`\n  --> src/mci/mci_pio.rs:20:18\n   |\n20 |         for i in 0..wr_times {\n   |                  ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\n   = note: `#[warn(clippy::needless_range_loop)]` on by default\nhelp: consider using an iterator\n   |\n20 -         for i in 0..wr_times {\n20 +         for <item> in buf.iter().take(wr_times) {\n   |\n\n"
             ]
           }
         },
@@ -1064,17 +1064,17 @@
           "features": "",
           "count": 8,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
-              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
-              "warning: you should consider adding a `Default` implementation for `MCITiming`\n  --> src/mci/mci_timing.rs:17:5\n   |\n17 | /     pub fn new() -> Self {\n18 | |         MCITiming {\n19 | |             use_hold: false,\n20 | |             clk_div: 0,\n...  |\n25 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n16 + impl Default for MCITiming {\n17 +     fn default() -> Self {\n18 +         Self::new()\n19 +     }\n20 + }\n   |\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 13 to 13)\n-    pad_delay: MCIPadDelay //* 用于调整IO的延时 */\n+    pad_delay: MCIPadDelay, //* 用于调整IO的延时 */\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 36 to 36)\n-    pub(crate) fn pad_delay(&self,iopad:&mut IoPad,mci_id: MCIId) {\n+    pub(crate) fn pad_delay(&self, iopad: &mut IoPad, mci_id: MCIId) {\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 38 to 39)\n-            MCIPadDelay::Set => set_pad_delay(iopad,mci_id),\n-            MCIPadDelay::Unset => unset_pad_delay(iopad,mci_id),\n+            MCIPadDelay::Set => set_pad_delay(iopad, mci_id),\n+            MCIPadDelay::Unset => unset_pad_delay(iopad, mci_id),\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 98 to 98)\n-    pad_delay: MCIPadDelay::Set\n+    pad_delay: MCIPadDelay::Set,\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_timing.rs (original lines from 183 to 183)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
+              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
+              "warning: you should consider adding a `Default` implementation for `MCITiming`\n  --> src/mci/mci_timing.rs:17:5\n   |\n17 | /     pub fn new() -> Self {\n18 | |         MCITiming {\n19 | |             use_hold: false,\n20 | |             clk_div: 0,\n...  |\n25 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n16 + impl Default for MCITiming {\n17 +     fn default() -> Self {\n18 +         Self::new()\n19 +     }\n20 + }\n   |\n\n"
             ]
           }
         },
@@ -1141,13 +1141,13 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: this `if` statement can be collapsed\n  --> src/osa/semaphore.rs:15:13\n   |\n15 | /             if current > 0 {\n16 | |                 if self.count.compare_exchange(\n17 | |                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n18 | |                 ).is_ok() {\n...  |\n21 | |             }\n   | |_____________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\nhelp: collapse nested if block\n   |\n15 ~             if current > 0 && self.count.compare_exchange(\n16 +                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n17 +                 ).is_ok() {\n18 +                 break;\n19 +             }\n   |\n\n"
-            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/semaphore.rs (original lines from 9 to 9)\n-        Self { count: AtomicIsize::new(count) }\n+        Self {\n+            count: AtomicIsize::new(count),\n+        }\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/semaphore.rs (original lines from 16 to 18)\n-                if self.count.compare_exchange(\n-                    current, current - 1, Ordering::Acquire, Ordering::Relaxed\n-                ).is_ok() {\n+                if self\n+                    .count\n+                    .compare_exchange(current, current - 1, Ordering::Acquire, Ordering::Relaxed)\n+                    .is_ok()\n+                {\n",
               "file: /home/runner/check/batch_4/drivercraft/phytium-mci/src/osa/semaphore.rs (original lines from 30 to 30)\n+\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: this `if` statement can be collapsed\n  --> src/osa/semaphore.rs:15:13\n   |\n15 | /             if current > 0 {\n16 | |                 if self.count.compare_exchange(\n17 | |                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n18 | |                 ).is_ok() {\n...  |\n21 | |             }\n   | |_____________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\nhelp: collapse nested if block\n   |\n15 ~             if current > 0 && self.count.compare_exchange(\n16 +                     current, current - 1, Ordering::Acquire, Ordering::Relaxed\n17 +                 ).is_ok() {\n18 +                 break;\n19 +             }\n   |\n\n"
             ]
           }
         },
@@ -2342,12 +2342,22 @@
       "count": 9,
       "raw_reports": [
         {
+          "file": "/home/runner/check/batch_4/drivercraft/CrabUSB/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── xhci 0.9.2\n│   └── crab-usb 0.1.4\n└── rdrive 0.15.3\n    └── sparreal-kernel 0.10.1\n        ├── sparreal-rt 0.10.0\n        │   └── bare-test 0.5.0\n        │       └── crab-usb 0.1.4\n        └── bare-test 0.5.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 792,\n    \"last-commit\": \"c62e71ad8c5256ffa3cafbb1a8c687db60869e98\",\n    \"last-updated\": \"2025-07-23T15:03:26+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 296\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\\n\\n## Possible Alternative(s)\\n\\n- [pastey](https://crates.io/crates/pastey), a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
           "file": "(virtual) semver-checks",
           "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=crab-usb, checker=SemverChecks\n// toolchain=nightly, target=aarch64-unknown-none-softfloat\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \n// timestamp=2025-08-05 4:34:23.490681896 +08:00:00\n    Building crab-usb v0.1.3 (current)\nerror: running cargo-doc on crate 'crab-usb' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate crab-usb v0.1.3\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/CrabUSB &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate crab-usb v0.1.3\n"
+              "// pkg_name=crab-usb, checker=SemverChecks\n// toolchain=nightly, target=aarch64-unknown-none-softfloat\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB/usb-host\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \n// timestamp=2025-08-06 4:32:59.035113514 +08:00:00\n    Building crab-usb v0.1.4 (current)\nerror: running cargo-doc on crate 'crab-usb' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate crab-usb v0.1.4\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/CrabUSB/usb-host &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate crab-usb v0.1.4\n"
             ]
           }
         },
@@ -2357,17 +2367,7 @@
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=crab-usb, checker=Udeps\n// toolchain=nightly, target=aarch64-unknown-none-softfloat\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none-softfloat \n// timestamp=2025-08-05 4:34:37.849947715 +08:00:00\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
-            ]
-          }
-        },
-        {
-          "file": "Cargo.lock",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Audit": [
-              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── xhci 0.9.2\n│   └── crab-usb 0.1.3\n└── rdrive 0.15.3\n    └── sparreal-kernel 0.10.1\n        ├── sparreal-rt 0.10.0\n        │   └── bare-test 0.5.0\n        │       └── crab-usb 0.1.3\n        └── bare-test 0.5.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 792,\n    \"last-commit\": \"c62e71ad8c5256ffa3cafbb1a8c687db60869e98\",\n    \"last-updated\": \"2025-07-23T15:03:26+02:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 295\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\\n\\n## Possible Alternative(s)\\n\\n- [pastey](https://crates.io/crates/pastey), a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+              "// pkg_name=crab-usb, checker=Udeps\n// toolchain=nightly, target=aarch64-unknown-none-softfloat\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB/usb-host\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none-softfloat \n// timestamp=2025-08-06 4:33:18.913983833 +08:00:00\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
             ]
           }
         },
@@ -2377,7 +2377,7 @@
           "count": 1,
           "kinds": {
             "Lockbud(Possibly)": [
-              "[2025-08-04T20:34:31Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-08-04T20:34:31Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+              "[2025-08-05T20:33:07Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-08-05T20:33:07Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
             ]
           }
         },
@@ -2387,7 +2387,7 @@
           "count": 1,
           "kinds": {
             "Unused Deps": [
-              "pkg=crab-usb, checker=Udeps\ntoolchain=nightly, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none-softfloat \ntimestamp=2025-08-05 4:34:38.548373836 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
+              "pkg=crab-usb, checker=Udeps\ntoolchain=nightly, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB/usb-host\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none-softfloat \ntimestamp=2025-08-06 4:33:19.607600194 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
             ]
           }
         },
@@ -2397,7 +2397,7 @@
           "count": 1,
           "kinds": {
             "Outdated": [
-              "pkg=crab-usb, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-08-05 4:34:37.849011203 +08:00:00\n\nName  Project  Compat  Latest  Kind         Platform\n----  -------  ------  ------  ----         --------\npcie  0.2.7    ---     0.3.0   Development  ---\n"
+              "pkg=crab-usb, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB/usb-host\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-08-06 4:33:16.639660913 +08:00:00\n\nName  Project  Compat  Latest  Kind         Platform\n----  -------  ------  ------  ----         --------\npcie  0.2.7    ---     0.3.0   Development  ---\n"
             ]
           }
         },
@@ -2407,7 +2407,7 @@
           "count": 1,
           "kinds": {
             "Semver Violation": [
-              "pkg=crab-usb, checker=SemverChecks\ntoolchain=nightly, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \ntimestamp=2025-08-05 4:34:24.453523844 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building crab-usb v0.1.3 (current)\nerror: running cargo-doc on crate 'crab-usb' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate crab-usb v0.1.3\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/CrabUSB &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate crab-usb v0.1.3\n"
+              "pkg=crab-usb, checker=SemverChecks\ntoolchain=nightly, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB/usb-host\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \ntimestamp=2025-08-06 4:32:59.957006488 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building crab-usb v0.1.4 (current)\nerror: running cargo-doc on crate 'crab-usb' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling autocfg v1.5.0\n   Compiling crossbeam-utils v0.8.21\n   Compiling syn v1.0.109\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `crossbeam-utils` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate crab-usb v0.1.4\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/CrabUSB/usb-host &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate crab-usb v0.1.4\n"
             ]
           }
         },
@@ -2417,7 +2417,7 @@
           "count": 1,
           "kinds": {
             "Unformatted": [
-              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/lib.rs (original lines from 49 to 51)\n-        unsafe fn _usb_host_sleep<'a>(\n-            duration: core::time::Duration,\n-        ) -> $crate::BoxFuture<'a, ()> {\n+        unsafe fn _usb_host_sleep<'a>(duration: core::time::Duration) -> $crate::BoxFuture<'a, ()> {\n"
+              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/usb-host/src/lib.rs (original lines from 49 to 51)\n-        unsafe fn _usb_host_sleep<'a>(\n-            duration: core::time::Duration,\n-        ) -> $crate::BoxFuture<'a, ()> {\n+        unsafe fn _usb_host_sleep<'a>(duration: core::time::Duration) -> $crate::BoxFuture<'a, ()> {\n"
             ]
           }
         },
@@ -2427,7 +2427,7 @@
           "count": 1,
           "kinds": {
             "Unformatted": [
-              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/src/standard/mod.rs (original lines from 3 to 3)\n+\n"
+              "file: /home/runner/check/batch_4/drivercraft/CrabUSB/usb-host/src/standard/mod.rs (original lines from 3 to 3)\n+\n"
             ]
           }
         }
@@ -2496,6 +2496,64 @@
           "kinds": {
             "Semver Violation": [
               "pkg=hello, checker=SemverChecks\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_5/rcore-os/any-uart/hello\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-07-09 18:13:23.298297159 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building hello v0.1.0 (current)\nerror: running cargo-doc on crate 'hello' failed with output:\n-----\n    Checking nb v1.1.0\n    Checking embedded-hal v1.0.0\n    Checking tock-registers v0.9.0\n    Checking fdt-parser v0.4.17\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `nb` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `embedded-hal` (lib) due to 1 previous error\nerror: could not compile `fdt-parser` (lib) due to 1 previous error\nerror: could not compile `tock-registers` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate hello v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_5/rcore-os/any-uart/hello &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate hello v0.1.0\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "drivercraft",
+      "repo": "CrabUSB",
+      "pkg": "usb-if",
+      "count": 5,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=usb-if, checker=SemverChecks\n// toolchain=nightly, target=aarch64-unknown-none-softfloat\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB/usb-if\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \n// timestamp=2025-08-06 4:32:59.958744694 +08:00:00\n    Building usb-if v0.1.1 (current)\nerror: running cargo-doc on crate 'usb-if' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling thiserror v2.0.12\n    Checking log v0.4.27\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `log` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate usb-if v0.1.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/CrabUSB/usb-if &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate usb-if v0.1.1\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=usb-if, checker=Udeps\n// toolchain=nightly, target=aarch64-unknown-none-softfloat\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB/usb-if\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none-softfloat \n// timestamp=2025-08-06 4:33:19.609462409 +08:00:00\n   Compiling proc-macro2 v1.0.95\n   Compiling thiserror v2.0.12\n    Checking log v0.4.27\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `log` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-08-05T20:33:07Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-08-05T20:33:07Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=usb-if, checker=Udeps\ntoolchain=nightly, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB/usb-if\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none-softfloat \ntimestamp=2025-08-06 4:33:20.179118566 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling proc-macro2 v1.0.95\n   Compiling thiserror v2.0.12\n    Checking log v0.4.27\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `log` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=usb-if, checker=SemverChecks\ntoolchain=nightly, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/CrabUSB/usb-if\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none-softfloat \ntimestamp=2025-08-06 4:33:00.608010298 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building usb-if v0.1.1 (current)\nerror: running cargo-doc on crate 'usb-if' failed with output:\n-----\n   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling thiserror v2.0.12\n    Checking log v0.4.27\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `aarch64-unknown-none-softfloat` target may not be installed\n  = help: consider downloading the target with `rustup target add aarch64-unknown-none-softfloat`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `log` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate usb-if v0.1.1\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/CrabUSB/usb-if &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate usb-if v0.1.1\n"
             ]
           }
         }
