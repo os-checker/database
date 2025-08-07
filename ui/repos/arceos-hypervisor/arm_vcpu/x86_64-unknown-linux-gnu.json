@@ -15,13 +15,13 @@
           "features": "",
           "count": 8,
           "kinds": {
-            "Clippy(Error)": [
+            "Mirai": [
               "error: invalid register `x0`: unknown register\n  --> src/smc.rs:18:13\n   |\n18 |             inout(\"x0\") x0 => r0,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n",
               "error: invalid register `x1`: unknown register\n  --> src/smc.rs:19:13\n   |\n19 |             inout(\"x1\") x1 => r1,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n",
               "error: invalid register `x2`: unknown register\n  --> src/smc.rs:20:13\n   |\n20 |             inout(\"x2\") x2 => r2,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n",
               "error: invalid register `x3`: unknown register\n  --> src/smc.rs:21:13\n   |\n21 |             inout(\"x3\") x3 => r3,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n"
             ],
-            "Mirai": [
+            "Clippy(Error)": [
               "error: invalid register `x0`: unknown register\n  --> src/smc.rs:18:13\n   |\n18 |             inout(\"x0\") x0 => r0,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n",
               "error: invalid register `x1`: unknown register\n  --> src/smc.rs:19:13\n   |\n19 |             inout(\"x1\") x1 => r1,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n",
               "error: invalid register `x2`: unknown register\n  --> src/smc.rs:20:13\n   |\n20 |             inout(\"x2\") x2 => r2,\n   |             ^^^^^^^^^^^^^^^^^^^^\n\n",
@@ -34,15 +34,15 @@
           "features": "",
           "count": 6,
           "kinds": {
-            "Clippy(Error)": [
-              "error[E0425]: cannot find function `hardware_inject_virtual_interrupt` in module `axvisor_api::arch`\n   --> src/vcpu.rs:134:28\n    |\n134 |         axvisor_api::arch::hardware_inject_virtual_interrupt(vector as u8);\n    |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ not found in `axvisor_api::arch`\n    |\nnote: found an item that was configured out\n   --> /home/runner/.cargo/git/checkouts/axvisor_api-c84ea47b3dbe6256/4102b0a/src/lib.rs:256:15\n    |\n256 |     extern fn hardware_inject_virtual_interrupt(vector: InterruptVector);\n    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: the item is gated behind the `aarch64` feature\n   --> /home/runner/.cargo/git/checkouts/axvisor_api-c84ea47b3dbe6256/4102b0a/src/lib.rs:254:11\n    |\n254 |     #[cfg(target_arch = \"aarch64\")]\n    |           ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
-            ],
             "Mirai": [
               "error[E0658]: use of unstable library feature `naked_functions`\n   --> src/vcpu.rs:248:9\n    |\n248 |         core::arch::naked_asm!(\n    |         ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-09; consider upgrading it if it is out of date\n\n",
               "error: `naked` is not an unsafe attribute\n   --> src/vcpu.rs:239:7\n    |\n239 |     #[unsafe(naked)]\n    |       ^^^^^^ this is not an unsafe attribute\n    |\n    = note: extraneous unsafe is not allowed in attributes\n\n",
               "error[E0425]: cannot find function `hardware_inject_virtual_interrupt` in module `axvisor_api::arch`\n   --> src/vcpu.rs:134:28\n    |\n134 |         axvisor_api::arch::hardware_inject_virtual_interrupt(vector as u8);\n    |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ not found in `axvisor_api::arch`\n    |\nnote: found an item that was configured out\n   --> /home/runner/.cargo/git/checkouts/axvisor_api-c84ea47b3dbe6256/4102b0a/src/lib.rs:256:15\n    |\n256 |     extern fn hardware_inject_virtual_interrupt(vector: InterruptVector);\n    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: the item is gated behind the `aarch64` feature\n   --> /home/runner/.cargo/git/checkouts/axvisor_api-c84ea47b3dbe6256/4102b0a/src/lib.rs:254:11\n    |\n254 |     #[cfg(target_arch = \"aarch64\")]\n    |           ^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "error[E0658]: the `#[naked]` attribute is an experimental feature\n   --> src/vcpu.rs:239:5\n    |\n239 |     #[unsafe(naked)]\n    |     ^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #90957 <https://github.com/rust-lang/rust/issues/90957> for more information\n    = help: add `#![feature(naked_functions)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-09; consider upgrading it if it is out of date\n\n",
               "warning[E0133]: use of inline assembly is unsafe and requires unsafe block\n   --> src/vcpu.rs:248:9\n    |\n248 | /         core::arch::naked_asm!(\n249 | |             // Save host context.\n250 | |             save_regs_to_stack!(),\n...   |\n263 | |             run_guest_panic = sym Self::run_guest_panic,\n264 | |         );\n    | |_________^ use of inline assembly\n    |\n    = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>\n    = note: inline assembly is entirely unchecked and can cause undefined behavior\nnote: an unsafe function restricts its caller, but its body is safe by default\n   --> src/vcpu.rs:240:5\n    |\n240 |     unsafe extern \"C\" fn run_guest(&mut self) -> usize {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
+            ],
+            "Clippy(Error)": [
+              "error[E0425]: cannot find function `hardware_inject_virtual_interrupt` in module `axvisor_api::arch`\n   --> src/vcpu.rs:134:28\n    |\n134 |         axvisor_api::arch::hardware_inject_virtual_interrupt(vector as u8);\n    |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ not found in `axvisor_api::arch`\n    |\nnote: found an item that was configured out\n   --> /home/runner/.cargo/git/checkouts/axvisor_api-c84ea47b3dbe6256/4102b0a/src/lib.rs:256:15\n    |\n256 |     extern fn hardware_inject_virtual_interrupt(vector: InterruptVector);\n    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: the item is gated behind the `aarch64` feature\n   --> /home/runner/.cargo/git/checkouts/axvisor_api-c84ea47b3dbe6256/4102b0a/src/lib.rs:254:11\n    |\n254 |     #[cfg(target_arch = \"aarch64\")]\n    |           ^^^^^^^^^^^^^^^^^^^^^^^\n\n"
             ]
           }
         },
