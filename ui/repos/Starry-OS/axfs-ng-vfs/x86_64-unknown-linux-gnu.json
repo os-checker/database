@@ -28,13 +28,13 @@
           "features": "",
           "count": 4,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_1/Starry-OS/axfs-ng-vfs/src/node/dir.rs (original lines from 10 to 10)\n-    path::{verify_entry_name, DOT, DOTDOT, MAX_NAME_LEN}, MetadataUpdate, Mountpoint, NodeOps, NodePermission, NodeType, VfsError, VfsResult\n+    MetadataUpdate, Mountpoint, NodeOps, NodePermission, NodeType, VfsError, VfsResult,\n+    path::{DOT, DOTDOT, MAX_NAME_LEN, verify_entry_name},\n"
-            ],
             "Clippy(Warn)": [
               "warning: this `if` statement can be collapsed\n   --> src/node/dir.rs:141:9\n    |\n141 | /         if let Some(entry) = children.remove(name) {\n142 | |             if let Ok(dir) = entry.as_dir() {\n143 | |                 dir.forget();\n144 | |             }\n145 | |         }\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\n    = note: `#[warn(clippy::collapsible_if)]` on by default\nhelp: collapse nested if block\n    |\n141 ~         if let Some(entry) = children.remove(name)\n142 ~             && let Ok(dir) = entry.as_dir() {\n143 |                 dir.forget();\n144 ~             }\n    |\n\n",
               "warning: use `core::ptr::eq` when comparing raw pointers\n   --> src/node/dir.rs:265:35\n    |\n265 |         let mut dst_children = if self as *const _ == dst_dir as *const _ {\n    |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `core::ptr::eq(self, dst_dir)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_eq\n    = note: `#[warn(clippy::ptr_eq)]` on by default\n\n",
               "warning: this `if` statement can be collapsed\n   --> src/node/dir.rs:279:17\n    |\n279 | /                 if let Ok(dir) = dst.as_dir() {\n280 | |                     if dir.has_children()? {\n281 | |                         return Err(VfsError::ENOTEMPTY);\n282 | |                     }\n283 | |                 }\n    | |_________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\nhelp: collapse nested if block\n    |\n279 ~                 if let Ok(dir) = dst.as_dir()\n280 ~                     && dir.has_children()? {\n281 |                         return Err(VfsError::ENOTEMPTY);\n282 ~                     }\n    |\n\n"
+            ],
+            "Unformatted": [
+              "file: /home/runner/check/batch_1/Starry-OS/axfs-ng-vfs/src/node/dir.rs (original lines from 10 to 10)\n-    path::{verify_entry_name, DOT, DOTDOT, MAX_NAME_LEN}, MetadataUpdate, Mountpoint, NodeOps, NodePermission, NodeType, VfsError, VfsResult\n+    MetadataUpdate, Mountpoint, NodeOps, NodePermission, NodeType, VfsError, VfsResult,\n+    path::{DOT, DOTDOT, MAX_NAME_LEN, verify_entry_name},\n"
             ]
           }
         },
