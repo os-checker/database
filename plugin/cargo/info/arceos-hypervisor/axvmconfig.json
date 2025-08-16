@@ -1,43 +1,25 @@
 {
-  "user": "arceos-org",
-  "repo": "kspin",
+  "user": "arceos-hypervisor",
+  "repo": "axvmconfig",
   "timestamp": {
-    "start": 1754444946222,
-    "end": 1755307839404
+    "start": 1755307831418,
+    "end": 1755307831520
   },
   "pkgs": {
-    "kspin": {
-      "version": "0.1.1",
-      "dependencies": 2,
+    "axvmconfig": {
+      "version": "0.1.0",
+      "dependencies": 8,
       "lib": true,
-      "bin": false,
+      "bin": true,
       "testcases": {
         "tests": [
           {
-            "id": "kspin",
+            "id": "axvmconfig",
             "kind": "lib",
-            "binary_name": "kspin",
+            "binary_name": "axvmconfig",
             "testcases": [
               {
-                "name": "base::tests::smoke",
-                "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "base::tests::test_into_inner",
-                "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "base::tests::test_into_inner_drop",
+                "name": "test::test_config_deser",
                 "status": "ok",
                 "duration_ms": 5,
                 "error": null,
@@ -46,7 +28,43 @@
                 "miri_timeout": false
               },
               {
-                "name": "base::tests::test_irq_lock_restored",
+                "name": "test::test_config_from_toml_error_handling",
+                "status": "ok",
+                "duration_ms": 5,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "test::test_default_implementations",
+                "status": "ok",
+                "duration_ms": 5,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "test::test_emu_dev_type_from_usize",
+                "status": "ok",
+                "duration_ms": 5,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "test::test_emulated_device_type_display",
+                "status": "ok",
+                "duration_ms": 5,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "test::test_emulated_device_type_removable",
                 "status": "ok",
                 "duration_ms": 4,
                 "error": null,
@@ -55,7 +73,7 @@
                 "miri_timeout": false
               },
               {
-                "name": "base::tests::test_mutex_arc_access_in_unwind",
+                "name": "test::test_interrupt_mode_deser",
                 "status": "ok",
                 "duration_ms": 4,
                 "error": null,
@@ -64,7 +82,7 @@
                 "miri_timeout": false
               },
               {
-                "name": "base::tests::test_mutex_arc_nested",
+                "name": "test::test_vm_mem_mapping_type",
                 "status": "ok",
                 "duration_ms": 4,
                 "error": null,
@@ -73,18 +91,9 @@
                 "miri_timeout": false
               },
               {
-                "name": "base::tests::test_mutex_force_lock",
+                "name": "test::test_vmtype_enum",
                 "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "base::tests::test_mutex_unsized",
-                "status": "ok",
-                "duration_ms": 4,
+                "duration_ms": 3,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -92,40 +101,37 @@
               }
             ],
             "failed": 0,
-            "duration_ms": 33
+            "duration_ms": 40
           }
         ],
         "failed": 0,
-        "duration_ms": 33,
-        "pkg_tests_count": 8,
-        "workspace_tests_count": 8
+        "duration_ms": 40,
+        "pkg_tests_count": 9,
+        "workspace_tests_count": 9
       },
       "tests": 0,
       "examples": 0,
       "benches": 0,
       "authors": [
-        "Yuekai Jia <equation618@gmail.com>"
+        "Keyang Hu <keyang.hu@qq.com>",
+        "Mingxian Su <aarkegz@gmail.com>"
       ],
-      "description": "Spinlocks used for kernel space that can disable preemption or IRQs in the critical section.",
-      "documentation": "https://docs.rs/kspin",
+      "description": "A simple VM configuration tool for ArceOS-Hypervisor.",
+      "documentation": null,
       "readme": "README.md",
-      "homepage": "https://github.com/arceos-org/arceos",
+      "homepage": "https://github.com/arceos-hypervisor/axvmconfig",
       "keywords": [
-        "arceos",
-        "synchronization",
-        "spinlock",
-        "no-irq"
+        "axvisor",
+        "config",
+        "toml"
       ],
-      "categories": [
-        "os",
-        "no-std"
-      ],
+      "categories": [],
       "rust_version": null,
-      "diag_total_count": 6,
-      "last_commit_time": "2025-08-05T06:15:22Z",
-      "release_count": 2,
-      "last_release_size": 6845,
-      "last_release_time": "2025-08-05T06:18:06Z"
+      "diag_total_count": 22,
+      "last_commit_time": "2025-08-14T08:16:55Z",
+      "release_count": 1,
+      "last_release_size": 39363,
+      "last_release_time": "2025-08-14T09:20:26Z"
     }
   }
 }
