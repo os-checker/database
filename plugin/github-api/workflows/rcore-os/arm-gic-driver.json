@@ -1,8 +1,210 @@
 {
   "user": "rcore-os",
   "repo": "arm-gic-driver",
-  "runs_total_count": 73,
+  "runs_total_count": 74,
   "workflows": [
+    {
+      "run": {
+        "name": "Build & Check CI",
+        "head_branch": "master",
+        "head_sha": "e43ebd5f4f4d2b45fcd4dcefc960b01492834048",
+        "head_commit": {
+          "message": "feat: update version to 0.15.8 and add GIC address retrieval methods in Gic struct",
+          "timestamp": "2025-08-26T01:30:07Z"
+        },
+        "display_title": "feat: update version to 0.15.8 and add GIC address retrieval methods …",
+        "html_url": "https://github.com/rcore-os/arm-gic-driver/actions/runs/17225297648",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "run_started_at": "2025-08-26T01:30:16Z",
+        "created_at": "2025-08-26T01:30:16Z",
+        "updated_at": "2025-08-26T01:33:23Z",
+        "duration_sec": 187,
+        "actor": {
+          "login": "ZR233"
+        },
+        "triggering_actor": {
+          "login": "ZR233"
+        },
+        "id": 17225297648,
+        "jobs_url": "https://api.github.com/repos/rcore-os/arm-gic-driver/actions/runs/17225297648/jobs",
+        "logs_url": "https://api.github.com/repos/rcore-os/arm-gic-driver/actions/runs/17225297648/logs"
+      },
+      "jobs": {
+        "total_count": 1,
+        "jobs": [
+          {
+            "name": "ci (nightly, aarch64-unknown-none-softfloat)",
+            "workflow_name": "Build & Check CI",
+            "html_url": "https://github.com/rcore-os/arm-gic-driver/actions/runs/17225297648/job/48868614183",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2025-08-26T01:30:17Z",
+            "started_at": "2025-08-26T01:30:19Z",
+            "completed_at": "2025-08-26T01:33:23Z",
+            "duration_sec": 184,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2025-08-26T01:30:20Z",
+                "completed_at": "2025-08-26T01:30:22Z",
+                "duration_sec": 2
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2025-08-26T01:30:22Z",
+                "completed_at": "2025-08-26T01:30:23Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2025-08-26T01:30:23Z",
+                "completed_at": "2025-08-26T01:30:38Z",
+                "duration_sec": 15
+              },
+              {
+                "name": "Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2025-08-26T01:30:38Z",
+                "completed_at": "2025-08-26T01:30:45Z",
+                "duration_sec": 7
+              },
+              {
+                "name": "Run cargo install cargo-binutils",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2025-08-26T01:30:45Z",
+                "completed_at": "2025-08-26T01:31:13Z",
+                "duration_sec": 28
+              },
+              {
+                "name": "Run arceos-org/setup-qemu@v1",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2025-08-26T01:31:13Z",
+                "completed_at": "2025-08-26T01:31:15Z",
+                "duration_sec": 2
+              },
+              {
+                "name": "Run awalsh128/cache-apt-pkgs-action@latest",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2025-08-26T01:31:15Z",
+                "completed_at": "2025-08-26T01:31:18Z",
+                "duration_sec": 3
+              },
+              {
+                "name": "Run cargo install ostool",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2025-08-26T01:31:18Z",
+                "completed_at": "2025-08-26T01:32:01Z",
+                "duration_sec": 43
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9,
+                "started_at": "2025-08-26T01:32:01Z",
+                "completed_at": "2025-08-26T01:32:01Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10,
+                "started_at": "2025-08-26T01:32:01Z",
+                "completed_at": "2025-08-26T01:32:01Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 11,
+                "started_at": "2025-08-26T01:32:01Z",
+                "completed_at": "2025-08-26T01:32:43Z",
+                "duration_sec": 42
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 12,
+                "started_at": "2025-08-26T01:32:43Z",
+                "completed_at": "2025-08-26T01:32:47Z",
+                "duration_sec": 4
+              },
+              {
+                "name": "Test GICv2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2025-08-26T01:32:47Z",
+                "completed_at": "2025-08-26T01:33:16Z",
+                "duration_sec": 29
+              },
+              {
+                "name": "Test GICv3",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2025-08-26T01:33:16Z",
+                "completed_at": "2025-08-26T01:33:17Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Post Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 27,
+                "started_at": "2025-08-26T01:33:17Z",
+                "completed_at": "2025-08-26T01:33:21Z",
+                "duration_sec": 4
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 28,
+                "started_at": "2025-08-26T01:33:21Z",
+                "completed_at": "2025-08-26T01:33:21Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 29,
+                "started_at": "2025-08-26T01:33:21Z",
+                "completed_at": "2025-08-26T01:33:21Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 48868614183
+          }
+        ]
+      }
+    },
     {
       "run": {
         "name": "Build & Check CI",
@@ -5659,145 +5861,6 @@
               }
             ],
             "id": 46634905124
-          }
-        ]
-      }
-    },
-    {
-      "run": {
-        "name": "Build & Check CI",
-        "head_branch": "dev",
-        "head_sha": "26c4571767f678690b95d0e070c0cd5b7e6a3048",
-        "head_commit": {
-          "message": "update",
-          "timestamp": "2025-07-24T09:38:40Z"
-        },
-        "display_title": "update",
-        "html_url": "https://github.com/rcore-os/arm-gic-driver/actions/runs/16493352234",
-        "event": "push",
-        "status": "completed",
-        "conclusion": "failure",
-        "run_attempt": 1,
-        "run_started_at": "2025-07-24T09:38:50Z",
-        "created_at": "2025-07-24T09:38:50Z",
-        "updated_at": "2025-07-24T09:39:12Z",
-        "duration_sec": 22,
-        "actor": {
-          "login": "ZR233"
-        },
-        "triggering_actor": {
-          "login": "ZR233"
-        },
-        "id": 16493352234,
-        "jobs_url": "https://api.github.com/repos/rcore-os/arm-gic-driver/actions/runs/16493352234/jobs",
-        "logs_url": "https://api.github.com/repos/rcore-os/arm-gic-driver/actions/runs/16493352234/logs"
-      },
-      "jobs": {
-        "total_count": 1,
-        "jobs": [
-          {
-            "name": "ci (nightly, aarch64-unknown-none-softfloat)",
-            "workflow_name": "Build & Check CI",
-            "html_url": "https://github.com/rcore-os/arm-gic-driver/actions/runs/16493352234/job/46633151295",
-            "status": "completed",
-            "conclusion": "failure",
-            "created_at": "2025-07-24T09:38:51Z",
-            "started_at": "2025-07-24T09:38:54Z",
-            "completed_at": "2025-07-24T09:39:11Z",
-            "duration_sec": 17,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2025-07-24T09:38:54Z",
-                "completed_at": "2025-07-24T09:38:55Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2025-07-24T09:38:55Z",
-                "completed_at": "2025-07-24T09:38:56Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run dtolnay/rust-toolchain@nightly",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2025-07-24T09:38:56Z",
-                "completed_at": "2025-07-24T09:39:08Z",
-                "duration_sec": 12
-              },
-              {
-                "name": "Check rust version",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2025-07-24T09:39:08Z",
-                "completed_at": "2025-07-24T09:39:09Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Check code format",
-                "status": "completed",
-                "conclusion": "failure",
-                "number": 5,
-                "started_at": "2025-07-24T09:39:09Z",
-                "completed_at": "2025-07-24T09:39:09Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Clippy",
-                "status": "completed",
-                "conclusion": "skipped",
-                "number": 6,
-                "started_at": "2025-07-24T09:39:09Z",
-                "completed_at": "2025-07-24T09:39:09Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Build",
-                "status": "completed",
-                "conclusion": "skipped",
-                "number": 7,
-                "started_at": "2025-07-24T09:39:09Z",
-                "completed_at": "2025-07-24T09:39:09Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Unit test",
-                "status": "completed",
-                "conclusion": "skipped",
-                "number": 8,
-                "started_at": "2025-07-24T09:39:09Z",
-                "completed_at": "2025-07-24T09:39:09Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Post Run actions/checkout@v4",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 16,
-                "started_at": "2025-07-24T09:39:09Z",
-                "completed_at": "2025-07-24T09:39:09Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 17,
-                "started_at": "2025-07-24T09:39:09Z",
-                "completed_at": "2025-07-24T09:39:09Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 46633151295
           }
         ]
       }
