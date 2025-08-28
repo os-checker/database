@@ -351,44 +351,6 @@
       ]
     },
     {
-      "user": "rcore-os",
-      "repo": "serial-async",
-      "pkg": "serial-async",
-      "count": 3,
-      "raw_reports": [
-        {
-          "file": "[Geiger] Unsafe code statistics",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Geiger": [
-              "pkg=serial-async, checker=Geiger\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_5/rcore-os/serial-async\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\ntimestamp=2025-07-09 18:15:26.890938164 +08:00:00\n\n\nMetric output format: x/y\n    x = unsafe code used by the build\n    y = total unsafe code found in the crate\n\nSymbols:\n    :) = No `unsafe` usage found, declares #![forbid(unsafe_code)]\n    ?  = No `unsafe` usage found, missing #![forbid(unsafe_code)]\n    !  = `unsafe` usage found\n\nFunctions  Expressions  Impls  Traits  Methods  Dependency\n\n0/0        22/24        4/4    0/0     3/3      !  serial-async 0.2.0\n0/0        0/0          0/0    0/0     0/0      ?  |-- futures 0.3.31\n0/0        10/81        2/8    0/0     0/3      !  |   |-- futures-channel 0.3.31\n0/0        36/36        2/2    0/0     0/0      !  |   |   |-- futures-core 0.3.31\n0/0        2/2          0/0    0/0     0/0      !  |   |   `-- futures-sink 0.3.31\n0/0        36/36        2/2    0/0     0/0      !  |   |-- futures-core 0.3.31\n0/0        0/0          0/0    0/0     0/0      ?  |   |-- futures-io 0.3.31\n0/0        2/2          0/0    0/0     0/0      !  |   |-- futures-sink 0.3.31\n9/9        79/79        12/12  1/1     11/11    !  |   |-- futures-task 0.3.31\n6/11       412/550      15/30  0/0     5/10     !  |   `-- futures-util 0.3.31\n0/0        10/81        2/8    0/0     0/3      !  |       |-- futures-channel 0.3.31\n0/0        36/36        2/2    0/0     0/0      !  |       |-- futures-core 0.3.31\n0/0        0/0          0/0    0/0     0/0      ?  |       |-- futures-io 0.3.31\n0/0        2/2          0/0    0/0     0/0      !  |       |-- futures-sink 0.3.31\n9/9        79/79        12/12  1/1     11/11    !  |       |-- futures-task 0.3.31\n0/41       0/2421       0/2    0/0     0/147    ?  |       |-- memchr 2.7.4\n0/0        11/191       0/0    0/0     2/2      !  |       |-- pin-project-lite 0.2.16\n0/0        0/0          0/0    0/0     0/0      ?  |       `-- pin-utils 0.1.0\n0/0        0/0          0/0    0/0     0/0      ?  `-- rdif-serial 0.1.3\n0/0        0/0          0/0    0/0     0/0      ?      |-- futures 0.3.31\n0/0        18/18        2/2    0/0     1/1      !      |-- rdif-base 0.3.3\n0/0        0/0          0/0    0/0     0/0      ?      |   `-- thiserror 2.0.12\n0/0        0/0          0/0    0/0     0/0      ?      |       `-- thiserror-impl 2.0.12\n0/0        14/14        0/0    0/0     3/3      !      |           |-- proc-macro2 1.0.95\n0/0        4/4          0/0    0/0     0/0      !      |           |   `-- unicode-ident 1.0.18\n0/0        0/0          0/0    0/0     0/0      ?      |           |-- quote 1.0.40\n0/0        14/14        0/0    0/0     3/3      !      |           |   `-- proc-macro2 1.0.95\n0/0        88/88        3/3    0/0     2/2      !      |           `-- syn 2.0.101\n0/0        14/14        0/0    0/0     3/3      !      |               |-- proc-macro2 1.0.95\n0/0        0/0          0/0    0/0     0/0      ?      |               |-- quote 1.0.40\n0/0        4/4          0/0    0/0     0/0      !      |               `-- unicode-ident 1.0.18\n4/4        3/3          0/0    0/0     0/0      !      `-- spin_on 0.1.1\n0/0        0/0          0/0    0/0     0/0      ?          `-- pin-utils 0.1.0\n\n19/65      699/3511     40/63  1/1     27/182\n\n"
-            ]
-          }
-        },
-        {
-          "file": "[outdated direct dependencies]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Outdated": [
-              "pkg=serial-async, checker=Outdated\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_5/rcore-os/serial-async\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-07-09 18:15:09.974754833 +08:00:00\n\nName         Project  Compat  Latest  Kind         Platform\n----         -------  ------  ------  ----         --------\nrdif-serial  0.1.3    ---     0.4.0   Normal       ---\ntokio        1.45.1   1.46.1  1.46.1  Development  ---\n"
-            ]
-          }
-        },
-        {
-          "file": "tests/test.rs",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Mirai": [
-              "warning: [MIRAI] tx fifo overflow\n  --> tests/test.rs:92:13\n   |\n92 |             panic!(\"tx fifo overflow\");\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
       "user": "drivercraft",
       "repo": "aarch64-cpu-ext",
       "pkg": "aarch64-cpu-ext",
@@ -530,17 +492,17 @@
     },
     {
       "user": "arceos-org",
-      "repo": "tuple_for_each",
+      "repo": "x86_rtc",
       "pkg": "",
       "count": 1,
       "raw_reports": [
         {
-          "file": "/home/runner/check/batch_4/arceos-org/tuple_for_each",
+          "file": "/home/runner/check/batch_4/arceos-org/x86_rtc",
           "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-apple-darwin' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-linux-gnu' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      info: component 'rust-std' for target 'arm-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'armv7-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'i686-pc-windows-msvc' is up to date\n      info: component 'rust-std' for target 'i686-unknown-linux-gnu' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-linux-gnu'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"arceos-org\" repo=\"tuple_for_each\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-apple-darwin' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-linux-gnu' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      info: component 'rust-std' for target 'arm-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'armv7-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'i686-pc-windows-msvc' is up to date\n      info: component 'rust-std' for target 'i686-unknown-linux-gnu' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-linux-gnu'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"arceos-org\" repo=\"x86_rtc\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
             ]
           }
         }
@@ -566,17 +528,17 @@
     },
     {
       "user": "arceos-org",
-      "repo": "x86_rtc",
+      "repo": "tuple_for_each",
       "pkg": "",
       "count": 1,
       "raw_reports": [
         {
-          "file": "/home/runner/check/batch_4/arceos-org/x86_rtc",
+          "file": "/home/runner/check/batch_4/arceos-org/tuple_for_each",
           "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-apple-darwin' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-linux-gnu' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      info: component 'rust-std' for target 'arm-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'armv7-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'i686-pc-windows-msvc' is up to date\n      info: component 'rust-std' for target 'i686-unknown-linux-gnu' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-linux-gnu'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"arceos-org\" repo=\"x86_rtc\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-apple-darwin' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-linux-gnu' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      info: component 'rust-std' for target 'arm-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'armv7-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'i686-pc-windows-msvc' is up to date\n      info: component 'rust-std' for target 'i686-unknown-linux-gnu' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-linux-gnu'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-apple-darwin\", \"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-pc-windows-msvc\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-linux-gnu\", \"powerpc-unknown-linux-gnu\", \"powerpc64-unknown-linux-gnu\", \"powerpc64le-unknown-linux-gnu\", \"riscv64gc-unknown-linux-gnu\", \"riscv64gc-unknown-none-elf\", \"sparc64-unknown-linux-gnu\", \"x86_64-apple-darwin\", \"x86_64-pc-windows-gnu\", \"x86_64-pc-windows-msvc\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"arceos-org\" repo=\"tuple_for_each\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
             ]
           }
         }
