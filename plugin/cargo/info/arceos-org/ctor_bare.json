@@ -2,8 +2,8 @@
   "user": "arceos-org",
   "repo": "ctor_bare",
   "timestamp": {
-    "start": 1752112394464,
-    "end": 1756776301915
+    "start": 1756950237615,
+    "end": 1756950237705
   },
   "pkgs": {
     "ctor_bare": {
@@ -21,15 +21,15 @@
               {
                 "name": "test_ctor_bare",
                 "status": "ok",
-                "duration_ms": 9,
+                "duration_ms": 20,
                 "error": null,
                 "miri_pass": false,
-                "miri_output": "   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling quote v1.0.40\n   Compiling syn v2.0.104\n   Compiling ctor_bare_macros v0.2.1\n   Compiling ctor_bare v0.2.1 (/tmp/os-checker-plugin-cargo/arceos-org/ctor_bare/ctor_bare)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.40s\n     Running tests/test_ctor.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test_ctor-530f9f7fcb7f744f)\nerror: test failed, to rerun pass `-p ctor_bare --test test_ctor`\n",
+                "miri_output": "   Compiling proc-macro2 v1.0.101\n   Compiling unicode-ident v1.0.18\n   Compiling quote v1.0.40\n   Compiling syn v2.0.106\n   Compiling ctor_bare_macros v0.2.1\n   Compiling ctor_bare v0.2.1 (/tmp/os-checker-plugin-cargo/arceos-org/ctor_bare/ctor_bare)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.07s\n     Running tests/test_ctor.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test_ctor-d2555f9128cd09a4)\nerror: unsupported operation: only function pointers and arrays of function pointers are supported in well-known linker sections\n  |\n  = note: unsupported operation occurred here\n  = note: (no span available)\n  = help: this is likely not a bug in the program; it indicates that the program performed an operation that Miri does not support\n  = note: BACKTRACE:\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p ctor_bare --test test_ctor`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/ctor_bare/target/miri/x86_64-unknown-linux-gnu/debug/deps/test_ctor-d2555f9128cd09a4 test_ctor_bare` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
                 "miri_timeout": false
               }
             ],
             "failed": 0,
-            "duration_ms": 9
+            "duration_ms": 20
           },
           {
             "id": "ctor_bare::test_empty",
@@ -39,19 +39,19 @@
               {
                 "name": "test_empty",
                 "status": "ok",
-                "duration_ms": 9,
+                "duration_ms": 13,
                 "error": null,
                 "miri_pass": false,
-                "miri_output": "   Compiling ctor_bare v0.2.1 (/tmp/os-checker-plugin-cargo/arceos-org/ctor_bare/ctor_bare)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.09s\n     Running tests/test_empty.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test_empty-b1d812bd6ac1ff26)\nwarning: integer-to-pointer cast\n  --> /tmp/os-checker-plugin-cargo/arceos-org/ctor_bare/ctor_bare/src/lib.rs:27:18\n   |\n27 |                 *(ctor_ptr as *const *const core::ffi::c_void),\n   |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ integer-to-pointer cast\n   |\n   = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n   = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n   = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n   = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n   = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n   = note: BACKTRACE on thread `test_empty`:\n   = note: inside `ctor_bare::call_ctors` at /tmp/os-checker-plugin-cargo/arceos-org/ctor_bare/ctor_bare/src/lib.rs:27:18: 27:63\nnote: inside `test_empty`\n  --> ctor_bare/tests/test_empty.rs:6:5\n   |\n6  |     ctor_bare::call_ctors();\n   |     ^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n  --> ctor_bare/tests/test_empty.rs:2:16\n   |\n1  | #[test]\n   | ------- in this procedural macro expansion\n2  | fn test_empty() {\n   |                ^\n\nerror: Undefined Behavior: accessing alloc70390 which contains a function\n  --> /tmp/os-checker-plugin-cargo/arceos-org/ctor_bare/ctor_bare/src/lib.rs:27:17\n   |\n27 |                 *(ctor_ptr as *const *const core::ffi::c_void),\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n   |\n   = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n   = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n   = note: BACKTRACE on thread `test_empty`:\n   = note: inside `ctor_bare::call_ctors` at /tmp/os-checker-plugin-cargo/arceos-org/ctor_bare/ctor_bare/src/lib.rs:27:17: 27:63\nnote: inside `test_empty`\n  --> ctor_bare/tests/test_empty.rs:6:5\n   |\n6  |     ctor_bare::call_ctors();\n   |     ^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n  --> ctor_bare/tests/test_empty.rs:2:16\n   |\n1  | #[test]\n   | ------- in this procedural macro expansion\n2  | fn test_empty() {\n   |                ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 1 warning emitted\n\nerror: test failed, to rerun pass `-p ctor_bare --test test_empty`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/ctor_bare/target/miri/x86_64-unknown-linux-gnu/debug/deps/test_empty-b1d812bd6ac1ff26 test_empty` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
+                "miri_output": "   Compiling ctor_bare v0.2.1 (/tmp/os-checker-plugin-cargo/arceos-org/ctor_bare/ctor_bare)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.09s\n     Running tests/test_empty.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/test_empty-7eb8658f13bbbeef)\nerror: unsupported operation: only function pointers and arrays of function pointers are supported in well-known linker sections\n  |\n  = note: unsupported operation occurred here\n  = note: (no span available)\n  = help: this is likely not a bug in the program; it indicates that the program performed an operation that Miri does not support\n  = note: BACKTRACE:\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p ctor_bare --test test_empty`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/ctor_bare/target/miri/x86_64-unknown-linux-gnu/debug/deps/test_empty-7eb8658f13bbbeef test_empty` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
                 "miri_timeout": false
               }
             ],
             "failed": 0,
-            "duration_ms": 9
+            "duration_ms": 13
           }
         ],
         "failed": 0,
-        "duration_ms": 18,
+        "duration_ms": 33,
         "pkg_tests_count": 2,
         "workspace_tests_count": 2
       },

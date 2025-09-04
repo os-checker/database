@@ -2,8 +2,8 @@
   "user": "drivercraft",
   "repo": "rdrive",
   "timestamp": {
-    "start": 1755653241397,
-    "end": 1756776340377
+    "start": 1756952258558,
+    "end": 1756952258846
   },
   "pkgs": {
     "enumerate": {
@@ -34,68 +34,7 @@
       "dependencies": 5,
       "lib": true,
       "bin": false,
-      "testcases": {
-        "tests": [
-          {
-            "id": "rdif-base",
-            "kind": "lib",
-            "binary_name": "rdif_base",
-            "testcases": [
-              {
-                "name": "io::test::test_async_r",
-                "status": "ok",
-                "duration_ms": 5,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "io::test::test_async_r2",
-                "status": "ok",
-                "duration_ms": 5,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "io::test::test_async_w",
-                "status": "ok",
-                "duration_ms": 5,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "io::test::test_r",
-                "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "io::test::test_w",
-                "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              }
-            ],
-            "failed": 0,
-            "duration_ms": 23
-          }
-        ],
-        "failed": 0,
-        "duration_ms": 23,
-        "pkg_tests_count": 5,
-        "workspace_tests_count": 12
-      },
+      "testcases": null,
       "tests": 0,
       "examples": 0,
       "benches": 0,
@@ -405,86 +344,7 @@
       "dependencies": 14,
       "lib": true,
       "bin": false,
-      "testcases": {
-        "tests": [
-          {
-            "id": "rdrive",
-            "kind": "lib",
-            "binary_name": "rdrive",
-            "testcases": [
-              {
-                "name": "manager::tests::test_device_container",
-                "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "manager::tests::test_device_downcast",
-                "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": false,
-                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/rdrive-1abf0100137fbce9)\nerror: Undefined Behavior: trying to retag from <185912> for Unique permission at alloc78756[0x0], but that tag only grants SharedReadOnly permission for this location\n   --> rdrive/src/lock.rs:196:31\n    |\n196 |         let t2_any = unsafe { &mut *self.ptr }\n    |                               ^^^^^^^^^^^^^^ this error occurs as part of retag at alloc78756[0x0..0x10]\n    |\n    = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental\n    = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information\nhelp: <185912> was created by a SharedReadOnly retag at offsets [0x0..0x10]\n   --> rdrive/src/lock.rs:149:24\n    |\n149 |             Some(v) => v as *const T as *mut T,\n    |                        ^\n    = note: BACKTRACE (of the first span) on thread `manager::tests:`:\n    = note: inside `lock::Device::<driver::intc::Intc>::downcast::<manager::tests::IrqTest>` at rdrive/src/lock.rs:196:31: 196:45\nnote: inside `manager::tests::test_device_downcast`\n   --> rdrive/src/manager.rs:206:26\n    |\n206 |         let intc_typed = weak.downcast::<IrqTest>().unwrap();\n    |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> rdrive/src/manager.rs:200:30\n    |\n199 |     #[test]\n    |     ------- in this attribute macro expansion\n200 |     fn test_device_downcast() {\n    |                              ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p rdrive --lib`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/drivercraft/rdrive/target/miri/x86_64-unknown-linux-gnu/debug/deps/rdrive-1abf0100137fbce9 rdrive 'manager::tests::test_device_downcast'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --nocapture to the harness.\n",
-                "miri_timeout": false
-              },
-              {
-                "name": "manager::tests::test_devices",
-                "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "manager::tests::test_get_one",
-                "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "manager::tests::test_inner_type",
-                "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "manager::tests::test_locked_device",
-                "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              },
-              {
-                "name": "manager::tests::test_not_found",
-                "status": "ok",
-                "duration_ms": 4,
-                "error": null,
-                "miri_pass": true,
-                "miri_output": null,
-                "miri_timeout": false
-              }
-            ],
-            "failed": 0,
-            "duration_ms": 28
-          }
-        ],
-        "failed": 0,
-        "duration_ms": 28,
-        "pkg_tests_count": 7,
-        "workspace_tests_count": 12
-      },
+      "testcases": null,
       "tests": 0,
       "examples": 0,
       "benches": 0,
