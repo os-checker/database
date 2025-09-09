@@ -15,9 +15,6 @@
           "features": "",
           "count": 10,
           "kinds": {
-            "Mirai": [
-              "error[E0658]: cannot cast `dyn serialport::SerialPort` to `dyn std::io::Read + std::marker::Send`, trait upcasting coercion is experimental\n   --> ostool/src/step/uboot/mod.rs:237:53\n    |\n237 |         let mut uboot = UbootShell::new(tx, UbootRx(rx)).unwrap();\n    |                                                     ^^\n    |\n    = note: see issue #65991 <https://github.com/rust-lang/rust/issues/65991> for more information\n    = help: add `#![feature(trait_upcasting)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-09; consider upgrading it if it is out of date\n    = note: required when coercing `std::boxed::Box<dyn serialport::SerialPort>` into `std::boxed::Box<(dyn std::io::Read + std::marker::Send + 'static)>`\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: variables can be used directly in the `format!` string\n   --> ostool/src/step/uboot/mod.rs:142:9\n    |\n142 |         println!(\"内核：{}\", kernel_bin);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n142 -         println!(\"内核：{}\", kernel_bin);\n142 +         println!(\"内核：{kernel_bin}\");\n    |\n\n",
               "warning: this `if` statement can be collapsed\n   --> ostool/src/step/uboot/mod.rs:147:9\n    |\n147 | /         if let Some(dtb) = PathBuf::from(&config.dtb_file).file_name() {\n148 | |             if !dtb.is_empty() {\n149 | |                 let dtb_name = dtb.to_str().unwrap().to_string();\n...   |\n166 | |         }\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\nhelp: collapse nested if block\n    |\n147 ~         if let Some(dtb) = PathBuf::from(&config.dtb_file).file_name()\n148 ~             && !dtb.is_empty() {\n149 |                 let dtb_name = dtb.to_str().unwrap().to_string();\n...\n164 |                 });\n165 ~             }\n    |\n\n",
@@ -28,6 +25,9 @@
               "warning: this `if` statement can be collapsed\n   --> ostool/src/step/uboot/mod.rs:295:21\n    |\n295 | /                     if let Ok(Event::Key(key)) = event::read() {\n296 | |                         if matches!(key.kind, event::KeyEventKind::Release) {\n297 | |                             match key.code {\n298 | |                                 KeyCode::Char(ch) => {\n...   |\n310 | |                     }\n    | |_____________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\nhelp: collapse nested if block\n    |\n295 ~                     if let Ok(Event::Key(key)) = event::read()\n296 ~                         && matches!(key.kind, event::KeyEventKind::Release) {\n297 |                             match key.code {\n...\n308 |                             }\n309 ~                         }\n    |\n\n",
               "warning: calling .bytes() is very inefficient when data is not in memory\n   --> ostool/src/step/uboot/mod.rs:322:21\n    |\n322 |         for byte in uboot.rx.as_mut().unwrap().bytes() {\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: consider using `BufReader`\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unbuffered_bytes\n    = note: `#[warn(clippy::unbuffered_bytes)]` on by default\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> ostool/src/step/uboot/mod.rs:385:5\n    |\n385 |     println!(\"{}\", res);\n    |     ^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n385 -     println!(\"{}\", res);\n385 +     println!(\"{res}\");\n    |\n\n"
+            ],
+            "Mirai": [
+              "error[E0658]: cannot cast `dyn serialport::SerialPort` to `dyn std::io::Read + std::marker::Send`, trait upcasting coercion is experimental\n   --> ostool/src/step/uboot/mod.rs:237:53\n    |\n237 |         let mut uboot = UbootShell::new(tx, UbootRx(rx)).unwrap();\n    |                                                     ^^\n    |\n    = note: see issue #65991 <https://github.com/rust-lang/rust/issues/65991> for more information\n    = help: add `#![feature(trait_upcasting)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-09; consider upgrading it if it is out of date\n    = note: required when coercing `std::boxed::Box<dyn serialport::SerialPort>` into `std::boxed::Box<(dyn std::io::Read + std::marker::Send + 'static)>`\n\n"
             ]
           }
         },
@@ -72,10 +72,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: unused variable: `board_toml`\n  --> ostool/src/project.rs:86:21\n   |\n86 |                 for board_toml in include_files {\n   |                     ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_board_toml`\n   |\n   = note: `#[warn(unused_variables)]` on by default\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: unused variable: `board_toml`\n  --> ostool/src/project.rs:86:21\n   |\n86 |                 for board_toml in include_files {\n   |                     ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_board_toml`\n   |\n   = note: `#[warn(unused_variables)]` on by default\n\n"
             ]
           }
