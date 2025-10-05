@@ -4,40 +4,187 @@
       "user": "drivercraft",
       "repo": "fdt-parser",
       "pkg": "fdt-parser",
-      "count": 8,
+      "count": 16,
       "raw_reports": [
         {
           "file": "fdt-parser/src/define.rs",
           "features": "",
-          "count": 4,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: struct `RawReg` is never constructed\n  --> fdt-parser/src/define.rs:87:12\n   |\n87 | pub struct RawReg<'a> {\n   |            ^^^^^^\n   |\n   = note: `#[warn(dead_code)]` on by default\n\n",
-              "warning: variables can be used directly in the `format!` string\n   --> fdt-parser/src/define.rs:235:25\n    |\n235 |             f.write_fmt(format_args!(\"{:#x}>\", s))\n    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n    = note: `#[warn(clippy::uninlined_format_args)]` on by default\nhelp: change this to\n    |\n235 -             f.write_fmt(format_args!(\"{:#x}>\", s))\n235 +             f.write_fmt(format_args!(\"{s:#x}>\"))\n    |\n\n",
-              "warning: variables can be used directly in the `format!` string\n   --> fdt-parser/src/define.rs:265:25\n    |\n265 |             f.write_fmt(format_args!(\"{:#x} \", addr))?;\n    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n265 -             f.write_fmt(format_args!(\"{:#x} \", addr))?;\n265 +             f.write_fmt(format_args!(\"{addr:#x} \"))?;\n    |\n\n",
-              "warning: variables can be used directly in the `format!` string\n   --> fdt-parser/src/define.rs:269:25\n    |\n269 |             f.write_fmt(format_args!(\"{:#x} \", addr))?;\n    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n269 -             f.write_fmt(format_args!(\"{:#x} \", addr))?;\n269 +             f.write_fmt(format_args!(\"{addr:#x} \"))?;\n    |\n\n"
-            ]
-          }
-        },
-        {
-          "file": "fdt-parser/src/pci.rs",
-          "features": "",
           "count": 3,
           "kinds": {
             "Clippy(Warn)": [
-              "warning: lifetime flowing from input to output with different syntax can be confusing\n  --> fdt-parser/src/pci.rs:25:19\n   |\n25 |     pub fn ranges(&self) -> FdtResult<impl Iterator<Item = PciRange> + 'a> {\n   |                   ^^^^^     ---------------------------------------------- the lifetime gets resolved as `'_`\n   |                   |\n   |                   this lifetime flows to the output\n   |\n   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n   |\n25 |     pub fn ranges(&self) -> FdtResult<'_, impl Iterator<Item = PciRange> + 'a> {\n   |                                       +++\n\n",
-              "warning: lifetime flowing from input to output with different syntax can be confusing\n  --> fdt-parser/src/pci.rs:37:9\n   |\n37 |         &self,\n   |         ^^^^^ this lifetime flows to the output\n...\n42 |     ) -> FdtResult<PciChildIrq<'a>> {\n   |          -------------------------- the lifetime gets resolved as `'_`\n   |\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n   |\n42 |     ) -> FdtResult<'_, PciChildIrq<'a>> {\n   |                    +++\n\n",
-              "warning: lifetime flowing from input to output with different syntax can be confusing\n   --> fdt-parser/src/pci.rs:101:27\n    |\n101 |     fn interrupt_map_mask(&self) -> FdtResult<[u32; 4]> {\n    |                           ^^^^^     ------------------- the lifetime gets resolved as `'_`\n    |                           |\n    |                           this lifetime flows to the output\n    |\nhelp: one option is to remove the lifetime for references and use the anonymous lifetime for paths\n    |\n101 |     fn interrupt_map_mask(&self) -> FdtResult<'_, [u32; 4]> {\n    |                                               +++\n\n"
+              "warning: variables can be used directly in the `format!` string\n  --> fdt-parser/src/define.rs:89:25\n   |\n89 |             f.write_fmt(format_args!(\"{:#x}>\", s))\n   |                         ^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n   = note: `#[warn(clippy::uninlined_format_args)]` on by default\nhelp: change this to\n   |\n89 -             f.write_fmt(format_args!(\"{:#x}>\", s))\n89 +             f.write_fmt(format_args!(\"{s:#x}>\"))\n   |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> fdt-parser/src/define.rs:119:25\n    |\n119 |             f.write_fmt(format_args!(\"{:#x} \", addr))?;\n    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n119 -             f.write_fmt(format_args!(\"{:#x} \", addr))?;\n119 +             f.write_fmt(format_args!(\"{addr:#x} \"))?;\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> fdt-parser/src/define.rs:123:25\n    |\n123 |             f.write_fmt(format_args!(\"{:#x} \", addr))?;\n    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n123 -             f.write_fmt(format_args!(\"{:#x} \", addr))?;\n123 +             f.write_fmt(format_args!(\"{addr:#x} \"))?;\n    |\n\n"
             ]
           }
         },
         {
-          "file": "src/fdt.rs",
+          "file": "fdt-parser/src/base/node/mod.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: this function has too many arguments (9/7)\n  --> fdt-parser/src/base/node/mod.rs:43:5\n   |\n43 | /     pub(crate) fn new_with_parent_info(\n44 | |         name: &'a str,\n45 | |         fdt: Fdt<'a>,\n46 | |         raw: Raw<'a>,\n...  |\n52 | |         interrupt_parent: Option<Phandle>,\n53 | |     ) -> Self {\n   | |_____________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_arguments\n   = note: `#[warn(clippy::too_many_arguments)]` on by default\n\n",
+              "warning: enclosing `Ok` and `?` operator are unneeded\n   --> fdt-parser/src/base/node/mod.rs:212:9\n    |\n212 |         Ok(prop.u32()?)\n    |         ^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_question_mark\n    = note: `#[warn(clippy::needless_question_mark)]` on by default\nhelp: remove the enclosing `Ok` and `?` operator\n    |\n212 -         Ok(prop.u32()?)\n212 +         prop.u32()\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "fdt-parser/src/cache/node/mod.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: this loop could be written as a `for` loop\n   --> fdt-parser/src/cache/node/mod.rs:243:9\n    |\n243 |         while let Some(entry) = iter.next() {\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `for entry in iter`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#while_let_on_iterator\n    = note: `#[warn(clippy::while_let_on_iterator)]` on by default\n\n",
+              "warning: use of `unwrap_or_else` to construct default value\n   --> fdt-parser/src/cache/node/mod.rs:260:14\n    |\n260 |             .unwrap_or_else(Vec::new);\n    |              ^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `unwrap_or_default()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unwrap_or_default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "fdt-parser/src/cache/node/pci.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: the loop variable `i` is only used to index `child_addr`\n   --> fdt-parser/src/cache/node/pci.rs:216:22\n    |\n216 |             for i in 0..3 {\n    |                      ^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\n    = note: `#[warn(clippy::needless_range_loop)]` on by default\nhelp: consider using an iterator\n    |\n216 -             for i in 0..3 {\n216 +             for <item> in &mut child_addr {\n    |\n\n",
+              "warning: the loop variable `idx` is used to index `mask`\n   --> fdt-parser/src/cache/node/pci.rs:299:20\n    |\n299 |         for idx in 0..child_addr_cells {\n    |                    ^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator and enumerate()\n    |\n299 -         for idx in 0..child_addr_cells {\n299 +         for (idx, <item>) in mask.iter().enumerate().take(child_addr_cells) {\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
           "features": "",
           "count": 1,
           "kinds": {
-            "Unformatted": [
-              "file: /home/runner/check/batch_4/drivercraft/fdt-parser/fdt-parser/src/fdt.rs (original lines from 16 to 16)\n-    \n"
+            "Cargo": [
+              "// pkg_name=fdt-parser, checker=Lockbud\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/fdt-parser/fdt-parser\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2025-10-06 4:29:57.018976155 +08:00:00\n   Compiling byteorder v1.5.0\n   Compiling thiserror v2.0.17\n   Compiling heapless v0.9.1\n   Compiling stable_deref_trait v1.2.0\n   Compiling log v0.4.28\n   Compiling hash32 v0.3.1\n[2025-10-05T20:29:57Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.28/src/lib.rs:1525:11: 1525:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.28/src/lib.rs:1528:13: 1528:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-10-05T20:29:57Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n   Compiling fdt-parser v0.5.0 (/home/runner/check/batch_4/drivercraft/fdt-parser/fdt-parser)\nerror[E0658]: use of unstable library feature `unsigned_is_multiple_of`\n  --> fdt-parser/src/header.rs:55:28\n   |\n55 |         if !(ptr as usize).is_multiple_of(core::mem::align_of::<Header>()) {\n   |                            ^^^^^^^^^^^^^^\n   |\n   = note: see issue #128101 <https://github.com/rust-lang/rust/issues/128101> for more information\n   = help: add `#![feature(unsigned_is_multiple_of)]` to the crate attributes to enable\n   = note: this compiler was built on 2025-01-31; consider upgrading it if it is out of date\n\nFor more information about this error, try `rustc --explain E0658`.\nerror: could not compile `fdt-parser` (lib) due to 1 previous error\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-10-05T20:29:57Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.28/src/lib.rs:1525:11: 1525:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.28/src/lib.rs:1528:13: 1528:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-10-05T20:29:57Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=fdt-parser, checker=Udeps\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/fdt-parser/fdt-parser\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2025-10-06 4:30:54.790422885 +08:00:00\n\n\nstdout:\nunused dependencies:\n`fdt-parser v0.5.0 (/home/runner/check/batch_4/drivercraft/fdt-parser/fdt-parser)`\n└─── dependencies\n     └─── \"log\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking byteorder v1.5.0\n   Compiling heapless v0.9.1\n   Compiling thiserror v2.0.17\n    Checking stable_deref_trait v1.2.0\n    Checking log v0.4.28\n    Checking hash32 v0.3.1\n    Checking fdt-parser v0.5.0 (/home/runner/check/batch_4/drivercraft/fdt-parser/fdt-parser)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.69s\ninfo: Loading depinfo from \"/home/runner/check/batch_4/drivercraft/fdt-parser/target/riscv64gc-unknown-none-elf/debug/deps/fdt_parser-4ca89cde9a3cbd1e.d\"\n"
+            ]
+          }
+        },
+        {
+          "file": "fdt-parser/src/base/fdt.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: very complex type used. Consider factoring parts into `type` definitions\n   --> fdt-parser/src/base/fdt.rs:377:10\n    |\n377 |       ) -> Result<\n    |  __________^\n378 | |         (\n379 | |             Option<u8>,\n380 | |             Option<u8>,\n...   |\n384 | |         FdtError,\n385 | |     > {\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#type_complexity\n    = note: `#[warn(clippy::type_complexity)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "fdt-parser/src/cache/node/chosen.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: manual implementation of `Option::map`\n  --> fdt-parser/src/cache/node/chosen.rs:35:9\n   |\n35 | /         if let Some(node) = self.node.fdt.get_node_by_path(name) {\n36 | |             Some(Stdout {\n37 | |                 params: params.map(|s| s.to_string()),\n38 | |                 node,\n...  |\n41 | |             None\n42 | |         }\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_map\n   = note: `#[warn(clippy::manual_map)]` on by default\nhelp: try\n   |\n35 ~         self.node.fdt.get_node_by_path(name).map(|node| Stdout {\n36 +                 params: params.map(|s| s.to_string()),\n37 +                 node,\n38 +             })\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "fdt-parser/src/cache/node/clock.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: use of `unwrap_or_else` to construct default value\n   --> fdt-parser/src/cache/node/clock.rs:105:14\n    |\n105 |             .unwrap_or_else(Vec::new);\n    |              ^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `unwrap_or_default()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unwrap_or_default\n    = note: `#[warn(clippy::unwrap_or_default)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "fdt-parser/src/property.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: variables can be used directly in the `format!` string\n  --> fdt-parser/src/property.rs:53:13\n   |\n53 |             write!(f, \"{:#x}, \", v)?;\n   |             ^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n   |\n53 -             write!(f, \"{:#x}, \", v)?;\n53 +             write!(f, \"{v:#x}, \")?;\n   |\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "drivercraft",
+      "repo": "fdt-parser",
+      "pkg": "dtb-file",
+      "count": 14,
+      "raw_reports": [
+        {
+          "file": "dtb-file/src/lib.rs",
+          "features": "",
+          "count": 10,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `dtb_file` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:3:31\n  |\n3 | const TEST_RPI_4_FDT: &[u8] = include_bytes!(\"dtb/bcm2711-rpi-4-b.dtb\");\n  |                               ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\n",
+              "error: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:4:33\n  |\n4 | const TEST_PHYTIUM_FDT: &[u8] = include_bytes!(\"dtb/phytium.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\n",
+              "error: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:5:30\n  |\n5 | const TEST_QEMU_FDT: &[u8] = include_bytes!(\"dtb/qemu_pci.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\n",
+              "error: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:6:30\n  |\n6 | const TEST_3568_FDT: &[u8] = include_bytes!(\"dtb/rk3568-firefly-roc-pc-se.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\n",
+              "error: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:7:33\n  |\n7 | const TEST_RESERVE_FDT: &[u8] = include_bytes!(\"dtb/test_reserve.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\n",
+              "error[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:38:28\n   |\n38 |         let ptr = unsafe { std::alloc::alloc_zeroed(layout) };\n   |                            ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:51:18\n   |\n51 |         unsafe { std::alloc::dealloc(self.ptr, layout) };\n   |                  ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:59:18\n   |\n59 |         unsafe { std::slice::from_raw_parts(self.ptr, self.size) }\n   |                  ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error[E0405]: cannot find trait `Drop` in this scope\n  --> dtb-file/src/lib.rs:48:6\n   |\n48 | impl Drop for Align4Vec {\n   |      ^^^^ not found in this scope\n   |\nhelp: consider importing this trait\n   |\n1  + use core::ops::Drop;\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=dtb-file, checker=Clippy\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/fdt-parser/dtb-file\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf  --no-deps\n// timestamp=2025-10-06 4:26:52.795737507 +08:00:00\n    Checking dtb-file v0.1.0 (/home/runner/check/batch_4/drivercraft/fdt-parser/dtb-file)\nerror: could not compile `dtb-file` (lib) due to 10 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=dtb-file, checker=Lockbud\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/fdt-parser/dtb-file\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2025-10-06 4:29:43.14589578 +08:00:00\n   Compiling dtb-file v0.1.0 (/home/runner/check/batch_4/drivercraft/fdt-parser/dtb-file)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `dtb_file` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:3:31\n  |\n3 | const TEST_RPI_4_FDT: &[u8] = include_bytes!(\"dtb/bcm2711-rpi-4-b.dtb\");\n  |                               ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:4:33\n  |\n4 | const TEST_PHYTIUM_FDT: &[u8] = include_bytes!(\"dtb/phytium.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:5:30\n  |\n5 | const TEST_QEMU_FDT: &[u8] = include_bytes!(\"dtb/qemu_pci.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:6:30\n  |\n6 | const TEST_3568_FDT: &[u8] = include_bytes!(\"dtb/rk3568-firefly-roc-pc-se.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:7:33\n  |\n7 | const TEST_RESERVE_FDT: &[u8] = include_bytes!(\"dtb/test_reserve.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:38:28\n   |\n38 |         let ptr = unsafe { std::alloc::alloc_zeroed(layout) };\n   |                            ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:51:18\n   |\n51 |         unsafe { std::alloc::dealloc(self.ptr, layout) };\n   |                  ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:59:18\n   |\n59 |         unsafe { std::slice::from_raw_parts(self.ptr, self.size) }\n   |                  ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0405]: cannot find trait `Drop` in this scope\n  --> dtb-file/src/lib.rs:48:6\n   |\n48 | impl Drop for Align4Vec {\n   |      ^^^^ not found in this scope\n   |\nhelp: consider importing this trait\n   |\n1  + use core::ops::Drop;\n   |\n\nSome errors have detailed explanations: E0405, E0463.\nFor more information about an error, try `rustc --explain E0405`.\nerror: could not compile `dtb-file` (lib) due to 10 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=dtb-file, checker=Udeps\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/fdt-parser/dtb-file\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \n// timestamp=2025-10-06 4:30:45.021070767 +08:00:00\n    Checking dtb-file v0.1.0 (/home/runner/check/batch_4/drivercraft/fdt-parser/dtb-file)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `dtb_file` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:3:31\n  |\n3 | const TEST_RPI_4_FDT: &[u8] = include_bytes!(\"dtb/bcm2711-rpi-4-b.dtb\");\n  |                               ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:4:33\n  |\n4 | const TEST_PHYTIUM_FDT: &[u8] = include_bytes!(\"dtb/phytium.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:5:30\n  |\n5 | const TEST_QEMU_FDT: &[u8] = include_bytes!(\"dtb/qemu_pci.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:6:30\n  |\n6 | const TEST_3568_FDT: &[u8] = include_bytes!(\"dtb/rk3568-firefly-roc-pc-se.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:7:33\n  |\n7 | const TEST_RESERVE_FDT: &[u8] = include_bytes!(\"dtb/test_reserve.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:38:28\n   |\n38 |         let ptr = unsafe { std::alloc::alloc_zeroed(layout) };\n   |                            ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:51:18\n   |\n51 |         unsafe { std::alloc::dealloc(self.ptr, layout) };\n   |                  ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:59:18\n   |\n59 |         unsafe { std::slice::from_raw_parts(self.ptr, self.size) }\n   |                  ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0405]: cannot find trait `Drop` in this scope\n  --> dtb-file/src/lib.rs:48:6\n   |\n48 | impl Drop for Align4Vec {\n   |      ^^^^ not found in this scope\n   |\nhelp: consider importing this trait\n   |\n1  + use core::ops::Drop;\n   |\n\nSome errors have detailed explanations: E0405, E0463.\nFor more information about an error, try `rustc --explain E0405`.\nerror: could not compile `dtb-file` (lib) due to 10 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=dtb-file, checker=Udeps\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/fdt-parser/dtb-file\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2025-10-06 4:30:45.157234806 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking dtb-file v0.1.0 (/home/runner/check/batch_4/drivercraft/fdt-parser/dtb-file)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `dtb_file` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:3:31\n  |\n3 | const TEST_RPI_4_FDT: &[u8] = include_bytes!(\"dtb/bcm2711-rpi-4-b.dtb\");\n  |                               ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:4:33\n  |\n4 | const TEST_PHYTIUM_FDT: &[u8] = include_bytes!(\"dtb/phytium.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:5:30\n  |\n5 | const TEST_QEMU_FDT: &[u8] = include_bytes!(\"dtb/qemu_pci.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:6:30\n  |\n6 | const TEST_3568_FDT: &[u8] = include_bytes!(\"dtb/rk3568-firefly-roc-pc-se.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:7:33\n  |\n7 | const TEST_RESERVE_FDT: &[u8] = include_bytes!(\"dtb/test_reserve.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:38:28\n   |\n38 |         let ptr = unsafe { std::alloc::alloc_zeroed(layout) };\n   |                            ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:51:18\n   |\n51 |         unsafe { std::alloc::dealloc(self.ptr, layout) };\n   |                  ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:59:18\n   |\n59 |         unsafe { std::slice::from_raw_parts(self.ptr, self.size) }\n   |                  ^^^ can't find crate\n   |\n   = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0405]: cannot find trait `Drop` in this scope\n  --> dtb-file/src/lib.rs:48:6\n   |\n48 | impl Drop for Align4Vec {\n   |      ^^^^ not found in this scope\n   |\nhelp: consider importing this trait\n   |\n1  + use core::ops::Drop;\n   |\n\nSome errors have detailed explanations: E0405, E0463.\nFor more information about an error, try `rustc --explain E0405`.\nerror: could not compile `dtb-file` (lib) due to 10 previous errors\n"
             ]
           }
         }
