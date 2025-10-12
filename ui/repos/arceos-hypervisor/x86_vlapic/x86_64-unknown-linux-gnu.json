@@ -15,6 +15,10 @@
           "features": "",
           "count": 25,
           "kinds": {
+            "Mirai": [
+              "warning: methods `apic_base` and `is_xapic_enabled` are never used\n   --> src/vlapic.rs:95:12\n    |\n63  | impl VirtualApicRegs {\n    | -------------------- methods in this implementation\n...\n95  |     pub fn apic_base(&self) -> u64 {\n    |            ^^^^^^^^^\n...\n106 |     pub fn is_xapic_enabled(&self) -> bool {\n    |            ^^^^^^^^^^^^^^^^\n\n",
+              "warning: methods `apic_base` and `is_xapic_enabled` are never used\n   --> src/vlapic.rs:95:12\n    |\n63  | impl VirtualApicRegs {\n    | -------------------- methods in this implementation\n...\n95  |     pub fn apic_base(&self) -> u64 {\n    |            ^^^^^^^^^\n...\n106 |     pub fn is_xapic_enabled(&self) -> bool {\n    |            ^^^^^^^^^^^^^^^^\n\n"
+            ],
             "Clippy(Warn)": [
               "warning: methods `apic_base` and `is_xapic_enabled` are never used\n   --> src/vlapic.rs:95:12\n    |\n63  | impl VirtualApicRegs {\n    | -------------------- methods in this implementation\n...\n95  |     pub fn apic_base(&self) -> u64 {\n    |            ^^^^^^^^^\n...\n106 |     pub fn is_xapic_enabled(&self) -> bool {\n    |            ^^^^^^^^^^^^^^^^\n\n",
               "warning: methods `apic_base` and `is_xapic_enabled` are never used\n   --> src/vlapic.rs:95:12\n    |\n63  | impl VirtualApicRegs {\n    | -------------------- methods in this implementation\n...\n95  |     pub fn apic_base(&self) -> u64 {\n    |            ^^^^^^^^^\n...\n106 |     pub fn is_xapic_enabled(&self) -> bool {\n    |            ^^^^^^^^^^^^^^^^\n\n",
@@ -39,10 +43,6 @@
               "warning: variables can be used directly in the `format!` string\n   --> src/vlapic.rs:829:21\n    |\n829 |                     debug!(\"[VLAPIC] write ICR register: {:#018X} in X2APIC mode\", val);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n829 -                     debug!(\"[VLAPIC] write ICR register: {:#018X} in X2APIC mode\", val);\n829 +                     debug!(\"[VLAPIC] write ICR register: {val:#018X} in X2APIC mode\");\n    |\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/vlapic.rs:901:17\n    |\n901 |                 warn!(\"[VLAPIC] write unsupported APIC register: {:?}\", offset);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n901 -                 warn!(\"[VLAPIC] write unsupported APIC register: {:?}\", offset);\n901 +                 warn!(\"[VLAPIC] write unsupported APIC register: {offset:?}\");\n    |\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> src/vlapic.rs:906:9\n    |\n906 |         debug!(\"[VLAPIC] write {} register: {:#010X}\", offset, val);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n906 -         debug!(\"[VLAPIC] write {} register: {:#010X}\", offset, val);\n906 +         debug!(\"[VLAPIC] write {offset} register: {val:#010X}\");\n    |\n\n"
-            ],
-            "Mirai": [
-              "warning: methods `apic_base` and `is_xapic_enabled` are never used\n   --> src/vlapic.rs:95:12\n    |\n63  | impl VirtualApicRegs {\n    | -------------------- methods in this implementation\n...\n95  |     pub fn apic_base(&self) -> u64 {\n    |            ^^^^^^^^^\n...\n106 |     pub fn is_xapic_enabled(&self) -> bool {\n    |            ^^^^^^^^^^^^^^^^\n\n",
-              "warning: methods `apic_base` and `is_xapic_enabled` are never used\n   --> src/vlapic.rs:95:12\n    |\n63  | impl VirtualApicRegs {\n    | -------------------- methods in this implementation\n...\n95  |     pub fn apic_base(&self) -> u64 {\n    |            ^^^^^^^^^\n...\n106 |     pub fn is_xapic_enabled(&self) -> bool {\n    |            ^^^^^^^^^^^^^^^^\n\n"
             ]
           }
         },
@@ -141,10 +141,10 @@
           "features": "",
           "count": 2,
           "kinds": {
-            "Clippy(Warn)": [
+            "Mirai": [
               "warning: type alias `DivideConfigurationRegisterLocal` is never used\n  --> src/regs/timer/dcr.rs:42:10\n   |\n42 | pub type DivideConfigurationRegisterLocal = LocalRegisterCopy<u32, DCR_TIMER::Register>;\n   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
             ],
-            "Mirai": [
+            "Clippy(Warn)": [
               "warning: type alias `DivideConfigurationRegisterLocal` is never used\n  --> src/regs/timer/dcr.rs:42:10\n   |\n42 | pub type DivideConfigurationRegisterLocal = LocalRegisterCopy<u32, DCR_TIMER::Register>;\n   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n"
             ]
           }
