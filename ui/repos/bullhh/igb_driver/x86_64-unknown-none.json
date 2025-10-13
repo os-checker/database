@@ -60,14 +60,14 @@
           "features": "",
           "count": 5,
           "kinds": {
+            "Clippy(Error)": [
+              "error: variables can be used directly in the `format!` string\n   --> src/net_igb.rs:133:13\n    |\n133 |             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n133 -             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n133 +             log::error!(\"Failed to initialize ixgbe device: {err:?}\");\n    |\n\n"
+            ],
             "Unformatted": [
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 7 to 8)\n-use core::convert::From;\n-use core::{mem::ManuallyDrop, ptr::NonNull};\n+use crate::{IgbDevice, IgbError, IgbNetBuf, MemPool, NicDevice};\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 11 to 11)\n-use crate::{IgbDevice, IgbError, IgbNetBuf, MemPool, NicDevice};\n+use core::convert::From;\n+use core::{mem::ManuallyDrop, ptr::NonNull};\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 16 to 16)\n-\n",
               "file: /home/runner/check/batch_4/bullhh/igb_driver/src/net_igb.rs (original lines from 107 to 107)\n-\n"
-            ],
-            "Clippy(Error)": [
-              "error: variables can be used directly in the `format!` string\n   --> src/net_igb.rs:133:13\n    |\n133 |             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n133 -             log::error!(\"Failed to initialize ixgbe device: {:?}\", err);\n133 +             log::error!(\"Failed to initialize ixgbe device: {err:?}\");\n    |\n\n"
             ]
           }
         },
