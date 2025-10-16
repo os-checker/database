@@ -15,6 +15,10 @@
           "features": "",
           "count": 13,
           "kinds": {
+            "Mirai": [
+              "warning: unused import: `sync::atomic::fence`\n --> ostool/src/step/uboot/mod.rs:7:5\n  |\n7 |     sync::atomic::fence,\n  |     ^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
+              "error[E0658]: cannot cast `dyn serialport::SerialPort` to `dyn std::io::Read + std::marker::Send`, trait upcasting coercion is experimental\n   --> ostool/src/step/uboot/mod.rs:238:53\n    |\n238 |         let mut uboot = UbootShell::new(tx, UbootRx(rx)).unwrap();\n    |                                                     ^^\n    |\n    = note: see issue #65991 <https://github.com/rust-lang/rust/issues/65991> for more information\n    = help: add `#![feature(trait_upcasting)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-09; consider upgrading it if it is out of date\n    = note: required when coercing `std::boxed::Box<dyn serialport::SerialPort>` into `std::boxed::Box<(dyn std::io::Read + std::marker::Send + 'static)>`\n\n"
+            ],
             "Clippy(Warn)": [
               "warning: unused import: `sync::atomic::fence`\n --> ostool/src/step/uboot/mod.rs:7:5\n  |\n7 |     sync::atomic::fence,\n  |     ^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> ostool/src/step/uboot/mod.rs:143:9\n    |\n143 |         println!(\"内核：{}\", kernel_bin);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n143 -         println!(\"内核：{}\", kernel_bin);\n143 +         println!(\"内核：{kernel_bin}\");\n    |\n\n",
@@ -27,10 +31,6 @@
               "warning: this `if` statement can be collapsed\n   --> ostool/src/step/uboot/mod.rs:307:21\n    |\n307 | /                     if let Ok(Event::Key(key)) = event::read() {\n308 | |                         if matches!(key.kind, event::KeyEventKind::Release) {\n309 | |                             match key.code {\n310 | |                                 KeyCode::Char(ch) => {\n...   |\n322 | |                     }\n    | |_____________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\nhelp: collapse nested if block\n    |\n307 ~                     if let Ok(Event::Key(key)) = event::read()\n308 ~                         && matches!(key.kind, event::KeyEventKind::Release) {\n309 |                             match key.code {\n...\n320 |                             }\n321 ~                         }\n    |\n\n",
               "warning: calling .bytes() is very inefficient when data is not in memory\n   --> ostool/src/step/uboot/mod.rs:334:21\n    |\n334 |         for byte in uboot.rx.as_mut().unwrap().bytes() {\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: consider using `BufReader`\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unbuffered_bytes\n    = note: `#[warn(clippy::unbuffered_bytes)]` on by default\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> ostool/src/step/uboot/mod.rs:397:5\n    |\n397 |     println!(\"{}\", res);\n    |     ^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n397 -     println!(\"{}\", res);\n397 +     println!(\"{res}\");\n    |\n\n"
-            ],
-            "Mirai": [
-              "warning: unused import: `sync::atomic::fence`\n --> ostool/src/step/uboot/mod.rs:7:5\n  |\n7 |     sync::atomic::fence,\n  |     ^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` on by default\n\n",
-              "error[E0658]: cannot cast `dyn serialport::SerialPort` to `dyn std::io::Read + std::marker::Send`, trait upcasting coercion is experimental\n   --> ostool/src/step/uboot/mod.rs:238:53\n    |\n238 |         let mut uboot = UbootShell::new(tx, UbootRx(rx)).unwrap();\n    |                                                     ^^\n    |\n    = note: see issue #65991 <https://github.com/rust-lang/rust/issues/65991> for more information\n    = help: add `#![feature(trait_upcasting)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-09; consider upgrading it if it is out of date\n    = note: required when coercing `std::boxed::Box<dyn serialport::SerialPort>` into `std::boxed::Box<(dyn std::io::Read + std::marker::Send + 'static)>`\n\n"
             ]
           }
         },
@@ -39,12 +39,12 @@
           "features": "",
           "count": 3,
           "kinds": {
-            "Mirai": [
-              "warning: unused variable: `config`\n   --> ostool/src/main.rs:113:17\n    |\n113 |             let config = project.config.as_mut().unwrap();\n    |                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_config`\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: unused variable: `config`\n   --> ostool/src/main.rs:113:17\n    |\n113 |             let config = project.config.as_mut().unwrap();\n    |                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_config`\n\n",
               "warning: variables can be used directly in the `format!` string\n   --> ostool/src/main.rs:149:28\n    |\n149 |             println!(\"{}\", format!(\"warn: {}\", skip).yellow());\n    |                            ^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n149 -             println!(\"{}\", format!(\"warn: {}\", skip).yellow());\n149 +             println!(\"{}\", format!(\"warn: {skip}\").yellow());\n    |\n\n"
+            ],
+            "Mirai": [
+              "warning: unused variable: `config`\n   --> ostool/src/main.rs:113:17\n    |\n113 |             let config = project.config.as_mut().unwrap();\n    |                 ^^^^^^ help: if this is intentional, prefix it with an underscore: `_config`\n\n"
             ]
           }
         },
