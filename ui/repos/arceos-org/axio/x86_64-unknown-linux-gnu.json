@@ -7,46 +7,16 @@
     {
       "user": "arceos-org",
       "repo": "axio",
-      "pkg": "axio",
-      "count": 4,
+      "pkg": "",
+      "count": 1,
       "raw_reports": [
         {
-          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Lockbud(Possibly)": [
-              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) geiger",
+          "file": "/home/runner/check/batch_2/arceos-org/axio",
           "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "// pkg_name=axio, checker=Geiger\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/home/runner/check/batch_3/arceos-org/axio\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-06-28 15:24:32.219760619 +08:00:00\n     Removed 0 files\n   Compiling axerrno v0.1.0\n    Checking log v0.4.27\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_3/arceos-org/axio/target/debug/build/axerrno-09d22c82c598154d/build_script_build-09d22c82c598154d.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_3/arceos-org/axio/target/debug/deps/log-61ee3d839ec629a2.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_3/arceos-org/axio/target/debug/deps/liblog-61ee3d839ec629a2.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_3/arceos-org/axio/target/debug/build/axerrno-09d22c82c598154d/build_script_build-09d22c82c598154d\",\"emit\":\"link\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_3/arceos-org/axio/target/debug/deps/axerrno-3f3f9d83a23d7841.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_3/arceos-org/axio/target/debug/deps/libaxerrno-3f3f9d83a23d7841.rmeta\",\"emit\":\"metadata\"}\n    Checking axio v0.1.1 (/home/runner/check/batch_3/arceos-org/axio)\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_3/arceos-org/axio/target/debug/deps/axio-ca6cfa6eb2220c89.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/home/runner/check/batch_3/arceos-org/axio/target/debug/deps/libaxio-ca6cfa6eb2220c89.rmeta\",\"emit\":\"metadata\"}\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.29s\n    Scanning done\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/axerrno-0.1.0/README.md\nerror: Found 1 warnings\n"
-            ]
-          }
-        },
-        {
-          "file": "[Geiger] Unsafe code statistics",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Geiger": [
-              "pkg=axio, checker=Geiger\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_3/arceos-org/axio\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\ntimestamp=2025-06-28 15:24:32.616675895 +08:00:00\n\n\nMetric output format: x/y\n    x = unsafe code used by the build\n    y = total unsafe code found in the crate\n\nSymbols:\n    :) = No `unsafe` usage found, declares #![forbid(unsafe_code)]\n    ?  = No `unsafe` usage found, missing #![forbid(unsafe_code)]\n    !  = `unsafe` usage found\n\nFunctions  Expressions  Impls  Traits  Methods  Dependency\n\n1/1        26/26        0/0    0/0     0/0      !  axio 0.1.1\n0/0        1/1          0/0    0/0     0/0      !  `-- axerrno 0.1.0\n2/2        18/18        1/1    0/0     0/0      !      `-- log 0.4.27\n\n3/3        45/45        1/1    0/0     0/0\n\n"
-            ]
-          }
-        },
-        {
-          "file": "[Lockbud] deadlock detection",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Lockbud(Possibly)": [
-              "[2025-06-28T07:24:27Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-06-28T07:24:27Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-none\", \"riscv64gc-unknown-none-elf\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-unknown-linux-gnu' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      info: component 'rust-std' for target 'arm-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'armv7-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'i686-unknown-linux-gnu' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-none'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-none\", \"riscv64gc-unknown-none-elf\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"arceos-org\" repo=\"axio\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
             ]
           }
         }

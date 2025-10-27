@@ -7,26 +7,16 @@
     {
       "user": "drivercraft",
       "repo": "aarch64-cpu-ext",
-      "pkg": "aarch64-cpu-ext",
-      "count": 2,
+      "pkg": "",
+      "count": 1,
       "raw_reports": [
         {
-          "file": "[Geiger] Unsafe code statistics",
+          "file": "/home/runner/check/batch_4/drivercraft/aarch64-cpu-ext",
           "features": "",
           "count": 1,
           "kinds": {
-            "Geiger": [
-              "pkg=aarch64-cpu-ext, checker=Geiger\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/aarch64-cpu-ext\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\ntimestamp=2025-07-23 4:34:36.874880465 +08:00:00\n\n\nMetric output format: x/y\n    x = unsafe code used by the build\n    y = total unsafe code found in the crate\n\nSymbols:\n    :) = No `unsafe` usage found, declares #![forbid(unsafe_code)]\n    ?  = No `unsafe` usage found, missing #![forbid(unsafe_code)]\n    !  = `unsafe` usage found\n\nFunctions  Expressions  Impls  Traits  Methods  Dependency\n\n0/0        0/6          0/0    0/0     0/0      ?  aarch64-cpu-ext 0.1.4\n0/0        8/8          0/0    0/0     0/0      !  |-- aarch64-cpu 10.0.0\n0/0        0/24         0/0    0/0     0/0      ?  |   `-- tock-registers 0.9.0\n0/0        24/24        0/0    0/0     0/0      !  `-- tock-registers 0.10.0\n\n0/0        32/62        0/0    0/0     0/0\n\n"
-            ]
-          }
-        },
-        {
-          "file": "[Udeps] Unused dependencies",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Unused Deps": [
-              "pkg=aarch64-cpu-ext, checker=Udeps\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/aarch64-cpu-ext\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-linux-gnu \ntimestamp=2025-07-23 4:34:38.520924944 +08:00:00\n\n\nstdout:\nunused dependencies:\n`aarch64-cpu-ext v0.1.4 (/home/runner/check/batch_4/drivercraft/aarch64-cpu-ext)`\n└─── dependencies\n     └─── \"aarch64-cpu\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking tock-registers v0.9.0\n    Checking tock-registers v0.10.0\n    Checking aarch64-cpu v10.0.0\n    Checking aarch64-cpu-ext v0.1.4 (/home/runner/check/batch_4/drivercraft/aarch64-cpu-ext)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.62s\ninfo: Loading depinfo from \"/home/runner/check/batch_4/drivercraft/aarch64-cpu-ext/target/x86_64-unknown-linux-gnu/debug/deps/aarch64_cpu_ext-4bc8b891b17aed47.d\"\n"
+            "Cargo": [
+              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-unknown-none\", \"loongarch64-unknown-none\", \"riscv64gc-unknown-none-elf\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-none'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-unknown-none\", \"loongarch64-unknown-none\", \"riscv64gc-unknown-none-elf\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"drivercraft\" repo=\"aarch64-cpu-ext\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
             ]
           }
         }
