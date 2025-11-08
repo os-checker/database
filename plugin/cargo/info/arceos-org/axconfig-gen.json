@@ -2,8 +2,8 @@
   "user": "arceos-org",
   "repo": "axconfig-gen",
   "timestamp": {
-    "start": 1762530621785,
-    "end": 1762566640468
+    "start": 1762613159002,
+    "end": 1762613159076
   },
   "pkgs": {
     "axconfig-gen": {
@@ -21,16 +21,16 @@
               {
                 "name": "tests::integration_test",
                 "status": "ok",
-                "duration_ms": 17,
+                "duration_ms": 6,
                 "error": null,
-                "miri_pass": false,
-                "miri_output": "   Compiling proc-macro2 v1.0.95\n   Compiling unicode-ident v1.0.18\n   Compiling utf8parse v0.2.2\n   Compiling colorchoice v1.0.4\n   Compiling anstyle v1.0.11\n   Compiling anstyle-query v1.1.3\n   Compiling anstyle-parse v0.2.7\n   Compiling is_terminal_polyfill v1.70.1\n   Compiling hashbrown v0.15.4\n   Compiling clap_lex v0.7.5\n   Compiling anstream v0.6.19\n   Compiling heck v0.5.0\n   Compiling equivalent v1.0.2\n   Compiling strsim v0.11.1\n   Compiling indexmap v2.9.0\n   Compiling clap_builder v4.5.40\n   Compiling toml_datetime v0.6.11\n   Compiling quote v1.0.40\n   Compiling syn v2.0.102\n   Compiling toml_write v0.1.2\n   Compiling winnow v0.7.11\n   Compiling toml_edit v0.22.27\n   Compiling clap_derive v4.5.40\n   Compiling clap v4.5.40\n   Compiling axconfig-gen v0.2.1 (/tmp/os-checker-plugin-cargo/arceos-org/axconfig-gen/axconfig-gen)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.63s\n     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/axconfig_gen-ad8d48b7081ac80d)\nerror: unsupported operation: `open` not available when isolation is enabled\n    --> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/fs/unix.rs:1215:36\n     |\n1215 |         let fd = cvt_r(|| unsafe { open64(path.as_ptr(), flags, opts.mode as c_int) })?;\n     |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unsupported operation occurred here\n     |\n     = help: set `MIRIFLAGS=-Zmiri-disable-isolation` to disable isolation;\n     = help: or set `MIRIFLAGS=-Zmiri-isolation-error=warn` to make Miri return an error code from isolated operations (if supported for that operation) and continue with a warning\n     = note: BACKTRACE on thread `tests::integrat`:\n     = note: inside closure at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/fs/unix.rs:1215:36: 1215:84\n     = note: inside `std::sys::pal::unix::cvt_r::<i32, {closure@std::sys::fs::unix::File::open_c::{closure#0}}>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/pal/unix/mod.rs:315:19: 315:22\n     = note: inside `std::sys::fs::unix::File::open_c` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/fs/unix.rs:1215:18: 1215:87\n     = note: inside closure at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/fs/unix.rs:1203:42: 1203:66\n     = note: inside `std::sys::pal::common::small_c_string::run_with_cstr_stack::<std::sys::fs::unix::File>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/pal/common/small_c_string.rs:48:18: 48:22\n     = note: inside `std::sys::pal::common::small_c_string::run_with_cstr::<std::sys::fs::unix::File>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/pal/common/small_c_string.rs:28:18: 28:47\n     = note: inside `std::sys::pal::common::small_c_string::run_path_with_cstr::<std::sys::fs::unix::File>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/pal/common/small_c_string.rs:18:5: 18:58\n     = note: inside `std::sys::fs::unix::File::open` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/fs/unix.rs:1203:9: 1203:67\n     = note: inside `std::fs::OpenOptions::_open` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/fs.rs:1802:9: 1802:42\n     = note: inside `std::fs::OpenOptions::open::<&std::path::Path>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/fs.rs:1798:9: 1798:34\n     = note: inside `std::fs::File::open::<&std::path::Path>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/fs.rs:534:9: 534:58\n     = note: inside `std::fs::read_to_string::inner` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/fs.rs:348:24: 348:40\n     = note: inside `std::fs::read_to_string::<&str>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/fs.rs:355:5: 355:25\nnote: inside `tests::integration_test`\n    --> axconfig-gen/src/tests.rs:184:16\n     |\n 184 |     let spec = std::fs::read_to_string(\"../example-configs/defconfig.toml\")?;\n     |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n    --> axconfig-gen/src/tests.rs:183:26\n     |\n 182 | #[test]\n     | ------- in this attribute macro expansion\n 183 | fn integration_test() -> std::io::Result<()> {\n     |                          ^^^^^^^^^^^^^^^^^^^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p axconfig-gen --lib`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/axconfig-gen/target/miri/x86_64-unknown-linux-gnu/debug/deps/axconfig_gen-ad8d48b7081ac80d axconfig_gen 'tests::integration_test'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                "miri_pass": true,
+                "miri_output": null,
                 "miri_timeout": false
               },
               {
                 "name": "tests::test_err",
                 "status": "ok",
-                "duration_ms": 10,
+                "duration_ms": 4,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -39,7 +39,7 @@
               {
                 "name": "tests::test_to_rust",
                 "status": "ok",
-                "duration_ms": 9,
+                "duration_ms": 6,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -48,7 +48,7 @@
               {
                 "name": "tests::test_type_infer",
                 "status": "ok",
-                "duration_ms": 10,
+                "duration_ms": 5,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -57,7 +57,7 @@
               {
                 "name": "tests::test_type_match",
                 "status": "ok",
-                "duration_ms": 12,
+                "duration_ms": 5,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -65,11 +65,11 @@
               }
             ],
             "failed": 0,
-            "duration_ms": 58
+            "duration_ms": 26
           }
         ],
         "failed": 0,
-        "duration_ms": 58,
+        "duration_ms": 26,
         "pkg_tests_count": 5,
         "workspace_tests_count": 6
       },
@@ -115,7 +115,7 @@
               {
                 "name": "test_include_configs",
                 "status": "ok",
-                "duration_ms": 9,
+                "duration_ms": 3,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -123,11 +123,11 @@
               }
             ],
             "failed": 0,
-            "duration_ms": 9
+            "duration_ms": 3
           }
         ],
         "failed": 0,
-        "duration_ms": 9,
+        "duration_ms": 3,
         "pkg_tests_count": 1,
         "workspace_tests_count": 6
       },
