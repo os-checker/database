@@ -17,8 +17,8 @@
           "kinds": {
             "Clippy(Warn)": [
               "warning: you should consider adding a `Default` implementation for `RawList<G>`\n   --> src/raw_list.rs:99:5\n    |\n99  | /     pub const fn new() -> Self {\n100 | |         Self { head: None }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n97  + impl<G: GetLinks> Default for RawList<G> {\n98  +     fn default() -> Self {\n99  +         Self::new()\n100 +     }\n101 + }\n    |\n\n",
-              "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:186:5\n    |\n186 |     pub unsafe fn push_back(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n",
-              "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:195:5\n    |\n195 |     pub unsafe fn push_front(&mut self, new: &G::EntryType) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+              "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:187:5\n    |\n187 |     pub unsafe fn push_back(&mut self, new: NonNull<G::EntryType>) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n",
+              "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:196:5\n    |\n196 |     pub unsafe fn push_front(&mut self, new: NonNull<G::EntryType>) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
             ]
           }
         },
@@ -28,7 +28,7 @@
           "count": 1,
           "kinds": {
             "Rapx": [
-              "pkg=linked_list_r4l, checker=Rapx\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_3/arceos-org/linked_list_r4l\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf \ntimestamp=2025-10-28 4:39:38.723912566 +08:00:00\n\nwarning: Memory Leak detected.\n  --> src/linked_list.rs:36:22\n   |\n35 | fn into_pointer(self) -> NonNull<T> {\n36 |         NonNull::new(Box::into_raw(self)).unwrap()\n   |                      ------------------- Memory Leak Candidates.\n37 |     }\n   |\n"
+              "pkg=linked_list_r4l, checker=Rapx\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/home/runner/check/batch_3/arceos-org/linked_list_r4l\ncmd=cargo +nightly-2024-10-12 rapx -F -M -- --target riscv64gc-unknown-none-elf \ntimestamp=2025-11-17 4:29:21.430647845 +08:00:00\n\nwarning: Memory Leak detected.\n  --> src/linked_list.rs:36:22\n   |\n35 | fn into_pointer(self) -> NonNull<T> {\n36 |         NonNull::new(Box::into_raw(self)).unwrap()\n   |                      ------------------- Memory Leak Candidates.\n37 |     }\n   |\n"
             ]
           }
         }
