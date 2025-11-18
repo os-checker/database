@@ -1,4 +1,8 @@
 {
+  "repo": {
+    "user": "arceos-org",
+    "repo": "arceos"
+  },
   "data": [
     {
       "user": "arceos-org",
@@ -369,6 +373,94 @@
           "kinds": {
             "Clippy(Error)": [
               "error[E0463]: can't find crate for `axplat_x86_pc`\n  --> modules/axhal/src/lib.rs:46:9\n   |\n46 |         extern crate axplat_x86_pc;\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^ can't find crate\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "arceos",
+      "pkg": "axalloc",
+      "count": 8,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=axalloc, checker=SemverChecks\n// toolchain=nightly-2025-05-20, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/arceos-org/arceos/modules/axalloc\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-11-18 16:21:05.643907862 +08:00:00\n    Building axalloc v0.2.0 (current)\nerror: running cargo-doc on crate 'axalloc' failed with output:\n-----\n   Compiling proc-macro2 v1.0.103\n   Compiling quote v1.0.42\n   Compiling unicode-ident v1.0.22\n   Compiling syn v1.0.109\n    Checking cfg-if v1.0.4\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate axalloc v0.2.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/arceos-org/arceos/modules/axalloc --features buddy,default,page-alloc-4g,page-alloc-64g,slab,tlsf &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate axalloc v0.2.0\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=axalloc, checker=Udeps\n// toolchain=nightly-2025-05-20, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/arceos-org/arceos/modules/axalloc\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2025-11-18 16:33:18.789292272 +08:00:00\n    Checking cfg-if v1.0.3\n    Checking const-default v1.0.0\n    Checking bit_field v0.10.2\n   Compiling axerrno v0.1.0\n    Checking log v0.4.21\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `const-default` (lib) due to 1 previous error\nerror: could not compile `bit_field` (lib) due to 1 previous error\nerror: could not compile `log` (lib) due to 1 previous error\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-11-18T08:25:46Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-11-18T08:25:46Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=axalloc, checker=Udeps\ntoolchain=nightly-2025-05-20, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/arceos-org/arceos/modules/axalloc\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-11-18 16:33:19.002616129 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking cfg-if v1.0.3\n    Checking const-default v1.0.0\n    Checking bit_field v0.10.2\n   Compiling axerrno v0.1.0\n    Checking log v0.4.21\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `const-default` (lib) due to 1 previous error\nerror: could not compile `bit_field` (lib) due to 1 previous error\nerror: could not compile `log` (lib) due to 1 previous error\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=axalloc, checker=Outdated\ntoolchain=nightly-2025-05-20, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/arceos-org/arceos/modules/axalloc\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-11-18 16:27:31.70341867 +08:00:00\n\nName    Project  Compat  Latest  Kind    Platform\n----    -------  ------  ------  ----    --------\ncfg-if  1.0.3    1.0.4   1.0.4   Normal  ---\nlog     0.4.21   ---     0.4.28  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axalloc, checker=SemverChecks\ntoolchain=nightly-2025-05-20, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/arceos-org/arceos/modules/axalloc\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-11-18 16:21:06.367512502 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axalloc v0.2.0 (current)\nerror: running cargo-doc on crate 'axalloc' failed with output:\n-----\n   Compiling proc-macro2 v1.0.103\n   Compiling quote v1.0.42\n   Compiling unicode-ident v1.0.22\n   Compiling syn v1.0.109\n    Checking cfg-if v1.0.4\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate axalloc v0.2.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/arceos-org/arceos/modules/axalloc --features buddy,default,page-alloc-4g,page-alloc-64g,slab,tlsf &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate axalloc v0.2.0\n"
+            ]
+          }
+        },
+        {
+          "file": "modules/axalloc/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `GlobalAllocator`\n  --> modules/axalloc/src/lib.rs:57:5\n   |\n57 | /     pub const fn new() -> Self {\n58 | |         Self {\n59 | |             balloc: SpinNoIrq::new(DefaultByteAllocator::new()),\n60 | |             palloc: SpinNoIrq::new(BitmapPageAllocator::new()),\n61 | |         }\n62 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n55 + impl Default for GlobalAllocator {\n56 +     fn default() -> Self {\n57 +         Self::new()\n58 +     }\n59 + }\n   |\n\n"
             ]
           }
         }
@@ -1335,84 +1427,6 @@
     {
       "user": "arceos-org",
       "repo": "arceos",
-      "pkg": "axalloc",
-      "count": 7,
-      "raw_reports": [
-        {
-          "file": "(virtual) semver-checks",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=axalloc, checker=SemverChecks\n// toolchain=nightly-2025-05-20, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/arceos-org/arceos/modules/axalloc\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \n// timestamp=2025-11-18 16:21:05.643907862 +08:00:00\n    Building axalloc v0.2.0 (current)\nerror: running cargo-doc on crate 'axalloc' failed with output:\n-----\n   Compiling proc-macro2 v1.0.103\n   Compiling quote v1.0.42\n   Compiling unicode-ident v1.0.22\n   Compiling syn v1.0.109\n    Checking cfg-if v1.0.4\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate axalloc v0.2.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/arceos-org/arceos/modules/axalloc --features buddy,default,page-alloc-4g,page-alloc-64g,slab,tlsf &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate axalloc v0.2.0\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) udeps",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=axalloc, checker=Udeps\n// toolchain=nightly-2025-05-20, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/arceos-org/arceos/modules/axalloc\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2025-11-18 16:33:18.789292272 +08:00:00\n    Checking cfg-if v1.0.3\n    Checking const-default v1.0.0\n    Checking bit_field v0.10.2\n   Compiling axerrno v0.1.0\n    Checking log v0.4.21\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `const-default` (lib) due to 1 previous error\nerror: could not compile `bit_field` (lib) due to 1 previous error\nerror: could not compile `log` (lib) due to 1 previous error\n"
-            ]
-          }
-        },
-        {
-          "file": "[Lockbud] deadlock detection",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Lockbud(Possibly)": [
-              "[2025-11-18T08:25:46Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-11-18T08:25:46Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
-            ]
-          }
-        },
-        {
-          "file": "[Udeps] Unused dependencies",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Unused Deps": [
-              "pkg=axalloc, checker=Udeps\ntoolchain=nightly-2025-05-20, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/arceos-org/arceos/modules/axalloc\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-11-18 16:33:19.002616129 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking cfg-if v1.0.3\n    Checking const-default v1.0.0\n    Checking bit_field v0.10.2\n   Compiling axerrno v0.1.0\n    Checking log v0.4.21\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `const-default` (lib) due to 1 previous error\nerror: could not compile `bit_field` (lib) due to 1 previous error\nerror: could not compile `log` (lib) due to 1 previous error\n"
-            ]
-          }
-        },
-        {
-          "file": "[outdated direct dependencies]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Outdated": [
-              "pkg=axalloc, checker=Outdated\ntoolchain=nightly-2025-05-20, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/arceos-org/arceos/modules/axalloc\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-11-18 16:27:31.70341867 +08:00:00\n\nName    Project  Compat  Latest  Kind    Platform\n----    -------  ------  ------  ----    --------\ncfg-if  1.0.3    1.0.4   1.0.4   Normal  ---\nlog     0.4.21   ---     0.4.28  Normal  ---\n"
-            ]
-          }
-        },
-        {
-          "file": "[semver checks violation]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Semver Violation": [
-              "pkg=axalloc, checker=SemverChecks\ntoolchain=nightly-2025-05-20, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/arceos-org/arceos/modules/axalloc\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target x86_64-unknown-none \ntimestamp=2025-11-18 16:21:06.367512502 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building axalloc v0.2.0 (current)\nerror: running cargo-doc on crate 'axalloc' failed with output:\n-----\n   Compiling proc-macro2 v1.0.103\n   Compiling quote v1.0.42\n   Compiling unicode-ident v1.0.22\n   Compiling syn v1.0.109\n    Checking cfg-if v1.0.4\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n\n-----\n\nerror: failed to build rustdoc for crate axalloc v0.2.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_1/arceos-org/arceos/modules/axalloc --features buddy,default,page-alloc-4g,page-alloc-64g,slab,tlsf &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate axalloc v0.2.0\n"
-            ]
-          }
-        },
-        {
-          "file": "modules/axalloc/src/lib.rs",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: you should consider adding a `Default` implementation for `GlobalAllocator`\n  --> modules/axalloc/src/lib.rs:57:5\n   |\n57 | /     pub const fn new() -> Self {\n58 | |         Self {\n59 | |             balloc: SpinNoIrq::new(DefaultByteAllocator::new()),\n60 | |             palloc: SpinNoIrq::new(BitmapPageAllocator::new()),\n61 | |         }\n62 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n55 + impl Default for GlobalAllocator {\n56 +     fn default() -> Self {\n57 +         Self::new()\n58 +     }\n59 + }\n   |\n\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "arceos-org",
-      "repo": "arceos",
       "pkg": "axfeat",
       "count": 7,
       "raw_reports": [
@@ -1491,77 +1505,19 @@
     {
       "user": "arceos-org",
       "repo": "arceos",
-      "pkg": "axlibc",
-      "count": 6,
-      "raw_reports": [
-        {
-          "file": "/home/runner/check/batch_1/arceos-org/arceos/Cargo.lock",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Audit": [
-              "Crate:     atomic-polyfill\nVersion:   1.0.3\nWarning:   unmaintained\nTitle:     atomic-polyfill is unmaintained\nDate:      2023-07-11\nID:        RUSTSEC-2023-0089\nURL:       https://rustsec.org/advisories/RUSTSEC-2023-0089\nDependency tree:\natomic-polyfill 1.0.3\n└── heapless 0.7.17\n    └── smoltcp 0.10.0\n        └── ixgbe-driver 0.1.0\n            └── axdriver_net 0.1.2\n                ├── axnet 0.2.0\n                │   ├── axruntime 0.2.0\n                │   │   ├── axfeat 0.2.0\n                │   │   │   ├── axstd 0.2.0\n                │   │   │   │   ├── arceos-shell 0.1.0\n                │   │   │   │   ├── arceos-httpserver 0.1.0\n                │   │   │   │   ├── arceos-httpclient 0.1.0\n                │   │   │   │   ├── arceos-helloworld-myplat 0.1.0\n                │   │   │   │   └── arceos-helloworld 0.1.0\n                │   │   │   ├── axlibc 0.2.0\n                │   │   │   ├── arceos_posix_api 0.2.0\n                │   │   │   │   └── axlibc 0.2.0\n                │   │   │   └── arceos_api 0.2.0\n                │   │   │       └── axstd 0.2.0\n                │   │   ├── arceos_posix_api 0.2.0\n                │   │   └── arceos_api 0.2.0\n                │   ├── axfeat 0.2.0\n                │   ├── arceos_posix_api 0.2.0\n                │   └── arceos_api 0.2.0\n                ├── axdriver_virtio 0.1.2\n                │   └── axdriver 0.2.0\n                │       ├── axruntime 0.2.0\n                │       ├── axnet 0.2.0\n                │       ├── axfs 0.2.0\n                │       │   ├── axruntime 0.2.0\n                │       │   ├── axfeat 0.2.0\n                │       │   ├── arceos_posix_api 0.2.0\n                │       │   └── arceos_api 0.2.0\n                │       ├── axfeat 0.2.0\n                │       ├── axdisplay 0.2.0\n                │       │   ├── axruntime 0.2.0\n                │       │   ├── axfeat 0.2.0\n                │       │   └── arceos_api 0.2.0\n                │       └── arceos_api 0.2.0\n                └── axdriver 0.2.0\n\nCrate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── axplat-x86-pc 0.2.0\n│       ├── axhal 0.2.0\n│       │   ├── axtask 0.2.0\n│       │   │   ├── axtask 0.2.0\n│       │   │   ├── axsync 0.2.0\n│       │   │   │   ├── axsync 0.2.0\n│       │   │   │   ├── axnet 0.2.0\n│       │   │   │   │   ├── axruntime 0.2.0\n│       │   │   │   │   │   ├── axfeat 0.2.0\n│       │   │   │   │   │   │   ├── axstd 0.2.0\n│       │   │   │   │   │   │   │   ├── arceos-shell 0.1.0\n│       │   │   │   │   │   │   │   ├── arceos-httpserver 0.1.0\n│       │   │   │   │   │   │   │   ├── arceos-httpclient 0.1.0\n│       │   │   │   │   │   │   │   ├── arceos-helloworld-myplat 0.1.0\n│       │   │   │   │   │   │   │   └── arceos-helloworld 0.1.0\n│       │   │   │   │   │   │   ├── axlibc 0.2.0\n│       │   │   │   │   │   │   ├── arceos_posix_api 0.2.0\n│       │   │   │   │   │   │   │   └── axlibc 0.2.0\n│       │   │   │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   │   │   │       └── axstd 0.2.0\n│       │   │   │   │   │   ├── arceos_posix_api 0.2.0\n│       │   │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   │   ├── axfeat 0.2.0\n│       │   │   │   │   ├── arceos_posix_api 0.2.0\n│       │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   ├── axfs 0.2.0\n│       │   │   │   │   ├── axruntime 0.2.0\n│       │   │   │   │   ├── axfeat 0.2.0\n│       │   │   │   │   ├── arceos_posix_api 0.2.0\n│       │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   ├── axfeat 0.2.0\n│       │   │   │   ├── axdisplay 0.2.0\n│       │   │   │   │   ├── axruntime 0.2.0\n│       │   │   │   │   ├── axfeat 0.2.0\n│       │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   ├── arceos_posix_api 0.2.0\n│       │   │   │   └── arceos_api 0.2.0\n│       │   │   ├── axruntime 0.2.0\n│       │   │   ├── axnet 0.2.0\n│       │   │   ├── axfs 0.2.0\n│       │   │   ├── axfeat 0.2.0\n│       │   │   ├── arceos_posix_api 0.2.0\n│       │   │   └── arceos_api 0.2.0\n│       │   ├── axruntime 0.2.0\n│       │   ├── axnet 0.2.0\n│       │   ├── axmm 0.2.0\n│       │   │   ├── axruntime 0.2.0\n│       │   │   ├── axdma 0.2.0\n│       │   │   │   ├── axdriver 0.2.0\n│       │   │   │   │   ├── axruntime 0.2.0\n│       │   │   │   │   ├── axnet 0.2.0\n│       │   │   │   │   ├── axfs 0.2.0\n│       │   │   │   │   ├── axfeat 0.2.0\n│       │   │   │   │   ├── axdisplay 0.2.0\n│       │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   └── arceos_api 0.2.0\n│       │   │   └── arceos_api 0.2.0\n│       │   ├── axipi 0.2.0\n│       │   │   ├── axruntime 0.2.0\n│       │   │   ├── axfeat 0.2.0\n│       │   │   └── arceos_api 0.2.0\n│       │   ├── axfeat 0.2.0\n│       │   ├── axdriver 0.2.0\n│       │   ├── axdma 0.2.0\n│       │   ├── arceos_posix_api 0.2.0\n│       │   └── arceos_api 0.2.0\n│       └── arceos-helloworld-myplat 0.1.0\n├── riscv 0.14.0\n│   ├── page_table_multiarch 0.5.5\n│   │   ├── axhal 0.2.0\n│   │   └── axcpu 0.2.2\n│   │       ├── axplat-x86-pc 0.2.0\n│   │       ├── axplat-riscv64-qemu-virt 0.2.0\n│   │       │   ├── axhal 0.2.0\n│   │       │   └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-loongarch64-qemu-virt 0.2.0\n│   │       │   ├── axhal 0.2.0\n│   │       │   └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-aarch64-raspi 0.2.0\n│   │       │   └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-aarch64-qemu-virt 0.2.0\n│   │       │   ├── axhal 0.2.0\n│   │       │   └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-aarch64-phytium-pi 0.2.0\n│   │       │   └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-aarch64-peripherals 0.2.0\n│   │       │   ├── axplat-aarch64-raspi 0.2.0\n│   │       │   ├── axplat-aarch64-qemu-virt 0.2.0\n│   │       │   ├── axplat-aarch64-phytium-pi 0.2.0\n│   │       │   └── axplat-aarch64-bsta1000b 0.2.0\n│   │       │       └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-aarch64-bsta1000b 0.2.0\n│   │       └── axhal 0.2.0\n│   ├── axplat-riscv64-qemu-virt 0.2.0\n│   └── axcpu 0.2.2\n├── multiboot 0.8.0\n│   └── axplat-x86-pc 0.2.0\n└── arm-gic-driver 0.15.5\n    └── axplat-aarch64-peripherals 0.2.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 868,\n    \"last-commit\": \"e56f6d63936de5bf3ef19ce7fb8d9e729fa27fc0\",\n    \"last-updated\": \"2025-11-18T09:16:55+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 243\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atomic-polyfill\",\n          \"version\": \"1.0.3\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8cf2bce30dfe09ef0bfaef228b9d414faaf7e563035494d7fe092dba54b300f4\",\n          \"dependencies\": [\n            {\n              \"name\": \"critical-section\",\n              \"version\": \"1.2.0\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2023-0089\",\n          \"package\": \"atomic-polyfill\",\n          \"title\": \"atomic-polyfill is unmaintained\",\n          \"description\": \"The author has archived the GitHub repository and mentions deprecation in\\nproject's\\n[README](https://github.com/embassy-rs/atomic-polyfill/blob/48e55c166684f37af0b00fbee5a0809b1a2bae8e/README.md).\\n\\n## Possible alternatives\\n\\n * [portable-atomic](https://crates.io/crates/portable-atomic)\",\n          \"date\": \"2023-07-11\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/embassy-rs/atomic-polyfill/commit/48e55c166684f37af0b00fbee5a0809b1a2bae8e\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      },\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\\n\\n## Possible Alternative(s)\\n\\n- [pastey](https://crates.io/crates/pastey), a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) clippy",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=axlibc, checker=Clippy\n// toolchain=nightly-2025-05-20, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/arceos-org/arceos/ulib/axlibc\n// cmd=cargo clippy --target x86_64-unknown-none  --no-deps\n// timestamp=2025-11-18 16:20:20.445308906 +08:00:00\n   Compiling axconfig v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/modules/axconfig)\n    Checking axlog v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/modules/axlog)\n    Checking flatten_objects v0.2.4\n   Compiling axlibc v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/ulib/axlibc)\n   Compiling axhal v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/modules/axhal)\nerror: could not compile `axhal` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) udeps",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=axlibc, checker=Udeps\n// toolchain=nightly-2025-05-20, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/arceos-org/arceos/ulib/axlibc\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2025-11-18 16:33:33.955748793 +08:00:00\n   Compiling axconfig v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/modules/axconfig)\n    Checking cfg-if v1.0.3\n    Checking bit_field v0.10.2\n    Checking log v0.4.21\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `bit_field` (lib) due to 1 previous error\nerror: could not compile `log` (lib) due to 1 previous error\n"
-            ]
-          }
-        },
-        {
-          "file": "[Udeps] Unused dependencies",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Unused Deps": [
-              "pkg=axlibc, checker=Udeps\ntoolchain=nightly-2025-05-20, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/arceos-org/arceos/ulib/axlibc\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-11-18 16:33:34.238249367 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling axconfig v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/modules/axconfig)\n    Checking cfg-if v1.0.3\n    Checking bit_field v0.10.2\n    Checking log v0.4.21\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `bit_field` (lib) due to 1 previous error\nerror: could not compile `log` (lib) due to 1 previous error\n"
-            ]
-          }
-        },
-        {
-          "file": "[outdated direct dependencies]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Outdated": [
-              "pkg=axlibc, checker=Outdated\ntoolchain=nightly-2025-05-20, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/arceos-org/arceos/ulib/axlibc\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-11-18 16:29:40.046751976 +08:00:00\n\nName     Project  Compat  Latest  Kind   Platform\n----     -------  ------  ------  ----   --------\nbindgen  0.72.0   0.72.1  0.72.1  Build  ---\n"
-            ]
-          }
-        },
-        {
-          "file": "modules/axhal/src/lib.rs",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Clippy(Error)": [
-              "error[E0463]: can't find crate for `axplat_x86_pc`\n  --> modules/axhal/src/lib.rs:46:9\n   |\n46 |         extern crate axplat_x86_pc;\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^ can't find crate\n\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "arceos-org",
-      "repo": "arceos",
       "pkg": "axlog",
-      "count": 6,
+      "count": 7,
       "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1408:11: 1408:39 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.21/src/lib.rs:1411:13: 1411:55 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
         {
           "file": "(virtual) semver-checks",
           "features": "",
@@ -1628,7 +1584,7 @@
       "user": "arceos-org",
       "repo": "arceos",
       "pkg": "axns",
-      "count": 6,
+      "count": 7,
       "raw_reports": [
         {
           "file": "(virtual) semver-checks",
@@ -1687,6 +1643,84 @@
           "kinds": {
             "Clippy(Warn)": [
               "warning: you should consider adding a `Default` implementation for `ResArc<T>`\n   --> modules/axns/src/lib.rs:120:5\n    |\n120 | /     pub const fn new() -> Self {\n121 | |         Self(LazyInit::new())\n122 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n118 + impl<T> Default for ResArc<T> {\n119 +     fn default() -> Self {\n120 +         Self::new()\n121 +     }\n122 + }\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "modules/axns/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at modules/axns/src/lib.rs:187:2: 187:2 (#0) after dropped at modules/axns/src/lib.rs:185:36: 185:37 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "arceos",
+      "pkg": "axlibc",
+      "count": 6,
+      "raw_reports": [
+        {
+          "file": "/home/runner/check/batch_1/arceos-org/arceos/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     atomic-polyfill\nVersion:   1.0.3\nWarning:   unmaintained\nTitle:     atomic-polyfill is unmaintained\nDate:      2023-07-11\nID:        RUSTSEC-2023-0089\nURL:       https://rustsec.org/advisories/RUSTSEC-2023-0089\nDependency tree:\natomic-polyfill 1.0.3\n└── heapless 0.7.17\n    └── smoltcp 0.10.0\n        └── ixgbe-driver 0.1.0\n            └── axdriver_net 0.1.2\n                ├── axnet 0.2.0\n                │   ├── axruntime 0.2.0\n                │   │   ├── axfeat 0.2.0\n                │   │   │   ├── axstd 0.2.0\n                │   │   │   │   ├── arceos-shell 0.1.0\n                │   │   │   │   ├── arceos-httpserver 0.1.0\n                │   │   │   │   ├── arceos-httpclient 0.1.0\n                │   │   │   │   ├── arceos-helloworld-myplat 0.1.0\n                │   │   │   │   └── arceos-helloworld 0.1.0\n                │   │   │   ├── axlibc 0.2.0\n                │   │   │   ├── arceos_posix_api 0.2.0\n                │   │   │   │   └── axlibc 0.2.0\n                │   │   │   └── arceos_api 0.2.0\n                │   │   │       └── axstd 0.2.0\n                │   │   ├── arceos_posix_api 0.2.0\n                │   │   └── arceos_api 0.2.0\n                │   ├── axfeat 0.2.0\n                │   ├── arceos_posix_api 0.2.0\n                │   └── arceos_api 0.2.0\n                ├── axdriver_virtio 0.1.2\n                │   └── axdriver 0.2.0\n                │       ├── axruntime 0.2.0\n                │       ├── axnet 0.2.0\n                │       ├── axfs 0.2.0\n                │       │   ├── axruntime 0.2.0\n                │       │   ├── axfeat 0.2.0\n                │       │   ├── arceos_posix_api 0.2.0\n                │       │   └── arceos_api 0.2.0\n                │       ├── axfeat 0.2.0\n                │       ├── axdisplay 0.2.0\n                │       │   ├── axruntime 0.2.0\n                │       │   ├── axfeat 0.2.0\n                │       │   └── arceos_api 0.2.0\n                │       └── arceos_api 0.2.0\n                └── axdriver 0.2.0\n\nCrate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── x2apic 0.5.0\n│   └── axplat-x86-pc 0.2.0\n│       ├── axhal 0.2.0\n│       │   ├── axtask 0.2.0\n│       │   │   ├── axtask 0.2.0\n│       │   │   ├── axsync 0.2.0\n│       │   │   │   ├── axsync 0.2.0\n│       │   │   │   ├── axnet 0.2.0\n│       │   │   │   │   ├── axruntime 0.2.0\n│       │   │   │   │   │   ├── axfeat 0.2.0\n│       │   │   │   │   │   │   ├── axstd 0.2.0\n│       │   │   │   │   │   │   │   ├── arceos-shell 0.1.0\n│       │   │   │   │   │   │   │   ├── arceos-httpserver 0.1.0\n│       │   │   │   │   │   │   │   ├── arceos-httpclient 0.1.0\n│       │   │   │   │   │   │   │   ├── arceos-helloworld-myplat 0.1.0\n│       │   │   │   │   │   │   │   └── arceos-helloworld 0.1.0\n│       │   │   │   │   │   │   ├── axlibc 0.2.0\n│       │   │   │   │   │   │   ├── arceos_posix_api 0.2.0\n│       │   │   │   │   │   │   │   └── axlibc 0.2.0\n│       │   │   │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   │   │   │       └── axstd 0.2.0\n│       │   │   │   │   │   ├── arceos_posix_api 0.2.0\n│       │   │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   │   ├── axfeat 0.2.0\n│       │   │   │   │   ├── arceos_posix_api 0.2.0\n│       │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   ├── axfs 0.2.0\n│       │   │   │   │   ├── axruntime 0.2.0\n│       │   │   │   │   ├── axfeat 0.2.0\n│       │   │   │   │   ├── arceos_posix_api 0.2.0\n│       │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   ├── axfeat 0.2.0\n│       │   │   │   ├── axdisplay 0.2.0\n│       │   │   │   │   ├── axruntime 0.2.0\n│       │   │   │   │   ├── axfeat 0.2.0\n│       │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   ├── arceos_posix_api 0.2.0\n│       │   │   │   └── arceos_api 0.2.0\n│       │   │   ├── axruntime 0.2.0\n│       │   │   ├── axnet 0.2.0\n│       │   │   ├── axfs 0.2.0\n│       │   │   ├── axfeat 0.2.0\n│       │   │   ├── arceos_posix_api 0.2.0\n│       │   │   └── arceos_api 0.2.0\n│       │   ├── axruntime 0.2.0\n│       │   ├── axnet 0.2.0\n│       │   ├── axmm 0.2.0\n│       │   │   ├── axruntime 0.2.0\n│       │   │   ├── axdma 0.2.0\n│       │   │   │   ├── axdriver 0.2.0\n│       │   │   │   │   ├── axruntime 0.2.0\n│       │   │   │   │   ├── axnet 0.2.0\n│       │   │   │   │   ├── axfs 0.2.0\n│       │   │   │   │   ├── axfeat 0.2.0\n│       │   │   │   │   ├── axdisplay 0.2.0\n│       │   │   │   │   └── arceos_api 0.2.0\n│       │   │   │   └── arceos_api 0.2.0\n│       │   │   └── arceos_api 0.2.0\n│       │   ├── axipi 0.2.0\n│       │   │   ├── axruntime 0.2.0\n│       │   │   ├── axfeat 0.2.0\n│       │   │   └── arceos_api 0.2.0\n│       │   ├── axfeat 0.2.0\n│       │   ├── axdriver 0.2.0\n│       │   ├── axdma 0.2.0\n│       │   ├── arceos_posix_api 0.2.0\n│       │   └── arceos_api 0.2.0\n│       └── arceos-helloworld-myplat 0.1.0\n├── riscv 0.14.0\n│   ├── page_table_multiarch 0.5.5\n│   │   ├── axhal 0.2.0\n│   │   └── axcpu 0.2.2\n│   │       ├── axplat-x86-pc 0.2.0\n│   │       ├── axplat-riscv64-qemu-virt 0.2.0\n│   │       │   ├── axhal 0.2.0\n│   │       │   └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-loongarch64-qemu-virt 0.2.0\n│   │       │   ├── axhal 0.2.0\n│   │       │   └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-aarch64-raspi 0.2.0\n│   │       │   └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-aarch64-qemu-virt 0.2.0\n│   │       │   ├── axhal 0.2.0\n│   │       │   └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-aarch64-phytium-pi 0.2.0\n│   │       │   └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-aarch64-peripherals 0.2.0\n│   │       │   ├── axplat-aarch64-raspi 0.2.0\n│   │       │   ├── axplat-aarch64-qemu-virt 0.2.0\n│   │       │   ├── axplat-aarch64-phytium-pi 0.2.0\n│   │       │   └── axplat-aarch64-bsta1000b 0.2.0\n│   │       │       └── arceos-helloworld-myplat 0.1.0\n│   │       ├── axplat-aarch64-bsta1000b 0.2.0\n│   │       └── axhal 0.2.0\n│   ├── axplat-riscv64-qemu-virt 0.2.0\n│   └── axcpu 0.2.2\n├── multiboot 0.8.0\n│   └── axplat-x86-pc 0.2.0\n└── arm-gic-driver 0.15.5\n    └── axplat-aarch64-peripherals 0.2.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 868,\n    \"last-commit\": \"e56f6d63936de5bf3ef19ce7fb8d9e729fa27fc0\",\n    \"last-updated\": \"2025-11-18T09:16:55+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 243\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atomic-polyfill\",\n          \"version\": \"1.0.3\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8cf2bce30dfe09ef0bfaef228b9d414faaf7e563035494d7fe092dba54b300f4\",\n          \"dependencies\": [\n            {\n              \"name\": \"critical-section\",\n              \"version\": \"1.2.0\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2023-0089\",\n          \"package\": \"atomic-polyfill\",\n          \"title\": \"atomic-polyfill is unmaintained\",\n          \"description\": \"The author has archived the GitHub repository and mentions deprecation in\\nproject's\\n[README](https://github.com/embassy-rs/atomic-polyfill/blob/48e55c166684f37af0b00fbee5a0809b1a2bae8e/README.md).\\n\\n## Possible alternatives\\n\\n * [portable-atomic](https://crates.io/crates/portable-atomic)\",\n          \"date\": \"2023-07-11\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/embassy-rs/atomic-polyfill/commit/48e55c166684f37af0b00fbee5a0809b1a2bae8e\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      },\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\\n\\n## Possible Alternative(s)\\n\\n- [pastey](https://crates.io/crates/pastey), a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=axlibc, checker=Clippy\n// toolchain=nightly-2025-05-20, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/arceos-org/arceos/ulib/axlibc\n// cmd=cargo clippy --target x86_64-unknown-none  --no-deps\n// timestamp=2025-11-18 16:20:20.445308906 +08:00:00\n   Compiling axconfig v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/modules/axconfig)\n    Checking axlog v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/modules/axlog)\n    Checking flatten_objects v0.2.4\n   Compiling axlibc v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/ulib/axlibc)\n   Compiling axhal v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/modules/axhal)\nerror: could not compile `axhal` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=axlibc, checker=Udeps\n// toolchain=nightly-2025-05-20, target=x86_64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_1/arceos-org/arceos/ulib/axlibc\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2025-11-18 16:33:33.955748793 +08:00:00\n   Compiling axconfig v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/modules/axconfig)\n    Checking cfg-if v1.0.3\n    Checking bit_field v0.10.2\n    Checking log v0.4.21\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `bit_field` (lib) due to 1 previous error\nerror: could not compile `log` (lib) due to 1 previous error\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=axlibc, checker=Udeps\ntoolchain=nightly-2025-05-20, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/arceos-org/arceos/ulib/axlibc\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-11-18 16:33:34.238249367 +08:00:00\n\n\nstdout:\n\nstderr:\n   Compiling axconfig v0.2.0 (/home/runner/check/batch_1/arceos-org/arceos/modules/axconfig)\n    Checking cfg-if v1.0.3\n    Checking bit_field v0.10.2\n    Checking log v0.4.21\nerror[E0463]: can't find crate for `core`\n  |\n  = note: the `x86_64-unknown-none` target may not be installed\n  = help: consider downloading the target with `rustup target add x86_64-unknown-none`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `cfg-if` (lib) due to 1 previous error\nwarning: build failed, waiting for other jobs to finish...\nerror: could not compile `bit_field` (lib) due to 1 previous error\nerror: could not compile `log` (lib) due to 1 previous error\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=axlibc, checker=Outdated\ntoolchain=nightly-2025-05-20, target=x86_64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_1/arceos-org/arceos/ulib/axlibc\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-11-18 16:29:40.046751976 +08:00:00\n\nName     Project  Compat  Latest  Kind   Platform\n----     -------  ------  ------  ----   --------\nbindgen  0.72.0   0.72.1  0.72.1  Build  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "modules/axhal/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `axplat_x86_pc`\n  --> modules/axhal/src/lib.rs:46:9\n   |\n46 |         extern crate axplat_x86_pc;\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^ can't find crate\n\n"
             ]
           }
         }
