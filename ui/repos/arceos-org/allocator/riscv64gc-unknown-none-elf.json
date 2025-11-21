@@ -1,0 +1,73 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "allocator"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "allocator",
+      "pkg": "allocator",
+      "count": 4,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=allocator, checker=SemverChecks\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_2/arceos-org/allocator\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \n// timestamp=2025-11-22 4:36:04.886939308 +08:00:00\n    Building allocator v0.1.2 (current)\n       Built [   3.886s] (current)\n     Parsing allocator v0.1.2 (current)\n      Parsed [   0.001s] (current)\n    Building allocator v0.0.2 (baseline)\nerror: running cargo-doc on crate 'allocator' failed with output:\n-----\n    Checking checked_cast v0.0.3\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `checked_cast` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `checked_cast` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate allocator v0.0.2\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add allocator@=0.0.2 --features default,libc,std &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate allocator v0.0.2\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=allocator, checker=Udeps\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/allocator\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2025-11-22 4:36:58.968747426 +08:00:00\n\n\nstdout:\nunused dependencies:\n`allocator v0.1.2 (/mnt/check/batch_2/arceos-org/allocator)`\n└─── dependencies\n     └─── \"cfg-if\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking cfg-if v1.0.4\n    Checking allocator v0.1.2 (/mnt/check/batch_2/arceos-org/allocator)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.15s\ninfo: Loading depinfo from \"/mnt/check/batch_2/arceos-org/allocator/target/riscv64gc-unknown-none-elf/debug/deps/allocator-c279584b911cd0a3.d\"\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=allocator, checker=Outdated\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/allocator\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-11-22 4:36:40.219443143 +08:00:00\n\nName                    Project  Compat  Latest  Kind         Platform\n----                    -------  ------  ------  ----         --------\naxerrno                 0.1.2    ---     0.2.1   Normal       ---\nbuddy_system_allocator  0.10.0   ---     0.11.0  Normal       ---\ncriterion               0.5.1    ---     0.7.0   Development  ---\nrand                    0.8.5    ---     0.9.2   Development  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=allocator, checker=SemverChecks\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/allocator\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target riscv64gc-unknown-none-elf \ntimestamp=2025-11-22 4:36:09.78371335 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building allocator v0.1.2 (current)\n       Built [   3.886s] (current)\n     Parsing allocator v0.1.2 (current)\n      Parsed [   0.001s] (current)\n    Building allocator v0.0.2 (baseline)\nerror: running cargo-doc on crate 'allocator' failed with output:\n-----\n    Checking checked_cast v0.0.3\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `checked_cast` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `checked_cast` (lib) due to 1 previous error\n\n-----\n\nerror: failed to build rustdoc for crate allocator v0.0.2\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add allocator@=0.0.2 --features default,libc,std &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate allocator v0.0.2\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

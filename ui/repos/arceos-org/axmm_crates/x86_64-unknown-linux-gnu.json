@@ -7,16 +7,84 @@
     {
       "user": "arceos-org",
       "repo": "axmm_crates",
-      "pkg": "",
-      "count": 1,
+      "pkg": "memory_set",
+      "count": 5,
       "raw_reports": [
         {
-          "file": "/home/runner/check/batch_2/arceos-org/axmm_crates",
+          "file": "(virtual) atomvchecker",
           "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-none\", \"riscv64gc-unknown-none-elf\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-unknown-linux-gnu' is up to date\n      info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      info: component 'rust-std' for target 'arm-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'armv7-unknown-linux-gnueabi' is up to date\n      info: component 'rust-std' for target 'i686-unknown-linux-gnu' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-none'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-unknown-linux-gnu\", \"aarch64-unknown-none\", \"arm-unknown-linux-gnueabi\", \"armv7-unknown-linux-gnueabi\", \"i686-unknown-linux-gnu\", \"loongarch64-unknown-none\", \"riscv64gc-unknown-none-elf\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"arceos-org\" repo=\"axmm_crates\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+              "// pkg_name=memory_set, checker=Atomvchecker\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/mnt/check/batch_2/arceos-org/axmm_crates/memory_set\n// cmd=cargo +nightly-2023-03-09 atomvchecker -k atomicity_violation -- --target x86_64-unknown-linux-gnu \n// timestamp=2025-11-22 5:00:30.733555487 +08:00:00\n   Compiling memory_set v0.4.0 (/mnt/check/batch_2/arceos-org/axmm_crates/memory_set)\nerror[E0658]: use of unstable library feature 'is_some_and'\n  --> memory_set/src/set.rs:90:43\n   |\n90 |             if last_end.checked_add(size).is_some_and(|end| end <= addr) {\n   |                                           ^^^^^^^^^^^\n   |\n   = note: see issue #93050 <https://github.com/rust-lang/rust/issues/93050> for more information\n   = help: add `#![feature(is_some_and)]` to the crate attributes to enable\n\nerror[E0658]: use of unstable library feature 'is_some_and'\n  --> memory_set/src/set.rs:97:14\n   |\n97 |             .is_some_and(|end| end <= limit.end)\n   |              ^^^^^^^^^^^\n   |\n   = note: see issue #93050 <https://github.com/rust-lang/rust/issues/93050> for more information\n   = help: add `#![feature(is_some_and)]` to the crate attributes to enable\n\nFor more information about this error, try `rustc --explain E0658`.\nerror: could not compile `memory_set` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) geiger",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=memory_set, checker=Geiger\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/mnt/check/batch_2/arceos-org/axmm_crates/memory_set\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-11-22 5:00:46.406262862 +08:00:00\n     Removed 6 files, 84.7KiB total\n    Checking memory_addr v0.4.0 (/mnt/check/batch_2/arceos-org/axmm_crates/memory_addr)\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_2/arceos-org/axmm_crates/target/debug/deps/memory_addr-6c10b90b76eb8b12.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_2/arceos-org/axmm_crates/target/debug/deps/libmemory_addr-6c10b90b76eb8b12.rmeta\",\"emit\":\"metadata\"}\n    Checking memory_set v0.4.0 (/mnt/check/batch_2/arceos-org/axmm_crates/memory_set)\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_2/arceos-org/axmm_crates/target/debug/deps/memory_set-5dd3f500c69f050d.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_2/arceos-org/axmm_crates/target/debug/deps/libmemory_set-5dd3f500c69f050d.rmeta\",\"emit\":\"metadata\"}\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.23s\n    Scanning done\nWARNING: Dependency file was never scanned: /mnt/check/batch_2/arceos-org/axmm_crates/memory_set/README.md\nWARNING: Dependency file was never scanned: /mnt/check/batch_2/arceos-org/axmm_crates/memory_addr/README.md\nerror: Found 2 warnings\n"
+            ]
+          }
+        },
+        {
+          "file": "[Geiger] Unsafe code statistics",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Geiger": [
+              "pkg=memory_set, checker=Geiger\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axmm_crates/memory_set\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\ntimestamp=2025-11-22 5:00:46.699611606 +08:00:00\n\n\nMetric output format: x/y\n    x = unsafe code used by the build\n    y = total unsafe code found in the crate\n\nSymbols:\n    :) = No `unsafe` usage found, declares #![forbid(unsafe_code)]\n    ?  = No `unsafe` usage found, missing #![forbid(unsafe_code)]\n    !  = `unsafe` usage found\n\nFunctions  Expressions  Impls  Traits  Methods  Dependency\n\n0/0        0/0          0/0    0/0     0/0      ?  memory_set 0.4.0\n0/0        3/3          0/0    0/0     2/2      !  `-- memory_addr 0.4.0\n\n0/0        3/3          0/0    0/0     2/2\n\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=memory_set, checker=Outdated\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axmm_crates/memory_set\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-11-22 5:00:44.393530881 +08:00:00\n\nName     Project  Compat  Latest  Kind    Platform\n----     -------  ------  ------  ----    --------\naxerrno  0.1.2    ---     0.2.1   Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "memory_set/src/set.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `MemorySet<B>`\n  --> memory_set/src/set.rs:17:5\n   |\n17 | /     pub const fn new() -> Self {\n18 | |         Self {\n19 | |             areas: BTreeMap::new(),\n20 | |         }\n21 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n15 + impl<B: MappingBackend> Default for MemorySet<B> {\n16 +     fn default() -> Self {\n17 +         Self::new()\n18 +     }\n19 + }\n   |\n\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "axmm_crates",
+      "pkg": "memory_addr",
+      "count": 2,
+      "raw_reports": [
+        {
+          "file": "(virtual) geiger",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=memory_addr, checker=Geiger\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/mnt/check/batch_2/arceos-org/axmm_crates/memory_addr\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-11-22 5:00:46.155469274 +08:00:00\n     Removed 0 files\n    Checking memory_addr v0.4.0 (/mnt/check/batch_2/arceos-org/axmm_crates/memory_addr)\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_2/arceos-org/axmm_crates/target/debug/deps/memory_addr-6c10b90b76eb8b12.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_2/arceos-org/axmm_crates/target/debug/deps/libmemory_addr-6c10b90b76eb8b12.rmeta\",\"emit\":\"metadata\"}\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.19s\n    Scanning done\nWARNING: Dependency file was never scanned: /mnt/check/batch_2/arceos-org/axmm_crates/memory_addr/README.md\nerror: Found 1 warnings\n"
+            ]
+          }
+        },
+        {
+          "file": "[Geiger] Unsafe code statistics",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Geiger": [
+              "pkg=memory_addr, checker=Geiger\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axmm_crates/memory_addr\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\ntimestamp=2025-11-22 5:00:46.404611191 +08:00:00\n\n\nMetric output format: x/y\n    x = unsafe code used by the build\n    y = total unsafe code found in the crate\n\nSymbols:\n    :) = No `unsafe` usage found, declares #![forbid(unsafe_code)]\n    ?  = No `unsafe` usage found, missing #![forbid(unsafe_code)]\n    !  = `unsafe` usage found\n\nFunctions  Expressions  Impls  Traits  Methods  Dependency\n\n0/0        3/3          0/0    0/0     2/2      !  memory_addr 0.4.0\n\n0/0        3/3          0/0    0/0     2/2\n\n"
             ]
           }
         }
