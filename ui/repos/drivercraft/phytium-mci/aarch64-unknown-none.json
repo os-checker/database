@@ -1,0 +1,358 @@
+{
+  "repo": {
+    "user": "drivercraft",
+    "repo": "phytium-mci"
+  },
+  "data": [
+    {
+      "user": "drivercraft",
+      "repo": "phytium-mci",
+      "pkg": "phytium-mci",
+      "count": 107,
+      "raw_reports": [
+        {
+          "file": "src/mci_host/sd/mod.rs",
+          "features": "",
+          "count": 18,
+          "kinds": {
+            "Clippy(Error)": [
+              "error: this loop never actually loops\n   --> src/mci_host/sd/mod.rs:674:13\n    |\n674 | /             loop {\n675 | |                 if self.current_timing == SdTimingMode::SDR12DefaultMode {\n676 | |                     /* if timing not specified, probe card capability from SDR104 mode */\n677 | |                     self.current_timing = SdTimingMode::SDR104Mode;\n...   |\n740 | |                 break;\n741 | |             }\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#never_loop\n    = note: `#[deny(clippy::never_loop)]` on by default\n\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: this `else { if .. }` block can be collapsed\n   --> src/mci_host/sd/mod.rs:107:16\n    |\n107 |           } else {\n    |  ________________^\n108 | |             if sd_card.sdmmc_config().is_err() {\n109 | |                 panic!(\"Config fail!\");\n110 | |             }\n111 | |         }\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\nhelp: collapse nested if block\n    |\n107 ~         } else if sd_card.sdmmc_config().is_err() {\n108 +             panic!(\"Config fail!\");\n109 +         }\n    |\n\n",
+              "warning: this `else { if .. }` block can be collapsed\n   --> src/mci_host/sd/mod.rs:529:16\n    |\n529 |           } else {\n    |  ________________^\n530 | |             if self.usr_param.power_off_delay_ms == 0 {\n531 | |                 SD_POWER_OFF_DELAY_MS\n532 | |             } else {\n...   |\n535 | |         };\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\nhelp: collapse nested if block\n    |\n529 ~         } else if self.usr_param.power_off_delay_ms == 0 {\n530 +             SD_POWER_OFF_DELAY_MS\n531 +         } else {\n532 +             self.usr_param.power_off_delay_ms\n533 ~         };\n    |\n\n",
+              "warning: operator precedence might not be obvious\n   --> src/mci_host/sd/mod.rs:814:19\n    |\n814 |             || (((current_func_status >> (group as u32) * 4) & 0xf) != (func as u32))\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `current_func_status >> ((group as u32) * 4)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n    = note: `#[warn(clippy::precedence)]` on by default\n\n",
+              "warning: operator precedence might not be obvious\n   --> src/mci_host/sd/mod.rs:845:14\n    |\n845 |         if ((current_func_status >> (group as u32) * 4) & 0xf) != (func as u32) {\n    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider parenthesizing your expression: `current_func_status >> ((group as u32) * 4)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence\n\n",
+              "warning: unneeded `return` statement\n   --> src/mci_host/sd/mod.rs:236:9\n    |\n236 |         return status;\n    |         ^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\nhelp: remove `return`\n    |\n236 -         return status;\n236 +         status\n    |\n\n",
+              "warning: equality checks against false can be replaced by a negation\n   --> src/mci_host/sd/mod.rs:566:16\n    |\n566 |             if self.base.is_host_ready == false {\n    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try simplifying it as shown: `!self.base.is_host_ready`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bool_comparison\n\n",
+              "warning: writing `&mut Vec` instead of `&mut [_]` involves a new object where a slice will do\n   --> src/mci_host/sd/mod.rs:908:17\n    |\n908 |         buffer: &mut Vec<u32>,\n    |                 ^^^^^^^^^^^^^ help: change this to: `&mut [u32]`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n\n",
+              "warning: manual implementation of an assign operation\n   --> src/mci_host/sd/mod.rs:965:13\n    |\n965 |             erase_block_start = erase_block_start * MCI_HOST_DEFAULT_BLOCK_SIZE;\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace it with: `erase_block_start *= MCI_HOST_DEFAULT_BLOCK_SIZE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n    = note: `#[warn(clippy::assign_op_pattern)]` on by default\n\n",
+              "warning: manual implementation of an assign operation\n   --> src/mci_host/sd/mod.rs:966:13\n    |\n966 |             erase_block_end = erase_block_end * MCI_HOST_DEFAULT_BLOCK_SIZE;\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace it with: `erase_block_end *= MCI_HOST_DEFAULT_BLOCK_SIZE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n\n",
+              "warning: this block may be rewritten with the `?` operator\n    --> src/mci_host/sd/mod.rs:1489:9\n     |\n1489 | /         if let Err(err) = self.transfer(&mut context, 3) {\n1490 | |             return Err(err);\n1491 | |         }\n     | |_________^ help: replace it with: `self.transfer(&mut context, 3)?;`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#question_mark\n     = note: `#[warn(clippy::question_mark)]` on by default\n\n",
+              "warning: writing `&mut Vec` instead of `&mut [_]` involves a new object where a slice will do\n    --> src/mci_host/sd/mod.rs:1525:17\n     |\n1525 |         buffer: &mut Vec<u32>,\n     |                 ^^^^^^^^^^^^^ help: change this to: `&mut [u32]`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n\n",
+              "warning: usage of `size_of::<T>()` to obtain the size of `T` in bits\n    --> src/mci_host/sd/mod.rs:1834:44\n     |\n1834 |         let rx_buf = match PoolBuffer::new(8 * size_of::<u32>(), size_of::<u32>()) {\n     |                                            ^^^^^^^^^^^^^^^^^^^^ help: consider using: `u32::BITS as usize`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_bits\n     = note: `#[warn(clippy::manual_bits)]` on by default\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n    --> src/mci_host/sd/mod.rs:1870:25\n     |\n1870 |         self.decode_scr(&raw_src);\n     |                         ^^^^^^^^ help: change this to: `raw_src`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
+              "warning: manual implementation of an assign operation\n    --> src/mci_host/sd/mod.rs:1949:17\n     |\n1949 |                 self.block_count = self.block_count * self.base.block_size;\n     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace it with: `self.block_count *= self.base.block_size`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n\n",
+              "warning: manual implementation of an assign operation\n    --> src/mci_host/sd/mod.rs:1951:17\n     |\n1951 |                 self.block_count = self.block_count / self.base.block_size;\n     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace it with: `self.block_count /= self.base.block_size`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#assign_op_pattern\n\n",
+              "warning: writing `&Vec` instead of `&[_]` involves a new object where a slice will do\n    --> src/mci_host/sd/mod.rs:2004:38\n     |\n2004 |     fn decode_scr(&mut self, rawscr: &Vec<u32>) {\n     |                                      ^^^^^^^^^ help: change this to: `&[u32]`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n\n",
+              "warning: writing `&Vec` instead of `&[_]` involves a new object where a slice will do\n    --> src/mci_host/sd/mod.rs:2054:41\n     |\n2054 |     fn decode_status(&mut self, status: &Vec<u32>) {\n     |                                         ^^^^^^^^^ help: change this to: `&[u32]`\n     |\n     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/mci_host/mci_sdif/sdif_device.rs",
+          "features": "",
+          "count": 16,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: this `else { if .. }` block can be collapsed\n   --> src/mci_host/mci_sdif/sdif_device.rs:476:16\n    |\n476 |           } else {\n    |  ________________^\n477 | |             if let Err(_) = self.hc.borrow_mut().pio_transfer(&mut cmd_data) {\n478 | |                 return Err(MCIHostError::NoData);\n...   |\n484 | |         }\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_else_if\n    = note: `#[warn(clippy::collapsible_else_if)]` on by default\nhelp: collapse nested if block\n    |\n476 ~         } else if let Err(_) = self.hc.borrow_mut().pio_transfer(&mut cmd_data) {\n477 +             return Err(MCIHostError::NoData);\n478 +         }\n    |\n\n",
+              "warning: unused import: `mci::regs::MCIRawInts`\n   --> src/mci_host/mci_sdif/sdif_device.rs:490:17\n    |\n490 |                 mci::regs::MCIRawInts,\n    |                 ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(unused_imports)]` on by default\n\n",
+              "warning: unused variable: `transfer_type`\n   --> src/mci_host/mci_sdif/sdif_device.rs:461:13\n    |\n461 |         let transfer_type = match (is_read_transfer, is_write_transfer) {\n    |             ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_transfer_type`\n    |\n    = note: `#[warn(unused_variables)]` on by default\n\n",
+              "warning: redundant pattern matching, consider using `is_err()`\n   --> src/mci_host/mci_sdif/sdif_device.rs:110:16\n    |\n110 |         if let Err(_) = self.hc.borrow_mut().config_init(&mci_config) {\n    |         -------^^^^^^------------------------------------------------ help: try: `if self.hc.borrow_mut().config_init(&mci_config).is_err()`\n    |\n    = note: this will change drop order of the result, as well as all temporaries\n    = note: add `#[allow(clippy::redundant_pattern_matching)]` if this is important\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_pattern_matching\n\n",
+              "warning: redundant pattern matching, consider using `is_err()`\n   --> src/mci_host/mci_sdif/sdif_device.rs:116:20\n    |\n116 |             if let Err(_) = self\n    |                    ^^^^^^\n    |\n    = note: this will change drop order of the result, as well as all temporaries\n    = note: add `#[allow(clippy::redundant_pattern_matching)]` if this is important\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_pattern_matching\nhelp: try\n    |\n116 ~             if self\n117 +                 .hc\n118 +                 .borrow_mut()\n119 +                 .set_idma_list(&self.rw_desc, self.desc_num.get()).is_err()\n    |\n\n",
+              "warning: writing `&mut Vec` instead of `&mut [_]` involves a new object where a slice will do\n   --> src/mci_host/mci_sdif/sdif_device.rs:175:19\n    |\n175 |         _rev_buf: &mut Vec<u32>,\n    |                   ^^^^^^^^^^^^^ help: change this to: `&mut [u32]`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n    = note: `#[warn(clippy::ptr_arg)]` on by default\n\n",
+              "warning: writing `&mut Vec` instead of `&mut [_]` involves a new object where a slice will do\n   --> src/mci_host/mci_sdif/sdif_device.rs:199:15\n    |\n199 |         data: &mut Vec<u32>,\n    |               ^^^^^^^^^^^^^ help: change this to: `&mut [u32]`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n\n",
+              "warning: the loop variable `i` is only used to index `data`\n   --> src/mci_host/mci_sdif/sdif_device.rs:207:22\n    |\n207 |             for i in 0..word_size {\n    |                      ^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator\n    |\n207 -             for i in 0..word_size {\n207 +             for <item> in data.iter_mut().take(word_size) {\n    |\n\n",
+              "warning: the loop variable `i` is only used to index `data`\n   --> src/mci_host/mci_sdif/sdif_device.rs:212:22\n    |\n212 |             for i in 0..word_size {\n    |                      ^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator\n    |\n212 -             for i in 0..word_size {\n212 +             for <item> in data.iter_mut().take(word_size) {\n    |\n\n",
+              "warning: the loop variable `i` is only used to index `data`\n   --> src/mci_host/mci_sdif/sdif_device.rs:219:22\n    |\n219 |             for i in 0..word_size {\n    |                      ^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\nhelp: consider using an iterator\n    |\n219 -             for i in 0..word_size {\n219 +             for <item> in data.iter_mut().take(word_size) {\n    |\n\n",
+              "warning: useless conversion to the same type: `core::ptr::NonNull<u8>`\n   --> src/mci_host/mci_sdif/sdif_device.rs:419:33\n    |\n419 |             let bus_addr = mmap(NonNull::new(buf.as_ptr() as *mut u8).unwrap().into());\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider removing `.into()`: `NonNull::new(buf.as_ptr() as *mut u8).unwrap()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n    = note: `#[warn(clippy::useless_conversion)]` on by default\n\n",
+              "warning: redundant pattern matching, consider using `is_err()`\n   --> src/mci_host/mci_sdif/sdif_device.rs:469:20\n    |\n469 |             if let Err(_) = self.hc.borrow_mut().dma_transfer(&mut cmd_data) {\n    |             -------^^^^^^--------------------------------------------------- help: try: `if self.hc.borrow_mut().dma_transfer(&mut cmd_data).is_err()`\n    |\n    = note: this will change drop order of the result, as well as all temporaries\n    = note: add `#[allow(clippy::redundant_pattern_matching)]` if this is important\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_pattern_matching\n\n",
+              "warning: redundant pattern matching, consider using `is_err()`\n   --> src/mci_host/mci_sdif/sdif_device.rs:477:20\n    |\n477 |             if let Err(_) = self.hc.borrow_mut().pio_transfer(&mut cmd_data) {\n    |             -------^^^^^^--------------------------------------------------- help: try: `if self.hc.borrow_mut().pio_transfer(&mut cmd_data).is_err()`\n    |\n    = note: this will change drop order of the result, as well as all temporaries\n    = note: add `#[allow(clippy::redundant_pattern_matching)]` if this is important\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_pattern_matching\n\n",
+              "warning: redundant pattern matching, consider using `is_err()`\n   --> src/mci_host/mci_sdif/sdif_device.rs:511:16\n    |\n511 |         if let Err(_) = self.hc.borrow_mut().cmd_response_get(&mut cmd_data) {\n    |         -------^^^^^^------------------------------------------------------- help: try: `if self.hc.borrow_mut().cmd_response_get(&mut cmd_data).is_err()`\n    |\n    = note: this will change drop order of the result, as well as all temporaries\n    = note: add `#[allow(clippy::redundant_pattern_matching)]` if this is important\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_pattern_matching\n\n",
+              "warning: redundant pattern matching, consider using `is_some()`\n   --> src/mci_host/mci_sdif/sdif_device.rs:516:16\n    |\n516 |         if let Some(_) = content.data() {\n    |         -------^^^^^^^----------------- help: try: `if content.data().is_some()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_pattern_matching\n\n",
+              "warning: redundant slicing of the whole range\n   --> src/mci_host/mci_sdif/sdif_device.rs:532:38\n    |\n532 |                     .copy_from_slice(&cmd_data.get_response()[..]);\n    |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: use the original value instead: `cmd_data.get_response()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_slicing\n    = note: `#[warn(clippy::redundant_slicing)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/regs.rs",
+          "features": "",
+          "count": 13,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: consider removing unnecessary double parentheses\n  --> src/regs.rs:61:9\n   |\n61 |         (($reg << $b) & genmask!($a, $b))\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n  ::: src/iopad/regs.rs:8:34\n   |\n8  |         Self::from_bits_truncate(set_reg32_bits!(x, 2, 0))\n   |                                  ------------------------ in this macro invocation\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n   = note: `#[warn(clippy::double_parens)]` on by default\n   = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: consider removing unnecessary double parentheses\n  --> src/regs.rs:61:9\n   |\n61 |         (($reg << $b) & genmask!($a, $b))\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n  ::: src/iopad/regs.rs:12:34\n   |\n12 |         Self::from_bits_truncate(set_reg32_bits!(x, 7, 4))\n   |                                  ------------------------ in this macro invocation\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n   = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: consider removing unnecessary double parentheses\n  --> src/regs.rs:61:9\n   |\n61 |         (($reg << $b) & genmask!($a, $b))\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n  ::: src/iopad/regs.rs:16:34\n   |\n16 |         Self::from_bits_truncate(set_reg32_bits!(x, 9, 8))\n   |                                  ------------------------ in this macro invocation\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n   = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: consider removing unnecessary double parentheses\n  --> src/regs.rs:61:9\n   |\n61 |         (($reg << $b) & genmask!($a, $b))\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n  ::: src/iopad/regs.rs:34:34\n   |\n34 |         Self::from_bits_truncate(set_reg32_bits!(x, 11, 9))\n   |                                  ------------------------- in this macro invocation\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n   = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: consider removing unnecessary double parentheses\n  --> src/regs.rs:61:9\n   |\n61 |         (($reg << $b) & genmask!($a, $b))\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n  ::: src/iopad/regs.rs:38:34\n   |\n38 |         Self::from_bits_truncate(set_reg32_bits!(x, 14, 12))\n   |                                  -------------------------- in this macro invocation\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n   = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: consider removing unnecessary double parentheses\n  --> src/regs.rs:61:9\n   |\n61 |         (($reg << $b) & genmask!($a, $b))\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n  ::: src/iopad/regs.rs:42:34\n   |\n42 |         Self::from_bits_truncate(set_reg32_bits!(x, 3, 1))\n   |                                  ------------------------ in this macro invocation\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n   = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: consider removing unnecessary double parentheses\n  --> src/regs.rs:61:9\n   |\n61 |         (($reg << $b) & genmask!($a, $b))\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n  ::: src/iopad/regs.rs:46:34\n   |\n46 |         Self::from_bits_truncate(set_reg32_bits!(x, 6, 4))\n   |                                  ------------------------ in this macro invocation\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n   = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: consider removing unnecessary double parentheses\n  --> src/regs.rs:61:9\n   |\n61 |         (($reg << $b) & genmask!($a, $b))\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n  ::: src/mci/regs.rs:91:34\n   |\n91 |         Self::from_bits_truncate(set_reg32_bits!(x, 23, 16))\n   |                                  -------------------------- in this macro invocation\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n   = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: consider removing unnecessary double parentheses\n  --> src/regs.rs:61:9\n   |\n61 |         (($reg << $b) & genmask!($a, $b))\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n  ::: src/mci/regs.rs:94:34\n   |\n94 |         Self::from_bits_truncate(set_reg32_bits!(x, 15, 8))\n   |                                  ------------------------- in this macro invocation\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n   = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: consider removing unnecessary double parentheses\n  --> src/regs.rs:61:9\n   |\n61 |         (($reg << $b) & genmask!($a, $b))\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n  ::: src/mci/regs.rs:97:34\n   |\n97 |         Self::from_bits_truncate(set_reg32_bits!(x, 7, 0))\n   |                                  ------------------------ in this macro invocation\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n   = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: consider removing unnecessary double parentheses\n   --> src/regs.rs:61:9\n    |\n61  |         (($reg << $b) & genmask!($a, $b))\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n   ::: src/mci/regs.rs:331:34\n    |\n331 |         Self::from_bits_truncate(set_reg32_bits!(x, 5, 0))\n    |                                  ------------------------ in this macro invocation\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n    = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: consider removing unnecessary double parentheses\n  --> src/regs.rs:61:9\n   |\n61 |         (($reg << $b) & genmask!($a, $b))\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n  ::: src/mci/mci_cmd.rs:85:47\n   |\n85 |         raw_cmd |= MCICmd::from_bits_truncate(set_reg32_bits!(cmd_data.cmdidx(), 5, 0));\n   |                                               ---------------------------------------- in this macro invocation\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens\n   = note: this warning originates in the macro `set_reg32_bits` (in Nightly builds, run with -Z macro-backtrace for more info)\n\n",
+              "warning: re-implementing `PartialEq::ne` is unnecessary\n   --> src/regs.rs:153:5\n    |\n153 | /     fn ne(&self, other: &Self) -> bool {\n154 | |         !self.eq(other)\n155 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#partialeq_ne_impl\n    = note: `#[warn(clippy::partialeq_ne_impl)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/mci/mci_dma.rs",
+          "features": "",
+          "count": 11,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `FSdifIDmaDescList`\n  --> src/mci/mci_dma.rs:34:5\n   |\n34 | /     pub fn new() -> Self {\n35 | |         FSdifIDmaDescList {\n36 | |             first_desc: core::ptr::null_mut(),\n37 | |             first_desc_dma: 0,\n...  |\n41 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n33 + impl Default for FSdifIDmaDescList {\n34 +     fn default() -> Self {\n35 +         Self::new()\n36 +     }\n37 + }\n   |\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:59:51\n   |\n59 |                     debug!(\"\\tattribute: 0x{:x}\", (*cur_desc).attribute);\n   |                                                   ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n   = note: `#[warn(clippy::explicit_auto_deref)]` on by default\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:60:46\n   |\n60 |                     debug!(\"\\tnon1: 0x{:x}\", (*cur_desc).non1);\n   |                                              ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:61:45\n   |\n61 |                     debug!(\"\\tlen: 0x{:x}\", (*cur_desc).len);\n   |                                             ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:62:46\n   |\n62 |                     debug!(\"\\tnon2: 0x{:x}\", (*cur_desc).non2);\n   |                                              ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:63:49\n   |\n63 |                     debug!(\"\\taddr_lo: 0x{:x}\", (*cur_desc).addr_lo);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:64:49\n   |\n64 |                     debug!(\"\\taddr_hi: 0x{:x}\", (*cur_desc).addr_hi);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:65:49\n   |\n65 |                     debug!(\"\\tdesc_lo: 0x{:x}\", (*cur_desc).desc_lo);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: deref which would be done by auto-deref\n  --> src/mci/mci_dma.rs:66:49\n   |\n66 |                     debug!(\"\\tdesc_hi: 0x{:x}\", (*cur_desc).desc_hi);\n   |                                                 ^^^^^^^^^^^ help: try: `cur_desc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_auto_deref\n\n",
+              "warning: casting to the same type is unnecessary (`usize` -> `usize`)\n   --> src/mci/mci_dma.rs:163:20\n    |\n163 |                 if next_desc_addr as usize % core::mem::size_of::<FSdifIDmaDesc>() != 0 {\n    |                    ^^^^^^^^^^^^^^^^^^^^^^^ help: try: `next_desc_addr`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n    = note: `#[warn(clippy::unnecessary_cast)]` on by default\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mci_dma.rs:201:35\n    |\n201 |         self.setup_dma_descriptor(&data)?;\n    |                                   ^^^^^ help: change this to: `data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n    = note: `#[warn(clippy::needless_borrow)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/mci/mod.rs",
+          "features": "",
+          "count": 9,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: redundant pattern matching, consider using `is_ok()`\n   --> src/mci/mod.rs:122:16\n    |\n122 |         if let Ok(_) = self.reset() {\n    |         -------^^^^^--------------- help: try: `if self.reset().is_ok()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_pattern_matching\n    = note: `#[warn(clippy::redundant_pattern_matching)]` on by default\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:200:51\n    |\n200 |             if let Err(err) = if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:224:33\n    |\n224 |             if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:239:33\n    |\n239 |             if cur_cmd_index == Self::SWITCH_VOLTAGE as u32 {\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `Self::SWITCH_VOLTAGE`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mod.rs:256:26\n    |\n256 |         self.cur_cmd_set(&cmd_data);\n    |                          ^^^^^^^^^ help: change this to: `cmd_data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n   --> src/mci/mod.rs:297:27\n    |\n297 |         self.cmd_transfer(&cmd_data)?;\n    |                           ^^^^^^^^^ help: change this to: `cmd_data`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
+              "warning: casting to the same type is unnecessary (`u32` -> `u32`)\n   --> src/mci/mod.rs:405:34\n    |\n405 |             self.trans_bytes_set(data.datalen() as u32);\n    |                                  ^^^^^^^^^^^^^^^^^^^^^ help: try: `data.datalen()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unnecessary_cast\n\n",
+              "warning: equality checks against false can be replaced by a negation\n   --> src/mci/mod.rs:476:12\n    |\n476 |         if false == self.is_ready {\n    |            ^^^^^^^^^^^^^^^^^^^^^^ help: try simplifying it as shown: `!self.is_ready`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#bool_comparison\n    = note: `#[warn(clippy::bool_comparison)]` on by default\n\n",
+              "warning: using `clone` on type `MCIStatus` which implements the `Copy` trait\n   --> src/mci/mod.rs:651:29\n    |\n651 |         if reg_val.contains(busy_bits.clone()) {\n    |                             ^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `busy_bits`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/iopad/constants.rs",
+          "features": "",
+          "count": 7,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: an implementation of `From` is preferred since it gives you `Into<_>` for free where the reverse isn't true\n  --> src/iopad/constants.rs:31:1\n   |\n31 | impl Into<u32> for FioPadFunc {\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: `impl From<Local> for Foreign` is allowed by the orphan rules, for more information see\n           https://doc.rust-lang.org/reference/items/implementations.html#trait-implementation-coherence\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#from_over_into\n   = note: `#[warn(clippy::from_over_into)]` on by default\nhelp: replace the `Into` implementation with `From<iopad::constants::FioPadFunc>`\n   |\n31 ~ impl From<FioPadFunc> for u32 {\n32 ~     fn from(val: FioPadFunc) -> Self {\n33 ~         match val {\n   |\n\n",
+              "warning: an implementation of `From` is preferred since it gives you `Into<_>` for free where the reverse isn't true\n  --> src/iopad/constants.rs:93:1\n   |\n93 | impl Into<u32> for FioPadDrive {\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: `impl From<Local> for Foreign` is allowed by the orphan rules, for more information see\n           https://doc.rust-lang.org/reference/items/implementations.html#trait-implementation-coherence\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#from_over_into\nhelp: replace the `Into` implementation with `From<iopad::constants::FioPadDrive>`\n   |\n93 ~ impl From<FioPadDrive> for u32 {\n94 ~     fn from(val: FioPadDrive) -> Self {\n95 ~         match val {\n   |\n\n",
+              "warning: an implementation of `From` is preferred since it gives you `Into<_>` for free where the reverse isn't true\n   --> src/iopad/constants.rs:137:1\n    |\n137 | impl Into<u32> for FioPadPull {\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: `impl From<Local> for Foreign` is allowed by the orphan rules, for more information see\n            https://doc.rust-lang.org/reference/items/implementations.html#trait-implementation-coherence\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#from_over_into\nhelp: replace the `Into` implementation with `From<iopad::constants::FioPadPull>`\n    |\n137 ~ impl From<FioPadPull> for u32 {\n138 ~     fn from(val: FioPadPull) -> Self {\n139 ~         match val {\n    |\n\n",
+              "warning: match expression looks like `matches!` macro\n   --> src/iopad/constants.rs:150:9\n    |\n150 | /         match self {\n151 | |             FioPadPull::PullNone => true,\n152 | |             _ => false,\n153 | |         }\n    | |_________^ help: try: `matches!(self, FioPadPull::PullNone)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#match_like_matches_macro\n    = note: `#[warn(clippy::match_like_matches_macro)]` on by default\n\n",
+              "warning: match expression looks like `matches!` macro\n   --> src/iopad/constants.rs:157:9\n    |\n157 | /         match self {\n158 | |             FioPadPull::PullDown => true,\n159 | |             _ => false,\n160 | |         }\n    | |_________^ help: try: `matches!(self, FioPadPull::PullDown)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#match_like_matches_macro\n\n",
+              "warning: match expression looks like `matches!` macro\n   --> src/iopad/constants.rs:164:9\n    |\n164 | /         match self {\n165 | |             FioPadPull::PullUp => true,\n166 | |             _ => false,\n167 | |         }\n    | |_________^ help: try: `matches!(self, FioPadPull::PullUp)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#match_like_matches_macro\n\n",
+              "warning: an implementation of `From` is preferred since it gives you `Into<_>` for free where the reverse isn't true\n   --> src/iopad/constants.rs:217:1\n    |\n217 | impl Into<u32> for FioPadDelay {\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: `impl From<Local> for Foreign` is allowed by the orphan rules, for more information see\n            https://doc.rust-lang.org/reference/items/implementations.html#trait-implementation-coherence\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#from_over_into\nhelp: replace the `Into` implementation with `From<iopad::constants::FioPadDelay>`\n    |\n217 ~ impl From<FioPadDelay> for u32 {\n218 ~     fn from(val: FioPadDelay) -> Self {\n219 ~         match val {\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/osa/mod.rs",
+          "features": "",
+          "count": 6,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unused import: `time::Duration`\n --> src/osa/mod.rs:6:5\n  |\n6 |     time::Duration,\n  |     ^^^^^^^^^^^^^^\n\n",
+              "warning: unused import: `sync::Arc`\n --> src/osa/mod.rs:9:25\n  |\n9 | use alloc::{boxed::Box, sync::Arc};\n  |                         ^^^^^^^^^\n\n",
+              "warning: unused import: `SDMMC_OSA_EVENT_FLAG_AND`\n  --> src/osa/mod.rs:10:29\n   |\n10 | use consts::{MAX_POOL_SIZE, SDMMC_OSA_EVENT_FLAG_AND};\n   |                             ^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+              "warning: unused imports: `mci` and `sleep`\n  --> src/osa/mod.rs:16:13\n   |\n16 | use crate::{mci, sleep};\n   |             ^^^  ^^^^^\n\n",
+              "warning: unused imports: `mci` and `sleep`\n  --> src/osa/mod.rs:16:13\n   |\n16 | use crate::{mci, sleep};\n   |             ^^^  ^^^^^\n\n",
+              "warning: you should consider adding a `Default` implementation for `FMemp<'a>`\n  --> src/osa/mod.rs:39:5\n   |\n39 | /     pub fn new() -> Self {\n40 | |         Self {\n41 | |             tlsf_ptr: Tlsf::new(),\n42 | |             is_ready: false,\n43 | |         }\n44 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n   |\n37 + impl<'a> Default for FMemp<'a> {\n38 +     fn default() -> Self {\n39 +         Self::new()\n40 +     }\n41 + }\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/mci/mci_cmd.rs",
+          "features": "",
+          "count": 4,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: this `if` statement can be collapsed\n   --> src/mci/mci_cmd.rs:119:13\n    |\n119 | /             if read {\n120 | |                 if MCITransMode::PIO == self.config.trans_mode() {\n121 | |                     self.pio_read_data(data)?;\n122 | |                 }\n123 | |             }\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\n    = note: `#[warn(clippy::collapsible_if)]` on by default\nhelp: collapse nested if block\n    |\n119 ~             if read && MCITransMode::PIO == self.config.trans_mode() {\n120 +                 self.pio_read_data(data)?;\n121 +             }\n    |\n\n",
+              "warning: the following explicit lifetimes could be elided: 'a\n  --> src/mci/mci_cmd.rs:47:32\n   |\n47 |     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n   |                                ^^                    ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n   = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n   |\n47 -     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n47 +     pub(crate) fn cmd_transfer(&self, cmd_data: &MCICmdData) -> MCIResult {\n   |\n\n",
+              "warning: the following explicit lifetimes could be elided: 'a\n  --> src/mci/mci_cmd.rs:47:32\n   |\n47 |     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n   |                                ^^                    ^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_lifetimes\n   = note: `#[warn(clippy::needless_lifetimes)]` on by default\nhelp: elide the lifetimes\n   |\n47 -     pub(crate) fn cmd_transfer<'a>(&self, cmd_data: &'a MCICmdData) -> MCIResult {\n47 +     pub(crate) fn cmd_transfer(&self, cmd_data: &MCICmdData) -> MCIResult {\n   |\n\n",
+              "warning: using `clone` on type `MCICmdFlag` which implements the `Copy` trait\n   --> src/mci/mci_cmd.rs:127:20\n    |\n127 |         let flag = cmd_data.flag().clone();\n    |                    ^^^^^^^^^^^^^^^^^^^^^^^ help: try dereferencing it: `*cmd_data.flag()`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n    = note: `#[warn(clippy::clone_on_copy)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/mci_host/mci_host_config.rs",
+          "features": "",
+          "count": 4,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: name `SDMMC` contains a capitalized acronym\n  --> src/mci_host/mci_host_config.rs:65:5\n   |\n65 |     SDMMC,\n   |     ^^^^^ help: consider making the acronym lowercase, except the initial letter: `Sdmmc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#upper_case_acronyms\n   = note: `#[warn(clippy::upper_case_acronyms)]` on by default\n\n",
+              "warning: name `SDIF` contains a capitalized acronym\n  --> src/mci_host/mci_host_config.rs:66:5\n   |\n66 |     SDIF,\n   |     ^^^^ help: consider making the acronym lowercase, except the initial letter: `Sdif`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#upper_case_acronyms\n\n",
+              "warning: name `EMMC` contains a capitalized acronym\n  --> src/mci_host/mci_host_config.rs:74:5\n   |\n74 |     EMMC,\n   |     ^^^^ help: consider making the acronym lowercase, except the initial letter: `Emmc`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#upper_case_acronyms\n\n",
+              "warning: name `SDIO` contains a capitalized acronym\n  --> src/mci_host/mci_host_config.rs:75:5\n   |\n75 |     SDIO,\n   |     ^^^^ help: consider making the acronym lowercase, except the initial letter: `Sdio`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#upper_case_acronyms\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/mci/mci_timing.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
+              "warning: bound is defined in more than one place\n   --> src/mci/mci_timing.rs:129:25\n    |\n129 | fn apply_delay_settings<T: XReg1 + BitsOps>(\n    |                         ^\n...\n135 |     T: 'static,\n    |     ^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#multiple_bound_locations\n    = note: `#[warn(clippy::multiple_bound_locations)]` on by default\n\n",
+              "warning: you should consider adding a `Default` implementation for `MCITiming`\n  --> src/mci/mci_timing.rs:17:5\n   |\n17 | /     pub fn new() -> Self {\n18 | |         MCITiming {\n19 | |             use_hold: false,\n20 | |             clk_div: 0,\n...  |\n25 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\nhelp: try adding this\n   |\n16 + impl Default for MCITiming {\n17 +     fn default() -> Self {\n18 +         Self::new()\n19 +     }\n20 + }\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/osa/pool_buffer.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: manual slice size calculation\n  --> src/osa/pool_buffer.rs:37:19\n   |\n37 |         let len = src.len() * size_of::<T>();\n   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `core::mem::size_of_val(src)`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#manual_slice_size_calculation\n   = note: `#[warn(clippy::manual_slice_size_calculation)]` on by default\n\n",
+              "warning: using `clone` on type `NonNull<u8>` which implements the `Copy` trait\n   --> src/osa/pool_buffer.rs:113:9\n    |\n113 |         self.addr.clone()\n    |         ^^^^^^^^^^^^^^^^^ help: try removing the `clone` call: `self.addr`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#clone_on_copy\n\n",
+              "warning: an implementation of `From` is preferred since it gives you `Into<_>` for free where the reverse isn't true\n   --> src/osa/pool_buffer.rs:123:1\n    |\n123 | impl Into<Vec<u32>> for PoolBuffer {\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: `impl From<Local> for Foreign` is allowed by the orphan rules, for more information see\n            https://doc.rust-lang.org/reference/items/implementations.html#trait-implementation-coherence\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#from_over_into\nhelp: replace the `Into` implementation with `From<osa::pool_buffer::PoolBuffer>`\n    |\n123 ~ impl From<PoolBuffer> for Vec<u32> {\n124 ~     fn from(val: PoolBuffer) -> Self {\n125 |         unsafe {\n126 ~             let slice = from_raw_parts(val.addr.as_ptr() as *const u32, val.size / 4);\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.25/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.25/src/lib.rs:1453:11: 1453:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.25/src/lib.rs:1456:13: 1456:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=phytium-mci, checker=Clippy\n// toolchain=nightly-2025-03-25, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/phytium-mci\n// cmd=cargo clippy --target aarch64-unknown-none  --no-deps\n// timestamp=2025-10-28 4:46:19.372160356 +08:00:00\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.17\n   Compiling syn v1.0.109\n   Compiling autocfg v1.4.0\n    Checking scopeguard v1.2.0\n   Compiling unicode-width v0.1.14\n   Compiling base64 v0.13.1\n    Checking spin v0.9.8\n    Checking const-default v1.0.0\n    Checking cfg-if v1.0.0\n    Checking lazy_static v1.5.0\n    Checking bitflags v2.8.0\n    Checking bytemuck v1.22.0\n   Compiling lock_api v0.4.12\n    Checking nb v1.1.0\n    Checking log v0.4.25\n    Checking tock-registers v0.9.0\n   Compiling quote v1.0.38\n   Compiling syn v2.0.98\n    Checking spin v0.10.0\n   Compiling svgbobdoc v0.3.0\n    Checking rlsf v0.2.1\n   Compiling bare-test-macros v0.2.0\n   Compiling phytium-mci v0.1.0 (/home/runner/check/batch_4/drivercraft/phytium-mci)\nerror: could not compile `phytium-mci` (lib) due to 1 previous error; 94 warnings emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) rapx",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=phytium-mci, checker=Rapx\n// toolchain=nightly-2025-03-25, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/phytium-mci\n// cmd=cargo +nightly-2024-10-12 rapx -F -M -- --target aarch64-unknown-none \n// timestamp=2025-10-28 4:46:42.414359482 +08:00:00\n    Updating crates.io index\n Downloading crates ...\n  Downloaded nb v1.1.0\n  Downloaded const-default v1.0.0\n  Downloaded unicode-ident v1.0.17\n  Downloaded rlsf v0.2.1\n  Downloaded svgbobdoc v0.3.0\n  Downloaded base64 v0.13.1\n  Downloaded lazy_static v1.5.0\n  Downloaded bytemuck v1.22.0\n  Downloaded autocfg v1.4.0\n  Downloaded tock-registers v0.9.0\n  Downloaded bare-test-macros v0.2.0\nerror: failed to parse manifest at `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bare-test-macros-0.2.0/Cargo.toml`\n\nCaused by:\n  feature `edition2024` is required\n\n  The package requires the Cargo feature called `edition2024`, but that feature is not stabilized in this version of Cargo (1.83.0-nightly (15fbd2f60 2024-10-08)).\n  Consider trying a more recent nightly release.\n  See https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#edition-2024 for more information about the status of this feature.\n20:46:42|RAP|ERROR|: Finished with non-zero exit code.\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=phytium-mci, checker=SemverChecks\n// toolchain=nightly-2025-03-25, target=aarch64-unknown-none\n// features=\n// pkg_dir=/home/runner/check/batch_4/drivercraft/phytium-mci\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2025-10-28 4:46:27.950322698 +08:00:00\n    Building phytium-mci v0.1.0 (current)\nerror: running cargo-doc on crate 'phytium-mci' failed with output:\n-----\n   Compiling proc-macro2 v1.0.103\n   Compiling quote v1.0.41\n   Compiling unicode-ident v1.0.20\n   Compiling syn v1.0.109\n   Compiling base64 v0.13.1\n    Checking scopeguard v1.2.0\n   Compiling unicode-width v0.1.14\n    Checking lock_api v0.4.14\n    Checking spin v0.9.8\n    Checking cfg-if v1.0.4\n    Checking const-default v1.0.0\n    Checking lazy_static v1.5.0\n    Checking spin v0.10.0\n    Checking bitflags v2.10.0\n    Checking bytemuck v1.24.0\n    Checking log v0.4.28\n    Checking tock-registers v0.9.0\n    Checking nb v1.1.0\n   Compiling syn v2.0.108\n   Compiling svgbobdoc v0.3.0\n    Checking rlsf v0.2.1\n   Compiling bare-test-macros v0.2.0\n   Compiling phytium-mci v0.1.0 (/home/runner/check/batch_4/drivercraft/phytium-mci)\n Documenting phytium-mci v0.1.0 (/home/runner/check/batch_4/drivercraft/phytium-mci)\nerror: can't enable feature dma and pio at the same time!\n --> /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_config.rs:2:1\n  |\n2 | compile_error!(\"can't enable feature dma and pio at the same time!\");\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: can't enable feature dma and pio at the same time!\n --> /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/mci_host_config.rs:2:1\n  |\n2 | compile_error!(\"can't enable feature dma and pio at the same time!\");\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: can't enable feature irq and poll at the same time!\n --> /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/mci_host_config.rs:4:1\n  |\n4 | compile_error!(\"can't enable feature irq and poll at the same time!\");\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: could not document `phytium-mci`\n\n-----\n\nerror: failed to build rustdoc for crate phytium-mci v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/phytium-mci --features default,dma,irq,pio,poll &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate phytium-mci v0.1.0\n"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-10-27T20:46:34Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.25/src/lib.rs:1453:11: 1453:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.25/src/lib.rs:1456:13: 1456:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-10-27T20:46:34Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }\n[2025-10-27T20:46:41Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"osa::OSAEvent::osa_event_wait\",\n            \"atomic_reader\": \"src/osa/mod.rs:121:16: 121:57 (#0)\",\n            \"atomic_writer\": \"src/osa/mod.rs:124:21: 124:70 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-10-27T20:46:41Z WARN  lockbud::callbacks] crate phytium_mci contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=phytium-mci, checker=Udeps\ntoolchain=nightly-2025-03-25, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/phytium-mci\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none \ntimestamp=2025-10-28 4:46:51.642631993 +08:00:00\n\n\nstdout:\nunused dependencies:\n`phytium-mci v0.1.0 (/home/runner/check/batch_4/drivercraft/phytium-mci)`\n└─── dependencies\n     ├─── \"bytemuck\"\n     ├─── \"nb\"\n     └─── \"tock-registers\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n   Compiling proc-macro2 v1.0.93\n   Compiling unicode-ident v1.0.17\n   Compiling syn v1.0.109\n   Compiling autocfg v1.4.0\n    Checking scopeguard v1.2.0\n   Compiling base64 v0.13.1\n   Compiling unicode-width v0.1.14\n    Checking spin v0.9.8\n    Checking cfg-if v1.0.0\n    Checking const-default v1.0.0\n    Checking lazy_static v1.5.0\n    Checking nb v1.1.0\n    Checking bitflags v2.8.0\n    Checking tock-registers v0.9.0\n   Compiling lock_api v0.4.12\n    Checking bytemuck v1.22.0\n    Checking log v0.4.25\n   Compiling quote v1.0.38\n   Compiling syn v2.0.98\n    Checking spin v0.10.0\n   Compiling svgbobdoc v0.3.0\n    Checking rlsf v0.2.1\n   Compiling bare-test-macros v0.2.0\n   Compiling phytium-mci v0.1.0 (/home/runner/check/batch_4/drivercraft/phytium-mci)\nwarning: unused import: `mci::regs::MCIRawInts`\n   --> src/mci_host/mci_sdif/sdif_device.rs:490:17\n    |\n490 |                 mci::regs::MCIRawInts,\n    |                 ^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(unused_imports)]` on by default\n\nwarning: unused import: `time::Duration`\n --> src/osa/mod.rs:6:5\n  |\n6 |     time::Duration,\n  |     ^^^^^^^^^^^^^^\n\nwarning: unused import: `sync::Arc`\n --> src/osa/mod.rs:9:25\n  |\n9 | use alloc::{boxed::Box, sync::Arc};\n  |                         ^^^^^^^^^\n\nwarning: unused import: `SDMMC_OSA_EVENT_FLAG_AND`\n  --> src/osa/mod.rs:10:29\n   |\n10 | use consts::{MAX_POOL_SIZE, SDMMC_OSA_EVENT_FLAG_AND};\n   |                             ^^^^^^^^^^^^^^^^^^^^^^^^\n\nwarning: unused imports: `mci` and `sleep`\n  --> src/osa/mod.rs:16:13\n   |\n16 | use crate::{mci, sleep};\n   |             ^^^  ^^^^^\n\nwarning: unused variable: `transfer_type`\n   --> src/mci_host/mci_sdif/sdif_device.rs:461:13\n    |\n461 |         let transfer_type = match (is_read_transfer, is_write_transfer) {\n    |             ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_transfer_type`\n    |\n    = note: `#[warn(unused_variables)]` on by default\n\nwarning: `phytium-mci` (lib) generated 6 warnings (run `cargo fix --lib -p phytium-mci` to apply 5 suggestions)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 6.30s\ninfo: Loading depinfo from \"/home/runner/check/batch_4/drivercraft/phytium-mci/target/debug/build/phytium-mci-e31723e9fb1dec63/build_script_build-e31723e9fb1dec63.d\"\ninfo: Loading depinfo from \"/home/runner/check/batch_4/drivercraft/phytium-mci/target/aarch64-unknown-none/debug/deps/phytium_mci-12da9739e8caa1f3.d\"\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=phytium-mci, checker=Outdated\ntoolchain=nightly-2025-03-25, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/phytium-mci\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-10-28 4:46:45.301267711 +08:00:00\n\nName            Project  Compat  Latest  Kind         Platform\n----            -------  ------  ------  ----         --------\nbare-test       0.4.0    0.4.1   0.7.0   Development  ---\nbitflags        2.8.0    2.10.0  2.10.0  Normal       ---\nbytemuck        1.22.0   1.24.0  1.24.0  Normal       ---\nlog             0.4.25   0.4.28  0.4.28  Normal       ---\npcie            0.2.7    ---     0.4.5   Development  ---\ntock-registers  0.9.0    ---     0.10.0  Normal       ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=phytium-mci, checker=SemverChecks\ntoolchain=nightly-2025-03-25, target=aarch64-unknown-none\nfeatures=\npkg_dir=/home/runner/check/batch_4/drivercraft/phytium-mci\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-10-28 4:46:33.09313428 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building phytium-mci v0.1.0 (current)\nerror: running cargo-doc on crate 'phytium-mci' failed with output:\n-----\n   Compiling proc-macro2 v1.0.103\n   Compiling quote v1.0.41\n   Compiling unicode-ident v1.0.20\n   Compiling syn v1.0.109\n   Compiling base64 v0.13.1\n    Checking scopeguard v1.2.0\n   Compiling unicode-width v0.1.14\n    Checking lock_api v0.4.14\n    Checking spin v0.9.8\n    Checking cfg-if v1.0.4\n    Checking const-default v1.0.0\n    Checking lazy_static v1.5.0\n    Checking spin v0.10.0\n    Checking bitflags v2.10.0\n    Checking bytemuck v1.24.0\n    Checking log v0.4.28\n    Checking tock-registers v0.9.0\n    Checking nb v1.1.0\n   Compiling syn v2.0.108\n   Compiling svgbobdoc v0.3.0\n    Checking rlsf v0.2.1\n   Compiling bare-test-macros v0.2.0\n   Compiling phytium-mci v0.1.0 (/home/runner/check/batch_4/drivercraft/phytium-mci)\n Documenting phytium-mci v0.1.0 (/home/runner/check/batch_4/drivercraft/phytium-mci)\nerror: can't enable feature dma and pio at the same time!\n --> /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci/mci_config.rs:2:1\n  |\n2 | compile_error!(\"can't enable feature dma and pio at the same time!\");\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: can't enable feature dma and pio at the same time!\n --> /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/mci_host_config.rs:2:1\n  |\n2 | compile_error!(\"can't enable feature dma and pio at the same time!\");\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: can't enable feature irq and poll at the same time!\n --> /home/runner/check/batch_4/drivercraft/phytium-mci/src/mci_host/mci_host_config.rs:4:1\n  |\n4 | compile_error!(\"can't enable feature irq and poll at the same time!\");\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: could not document `phytium-mci`\n\n-----\n\nerror: failed to build rustdoc for crate phytium-mci v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the compilation error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /home/runner/check/batch_4/drivercraft/phytium-mci --features default,dma,irq,pio,poll &&\n          cargo check\n\nerror: aborting due to failure to build rustdoc for crate phytium-mci v0.1.0\n"
+            ]
+          }
+        },
+        {
+          "file": "src/iopad/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unneeded `return` statement\n  --> src/iopad/mod.rs:83:9\n   |\n83 | /         return (\n84 | |             FioPadFunc::from(func),\n85 | |             FioPadPull::from(pull),\n86 | |             FioPadDrive::from(drive),\n87 | |         );\n   | |_________^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_return\n   = note: `#[warn(clippy::needless_return)]` on by default\nhelp: remove `return`\n   |\n83 ~         (\n84 +             FioPadFunc::from(func),\n85 +             FioPadPull::from(pull),\n86 +             FioPadDrive::from(drive),\n87 ~         )\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/mci/mci_intr.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: this `if` statement can be collapsed\n   --> src/mci/mci_intr.rs:156:5\n    |\n156 | /     if check_status | check_dmac != 0 {\n157 | |         if check_status & MCIRawInts::DTO_BIT.bits() != 0 {\n158 | |             osa_event_set(SDMMC_OSA_EVENT_TRANSFER_DATA_SUCCESS);\n159 | |         }\n160 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#collapsible_if\nhelp: collapse nested if block\n    |\n156 ~     if check_status | check_dmac != 0 && check_status & MCIRawInts::DTO_BIT.bits() != 0 {\n157 +         osa_event_set(SDMMC_OSA_EVENT_TRANSFER_DATA_SUCCESS);\n158 +     }\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/mci/mci_pio.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: the loop variable `i` is only used to index `buf`\n  --> src/mci/mci_pio.rs:20:18\n   |\n20 |         for i in 0..wr_times {\n   |                  ^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\n   = note: `#[warn(clippy::needless_range_loop)]` on by default\nhelp: consider using an iterator\n   |\n20 -         for i in 0..wr_times {\n20 +         for <item> in buf.iter().take(wr_times) {\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/mci_host/sd/consts.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: all variants have the same postfix: `Mode`\n  --> src/mci_host/sd/consts.rs:4:1\n   |\n4  | / pub(crate) enum SdTimingMode {\n5  | |     SDR12DefaultMode = 0,\n6  | |     SDR25HighSpeedMode = 1,\n7  | |     SDR50Mode = 2,\n8  | |     SDR104Mode = 3,\n9  | |     DDR50Mode = 4,\n10 | | }\n   | |_^\n   |\n   = help: remove the postfixes and use full paths to the variants instead of glob imports\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#enum_variant_names\n   = note: `#[warn(clippy::enum_variant_names)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/osa/mod.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"osa::OSAEvent::osa_event_wait\",\n    \"atomic_reader\": \"src/osa/mod.rs:121:16: 121:57 (#0)\",\n    \"atomic_writer\": \"src/osa/mod.rs:124:21: 124:70 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}
