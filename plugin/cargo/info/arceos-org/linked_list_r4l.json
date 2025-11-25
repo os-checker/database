@@ -2,8 +2,8 @@
   "user": "arceos-org",
   "repo": "linked_list_r4l",
   "timestamp": {
-    "start": 1763344816163,
-    "end": 1763950085235
+    "start": 1764036002897,
+    "end": 1764036002903
   },
   "pkgs": {
     "linked_list_r4l": {
@@ -21,7 +21,7 @@
               {
                 "name": "linked_list::tests::test_push_back",
                 "status": "ok",
-                "duration_ms": 3,
+                "duration_ms": 4,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -30,16 +30,16 @@
               {
                 "name": "raw_list::tests::test_one_insert_after",
                 "status": "ok",
-                "duration_ms": 4,
+                "duration_ms": 5,
                 "error": null,
                 "miri_pass": false,
-                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.00s\n     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/linked_list_r4l-813127ec5d33deec)\nerror: Undefined Behavior: trying to retag from <145165> for SharedReadWrite permission at alloc46403[0x0], but that tag does not exist in the borrow stack for this location\n   --> src/raw_list.rs:358:23\n    |\n358 |         Some(unsafe { &*cur.as_ptr() })\n    |                       ^^^^^^^^^^^^^^ this error occurs as part of retag at alloc46403[0x0..0x18]\n    |\n    = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental\n    = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information\nhelp: <145165> was created by a SharedReadWrite retag at offsets [0x0..0x11]\n   --> src/raw_list.rs:149:58\n    |\n149 |         self.insert_after_priv(existing, new_entry, Some(NonNull::from(new)));\n    |                                                          ^^^^^^^^^^^^^^^^^^\nhelp: <145165> was later invalidated at offsets [0x0..0x18] by a Unique retag\n   --> src/raw_list.rs:594:29\n    |\n594 |             v.insert(i + 1, extra);\n    |                             ^^^^^\n    = note: BACKTRACE (of the first span) on thread `raw_list::tests`:\n    = note: inside `raw_list::Cursor::<'_, raw_list::tests::Example>::current` at src/raw_list.rs:358:23: 358:37\nnote: inside `<raw_list::Iterator<'_, raw_list::tests::Example> as std::iter::Iterator>::next`\n   --> src/raw_list.rs:453:19\n    |\n453 |         let ret = self.cursor_front.current()?;\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = note: inside `<std::iter::Enumerate<raw_list::Iterator<'_, raw_list::tests::Example>> as std::iter::Iterator>::next` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/adapters/enumerate.rs:80:17: 80:33\nnote: inside `raw_list::tests::test_one_insert_after`\n   --> src/raw_list.rs:588:9\n    |\n588 | /         test_each_element(1, 10, |v, list, i, extra| {\n...   |\n594 | |             v.insert(i + 1, extra);\n595 | |         });\n    | |__________^\nnote: inside closure\n   --> src/raw_list.rs:587:31\n    |\n586 |     #[test]\n    |     ------- in this attribute macro expansion\n587 |     fn test_one_insert_after() {\n    |                               ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p linked_list_r4l --lib`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/linked_list_r4l/target/miri/x86_64-unknown-linux-gnu/debug/deps/linked_list_r4l-813127ec5d33deec linked_list_r4l 'raw_list::tests::test_one_insert_after'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/linked_list_r4l-813127ec5d33deec)\nerror: Undefined Behavior: trying to retag from <145129> for SharedReadWrite permission at alloc46248[0x0], but that tag does not exist in the borrow stack for this location\n   --> src/raw_list.rs:367:23\n    |\n367 |         Some(unsafe { &*cur.as_ptr() })\n    |                       ^^^^^^^^^^^^^^ this error occurs as part of retag at alloc46248[0x0..0x18]\n    |\n    = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental\n    = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information\nhelp: <145129> was created by a SharedReadWrite retag at offsets [0x0..0x11]\n   --> src/raw_list.rs:644:62\n    |\n644 |             unsafe { list.insert_after(v[i].as_ref().into(), extra.as_ref().into()) };\n    |                                                              ^^^^^^^^^^^^^^^^^^^^^\nhelp: <145129> was later invalidated at offsets [0x0..0x18] by a Unique retag\n   --> src/raw_list.rs:645:29\n    |\n645 |             v.insert(i + 1, extra);\n    |                             ^^^^^\n    = note: BACKTRACE (of the first span) on thread `raw_list::tests`:\n    = note: inside `raw_list::Cursor::<'_, raw_list::tests::Example>::current` at src/raw_list.rs:367:23: 367:37\nnote: inside `<raw_list::Iterator<'_, raw_list::tests::Example> as std::iter::Iterator>::next`\n   --> src/raw_list.rs:504:19\n    |\n504 |         let ret = self.cursor_front.current()?;\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = note: inside `<std::iter::Enumerate<raw_list::Iterator<'_, raw_list::tests::Example>> as std::iter::Iterator>::next` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/adapters/enumerate.rs:80:17: 80:33\nnote: inside `raw_list::tests::test_one_insert_after`\n   --> src/raw_list.rs:639:9\n    |\n639 | /         test_each_element(1, 10, |v, list, i, extra| {\n...   |\n645 | |             v.insert(i + 1, extra);\n646 | |         });\n    | |__________^\nnote: inside closure\n   --> src/raw_list.rs:638:31\n    |\n637 |     #[test]\n    |     ------- in this attribute macro expansion\n638 |     fn test_one_insert_after() {\n    |                               ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p linked_list_r4l --lib`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/linked_list_r4l/target/miri/x86_64-unknown-linux-gnu/debug/deps/linked_list_r4l-813127ec5d33deec linked_list_r4l 'raw_list::tests::test_one_insert_after'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
                 "miri_timeout": false
               },
               {
                 "name": "raw_list::tests::test_one_removal",
                 "status": "ok",
-                "duration_ms": 4,
+                "duration_ms": 5,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -48,7 +48,7 @@
               {
                 "name": "raw_list::tests::test_push_back",
                 "status": "ok",
-                "duration_ms": 3,
+                "duration_ms": 4,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -57,7 +57,7 @@
               {
                 "name": "raw_list::tests::test_push_front",
                 "status": "ok",
-                "duration_ms": 2,
+                "duration_ms": 4,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -65,15 +65,60 @@
               }
             ],
             "failed": 0,
-            "duration_ms": 16
+            "duration_ms": 22
+          },
+          {
+            "id": "linked_list_r4l::cursor",
+            "kind": "test",
+            "binary_name": "cursor",
+            "testcases": [
+              {
+                "name": "cursor_front",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "cursor_front_mut",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "insert_after",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "remove",
+                "status": "ok",
+                "duration_ms": 3,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.00s\n     Running tests/cursor.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/cursor-7b52d26d55a331a0)\nerror: Undefined Behavior: trying to retag from <140558> for SharedReadWrite permission at alloc43106[0x0], but that tag does not exist in the borrow stack for this location\n   --> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:445:18\n    |\n445 |         unsafe { &*self.as_ptr().cast_const() }\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this error occurs as part of retag at alloc43106[0x0..0x40]\n    |\n    = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental\n    = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information\nhelp: <140558> was created by a SharedReadOnly retag at offsets [0x39..0xa1]\n   --> /tmp/os-checker-plugin-cargo/arceos-org/linked_list_r4l/src/linked_list.rs:209:52\n    |\n209 |             Some(unsafe { G::Wrapped::from_pointer(NonNull::from(entry_ref)) })\n    |                                                    ^^^^^^^^^^^^^^^^^^^^^^^^\n    = note: BACKTRACE (of the first span) on thread `remove`:\n    = note: inside `std::ptr::NonNull::<alloc::sync::ArcInner<Node>>::as_ref::<'_>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:445:18: 445:46\n    = note: inside `std::sync::Arc::<Node>::inner` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2008:18: 2008:35\n    = note: inside `<std::sync::Arc<Node> as std::ops::Deref>::deref` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2326:10: 2326:22\nnote: inside `remove`\n   --> tests/cursor.rs:116:21\n    |\n116 |         assert_eq!(&*list.remove(&hello).unwrap(), \"hello\");\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> tests/cursor.rs:108:12\n    |\n107 | #[test]\n    | ------- in this attribute macro expansion\n108 | fn remove() {\n    |            ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p linked_list_r4l --test cursor`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/linked_list_r4l/target/miri/x86_64-unknown-linux-gnu/debug/deps/cursor-7b52d26d55a331a0 remove` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 15
           }
         ],
         "failed": 0,
-        "duration_ms": 16,
-        "pkg_tests_count": 5,
-        "workspace_tests_count": 5
+        "duration_ms": 37,
+        "pkg_tests_count": 9,
+        "workspace_tests_count": 9
       },
-      "tests": 0,
+      "tests": 1,
       "examples": 0,
       "benches": 0,
       "authors": [
@@ -93,7 +138,7 @@
       ],
       "rust_version": null,
       "diag_total_count": 18,
-      "last_commit_time": "2025-11-16T09:27:06Z",
+      "last_commit_time": "2025-11-24T16:06:21Z",
       "release_count": 3,
       "last_release_size": 8930,
       "last_release_time": "2024-10-29T01:57:15Z"
