@@ -1,0 +1,163 @@
+{
+  "repo": {
+    "user": "arceos-hypervisor",
+    "repo": "axvirtio"
+  },
+  "data": [
+    {
+      "user": "arceos-hypervisor",
+      "repo": "axvirtio",
+      "pkg": "axvirtio-blk",
+      "count": 28,
+      "raw_reports": [
+        {
+          "file": "axvirtio-blk/src/mmio/device.rs",
+          "features": "",
+          "count": 19,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:363:21\n    |\n363 |                     warn!(\"Queue {} not ready\", queue_index);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n363 -                     warn!(\"Queue {} not ready\", queue_index);\n363 +                     warn!(\"Queue {queue_index} not ready\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:367:21\n    |\n367 |                     warn!(\"Invalid queue index: {}\", queue_index);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n367 -                     warn!(\"Invalid queue index: {}\", queue_index);\n367 +                     warn!(\"Invalid queue index: {queue_index}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:378:13\n    |\n378 |             warn!(\"Queue {} addresses not properly set\", queue_index);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n378 -             warn!(\"Queue {} addresses not properly set\", queue_index);\n378 +             warn!(\"Queue {queue_index} addresses not properly set\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:392:17\n    |\n392 |                 error!(\"Failed to read available index: {:?}\", e);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n392 -                 error!(\"Failed to read available index: {:?}\", e);\n392 +                 error!(\"Failed to read available index: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:413:21\n    |\n413 | /                     error!(\n414 | |                         \"Failed to read available ring entry {}: {:?}\",\n415 | |                         ring_index, e\n416 | |                     );\n    | |_____________________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:422:13\n    |\n422 | /             trace!(\n423 | |                 \"Processing descriptor chain starting at index {}\",\n424 | |                 desc_index\n425 | |             );\n    | |_____________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:433:21\n    |\n433 |                     error!(\"Failed to process descriptor chain {}: {:?}\", desc_index, e);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n433 -                     error!(\"Failed to process descriptor chain {}: {:?}\", desc_index, e);\n433 +                     error!(\"Failed to process descriptor chain {desc_index}: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:436:25\n    |\n436 |                         error!(\"Failed to write error status byte: {:?}\", se);\n    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n436 -                         error!(\"Failed to write error status byte: {:?}\", se);\n436 +                         error!(\"Failed to write error status byte: {se:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:449:13\n    |\n449 |             trace!(\"Processed {} requests\", processed_count);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n449 -             trace!(\"Processed {} requests\", processed_count);\n449 +             trace!(\"Processed {processed_count} requests\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:459:25\n    |\n459 |                         error!(\"Failed to add used buffer for error request: {:?}\", e);\n    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n459 -                         error!(\"Failed to add used buffer for error request: {:?}\", e);\n459 +                         error!(\"Failed to add used buffer for error request: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:504:17\n    |\n504 |                 error!(\"Failed to parse VirtIO block header: {:?}\", e);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n504 -                 error!(\"Failed to parse VirtIO block header: {:?}\", e);\n504 +                 error!(\"Failed to parse VirtIO block header: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:517:17\n    |\n517 |                 error!(\"Failed to validate descriptor chain: {:?}\", e);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n517 -                 error!(\"Failed to validate descriptor chain: {:?}\", e);\n517 +                 error!(\"Failed to validate descriptor chain: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:526:17\n    |\n526 |                 error!(\"Failed to get data buffers: {:?}\", e);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n526 -                 error!(\"Failed to get data buffers: {:?}\", e);\n526 +                 error!(\"Failed to get data buffers: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:537:17\n    |\n537 |                 error!(\"Failed to get status address: {:?}\", e);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n537 -                 error!(\"Failed to get status address: {:?}\", e);\n537 +                 error!(\"Failed to get status address: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:607:17\n    |\n607 |                 error!(\"Block request execution failed: {:?}\", e);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n607 -                 error!(\"Block request execution failed: {:?}\", e);\n607 +                 error!(\"Block request execution failed: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:620:9\n    |\n620 | /         trace!(\n621 | |             \"Completing request: desc_index={}, len={}, status={}\",\n622 | |             desc_index, len, status\n623 | |         );\n    | |_________^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:628:13\n    |\n628 |             error!(\"Failed to write status byte: {:?}\", e);\n    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n628 -             error!(\"Failed to write status byte: {:?}\", e);\n628 +             error!(\"Failed to write status byte: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:637:17\n    |\n637 |                 error!(\"Failed to add used buffer: {:?}\", e);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n637 -                 error!(\"Failed to add used buffer: {:?}\", e);\n637 +                 error!(\"Failed to add used buffer: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/mmio/device.rs:651:21\n    |\n651 |                     error!(\"Failed to check notification requirement: {:?}\", e);\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n651 -                     error!(\"Failed to check notification requirement: {:?}\", e);\n651 +                     error!(\"Failed to check notification requirement: {e:?}\");\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "axvirtio-blk/src/block/request.rs",
+          "features": "",
+          "count": 5,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/block/request.rs:171:25\n    |\n171 |                         error!(\"Failed to write data to guest memory: {:?}\", e);\n    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\n    = note: `#[warn(clippy::uninlined_format_args)]` on by default\nhelp: change this to\n    |\n171 -                         error!(\"Failed to write data to guest memory: {:?}\", e);\n171 +                         error!(\"Failed to write data to guest memory: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/block/request.rs:181:17\n    |\n181 |                 error!(\"Failed to read from backend: {:?}\", e);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n181 -                 error!(\"Failed to read from backend: {:?}\", e);\n181 +                 error!(\"Failed to read from backend: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/block/request.rs:215:17\n    |\n215 |                 error!(\"Failed to read data from guest memory: {:?}\", e);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n215 -                 error!(\"Failed to read data from guest memory: {:?}\", e);\n215 +                 error!(\"Failed to read data from guest memory: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/block/request.rs:232:17\n    |\n232 |                 error!(\"Failed to write to backend: {:?}\", e);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n232 -                 error!(\"Failed to write to backend: {:?}\", e);\n232 +                 error!(\"Failed to write to backend: {e:?}\");\n    |\n\n",
+              "warning: variables can be used directly in the `format!` string\n   --> axvirtio-blk/src/block/request.rs:250:17\n    |\n250 |                 error!(\"Failed to flush backend: {:?}\", e);\n    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args\nhelp: change this to\n    |\n250 -                 error!(\"Failed to flush backend: {:?}\", e);\n250 +                 error!(\"Failed to flush backend: {e:?}\");\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/mnt/check/batch_1/arceos-hypervisor/axvirtio/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n└── riscv 0.14.0\n    └── page_table_multiarch 0.5.7\n        └── axaddrspace 0.2.0\n            ├── axvirtio-common 0.1.0\n            │   └── axvirtio-blk 0.1.0\n            └── axvirtio-blk 0.1.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 882,\n    \"last-commit\": \"f414b4d1ff5df405ea74240bc8fc2e4ce5f0d6c3\",\n    \"last-updated\": \"2025-12-04T15:23:19+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 40\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\\n\\n## Possible Alternative(s)\\n\\n- [pastey](https://crates.io/crates/pastey), a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-12-04T21:02:44Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-12-04T21:02:44Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=axvirtio-blk, checker=Outdated\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_1/arceos-hypervisor/axvirtio/axvirtio-blk\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-12-05 5:02:54.559777848 +08:00:00\n\nName     Project  Compat  Latest  Kind         Platform\n----     -------  ------  ------  ----         --------\naxerrno  0.1.2    ---     0.2.2   Development  ---\nspin     0.9.8    ---     0.10.0  Normal       ---\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-hypervisor",
+      "repo": "axvirtio",
+      "pkg": "axvirtio-common",
+      "count": 4,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/mnt/check/batch_1/arceos-hypervisor/axvirtio/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n└── riscv 0.14.0\n    └── page_table_multiarch 0.5.7\n        └── axaddrspace 0.2.0\n            ├── axvirtio-common 0.1.0\n            │   └── axvirtio-blk 0.1.0\n            └── axvirtio-blk 0.1.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 882,\n    \"last-commit\": \"f414b4d1ff5df405ea74240bc8fc2e4ce5f0d6c3\",\n    \"last-updated\": \"2025-12-04T15:23:19+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 40\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\\n\\n## Possible Alternative(s)\\n\\n- [pastey](https://crates.io/crates/pastey), a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-12-04T21:02:44Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-12-04T21:02:44Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=axvirtio-common, checker=Udeps\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_1/arceos-hypervisor/axvirtio/axvirtio-common\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2025-12-05 5:03:19.611594952 +08:00:00\n\n\nstdout:\nunused dependencies:\n`axvirtio-common v0.1.0 (/mnt/check/batch_1/arceos-hypervisor/axvirtio/axvirtio-common)`\n└─── dependencies\n     └─── \"spin\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking axvirtio-common v0.1.0 (/mnt/check/batch_1/arceos-hypervisor/axvirtio/axvirtio-common)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.12s\ninfo: Loading depinfo from \"/mnt/check/batch_1/arceos-hypervisor/axvirtio/target/riscv64gc-unknown-none-elf/debug/deps/axvirtio_common-25ac0084e2511b01.d\"\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

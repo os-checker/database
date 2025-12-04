@@ -7,16 +7,50 @@
     {
       "user": "arceos-org",
       "repo": "kernel_guard",
-      "pkg": "",
-      "count": 1,
+      "pkg": "kernel_guard",
+      "count": 8,
       "raw_reports": [
         {
-          "file": "/home/runner/check/batch_3/arceos-org/kernel_guard",
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 4,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: doc list item overindented\n  --> src/lib.rs:24:5\n   |\n24 | //!    need to implement the [`KernelGuardIf`] trait in other crates. Otherwise\n   |     ^^^ help: try using `  ` (2 spaces)\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_overindented_list_items\n   = note: `#[warn(clippy::doc_overindented_list_items)]` on by default\n\n",
+              "warning: doc list item overindented\n  --> src/lib.rs:25:5\n   |\n25 | //!    the preemption enable/disable operations will be no-ops. This feature is\n   |     ^^^ help: try using `  ` (2 spaces)\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_overindented_list_items\n\n",
+              "warning: doc list item overindented\n  --> src/lib.rs:26:5\n   |\n26 | //!    disabled by default.\n   |     ^^^ help: try using `  ` (2 spaces)\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_overindented_list_items\n\n",
+              "warning: you should consider adding a `Default` implementation for `NoOp`\n   --> src/lib.rs:121:5\n    |\n121 | /     pub const fn new() -> Self {\n122 | |         Self\n123 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n119 + impl Default for NoOp {\n120 +     fn default() -> Self {\n121 +         Self::new()\n122 +     }\n123 + }\n    |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/arch/x86.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Mirai": [
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n --> src/arch/x86.rs:9:14\n  |\n9 |     unsafe { asm!(\"pushf; pop {}; cli\", out(reg) flags) };\n  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
+              "warning: [MIRAI] Inline assembly code cannot be analyzed by MIRAI.\n  --> src/arch/x86.rs:16:18\n   |\n16 |         unsafe { asm!(\"sti\") };\n   |                  ^^^^^^^^^^^\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) geiger",
           "features": "",
           "count": 1,
           "kinds": {
             "Cargo": [
-              "\n   0: 在 +nightly-2023-03-09 工具链上安装如下 targets [\"aarch64-unknown-none\", \"loongarch64-unknown-none\", \"riscv64gc-unknown-none-elf\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"] 失败\n      stderr=info: component 'rust-std' for target 'aarch64-unknown-none' is up to date\n      error: toolchain 'nightly-2023-03-09-x86_64-unknown-linux-gnu' does not support target 'loongarch64-unknown-none'\n      note: you can see a list of supported targets with `rustc --print=target-list`\n      note: if you are adding support for a new target to rustc itself, see https://rustc-dev-guide.rust-lang.org/building/new-target.html\n   0: \n\nLocation:\n   src/utils/installation.rs:63\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker::utils::installation::rustup_target_add_for_checkers with targets=[\"aarch64-unknown-none\", \"loongarch64-unknown-none\", \"riscv64gc-unknown-none-elf\", \"x86_64-unknown-linux-gnu\", \"x86_64-unknown-none\"]\n      at src/utils/installation.rs:32\n   1: os_checker::run_checker::run with user=\"arceos-org\" repo=\"kernel_guard\"\n      at src/run_checker/mod.rs:254\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+              "// pkg_name=kernel_guard, checker=Geiger\n// toolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/kernel_guard\n// cmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\n// timestamp=2025-12-05 4:34:28.486509853 +08:00:00\n     Removed 0 files\n   Compiling proc-macro2 v1.0.103\n   Compiling unicode-ident v1.0.22\n   Compiling quote v1.0.42\n    Checking cfg-if v1.0.4\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/cfg_if-4a7d0854554f50b2.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/libcfg_if-4a7d0854554f50b2.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/build/quote-f14c48d1c4fb57ce/build_script_build-f14c48d1c4fb57ce.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/build/proc-macro2-dee2de6a12b324eb/build_script_build-dee2de6a12b324eb.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/unicode_ident-12c495887fb81e30.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/libunicode_ident-12c495887fb81e30.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/libunicode_ident-12c495887fb81e30.rlib\",\"emit\":\"link\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/build/quote-f14c48d1c4fb57ce/build_script_build-f14c48d1c4fb57ce\",\"emit\":\"link\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/build/proc-macro2-dee2de6a12b324eb/build_script_build-dee2de6a12b324eb\",\"emit\":\"link\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/proc_macro2-a94944a833fcbdd2.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/libproc_macro2-a94944a833fcbdd2.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/libproc_macro2-a94944a833fcbdd2.rlib\",\"emit\":\"link\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/quote-467945bb970ae3be.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/libquote-467945bb970ae3be.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/libquote-467945bb970ae3be.rlib\",\"emit\":\"link\"}\n   Compiling syn v2.0.111\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/syn-a566ff47aed2f01f.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/libsyn-a566ff47aed2f01f.rmeta\",\"emit\":\"metadata\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/libsyn-a566ff47aed2f01f.rlib\",\"emit\":\"link\"}\n   Compiling crate_interface v0.1.4\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/crate_interface-c66ca118519d58a6.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/libcrate_interface-c66ca118519d58a6.so\",\"emit\":\"link\"}\n    Checking kernel_guard v0.1.2 (/mnt/check/batch_3/arceos-org/kernel_guard)\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/kernel_guard-9502d7e3b97f966b.d\",\"emit\":\"dep-info\"}\n{\"$message_type\":\"artifact\",\"artifact\":\"/mnt/check/batch_3/arceos-org/kernel_guard/target/debug/deps/libkernel_guard-9502d7e3b97f966b.rmeta\",\"emit\":\"metadata\"}\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.76s\n    Scanning done\nWARNING: Dependency file was never scanned: /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crate_interface-0.1.4/README.md\nerror: Found 1 warnings\n"
+            ]
+          }
+        },
+        {
+          "file": "[Geiger] Unsafe code statistics",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Geiger": [
+              "pkg=kernel_guard, checker=Geiger\ntoolchain=nightly-2025-06-26-x86_64-unknown-linux-gnu, target=x86_64-unknown-linux-gnu\nfeatures=\npkg_dir=/mnt/check/batch_3/arceos-org/kernel_guard\ncmd=cargo +nightly-2025-06-26-x86_64-unknown-linux-gnu geiger --output-format Ascii\ntimestamp=2025-12-05 4:34:32.380809106 +08:00:00\n\n\nMetric output format: x/y\n    x = unsafe code used by the build\n    y = total unsafe code found in the crate\n\nSymbols:\n    :) = No `unsafe` usage found, declares #![forbid(unsafe_code)]\n    ?  = No `unsafe` usage found, missing #![forbid(unsafe_code)]\n    !  = `unsafe` usage found\n\nFunctions  Expressions  Impls  Traits  Methods  Dependency\n\n0/0        3/9          0/0    0/0     0/0      !  kernel_guard 0.1.2\n0/0        0/0          0/0    0/0     0/0      ?  |-- cfg-if 1.0.4\n0/0        0/0          0/0    0/0     0/0      ?  `-- crate_interface 0.1.4\n0/0        14/14        0/0    0/0     3/3      !      |-- proc-macro2 1.0.103\n0/0        4/4          0/0    0/0     0/0      !      |   `-- unicode-ident 1.0.22\n0/0        0/0          0/0    0/0     0/0      ?      |-- quote 1.0.42\n0/0        14/14        0/0    0/0     3/3      !      |   `-- proc-macro2 1.0.103\n0/0        88/88        3/3    0/0     2/2      !      `-- syn 2.0.111\n0/0        14/14        0/0    0/0     3/3      !          |-- proc-macro2 1.0.103\n0/0        0/0          0/0    0/0     0/0      ?          |-- quote 1.0.42\n0/0        4/4          0/0    0/0     0/0      !          `-- unicode-ident 1.0.22\n\n0/0        109/115      3/3    0/0     5/5\n\n"
             ]
           }
         }
