@@ -4,7 +4,7 @@
     "repo": "axfs-ng-vfs",
     "timestamp": {
       "start": 1763776401468,
-      "end": 1765332242661
+      "end": 1765418755912
     },
     "pkgs": {
       "axfs-ng-vfs": {
@@ -79,7 +79,7 @@
     "repo": "starry-process",
     "timestamp": {
       "start": 1763776415816,
-      "end": 1765332242975
+      "end": 1765418756474
     },
     "pkgs": {
       "starry-process": {
@@ -356,17 +356,222 @@
     "user": "Starry-OS",
     "repo": "starry-signal",
     "timestamp": {
-      "start": 1764986170344,
-      "end": 1765332243276
+      "start": 1765418802930,
+      "end": 1765418803043
     },
     "pkgs": {
       "starry-signal": {
         "version": "0.2.3",
-        "dependencies": 10,
+        "dependencies": 11,
         "lib": true,
         "bin": false,
-        "testcases": null,
-        "tests": 0,
+        "testcases": {
+          "tests": [
+            {
+              "id": "starry-signal::action",
+              "kind": "test",
+              "binary_name": "action",
+              "testcases": [
+                {
+                  "name": "convert",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "flags_bits",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 8
+            },
+            {
+              "id": "starry-signal::api_process",
+              "kind": "test",
+              "binary_name": "api_process",
+              "testcases": [
+                {
+                  "name": "can_restart",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "send_wakes_sets_pending",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "signal_ignore",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 12
+            },
+            {
+              "id": "starry-signal::api_thread",
+              "kind": "test",
+              "binary_name": "api_thread",
+              "testcases": [
+                {
+                  "name": "block_ignore_send_signal",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "check_signals",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "dequeue_signal",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "handle_signal",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running tests/api_thread.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/api_thread-f22e33dd1143c351)\nwarning: integer-to-pointer cast\n  --> /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/src/api/thread.rs:98:33\n   |\n98 |                 let frame_ptr = aligned_sp as *mut SignalFrame;\n   |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ integer-to-pointer cast\n   |\n   = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n   = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n   = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n   = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n   = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n   = note: BACKTRACE on thread `handle_signal`:\n   = note: inside `starry_signal::api::ThreadSignalManager::handle_signal` at /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/src/api/thread.rs:98:33: 98:63\nnote: inside `handle_signal`\n  --> tests/api_thread.rs:86:18\n   |\n86 |       let result = env\n   |  __________________^\n87 | |         .thr\n88 | |         .handle_signal(&mut uctx, restore_blocked, &sig, &action);\n   | |_________________________________________________________________^\nnote: inside closure\n  --> tests/api_thread.rs:73:19\n   |\n72 | #[test]\n   | ------- in this attribute macro expansion\n73 | fn handle_signal() {\n   |                   ^\n\nerror: Undefined Behavior: calling a function with return type DummyVm passing return place of type starry_vm::VmImpl\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1\n    |\n 48 | #[extern_trait(VmImpl)]\n    | ^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n    = help: if you think this code should be accepted anyway, please report an issue with Miri\n    = note: BACKTRACE on thread `handle_signal`:\n    = note: inside `<starry_vm::VmImpl as starry_vm::VmIo>::new` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1: 48:24\n    = note: inside `starry_vm::vm_write_slice::<starry_signal::api::thread::SignalFrame>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:80:5: 80:18\n    = note: inside `<*mut starry_signal::api::thread::SignalFrame as starry_vm::VmMutPtr>::vm_write` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/thin.rs:72:9: 72:74\nnote: inside `starry_signal::api::ThreadSignalManager::handle_signal`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/src/api/thread.rs:99:20\n    |\n 99 |                   if frame_ptr\n    |  ____________________^\n100 | |                     .vm_write(SignalFrame {\n101 | |                         ucontext: UContext::new(uctx, restore_blocked),\n102 | |                         siginfo: sig.clone(),\n103 | |                         uctx: *uctx,\n104 | |                     })\n    | |______________________^\nnote: inside `handle_signal`\n   --> tests/api_thread.rs:86:18\n    |\n 86 |       let result = env\n    |  __________________^\n 87 | |         .thr\n 88 | |         .handle_signal(&mut uctx, restore_blocked, &sig, &action);\n    | |_________________________________________________________________^\nnote: inside closure\n   --> tests/api_thread.rs:73:19\n    |\n 72 | #[test]\n    | ------- in this attribute macro expansion\n 73 | fn handle_signal() {\n    |                   ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 1 warning emitted\n\nerror: test failed, to rerun pass `-p starry-signal --test api_thread`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/target/miri/x86_64-unknown-linux-gnu/debug/deps/api_thread-f22e33dd1143c351 handle_signal` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 16
+            },
+            {
+              "id": "starry-signal::pending",
+              "kind": "test",
+              "binary_name": "pending",
+              "testcases": [
+                {
+                  "name": "mixed_signal",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "realtime_signal",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "standard_signal",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 12
+            },
+            {
+              "id": "starry-signal::types",
+              "kind": "test",
+              "binary_name": "types",
+              "testcases": [
+                {
+                  "name": "signalinfo_new_kernel",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "signalinfo_new_user",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "signalset_add_remove_has_is_empty",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "signalset_bounds",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                },
+                {
+                  "name": "signalset_dequeue",
+                  "status": "ok",
+                  "duration_ms": 3,
+                  "error": null,
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 19
+            }
+          ],
+          "failed": 0,
+          "duration_ms": 67,
+          "pkg_tests_count": 17,
+          "workspace_tests_count": 17
+        },
+        "tests": 5,
         "examples": 0,
         "benches": 0,
         "authors": [
@@ -386,7 +591,7 @@
         "categories": [],
         "rust_version": null,
         "diag_total_count": 32,
-        "last_commit_time": "2025-12-05T06:57:17Z",
+        "last_commit_time": "2025-12-10T15:31:55Z",
         "release_count": null,
         "last_release_size": null,
         "last_release_time": null
@@ -397,8 +602,8 @@
     "user": "ZR233",
     "repo": "ostool",
     "timestamp": {
-      "start": 1764813755290,
-      "end": 1765332243631
+      "start": 1765418839046,
+      "end": 1765418839218
     },
     "pkgs": {
       "fitimage": {
@@ -430,7 +635,7 @@
         ],
         "rust_version": null,
         "diag_total_count": 9,
-        "last_commit_time": "2025-12-03T03:51:17Z",
+        "last_commit_time": "2025-12-10T02:19:51Z",
         "release_count": 1,
         "last_release_size": 25440,
         "last_release_time": "2025-11-13T01:55:49Z"
@@ -463,13 +668,13 @@
         ],
         "rust_version": null,
         "diag_total_count": 161,
-        "last_commit_time": "2025-12-03T03:51:17Z",
+        "last_commit_time": "2025-12-10T02:19:51Z",
         "release_count": 5,
         "last_release_size": 81902,
         "last_release_time": "2025-11-13T01:55:51Z"
       },
       "ostool": {
-        "version": "0.8.3",
+        "version": "0.8.4",
         "dependencies": 29,
         "lib": true,
         "bin": true,
@@ -492,11 +697,11 @@
           "config"
         ],
         "rust_version": null,
-        "diag_total_count": 135,
-        "last_commit_time": "2025-12-03T03:51:17Z",
-        "release_count": 87,
-        "last_release_size": 56828,
-        "last_release_time": "2025-11-26T03:18:42Z"
+        "diag_total_count": 130,
+        "last_commit_time": "2025-12-10T02:19:51Z",
+        "release_count": 88,
+        "last_release_size": 57750,
+        "last_release_time": "2025-12-10T02:29:34Z"
       },
       "uboot-shell": {
         "version": "0.2.0",
@@ -526,7 +731,7 @@
         ],
         "rust_version": null,
         "diag_total_count": 11,
-        "last_commit_time": "2025-12-03T03:51:17Z",
+        "last_commit_time": "2025-12-10T02:19:51Z",
         "release_count": 12,
         "last_release_size": 13843,
         "last_release_time": "2025-11-13T01:55:52Z"
@@ -538,7 +743,7 @@
     "repo": "arm_gicv2",
     "timestamp": {
       "start": 1762529562050,
-      "end": 1765332243975
+      "end": 1765418839652
     },
     "pkgs": {
       "arm_gicv2": {
@@ -584,7 +789,7 @@
     "repo": "arm_vcpu",
     "timestamp": {
       "start": 1762529590376,
-      "end": 1765332244254
+      "end": 1765418840014
     },
     "pkgs": {
       "arm_vcpu": {
@@ -630,7 +835,7 @@
     "repo": "arm_vgic",
     "timestamp": {
       "start": 1762529593457,
-      "end": 1765332244521
+      "end": 1765418840583
     },
     "pkgs": {
       "arm_vgic": {
@@ -673,7 +878,7 @@
     "repo": "axaddrspace",
     "timestamp": {
       "start": 1763085776473,
-      "end": 1765332244815
+      "end": 1765418840916
     },
     "pkgs": {
       "axaddrspace": {
@@ -921,7 +1126,7 @@
     "repo": "axdevice_base",
     "timestamp": {
       "start": 1762529834539,
-      "end": 1765332245591
+      "end": 1765418841318
     },
     "pkgs": {
       "axdevice_base": {
@@ -984,7 +1189,7 @@
     "repo": "axvcpu",
     "timestamp": {
       "start": 1762529866673,
-      "end": 1765332245905
+      "end": 1765418841865
     },
     "pkgs": {
       "axvcpu": {
@@ -1186,7 +1391,7 @@
     "repo": "axvirtio",
     "timestamp": {
       "start": 1764900190936,
-      "end": 1765332246179
+      "end": 1765418842260
     },
     "pkgs": {
       "axvirtio-blk": {
@@ -1594,7 +1799,7 @@
     "repo": "axvisor_api",
     "timestamp": {
       "start": 1762529901807,
-      "end": 1765332246454
+      "end": 1765418842597
     },
     "pkgs": {
       "axvisor_api": {
@@ -1702,7 +1907,7 @@
     "repo": "axvm",
     "timestamp": {
       "start": 1762529916787,
-      "end": 1765332246816
+      "end": 1765418842963
     },
     "pkgs": {
       "axvm": {
@@ -1735,7 +1940,7 @@
     "repo": "axvmconfig",
     "timestamp": {
       "start": 1762529973902,
-      "end": 1765332247082
+      "end": 1765418843278
     },
     "pkgs": {
       "axvmconfig": {
@@ -1872,7 +2077,7 @@
     "repo": "riscv-h",
     "timestamp": {
       "start": 1762530051749,
-      "end": 1765332247815
+      "end": 1765418843612
     },
     "pkgs": {
       "riscv-h": {
@@ -2235,7 +2440,7 @@
     "repo": "riscv_vcpu",
     "timestamp": {
       "start": 1762530060748,
-      "end": 1765332248115
+      "end": 1765418843987
     },
     "pkgs": {
       "riscv_vcpu": {
@@ -2280,7 +2485,7 @@
     "repo": "x86_vcpu",
     "timestamp": {
       "start": 1762530216121,
-      "end": 1765332248434
+      "end": 1765418844296
     },
     "pkgs": {
       "x86_vcpu": {
@@ -2862,7 +3067,7 @@
     "repo": "x86_vlapic",
     "timestamp": {
       "start": 1762530263823,
-      "end": 1765332248728
+      "end": 1765418844660
     },
     "pkgs": {
       "x86_vlapic": {
@@ -2992,7 +3197,7 @@
     "repo": "allocator",
     "timestamp": {
       "start": 1763776691966,
-      "end": 1765332249050
+      "end": 1765418844986
     },
     "pkgs": {
       "allocator": {
@@ -3106,7 +3311,7 @@
     "repo": "arceos",
     "timestamp": {
       "start": 1763776765324,
-      "end": 1765332249354
+      "end": 1765418845321
     },
     "pkgs": {
       "arceos-helloworld": {
@@ -3838,7 +4043,7 @@
     "repo": "arm_gicv2",
     "timestamp": {
       "start": 1762530535562,
-      "end": 1765332249661
+      "end": 1765418845731
     },
     "pkgs": {
       "arm_gicv2": {
@@ -3884,7 +4089,7 @@
     "repo": "arm_pl011",
     "timestamp": {
       "start": 1762530538950,
-      "end": 1765332249978
+      "end": 1765418846073
     },
     "pkgs": {
       "arm_pl011": {
@@ -3930,7 +4135,7 @@
     "repo": "arm_pl031",
     "timestamp": {
       "start": 1762530549472,
-      "end": 1765332250285
+      "end": 1765418846407
     },
     "pkgs": {
       "arm_pl031": {
@@ -4008,7 +4213,7 @@
     "repo": "axconfig-gen",
     "timestamp": {
       "start": 1762613159002,
-      "end": 1765332250563
+      "end": 1765418846751
     },
     "pkgs": {
       "axconfig-gen": {
@@ -4171,7 +4376,7 @@
     "repo": "axcpu",
     "timestamp": {
       "start": 1762530632555,
-      "end": 1765332250898
+      "end": 1765418847090
     },
     "pkgs": {
       "axcpu": {
@@ -4223,7 +4428,7 @@
     "repo": "axdriver_crates",
     "timestamp": {
       "start": 1762530645395,
-      "end": 1765332251219
+      "end": 1765418847420
     },
     "pkgs": {
       "axdriver_base": {
@@ -4432,7 +4637,7 @@
     "repo": "axerrno",
     "timestamp": {
       "start": 1764035984608,
-      "end": 1765332251506
+      "end": 1765418847953
     },
     "pkgs": {
       "axerrno": {
@@ -4507,7 +4712,7 @@
     "repo": "axfs_crates",
     "timestamp": {
       "start": 1762530666278,
-      "end": 1765332251799
+      "end": 1765418848321
     },
     "pkgs": {
       "axfs_devfs": {
@@ -4691,7 +4896,7 @@
     "repo": "axio",
     "timestamp": {
       "start": 1762530669781,
-      "end": 1765332252918
+      "end": 1765418848664
     },
     "pkgs": {
       "axio": {
@@ -4732,7 +4937,7 @@
     "repo": "axmm_crates",
     "timestamp": {
       "start": 1763950079879,
-      "end": 1765332253183
+      "end": 1765418848991
     },
     "pkgs": {
       "memory_addr": {
@@ -5041,7 +5246,7 @@
     "repo": "axplat_crates",
     "timestamp": {
       "start": 1763690275546,
-      "end": 1765332253464
+      "end": 1765418849330
     },
     "pkgs": {
       "axplat": {
@@ -5586,7 +5791,7 @@
     "repo": "axsched",
     "timestamp": {
       "start": 1762531277216,
-      "end": 1765332253741
+      "end": 1765418849689
     },
     "pkgs": {
       "axsched": {
@@ -5719,7 +5924,7 @@
     "repo": "cap_access",
     "timestamp": {
       "start": 1762531283229,
-      "end": 1765332254065
+      "end": 1765418850075
     },
     "pkgs": {
       "cap_access": {
@@ -5762,7 +5967,7 @@
     "repo": "cpumask",
     "timestamp": {
       "start": 1762531290110,
-      "end": 1765332254830
+      "end": 1765418850477
     },
     "pkgs": {
       "cpumask": {
@@ -5804,7 +6009,7 @@
     "repo": "crate_interface",
     "timestamp": {
       "start": 1762531322575,
-      "end": 1765332255092
+      "end": 1765418850842
     },
     "pkgs": {
       "crate_interface": {
@@ -5871,7 +6076,7 @@
     "repo": "ctor_bare",
     "timestamp": {
       "start": 1762531351587,
-      "end": 1765332255480
+      "end": 1765418851273
     },
     "pkgs": {
       "ctor_bare": {
@@ -5988,7 +6193,7 @@
     "repo": "dw_apb_uart",
     "timestamp": {
       "start": 1762531357695,
-      "end": 1765332255769
+      "end": 1765418851623
     },
     "pkgs": {
       "dw_apb_uart": {
@@ -6023,7 +6228,7 @@
     "repo": "flatten_objects",
     "timestamp": {
       "start": 1762531374150,
-      "end": 1765332256104
+      "end": 1765418851980
     },
     "pkgs": {
       "flatten_objects": {
@@ -6100,7 +6305,7 @@
     "repo": "handler_table",
     "timestamp": {
       "start": 1762531379391,
-      "end": 1765332256387
+      "end": 1765418852302
     },
     "pkgs": {
       "handler_table": {
@@ -6141,7 +6346,7 @@
     "repo": "int_ratio",
     "timestamp": {
       "start": 1762531423753,
-      "end": 1765332256652
+      "end": 1765418852627
     },
     "pkgs": {
       "int_ratio": {
@@ -6289,7 +6494,7 @@
     "repo": "kernel_guard",
     "timestamp": {
       "start": 1765245757107,
-      "end": 1765332256955
+      "end": 1765418852986
     },
     "pkgs": {
       "kernel_guard": {
@@ -6331,7 +6536,7 @@
     "repo": "kspin",
     "timestamp": {
       "start": 1762531500291,
-      "end": 1765332257265
+      "end": 1765418853290
     },
     "pkgs": {
       "kspin": {
@@ -6462,7 +6667,7 @@
     "repo": "lazyinit",
     "timestamp": {
       "start": 1762531548802,
-      "end": 1765332257546
+      "end": 1765418853679
     },
     "pkgs": {
       "lazyinit": {
@@ -6574,7 +6779,7 @@
     "repo": "linked_list_r4l",
     "timestamp": {
       "start": 1764900216091,
-      "end": 1765332257862
+      "end": 1765418854066
     },
     "pkgs": {
       "linked_list_r4l": {
@@ -6721,7 +6926,7 @@
     "repo": "page_table_multiarch",
     "timestamp": {
       "start": 1764122441840,
-      "end": 1765332258185
+      "end": 1765418854424
     },
     "pkgs": {
       "page_table_entry": {
@@ -6826,7 +7031,7 @@
     "repo": "percpu",
     "timestamp": {
       "start": 1762531610702,
-      "end": 1765332258470
+      "end": 1765418854754
     },
     "pkgs": {
       "percpu": {
@@ -6904,7 +7109,7 @@
     "repo": "riscv_goldfish",
     "timestamp": {
       "start": 1762531616243,
-      "end": 1765332258785
+      "end": 1765418855106
     },
     "pkgs": {
       "riscv_goldfish": {
@@ -6947,7 +7152,7 @@
     "repo": "riscv_plic",
     "timestamp": {
       "start": 1764295024766,
-      "end": 1765332259123
+      "end": 1765418855482
     },
     "pkgs": {
       "riscv_plic": {
@@ -6993,7 +7198,7 @@
     "repo": "slab_allocator",
     "timestamp": {
       "start": 1762531655162,
-      "end": 1765332259406
+      "end": 1765418855817
     },
     "pkgs": {
       "slab_allocator": {
@@ -7114,7 +7319,7 @@
     "repo": "timer_list",
     "timestamp": {
       "start": 1762531683825,
-      "end": 1765332259746
+      "end": 1765418856172
     },
     "pkgs": {
       "timer_list": {
@@ -7191,7 +7396,7 @@
     "repo": "tuple_for_each",
     "timestamp": {
       "start": 1762531723624,
-      "end": 1765332260022
+      "end": 1765418856516
     },
     "pkgs": {
       "tuple_for_each": {
@@ -7285,7 +7490,7 @@
     "repo": "x86_rtc",
     "timestamp": {
       "start": 1762531733795,
-      "end": 1765332260294
+      "end": 1765418856860
     },
     "pkgs": {
       "x86_rtc": {
@@ -7327,17 +7532,17 @@
     "user": "asterinas",
     "repo": "asterinas",
     "timestamp": {
-      "start": 1765332323277,
-      "end": 1765332323277
+      "start": 1765418896944,
+      "end": 1765418896944
     },
-    "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error: error: current package believes it's in a workspace when it's not:\n      current:   /tmp/os-checker-plugin-cargo/asterinas/asterinas/kernel/libs/comp-sys/cargo-component/Cargo.toml\n      workspace: /tmp/os-checker-plugin-cargo/asterinas/asterinas/Cargo.toml\n\n      this may be fixable by adding `kernel/libs/comp-sys/cargo-component` to the `workspace.members` array of the manifest located at: /tmp/os-checker-plugin-cargo/asterinas/asterinas/Cargo.toml\n      Alternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n      \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"0e3ef19ada8d6e833093a47a389d6390a54a4e01\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"asterinas/asterinas\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+    "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error: error: current package believes it's in a workspace when it's not:\n      current:   /tmp/os-checker-plugin-cargo/asterinas/asterinas/kernel/libs/comp-sys/cargo-component/Cargo.toml\n      workspace: /tmp/os-checker-plugin-cargo/asterinas/asterinas/Cargo.toml\n\n      this may be fixable by adding `kernel/libs/comp-sys/cargo-component` to the `workspace.members` array of the manifest located at: /tmp/os-checker-plugin-cargo/asterinas/asterinas/Cargo.toml\n      Alternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n      \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"1207f170a649246b29af7a733961e2ad1419bd41\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"asterinas/asterinas\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
   {
     "user": "bullhh",
     "repo": "igb_driver",
     "timestamp": {
       "start": 1762531739147,
-      "end": 1765332323569
+      "end": 1765418897313
     },
     "pkgs": {
       "igb_driver": {
@@ -7372,7 +7577,7 @@
     "repo": "CrabUSB",
     "timestamp": {
       "start": 1764122493292,
-      "end": 1765332323847
+      "end": 1765418897711
     },
     "pkgs": {
       "crab-usb": {
@@ -7577,7 +7782,7 @@
     "repo": "aarch64-cpu-ext",
     "timestamp": {
       "start": 1762531878616,
-      "end": 1765332324142
+      "end": 1765418898088
     },
     "pkgs": {
       "aarch64-cpu-ext": {
@@ -7719,7 +7924,7 @@
     "repo": "dma-api",
     "timestamp": {
       "start": 1762531893005,
-      "end": 1765332324490
+      "end": 1765418898444
     },
     "pkgs": {
       "dma-api": {
@@ -7759,8 +7964,8 @@
     "user": "drivercraft",
     "repo": "fdt-parser",
     "timestamp": {
-      "start": 1765251461912,
-      "end": 1765332324846
+      "start": 1765424351051,
+      "end": 1765424351687
     },
     "pkgs": {
       "dtb-file": {
@@ -7781,7 +7986,7 @@
         "categories": [],
         "rust_version": null,
         "diag_total_count": 44,
-        "last_commit_time": "2025-12-07T12:47:57Z",
+        "last_commit_time": "2025-12-10T13:29:10Z",
         "release_count": null,
         "last_release_size": null,
         "last_release_time": null
@@ -7814,13 +8019,13 @@
         ],
         "rust_version": null,
         "diag_total_count": 6,
-        "last_commit_time": "2025-12-07T12:47:57Z",
+        "last_commit_time": "2025-12-10T13:29:10Z",
         "release_count": null,
         "last_release_size": null,
         "last_release_time": null
       },
       "fdt-edit": {
-        "version": "0.1.1",
+        "version": "0.1.3",
         "dependencies": 5,
         "lib": true,
         "bin": false,
@@ -7843,7 +8048,7 @@
                 {
                   "name": "tests::test_clock_output_name",
                   "status": "ok",
-                  "duration_ms": 44,
+                  "duration_ms": 43,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test clock -- tests::test_clock_output_name\nProcess timed out for 1 minutes.",
@@ -7861,7 +8066,7 @@
                 {
                   "name": "tests::test_clock_ref_select",
                   "status": "ok",
-                  "duration_ms": 45,
+                  "duration_ms": 43,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test clock -- tests::test_clock_ref_select\nProcess timed out for 1 minutes.",
@@ -7879,7 +8084,7 @@
                 {
                   "name": "tests::test_clocks_with_context",
                   "status": "ok",
-                  "duration_ms": 43,
+                  "duration_ms": 42,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test clock -- tests::test_clocks_with_context\nProcess timed out for 1 minutes.",
@@ -7896,7 +8101,7 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 309
+              "duration_ms": 305
             },
             {
               "id": "fdt-edit::display_debug",
@@ -7915,7 +8120,7 @@
                 {
                   "name": "tests::test_create_simple_fdt",
                   "status": "ok",
-                  "duration_ms": 5,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -7924,7 +8129,7 @@
                 {
                   "name": "tests::test_fdt_debug",
                   "status": "ok",
-                  "duration_ms": 14,
+                  "duration_ms": 12,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test display_debug -- tests::test_fdt_debug\nProcess timed out for 1 minutes.",
@@ -7933,7 +8138,7 @@
                 {
                   "name": "tests::test_fdt_deep_debug",
                   "status": "ok",
-                  "duration_ms": 44,
+                  "duration_ms": 43,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test display_debug -- tests::test_fdt_deep_debug\nProcess timed out for 1 minutes.",
@@ -7942,7 +8147,7 @@
                 {
                   "name": "tests::test_fdt_deep_debug_with_simple_tree",
                   "status": "ok",
-                  "duration_ms": 6,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -7960,7 +8165,7 @@
                 {
                   "name": "tests::test_interrupt_controller_display",
                   "status": "ok",
-                  "duration_ms": 16,
+                  "duration_ms": 15,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test display_debug -- tests::test_interrupt_controller_display\nProcess timed out for 1 minutes.",
@@ -7969,7 +8174,7 @@
                 {
                   "name": "tests::test_manual_node_display",
                   "status": "ok",
-                  "duration_ms": 5,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -7978,7 +8183,7 @@
                 {
                   "name": "tests::test_memory_node_display",
                   "status": "ok",
-                  "duration_ms": 9,
+                  "duration_ms": 8,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test display_debug -- tests::test_memory_node_display\nProcess timed out for 1 minutes.",
@@ -7996,7 +8201,7 @@
                 {
                   "name": "tests::test_node_display",
                   "status": "ok",
-                  "duration_ms": 15,
+                  "duration_ms": 14,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test display_debug -- tests::test_node_display\nProcess timed out for 1 minutes.",
@@ -8005,7 +8210,7 @@
                 {
                   "name": "tests::test_noderef_display_with_details",
                   "status": "ok",
-                  "duration_ms": 26,
+                  "duration_ms": 24,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test display_debug -- tests::test_noderef_display_with_details\nProcess timed out for 1 minutes.",
@@ -8013,7 +8218,7 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 184
+              "duration_ms": 172
             },
             {
               "id": "fdt-edit::edit",
@@ -8024,7 +8229,7 @@
                   "name": "test_parse_and_rebuild",
                   "status": "failed",
                   "duration_ms": 9,
-                  "error": "\nthread 'test_parse_and_rebuild' (7755) panicked at fdt-edit/tests/edit.rs:42:9:\ndtc命令不可用，请安装device-tree-compiler\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n",
+                  "error": "\nthread 'test_parse_and_rebuild' (12111) panicked at fdt-edit/tests/edit.rs:42:9:\ndtc命令不可用，请安装device-tree-compiler\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n",
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test edit -- test_parse_and_rebuild\nProcess timed out for 1 minutes.",
                   "miri_timeout": true
@@ -8041,7 +8246,7 @@
                 {
                   "name": "tests::test_all",
                   "status": "ok",
-                  "duration_ms": 8,
+                  "duration_ms": 7,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test find2 -- tests::test_all\nProcess timed out for 1 minutes.",
@@ -8059,7 +8264,7 @@
                 {
                   "name": "tests::test_find_method",
                   "status": "ok",
-                  "duration_ms": 8,
+                  "duration_ms": 7,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test find2 -- tests::test_find_method\nProcess timed out for 1 minutes.",
@@ -8076,7 +8281,7 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 30
+              "duration_ms": 28
             },
             {
               "id": "fdt-edit::irq",
@@ -8086,7 +8291,7 @@
                 {
                   "name": "tests::test_interrupt_cells_values",
                   "status": "ok",
-                  "duration_ms": 46,
+                  "duration_ms": 44,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test irq -- tests::test_interrupt_cells_values\nProcess timed out for 1 minutes.",
@@ -8095,7 +8300,7 @@
                 {
                   "name": "tests::test_interrupt_controller_by_name",
                   "status": "ok",
-                  "duration_ms": 44,
+                  "duration_ms": 43,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test irq -- tests::test_interrupt_controller_by_name\nProcess timed out for 1 minutes.",
@@ -8104,7 +8309,7 @@
                 {
                   "name": "tests::test_interrupt_controller_detection",
                   "status": "ok",
-                  "duration_ms": 44,
+                  "duration_ms": 43,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test irq -- tests::test_interrupt_controller_detection\nProcess timed out for 1 minutes.",
@@ -8122,7 +8327,7 @@
                 {
                   "name": "tests::test_interrupt_controller_properties",
                   "status": "ok",
-                  "duration_ms": 44,
+                  "duration_ms": 42,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test irq -- tests::test_interrupt_controller_properties\nProcess timed out for 1 minutes.",
@@ -8139,7 +8344,7 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 195
+              "duration_ms": 189
             },
             {
               "id": "fdt-edit::memory",
@@ -8158,7 +8363,7 @@
                 {
                   "name": "tests::test_memory_node_detection",
                   "status": "ok",
-                  "duration_ms": 10,
+                  "duration_ms": 11,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test memory -- tests::test_memory_node_detection\nProcess timed out for 1 minutes.",
@@ -8167,7 +8372,7 @@
                 {
                   "name": "tests::test_memory_node_properties",
                   "status": "ok",
-                  "duration_ms": 11,
+                  "duration_ms": 10,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test memory -- tests::test_memory_node_properties\nProcess timed out for 1 minutes.",
@@ -8194,7 +8399,7 @@
                 {
                   "name": "tests::test_bus_range",
                   "status": "ok",
-                  "duration_ms": 8,
+                  "duration_ms": 7,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test pci -- tests::test_bus_range\nProcess timed out for 1 minutes.",
@@ -8212,7 +8417,7 @@
                 {
                   "name": "tests::test_pci_irq_map",
                   "status": "ok",
-                  "duration_ms": 10,
+                  "duration_ms": 9,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test pci -- tests::test_pci_irq_map\nProcess timed out for 1 minutes.",
@@ -8239,7 +8444,7 @@
                 {
                   "name": "tests::test_pci_properties",
                   "status": "ok",
-                  "duration_ms": 8,
+                  "duration_ms": 6,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test pci -- tests::test_pci_properties\nProcess timed out for 1 minutes.",
@@ -8247,7 +8452,7 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 53
+              "duration_ms": 49
             },
             {
               "id": "fdt-edit::range",
@@ -8257,7 +8462,7 @@
                 {
                   "name": "tests::test_reg",
                   "status": "ok",
-                  "duration_ms": 26,
+                  "duration_ms": 24,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test range -- tests::test_reg\nProcess timed out for 1 minutes.",
@@ -8266,7 +8471,7 @@
                 {
                   "name": "tests::test_set_regs_roundtrip",
                   "status": "ok",
-                  "duration_ms": 47,
+                  "duration_ms": 45,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test range -- tests::test_set_regs_roundtrip\nProcess timed out for 1 minutes.",
@@ -8275,7 +8480,7 @@
                 {
                   "name": "tests::test_set_regs_with_ranges_conversion",
                   "status": "ok",
-                  "duration_ms": 25,
+                  "duration_ms": 24,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test range -- tests::test_set_regs_with_ranges_conversion\nProcess timed out for 1 minutes.",
@@ -8283,7 +8488,7 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 98
+              "duration_ms": 93
             },
             {
               "id": "fdt-edit::remove_node",
@@ -8302,7 +8507,7 @@
                 {
                   "name": "tests::test_remove_direct_child",
                   "status": "ok",
-                  "duration_ms": 5,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8311,7 +8516,7 @@
                 {
                   "name": "tests::test_remove_empty_path",
                   "status": "ok",
-                  "duration_ms": 5,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8320,7 +8525,7 @@
                 {
                   "name": "tests::test_remove_nested_node",
                   "status": "ok",
-                  "duration_ms": 5,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8329,7 +8534,7 @@
                 {
                   "name": "tests::test_remove_node_exact_path",
                   "status": "ok",
-                  "duration_ms": 7,
+                  "duration_ms": 6,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-edit --test remove_node -- tests::test_remove_node_exact_path\nProcess timed out for 1 minutes.",
@@ -8347,7 +8552,7 @@
                 {
                   "name": "tests::test_remove_nonexistent_node",
                   "status": "ok",
-                  "duration_ms": 5,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8358,17 +8563,17 @@
                   "status": "ok",
                   "duration_ms": 5,
                   "error": null,
-                  "miri_pass": true,
-                  "miri_output": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.17s\n     Running tests/remove_node.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/remove_node-bef15b4712ad1576)\nerror: Undefined Behavior: trying to retag from <144514> for SharedReadOnly permission at alloc43674[0x18], but that tag does not exist in the borrow stack for this location\n   --> /tmp/os-checker-plugin-cargo/drivercraft/fdt-parser/fdt-edit/src/ctx.rs:32:22\n    |\n 32 |             .map(|n| n.name())\n    |                      ^ this error occurs as part of retag at alloc43674[0x18..0x90]\n    |\n    = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental\n    = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information\nhelp: <144514> was created by a SharedReadOnly retag at offsets [0x18..0x90]\n   --> /tmp/os-checker-plugin-cargo/drivercraft/fdt-parser/fdt-edit/src/ctx.rs:124:9\n    |\n124 |         self.parents.push(node);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^\nhelp: <144514> was later invalidated at offsets [0x18..0x90] by a Unique function-entry retag inside this call\n   --> /tmp/os-checker-plugin-cargo/drivercraft/fdt-parser/fdt-edit/src/node/gerneric.rs:146:9\n    |\n146 |         self.node.add_child(child);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = note: BACKTRACE (of the first span) on thread `tests::test_rem`:\n    = note: inside closure at /tmp/os-checker-plugin-cargo/drivercraft/fdt-parser/fdt-edit/src/ctx.rs:32:22: 32:23\n    = note: inside closure at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/adapters/map.rs:88:28: 88:34\n    = note: inside `<std::slice::Iter<'_, &fdt_edit::Node> as std::iter::Iterator>::fold::<(), {closure@std::iter::adapters::map::map_fold<&&fdt_edit::Node, &str, (), {closure@fdt_edit::Context<'_>::current_path::{closure#0}}, {closure@std::iter::Iterator::for_each::call<&str, {closure@std::vec::Vec<&str>::extend_trusted<std::iter::Map<std::slice::Iter<'_, &fdt_edit::Node>, {closure@fdt_edit::Context<'_>::current_path::{closure#0}}>>::{closure#0}}>::{closure#0}}>::{closure#0}}>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/slice/iter/macros.rs:279:27: 279:85\n    = note: inside `<std::iter::Map<std::slice::Iter<'_, &fdt_edit::Node>, {closure@fdt_edit::Context<'_>::current_path::{closure#0}}> as std::iter::Iterator>::fold::<(), {closure@std::iter::Iterator::for_each::call<&str, {closure@std::vec::Vec<&str>::extend_trusted<std::iter::Map<std::slice::Iter<'_, &fdt_edit::Node>, {closure@fdt_edit::Context<'_>::current_path::{closure#0}}>>::{closure#0}}>::{closure#0}}>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/adapters/map.rs:128:9: 128:50\n    = note: inside `<std::iter::Map<std::slice::Iter<'_, &fdt_edit::Node>, {closure@fdt_edit::Context<'_>::current_path::{closure#0}}> as std::iter::Iterator>::for_each::<{closure@std::vec::Vec<&str>::extend_trusted<std::iter::Map<std::slice::Iter<'_, &fdt_edit::Node>, {closure@fdt_edit::Context<'_>::current_path::{closure#0}}>>::{closure#0}}>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:828:9: 828:31\n    = note: inside `std::vec::Vec::<&str>::extend_trusted::<std::iter::Map<std::slice::Iter<'_, &fdt_edit::Node>, {closure@fdt_edit::Context<'_>::current_path::{closure#0}}>>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3913:17: 3919:19\n    = note: inside `<std::vec::Vec<&str> as std::vec::spec_extend::SpecExtend<&str, std::iter::Map<std::slice::Iter<'_, &fdt_edit::Node>, {closure@fdt_edit::Context<'_>::current_path::{closure#0}}>>>::spec_extend` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/spec_extend.rs:27:9: 27:38\n    = note: inside `<std::vec::Vec<&str> as std::vec::spec_from_iter_nested::SpecFromIterNested<&str, std::iter::Map<std::slice::Iter<'_, &fdt_edit::Node>, {closure@fdt_edit::Context<'_>::current_path::{closure#0}}>>>::from_iter` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/spec_from_iter_nested.rs:60:9: 60:37\n    = note: inside `<std::vec::Vec<&str> as std::vec::spec_from_iter::SpecFromIter<&str, std::iter::Map<std::slice::Iter<'_, &fdt_edit::Node>, {closure@fdt_edit::Context<'_>::current_path::{closure#0}}>>>::from_iter` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/spec_from_iter.rs:33:9: 33:48\n    = note: inside `<std::vec::Vec<&str> as std::iter::FromIterator<&str>>::from_iter::<std::iter::Map<std::slice::Iter<'_, &fdt_edit::Node>, {closure@fdt_edit::Context<'_>::current_path::{closure#0}}>>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/vec/mod.rs:3777:9: 3777:76\n    = note: inside `<std::iter::Map<std::slice::Iter<'_, &fdt_edit::Node>, {closure@fdt_edit::Context<'_>::current_path::{closure#0}}> as std::iter::Iterator>::collect::<std::vec::Vec<&str>>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs:2028:9: 2028:38\nnote: inside `fdt_edit::Context::<'_>::current_path`\n   --> /tmp/os-checker-plugin-cargo/drivercraft/fdt-parser/fdt-edit/src/ctx.rs:30:9\n    |\n 30 | /         self.parents\n 31 | |             .iter()\n 32 | |             .map(|n| n.name())\n 33 | |             .collect::<Vec<_>>()\n    | |________________________________^\nnote: inside `fdt_edit::node::gerneric::RefOp::<'_>::path`\n   --> /tmp/os-checker-plugin-cargo/drivercraft/fdt-parser/fdt-edit/src/node/gerneric.rs:175:9\n    |\n175 |         self.ctx.current_path() + \"/\" + self.node.name()\n    |         ^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside `fdt_edit::node::gerneric::NodeMutGen::<'_>::path`\n   --> /tmp/os-checker-plugin-cargo/drivercraft/fdt-parser/fdt-edit/src/node/gerneric.rs:71:9\n    |\n 71 |         self.op().path()\n    |         ^^^^^^^^^^^^^^^^\nnote: inside `tests::test_remove_with_leading_slash`\n   --> fdt-edit/tests/remove_node.rs:134:21\n    |\n134 |         assert_eq!(&node.path(), \"/test\");\n    |                     ^^^^^^^^^^^\nnote: inside closure\n   --> fdt-edit/tests/remove_node.rs:131:40\n    |\n130 |     #[test]\n    |     ------- in this attribute macro expansion\n131 |     fn test_remove_with_leading_slash() {\n    |                                        ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p fdt-edit --test remove_node`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/drivercraft/fdt-parser/target/miri/x86_64-unknown-linux-gnu/debug/deps/remove_node-bef15b4712ad1576 'tests::test_remove_with_leading_slash'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
                   "miri_timeout": false
                 }
               ],
               "failed": 0,
-              "duration_ms": 42
+              "duration_ms": 37
             }
           ],
           "failed": 1,
-          "duration_ms": 955,
+          "duration_ms": 917,
           "pkg_tests_count": 51,
           "workspace_tests_count": 118
         },
@@ -8396,10 +8601,10 @@
         ],
         "rust_version": null,
         "diag_total_count": 152,
-        "last_commit_time": "2025-12-07T12:47:57Z",
-        "release_count": 2,
-        "last_release_size": 27870,
-        "last_release_time": "2025-12-07T12:43:53Z"
+        "last_commit_time": "2025-12-10T13:29:10Z",
+        "release_count": 4,
+        "last_release_size": 32069,
+        "last_release_time": "2025-12-10T13:29:41Z"
       },
       "fdt-parser": {
         "version": "0.5.1",
@@ -8425,7 +8630,7 @@
                 {
                   "name": "base::node::tests::test_child_iter_multiple_levels",
                   "status": "ok",
-                  "duration_ms": 5,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8443,7 +8648,7 @@
                 {
                   "name": "base::node::tests::test_node_child_iter_basic",
                   "status": "ok",
-                  "duration_ms": 8,
+                  "duration_ms": 7,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --lib fdt_parser -- base::node::tests::test_node_child_iter_basic\nProcess timed out for 1 minutes.",
@@ -8461,7 +8666,7 @@
                 {
                   "name": "cache::node::pci::tests::test_interrupt_map_mask",
                   "status": "ok",
-                  "duration_ms": 8,
+                  "duration_ms": 7,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --lib fdt_parser -- cache::node::pci::tests::test_interrupt_map_mask\nProcess timed out for 1 minutes.",
@@ -8470,7 +8675,7 @@
                 {
                   "name": "cache::node::pci::tests::test_interrupt_map_parsing",
                   "status": "ok",
-                  "duration_ms": 9,
+                  "duration_ms": 8,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --lib fdt_parser -- cache::node::pci::tests::test_interrupt_map_parsing\nProcess timed out for 1 minutes.",
@@ -8496,7 +8701,7 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 67
+              "duration_ms": 63
             },
             {
               "id": "fdt-parser::head",
@@ -8506,7 +8711,7 @@
                 {
                   "name": "test::test_head",
                   "status": "ok",
-                  "duration_ms": 5,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8523,7 +8728,7 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 10
+              "duration_ms": 9
             },
             {
               "id": "fdt-parser::no_mem",
@@ -8542,7 +8747,7 @@
                 {
                   "name": "test::test_chosen",
                   "status": "ok",
-                  "duration_ms": 7,
+                  "duration_ms": 6,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test no_mem -- test::test_chosen\nProcess timed out for 1 minutes.",
@@ -8551,7 +8756,7 @@
                 {
                   "name": "test::test_debugcon",
                   "status": "ok",
-                  "duration_ms": 7,
+                  "duration_ms": 6,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test no_mem -- test::test_debugcon\nProcess timed out for 1 minutes.",
@@ -8560,7 +8765,7 @@
                 {
                   "name": "test::test_debugcon2",
                   "status": "ok",
-                  "duration_ms": 17,
+                  "duration_ms": 18,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test no_mem -- test::test_debugcon2\nProcess timed out for 1 minutes.",
@@ -8569,7 +8774,7 @@
                 {
                   "name": "test::test_empty_memory_reservation_blocks",
                   "status": "ok",
-                  "duration_ms": 6,
+                  "duration_ms": 5,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8578,7 +8783,7 @@
                 {
                   "name": "test::test_find_aliases",
                   "status": "ok",
-                  "duration_ms": 6,
+                  "duration_ms": 5,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8614,7 +8819,7 @@
                 {
                   "name": "test::test_memory",
                   "status": "ok",
-                  "duration_ms": 6,
+                  "duration_ms": 5,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8632,7 +8837,7 @@
                 {
                   "name": "test::test_new",
                   "status": "ok",
-                  "duration_ms": 6,
+                  "duration_ms": 5,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8650,11 +8855,11 @@
                 {
                   "name": "test::test_reg",
                   "status": "ok",
-                  "duration_ms": 7,
+                  "duration_ms": 6,
                   "error": null,
-                  "miri_pass": false,
-                  "miri_output": "cmd=cargo miri test -p fdt-parser --test no_mem -- test::test_reg\nProcess timed out for 1 minutes.",
-                  "miri_timeout": true
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
                 },
                 {
                   "name": "test::test_reserved_memory",
@@ -8671,21 +8876,21 @@
                   "duration_ms": 5,
                   "error": null,
                   "miri_pass": false,
-                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.19s\n     Running tests/no_mem.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/no_mem-3cdc2d5cfcc5900a)\nerror: Undefined Behavior: constructing invalid value at .<enum-variant(Some)>.0.<enum-variant(General)>.0.fdt.raw.value: encountered a dangling reference (use-after-free)\n   --> fdt-parser/tests/no_mem.rs:108:20\n    |\n108 |         let node = test_node();\n    |                    ^^^^^^^^^^^ Undefined Behavior occurred here\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = note: BACKTRACE on thread `test::test_send`:\n    = note: inside `test::test_send_node` at fdt-parser/tests/no_mem.rs:108:20: 108:31\nnote: inside closure\n   --> fdt-parser/tests/no_mem.rs:107:24\n    |\n106 |     #[test]\n    |     ------- in this attribute macro expansion\n107 |     fn test_send_node() {\n    |                        ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p fdt-parser --test no_mem`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/drivercraft/fdt-parser/target/miri/x86_64-unknown-linux-gnu/debug/deps/no_mem-3cdc2d5cfcc5900a 'test::test_send_node'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.10s\n     Running tests/no_mem.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/no_mem-3cdc2d5cfcc5900a)\nerror: Undefined Behavior: constructing invalid value at .<enum-variant(Some)>.0.<enum-variant(General)>.0.fdt.raw.value: encountered a dangling reference (use-after-free)\n   --> fdt-parser/tests/no_mem.rs:108:20\n    |\n108 |         let node = test_node();\n    |                    ^^^^^^^^^^^ Undefined Behavior occurred here\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = note: BACKTRACE on thread `test::test_send`:\n    = note: inside `test::test_send_node` at fdt-parser/tests/no_mem.rs:108:20: 108:31\nnote: inside closure\n   --> fdt-parser/tests/no_mem.rs:107:24\n    |\n106 |     #[test]\n    |     ------- in this attribute macro expansion\n107 |     fn test_send_node() {\n    |                        ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p fdt-parser --test no_mem`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/drivercraft/fdt-parser/target/miri/x86_64-unknown-linux-gnu/debug/deps/no_mem-3cdc2d5cfcc5900a 'test::test_send_node'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
                   "miri_timeout": false
                 },
                 {
                   "name": "test::test_str_list",
                   "status": "ok",
-                  "duration_ms": 7,
+                  "duration_ms": 6,
                   "error": null,
-                  "miri_pass": false,
-                  "miri_output": "cmd=cargo miri test -p fdt-parser --test no_mem -- test::test_str_list\nProcess timed out for 1 minutes.",
-                  "miri_timeout": true
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
                 }
               ],
               "failed": 0,
-              "duration_ms": 123
+              "duration_ms": 116
             },
             {
               "id": "fdt-parser::node",
@@ -8695,7 +8900,7 @@
                 {
                   "name": "test::test_all_nodes",
                   "status": "ok",
-                  "duration_ms": 6,
+                  "duration_ms": 7,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8740,7 +8945,7 @@
                 {
                   "name": "test::test_empty_memory_reservation_blocks",
                   "status": "ok",
-                  "duration_ms": 31,
+                  "duration_ms": 30,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_empty_memory_reservation_blocks\nProcess timed out for 1 minutes.",
@@ -8749,7 +8954,7 @@
                 {
                   "name": "test::test_find_aliases",
                   "status": "ok",
-                  "duration_ms": 14,
+                  "duration_ms": 13,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_find_aliases\nProcess timed out for 1 minutes.",
@@ -8767,7 +8972,7 @@
                 {
                   "name": "test::test_find_node2",
                   "status": "ok",
-                  "duration_ms": 20,
+                  "duration_ms": 19,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_find_node2\nProcess timed out for 1 minutes.",
@@ -8776,7 +8981,7 @@
                 {
                   "name": "test::test_find_node_aliases",
                   "status": "ok",
-                  "duration_ms": 20,
+                  "duration_ms": 19,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_find_node_aliases\nProcess timed out for 1 minutes.",
@@ -8785,7 +8990,7 @@
                 {
                   "name": "test::test_find_nodes",
                   "status": "ok",
-                  "duration_ms": 20,
+                  "duration_ms": 19,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_find_nodes\nProcess timed out for 1 minutes.",
@@ -8803,7 +9008,7 @@
                 {
                   "name": "test::test_interrupt2",
                   "status": "ok",
-                  "duration_ms": 14,
+                  "duration_ms": 13,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_interrupt2\nProcess timed out for 1 minutes.",
@@ -8812,7 +9017,7 @@
                 {
                   "name": "test::test_interrupts",
                   "status": "ok",
-                  "duration_ms": 15,
+                  "duration_ms": 13,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_interrupts\nProcess timed out for 1 minutes.",
@@ -8857,7 +9062,7 @@
                 {
                   "name": "test::test_parent_relationships_cache",
                   "status": "ok",
-                  "duration_ms": 5,
+                  "duration_ms": 6,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8866,7 +9071,7 @@
                 {
                   "name": "test::test_parent_with_different_dtb",
                   "status": "ok",
-                  "duration_ms": 6,
+                  "duration_ms": 5,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -8884,7 +9089,7 @@
                 {
                   "name": "test::test_pci_irq_map",
                   "status": "ok",
-                  "duration_ms": 10,
+                  "duration_ms": 9,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_pci_irq_map\nProcess timed out for 1 minutes.",
@@ -8893,7 +9098,7 @@
                 {
                   "name": "test::test_pci_irq_map2",
                   "status": "ok",
-                  "duration_ms": 10,
+                  "duration_ms": 8,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_pci_irq_map2\nProcess timed out for 1 minutes.",
@@ -8911,7 +9116,7 @@
                 {
                   "name": "test::test_property",
                   "status": "ok",
-                  "duration_ms": 107,
+                  "duration_ms": 103,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_property\nProcess timed out for 1 minutes.",
@@ -8929,7 +9134,7 @@
                 {
                   "name": "test::test_send_node",
                   "status": "ok",
-                  "duration_ms": 21,
+                  "duration_ms": 19,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_send_node\nProcess timed out for 1 minutes.",
@@ -8938,7 +9143,7 @@
                 {
                   "name": "test::test_str_list",
                   "status": "ok",
-                  "duration_ms": 22,
+                  "duration_ms": 21,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-parser --test node -- test::test_str_list\nProcess timed out for 1 minutes.",
@@ -8946,11 +9151,11 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 513
+              "duration_ms": 496
             }
           ],
           "failed": 0,
-          "duration_ms": 713,
+          "duration_ms": 684,
           "pkg_tests_count": 56,
           "workspace_tests_count": 118
         },
@@ -8976,7 +9181,7 @@
         ],
         "rust_version": null,
         "diag_total_count": 30,
-        "last_commit_time": "2025-12-07T12:47:57Z",
+        "last_commit_time": "2025-12-10T13:29:10Z",
         "release_count": 38,
         "last_release_size": 34577,
         "last_release_time": "2025-11-08T16:21:46Z"
@@ -8996,7 +9201,7 @@
                 {
                   "name": "fdt::tests::test_empty_memory_reservation_iterator",
                   "status": "ok",
-                  "duration_ms": 6,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -9005,7 +9210,7 @@
                 {
                   "name": "fdt::tests::test_memory_reservation_iterator",
                   "status": "ok",
-                  "duration_ms": 5,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -9013,7 +9218,7 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 11
+              "duration_ms": 8
             },
             {
               "id": "fdt-raw::node",
@@ -9023,7 +9228,7 @@
                 {
                   "name": "test_all_nodes",
                   "status": "ok",
-                  "duration_ms": 10,
+                  "duration_ms": 8,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-raw --test node -- test_all_nodes\nProcess timed out for 1 minutes.",
@@ -9041,7 +9246,7 @@
                 {
                   "name": "test_fdt_display",
                   "status": "ok",
-                  "duration_ms": 79,
+                  "duration_ms": 15,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-raw --test node -- test_fdt_display\nProcess timed out for 1 minutes.",
@@ -9059,7 +9264,7 @@
                 {
                   "name": "test_new",
                   "status": "ok",
-                  "duration_ms": 6,
+                  "duration_ms": 5,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -9077,7 +9282,7 @@
                 {
                   "name": "test_node_properties",
                   "status": "ok",
-                  "duration_ms": 16,
+                  "duration_ms": 14,
                   "error": null,
                   "miri_pass": false,
                   "miri_output": "cmd=cargo miri test -p fdt-raw --test node -- test_node_properties\nProcess timed out for 1 minutes.",
@@ -9086,7 +9291,7 @@
                 {
                   "name": "test_phandle_display",
                   "status": "ok",
-                  "duration_ms": 5,
+                  "duration_ms": 4,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -9095,19 +9300,19 @@
                 {
                   "name": "test_reg_parsing",
                   "status": "ok",
-                  "duration_ms": 9,
+                  "duration_ms": 7,
                   "error": null,
-                  "miri_pass": false,
-                  "miri_output": "cmd=cargo miri test -p fdt-raw --test node -- test_reg_parsing\nProcess timed out for 1 minutes.",
-                  "miri_timeout": true
+                  "miri_pass": true,
+                  "miri_output": null,
+                  "miri_timeout": false
                 }
               ],
               "failed": 0,
-              "duration_ms": 177
+              "duration_ms": 105
             }
           ],
           "failed": 0,
-          "duration_ms": 188,
+          "duration_ms": 113,
           "pkg_tests_count": 11,
           "workspace_tests_count": 118
         },
@@ -9135,7 +9340,7 @@
         ],
         "rust_version": null,
         "diag_total_count": 127,
-        "last_commit_time": "2025-12-07T12:47:57Z",
+        "last_commit_time": "2025-12-10T13:29:10Z",
         "release_count": 1,
         "last_release_size": 17627,
         "last_release_time": "2025-12-07T09:58:32Z"
@@ -9147,7 +9352,7 @@
     "repo": "mbarrier",
     "timestamp": {
       "start": 1762534506396,
-      "end": 1765332325159
+      "end": 1765424352397
     },
     "pkgs": {
       "mbarrier": {
@@ -9216,7 +9421,7 @@
     "repo": "nvme",
     "timestamp": {
       "start": 1762534528362,
-      "end": 1765332325436
+      "end": 1765424353017
     },
     "pkgs": {
       "nvme-driver": {
@@ -9259,7 +9464,7 @@
     "repo": "pcie",
     "timestamp": {
       "start": 1762534548479,
-      "end": 1765332325725
+      "end": 1765424353601
     },
     "pkgs": {
       "pcie": {
@@ -9302,7 +9507,7 @@
     "repo": "phytium-mci",
     "timestamp": {
       "start": 1762534657954,
-      "end": 1765332326085
+      "end": 1765424354226
     },
     "pkgs": {
       "phytium-mci": {
@@ -9335,7 +9540,7 @@
     "repo": "rdrive",
     "timestamp": {
       "start": 1762534762621,
-      "end": 1765332326390
+      "end": 1765424354768
     },
     "pkgs": {
       "enumerate": {
@@ -9801,7 +10006,7 @@
     "repo": "sdmmc",
     "timestamp": {
       "start": 1762534780128,
-      "end": 1765332326692
+      "end": 1765424355353
     },
     "pkgs": {
       "sdmmc": {
@@ -9834,7 +10039,7 @@
     "repo": "any-uart",
     "timestamp": {
       "start": 1762534794114,
-      "end": 1765332327037
+      "end": 1765424355982
     },
     "pkgs": {
       "any-uart": {
@@ -9902,7 +10107,7 @@
     "repo": "arm-gic-driver",
     "timestamp": {
       "start": 1762534831978,
-      "end": 1765332327378
+      "end": 1765424356556
     },
     "pkgs": {
       "arm-gic-driver": {
@@ -10016,7 +10221,7 @@
     "repo": "serial-async",
     "timestamp": {
       "start": 1762534860183,
-      "end": 1765332327670
+      "end": 1765424357184
     },
     "pkgs": {
       "serial-async": {

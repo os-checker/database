@@ -2,17 +2,222 @@
   "user": "Starry-OS",
   "repo": "starry-signal",
   "timestamp": {
-    "start": 1764986170344,
-    "end": 1765332243276
+    "start": 1765418802930,
+    "end": 1765418803043
   },
   "pkgs": {
     "starry-signal": {
       "version": "0.2.3",
-      "dependencies": 10,
+      "dependencies": 11,
       "lib": true,
       "bin": false,
-      "testcases": null,
-      "tests": 0,
+      "testcases": {
+        "tests": [
+          {
+            "id": "starry-signal::action",
+            "kind": "test",
+            "binary_name": "action",
+            "testcases": [
+              {
+                "name": "convert",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "flags_bits",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 8
+          },
+          {
+            "id": "starry-signal::api_process",
+            "kind": "test",
+            "binary_name": "api_process",
+            "testcases": [
+              {
+                "name": "can_restart",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "send_wakes_sets_pending",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "signal_ignore",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 12
+          },
+          {
+            "id": "starry-signal::api_thread",
+            "kind": "test",
+            "binary_name": "api_thread",
+            "testcases": [
+              {
+                "name": "block_ignore_send_signal",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "check_signals",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "dequeue_signal",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "handle_signal",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": false,
+                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running tests/api_thread.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/api_thread-f22e33dd1143c351)\nwarning: integer-to-pointer cast\n  --> /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/src/api/thread.rs:98:33\n   |\n98 |                 let frame_ptr = aligned_sp as *mut SignalFrame;\n   |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ integer-to-pointer cast\n   |\n   = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n   = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n   = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n   = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n   = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n   = note: BACKTRACE on thread `handle_signal`:\n   = note: inside `starry_signal::api::ThreadSignalManager::handle_signal` at /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/src/api/thread.rs:98:33: 98:63\nnote: inside `handle_signal`\n  --> tests/api_thread.rs:86:18\n   |\n86 |       let result = env\n   |  __________________^\n87 | |         .thr\n88 | |         .handle_signal(&mut uctx, restore_blocked, &sig, &action);\n   | |_________________________________________________________________^\nnote: inside closure\n  --> tests/api_thread.rs:73:19\n   |\n72 | #[test]\n   | ------- in this attribute macro expansion\n73 | fn handle_signal() {\n   |                   ^\n\nerror: Undefined Behavior: calling a function with return type DummyVm passing return place of type starry_vm::VmImpl\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1\n    |\n 48 | #[extern_trait(VmImpl)]\n    | ^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n    = help: if you think this code should be accepted anyway, please report an issue with Miri\n    = note: BACKTRACE on thread `handle_signal`:\n    = note: inside `<starry_vm::VmImpl as starry_vm::VmIo>::new` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1: 48:24\n    = note: inside `starry_vm::vm_write_slice::<starry_signal::api::thread::SignalFrame>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:80:5: 80:18\n    = note: inside `<*mut starry_signal::api::thread::SignalFrame as starry_vm::VmMutPtr>::vm_write` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/thin.rs:72:9: 72:74\nnote: inside `starry_signal::api::ThreadSignalManager::handle_signal`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/src/api/thread.rs:99:20\n    |\n 99 |                   if frame_ptr\n    |  ____________________^\n100 | |                     .vm_write(SignalFrame {\n101 | |                         ucontext: UContext::new(uctx, restore_blocked),\n102 | |                         siginfo: sig.clone(),\n103 | |                         uctx: *uctx,\n104 | |                     })\n    | |______________________^\nnote: inside `handle_signal`\n   --> tests/api_thread.rs:86:18\n    |\n 86 |       let result = env\n    |  __________________^\n 87 | |         .thr\n 88 | |         .handle_signal(&mut uctx, restore_blocked, &sig, &action);\n    | |_________________________________________________________________^\nnote: inside closure\n   --> tests/api_thread.rs:73:19\n    |\n 72 | #[test]\n    | ------- in this attribute macro expansion\n 73 | fn handle_signal() {\n    |                   ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 1 warning emitted\n\nerror: test failed, to rerun pass `-p starry-signal --test api_thread`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/target/miri/x86_64-unknown-linux-gnu/debug/deps/api_thread-f22e33dd1143c351 handle_signal` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 16
+          },
+          {
+            "id": "starry-signal::pending",
+            "kind": "test",
+            "binary_name": "pending",
+            "testcases": [
+              {
+                "name": "mixed_signal",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "realtime_signal",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "standard_signal",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 12
+          },
+          {
+            "id": "starry-signal::types",
+            "kind": "test",
+            "binary_name": "types",
+            "testcases": [
+              {
+                "name": "signalinfo_new_kernel",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "signalinfo_new_user",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "signalset_add_remove_has_is_empty",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "signalset_bounds",
+                "status": "ok",
+                "duration_ms": 4,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              },
+              {
+                "name": "signalset_dequeue",
+                "status": "ok",
+                "duration_ms": 3,
+                "error": null,
+                "miri_pass": true,
+                "miri_output": null,
+                "miri_timeout": false
+              }
+            ],
+            "failed": 0,
+            "duration_ms": 19
+          }
+        ],
+        "failed": 0,
+        "duration_ms": 67,
+        "pkg_tests_count": 17,
+        "workspace_tests_count": 17
+      },
+      "tests": 5,
       "examples": 0,
       "benches": 0,
       "authors": [
@@ -32,7 +237,7 @@
       "categories": [],
       "rust_version": null,
       "diag_total_count": 32,
-      "last_commit_time": "2025-12-05T06:57:17Z",
+      "last_commit_time": "2025-12-10T15:31:55Z",
       "release_count": null,
       "last_release_size": null,
       "last_release_time": null
