@@ -2,8 +2,8 @@
   "user": "arceos-org",
   "repo": "axsched",
   "timestamp": {
-    "start": 1762531277216,
-    "end": 1765591120371
+    "start": 1765678632397,
+    "end": 1765678632408
   },
   "pkgs": {
     "axsched": {
@@ -21,7 +21,7 @@
               {
                 "name": "tests::cfs::bench_remove",
                 "status": "ok",
-                "duration_ms": 109,
+                "duration_ms": 39,
                 "error": null,
                 "miri_pass": false,
                 "miri_output": "cmd=cargo miri test -p axsched --lib axsched -- tests::cfs::bench_remove\nProcess timed out for 1 minutes.",
@@ -30,7 +30,7 @@
               {
                 "name": "tests::cfs::bench_yield",
                 "status": "ok",
-                "duration_ms": 10741,
+                "duration_ms": 6099,
                 "error": null,
                 "miri_pass": false,
                 "miri_output": "cmd=cargo miri test -p axsched --lib axsched -- tests::cfs::bench_yield\nProcess timed out for 1 minutes.",
@@ -39,7 +39,7 @@
               {
                 "name": "tests::cfs::test_sched",
                 "status": "ok",
-                "duration_ms": 17,
+                "duration_ms": 5,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -48,16 +48,16 @@
               {
                 "name": "tests::fifo::bench_remove",
                 "status": "ok",
-                "duration_ms": 19,
+                "duration_ms": 9,
                 "error": null,
                 "miri_pass": false,
-                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/axsched-344b8a759048c2cd)\nerror: Undefined Behavior: trying to retag from <3633390> for SharedReadWrite permission at alloc1209440[0x0], but that tag does not exist in the borrow stack for this location\n   --> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:444:18\n    |\n444 |         unsafe { &*self.as_ptr().cast_const() }\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this error occurs as part of retag at alloc1209440[0x0..0x30]\n    |\n    = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental\n    = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information\nhelp: <3633390> was created by a SharedReadOnly retag at offsets [0x29..0x71]\n   --> src/fifo.rs:50:18\n    |\n 50 |         unsafe { self.ready_queue.remove(task) }\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = note: BACKTRACE (of the first span) on thread `tests::fifo::be`:\n    = note: inside `std::ptr::NonNull::<alloc::sync::ArcInner<fifo::FifoTask<usize>>>::as_ref::<'_>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:444:18: 444:46\n    = note: inside `std::sync::Arc::<fifo::FifoTask<usize>>::inner` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2006:18: 2006:35\n    = note: inside `<std::sync::Arc<fifo::FifoTask<usize>> as std::ops::Deref>::deref` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2321:10: 2321:22\nnote: inside `tests::fifo::bench_remove`\n   --> src/tests.rs:69:33\n    |\n 69 |                     assert_eq!(*t.inner(), i);\n    |                                 ^^^^^^^^^\n...\n 82 | def_test_sched!(fifo, FifoScheduler::<usize>, FifoTask::<usize>);\n    | ---------------------------------------------------------------- in this macro invocation\nnote: inside closure\n   --> src/tests.rs:55:30\n    |\n 55 |             fn bench_remove() {\n    |                              ^\n...\n 82 | def_test_sched!(fifo, FifoScheduler::<usize>, FifoTask::<usize>);\n    | ---------------------------------------------------------------- in this macro invocation\n    = note: this error originates in the macro `def_test_sched` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p axsched --lib`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/axsched/target/miri/x86_64-unknown-linux-gnu/debug/deps/axsched-344b8a759048c2cd axsched 'tests::fifo::bench_remove'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/axsched-8c4d6f1622b2c364)\nerror: Undefined Behavior: trying to retag from <3452908> for SharedReadWrite permission at alloc1189466[0x0], but that tag does not exist in the borrow stack for this location\n   --> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:445:18\n    |\n445 |         unsafe { &*self.as_ptr().cast_const() }\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this error occurs as part of retag at alloc1189466[0x0..0x30]\n    |\n    = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental\n    = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information\nhelp: <3452908> was created by a SharedReadOnly retag at offsets [0x29..0x71]\n   --> src/fifo.rs:50:18\n    |\n 50 |         unsafe { self.ready_queue.remove(task) }\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = note: BACKTRACE (of the first span) on thread `tests::fifo::be`:\n    = note: inside `std::ptr::NonNull::<alloc::sync::ArcInner<fifo::FifoTask<usize>>>::as_ref::<'_>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:445:18: 445:46\n    = note: inside `std::sync::Arc::<fifo::FifoTask<usize>>::inner` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2104:18: 2104:35\n    = note: inside `<std::sync::Arc<fifo::FifoTask<usize>> as std::ops::Deref>::deref` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2422:10: 2422:22\nnote: inside `tests::fifo::bench_remove`\n   --> src/tests.rs:69:33\n    |\n 69 |                     assert_eq!(*t.inner(), i);\n    |                                 ^^^^^^^^^\n...\n 82 | def_test_sched!(fifo, FifoScheduler::<usize>, FifoTask::<usize>);\n    | ---------------------------------------------------------------- in this macro invocation\nnote: inside closure\n   --> src/tests.rs:55:30\n    |\n 55 |             fn bench_remove() {\n    |                              ^\n...\n 82 | def_test_sched!(fifo, FifoScheduler::<usize>, FifoTask::<usize>);\n    | ---------------------------------------------------------------- in this macro invocation\n    = note: this error originates in the macro `def_test_sched` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p axsched --lib`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/axsched/target/miri/x86_64-unknown-linux-gnu/debug/deps/axsched-8c4d6f1622b2c364 axsched 'tests::fifo::bench_remove'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
                 "miri_timeout": false
               },
               {
                 "name": "tests::fifo::bench_yield",
                 "status": "ok",
-                "duration_ms": 1675,
+                "duration_ms": 791,
                 "error": null,
                 "miri_pass": false,
                 "miri_output": "cmd=cargo miri test -p axsched --lib axsched -- tests::fifo::bench_yield\nProcess timed out for 1 minutes.",
@@ -66,25 +66,25 @@
               {
                 "name": "tests::fifo::test_sched",
                 "status": "ok",
-                "duration_ms": 18,
+                "duration_ms": 4,
                 "error": null,
-                "miri_pass": false,
-                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/axsched-344b8a759048c2cd)\nerror: Undefined Behavior: trying to retag from <152544> for SharedReadWrite permission at alloc48533[0x0], but that tag does not exist in the borrow stack for this location\n   --> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:444:18\n    |\n444 |         unsafe { &*self.as_ptr().cast_const() }\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this error occurs as part of retag at alloc48533[0x0..0x30]\n    |\n    = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental\n    = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information\nhelp: <152544> was created by a SharedReadOnly retag at offsets [0x29..0x71]\n   --> src/fifo.rs:46:9\n    |\n 46 |         self.ready_queue.push_back(task);\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = note: BACKTRACE (of the first span) on thread `tests::fifo::te`:\n    = note: inside `std::ptr::NonNull::<alloc::sync::ArcInner<fifo::FifoTask<usize>>>::as_ref::<'_>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:444:18: 444:46\n    = note: inside `std::sync::Arc::<fifo::FifoTask<usize>>::inner` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2006:18: 2006:35\n    = note: inside `<std::sync::Arc<fifo::FifoTask<usize>> as std::ops::Deref>::deref` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2321:10: 2321:22\nnote: inside `tests::fifo::test_sched`\n   --> src/tests.rs:18:33\n    |\n 18 |                     assert_eq!(*next.inner(), i % NUM_TASKS);\n    |                                 ^^^^^^^^^^^^\n...\n 82 | def_test_sched!(fifo, FifoScheduler::<usize>, FifoTask::<usize>);\n    | ---------------------------------------------------------------- in this macro invocation\nnote: inside closure\n   --> src/tests.rs:8:28\n    |\n  8 |             fn test_sched() {\n    |                            ^\n...\n 82 | def_test_sched!(fifo, FifoScheduler::<usize>, FifoTask::<usize>);\n    | ---------------------------------------------------------------- in this macro invocation\n    = note: this error originates in the macro `def_test_sched` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p axsched --lib`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/axsched/target/miri/x86_64-unknown-linux-gnu/debug/deps/axsched-344b8a759048c2cd axsched 'tests::fifo::test_sched'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                "miri_pass": true,
+                "miri_output": null,
                 "miri_timeout": false
               },
               {
                 "name": "tests::rr::bench_remove",
                 "status": "ok",
-                "duration_ms": 1799,
+                "duration_ms": 9,
                 "error": null,
                 "miri_pass": false,
-                "miri_output": "cmd=cargo miri test -p axsched --lib axsched -- tests::rr::bench_remove\nProcess timed out for 1 minutes.",
-                "miri_timeout": true
+                "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s\n     Running unittests src/lib.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/axsched-8c4d6f1622b2c364)\nerror: Undefined Behavior: trying to retag from <3483268> for SharedReadWrite permission at alloc1219512[0x0], but that tag does not exist in the borrow stack for this location\n   --> /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:445:18\n    |\n445 |         unsafe { &*self.as_ptr().cast_const() }\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this error occurs as part of retag at alloc1219512[0x0..0x38]\n    |\n    = help: this indicates a potential bug in the program: it performed an invalid operation, but the Stacked Borrows rules it violated are still experimental\n    = help: see https://github.com/rust-lang/unsafe-code-guidelines/blob/master/wip/stacked-borrows.md for further information\nhelp: <3483268> was created by a SharedReadOnly retag at offsets [0x31..0x81]\n   --> src/round_robin.rs:96:18\n    |\n 96 |         unsafe { self.ready_queue.remove(task) }\n    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    = note: BACKTRACE (of the first span) on thread `tests::rr::benc`:\n    = note: inside `std::ptr::NonNull::<alloc::sync::ArcInner<round_robin::RRTask<usize, 5>>>::as_ref::<'_>` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/non_null.rs:445:18: 445:46\n    = note: inside `std::sync::Arc::<round_robin::RRTask<usize, 5>>::inner` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2104:18: 2104:35\n    = note: inside `<std::sync::Arc<round_robin::RRTask<usize, 5>> as std::ops::Deref>::deref` at /home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/sync.rs:2422:10: 2422:22\nnote: inside `tests::rr::bench_remove`\n   --> src/tests.rs:69:33\n    |\n 69 |                     assert_eq!(*t.inner(), i);\n    |                                 ^^^^^^^^^\n...\n 83 | def_test_sched!(rr, RRScheduler::<usize, 5>, RRTask::<usize, 5>);\n    | ---------------------------------------------------------------- in this macro invocation\nnote: inside closure\n   --> src/tests.rs:55:30\n    |\n 55 |             fn bench_remove() {\n    |                              ^\n...\n 83 | def_test_sched!(rr, RRScheduler::<usize, 5>, RRTask::<usize, 5>);\n    | ---------------------------------------------------------------- in this macro invocation\n    = note: this error originates in the macro `def_test_sched` (in Nightly builds, run with -Z macro-backtrace for more info)\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error\n\nerror: test failed, to rerun pass `-p axsched --lib`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/arceos-org/axsched/target/miri/x86_64-unknown-linux-gnu/debug/deps/axsched-8c4d6f1622b2c364 axsched 'tests::rr::bench_remove'` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                "miri_timeout": false
               },
               {
                 "name": "tests::rr::bench_yield",
                 "status": "ok",
-                "duration_ms": 880,
+                "duration_ms": 633,
                 "error": null,
                 "miri_pass": false,
                 "miri_output": "cmd=cargo miri test -p axsched --lib axsched -- tests::rr::bench_yield\nProcess timed out for 1 minutes.",
@@ -93,7 +93,7 @@
               {
                 "name": "tests::rr::test_sched",
                 "status": "ok",
-                "duration_ms": 13,
+                "duration_ms": 4,
                 "error": null,
                 "miri_pass": true,
                 "miri_output": null,
@@ -101,11 +101,11 @@
               }
             ],
             "failed": 0,
-            "duration_ms": 15271
+            "duration_ms": 7593
           }
         ],
         "failed": 0,
-        "duration_ms": 15271,
+        "duration_ms": 7593,
         "pkg_tests_count": 9,
         "workspace_tests_count": 9
       },
@@ -123,11 +123,11 @@
       "keywords": [],
       "categories": [],
       "rust_version": "1.76.0",
-      "diag_total_count": null,
-      "last_commit_time": "2025-07-07T18:40:24Z",
-      "release_count": 1,
-      "last_release_size": 6394,
-      "last_release_time": "2025-07-07T18:37:20Z"
+      "diag_total_count": 7,
+      "last_commit_time": "2025-12-13T11:41:07Z",
+      "release_count": 2,
+      "last_release_size": 6346,
+      "last_release_time": "2025-12-13T15:30:42Z"
     }
   }
 }
