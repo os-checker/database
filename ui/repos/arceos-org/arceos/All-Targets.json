@@ -15,12 +15,6 @@
           "features": "",
           "count": 19,
           "kinds": {
-            "Clippy(Warn)": [
-              "warning: writing `&String` instead of `&str` involves a new object where a slice will do\n  --> src/cmd_parser.rs:73:29\n   |\n73 | pub fn check_app_name(name: &String) -> bool {\n   |                             ^^^^^^^ help: change this to: `&str`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n   = note: `#[warn(clippy::ptr_arg)]` on by default\n\n",
-              "warning: writing `&String` instead of `&str` involves a new object where a slice will do\n  --> src/cmd_parser.rs:77:29\n   |\n77 | pub fn check_lib_name(name: &String) -> bool {\n   |                             ^^^^^^^ help: change this to: `&str`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n\n",
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/cmd_parser.rs:82:22\n   |\n82 |     check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n   |                      ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n   = note: `#[warn(clippy::needless_borrow)]` on by default\n\n",
-              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/cmd_parser.rs:82:50\n   |\n82 |     check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n   |                                                  ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
-            ],
             "Unformatted": [
               "file: /mnt/check/batch_2/arceos-org/arceos/tools/deptool/src/cmd_parser.rs (original lines from 1 to 2)\n-use std::{fs, path::Path};\n-use clap::{Arg, ArgAction, Command};\n",
               "file: /mnt/check/batch_2/arceos-org/arceos/tools/deptool/src/cmd_parser.rs (original lines from 4 to 4)\n+use clap::{Arg, ArgAction, Command};\n+use std::{fs, path::Path};\n",
@@ -37,6 +31,12 @@
               "file: /mnt/check/batch_2/arceos-org/arceos/tools/deptool/src/cmd_parser.rs (original lines from 65 to 65)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
               "file: /mnt/check/batch_2/arceos-org/arceos/tools/deptool/src/cmd_parser.rs (original lines from 70 to 70)\n-    crates.into_iter().map(|p| p.unwrap().file_name()).any(|n| n.to_str().unwrap() == name)\n+    crates\n+        .into_iter()\n+        .map(|p| p.unwrap().file_name())\n+        .any(|n| n.to_str().unwrap() == name)\n",
               "file: /mnt/check/batch_2/arceos-org/arceos/tools/deptool/src/cmd_parser.rs (original lines from 82 to 82)\n-    check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n+    check_crate_name(&name)\n+        || check_module_name(&name)\n+        || check_app_name(name)\n+        || check_lib_name(name)\n"
+            ],
+            "Clippy(Warn)": [
+              "warning: writing `&String` instead of `&str` involves a new object where a slice will do\n  --> src/cmd_parser.rs:73:29\n   |\n73 | pub fn check_app_name(name: &String) -> bool {\n   |                             ^^^^^^^ help: change this to: `&str`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n   = note: `#[warn(clippy::ptr_arg)]` on by default\n\n",
+              "warning: writing `&String` instead of `&str` involves a new object where a slice will do\n  --> src/cmd_parser.rs:77:29\n   |\n77 | pub fn check_lib_name(name: &String) -> bool {\n   |                             ^^^^^^^ help: change this to: `&str`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ptr_arg\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/cmd_parser.rs:82:22\n   |\n82 |     check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n   |                      ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n   = note: `#[warn(clippy::needless_borrow)]` on by default\n\n",
+              "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/cmd_parser.rs:82:50\n   |\n82 |     check_crate_name(&name) || check_module_name(&name) || check_app_name(name) || check_lib_name(name)\n   |                                                  ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
             ]
           }
         },
@@ -74,13 +74,13 @@
           "features": "",
           "count": 4,
           "kinds": {
+            "Unformatted": [
+              "file: /mnt/check/batch_2/arceos-org/arceos/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
+            ],
             "Clippy(Warn)": [
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n --> src/d2_generator.rs:8:34\n  |\n8 |     let deps_parsed = parse_deps(&deps);\n  |                                  ^^^^^ help: change this to: `deps`\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/d2_generator.rs:18:29\n   |\n18 |         if !is_arceos_crate(&name) {\n   |                             ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/d2_generator.rs:34:32\n   |\n34 |             parsed_crates.push(&name);\n   |                                ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
-            ],
-            "Unformatted": [
-              "file: /mnt/check/batch_2/arceos-org/arceos/tools/deptool/src/d2_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
             ]
           }
         },
@@ -89,13 +89,13 @@
           "features": "",
           "count": 4,
           "kinds": {
+            "Unformatted": [
+              "file: /mnt/check/batch_2/arceos-org/arceos/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
+            ],
             "Clippy(Warn)": [
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n --> src/mermaid_generator.rs:6:34\n  |\n6 |     let deps_parsed = parse_deps(&deps);\n  |                                  ^^^^^ help: change this to: `deps`\n  |\n  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/mermaid_generator.rs:16:29\n   |\n16 |         if !is_arceos_crate(&name) {\n   |                             ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n",
               "warning: this expression creates a reference which is immediately dereferenced by the compiler\n  --> src/mermaid_generator.rs:32:32\n   |\n32 |             parsed_crates.push(&name);\n   |                                ^^^^^ help: change this to: `name`\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow\n\n"
-            ],
-            "Unformatted": [
-              "file: /mnt/check/batch_2/arceos-org/arceos/tools/deptool/src/mermaid_generator.rs (original lines from 3 to 3)\n-use crate::{parse_deps, cmd_parser::is_arceos_crate};\n+use crate::{cmd_parser::is_arceos_crate, parse_deps};\n"
             ]
           }
         },
@@ -282,14 +282,14 @@
           "features": "",
           "count": 5,
           "kinds": {
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `GlobalAllocator`\n  --> modules/axalloc/src/lib.rs:57:5\n   |\n57 | /     pub const fn new() -> Self {\n58 | |         Self {\n59 | |             balloc: SpinNoIrq::new(DefaultByteAllocator::new()),\n60 | |             palloc: SpinNoIrq::new(BitmapPageAllocator::new()),\n61 | |         }\n62 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n55 + impl Default for GlobalAllocator {\n56 +     fn default() -> Self {\n57 +         Self::new()\n58 +     }\n59 + }\n   |\n\n"
+            ],
             "Mirai": [
               "warning: [MIRAI] attempt to add with overflow\n   --> modules/axalloc/src/lib.rs:86:24\n    |\n86  |           let heap_ptr = self\n    |  ________________________^\n87  | |             .alloc_pages(init_heap_size / PAGE_SIZE, PAGE_SIZE)\n    | |_______________________________________________________________^\n    |\nnote: related location\n   --> modules/axalloc/src/lib.rs:146:9\n    |\n146 |         self.palloc.lock().alloc_pages(num_pages, align_pow2)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: related location\n   --> /home/runner/.cargo/git/checkouts/allocator-b75382ff0e56d2d5/1d5b7a1/src/bitmap.rs:92:45\n    |\n92  |               core::cmp::Ordering::Greater => self\n    |  _____________________________________________^\n93  | |                 .inner\n94  | |                 .alloc_contiguous(None, num_pages, align_log2)\n    | |______________________________________________________________^\nnote: related location\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bitmap-allocator-0.2.0/src/lib.rs:130:21\n    |\n130 |             None => find_contiguous(self, Self::CAP, size, align_log2).inspect(|&base| {\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: related location\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bitmap-allocator-0.2.0/src/lib.rs:323:16\n    |\n323 |         base = align_up_log2(start, align_log2);\n    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: related location\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bitmap-allocator-0.2.0/src/lib.rs:386:5\n    |\n386 |     (base + ((1 << align_log2) - 1)) & !((1 << align_log2) - 1)\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to add with overflow\n   --> modules/axalloc/src/lib.rs:121:21\n    |\n121 |                     heap_ptr + expand_size\n    |                     ^^^^^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to add with overflow\n   --> modules/axalloc/src/lib.rs:233:9\n    |\n233 |         start_vaddr + size\n    |         ^^^^^^^^^^^^^^^^^^\n\n",
               "warning: [MIRAI] possible attempt to add with overflow\n   --> modules/axalloc/src/lib.rs:248:9\n    |\n248 |         start_vaddr + size\n    |         ^^^^^^^^^^^^^^^^^^\n\n"
-            ],
-            "Clippy(Warn)": [
-              "warning: you should consider adding a `Default` implementation for `GlobalAllocator`\n  --> modules/axalloc/src/lib.rs:57:5\n   |\n57 | /     pub const fn new() -> Self {\n58 | |         Self {\n59 | |             balloc: SpinNoIrq::new(DefaultByteAllocator::new()),\n60 | |             palloc: SpinNoIrq::new(BitmapPageAllocator::new()),\n61 | |         }\n62 | |     }\n   | |_____^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n   = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n   |\n55 + impl Default for GlobalAllocator {\n56 +     fn default() -> Self {\n57 +         Self::new()\n58 +     }\n59 + }\n   |\n\n"
             ]
           }
         },
