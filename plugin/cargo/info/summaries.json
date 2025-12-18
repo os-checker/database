@@ -4,7 +4,7 @@
     "repo": "axfs-ng-vfs",
     "timestamp": {
       "start": 1763776401468,
-      "end": 1765936849688
+      "end": 1766023313401
     },
     "pkgs": {
       "axfs-ng-vfs": {
@@ -79,7 +79,7 @@
     "repo": "starry-process",
     "timestamp": {
       "start": 1763776415816,
-      "end": 1765936849956
+      "end": 1766023313681
     },
     "pkgs": {
       "starry-process": {
@@ -356,8 +356,8 @@
     "user": "Starry-OS",
     "repo": "starry-signal",
     "timestamp": {
-      "start": 1765418802930,
-      "end": 1765936850237
+      "start": 1766023361146,
+      "end": 1766023361259
     },
     "pkgs": {
       "starry-signal": {
@@ -375,7 +375,7 @@
                 {
                   "name": "convert",
                   "status": "ok",
-                  "duration_ms": 4,
+                  "duration_ms": 5,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -392,7 +392,7 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 8
+              "duration_ms": 9
             },
             {
               "id": "starry-signal::api_process",
@@ -456,7 +456,7 @@
                 {
                   "name": "dequeue_signal",
                   "status": "ok",
-                  "duration_ms": 4,
+                  "duration_ms": 5,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -468,12 +468,57 @@
                   "duration_ms": 4,
                   "error": null,
                   "miri_pass": false,
-                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running tests/api_thread.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/api_thread-f22e33dd1143c351)\nwarning: integer-to-pointer cast\n  --> /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/src/api/thread.rs:98:33\n   |\n98 |                 let frame_ptr = aligned_sp as *mut SignalFrame;\n   |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ integer-to-pointer cast\n   |\n   = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n   = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n   = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n   = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n   = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n   = note: BACKTRACE on thread `handle_signal`:\n   = note: inside `starry_signal::api::ThreadSignalManager::handle_signal` at /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/src/api/thread.rs:98:33: 98:63\nnote: inside `handle_signal`\n  --> tests/api_thread.rs:86:18\n   |\n86 |       let result = env\n   |  __________________^\n87 | |         .thr\n88 | |         .handle_signal(&mut uctx, restore_blocked, &sig, &action);\n   | |_________________________________________________________________^\nnote: inside closure\n  --> tests/api_thread.rs:73:19\n   |\n72 | #[test]\n   | ------- in this attribute macro expansion\n73 | fn handle_signal() {\n   |                   ^\n\nerror: Undefined Behavior: calling a function with return type DummyVm passing return place of type starry_vm::VmImpl\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1\n    |\n 48 | #[extern_trait(VmImpl)]\n    | ^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n    = help: if you think this code should be accepted anyway, please report an issue with Miri\n    = note: BACKTRACE on thread `handle_signal`:\n    = note: inside `<starry_vm::VmImpl as starry_vm::VmIo>::new` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1: 48:24\n    = note: inside `starry_vm::vm_write_slice::<starry_signal::api::thread::SignalFrame>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:80:5: 80:18\n    = note: inside `<*mut starry_signal::api::thread::SignalFrame as starry_vm::VmMutPtr>::vm_write` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/thin.rs:72:9: 72:74\nnote: inside `starry_signal::api::ThreadSignalManager::handle_signal`\n   --> /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/src/api/thread.rs:99:20\n    |\n 99 |                   if frame_ptr\n    |  ____________________^\n100 | |                     .vm_write(SignalFrame {\n101 | |                         ucontext: UContext::new(uctx, restore_blocked),\n102 | |                         siginfo: sig.clone(),\n103 | |                         uctx: *uctx,\n104 | |                     })\n    | |______________________^\nnote: inside `handle_signal`\n   --> tests/api_thread.rs:86:18\n    |\n 86 |       let result = env\n    |  __________________^\n 87 | |         .thr\n 88 | |         .handle_signal(&mut uctx, restore_blocked, &sig, &action);\n    | |_________________________________________________________________^\nnote: inside closure\n   --> tests/api_thread.rs:73:19\n    |\n 72 | #[test]\n    | ------- in this attribute macro expansion\n 73 | fn handle_signal() {\n    |                   ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 1 warning emitted\n\nerror: test failed, to rerun pass `-p starry-signal --test api_thread`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/target/miri/x86_64-unknown-linux-gnu/debug/deps/api_thread-f22e33dd1143c351 handle_signal` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running tests/api_thread.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/api_thread-2c9a1360edf2627e)\nwarning: the feature `maybe_uninit_write_slice` has been stable since 1.94.0-nightly and no longer requires an attribute to enable\n --> tests/api_thread.rs:1:12\n  |\n1 | #![feature(maybe_uninit_write_slice)]\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: integer-to-pointer cast\n   --> src/api/thread.rs:98:33\n    |\n 98 |                 let frame_ptr = aligned_sp as *mut SignalFrame;\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ integer-to-pointer cast\n    |\n    = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n    = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n    = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n    = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n    = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n    = note: BACKTRACE on thread `handle_signal`:\n    = note: inside `starry_signal::api::ThreadSignalManager::handle_signal` at src/api/thread.rs:98:33: 98:63\nnote: inside `handle_signal`\n   --> tests/api_thread.rs:104:18\n    |\n104 |       let result = env\n    |  __________________^\n105 | |         .thr\n106 | |         .handle_signal(&mut uctx, restore_blocked, &sig, &action);\n    | |_________________________________________________________________^\nnote: inside closure\n   --> tests/api_thread.rs:88:19\n    |\n 87 | #[test]\n    | ------- in this attribute macro expansion\n 88 | fn handle_signal() {\n    |                   ^\n\nerror: Undefined Behavior: calling a function with return type Vm passing return place of type starry_vm::VmImpl\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1\n    |\n 48 | #[extern_trait(VmImpl)]\n    | ^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n    = help: if you think this code should be accepted anyway, please report an issue with Miri\n    = note: BACKTRACE on thread `handle_signal`:\n    = note: inside `<starry_vm::VmImpl as starry_vm::VmIo>::new` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1: 48:24\n    = note: inside `starry_vm::vm_write_slice::<starry_signal::api::thread::SignalFrame>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:80:5: 80:18\n    = note: inside `<*mut starry_signal::api::thread::SignalFrame as starry_vm::VmMutPtr>::vm_write` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/thin.rs:72:9: 72:74\nnote: inside `starry_signal::api::ThreadSignalManager::handle_signal`\n   --> src/api/thread.rs:99:20\n    |\n 99 |                   if frame_ptr\n    |  ____________________^\n100 | |                     .vm_write(SignalFrame {\n101 | |                         ucontext: UContext::new(uctx, restore_blocked),\n102 | |                         siginfo: sig.clone(),\n103 | |                         uctx: *uctx,\n104 | |                     })\n    | |______________________^\nnote: inside `handle_signal`\n   --> tests/api_thread.rs:104:18\n    |\n104 |       let result = env\n    |  __________________^\n105 | |         .thr\n106 | |         .handle_signal(&mut uctx, restore_blocked, &sig, &action);\n    | |_________________________________________________________________^\nnote: inside closure\n   --> tests/api_thread.rs:88:19\n    |\n 87 | #[test]\n    | ------- in this attribute macro expansion\n 88 | fn handle_signal() {\n    |                   ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 2 warnings emitted\n\nerror: test failed, to rerun pass `-p starry-signal --test api_thread`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/target/miri/x86_64-unknown-linux-gnu/debug/deps/api_thread-2c9a1360edf2627e handle_signal` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "restore",
+                  "status": "ok",
+                  "duration_ms": 4,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running tests/api_thread.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/api_thread-2c9a1360edf2627e)\nwarning: the feature `maybe_uninit_write_slice` has been stable since 1.94.0-nightly and no longer requires an attribute to enable\n --> tests/api_thread.rs:1:12\n  |\n1 | #![feature(maybe_uninit_write_slice)]\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: integer-to-pointer cast\n   --> src/api/thread.rs:98:33\n    |\n 98 |                 let frame_ptr = aligned_sp as *mut SignalFrame;\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ integer-to-pointer cast\n    |\n    = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n    = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n    = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n    = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n    = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n    = note: BACKTRACE on thread `restore`:\n    = note: inside `starry_signal::api::ThreadSignalManager::handle_signal` at src/api/thread.rs:98:33: 98:63\nnote: inside `restore`\n   --> tests/api_thread.rs:169:5\n    |\n169 | /     env.thr\n170 | |         .handle_signal(&mut uctx_user, restore_blocked, &sig, &action);\n    | |______________________________________________________________________^\nnote: inside closure\n   --> tests/api_thread.rs:152:13\n    |\n151 | #[test]\n    | ------- in this attribute macro expansion\n152 | fn restore() {\n    |             ^\n\nerror: Undefined Behavior: calling a function with return type Vm passing return place of type starry_vm::VmImpl\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1\n    |\n 48 | #[extern_trait(VmImpl)]\n    | ^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n    = help: if you think this code should be accepted anyway, please report an issue with Miri\n    = note: BACKTRACE on thread `restore`:\n    = note: inside `<starry_vm::VmImpl as starry_vm::VmIo>::new` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1: 48:24\n    = note: inside `starry_vm::vm_write_slice::<starry_signal::api::thread::SignalFrame>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:80:5: 80:18\n    = note: inside `<*mut starry_signal::api::thread::SignalFrame as starry_vm::VmMutPtr>::vm_write` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/thin.rs:72:9: 72:74\nnote: inside `starry_signal::api::ThreadSignalManager::handle_signal`\n   --> src/api/thread.rs:99:20\n    |\n 99 |                   if frame_ptr\n    |  ____________________^\n100 | |                     .vm_write(SignalFrame {\n101 | |                         ucontext: UContext::new(uctx, restore_blocked),\n102 | |                         siginfo: sig.clone(),\n103 | |                         uctx: *uctx,\n104 | |                     })\n    | |______________________^\nnote: inside `restore`\n   --> tests/api_thread.rs:169:5\n    |\n169 | /     env.thr\n170 | |         .handle_signal(&mut uctx_user, restore_blocked, &sig, &action);\n    | |______________________________________________________________________^\nnote: inside closure\n   --> tests/api_thread.rs:152:13\n    |\n151 | #[test]\n    | ------- in this attribute macro expansion\n152 | fn restore() {\n    |             ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 2 warnings emitted\n\nerror: test failed, to rerun pass `-p starry-signal --test api_thread`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/target/miri/x86_64-unknown-linux-gnu/debug/deps/api_thread-2c9a1360edf2627e restore` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
                   "miri_timeout": false
                 }
               ],
               "failed": 0,
-              "duration_ms": 16
+              "duration_ms": 21
+            },
+            {
+              "id": "starry-signal::multithread",
+              "kind": "test",
+              "binary_name": "multithread",
+              "testcases": [
+                {
+                  "name": "thread_blocked",
+                  "status": "ok",
+                  "duration_ms": 15,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "   Compiling starry-signal v0.2.3 (/tmp/os-checker-plugin-cargo/Starry-OS/starry-signal)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.25s\n     Running tests/multithread.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/multithread-4fc1ef4b1ff6e42c)\nwarning: the feature `maybe_uninit_write_slice` has been stable since 1.94.0-nightly and no longer requires an attribute to enable\n --> tests/multithread.rs:1:12\n  |\n1 | #![feature(maybe_uninit_write_slice)]\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nerror: Undefined Behavior: Data race detected between (1) retag write on thread `thread_blocked` and (2) retag write of type `starry_signal::PendingSignals` on thread `unnamed-2` at alloc47928+0x18\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/kspin-0.1.1/src/base.rs:97:28\n    |\n 97 |             data: unsafe { &mut *self.data.get() },\n    |                            ^^^^^^^^^^^^^^^^^^^^^ (2) just happened here\n    |\nhelp: and (1) occurred earlier here\n   --> src/api/thread.rs:253:9\n    |\n253 |         self.pending.lock().set | self.proc.pending()\n    |         ^^^^^^^^^^^^^^^^^^^\n    = help: retags occur on all (re)borrows and as well as when references are copied or moved\n    = help: retags permit optimizations that insert speculative reads or writes\n    = help: therefore from the perspective of data races, a retag has the same implications as a read or write\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = note: BACKTRACE (of the first span) on thread `unnamed-2`:\n    = note: inside `kspin::BaseSpinLock::<kernel_guard::NoOp, starry_signal::PendingSignals>::lock` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/kspin-0.1.1/src/base.rs:97:28: 97:49\nnote: inside `starry_signal::api::ThreadSignalManager::send_signal`\n   --> src/api/thread.rs:214:12\n    |\n214 |         if self.pending.lock().put_signal(sig) {\n    |            ^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> tests/multithread.rs:126:17\n    |\n126 |         let _ = thr.send_signal(sig);\n    |                 ^^^^^^^^^^^^^^^^^^^^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 1 warning emitted\n\nerror: test failed, to rerun pass `-p starry-signal --test multithread`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/target/miri/x86_64-unknown-linux-gnu/debug/deps/multithread-4fc1ef4b1ff6e42c thread_blocked` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "thread_handler",
+                  "status": "ok",
+                  "duration_ms": 6,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running tests/multithread.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/multithread-4fc1ef4b1ff6e42c)\nwarning: the feature `maybe_uninit_write_slice` has been stable since 1.94.0-nightly and no longer requires an attribute to enable\n --> tests/multithread.rs:1:12\n  |\n1 | #![feature(maybe_uninit_write_slice)]\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nwarning: integer-to-pointer cast\n   --> src/api/thread.rs:98:33\n    |\n 98 |                 let frame_ptr = aligned_sp as *mut SignalFrame;\n    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ integer-to-pointer cast\n    |\n    = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program\n    = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation\n    = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead\n    = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics\n    = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning\n    = note: BACKTRACE on thread `thread_handler`:\n    = note: inside `starry_signal::api::ThreadSignalManager::handle_signal` at src/api/thread.rs:98:33: 98:63\nnote: inside `starry_signal::api::ThreadSignalManager::check_signals_slow`\n   --> src/api/thread.rs:165:38\n    |\n165 |             if let Some(os_action) = self.handle_signal(uctx, restore_blocked, &sig, &action) {\n    |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside `starry_signal::api::ThreadSignalManager::check_signals`\n   --> src/api/thread.rs:185:9\n    |\n185 |         self.check_signals_slow(uctx, restore_blocked)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside `thread_handler`\n   --> tests/multithread.rs:169:9\n    |\n169 |         env.thr.check_signals(&mut guard, None).unwrap()\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> tests/multithread.rs:152:20\n    |\n151 | #[test]\n    | ------- in this attribute macro expansion\n152 | fn thread_handler() {\n    |                    ^\n\nerror: Undefined Behavior: calling a function with return type Vm passing return place of type starry_vm::VmImpl\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1\n    |\n 48 | #[extern_trait(VmImpl)]\n    | ^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here\n    |\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = help: this means these two types are not *guaranteed* to be ABI-compatible across all targets\n    = help: if you think this code should be accepted anyway, please report an issue with Miri\n    = note: BACKTRACE on thread `thread_handler`:\n    = note: inside `<starry_vm::VmImpl as starry_vm::VmIo>::new` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:48:1: 48:24\n    = note: inside `starry_vm::vm_write_slice::<starry_signal::api::thread::SignalFrame>` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/lib.rs:80:5: 80:18\n    = note: inside `<*mut starry_signal::api::thread::SignalFrame as starry_vm::VmMutPtr>::vm_write` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/starry-vm-0.2.0/src/thin.rs:72:9: 72:74\nnote: inside `starry_signal::api::ThreadSignalManager::handle_signal`\n   --> src/api/thread.rs:99:20\n    |\n 99 |                   if frame_ptr\n    |  ____________________^\n100 | |                     .vm_write(SignalFrame {\n101 | |                         ucontext: UContext::new(uctx, restore_blocked),\n102 | |                         siginfo: sig.clone(),\n103 | |                         uctx: *uctx,\n104 | |                     })\n    | |______________________^\nnote: inside `starry_signal::api::ThreadSignalManager::check_signals_slow`\n   --> src/api/thread.rs:165:38\n    |\n165 |             if let Some(os_action) = self.handle_signal(uctx, restore_blocked, &sig, &action) {\n    |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside `starry_signal::api::ThreadSignalManager::check_signals`\n   --> src/api/thread.rs:185:9\n    |\n185 |         self.check_signals_slow(uctx, restore_blocked)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside `thread_handler`\n   --> tests/multithread.rs:169:9\n    |\n169 |         env.thr.check_signals(&mut guard, None).unwrap()\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> tests/multithread.rs:152:20\n    |\n151 | #[test]\n    | ------- in this attribute macro expansion\n152 | fn thread_handler() {\n    |                    ^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 2 warnings emitted\n\nerror: test failed, to rerun pass `-p starry-signal --test multithread`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/target/miri/x86_64-unknown-linux-gnu/debug/deps/multithread-4fc1ef4b1ff6e42c thread_handler` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                  "miri_timeout": false
+                },
+                {
+                  "name": "thread_send_signal",
+                  "status": "ok",
+                  "duration_ms": 14,
+                  "error": null,
+                  "miri_pass": false,
+                  "miri_output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running tests/multithread.rs (target/miri/x86_64-unknown-linux-gnu/debug/deps/multithread-4fc1ef4b1ff6e42c)\nwarning: the feature `maybe_uninit_write_slice` has been stable since 1.94.0-nightly and no longer requires an attribute to enable\n --> tests/multithread.rs:1:12\n  |\n1 | #![feature(maybe_uninit_write_slice)]\n  |            ^^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(stable_features)]` on by default\n\nerror: Undefined Behavior: Data race detected between (1) retag write on thread `thread_send_sig` and (2) retag write of type `starry_signal::PendingSignals` on thread `unnamed-2` at alloc47848+0x18\n   --> /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/kspin-0.1.1/src/base.rs:97:28\n    |\n 97 |             data: unsafe { &mut *self.data.get() },\n    |                            ^^^^^^^^^^^^^^^^^^^^^ (2) just happened here\n    |\nhelp: and (1) occurred earlier here\n   --> src/api/thread.rs:253:9\n    |\n253 |         self.pending.lock().set | self.proc.pending()\n    |         ^^^^^^^^^^^^^^^^^^^\n    = help: retags occur on all (re)borrows and as well as when references are copied or moved\n    = help: retags permit optimizations that insert speculative reads or writes\n    = help: therefore from the perspective of data races, a retag has the same implications as a read or write\n    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior\n    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information\n    = note: BACKTRACE (of the first span) on thread `unnamed-2`:\n    = note: inside `kspin::BaseSpinLock::<kernel_guard::NoOp, starry_signal::PendingSignals>::lock` at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/kspin-0.1.1/src/base.rs:97:28: 97:49\nnote: inside `starry_signal::api::ThreadSignalManager::send_signal`\n   --> src/api/thread.rs:214:12\n    |\n214 |         if self.pending.lock().put_signal(sig) {\n    |            ^^^^^^^^^^^^^^^^^^^\nnote: inside closure\n   --> tests/multithread.rs:102:17\n    |\n102 |         let _ = thr.send_signal(sig);\n    |                 ^^^^^^^^^^^^^^^^^^^^\n\nnote: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace\n\nerror: aborting due to 1 previous error; 1 warning emitted\n\nerror: test failed, to rerun pass `-p starry-signal --test multithread`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/cargo-miri runner /tmp/os-checker-plugin-cargo/Starry-OS/starry-signal/target/miri/x86_64-unknown-linux-gnu/debug/deps/multithread-4fc1ef4b1ff6e42c thread_send_signal` (exit status: 1)\nnote: test exited abnormally; to see the full output pass --no-capture to the harness.\n",
+                  "miri_timeout": false
+                }
+              ],
+              "failed": 0,
+              "duration_ms": 35
             },
             {
               "id": "starry-signal::pending",
@@ -483,7 +528,7 @@
                 {
                   "name": "mixed_signal",
                   "status": "ok",
-                  "duration_ms": 4,
+                  "duration_ms": 3,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -492,7 +537,7 @@
                 {
                   "name": "realtime_signal",
                   "status": "ok",
-                  "duration_ms": 4,
+                  "duration_ms": 3,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -501,7 +546,7 @@
                 {
                   "name": "standard_signal",
                   "status": "ok",
-                  "duration_ms": 4,
+                  "duration_ms": 3,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -509,7 +554,7 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 12
+              "duration_ms": 9
             },
             {
               "id": "starry-signal::types",
@@ -519,7 +564,7 @@
                 {
                   "name": "signalinfo_new_kernel",
                   "status": "ok",
-                  "duration_ms": 4,
+                  "duration_ms": 3,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -528,7 +573,7 @@
                 {
                   "name": "signalinfo_new_user",
                   "status": "ok",
-                  "duration_ms": 4,
+                  "duration_ms": 3,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -537,7 +582,7 @@
                 {
                   "name": "signalset_add_remove_has_is_empty",
                   "status": "ok",
-                  "duration_ms": 4,
+                  "duration_ms": 3,
                   "error": null,
                   "miri_pass": true,
                   "miri_output": null,
@@ -563,15 +608,15 @@
                 }
               ],
               "failed": 0,
-              "duration_ms": 19
+              "duration_ms": 16
             }
           ],
           "failed": 0,
-          "duration_ms": 67,
-          "pkg_tests_count": 17,
-          "workspace_tests_count": 17
+          "duration_ms": 102,
+          "pkg_tests_count": 21,
+          "workspace_tests_count": 21
         },
-        "tests": 5,
+        "tests": 6,
         "examples": 0,
         "benches": 0,
         "authors": [
@@ -591,7 +636,7 @@
         "categories": [],
         "rust_version": null,
         "diag_total_count": 32,
-        "last_commit_time": "2025-12-10T15:31:55Z",
+        "last_commit_time": "2025-12-17T12:01:25Z",
         "release_count": null,
         "last_release_size": null,
         "last_release_time": null
@@ -603,7 +648,7 @@
     "repo": "ostool",
     "timestamp": {
       "start": 1765418839046,
-      "end": 1765936850503
+      "end": 1766023361787
     },
     "pkgs": {
       "fitimage": {
@@ -743,7 +788,7 @@
     "repo": "arm_gicv2",
     "timestamp": {
       "start": 1762529562050,
-      "end": 1765936850805
+      "end": 1766023362089
     },
     "pkgs": {
       "arm_gicv2": {
@@ -789,7 +834,7 @@
     "repo": "arm_vcpu",
     "timestamp": {
       "start": 1762529590376,
-      "end": 1765936851060
+      "end": 1766023362347
     },
     "pkgs": {
       "arm_vcpu": {
@@ -835,7 +880,7 @@
     "repo": "arm_vgic",
     "timestamp": {
       "start": 1762529593457,
-      "end": 1765936852217
+      "end": 1766023362611
     },
     "pkgs": {
       "arm_vgic": {
@@ -878,7 +923,7 @@
     "repo": "axaddrspace",
     "timestamp": {
       "start": 1763085776473,
-      "end": 1765936852552
+      "end": 1766023362905
     },
     "pkgs": {
       "axaddrspace": {
@@ -1126,7 +1171,7 @@
     "repo": "axdevice_base",
     "timestamp": {
       "start": 1762529834539,
-      "end": 1765936852860
+      "end": 1766023363219
     },
     "pkgs": {
       "axdevice_base": {
@@ -1189,7 +1234,7 @@
     "repo": "axvcpu",
     "timestamp": {
       "start": 1762529866673,
-      "end": 1765936853127
+      "end": 1766023363514
     },
     "pkgs": {
       "axvcpu": {
@@ -1391,7 +1436,7 @@
     "repo": "axvirtio",
     "timestamp": {
       "start": 1764900190936,
-      "end": 1765936853374
+      "end": 1766023363807
     },
     "pkgs": {
       "axvirtio-blk": {
@@ -1799,7 +1844,7 @@
     "repo": "axvisor_api",
     "timestamp": {
       "start": 1762529901807,
-      "end": 1765936853660
+      "end": 1766023364144
     },
     "pkgs": {
       "axvisor_api": {
@@ -1907,7 +1952,7 @@
     "repo": "axvm",
     "timestamp": {
       "start": 1762529916787,
-      "end": 1765936853913
+      "end": 1766023364402
     },
     "pkgs": {
       "axvm": {
@@ -1940,7 +1985,7 @@
     "repo": "axvmconfig",
     "timestamp": {
       "start": 1762529973902,
-      "end": 1765936854185
+      "end": 1766023364641
     },
     "pkgs": {
       "axvmconfig": {
@@ -2077,7 +2122,7 @@
     "repo": "riscv-h",
     "timestamp": {
       "start": 1762530051749,
-      "end": 1765936854491
+      "end": 1766023364891
     },
     "pkgs": {
       "riscv-h": {
@@ -2440,7 +2485,7 @@
     "repo": "riscv_vcpu",
     "timestamp": {
       "start": 1762530060748,
-      "end": 1765936854749
+      "end": 1766023365162
     },
     "pkgs": {
       "riscv_vcpu": {
@@ -2485,7 +2530,7 @@
     "repo": "x86_vcpu",
     "timestamp": {
       "start": 1762530216121,
-      "end": 1765936855101
+      "end": 1766023365450
     },
     "pkgs": {
       "x86_vcpu": {
@@ -3067,7 +3112,7 @@
     "repo": "x86_vlapic",
     "timestamp": {
       "start": 1762530263823,
-      "end": 1765936855368
+      "end": 1766023365733
     },
     "pkgs": {
       "x86_vlapic": {
@@ -3197,7 +3242,7 @@
     "repo": "allocator",
     "timestamp": {
       "start": 1763776691966,
-      "end": 1765936856101
+      "end": 1766023365964
     },
     "pkgs": {
       "allocator": {
@@ -3311,7 +3356,7 @@
     "repo": "arceos",
     "timestamp": {
       "start": 1765505190740,
-      "end": 1765936856410
+      "end": 1766023366252
     },
     "pkgs": {
       "arceos-helloworld": {
@@ -4043,7 +4088,7 @@
     "repo": "arm_gicv2",
     "timestamp": {
       "start": 1762530535562,
-      "end": 1765936856738
+      "end": 1766023366569
     },
     "pkgs": {
       "arm_gicv2": {
@@ -4089,7 +4134,7 @@
     "repo": "arm_pl011",
     "timestamp": {
       "start": 1762530538950,
-      "end": 1765936857027
+      "end": 1766023366851
     },
     "pkgs": {
       "arm_pl011": {
@@ -4135,7 +4180,7 @@
     "repo": "arm_pl031",
     "timestamp": {
       "start": 1762530549472,
-      "end": 1765936857329
+      "end": 1766023367127
     },
     "pkgs": {
       "arm_pl031": {
@@ -4213,7 +4258,7 @@
     "repo": "axconfig-gen",
     "timestamp": {
       "start": 1762613159002,
-      "end": 1765936857612
+      "end": 1766023367390
     },
     "pkgs": {
       "axconfig-gen": {
@@ -4376,7 +4421,7 @@
     "repo": "axcpu",
     "timestamp": {
       "start": 1762530632555,
-      "end": 1765936857849
+      "end": 1766023367681
     },
     "pkgs": {
       "axcpu": {
@@ -4428,7 +4473,7 @@
     "repo": "axdriver_crates",
     "timestamp": {
       "start": 1762530645395,
-      "end": 1765936858212
+      "end": 1766023367973
     },
     "pkgs": {
       "axdriver_base": {
@@ -4637,7 +4682,7 @@
     "repo": "axerrno",
     "timestamp": {
       "start": 1764035984608,
-      "end": 1765936858489
+      "end": 1766023368289
     },
     "pkgs": {
       "axerrno": {
@@ -4712,7 +4757,7 @@
     "repo": "axfs_crates",
     "timestamp": {
       "start": 1762530666278,
-      "end": 1765936858818
+      "end": 1766023368549
     },
     "pkgs": {
       "axfs_devfs": {
@@ -4896,7 +4941,7 @@
     "repo": "axio",
     "timestamp": {
       "start": 1765850766186,
-      "end": 1765936859070
+      "end": 1766023368825
     },
     "pkgs": {
       "axio": {
@@ -4937,7 +4982,7 @@
     "repo": "axmm_crates",
     "timestamp": {
       "start": 1763950079879,
-      "end": 1765936859482
+      "end": 1766023369096
     },
     "pkgs": {
       "memory_addr": {
@@ -5246,7 +5291,7 @@
     "repo": "axplat_crates",
     "timestamp": {
       "start": 1765850802600,
-      "end": 1765936859813
+      "end": 1766023369386
     },
     "pkgs": {
       "axplat": {
@@ -5791,7 +5836,7 @@
     "repo": "axsched",
     "timestamp": {
       "start": 1765678632397,
-      "end": 1765936860088
+      "end": 1766023369700
     },
     "pkgs": {
       "axsched": {
@@ -5924,7 +5969,7 @@
     "repo": "cap_access",
     "timestamp": {
       "start": 1762531283229,
-      "end": 1765936860369
+      "end": 1766023369993
     },
     "pkgs": {
       "cap_access": {
@@ -5967,7 +6012,7 @@
     "repo": "cpumask",
     "timestamp": {
       "start": 1762531290110,
-      "end": 1765936860634
+      "end": 1766023370240
     },
     "pkgs": {
       "cpumask": {
@@ -6009,7 +6054,7 @@
     "repo": "crate_interface",
     "timestamp": {
       "start": 1762531322575,
-      "end": 1765936860886
+      "end": 1766023370491
     },
     "pkgs": {
       "crate_interface": {
@@ -6076,7 +6121,7 @@
     "repo": "ctor_bare",
     "timestamp": {
       "start": 1762531351587,
-      "end": 1765936861185
+      "end": 1766023370785
     },
     "pkgs": {
       "ctor_bare": {
@@ -6193,7 +6238,7 @@
     "repo": "dw_apb_uart",
     "timestamp": {
       "start": 1762531357695,
-      "end": 1765936861456
+      "end": 1766023371077
     },
     "pkgs": {
       "dw_apb_uart": {
@@ -6228,7 +6273,7 @@
     "repo": "flatten_objects",
     "timestamp": {
       "start": 1762531374150,
-      "end": 1765936861768
+      "end": 1766023371328
     },
     "pkgs": {
       "flatten_objects": {
@@ -6305,7 +6350,7 @@
     "repo": "handler_table",
     "timestamp": {
       "start": 1762531379391,
-      "end": 1765936862057
+      "end": 1766023371666
     },
     "pkgs": {
       "handler_table": {
@@ -6346,7 +6391,7 @@
     "repo": "int_ratio",
     "timestamp": {
       "start": 1762531423753,
-      "end": 1765936862323
+      "end": 1766023371948
     },
     "pkgs": {
       "int_ratio": {
@@ -6494,7 +6539,7 @@
     "repo": "kernel_guard",
     "timestamp": {
       "start": 1765245757107,
-      "end": 1765936862582
+      "end": 1766023372170
     },
     "pkgs": {
       "kernel_guard": {
@@ -6536,7 +6581,7 @@
     "repo": "kspin",
     "timestamp": {
       "start": 1762531500291,
-      "end": 1765936862838
+      "end": 1766023372453
     },
     "pkgs": {
       "kspin": {
@@ -6667,7 +6712,7 @@
     "repo": "lazyinit",
     "timestamp": {
       "start": 1762531548802,
-      "end": 1765936863148
+      "end": 1766023372724
     },
     "pkgs": {
       "lazyinit": {
@@ -6779,7 +6824,7 @@
     "repo": "linked_list_r4l",
     "timestamp": {
       "start": 1764900216091,
-      "end": 1765936863383
+      "end": 1766023372982
     },
     "pkgs": {
       "linked_list_r4l": {
@@ -6926,7 +6971,7 @@
     "repo": "page_table_multiarch",
     "timestamp": {
       "start": 1764122441840,
-      "end": 1765936863770
+      "end": 1766023373282
     },
     "pkgs": {
       "page_table_entry": {
@@ -7031,7 +7076,7 @@
     "repo": "percpu",
     "timestamp": {
       "start": 1762531610702,
-      "end": 1765936864042
+      "end": 1766023373540
     },
     "pkgs": {
       "percpu": {
@@ -7109,7 +7154,7 @@
     "repo": "riscv_goldfish",
     "timestamp": {
       "start": 1762531616243,
-      "end": 1765936864330
+      "end": 1766023373952
     },
     "pkgs": {
       "riscv_goldfish": {
@@ -7152,7 +7197,7 @@
     "repo": "riscv_plic",
     "timestamp": {
       "start": 1764295024766,
-      "end": 1765936864582
+      "end": 1766023374294
     },
     "pkgs": {
       "riscv_plic": {
@@ -7198,7 +7243,7 @@
     "repo": "slab_allocator",
     "timestamp": {
       "start": 1762531655162,
-      "end": 1765936864961
+      "end": 1766023374561
     },
     "pkgs": {
       "slab_allocator": {
@@ -7319,7 +7364,7 @@
     "repo": "timer_list",
     "timestamp": {
       "start": 1762531683825,
-      "end": 1765936865217
+      "end": 1766023374912
     },
     "pkgs": {
       "timer_list": {
@@ -7396,7 +7441,7 @@
     "repo": "tuple_for_each",
     "timestamp": {
       "start": 1762531723624,
-      "end": 1765936865507
+      "end": 1766023375205
     },
     "pkgs": {
       "tuple_for_each": {
@@ -7490,7 +7535,7 @@
     "repo": "x86_rtc",
     "timestamp": {
       "start": 1762531733795,
-      "end": 1765936865838
+      "end": 1766023375515
     },
     "pkgs": {
       "x86_rtc": {
@@ -7532,17 +7577,17 @@
     "user": "asterinas",
     "repo": "asterinas",
     "timestamp": {
-      "start": 1765936935727,
-      "end": 1765936935727
+      "start": 1766023416359,
+      "end": 1766023416359
     },
-    "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error: error: current package believes it's in a workspace when it's not:\n      current:   /tmp/os-checker-plugin-cargo/asterinas/asterinas/kernel/libs/comp-sys/cargo-component/Cargo.toml\n      workspace: /tmp/os-checker-plugin-cargo/asterinas/asterinas/Cargo.toml\n\n      this may be fixable by adding `kernel/libs/comp-sys/cargo-component` to the `workspace.members` array of the manifest located at: /tmp/os-checker-plugin-cargo/asterinas/asterinas/Cargo.toml\n      Alternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n      \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"f30bd698d1b3d91452b3dd4311c8d15ebb4caeb8\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"asterinas/asterinas\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+    "err": "\n   0: 无法读取 cargo metadata 的结果：\n      `cargo metadata` exited with an error: error: current package believes it's in a workspace when it's not:\n      current:   /tmp/os-checker-plugin-cargo/asterinas/asterinas/kernel/libs/comp-sys/cargo-component/Cargo.toml\n      workspace: /tmp/os-checker-plugin-cargo/asterinas/asterinas/Cargo.toml\n\n      this may be fixable by adding `kernel/libs/comp-sys/cargo-component` to the `workspace.members` array of the manifest located at: /tmp/os-checker-plugin-cargo/asterinas/asterinas/Cargo.toml\n      Alternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n      \n\nLocation:\n   src/repo/mod.rs:217\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: os_checker_plugin_cargo::cache::cache with key=\"Api { branch: \\\"main\\\", sha: \\\"b8654ed1b9786c2bc088e3a7102aebbd6276433d\\\" }\"\n      at src/cache/mod.rs:60\n   1: os_checker_plugin_cargo::list with user_repo=\"asterinas/asterinas\"\n      at src/main.rs:16\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
   },
   {
     "user": "bullhh",
     "repo": "igb_driver",
     "timestamp": {
       "start": 1762531739147,
-      "end": 1765936936018
+      "end": 1766023416705
     },
     "pkgs": {
       "igb_driver": {
@@ -7577,7 +7622,7 @@
     "repo": "CrabUSB",
     "timestamp": {
       "start": 1764122493292,
-      "end": 1765936936303
+      "end": 1766023416925
     },
     "pkgs": {
       "crab-usb": {
@@ -7782,7 +7827,7 @@
     "repo": "aarch64-cpu-ext",
     "timestamp": {
       "start": 1762531878616,
-      "end": 1765936936570
+      "end": 1766023417243
     },
     "pkgs": {
       "aarch64-cpu-ext": {
@@ -7924,7 +7969,7 @@
     "repo": "dma-api",
     "timestamp": {
       "start": 1762531893005,
-      "end": 1765936936891
+      "end": 1766023417554
     },
     "pkgs": {
       "dma-api": {
@@ -7965,7 +8010,7 @@
     "repo": "fdt-parser",
     "timestamp": {
       "start": 1765942310847,
-      "end": 1765942311400
+      "end": 1766023417869
     },
     "pkgs": {
       "dtb-file": {
@@ -9361,7 +9406,7 @@
     "repo": "mbarrier",
     "timestamp": {
       "start": 1762534506396,
-      "end": 1765942312002
+      "end": 1766023418174
     },
     "pkgs": {
       "mbarrier": {
@@ -9430,7 +9475,7 @@
     "repo": "nvme",
     "timestamp": {
       "start": 1762534528362,
-      "end": 1765942312487
+      "end": 1766023418429
     },
     "pkgs": {
       "nvme-driver": {
@@ -9473,7 +9518,7 @@
     "repo": "pcie",
     "timestamp": {
       "start": 1762534548479,
-      "end": 1765942312979
+      "end": 1766023418719
     },
     "pkgs": {
       "pcie": {
@@ -9516,7 +9561,7 @@
     "repo": "phytium-mci",
     "timestamp": {
       "start": 1762534657954,
-      "end": 1765942313466
+      "end": 1766023419018
     },
     "pkgs": {
       "phytium-mci": {
@@ -9549,7 +9594,7 @@
     "repo": "rdrive",
     "timestamp": {
       "start": 1762534762621,
-      "end": 1765942314020
+      "end": 1766023419272
     },
     "pkgs": {
       "enumerate": {
@@ -10015,7 +10060,7 @@
     "repo": "sdmmc",
     "timestamp": {
       "start": 1762534780128,
-      "end": 1765942314585
+      "end": 1766023419531
     },
     "pkgs": {
       "sdmmc": {
@@ -10048,7 +10093,7 @@
     "repo": "any-uart",
     "timestamp": {
       "start": 1762534794114,
-      "end": 1765942315056
+      "end": 1766023419838
     },
     "pkgs": {
       "any-uart": {
@@ -10116,7 +10161,7 @@
     "repo": "arm-gic-driver",
     "timestamp": {
       "start": 1762534831978,
-      "end": 1765942315529
+      "end": 1766023420135
     },
     "pkgs": {
       "arm-gic-driver": {
@@ -10230,7 +10275,7 @@
     "repo": "serial-async",
     "timestamp": {
       "start": 1762534860183,
-      "end": 1765942315995
+      "end": 1766023420424
     },
     "pkgs": {
       "serial-async": {
