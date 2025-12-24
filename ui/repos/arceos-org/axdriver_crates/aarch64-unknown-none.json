@@ -1,0 +1,294 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "axdriver_crates"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "axdriver_crates",
+      "pkg": "axdriver_net",
+      "count": 6,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/mnt/check/batch_2/arceos-org/axdriver_crates/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     atomic-polyfill\nVersion:   1.0.3\nWarning:   unmaintained\nTitle:     atomic-polyfill is unmaintained\nDate:      2023-07-11\nID:        RUSTSEC-2023-0089\nURL:       https://rustsec.org/advisories/RUSTSEC-2023-0089\nDependency tree:\natomic-polyfill 1.0.3\n└── heapless 0.7.17\n    └── smoltcp 0.10.0\n        └── ixgbe-driver 0.1.0\n            └── axdriver_net 0.1.2\n                └── axdriver_virtio 0.1.2\n\n\n{\n  \"database\": {\n    \"advisory-count\": 891,\n    \"last-commit\": \"6bd13381ba6d76a2964a6cd5efcd5e0e8a9f1079\",\n    \"last-updated\": \"2025-12-24T15:49:43+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 51\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atomic-polyfill\",\n          \"version\": \"1.0.3\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8cf2bce30dfe09ef0bfaef228b9d414faaf7e563035494d7fe092dba54b300f4\",\n          \"dependencies\": [\n            {\n              \"name\": \"critical-section\",\n              \"version\": \"1.2.0\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2023-0089\",\n          \"package\": \"atomic-polyfill\",\n          \"title\": \"atomic-polyfill is unmaintained\",\n          \"description\": \"The author has archived the GitHub repository and mentions deprecation in\\nproject's\\n[README](https://github.com/embassy-rs/atomic-polyfill/blob/48e55c166684f37af0b00fbee5a0809b1a2bae8e/README.md).\\n\\n## Possible alternatives\\n\\n * [portable-atomic](https://crates.io/crates/portable-atomic)\",\n          \"date\": \"2023-07-11\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/embassy-rs/atomic-polyfill/commit/48e55c166684f37af0b00fbee5a0809b1a2bae8e\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-12-24T15:18:45Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-12-24T15:18:45Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=axdriver_net, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_net\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none \ntimestamp=2025-12-24 23:19:25.064210021 +08:00:00\n\n\nstdout:\nunused dependencies:\n`axdriver_net v0.1.2 (/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_net)`\n└─── dependencies\n     └─── \"log\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking scopeguard v1.2.0\n    Checking axdriver_base v0.1.2 (/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_base)\n    Checking lock_api v0.4.14\n    Checking spin v0.9.8\n    Checking axdriver_net v0.1.2 (/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_net)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.27s\ninfo: Loading depinfo from \"/mnt/check/batch_2/arceos-org/axdriver_crates/target/aarch64-unknown-none/debug/deps/axdriver_base-21f27748aea4e6c2.d\"\ninfo: Loading depinfo from \"/mnt/check/batch_2/arceos-org/axdriver_crates/target/aarch64-unknown-none/debug/deps/axdriver_net-96d5475ce52c89ac.d\"\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=axdriver_net, checker=Outdated\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_net\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-12-24 23:19:09.235113309 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nspin  0.9.8    ---     0.10.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axdriver_net, checker=SemverChecks\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_net\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-12-24 23:18:34.121606823 +08:00:00\n\n\nstdout:\n\nstderr:\nerror: failed to retrieve index of crate versions from registry\n\nCaused by:\n    axdriver_net not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "axdriver_crates",
+      "pkg": "axdriver_virtio",
+      "count": 5,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/mnt/check/batch_2/arceos-org/axdriver_crates/Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     atomic-polyfill\nVersion:   1.0.3\nWarning:   unmaintained\nTitle:     atomic-polyfill is unmaintained\nDate:      2023-07-11\nID:        RUSTSEC-2023-0089\nURL:       https://rustsec.org/advisories/RUSTSEC-2023-0089\nDependency tree:\natomic-polyfill 1.0.3\n└── heapless 0.7.17\n    └── smoltcp 0.10.0\n        └── ixgbe-driver 0.1.0\n            └── axdriver_net 0.1.2\n                └── axdriver_virtio 0.1.2\n\n\n{\n  \"database\": {\n    \"advisory-count\": 891,\n    \"last-commit\": \"6bd13381ba6d76a2964a6cd5efcd5e0e8a9f1079\",\n    \"last-updated\": \"2025-12-24T15:49:43+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 51\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"atomic-polyfill\",\n          \"version\": \"1.0.3\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"8cf2bce30dfe09ef0bfaef228b9d414faaf7e563035494d7fe092dba54b300f4\",\n          \"dependencies\": [\n            {\n              \"name\": \"critical-section\",\n              \"version\": \"1.2.0\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2023-0089\",\n          \"package\": \"atomic-polyfill\",\n          \"title\": \"atomic-polyfill is unmaintained\",\n          \"description\": \"The author has archived the GitHub repository and mentions deprecation in\\nproject's\\n[README](https://github.com/embassy-rs/atomic-polyfill/blob/48e55c166684f37af0b00fbee5a0809b1a2bae8e/README.md).\\n\\n## Possible alternatives\\n\\n * [portable-atomic](https://crates.io/crates/portable-atomic)\",\n          \"date\": \"2023-07-11\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/embassy-rs/atomic-polyfill/commit/48e55c166684f37af0b00fbee5a0809b1a2bae8e\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-12-24T15:18:45Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-12-24T15:18:45Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=axdriver_virtio, checker=Outdated\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_virtio\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-12-24 23:19:13.085745322 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\nvirtio-drivers  0.7.5    ---     0.12.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axdriver_virtio, checker=SemverChecks\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_virtio\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-12-24 23:18:35.89816942 +08:00:00\n\n\nstdout:\n\nstderr:\nerror: failed to retrieve index of crate versions from registry\n\nCaused by:\n    axdriver_virtio not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "axdriver_crates",
+      "pkg": "axdriver_block",
+      "count": 4,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-12-24T15:18:45Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-12-24T15:18:45Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=axdriver_block, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_block\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none \ntimestamp=2025-12-24 23:19:23.38639947 +08:00:00\n\n\nstdout:\nunused dependencies:\n`axdriver_block v0.1.2 (/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_block)`\n└─── dependencies\n     └─── \"log\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking axdriver_base v0.1.2 (/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_base)\n    Checking log v0.4.29\n    Checking axdriver_block v0.1.2 (/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_block)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.12s\ninfo: Loading depinfo from \"/mnt/check/batch_2/arceos-org/axdriver_crates/target/aarch64-unknown-none/debug/deps/axdriver_base-21f27748aea4e6c2.d\"\ninfo: Loading depinfo from \"/mnt/check/batch_2/arceos-org/axdriver_crates/target/aarch64-unknown-none/debug/deps/axdriver_block-f1be4f6eab4adad7.d\"\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axdriver_block, checker=SemverChecks\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_block\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-12-24 23:18:32.301068544 +08:00:00\n\n\nstdout:\n\nstderr:\nerror: failed to retrieve index of crate versions from registry\n\nCaused by:\n    axdriver_block not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "axdriver_crates",
+      "pkg": "axdriver_pci",
+      "count": 4,
+      "raw_reports": [
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Lockbud] deadlock detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "[2025-12-24T15:18:45Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1530:11: 1530:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.29/src/lib.rs:1533:13: 1533:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-12-24T15:18:45Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=axdriver_pci, checker=Outdated\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_pci\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-12-24 23:19:11.193541661 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\nvirtio-drivers  0.7.5    ---     0.12.0  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axdriver_pci, checker=SemverChecks\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_pci\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-12-24 23:18:35.007409028 +08:00:00\n\n\nstdout:\n\nstderr:\nerror: failed to retrieve index of crate versions from registry\n\nCaused by:\n    axdriver_pci not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "axdriver_crates",
+      "pkg": "axdriver_display",
+      "count": 3,
+      "raw_reports": [
+        {
+          "file": "axdriver_display/src/lib.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: hiding a lifetime that's elided elsewhere is confusing\n  --> axdriver_display/src/lib.rs:52:11\n   |\n52 |     fn fb(&self) -> FrameBuffer;\n   |           ^^^^^     ^^^^^^^^^^^ the same lifetime is hidden here\n   |           |\n   |           the lifetime is elided here\n   |\n   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing\n   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: use `'_` for type paths\n   |\n52 |     fn fb(&self) -> FrameBuffer<'_>;\n   |                                ++++\n\n",
+              "warning: hiding a lifetime that's elided elsewhere is confusing\n  --> axdriver_display/src/lib.rs:52:11\n   |\n52 |     fn fb(&self) -> FrameBuffer;\n   |           ^^^^^     ^^^^^^^^^^^ the same lifetime is hidden here\n   |           |\n   |           the lifetime is elided here\n   |\n   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing\n   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: use `'_` for type paths\n   |\n52 |     fn fb(&self) -> FrameBuffer<'_>;\n   |                                ++++\n\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axdriver_display, checker=SemverChecks\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_display\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-12-24 23:18:33.206032386 +08:00:00\n\n\nstdout:\n\nstderr:\nerror: failed to retrieve index of crate versions from registry\n\nCaused by:\n    axdriver_display not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "axdriver_crates",
+      "pkg": "axdriver_base",
+      "count": 1,
+      "raw_reports": [
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=axdriver_base, checker=SemverChecks\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/axdriver_crates/axdriver_base\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-12-24 23:18:31.405380404 +08:00:00\n\n\nstdout:\n\nstderr:\nerror: failed to retrieve index of crate versions from registry\n\nCaused by:\n    axdriver_base not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}
