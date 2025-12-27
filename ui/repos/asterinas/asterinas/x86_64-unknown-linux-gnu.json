@@ -1,10 +1,14 @@
 {
+  "repo": {
+    "user": "asterinas",
+    "repo": "asterinas"
+  },
   "data": [
     {
       "user": "asterinas",
       "repo": "asterinas",
       "pkg": "cargo-osdk",
-      "count": 23,
+      "count": 31,
       "raw_reports": [
         {
           "file": "src/bundle/mod.rs",
@@ -34,6 +38,77 @@
               "error[E0658]: `let` expressions in this position are unstable\n   --> src/config/mod.rs:136:16\n    |\n136 |             && let Some(ref mut grub_mkrescue_path) = grub.grub_mkrescue\n    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #53667 <https://github.com/rust-lang/rust/issues/53667> for more information\n    = help: add `#![feature(let_chains)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-09; consider upgrading it if it is out of date\n\n",
               "error[E0658]: `let` expressions in this position are unstable\n   --> src/config/mod.rs:145:8\n    |\n145 |     if let Some(ref mut qemu) = action_scheme.qemu\n    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #53667 <https://github.com/rust-lang/rust/issues/53667> for more information\n    = help: add `#![feature(let_chains)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-09; consider upgrading it if it is out of date\n\n",
               "error[E0658]: `let` expressions in this position are unstable\n   --> src/config/mod.rs:146:12\n    |\n146 |         && let Some(ref mut args) = qemu.args\n    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: see issue #53667 <https://github.com/rust-lang/rust/issues/53667> for more information\n    = help: add `#![feature(let_chains)]` to the crate attributes to enable\n    = note: this compiler was built on 2025-01-09; consider upgrading it if it is out of date\n\n"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:218:18: 218:55 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}",
+              "{\n  \"bug_kind\": \"UseAfterFree\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": \"Raw ptr is used at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:222:13: 222:53 (#0) after dropped at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/imp_std.rs:238:5: 238:6 (#0)\",\n  \"explanation\": \"Raw ptr is used or escapes the current function after the pointed value is dropped\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dashmap-6.1.0/src/lock.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"lock::RawRwLock::unlock_exclusive_slow\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dashmap-6.1.0/src/lock.rs:148:21: 148:55 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dashmap-6.1.0/src/lock.rs:165:13: 165:64 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.3.3/src/backends/use_file.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"backends::use_file::open_or_wait\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.3.3/src/backends/use_file.rs:84:15: 84:41 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.3.3/src/backends/use_file.rs:106:5: 106:37 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"set_logger_racy\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1455:11: 1455:40 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.27/src/lib.rs:1458:13: 1458:56 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/portable-atomic-1.11.0/src/imp/atomic128/../detect/common.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"imp::atomic128::x86_64::detect::detect\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/portable-atomic-1.11.0/src/imp/atomic128/../detect/common.rs:32:28: 32:57 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/portable-atomic-1.11.0/src/imp/atomic128/../detect/common.rs:43:5: 43:43 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"regex_automata::util::pool::inner::Pool::<T, F>::get\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:525:25: 525:59 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/util/pool.rs:530:17: 530:69 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
+            ]
+          }
+        },
+        {
+          "file": "/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tempfile-3.14.0/src/file/imp/unix.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Lockbud(Possibly)": [
+              "{\n  \"bug_kind\": \"AtomicityViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"fn_name\": \"file::imp::unix::persist\",\n    \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tempfile-3.14.0/src/file/imp/unix.rs:125:17: 125:36 (#0)\",\n    \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tempfile-3.14.0/src/file/imp/unix.rs:128:42: 128:68 (#0)\",\n    \"dep_kind\": \"Control\"\n  },\n  \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n}"
             ]
           }
         },
