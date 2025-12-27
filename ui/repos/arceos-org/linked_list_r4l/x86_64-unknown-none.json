@@ -1,0 +1,45 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "linked_list_r4l"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "linked_list_r4l",
+      "pkg": "linked_list_r4l",
+      "count": 3,
+      "raw_reports": [
+        {
+          "file": "src/raw_list.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: you should consider adding a `Default` implementation for `RawList<G>`\n   --> src/raw_list.rs:99:5\n    |\n 99 | /     pub const fn new() -> Self {\n100 | |         Self { head: None }\n101 | |     }\n    | |_____^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default\n    = note: `#[warn(clippy::new_without_default)]` on by default\nhelp: try adding this\n    |\n 97 + impl<G: GetLinks> Default for RawList<G> {\n 98 +     fn default() -> Self {\n 99 +         Self::new()\n100 +     }\n101 + }\n    |\n\n",
+              "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:192:5\n    |\n192 |     pub unsafe fn push_back(&mut self, new: NonNull<G::EntryType>) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n    = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n",
+              "warning: unsafe function's docs are missing a `# Safety` section\n   --> src/raw_list.rs:201:5\n    |\n201 |     pub unsafe fn push_front(&mut self, new: NonNull<G::EntryType>) -> bool {\n    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "arceos"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "arceos",
+      "pkg": "mingo",
+      "count": 10,
+      "raw_reports": [
+        {
+          "file": "src/main.rs",
+          "features": "",
+          "count": 3,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0433]: failed to resolve: could not find `driver` in `bsp`\n   --> src/main.rs:131:35\n    |\n131 |     if let Err(x) = unsafe { bsp::driver::init() } {\n    |                                   ^^^^^^ could not find `driver` in `bsp`\n\n",
+              "error[E0433]: failed to resolve: could not find `memory` in `bsp`\n   --> src/main.rs:178:37\n    |\n178 |     let kernel_addr: *mut u8 = bsp::memory::board_default_load_addr() as *mut u8;\n    |                                     ^^^^^^ could not find `memory` in `bsp`\n\n",
+              "error[E0425]: cannot find function `board_name` in module `bsp`\n   --> src/main.rs:155:29\n    |\n155 |     println!(\"{:^37}\", bsp::board_name());\n    |                             ^^^^^^^^^^ not found in `bsp`\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=mingo, checker=Clippy\n// toolchain=nightly-2025-05-20, target=aarch64-unknown-none-softfloat\n// features=\n// pkg_dir=/mnt/check/batch_2/arceos-org/arceos/tools/raspi4/chainloader\n// cmd=cargo clippy --target aarch64-unknown-none-softfloat  --no-deps\n// timestamp=2025-12-24 23:05:47.269859727 +08:00:00\n    Checking tock-registers v0.8.1\n   Compiling mingo v0.6.0 (/mnt/check/batch_2/arceos-org/arceos/tools/raspi4/chainloader)\n    Checking aarch64-cpu v9.0.0\nerror: could not compile `mingo` (bin \"kernel\") due to 3 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=mingo, checker=Lockbud\n// toolchain=nightly-2025-05-20, target=aarch64-unknown-none-softfloat\n// features=\n// pkg_dir=/mnt/check/batch_2/arceos-org/arceos/tools/raspi4/chainloader\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target aarch64-unknown-none-softfloat \n// timestamp=2025-12-24 23:07:36.918573897 +08:00:00\n   Compiling mingo v0.6.0 (/mnt/check/batch_2/arceos-org/arceos/tools/raspi4/chainloader)\n   Compiling tock-registers v0.8.1\n   Compiling aarch64-cpu v9.0.0\nerror[E0433]: failed to resolve: could not find `driver` in `bsp`\n   --> src/main.rs:131:35\n    |\n131 |     if let Err(x) = unsafe { bsp::driver::init() } {\n    |                                   ^^^^^^ could not find `driver` in `bsp`\n\nerror[E0433]: failed to resolve: could not find `memory` in `bsp`\n   --> src/main.rs:178:37\n    |\n178 |     let kernel_addr: *mut u8 = bsp::memory::board_default_load_addr() as *mut u8;\n    |                                     ^^^^^^ could not find `memory` in `bsp`\n\nerror[E0425]: cannot find function `board_name` in module `bsp`\n   --> src/main.rs:155:29\n    |\n155 |     println!(\"{:^37}\", bsp::board_name());\n    |                             ^^^^^^^^^^ not found in `bsp`\n\nwarning: unused import: `nop`\n  --> src/cpu.rs:16:20\n   |\n16 | pub use arch_cpu::{nop, wait_forever};\n   |                    ^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\nSome errors have detailed explanations: E0425, E0433.\nFor more information about an error, try `rustc --explain E0425`.\nwarning: `mingo` (bin \"kernel\") generated 1 warning\nerror: could not compile `mingo` (bin \"kernel\") due to 3 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=mingo, checker=Udeps\n// toolchain=nightly-2025-05-20, target=aarch64-unknown-none-softfloat\n// features=\n// pkg_dir=/mnt/check/batch_2/arceos-org/arceos/tools/raspi4/chainloader\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none-softfloat \n// timestamp=2025-12-24 23:13:21.127019661 +08:00:00\n    Checking tock-registers v0.8.1\n   Compiling mingo v0.6.0 (/mnt/check/batch_2/arceos-org/arceos/tools/raspi4/chainloader)\n    Checking aarch64-cpu v9.0.0\nerror[E0433]: failed to resolve: could not find `driver` in `bsp`\n   --> src/main.rs:131:35\n    |\n131 |     if let Err(x) = unsafe { bsp::driver::init() } {\n    |                                   ^^^^^^ could not find `driver` in `bsp`\n\nerror[E0433]: failed to resolve: could not find `memory` in `bsp`\n   --> src/main.rs:178:37\n    |\n178 |     let kernel_addr: *mut u8 = bsp::memory::board_default_load_addr() as *mut u8;\n    |                                     ^^^^^^ could not find `memory` in `bsp`\n\nerror[E0425]: cannot find function `board_name` in module `bsp`\n   --> src/main.rs:155:29\n    |\n155 |     println!(\"{:^37}\", bsp::board_name());\n    |                             ^^^^^^^^^^ not found in `bsp`\n\nwarning: unused import: `nop`\n  --> src/cpu.rs:16:20\n   |\n16 | pub use arch_cpu::{nop, wait_forever};\n   |                    ^^^\n   |\n   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default\n\nSome errors have detailed explanations: E0425, E0433.\nFor more information about an error, try `rustc --explain E0425`.\nwarning: `mingo` (bin \"kernel\") generated 1 warning\nerror: could not compile `mingo` (bin \"kernel\") due to 3 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=mingo, checker=Udeps\ntoolchain=nightly-2025-05-20, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/arceos/tools/raspi4/chainloader\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none-softfloat \ntimestamp=2025-12-24 23:13:22.377527106 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking tock-registers v0.8.1\n   Compiling mingo v0.6.0 (/mnt/check/batch_2/arceos-org/arceos/tools/raspi4/chainloader)\n    Checking aarch64-cpu v9.0.0\nerror[E0433]: failed to resolve: could not find `driver` in `bsp`\n   --> src/main.rs:131:35\n    |\n131 |     if let Err(x) = unsafe { bsp::driver::init() } {\n    |                                   ^^^^^^ could not find `driver` in `bsp`\n\nerror[E0433]: failed to resolve: could not find `memory` in `bsp`\n   --> src/main.rs:178:37\n    |\n178 |     let kernel_addr: *mut u8 = bsp::memory::board_default_load_addr() as *mut u8;\n    |                                     ^^^^^^ could not find `memory` in `bsp`\n\nerror[E0425]: cannot find function `board_name` in module `bsp`\n   --> src/main.rs:155:29\n    |\n155 |     println!(\"{:^37}\", bsp::board_name());\n    |                             ^^^^^^^^^^ not found in `bsp`\n\nwarning: unused import: `nop`\n  --> src/cpu.rs:16:20\n   |\n16 | pub use arch_cpu::{nop, wait_forever};\n   |                    ^^^\n   |\n   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default\n\nSome errors have detailed explanations: E0425, E0433.\nFor more information about an error, try `rustc --explain E0425`.\nwarning: `mingo` (bin \"kernel\") generated 1 warning\nerror: could not compile `mingo` (bin \"kernel\") due to 3 previous errors; 1 warning emitted\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=mingo, checker=Outdated\ntoolchain=nightly-2025-05-20, target=aarch64-unknown-none-softfloat\nfeatures=\npkg_dir=/mnt/check/batch_2/arceos-org/arceos/tools/raspi4/chainloader\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-12-24 23:09:46.39594719 +08:00:00\n\nName            Project  Compat  Latest  Kind    Platform\n----            -------  ------  ------  ----    --------\naarch64-cpu     9.0.0    9.4.0   11.2.0  Normal  cfg(target_arch = \"aarch64\")\ntock-registers  0.8.1    ---     0.10.1  Normal  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "src/cpu.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: unused import: `nop`\n  --> src/cpu.rs:16:20\n   |\n16 | pub use arch_cpu::{nop, wait_forever};\n   |                    ^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/driver.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /mnt/check/batch_2/arceos-org/arceos/tools/raspi4/chainloader/src/driver.rs (original lines from 7 to 7)\n-use crate::synchronization::{interface::Mutex, NullLock};\n+use crate::synchronization::{NullLock, interface::Mutex};\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

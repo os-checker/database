@@ -1,0 +1,63 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "percpu"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "percpu",
+      "pkg": "percpu",
+      "count": 3,
+      "raw_reports": [
+        {
+          "file": "[AtomVChecker] memory ordering misuse detection",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Atomvchecker": [
+              "[2025-12-25T17:16:53Z WARN  atomvchecker::callbacks] [\n      {\n        \"AtomicCorrelationViolation\": {\n          \"bug_kind\": \"AtomicCorrelationViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"atomic\": \"percpu/src/imp.rs:70:10: 70:75\"\n          },\n          \"explanation\": \"Using an atomic operation with a stronger memory ordering than necessary can lead to unnecessary performance overhead. Using Relaxed is sufficient to ensure the correctness of the program\"\n        }\n      }\n    ]\n[2025-12-25T17:16:53Z WARN  atomvchecker::callbacks] crate percpu contains atomic_correlation_violation: { possibly: 1 }"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=percpu, checker=Outdated\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_3/arceos-org/percpu/percpu\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-12-26 1:16:55.738110551 +08:00:00\n\nName  Project  Compat  Latest  Kind    Platform\n----  -------  ------  ------  ----    --------\nspin  0.9.8    ---     0.10.0  Normal  cfg(not(target_os = \"none\"))\n"
+            ]
+          }
+        },
+        {
+          "file": "percpu/src/imp.rs:70:10: 70:75",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Atomvchecker": [
+              "{\n  \"bug_kind\": \"AtomicCorrelationViolation\",\n  \"possibility\": \"Possibly\",\n  \"diagnosis\": {\n    \"atomic\": \"percpu/src/imp.rs:70:10: 70:75\"\n  },\n  \"explanation\": \"Using an atomic operation with a stronger memory ordering than necessary can lead to unnecessary performance overhead. Using Relaxed is sufficient to ensure the correctness of the program\"\n}"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}

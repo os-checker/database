@@ -1,0 +1,44 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "ctor_bare"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "ctor_bare",
+      "pkg": "ctor_bare",
+      "count": 2,
+      "raw_reports": [
+        {
+          "file": "ctor_bare/src/lib.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Warn)": [
+              "warning: direct cast of function item into an integer\n  --> ctor_bare/src/lib.rs:22:41\n   |\n22 |     for ctor_ptr in (__init_array_start as usize..__init_array_end as usize)\n   |                                         ^^^^^^^^\n   |\n   = note: `#[warn(function_casts_as_integer)]` on by default\nhelp: first cast to a pointer `as *const ()`\n   |\n22 |     for ctor_ptr in (__init_array_start as *const () as usize..__init_array_end as usize)\n   |                                         ++++++++++++\n\n",
+              "warning: direct cast of function item into an integer\n  --> ctor_bare/src/lib.rs:22:68\n   |\n22 |     for ctor_ptr in (__init_array_start as usize..__init_array_end as usize)\n   |                                                                    ^^^^^^^^\n   |\nhelp: first cast to a pointer `as *const ()`\n   |\n22 |     for ctor_ptr in (__init_array_start as usize..__init_array_end as *const () as usize)\n   |                                                                    ++++++++++++\n\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}
