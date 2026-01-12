@@ -15,9 +15,6 @@
           "features": "",
           "count": 8,
           "kinds": {
-            "Mirai": [
-              "warning: unused import: `PhysAddr`\n  --> src/device.rs:15:19\n   |\n15 | use memory_addr::{PhysAddr, is_aligned_4k};\n   |                   ^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: unused import: `PhysAddr`\n  --> src/device.rs:15:19\n   |\n15 | use memory_addr::{PhysAddr, is_aligned_4k};\n   |                   ^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default\n\n",
               "warning: unused import: `PhysAddr`\n  --> src/device.rs:15:19\n   |\n15 | use memory_addr::{PhysAddr, is_aligned_4k};\n   |                   ^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default\n\n",
@@ -26,6 +23,9 @@
               "warning: usage of an `Arc` that is not `Send` and `Sync`\n   --> src/device.rs:166:47\n    |\n166 |   ...                   this.add_mmio_dev(Arc::new(arm_vgic::v3::vgicr::VGicR::new(\n    |  _________________________________________^\n167 | | ...                       addr.into(),\n168 | | ...                       Some(size),\n169 | | ...                       pcpu_id + i,\n170 | | ...                   )));\n    | |________________________^\n    |\n    = note: `Arc<VGicR>` is not `Send` and `Sync` as `VGicR` is not `Sync`\n    = help: if the `Arc` will not be used across threads replace it with an `Rc`\n    = help: otherwise make `VGicR` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n    = note: `#[warn(clippy::arc_with_non_send_sync)]` on by default\n\n",
               "warning: usage of an `Arc` that is not `Send` and `Sync`\n   --> src/device.rs:189:43\n    |\n189 |                           this.add_mmio_dev(Arc::new(arm_vgic::v3::vgicd::VGicD::new(\n    |  ___________________________________________^\n190 | |                             config.base_gpa.into(),\n191 | |                             Some(config.length),\n192 | |                         )));\n    | |__________________________^\n    |\n    = note: `Arc<VGicD>` is not `Send` and `Sync` as `VGicD` is not `Sync`\n    = help: if the `Arc` will not be used across threads replace it with an `Rc`\n    = help: otherwise make `VGicD` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n\n",
               "warning: usage of an `Arc` that is not `Send` and `Sync`\n   --> src/device.rs:217:43\n    |\n217 |                           this.add_mmio_dev(Arc::new(arm_vgic::v3::gits::Gits::new(\n    |  ___________________________________________^\n218 | |                             config.base_gpa.into(),\n219 | |                             Some(config.length),\n220 | |                             host_gits_base,\n221 | |                             false,\n222 | |                         )));\n    | |__________________________^\n    |\n    = note: `Arc<Gits>` is not `Send` and `Sync` as `Gits` is not `Sync`\n    = help: if the `Arc` will not be used across threads replace it with an `Rc`\n    = help: otherwise make `Gits` `Send` and `Sync` or consider a wrapper type such as `Mutex`\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#arc_with_non_send_sync\n\n"
+            ],
+            "Mirai": [
+              "warning: unused import: `PhysAddr`\n  --> src/device.rs:15:19\n   |\n15 | use memory_addr::{PhysAddr, is_aligned_4k};\n   |                   ^^^^^^^^\n   |\n   = note: `#[warn(unused_imports)]` on by default\n\n"
             ]
           }
         },
