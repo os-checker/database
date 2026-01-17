@@ -15,9 +15,6 @@
           "features": "",
           "count": 9,
           "kinds": {
-            "Mirai": [
-              "warning: [MIRAI] The union is not fully initialized by this assignment\n  --> ctor_bare/src/lib.rs:26:13\n   |\n26 | /             core::mem::transmute::<*const core::ffi::c_void, fn()>(\n27 | |                 *(ctor_ptr as *const *const core::ffi::c_void),\n28 | |             )();\n   | |_____________^\n\n"
-            ],
             "Clippy(Warn)": [
               "warning: direct cast of function item into an integer\n  --> ctor_bare/src/lib.rs:22:41\n   |\n22 |     for ctor_ptr in (__init_array_start as usize..__init_array_end as usize)\n   |                                         ^^^^^^^^\n   |\n   = note: `#[warn(function_casts_as_integer)]` on by default\nhelp: first cast to a pointer `as *const ()`\n   |\n22 |     for ctor_ptr in (__init_array_start as *const () as usize..__init_array_end as usize)\n   |                                         ++++++++++++\n\n",
               "warning: direct cast of function item into an integer\n  --> ctor_bare/src/lib.rs:22:68\n   |\n22 |     for ctor_ptr in (__init_array_start as usize..__init_array_end as usize)\n   |                                                                    ^^^^^^^^\n   |\nhelp: first cast to a pointer `as *const ()`\n   |\n22 |     for ctor_ptr in (__init_array_start as usize..__init_array_end as *const () as usize)\n   |                                                                    ++++++++++++\n\n",
@@ -27,6 +24,9 @@
               "warning: direct cast of function item into an integer\n  --> ctor_bare/src/lib.rs:22:68\n   |\n22 |     for ctor_ptr in (__init_array_start as usize..__init_array_end as usize)\n   |                                                                    ^^^^^^^^\n   |\nhelp: first cast to a pointer `as *const ()`\n   |\n22 |     for ctor_ptr in (__init_array_start as usize..__init_array_end as *const () as usize)\n   |                                                                    ++++++++++++\n\n",
               "warning: direct cast of function item into an integer\n  --> ctor_bare/src/lib.rs:22:41\n   |\n22 |     for ctor_ptr in (__init_array_start as usize..__init_array_end as usize)\n   |                                         ^^^^^^^^\n   |\n   = note: `#[warn(function_casts_as_integer)]` on by default\nhelp: first cast to a pointer `as *const ()`\n   |\n22 |     for ctor_ptr in (__init_array_start as *const () as usize..__init_array_end as usize)\n   |                                         ++++++++++++\n\n",
               "warning: direct cast of function item into an integer\n  --> ctor_bare/src/lib.rs:22:68\n   |\n22 |     for ctor_ptr in (__init_array_start as usize..__init_array_end as usize)\n   |                                                                    ^^^^^^^^\n   |\nhelp: first cast to a pointer `as *const ()`\n   |\n22 |     for ctor_ptr in (__init_array_start as usize..__init_array_end as *const () as usize)\n   |                                                                    ++++++++++++\n\n"
+            ],
+            "Mirai": [
+              "warning: [MIRAI] The union is not fully initialized by this assignment\n  --> ctor_bare/src/lib.rs:26:13\n   |\n26 | /             core::mem::transmute::<*const core::ffi::c_void, fn()>(\n27 | |                 *(ctor_ptr as *const *const core::ffi::c_void),\n28 | |             )();\n   | |_____________^\n\n"
             ]
           }
         },
