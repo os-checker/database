@@ -1,0 +1,528 @@
+{
+  "repo": {
+    "user": "arceos-org",
+    "repo": "crate_interface"
+  },
+  "data": [
+    {
+      "user": "arceos-org",
+      "repo": "crate_interface",
+      "pkg": "test-simple",
+      "count": 8,
+      "raw_reports": [
+        {
+          "file": "define-simple-traits/src/lib.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot resolve a prelude import\n\n"
+            ]
+          }
+        },
+        {
+          "file": "src/main.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Unformatted": [
+              "file: /mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-simple/src/main.rs (original lines from 42 to 42)\n-        call_interface!(namespace = SimpleNs, define_simple_traits::NamespacedIf::get_id),\n+        call_interface!(\n+            namespace = SimpleNs,\n+            define_simple_traits::NamespacedIf::get_id\n+        ),\n",
+              "file: /mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-simple/src/main.rs (original lines from 67 to 67)\n-        call_interface!(namespace = AdvancedNs, define_simple_traits::AdvancedIf::process, 50),\n+        call_interface!(\n+            namespace = AdvancedNs,\n+            define_simple_traits::AdvancedIf::process,\n+            50\n+        ),\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=test-simple, checker=Clippy\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-simple\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf  --no-deps\n// timestamp=2026-01-26 4:34:36.384416885 +08:00:00\n    Checking define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=test-simple, checker=Lockbud\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-simple\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:35:04.839438619 +08:00:00\n   Compiling define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=test-simple, checker=Udeps\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-simple\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:44:53.726608488 +08:00:00\n    Checking define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=test-simple, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-simple\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2026-01-26 4:44:53.803296981 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "crate_interface",
+      "pkg": "impl-weak-traits",
+      "count": 7,
+      "raw_reports": [
+        {
+          "file": "define-weak-traits/src/lib.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot resolve a prelude import\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=impl-weak-traits, checker=Clippy\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-weak-traits\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf  --no-deps\n// timestamp=2026-01-26 4:34:35.820158538 +08:00:00\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=impl-weak-traits, checker=Lockbud\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-weak-traits\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:35:04.396191633 +08:00:00\n   Compiling define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=impl-weak-traits, checker=Udeps\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-weak-traits\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:44:53.31860114 +08:00:00\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=impl-weak-traits, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-weak-traits\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2026-01-26 4:44:53.40239267 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-weak-traits/src/lib.rs (original lines from 12 to 14)\n-use define_weak_traits::{\n-    AllDefaultIf, CallerWeakIf, NamespacedWeakIf, SelfRefIf, WeakDefaultIf,\n-};\n+use define_weak_traits::{AllDefaultIf, CallerWeakIf, NamespacedWeakIf, SelfRefIf, WeakDefaultIf};\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "crate_interface",
+      "pkg": "test-weak",
+      "count": 7,
+      "raw_reports": [
+        {
+          "file": "define-weak-traits/src/lib.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot resolve a prelude import\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=test-weak, checker=Clippy\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-weak\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf  --no-deps\n// timestamp=2026-01-26 4:34:36.949377137 +08:00:00\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=test-weak, checker=Lockbud\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-weak\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:35:05.143284247 +08:00:00\n   Compiling define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=test-weak, checker=Udeps\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-weak\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:44:54.114457751 +08:00:00\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=test-weak, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-weak\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2026-01-26 4:44:54.198380314 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "src/main.rs",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unformatted": [
+              "file: /mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-weak/src/main.rs (original lines from 67 to 69)\n-    let id = call_interface!(namespace = WeakNs, define_weak_traits::NamespacedWeakIf::get_id);\n-    let multiplier =\n-        call_interface!(namespace = WeakNs, define_weak_traits::NamespacedWeakIf::get_default_multiplier);\n+    let id = call_interface!(\n+        namespace = WeakNs,\n+        define_weak_traits::NamespacedWeakIf::get_id\n+    );\n+    let multiplier = call_interface!(\n+        namespace = WeakNs,\n+        define_weak_traits::NamespacedWeakIf::get_default_multiplier\n+    );\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "crate_interface",
+      "pkg": "define-simple-traits",
+      "count": 6,
+      "raw_reports": [
+        {
+          "file": "define-simple-traits/src/lib.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot resolve a prelude import\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=define-simple-traits, checker=Clippy\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf  --no-deps\n// timestamp=2026-01-26 4:34:33.171807973 +08:00:00\n    Checking define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=define-simple-traits, checker=Lockbud\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:35:02.94050072 +08:00:00\n   Compiling define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=define-simple-traits, checker=Udeps\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:44:51.511737896 +08:00:00\n    Checking define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=define-simple-traits, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2026-01-26 4:44:51.617014833 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "crate_interface",
+      "pkg": "define-weak-traits",
+      "count": 6,
+      "raw_reports": [
+        {
+          "file": "define-weak-traits/src/lib.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot resolve a prelude import\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=define-weak-traits, checker=Clippy\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf  --no-deps\n// timestamp=2026-01-26 4:34:34.115844876 +08:00:00\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=define-weak-traits, checker=Lockbud\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:35:03.681512293 +08:00:00\n   Compiling define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=define-weak-traits, checker=Udeps\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:44:52.264054562 +08:00:00\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=define-weak-traits, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2026-01-26 4:44:52.347412284 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "crate_interface",
+      "pkg": "impl-simple-traits",
+      "count": 6,
+      "raw_reports": [
+        {
+          "file": "define-simple-traits/src/lib.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot resolve a prelude import\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=impl-simple-traits, checker=Clippy\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-simple-traits\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf  --no-deps\n// timestamp=2026-01-26 4:34:34.69238847 +08:00:00\n    Checking define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=impl-simple-traits, checker=Lockbud\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-simple-traits\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:35:04.011840049 +08:00:00\n   Compiling define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=impl-simple-traits, checker=Udeps\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-simple-traits\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:44:52.596352004 +08:00:00\n    Checking define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=impl-simple-traits, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-simple-traits\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2026-01-26 4:44:52.673426007 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking define-simple-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-simple-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_simple_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-simple-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "crate_interface",
+      "pkg": "impl-weak-partial",
+      "count": 6,
+      "raw_reports": [
+        {
+          "file": "define-weak-traits/src/lib.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot resolve a prelude import\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=impl-weak-partial, checker=Clippy\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-weak-partial\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf  --no-deps\n// timestamp=2026-01-26 4:34:35.249129531 +08:00:00\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=impl-weak-partial, checker=Lockbud\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-weak-partial\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:35:04.263873309 +08:00:00\n   Compiling define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=impl-weak-partial, checker=Udeps\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-weak-partial\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:44:52.97264042 +08:00:00\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=impl-weak-partial, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/impl-weak-partial\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2026-01-26 4:44:53.05593957 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "arceos-org",
+      "repo": "crate_interface",
+      "pkg": "test-weak-partial",
+      "count": 6,
+      "raw_reports": [
+        {
+          "file": "define-weak-traits/src/lib.rs",
+          "features": "",
+          "count": 2,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot resolve a prelude import\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=test-weak-partial, checker=Clippy\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-weak-partial\n// cmd=cargo clippy --target riscv64gc-unknown-none-elf  --no-deps\n// timestamp=2026-01-26 4:34:37.232493683 +08:00:00\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=test-weak-partial, checker=Lockbud\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-weak-partial\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:35:05.392181822 +08:00:00\n   Compiling define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: requires `sized` lang_item\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=test-weak-partial, checker=Udeps\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\n// features=\n// pkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-weak-partial\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \n// timestamp=2026-01-26 4:44:54.511023829 +08:00:00\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=test-weak-partial, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=riscv64gc-unknown-none-elf\nfeatures=\npkg_dir=/mnt/check/batch_3/arceos-org/crate_interface/test_crates/test-weak-partial\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target riscv64gc-unknown-none-elf \ntimestamp=2026-01-26 4:44:54.594421541 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking define-weak-traits v0.1.0 (/mnt/check/batch_3/arceos-org/crate_interface/test_crates/define-weak-traits)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `riscv64gc-unknown-none-elf` target may not support the standard library\n  = note: `std` is required by `define_weak_traits` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nFor more information about this error, try `rustc --explain E0463`.\nerror: could not compile `define-weak-traits` (lib) due to 2 previous errors\n"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "kinds_order": [
+    "Cargo",
+    "Clippy(Error)",
+    "Clippy(Warn)",
+    "Semver Violation",
+    "Audit",
+    "Mirai",
+    "Rapx",
+    "Rudra",
+    "Lockbud(Probably)",
+    "Lockbud(Possibly)",
+    "Atomvchecker",
+    "Outdated",
+    "Geiger",
+    "Unused Deps",
+    "Unformatted"
+  ]
+}
