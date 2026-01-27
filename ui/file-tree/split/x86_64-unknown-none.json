@@ -1,6 +1,72 @@
 {
   "data": [
     {
+      "user": "drivercraft",
+      "repo": "fdt-parser",
+      "pkg": "dtb-file",
+      "count": 13,
+      "raw_reports": [
+        {
+          "file": "dtb-file/src/lib.rs",
+          "features": "",
+          "count": 9,
+          "kinds": {
+            "Clippy(Error)": [
+              "error[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `dtb_file` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error: cannot resolve a prelude import\n\n",
+              "error: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:9:31\n  |\n9 | const TEST_RPI_4_FDT: &[u8] = include_bytes!(\"dtb/bcm2711-rpi-4-b.dtb\");\n  |                               ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n7 + use core::include_bytes;\n  |\n\n",
+              "error: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:10:33\n   |\n10 | const TEST_PHYTIUM_FDT: &[u8] = include_bytes!(\"dtb/phytium.dtb\");\n   |                                 ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\n",
+              "error: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:11:30\n   |\n11 | const TEST_QEMU_FDT: &[u8] = include_bytes!(\"dtb/qemu_pci.dtb\");\n   |                              ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\n",
+              "error: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:12:30\n   |\n12 | const TEST_3568_FDT: &[u8] = include_bytes!(\"dtb/rk3568-firefly-roc-pc-se.dtb\");\n   |                              ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\n",
+              "error: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:13:33\n   |\n13 | const TEST_RESERVE_FDT: &[u8] = include_bytes!(\"dtb/test_reserve.dtb\");\n   |                                 ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\n",
+              "error[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:55:28\n   |\n55 |         let ptr = unsafe { std::alloc::alloc_zeroed(layout) };\n   |                            ^^^ can't find crate\n   |\n   = note: the `x86_64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\n",
+              "error[E0405]: cannot find trait `Drop` in this scope\n  --> dtb-file/src/lib.rs:66:6\n   |\n66 | impl Drop for Align4Vec {\n   |      ^^^^ not found in this scope\n   |\nhelp: consider importing this trait\n   |\n 7 + use core::ops::Drop;\n   |\n\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) clippy",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=dtb-file, checker=Clippy\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file\n// cmd=cargo clippy --target x86_64-unknown-none  --no-deps\n// timestamp=2026-01-28 4:40:37.449502246 +08:00:00\n    Checking dtb-file v0.1.1 (/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file)\nerror: could not compile `dtb-file` (lib) due to 9 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) lockbud",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=dtb-file, checker=Lockbud\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target x86_64-unknown-none \n// timestamp=2026-01-28 4:44:44.274679518 +08:00:00\n   Compiling dtb-file v0.1.1 (/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `dtb_file` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:9:31\n  |\n9 | const TEST_RPI_4_FDT: &[u8] = include_bytes!(\"dtb/bcm2711-rpi-4-b.dtb\");\n  |                               ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n7 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:10:33\n   |\n10 | const TEST_PHYTIUM_FDT: &[u8] = include_bytes!(\"dtb/phytium.dtb\");\n   |                                 ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n7  + use core::include_bytes;\n   |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:11:30\n   |\n11 | const TEST_QEMU_FDT: &[u8] = include_bytes!(\"dtb/qemu_pci.dtb\");\n   |                              ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n7  + use core::include_bytes;\n   |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:12:30\n   |\n12 | const TEST_3568_FDT: &[u8] = include_bytes!(\"dtb/rk3568-firefly-roc-pc-se.dtb\");\n   |                              ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n7  + use core::include_bytes;\n   |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:13:33\n   |\n13 | const TEST_RESERVE_FDT: &[u8] = include_bytes!(\"dtb/test_reserve.dtb\");\n   |                                 ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n7  + use core::include_bytes;\n   |\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:55:28\n   |\n55 |         let ptr = unsafe { std::alloc::alloc_zeroed(layout) };\n   |                            ^^^ can't find crate\n   |\n   = note: the `x86_64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:70:18\n   |\n70 |         unsafe { std::alloc::dealloc(self.ptr, layout) };\n   |                  ^^^ can't find crate\n   |\n   = note: the `x86_64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:79:18\n   |\n79 |         unsafe { std::slice::from_raw_parts(self.ptr, self.size) }\n   |                  ^^^ can't find crate\n   |\n   = note: the `x86_64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0405]: cannot find trait `Drop` in this scope\n  --> dtb-file/src/lib.rs:66:6\n   |\n66 | impl Drop for Align4Vec {\n   |      ^^^^ not found in this scope\n   |\nhelp: consider importing this trait\n   |\n7  + use core::ops::Drop;\n   |\n\nSome errors have detailed explanations: E0405, E0463.\nFor more information about an error, try `rustc --explain E0405`.\nerror: could not compile `dtb-file` (lib) due to 10 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "(virtual) udeps",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=dtb-file, checker=Udeps\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2026-01-28 4:45:17.013801327 +08:00:00\n    Checking dtb-file v0.1.1 (/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `dtb_file` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:9:31\n  |\n9 | const TEST_RPI_4_FDT: &[u8] = include_bytes!(\"dtb/bcm2711-rpi-4-b.dtb\");\n  |                               ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n7 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:10:33\n   |\n10 | const TEST_PHYTIUM_FDT: &[u8] = include_bytes!(\"dtb/phytium.dtb\");\n   |                                 ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:11:30\n   |\n11 | const TEST_QEMU_FDT: &[u8] = include_bytes!(\"dtb/qemu_pci.dtb\");\n   |                              ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:12:30\n   |\n12 | const TEST_3568_FDT: &[u8] = include_bytes!(\"dtb/rk3568-firefly-roc-pc-se.dtb\");\n   |                              ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:13:33\n   |\n13 | const TEST_RESERVE_FDT: &[u8] = include_bytes!(\"dtb/test_reserve.dtb\");\n   |                                 ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:55:28\n   |\n55 |         let ptr = unsafe { std::alloc::alloc_zeroed(layout) };\n   |                            ^^^ can't find crate\n   |\n   = note: the `x86_64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0405]: cannot find trait `Drop` in this scope\n  --> dtb-file/src/lib.rs:66:6\n   |\n66 | impl Drop for Align4Vec {\n   |      ^^^^ not found in this scope\n   |\nhelp: consider importing this trait\n   |\n 7 + use core::ops::Drop;\n   |\n\nSome errors have detailed explanations: E0405, E0463.\nFor more information about an error, try `rustc --explain E0405`.\nerror: could not compile `dtb-file` (lib) due to 9 previous errors\n"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=dtb-file, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2026-01-28 4:45:17.13946449 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking dtb-file v0.1.1 (/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `dtb_file` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:9:31\n  |\n9 | const TEST_RPI_4_FDT: &[u8] = include_bytes!(\"dtb/bcm2711-rpi-4-b.dtb\");\n  |                               ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n7 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:10:33\n   |\n10 | const TEST_PHYTIUM_FDT: &[u8] = include_bytes!(\"dtb/phytium.dtb\");\n   |                                 ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:11:30\n   |\n11 | const TEST_QEMU_FDT: &[u8] = include_bytes!(\"dtb/qemu_pci.dtb\");\n   |                              ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:12:30\n   |\n12 | const TEST_3568_FDT: &[u8] = include_bytes!(\"dtb/rk3568-firefly-roc-pc-se.dtb\");\n   |                              ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\nerror: cannot find macro `include_bytes` in this scope\n  --> dtb-file/src/lib.rs:13:33\n   |\n13 | const TEST_RESERVE_FDT: &[u8] = include_bytes!(\"dtb/test_reserve.dtb\");\n   |                                 ^^^^^^^^^^^^^\n   |\nhelp: consider importing this macro\n   |\n 7 + use core::include_bytes;\n   |\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:55:28\n   |\n55 |         let ptr = unsafe { std::alloc::alloc_zeroed(layout) };\n   |                            ^^^ can't find crate\n   |\n   = note: the `x86_64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0405]: cannot find trait `Drop` in this scope\n  --> dtb-file/src/lib.rs:66:6\n   |\n66 | impl Drop for Align4Vec {\n   |      ^^^^ not found in this scope\n   |\nhelp: consider importing this trait\n   |\n 7 + use core::ops::Drop;\n   |\n\nSome errors have detailed explanations: E0405, E0463.\nFor more information about an error, try `rustc --explain E0405`.\nerror: could not compile `dtb-file` (lib) due to 9 previous errors\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
       "user": "bullhh",
       "repo": "igb_driver",
       "pkg": "igb_driver",
@@ -224,74 +290,16 @@
     {
       "user": "drivercraft",
       "repo": "fdt-parser",
-      "pkg": "dtb-file",
-      "count": 4,
-      "raw_reports": [
-        {
-          "file": "(virtual) fmt",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "\n   0: \u001b[91m无法解析 rustfmt 的标准输出：stdout=\n      原始命令为：`cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu fmt`（即 `Io(Dir(\"/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file\"), Cmd([\"cargo\", \"+nightly-2025-12-06-x86_64-unknown-linux-gnu\", \"fmt\", \"--\", \"--emit=json\"]))`）\n      toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu\n      stderr=error: 'cargo-fmt' is not installed for the toolchain 'nightly-2025-12-06-x86_64-unknown-linux-gnu'.\n      To install, run `rustup component add rustfmt`\n   0: \u001b[0m\n   1: \u001b[91mEOF while parsing a value at line 1 column 0\u001b[0m\n\nLocation:\n   \u001b[35msrc/run_checker/mod.rs\u001b[0m:\u001b[35m465\u001b[0m\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: \u001b[91mos_checker::run_checker\u001b[0m\u001b[91m::\u001b[0m\u001b[91mrun\u001b[0m with \u001b[96m\u001b[3muser\u001b[0m\u001b[2m=\u001b[0m\"drivercraft\" \u001b[3mrepo\u001b[0m\u001b[2m=\u001b[0m\"fdt-parser\"\u001b[0m\n      at \u001b[35msrc/run_checker/mod.rs\u001b[0m:\u001b[35m254\u001b[0m\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
-            ]
-          }
-        },
-        {
-          "file": "(virtual) lockbud",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=dtb-file, checker=Lockbud\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file\n// cmd=cargo +nightly-2025-02-01 lockbud -k all -- --target x86_64-unknown-none \n// timestamp=2025-12-25 1:09:15.259337593 +08:00:00\n   Compiling dtb-file v0.1.0 (/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `dtb_file` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:3:31\n  |\n3 | const TEST_RPI_4_FDT: &[u8] = include_bytes!(\"dtb/bcm2711-rpi-4-b.dtb\");\n  |                               ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:4:33\n  |\n4 | const TEST_PHYTIUM_FDT: &[u8] = include_bytes!(\"dtb/phytium.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:5:30\n  |\n5 | const TEST_QEMU_FDT: &[u8] = include_bytes!(\"dtb/qemu_pci.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:6:30\n  |\n6 | const TEST_3568_FDT: &[u8] = include_bytes!(\"dtb/rk3568-firefly-roc-pc-se.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:7:33\n  |\n7 | const TEST_RESERVE_FDT: &[u8] = include_bytes!(\"dtb/test_reserve.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:38:28\n   |\n38 |         let ptr = unsafe { std::alloc::alloc_zeroed(layout) };\n   |                            ^^^ can't find crate\n   |\n   = note: the `x86_64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:51:18\n   |\n51 |         unsafe { std::alloc::dealloc(self.ptr, layout) };\n   |                  ^^^ can't find crate\n   |\n   = note: the `x86_64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:59:18\n   |\n59 |         unsafe { std::slice::from_raw_parts(self.ptr, self.size) }\n   |                  ^^^ can't find crate\n   |\n   = note: the `x86_64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0405]: cannot find trait `Drop` in this scope\n  --> dtb-file/src/lib.rs:48:6\n   |\n48 | impl Drop for Align4Vec {\n   |      ^^^^ not found in this scope\n   |\nhelp: consider importing this trait\n   |\n1  + use core::ops::Drop;\n   |\n\nSome errors have detailed explanations: E0405, E0463.\nFor more information about an error, try `rustc --explain E0405`.\nerror: could not compile `dtb-file` (lib) due to 10 previous errors\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) udeps",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "// pkg_name=dtb-file, checker=Udeps\n// toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\n// features=\n// pkg_dir=/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \n// timestamp=2025-12-25 1:09:51.516621705 +08:00:00\n    Checking dtb-file v0.1.0 (/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `dtb_file` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:3:31\n  |\n3 | const TEST_RPI_4_FDT: &[u8] = include_bytes!(\"dtb/bcm2711-rpi-4-b.dtb\");\n  |                               ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:4:33\n  |\n4 | const TEST_PHYTIUM_FDT: &[u8] = include_bytes!(\"dtb/phytium.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:5:30\n  |\n5 | const TEST_QEMU_FDT: &[u8] = include_bytes!(\"dtb/qemu_pci.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:6:30\n  |\n6 | const TEST_3568_FDT: &[u8] = include_bytes!(\"dtb/rk3568-firefly-roc-pc-se.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:7:33\n  |\n7 | const TEST_RESERVE_FDT: &[u8] = include_bytes!(\"dtb/test_reserve.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:38:28\n   |\n38 |         let ptr = unsafe { std::alloc::alloc_zeroed(layout) };\n   |                            ^^^ can't find crate\n   |\n   = note: the `x86_64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0405]: cannot find trait `Drop` in this scope\n  --> dtb-file/src/lib.rs:48:6\n   |\n48 | impl Drop for Align4Vec {\n   |      ^^^^ not found in this scope\n   |\nhelp: consider importing this trait\n   |\n 1 + use core::ops::Drop;\n   |\n\nSome errors have detailed explanations: E0405, E0463.\nFor more information about an error, try `rustc --explain E0405`.\nerror: could not compile `dtb-file` (lib) due to 9 previous errors\n"
-            ]
-          }
-        },
-        {
-          "file": "[Udeps] Unused dependencies",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Unused Deps": [
-              "pkg=dtb-file, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-12-25 1:09:51.658927661 +08:00:00\n\n\nstdout:\n\nstderr:\n    Checking dtb-file v0.1.0 (/mnt/check/batch_4/drivercraft/fdt-parser/dtb-file)\nerror[E0463]: can't find crate for `std`\n  |\n  = note: the `x86_64-unknown-none` target may not support the standard library\n  = note: `std` is required by `dtb_file` because it does not declare `#![no_std]`\n  = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror: cannot resolve a prelude import\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:3:31\n  |\n3 | const TEST_RPI_4_FDT: &[u8] = include_bytes!(\"dtb/bcm2711-rpi-4-b.dtb\");\n  |                               ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:4:33\n  |\n4 | const TEST_PHYTIUM_FDT: &[u8] = include_bytes!(\"dtb/phytium.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:5:30\n  |\n5 | const TEST_QEMU_FDT: &[u8] = include_bytes!(\"dtb/qemu_pci.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:6:30\n  |\n6 | const TEST_3568_FDT: &[u8] = include_bytes!(\"dtb/rk3568-firefly-roc-pc-se.dtb\");\n  |                              ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror: cannot find macro `include_bytes` in this scope\n --> dtb-file/src/lib.rs:7:33\n  |\n7 | const TEST_RESERVE_FDT: &[u8] = include_bytes!(\"dtb/test_reserve.dtb\");\n  |                                 ^^^^^^^^^^^^^\n  |\nhelp: consider importing this macro\n  |\n1 + use core::include_bytes;\n  |\n\nerror[E0463]: can't find crate for `std`\n  --> dtb-file/src/lib.rs:38:28\n   |\n38 |         let ptr = unsafe { std::alloc::alloc_zeroed(layout) };\n   |                            ^^^ can't find crate\n   |\n   = note: the `x86_64-unknown-none` target may not support the standard library\n   = help: consider building the standard library from source with `cargo build -Zbuild-std`\n\nerror[E0405]: cannot find trait `Drop` in this scope\n  --> dtb-file/src/lib.rs:48:6\n   |\n48 | impl Drop for Align4Vec {\n   |      ^^^^ not found in this scope\n   |\nhelp: consider importing this trait\n   |\n 1 + use core::ops::Drop;\n   |\n\nSome errors have detailed explanations: E0405, E0463.\nFor more information about an error, try `rustc --explain E0405`.\nerror: could not compile `dtb-file` (lib) due to 9 previous errors\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "drivercraft",
-      "repo": "fdt-parser",
       "pkg": "fdt-edit",
-      "count": 2,
+      "count": 1,
       "raw_reports": [
-        {
-          "file": "(virtual) fmt",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "\n   0: \u001b[91m无法解析 rustfmt 的标准输出：stdout=\n      原始命令为：`cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu fmt`（即 `Io(Dir(\"/mnt/check/batch_4/drivercraft/fdt-parser/fdt-edit\"), Cmd([\"cargo\", \"+nightly-2025-12-06-x86_64-unknown-linux-gnu\", \"fmt\", \"--\", \"--emit=json\"]))`）\n      toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu\n      stderr=error: 'cargo-fmt' is not installed for the toolchain 'nightly-2025-12-06-x86_64-unknown-linux-gnu'.\n      To install, run `rustup component add rustfmt`\n   0: \u001b[0m\n   1: \u001b[91mEOF while parsing a value at line 1 column 0\u001b[0m\n\nLocation:\n   \u001b[35msrc/run_checker/mod.rs\u001b[0m:\u001b[35m465\u001b[0m\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: \u001b[91mos_checker::run_checker\u001b[0m\u001b[91m::\u001b[0m\u001b[91mrun\u001b[0m with \u001b[96m\u001b[3muser\u001b[0m\u001b[2m=\u001b[0m\"drivercraft\" \u001b[3mrepo\u001b[0m\u001b[2m=\u001b[0m\"fdt-parser\"\u001b[0m\n      at \u001b[35msrc/run_checker/mod.rs\u001b[0m:\u001b[35m254\u001b[0m\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
-            ]
-          }
-        },
         {
           "file": "[Udeps] Unused dependencies",
           "features": "",
           "count": 1,
           "kinds": {
             "Unused Deps": [
-              "pkg=fdt-edit, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_4/drivercraft/fdt-parser/fdt-edit\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-12-25 1:10:00.977728355 +08:00:00\n\n\nstdout:\nunused dependencies:\n`fdt-edit v0.1.6 (/mnt/check/batch_4/drivercraft/fdt-parser/fdt-edit)`\n└─── dependencies\n     └─── \"enum_dispatch\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking byteorder v1.5.0\n   Compiling heapless v0.9.2\n   Compiling thiserror v2.0.17\n    Checking stable_deref_trait v1.2.1\n    Checking log v0.4.29\n    Checking hash32 v0.3.1\n    Checking fdt-raw v0.1.5 (/mnt/check/batch_4/drivercraft/fdt-parser/fdt-raw)\n    Checking fdt-edit v0.1.6 (/mnt/check/batch_4/drivercraft/fdt-parser/fdt-edit)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.82s\ninfo: Loading depinfo from \"/mnt/check/batch_4/drivercraft/fdt-parser/target/x86_64-unknown-none/debug/deps/fdt_raw-ef74398da462c6f5.d\"\ninfo: Loading depinfo from \"/mnt/check/batch_4/drivercraft/fdt-parser/target/x86_64-unknown-none/debug/deps/fdt_edit-109d89a661176e7d.d\"\n"
+              "pkg=fdt-edit, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_4/drivercraft/fdt-parser/fdt-edit\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2026-01-28 4:45:26.175962082 +08:00:00\n\n\nstdout:\nunused dependencies:\n`fdt-edit v0.1.7 (/mnt/check/batch_4/drivercraft/fdt-parser/fdt-edit)`\n└─── dependencies\n     └─── \"enum_dispatch\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking byteorder v1.5.0\n   Compiling heapless v0.9.2\n   Compiling thiserror v2.0.18\n    Checking stable_deref_trait v1.2.1\n    Checking log v0.4.29\n    Checking hash32 v0.3.1\n    Checking fdt-raw v0.1.6 (/mnt/check/batch_4/drivercraft/fdt-parser/fdt-raw)\n    Checking fdt-edit v0.1.7 (/mnt/check/batch_4/drivercraft/fdt-parser/fdt-edit)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.83s\ninfo: Loading depinfo from \"/mnt/check/batch_4/drivercraft/fdt-parser/target/x86_64-unknown-none/debug/deps/fdt_raw-eb14f2e98465079d.d\"\ninfo: Loading depinfo from \"/mnt/check/batch_4/drivercraft/fdt-parser/target/x86_64-unknown-none/debug/deps/fdt_edit-87df38b0fde0cfc8.d\"\n"
             ]
           }
         }
@@ -301,43 +309,15 @@
       "user": "drivercraft",
       "repo": "fdt-parser",
       "pkg": "fdt-parser",
-      "count": 2,
+      "count": 1,
       "raw_reports": [
-        {
-          "file": "(virtual) fmt",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "\n   0: \u001b[91m无法解析 rustfmt 的标准输出：stdout=\n      原始命令为：`cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu fmt`（即 `Io(Dir(\"/mnt/check/batch_4/drivercraft/fdt-parser/fdt-parser\"), Cmd([\"cargo\", \"+nightly-2025-12-06-x86_64-unknown-linux-gnu\", \"fmt\", \"--\", \"--emit=json\"]))`）\n      toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu\n      stderr=error: 'cargo-fmt' is not installed for the toolchain 'nightly-2025-12-06-x86_64-unknown-linux-gnu'.\n      To install, run `rustup component add rustfmt`\n   0: \u001b[0m\n   1: \u001b[91mEOF while parsing a value at line 1 column 0\u001b[0m\n\nLocation:\n   \u001b[35msrc/run_checker/mod.rs\u001b[0m:\u001b[35m465\u001b[0m\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: \u001b[91mos_checker::run_checker\u001b[0m\u001b[91m::\u001b[0m\u001b[91mrun\u001b[0m with \u001b[96m\u001b[3muser\u001b[0m\u001b[2m=\u001b[0m\"drivercraft\" \u001b[3mrepo\u001b[0m\u001b[2m=\u001b[0m\"fdt-parser\"\u001b[0m\n      at \u001b[35msrc/run_checker/mod.rs\u001b[0m:\u001b[35m254\u001b[0m\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
-            ]
-          }
-        },
         {
           "file": "[Udeps] Unused dependencies",
           "features": "",
           "count": 1,
           "kinds": {
             "Unused Deps": [
-              "pkg=fdt-parser, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_4/drivercraft/fdt-parser/fdt-parser\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2025-12-25 1:10:04.507870905 +08:00:00\n\n\nstdout:\nunused dependencies:\n`fdt-parser v0.5.1 (/mnt/check/batch_4/drivercraft/fdt-parser/fdt-parser)`\n└─── dependencies\n     └─── \"log\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking thiserror v2.0.17\n    Checking fdt-parser v0.5.1 (/mnt/check/batch_4/drivercraft/fdt-parser/fdt-parser)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.29s\ninfo: Loading depinfo from \"/mnt/check/batch_4/drivercraft/fdt-parser/target/x86_64-unknown-none/debug/deps/fdt_parser-79244940a2f91329.d\"\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "drivercraft",
-      "repo": "fdt-parser",
-      "pkg": "fdt-raw",
-      "count": 1,
-      "raw_reports": [
-        {
-          "file": "(virtual) fmt",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "\n   0: \u001b[91m无法解析 rustfmt 的标准输出：stdout=\n      原始命令为：`cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu fmt`（即 `Io(Dir(\"/mnt/check/batch_4/drivercraft/fdt-parser/fdt-raw\"), Cmd([\"cargo\", \"+nightly-2025-12-06-x86_64-unknown-linux-gnu\", \"fmt\", \"--\", \"--emit=json\"]))`）\n      toolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu\n      stderr=error: 'cargo-fmt' is not installed for the toolchain 'nightly-2025-12-06-x86_64-unknown-linux-gnu'.\n      To install, run `rustup component add rustfmt`\n   0: \u001b[0m\n   1: \u001b[91mEOF while parsing a value at line 1 column 0\u001b[0m\n\nLocation:\n   \u001b[35msrc/run_checker/mod.rs\u001b[0m:\u001b[35m465\u001b[0m\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: \u001b[91mos_checker::run_checker\u001b[0m\u001b[91m::\u001b[0m\u001b[91mrun\u001b[0m with \u001b[96m\u001b[3muser\u001b[0m\u001b[2m=\u001b[0m\"drivercraft\" \u001b[3mrepo\u001b[0m\u001b[2m=\u001b[0m\"fdt-parser\"\u001b[0m\n      at \u001b[35msrc/run_checker/mod.rs\u001b[0m:\u001b[35m254\u001b[0m\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
+              "pkg=fdt-parser, checker=Udeps\ntoolchain=nightly-2025-12-06-x86_64-unknown-linux-gnu, target=x86_64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_4/drivercraft/fdt-parser/fdt-parser\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target x86_64-unknown-none \ntimestamp=2026-01-28 4:45:29.658651235 +08:00:00\n\n\nstdout:\nunused dependencies:\n`fdt-parser v0.5.2 (/mnt/check/batch_4/drivercraft/fdt-parser/fdt-parser)`\n└─── dependencies\n     └─── \"log\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n    Checking thiserror v2.0.18\n    Checking fdt-parser v0.5.2 (/mnt/check/batch_4/drivercraft/fdt-parser/fdt-parser)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.28s\ninfo: Loading depinfo from \"/mnt/check/batch_4/drivercraft/fdt-parser/target/x86_64-unknown-none/debug/deps/fdt_parser-be909c7864a6e09d.d\"\n"
             ]
           }
         }
