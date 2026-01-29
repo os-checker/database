@@ -848,126 +848,6 @@
     },
     {
       "user": "drivercraft",
-      "repo": "sdmmc",
-      "pkg": "sdmmc",
-      "count": 13,
-      "raw_reports": [
-        {
-          "file": "src/emmc/cmd.rs",
-          "features": "",
-          "count": 3,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: the loop variable `i` is used to index `response`\n  --> src/emmc/cmd.rs:63:18\n   |\n63 |         for i in 0..4 {\n   |                  ^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop\n   = note: `#[warn(clippy::needless_range_loop)]` on by default\nhelp: consider using an iterator and enumerate()\n   |\n63 -         for i in 0..4 {\n63 +         for (i, <item>) in response.iter_mut().enumerate() {\n   |\n\n",
-              "warning: useless conversion to the same type: `u16`\n   --> src/emmc/cmd.rs:193:21\n    |\n193 |                     (cmd.block_size & 0xFFF).try_into().unwrap(),\n    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = help: consider removing `.try_into()`\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#useless_conversion\n    = note: `#[warn(clippy::useless_conversion)]` on by default\n\n",
-              "warning: this boolean expression can be simplified\n   --> src/emmc/cmd.rs:610:9\n    |\n610 |         !(present_state & EMMC_DATA_0_LVL != 0)\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `(present_state & EMMC_DATA_0_LVL == 0)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#nonminimal_bool\n    = note: `#[warn(clippy::nonminimal_bool)]` on by default\n\n"
-            ]
-          }
-        },
-        {
-          "file": "(virtual) fmt",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Cargo": [
-              "\n   0: \u001b[91m无法解析 rustfmt 的标准输出：stdout=\n      原始命令为：`cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu fmt`（即 `Io(Dir(\"/mnt/check/batch_4/drivercraft/sdmmc\"), Cmd([\"cargo\", \"+nightly-2025-12-06-x86_64-unknown-linux-gnu\", \"fmt\", \"--\", \"--emit=json\"]))`）\n      toolchain=nightly\n      stderr=error: 'cargo-fmt' is not installed for the toolchain 'nightly-2025-12-06-x86_64-unknown-linux-gnu'.\n      To install, run `rustup component add rustfmt`\n   0: \u001b[0m\n   1: \u001b[91mEOF while parsing a value at line 1 column 0\u001b[0m\n\nLocation:\n   \u001b[35msrc/run_checker/mod.rs\u001b[0m:\u001b[35m465\u001b[0m\n\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SPANTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n   0: \u001b[91mos_checker::run_checker\u001b[0m\u001b[91m::\u001b[0m\u001b[91mrun\u001b[0m with \u001b[96m\u001b[3muser\u001b[0m\u001b[2m=\u001b[0m\"drivercraft\" \u001b[3mrepo\u001b[0m\u001b[2m=\u001b[0m\"sdmmc\"\u001b[0m\n      at \u001b[35msrc/run_checker/mod.rs\u001b[0m:\u001b[35m254\u001b[0m\n\nBacktrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.\nRun with RUST_BACKTRACE=full to include source snippets."
-            ]
-          }
-        },
-        {
-          "file": "Cargo.lock",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Audit": [
-              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── sdmmc 0.1.0\n├── rdrive 0.18.11\n│   └── sparreal-kernel 0.12.2\n│       ├── sparreal-rt 0.12.1\n│       │   └── bare-test 0.7.0\n│       │       └── sdmmc 0.1.0\n│       └── bare-test 0.7.0\n├── rdif-base 0.7.0\n│   ├── rdrive 0.18.11\n│   ├── rdif-systick 0.5.1\n│   │   ├── sparreal-rt 0.12.1\n│   │   └── sparreal-kernel 0.12.2\n│   ├── rdif-power 0.6.1\n│   │   ├── sparreal-rt 0.12.1\n│   │   └── sparreal-kernel 0.12.2\n│   ├── rdif-pcie 0.1.4\n│   │   ├── rdrive 0.18.11\n│   │   └── pcie 0.4.5\n│   │       └── rdrive 0.18.11\n│   └── rdif-intc 0.12.1\n│       ├── sparreal-rt 0.12.1\n│       ├── sparreal-kernel 0.12.2\n│       └── arm-gic-driver 0.15.8\n│           └── sparreal-rt 0.12.1\n└── arm-gic-driver 0.15.8\n\nCrate:     rustls-pemfile\nVersion:   1.0.4\nWarning:   unmaintained\nTitle:     rustls-pemfile is unmaintained\nDate:      2025-11-28\nID:        RUSTSEC-2025-0134\nURL:       https://rustsec.org/advisories/RUSTSEC-2025-0134\nDependency tree:\nrustls-pemfile 1.0.4\n└── reqwest 0.11.27\n    └── release-dep 0.1.0\n        └── somehal 0.4.4\n            └── sparreal-rt 0.12.1\n                └── bare-test 0.7.0\n                    └── sdmmc 0.1.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 892,\n    \"last-commit\": \"a1edea9cd101605069e463801516f55a9254effd\",\n    \"last-updated\": \"2025-12-24T16:19:06+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 328\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\\n\\n## Possible Alternative(s)\\n\\n- [pastey](https://crates.io/crates/pastey), a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      },\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"rustls-pemfile\",\n          \"version\": \"1.0.4\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"1c74cae0a4cf6ccbbf5f359f08efdf8ee7e1dc532573bf0db71968cb56b1448c\",\n          \"dependencies\": [\n            {\n              \"name\": \"base64\",\n              \"version\": \"0.21.7\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2025-0134\",\n          \"package\": \"rustls-pemfile\",\n          \"title\": \"rustls-pemfile is unmaintained\",\n          \"description\": \"The rustls-pemfile crate is no longer maintained. The repository has been archived since August\\n2025, and users are encouraged to depend directly on the underlying PEM parsing code included\\nin rustls-pki-types since 1.9.0. The latest version of rustls-pemfile is in fact a thin wrapper\\naround the same code used in rustls-pki-types, so migrating should be straightforward.\\n\\nThe new API is represented by the [`PemObject`][PemObject] trait, which provides methods for\\nreading a single or multiple PEM objects from a file or byte slice.\\n\\n[PemObject]: https://docs.rs/rustls-pki-types/latest/rustls_pki_types/pem/trait.PemObject.html\",\n          \"date\": \"2025-11-28\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/rustls/pemfile/issues/61\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
-            ]
-          }
-        },
-        {
-          "file": "[Lockbud] deadlock detection",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Lockbud(Possibly)": [
-              "[2025-12-24T17:17:37Z WARN  lockbud::callbacks] [\n      {\n        \"AtomicityViolation\": {\n          \"bug_kind\": \"AtomicityViolation\",\n          \"possibility\": \"Possibly\",\n          \"diagnosis\": {\n            \"fn_name\": \"set_logger_racy\",\n            \"atomic_reader\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.28/src/lib.rs:1525:11: 1525:40 (#0)\",\n            \"atomic_writer\": \"/home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/log-0.4.28/src/lib.rs:1528:13: 1528:56 (#0)\",\n            \"dep_kind\": \"Control\"\n          },\n          \"explanation\": \"atomic::store is data/control dependent on atomic::load\"\n        }\n      }\n    ]\n[2025-12-24T17:17:37Z WARN  lockbud::callbacks] crate log contains bugs: { probably: 0, possibly: 0 }, conflictlock: { probably: 0, possibly: 0 }, condvar_deadlock: { probably: 0, possibly: 0 }, atomicity_violation: { possibly: 1 }, invalid_free: { possibly: 0 }, use_after_free: { possibly: 0 }"
-            ]
-          }
-        },
-        {
-          "file": "[Udeps] Unused dependencies",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Unused Deps": [
-              "pkg=sdmmc, checker=Udeps\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_4/drivercraft/sdmmc\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none \ntimestamp=2025-12-25 1:17:51.107488444 +08:00:00\n\n\nstdout:\nunused dependencies:\n`sdmmc v0.1.0 (/mnt/check/batch_4/drivercraft/sdmmc)`\n└─── dependencies\n     ├─── \"aarch64-cpu\"\n     ├─── \"arm_pl011\"\n     ├─── \"bitflags\"\n     ├─── \"dma-api\"\n     ├─── \"fdt-parser\"\n     ├─── \"kspin\"\n     └─── \"smccc\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n   Compiling proc-macro2 v1.0.101\n   Compiling quote v1.0.41\n   Compiling unicode-ident v1.0.20\n   Compiling thiserror v2.0.17\n    Checking tock-registers v0.9.0\n    Checking aarch64-cpu v10.0.0\n   Compiling paste v1.0.15\n    Checking cfg-if v1.0.4\n    Checking scopeguard v1.2.0\n    Checking tock-registers v0.10.0\n    Checking lock_api v0.4.14\n    Checking tock-registers v0.8.1\n    Checking arm_pl011 v0.1.0\n    Checking spin v0.10.0\n   Compiling syn v2.0.107\n    Checking log v0.4.28\n    Checking bitflags v2.10.0\n    Checking fdt-parser v0.4.18\n    Checking aarch64-cpu-ext v0.1.4\n    Checking dma-api v0.3.1\n   Compiling crate_interface v0.1.4\n   Compiling thiserror-impl v2.0.17\n   Compiling bare-test-macros v0.2.0\n   Compiling sdmmc v0.1.0 (/mnt/check/batch_4/drivercraft/sdmmc)\n    Checking kernel_guard v0.1.2\n    Checking kspin v0.1.1\n    Checking smccc v0.2.2\nwarning: value assigned to `val` is never read\n  --> src/emmc/aux.rs:77:9\n   |\n77 |         val <<= 1;\n   |         ^^^^^^^^^\n   |\n   = help: maybe it is overwritten before being read?\n   = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default\n\nwarning: `sdmmc` (lib) generated 1 warning\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.26s\ninfo: Loading depinfo from \"/mnt/check/batch_4/drivercraft/sdmmc/target/debug/build/sdmmc-3ac62ccb15653cf6/build_script_build-3ac62ccb15653cf6.d\"\ninfo: Loading depinfo from \"/mnt/check/batch_4/drivercraft/sdmmc/target/aarch64-unknown-none/debug/deps/sdmmc-b3d6c754faa9141f.d\"\n"
-            ]
-          }
-        },
-        {
-          "file": "[outdated direct dependencies]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Outdated": [
-              "pkg=sdmmc, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_4/drivercraft/sdmmc\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2025-12-25 1:17:45.792463011 +08:00:00\n\nName         Project  Compat  Latest  Kind         Platform\n----         -------  ------  ------  ----         --------\naarch64-cpu  10.0.0   ---     11.2.0  Normal       ---\nbyte-unit    5.1.6    5.2.0   5.2.0   Development  ---\ndma-api      0.3.1    ---     0.5.2   Normal       ---\nfdt-parser   0.4.18   ---     0.5.1   Normal       ---\nlog          0.4.28   0.4.29  0.4.29  Normal       ---\npcie         0.2.7    ---     0.4.5   Development  ---\nrk3588-clk   0.1.0    0.1.1   0.1.1   Development  ---\n"
-            ]
-          }
-        },
-        {
-          "file": "[semver checks violation]",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Semver Violation": [
-              "pkg=sdmmc, checker=SemverChecks\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_4/drivercraft/sdmmc\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2025-12-25 1:17:35.000041695 +08:00:00\n\n\nstdout:\n\nstderr:\nerror: failed to retrieve index of crate versions from registry\n\nCaused by:\n    sdmmc not found in registry (crates.io). For workarounds check https://github.com/obi1kenobi/cargo-semver-checks#does-the-crate-im-checking-have-to-be-published-on-cratesio\n"
-            ]
-          }
-        },
-        {
-          "file": "src/emmc/aux.rs",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: value assigned to `val` is never read\n  --> src/emmc/aux.rs:77:9\n   |\n77 |         val <<= 1;\n   |         ^^^^^^^^^\n   |\n   = help: maybe it is overwritten before being read?\n   = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default\n\n"
-            ]
-          }
-        },
-        {
-          "file": "src/emmc/block.rs",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: this operation has no effect\n   --> src/emmc/block.rs:543:32\n    |\n543 |             let mut val: u32 = (buffer[i] as u32) << 0;\n    |                                ^^^^^^^^^^^^^^^^^^^^^^^ help: consider reducing it to: `(buffer[i] as u32)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#identity_op\n    = note: `#[warn(clippy::identity_op)]` on by default\n\n"
-            ]
-          }
-        },
-        {
-          "file": "src/emmc/rockchip.rs",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: this boolean expression can be simplified\n   --> src/emmc/rockchip.rs:347:12\n    |\n347 |         if !(timing == MMC_TIMING_LEGACY) && (self.quirks & SDHCI_QUIRK_NO_HISPD_BIT) == 0 {\n    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: try: `(timing != MMC_TIMING_LEGACY)`\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#nonminimal_bool\n\n"
-            ]
-          }
-        },
-        {
-          "file": "src/lib.rs",
-          "features": "",
-          "count": 1,
-          "kinds": {
-            "Clippy(Warn)": [
-              "warning: unsafe function's docs are missing a `# Safety` section\n  --> src/lib.rs:12:1\n   |\n12 | pub unsafe fn dump_memory_region(addr: usize, size: usize) {\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\n   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_safety_doc\n   = note: `#[warn(clippy::missing_safety_doc)]` on by default\n\n"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "user": "drivercraft",
       "repo": "phytium-mci",
       "pkg": "phytium-mci",
       "count": 6,
@@ -1029,6 +909,64 @@
           "kinds": {
             "Semver Violation": [
               "pkg=phytium-mci, checker=SemverChecks\ntoolchain=nightly-2025-08-15, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_5/drivercraft/phytium-mci\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2026-01-28 4:48:55.310492269 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building phytium-mci v0.1.0 (current)\nerror: running cargo-doc on crate 'phytium-mci' failed with output:\n-----\n   Compiling proc-macro2 v1.0.106\n   Compiling unicode-ident v1.0.22\n   Compiling quote v1.0.44\n   Compiling syn v1.0.109\n    Checking scopeguard v1.2.0\n   Compiling base64 v0.13.1\n   Compiling unicode-width v0.1.14\n    Checking lock_api v0.4.14\n    Checking const-default v1.0.0\n    Checking cfg-if v1.0.4\n    Checking spin v0.9.8\n    Checking nb v1.1.0\n    Checking spin v0.10.0\n    Checking lazy_static v1.5.0\n    Checking bitflags v2.10.0\n    Checking log v0.4.29\n    Checking tock-registers v0.9.0\n    Checking bytemuck v1.24.0\n   Compiling syn v2.0.114\n   Compiling svgbobdoc v0.3.0\n    Checking rlsf v0.2.1\n   Compiling bare-test-macros v0.2.0\n   Compiling phytium-mci v0.1.0 (/mnt/check/batch_5/drivercraft/phytium-mci)\n Documenting phytium-mci v0.1.0 (/mnt/check/batch_5/drivercraft/phytium-mci)\nerror: can't enable feature dma and pio at the same time!\n --> /mnt/check/batch_5/drivercraft/phytium-mci/src/mci/mci_config.rs:7:1\n  |\n7 | compile_error!(\"can't enable feature dma and pio at the same time!\");\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: can't enable feature dma and pio at the same time!\n --> /mnt/check/batch_5/drivercraft/phytium-mci/src/mci_host/mci_host_config.rs:2:1\n  |\n2 | compile_error!(\"can't enable feature dma and pio at the same time!\");\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: can't enable feature irq and poll at the same time!\n --> /mnt/check/batch_5/drivercraft/phytium-mci/src/mci_host/mci_host_config.rs:4:1\n  |\n4 | compile_error!(\"can't enable feature irq and poll at the same time!\");\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: could not document `phytium-mci`\n\n-----\n\nerror: failed to build rustdoc for crate phytium-mci v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /mnt/check/batch_5/drivercraft/phytium-mci --features default,dma,irq,pio,poll &&\n          cargo check --target aarch64-unknown-none &&\n          cargo doc --target aarch64-unknown-none\n\nerror: aborting due to failure to build rustdoc for crate phytium-mci v0.1.0\n"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "user": "drivercraft",
+      "repo": "sdmmc",
+      "pkg": "sdmmc",
+      "count": 5,
+      "raw_reports": [
+        {
+          "file": "(virtual) semver-checks",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Cargo": [
+              "// pkg_name=sdmmc, checker=SemverChecks\n// toolchain=nightly, target=aarch64-unknown-none\n// features=\n// pkg_dir=/mnt/check/batch_5/drivercraft/sdmmc\n// cmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \n// timestamp=2026-01-30 4:58:48.307787228 +08:00:00\n    Building sdmmc v0.1.0 (current)\nerror: running cargo-doc on crate 'sdmmc' failed with output:\n-----\n   Compiling proc-macro2 v1.0.106\n   Compiling quote v1.0.44\n   Compiling unicode-ident v1.0.22\n    Checking tock-registers v0.9.0\n   Compiling thiserror v2.0.18\n    Checking aarch64-cpu v10.0.0\n    Checking scopeguard v1.2.0\n    Checking tock-registers v0.10.1\n   Compiling paste v1.0.15\n    Checking cfg-if v1.0.4\n    Checking lock_api v0.4.14\n    Checking tock-registers v0.8.1\n    Checking spin v0.10.0\n    Checking arm_pl011 v0.1.0\n    Checking bitflags v2.10.0\n   Compiling syn v2.0.114\n    Checking log v0.4.29\n    Checking fdt-parser v0.4.18\n    Checking aarch64-cpu-ext v0.1.4\n    Checking dma-api v0.3.1\n   Compiling crate_interface v0.1.4\n   Compiling bare-test-macros v0.2.0\n   Compiling thiserror-impl v2.0.18\n   Compiling sdmmc v0.1.0 (/mnt/check/batch_5/drivercraft/sdmmc)\n    Checking kernel_guard v0.1.3\n    Checking kspin v0.1.1\n    Checking smccc v0.2.2\n Documenting sdmmc v0.1.0 (/mnt/check/batch_5/drivercraft/sdmmc)\nerror[E0428]: the name `DataBuffer` is defined multiple times\n  --> /mnt/check/batch_5/drivercraft/sdmmc/src/emmc/block.rs:26:1\n   |\n20 | pub enum DataBuffer<'a> {\n   | ----------------------- previous definition of the type `DataBuffer` here\n...\n26 | pub enum DataBuffer<'a> {\n   | ^^^^^^^^^^^^^^^^^^^^^^^ `DataBuffer` redefined here\n   |\n   = note: `DataBuffer` must be defined only once in the type namespace of this module\n\nFor more information about this error, try `rustc --explain E0428`.\nerror: could not document `sdmmc`\n\n-----\n\nerror: failed to build rustdoc for crate sdmmc v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /mnt/check/batch_5/drivercraft/sdmmc --features default,dma,pio &&\n          cargo check --target aarch64-unknown-none &&\n          cargo doc --target aarch64-unknown-none\n\nerror: aborting due to failure to build rustdoc for crate sdmmc v0.1.0\n"
+            ]
+          }
+        },
+        {
+          "file": "Cargo.lock",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Audit": [
+              "Crate:     paste\nVersion:   1.0.15\nWarning:   unmaintained\nTitle:     paste - no longer maintained\nDate:      2024-10-07\nID:        RUSTSEC-2024-0436\nURL:       https://rustsec.org/advisories/RUSTSEC-2024-0436\nDependency tree:\npaste 1.0.15\n├── sdmmc 0.1.0\n├── rdrive 0.18.11\n│   └── sparreal-kernel 0.12.2\n│       ├── sparreal-rt 0.12.1\n│       │   └── bare-test 0.7.0\n│       │       └── sdmmc 0.1.0\n│       └── bare-test 0.7.0\n├── rdif-base 0.7.0\n│   ├── rdrive 0.18.11\n│   ├── rdif-systick 0.5.1\n│   │   ├── sparreal-rt 0.12.1\n│   │   └── sparreal-kernel 0.12.2\n│   ├── rdif-power 0.6.1\n│   │   ├── sparreal-rt 0.12.1\n│   │   └── sparreal-kernel 0.12.2\n│   ├── rdif-pcie 0.1.4\n│   │   ├── rdrive 0.18.11\n│   │   └── pcie 0.4.5\n│   │       └── rdrive 0.18.11\n│   └── rdif-intc 0.12.1\n│       ├── sparreal-rt 0.12.1\n│       ├── sparreal-kernel 0.12.2\n│       └── arm-gic-driver 0.15.8\n│           └── sparreal-rt 0.12.1\n└── arm-gic-driver 0.15.8\n\nCrate:     rustls-pemfile\nVersion:   1.0.4\nWarning:   unmaintained\nTitle:     rustls-pemfile is unmaintained\nDate:      2025-11-28\nID:        RUSTSEC-2025-0134\nURL:       https://rustsec.org/advisories/RUSTSEC-2025-0134\nDependency tree:\nrustls-pemfile 1.0.4\n└── reqwest 0.11.27\n    └── release-dep 0.1.0\n        └── somehal 0.4.4\n            └── sparreal-rt 0.12.1\n                └── bare-test 0.7.0\n                    └── sdmmc 0.1.0\n\n\n{\n  \"database\": {\n    \"advisory-count\": 907,\n    \"last-commit\": \"7fb0891a68a7845339f4704e4a3a8fc263480d91\",\n    \"last-updated\": \"2026-01-29T06:56:50+01:00\"\n  },\n  \"lockfile\": {\n    \"dependency-count\": 327\n  },\n  \"settings\": {\n    \"target_arch\": [],\n    \"target_os\": [],\n    \"severity\": null,\n    \"ignore\": [],\n    \"informational_warnings\": [\n      \"unmaintained\",\n      \"unsound\",\n      \"notice\"\n    ]\n  },\n  \"vulnerabilities\": {\n    \"found\": false,\n    \"count\": 0,\n    \"list\": []\n  },\n  \"warnings\": {\n    \"unmaintained\": [\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"paste\",\n          \"version\": \"1.0.15\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a\",\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2024-0436\",\n          \"package\": \"paste\",\n          \"title\": \"paste - no longer maintained\",\n          \"description\": \"The creator of the crate `paste` has stated in the [`README.md`](https://github.com/dtolnay/paste/blob/master/README.md) \\nthat this project is not longer maintained as well as archived the repository\\n\\n## Possible Alternative(s)\\n\\n- [`pastey`]: a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate\\n- [`with_builtin_macros`]: crate providing a [superset of `paste`'s functionality including general `macro_rules!` eager expansions](https://docs.rs/with_builtin_macros/0.1.0/with_builtin_macros/macro.with_eager_expansions.html)  and `concat!`/`concat_idents!` macros\\n\\n[`pastey`]: https://crates.io/crates/pastey\\n[`with_builtin_macros`]: https://crates.io/crates/with_builtin_macros\",\n          \"date\": \"2024-10-07\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/dtolnay/paste\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      },\n      {\n        \"kind\": \"unmaintained\",\n        \"package\": {\n          \"name\": \"rustls-pemfile\",\n          \"version\": \"1.0.4\",\n          \"source\": \"registry+https://github.com/rust-lang/crates.io-index\",\n          \"checksum\": \"1c74cae0a4cf6ccbbf5f359f08efdf8ee7e1dc532573bf0db71968cb56b1448c\",\n          \"dependencies\": [\n            {\n              \"name\": \"base64\",\n              \"version\": \"0.21.7\",\n              \"source\": \"registry+https://github.com/rust-lang/crates.io-index\"\n            }\n          ],\n          \"replace\": null\n        },\n        \"advisory\": {\n          \"id\": \"RUSTSEC-2025-0134\",\n          \"package\": \"rustls-pemfile\",\n          \"title\": \"rustls-pemfile is unmaintained\",\n          \"description\": \"The rustls-pemfile crate is no longer maintained. The repository has been archived since August\\n2025, and users are encouraged to depend directly on the underlying PEM parsing code included\\nin rustls-pki-types since 1.9.0. The latest version of rustls-pemfile is in fact a thin wrapper\\naround the same code used in rustls-pki-types, so migrating should be straightforward.\\n\\nThe new API is represented by the [`PemObject`][PemObject] trait, which provides methods for\\nreading a single or multiple PEM objects from a file or byte slice.\\n\\n[PemObject]: https://docs.rs/rustls-pki-types/latest/rustls_pki_types/pem/trait.PemObject.html\",\n          \"date\": \"2025-11-28\",\n          \"aliases\": [],\n          \"related\": [],\n          \"collection\": \"crates\",\n          \"categories\": [],\n          \"keywords\": [],\n          \"cvss\": null,\n          \"informational\": \"unmaintained\",\n          \"references\": [],\n          \"source\": null,\n          \"url\": \"https://github.com/rustls/pemfile/issues/61\",\n          \"withdrawn\": null,\n          \"license\": \"CC0-1.0\"\n        },\n        \"affected\": null,\n        \"versions\": {\n          \"patched\": [],\n          \"unaffected\": []\n        }\n      }\n    ]\n  }\n}"
+            ]
+          }
+        },
+        {
+          "file": "[Udeps] Unused dependencies",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Unused Deps": [
+              "pkg=sdmmc, checker=Udeps\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_5/drivercraft/sdmmc\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu udeps --target aarch64-unknown-none \ntimestamp=2026-01-30 4:59:10.86506543 +08:00:00\n\n\nstdout:\nunused dependencies:\n`sdmmc v0.1.0 (/mnt/check/batch_5/drivercraft/sdmmc)`\n└─── dependencies\n     ├─── \"aarch64-cpu\"\n     ├─── \"arm_pl011\"\n     ├─── \"bitflags\"\n     ├─── \"dma-api\"\n     ├─── \"fdt-parser\"\n     ├─── \"kspin\"\n     └─── \"smccc\"\nNote: These dependencies might be used by other targets.\n      To find dependencies that are not used by any target, enable `--all-targets`.\nNote: They might be false-positive.\n      For example, `cargo-udeps` cannot detect usage of crates that are only used in doc-tests.\n      To ignore some dependencies, write `package.metadata.cargo-udeps.ignore` in Cargo.toml.\n\nstderr:\n   Compiling proc-macro2 v1.0.101\n   Compiling quote v1.0.41\n   Compiling unicode-ident v1.0.20\n   Compiling thiserror v2.0.17\n    Checking tock-registers v0.9.0\n    Checking aarch64-cpu v10.0.0\n    Checking cfg-if v1.0.4\n    Checking scopeguard v1.2.0\n    Checking tock-registers v0.10.0\n   Compiling paste v1.0.15\n    Checking lock_api v0.4.14\n    Checking tock-registers v0.8.1\n    Checking arm_pl011 v0.1.0\n   Compiling syn v2.0.107\n    Checking spin v0.10.0\n    Checking log v0.4.28\n    Checking bitflags v2.10.0\n    Checking fdt-parser v0.4.18\n    Checking aarch64-cpu-ext v0.1.4\n    Checking dma-api v0.3.1\n   Compiling bare-test-macros v0.2.0\n   Compiling thiserror-impl v2.0.17\n   Compiling crate_interface v0.1.4\n   Compiling sdmmc v0.1.0 (/mnt/check/batch_5/drivercraft/sdmmc)\n    Checking kernel_guard v0.1.2\n    Checking kspin v0.1.1\n    Checking smccc v0.2.2\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.34s\ninfo: Loading depinfo from \"/mnt/check/batch_5/drivercraft/sdmmc/target/debug/build/sdmmc-3ac62ccb15653cf6/build_script_build-3ac62ccb15653cf6.d\"\ninfo: Loading depinfo from \"/mnt/check/batch_5/drivercraft/sdmmc/target/aarch64-unknown-none/debug/deps/sdmmc-b3d6c754faa9141f.d\"\n"
+            ]
+          }
+        },
+        {
+          "file": "[outdated direct dependencies]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Outdated": [
+              "pkg=sdmmc, checker=Outdated\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_5/drivercraft/sdmmc\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu outdated -R --exit-code=2\ntimestamp=2026-01-30 4:59:05.469362614 +08:00:00\n\nName         Project  Compat  Latest  Kind         Platform\n----         -------  ------  ------  ----         --------\naarch64-cpu  10.0.0   ---     11.2.0  Normal       ---\nbyte-unit    5.1.6    5.2.0   5.2.0   Development  ---\ndma-api      0.3.1    ---     0.7.0   Normal       ---\nfdt-parser   0.4.18   ---     0.5.1   Normal       ---\nlog          0.4.28   0.4.29  0.4.29  Normal       ---\npcie         0.2.7    ---     0.4.5   Development  ---\n"
+            ]
+          }
+        },
+        {
+          "file": "[semver checks violation]",
+          "features": "",
+          "count": 1,
+          "kinds": {
+            "Semver Violation": [
+              "pkg=sdmmc, checker=SemverChecks\ntoolchain=nightly, target=aarch64-unknown-none\nfeatures=\npkg_dir=/mnt/check/batch_5/drivercraft/sdmmc\ncmd=cargo +nightly-2025-12-06-x86_64-unknown-linux-gnu semver-checks --target aarch64-unknown-none \ntimestamp=2026-01-30 4:58:54.204433959 +08:00:00\n\n\nstdout:\n\nstderr:\n    Building sdmmc v0.1.0 (current)\nerror: running cargo-doc on crate 'sdmmc' failed with output:\n-----\n   Compiling proc-macro2 v1.0.106\n   Compiling quote v1.0.44\n   Compiling unicode-ident v1.0.22\n    Checking tock-registers v0.9.0\n   Compiling thiserror v2.0.18\n    Checking aarch64-cpu v10.0.0\n    Checking scopeguard v1.2.0\n    Checking tock-registers v0.10.1\n   Compiling paste v1.0.15\n    Checking cfg-if v1.0.4\n    Checking lock_api v0.4.14\n    Checking tock-registers v0.8.1\n    Checking spin v0.10.0\n    Checking arm_pl011 v0.1.0\n    Checking bitflags v2.10.0\n   Compiling syn v2.0.114\n    Checking log v0.4.29\n    Checking fdt-parser v0.4.18\n    Checking aarch64-cpu-ext v0.1.4\n    Checking dma-api v0.3.1\n   Compiling crate_interface v0.1.4\n   Compiling bare-test-macros v0.2.0\n   Compiling thiserror-impl v2.0.18\n   Compiling sdmmc v0.1.0 (/mnt/check/batch_5/drivercraft/sdmmc)\n    Checking kernel_guard v0.1.3\n    Checking kspin v0.1.1\n    Checking smccc v0.2.2\n Documenting sdmmc v0.1.0 (/mnt/check/batch_5/drivercraft/sdmmc)\nerror[E0428]: the name `DataBuffer` is defined multiple times\n  --> /mnt/check/batch_5/drivercraft/sdmmc/src/emmc/block.rs:26:1\n   |\n20 | pub enum DataBuffer<'a> {\n   | ----------------------- previous definition of the type `DataBuffer` here\n...\n26 | pub enum DataBuffer<'a> {\n   | ^^^^^^^^^^^^^^^^^^^^^^^ `DataBuffer` redefined here\n   |\n   = note: `DataBuffer` must be defined only once in the type namespace of this module\n\nFor more information about this error, try `rustc --explain E0428`.\nerror: could not document `sdmmc`\n\n-----\n\nerror: failed to build rustdoc for crate sdmmc v0.1.0\nnote: this is usually due to a compilation error in the crate,\n      and is unlikely to be a bug in cargo-semver-checks\nnote: the following command can be used to reproduce the error:\n      cargo new --lib example &&\n          cd example &&\n          echo '[workspace]' >> Cargo.toml &&\n          cargo add --path /mnt/check/batch_5/drivercraft/sdmmc --features default,dma,pio &&\n          cargo check --target aarch64-unknown-none &&\n          cargo doc --target aarch64-unknown-none\n\nerror: aborting due to failure to build rustdoc for crate sdmmc v0.1.0\n"
             ]
           }
         }
