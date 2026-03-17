@@ -1,8 +1,536 @@
 {
   "user": "arceos-org",
   "repo": "axerrno",
-  "runs_total_count": 34,
+  "runs_total_count": 35,
   "workflows": [
+    {
+      "run": {
+        "name": "CI",
+        "head_branch": "mirror",
+        "head_sha": "d196155e9cc9e6b0dbc6b153140a23eaa2588046",
+        "head_commit": {
+          "message": "feat: add arceos tests (#6)\n\n* chore: update Cargo.lock and qemu-aarch64.toml for dependency adjustments\n\n* feat: Add QEMU runner and configuration for ArceOS\n\n- Implemented QEMU runner in `qemu.rs` to facilitate running ArceOS applications in QEMU.\n- Added board configuration files for AArch64, RISC-V, and x86_64 architectures.\n- Introduced `xtask` commands for building and running ArceOS applications.\n- Enhanced configuration loading to support command line arguments and board-specific settings.\n- Implemented default configuration setup for specified boards.\n- Updated dependencies in `Cargo.toml` for enhanced functionality.\n- Added tests for QEMU runner and configuration loading.\n\n* feat: add wait queue test suite for ArceOS\n\n* style: apply cargo fmt\n\n* refactor(axbuild): reuse ostool build and qemu runners\n\n* fix: simplify xtask alias in Cargo configuration\n\n* style: fix comment indentation in build.rs template\n\n* Refactor board configuration loading and QEMU runner integration\n\n- Updated `load_board_config` to use the new config module's board loader for backward compatibility.\n- Refactored `QemuRunner` to accept `manifest_dir` instead of `image_path` and `arceos_dir`, simplifying the constructor and related methods.\n- Removed redundant code and improved error handling in `run_defconfig` by leveraging `apply_defconfig`.\n- Enhanced configuration loading logic to prioritize command line arguments and board configurations.\n- Updated tests to reflect changes in the QEMU runner and configuration loading.\n- Cleaned up unused functions and imports in the configuration module.\n- Bumped `ostool` version in `Cargo.lock` to 0.8.13.\n\n* feat: add support for ArceOS targets and improve configuration management\n\n* feat: enhance ArceOS configuration with SMP support and QEMU integration\n\n* fix: update .gitignore to include axconfig wildcard and modify NUM_TASKS constant in main.rs\n\n* fix: prevent negative initialization value in TimeIf implementation\n\n* fix std test flakiness in scope-local and smoltcp doctest\n\n* feat: Introduce AxContext and AxBuild for improved configuration management\n\n- Added AxContext struct to encapsulate application context including configuration, manifest directory, and QEMU configuration path.\n- Implemented AxBuild struct to facilitate building and running applications with QEMU.\n- Refactored existing code to utilize AxContext and AxBuild, enhancing modularity and readability.\n- Removed deprecated board configuration files for QEMU (aarch64, riscv64, x86_64) as they are no longer needed.\n- Updated build and run commands to leverage new AxBuild structure, simplifying the command flow.\n- Adjusted tests and configuration overrides to align with the new context management approach.\n\n* fix: update Cargo.toml to include axerrno patch and clean up unused code in ostool\n\n* fix: update ostool to improve platform handling and cargo argument construction\n\n* refactor: improve test cases for config loading and cleanup functionality\n\n* fix: update axbuild dependency path and remove unnecessary features\n\n* refactor: rename log level conversion method and improve formatting in config handling",
+          "timestamp": "2026-03-17T05:16:17Z"
+        },
+        "display_title": "feat: add arceos tests (#6)",
+        "html_url": "https://github.com/arceos-org/axerrno/actions/runs/23179659189",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "run_started_at": "2026-03-17T05:18:31Z",
+        "created_at": "2026-03-17T05:18:31Z",
+        "updated_at": "2026-03-17T05:18:57Z",
+        "duration_sec": 26,
+        "actor": {
+          "login": "ZCShou"
+        },
+        "triggering_actor": {
+          "login": "ZCShou"
+        },
+        "id": 23179659189,
+        "jobs_url": "https://api.github.com/repos/arceos-org/axerrno/actions/runs/23179659189/jobs",
+        "logs_url": "https://api.github.com/repos/arceos-org/axerrno/actions/runs/23179659189/logs"
+      },
+      "jobs": {
+        "total_count": 5,
+        "jobs": [
+          {
+            "name": "doc",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-org/axerrno/actions/runs/23179659189/job/67349694975",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-03-17T05:18:32Z",
+            "started_at": "2026-03-17T05:18:34Z",
+            "completed_at": "2026-03-17T05:18:52Z",
+            "duration_sec": 18,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-17T05:18:35Z",
+                "completed_at": "2026-03-17T05:18:37Z",
+                "duration_sec": 2
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-17T05:18:37Z",
+                "completed_at": "2026-03-17T05:18:38Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-17T05:18:38Z",
+                "completed_at": "2026-03-17T05:18:47Z",
+                "duration_sec": 9
+              },
+              {
+                "name": "Build docs",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-17T05:18:47Z",
+                "completed_at": "2026-03-17T05:18:50Z",
+                "duration_sec": 3
+              },
+              {
+                "name": "Deploy to Github Pages",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 5,
+                "started_at": "2026-03-17T05:18:50Z",
+                "completed_at": "2026-03-17T05:18:50Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10,
+                "started_at": "2026-03-17T05:18:50Z",
+                "completed_at": "2026-03-17T05:18:51Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 11,
+                "started_at": "2026-03-17T05:18:51Z",
+                "completed_at": "2026-03-17T05:18:51Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 67349694975
+          },
+          {
+            "name": "ci (nightly, x86_64-unknown-none)",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-org/axerrno/actions/runs/23179659189/job/67349695016",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-03-17T05:18:32Z",
+            "started_at": "2026-03-17T05:18:34Z",
+            "completed_at": "2026-03-17T05:18:55Z",
+            "duration_sec": 21,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-17T05:18:35Z",
+                "completed_at": "2026-03-17T05:18:36Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-17T05:18:36Z",
+                "completed_at": "2026-03-17T05:18:37Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-17T05:18:37Z",
+                "completed_at": "2026-03-17T05:18:49Z",
+                "duration_sec": 12
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-17T05:18:49Z",
+                "completed_at": "2026-03-17T05:18:49Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-03-17T05:18:49Z",
+                "completed_at": "2026-03-17T05:18:49Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-03-17T05:18:49Z",
+                "completed_at": "2026-03-17T05:18:52Z",
+                "duration_sec": 3
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-03-17T05:18:52Z",
+                "completed_at": "2026-03-17T05:18:53Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2026-03-17T05:18:53Z",
+                "completed_at": "2026-03-17T05:18:53Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-03-17T05:18:53Z",
+                "completed_at": "2026-03-17T05:18:53Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-03-17T05:18:53Z",
+                "completed_at": "2026-03-17T05:18:53Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 67349695016
+          },
+          {
+            "name": "ci (nightly, x86_64-unknown-linux-gnu)",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-org/axerrno/actions/runs/23179659189/job/67349695049",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-03-17T05:18:32Z",
+            "started_at": "2026-03-17T05:18:34Z",
+            "completed_at": "2026-03-17T05:18:53Z",
+            "duration_sec": 19,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-17T05:18:35Z",
+                "completed_at": "2026-03-17T05:18:36Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-17T05:18:36Z",
+                "completed_at": "2026-03-17T05:18:36Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-17T05:18:36Z",
+                "completed_at": "2026-03-17T05:18:47Z",
+                "duration_sec": 11
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-17T05:18:47Z",
+                "completed_at": "2026-03-17T05:18:47Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-03-17T05:18:47Z",
+                "completed_at": "2026-03-17T05:18:47Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-03-17T05:18:47Z",
+                "completed_at": "2026-03-17T05:18:51Z",
+                "duration_sec": 4
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-03-17T05:18:51Z",
+                "completed_at": "2026-03-17T05:18:51Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-03-17T05:18:51Z",
+                "completed_at": "2026-03-17T05:18:51Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-03-17T05:18:51Z",
+                "completed_at": "2026-03-17T05:18:51Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-03-17T05:18:51Z",
+                "completed_at": "2026-03-17T05:18:52Z",
+                "duration_sec": 1
+              }
+            ],
+            "id": 67349695049
+          },
+          {
+            "name": "ci (nightly, riscv64gc-unknown-none-elf)",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-org/axerrno/actions/runs/23179659189/job/67349695052",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-03-17T05:18:32Z",
+            "started_at": "2026-03-17T05:18:34Z",
+            "completed_at": "2026-03-17T05:18:56Z",
+            "duration_sec": 22,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-17T05:18:35Z",
+                "completed_at": "2026-03-17T05:18:36Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-17T05:18:36Z",
+                "completed_at": "2026-03-17T05:18:37Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-17T05:18:37Z",
+                "completed_at": "2026-03-17T05:18:48Z",
+                "duration_sec": 11
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-17T05:18:48Z",
+                "completed_at": "2026-03-17T05:18:48Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-03-17T05:18:48Z",
+                "completed_at": "2026-03-17T05:18:49Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-03-17T05:18:49Z",
+                "completed_at": "2026-03-17T05:18:52Z",
+                "duration_sec": 3
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-03-17T05:18:52Z",
+                "completed_at": "2026-03-17T05:18:53Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2026-03-17T05:18:53Z",
+                "completed_at": "2026-03-17T05:18:53Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-03-17T05:18:53Z",
+                "completed_at": "2026-03-17T05:18:53Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-03-17T05:18:53Z",
+                "completed_at": "2026-03-17T05:18:53Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 67349695052
+          },
+          {
+            "name": "ci (nightly, aarch64-unknown-none-softfloat)",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-org/axerrno/actions/runs/23179659189/job/67349695078",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-03-17T05:18:32Z",
+            "started_at": "2026-03-17T05:18:34Z",
+            "completed_at": "2026-03-17T05:18:53Z",
+            "duration_sec": 19,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-17T05:18:35Z",
+                "completed_at": "2026-03-17T05:18:36Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-17T05:18:36Z",
+                "completed_at": "2026-03-17T05:18:36Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-17T05:18:36Z",
+                "completed_at": "2026-03-17T05:18:47Z",
+                "duration_sec": 11
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-17T05:18:47Z",
+                "completed_at": "2026-03-17T05:18:47Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-03-17T05:18:47Z",
+                "completed_at": "2026-03-17T05:18:47Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-03-17T05:18:47Z",
+                "completed_at": "2026-03-17T05:18:51Z",
+                "duration_sec": 4
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-03-17T05:18:51Z",
+                "completed_at": "2026-03-17T05:18:51Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2026-03-17T05:18:51Z",
+                "completed_at": "2026-03-17T05:18:51Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-03-17T05:18:51Z",
+                "completed_at": "2026-03-17T05:18:51Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-03-17T05:18:51Z",
+                "completed_at": "2026-03-17T05:18:51Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 67349695078
+          }
+        ]
+      }
+    },
     {
       "run": {
         "name": "CI",
@@ -10148,106 +10676,6 @@
             "duration_sec": 18,
             "steps": [],
             "id": 54908297015
-          }
-        ]
-      }
-    },
-    {
-      "run": {
-        "name": "CI",
-        "head_branch": "main",
-        "head_sha": "f06183e8c7ff20dc9c6f16acfdf126d581f0dad0",
-        "head_commit": {
-          "message": "chore: sort AxError variants",
-          "timestamp": "2025-11-09T09:27:20Z"
-        },
-        "display_title": "feat: add more derive, more error kinds, bail",
-        "html_url": "https://github.com/arceos-org/axerrno/actions/runs/19206507115",
-        "event": "pull_request",
-        "status": "completed",
-        "conclusion": "success",
-        "run_attempt": 1,
-        "run_started_at": "2025-11-09T09:27:27Z",
-        "created_at": "2025-11-09T09:27:27Z",
-        "updated_at": "2025-11-09T09:27:55Z",
-        "duration_sec": 28,
-        "actor": {
-          "login": "AsakuraMizu"
-        },
-        "triggering_actor": {
-          "login": "AsakuraMizu"
-        },
-        "id": 19206507115,
-        "jobs_url": "https://api.github.com/repos/arceos-org/axerrno/actions/runs/19206507115/jobs",
-        "logs_url": "https://api.github.com/repos/arceos-org/axerrno/actions/runs/19206507115/logs"
-      },
-      "jobs": {
-        "total_count": 5,
-        "jobs": [
-          {
-            "name": "doc",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-org/axerrno/actions/runs/19206507115/job/54902453035",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-11-09T09:27:29Z",
-            "started_at": "2025-11-09T09:27:31Z",
-            "completed_at": "2025-11-09T09:27:50Z",
-            "duration_sec": 19,
-            "steps": [],
-            "id": 54902453035
-          },
-          {
-            "name": "ci (nightly, riscv64gc-unknown-none-elf)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-org/axerrno/actions/runs/19206507115/job/54902453041",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-11-09T09:27:29Z",
-            "started_at": "2025-11-09T09:27:32Z",
-            "completed_at": "2025-11-09T09:27:54Z",
-            "duration_sec": 22,
-            "steps": [],
-            "id": 54902453041
-          },
-          {
-            "name": "ci (nightly, x86_64-unknown-linux-gnu)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-org/axerrno/actions/runs/19206507115/job/54902453043",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-11-09T09:27:29Z",
-            "started_at": "2025-11-09T09:27:32Z",
-            "completed_at": "2025-11-09T09:27:52Z",
-            "duration_sec": 20,
-            "steps": [],
-            "id": 54902453043
-          },
-          {
-            "name": "ci (nightly, x86_64-unknown-none)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-org/axerrno/actions/runs/19206507115/job/54902453047",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-11-09T09:27:29Z",
-            "started_at": "2025-11-09T09:27:32Z",
-            "completed_at": "2025-11-09T09:27:53Z",
-            "duration_sec": 21,
-            "steps": [],
-            "id": 54902453047
-          },
-          {
-            "name": "ci (nightly, aarch64-unknown-none-softfloat)",
-            "workflow_name": "CI",
-            "html_url": "https://github.com/arceos-org/axerrno/actions/runs/19206507115/job/54902453048",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2025-11-09T09:27:29Z",
-            "started_at": "2025-11-09T09:27:31Z",
-            "completed_at": "2025-11-09T09:27:54Z",
-            "duration_sec": 23,
-            "steps": [],
-            "id": 54902453048
           }
         ]
       }
