@@ -1,8 +1,536 @@
 {
   "user": "arceos-org",
   "repo": "axfs_crates",
-  "runs_total_count": 23,
+  "runs_total_count": 24,
   "workflows": [
+    {
+      "run": {
+        "name": "CI",
+        "head_branch": "dev",
+        "head_sha": "1fce0c0cbf3ca1c121230819c804b7203ef49f28",
+        "head_commit": {
+          "message": "refactor(axbuild): add axvisor module and reorganize config imports (#19)\n\n* chore: comment out ostool installation step in CI workflow\n\n* refactor: mv axbuild to scripts\n\n* Refactor arceos configuration and testing structure\n\n- Removed tests from `config.rs`, `ostool.rs`, and `mod.rs` to streamline the codebase.\n- Consolidated configuration overrides into `BuildArgs` and `RunArgs` for better clarity and usability.\n- Updated `run.rs` to utilize the new argument structures for building and running configurations.\n- Removed the `defconfig.rs` file as it was deemed unnecessary.\n- Cleaned up imports and organized public exports in `mod.rs` and `lib.rs`.\n- Enhanced error handling and validation in the configuration override logic.\n\n* feat: add build and run commands for StarryOS with configuration management\n\n* refactor: simplify artifact directory parsing logic in cargo JSON\n\n* refactor(axbuild): add axvisor module and reorganize config imports\n\n* feat(axvisor): add build configuration and image management tools\n\n* feat(axvisor): add QEMU test runner with image management and workflow updates\n\n* feat(axvisor): enhance QEMU test runner with image management improvements\n\n* feat(axvisor): update QEMU configuration and streamline test execution\n\n* feat(axvisor): enhance QEMU test execution with architecture-specific configurations and improved test management\n\n* refactor(axvisor): organize imports and improve code formatting across multiple files\n\n* Add multi-processor support and various platform initializations\n\n- Implemented booting of application processors (APs) in protected mode with new assembly code in `ap_start.S`.\n- Introduced `apic.rs` for Advanced Programmable Interrupt Controller (APIC) support, including initialization and IRQ handling.\n- Created `boot.rs` to handle kernel booting using the Multiboot specification.\n- Added `console.rs` for UART 16550 serial port console operations.\n- Developed `init.rs` for early and later platform initialization stages for both primary and secondary cores.\n- Established `lib.rs` as the main library file for the x86 QEMU platform, organizing modules and configurations.\n- Implemented memory management in `mem.rs`, including physical memory information and address translation.\n- Added multi-processor booting logic in `mp.rs` to start secondary CPUs.\n- Created `multiboot.S` for bootstrapping from 32-bit to 64-bit using the Multiboot specification.\n- Introduced power management in `power.rs`, including CPU bootstrapping and system shutdown.\n- Developed time management in `time.rs`, utilizing TSC as the clock source and handling timer interrupts.\n- Updated build scripts to use the correct linker script for dynamic platform builds.\n\n* fix: update linker script name to axplat.x in build configuration\n\n* refactor: remove unused cargo_args from board configuration files and update build script for linker arguments\n\n* docs: update usage examples in guest image management and remove obsolete crate entry",
+          "timestamp": "2026-03-19T05:50:45Z"
+        },
+        "display_title": "refactor(axbuild): add axvisor module and reorganize config imports (…",
+        "html_url": "https://github.com/arceos-org/axfs_crates/actions/runs/23624732857",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "run_started_at": "2026-03-27T00:23:00Z",
+        "created_at": "2026-03-27T00:23:00Z",
+        "updated_at": "2026-03-27T00:23:21Z",
+        "duration_sec": 21,
+        "actor": {
+          "login": "ZCShou"
+        },
+        "triggering_actor": {
+          "login": "ZCShou"
+        },
+        "id": 23624732857,
+        "jobs_url": "https://api.github.com/repos/arceos-org/axfs_crates/actions/runs/23624732857/jobs",
+        "logs_url": "https://api.github.com/repos/arceos-org/axfs_crates/actions/runs/23624732857/logs"
+      },
+      "jobs": {
+        "total_count": 5,
+        "jobs": [
+          {
+            "name": "doc",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-org/axfs_crates/actions/runs/23624732857/job/68811414065",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-03-27T00:23:00Z",
+            "started_at": "2026-03-27T00:23:02Z",
+            "completed_at": "2026-03-27T00:23:20Z",
+            "duration_sec": 18,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-27T00:23:03Z",
+                "completed_at": "2026-03-27T00:23:05Z",
+                "duration_sec": 2
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-27T00:23:05Z",
+                "completed_at": "2026-03-27T00:23:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-27T00:23:05Z",
+                "completed_at": "2026-03-27T00:23:14Z",
+                "duration_sec": 9
+              },
+              {
+                "name": "Build docs",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-27T00:23:14Z",
+                "completed_at": "2026-03-27T00:23:19Z",
+                "duration_sec": 5
+              },
+              {
+                "name": "Deploy to Github Pages",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 5,
+                "started_at": "2026-03-27T00:23:19Z",
+                "completed_at": "2026-03-27T00:23:19Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10,
+                "started_at": "2026-03-27T00:23:19Z",
+                "completed_at": "2026-03-27T00:23:19Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 11,
+                "started_at": "2026-03-27T00:23:19Z",
+                "completed_at": "2026-03-27T00:23:20Z",
+                "duration_sec": 1
+              }
+            ],
+            "id": 68811414065
+          },
+          {
+            "name": "ci (nightly, x86_64-unknown-none)",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-org/axfs_crates/actions/runs/23624732857/job/68811414071",
+            "status": "completed",
+            "conclusion": "failure",
+            "created_at": "2026-03-27T00:23:00Z",
+            "started_at": "2026-03-27T00:23:03Z",
+            "completed_at": "2026-03-27T00:23:20Z",
+            "duration_sec": 17,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-27T00:23:03Z",
+                "completed_at": "2026-03-27T00:23:05Z",
+                "duration_sec": 2
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-27T00:23:05Z",
+                "completed_at": "2026-03-27T00:23:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-27T00:23:05Z",
+                "completed_at": "2026-03-27T00:23:17Z",
+                "duration_sec": 12
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-27T00:23:17Z",
+                "completed_at": "2026-03-27T00:23:17Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 5,
+                "started_at": "2026-03-27T00:23:17Z",
+                "completed_at": "2026-03-27T00:23:17Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 6,
+                "started_at": "2026-03-27T00:23:17Z",
+                "completed_at": "2026-03-27T00:23:17Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2026-03-27T00:23:17Z",
+                "completed_at": "2026-03-27T00:23:17Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2026-03-27T00:23:17Z",
+                "completed_at": "2026-03-27T00:23:17Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-03-27T00:23:17Z",
+                "completed_at": "2026-03-27T00:23:17Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-03-27T00:23:17Z",
+                "completed_at": "2026-03-27T00:23:17Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 68811414071
+          },
+          {
+            "name": "ci (nightly, riscv64gc-unknown-none-elf)",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-org/axfs_crates/actions/runs/23624732857/job/68811414077",
+            "status": "completed",
+            "conclusion": "failure",
+            "created_at": "2026-03-27T00:23:00Z",
+            "started_at": "2026-03-27T00:23:02Z",
+            "completed_at": "2026-03-27T00:23:18Z",
+            "duration_sec": 16,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-27T00:23:03Z",
+                "completed_at": "2026-03-27T00:23:04Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-27T00:23:04Z",
+                "completed_at": "2026-03-27T00:23:04Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-27T00:23:04Z",
+                "completed_at": "2026-03-27T00:23:15Z",
+                "duration_sec": 11
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-27T00:23:15Z",
+                "completed_at": "2026-03-27T00:23:15Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 5,
+                "started_at": "2026-03-27T00:23:15Z",
+                "completed_at": "2026-03-27T00:23:16Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 6,
+                "started_at": "2026-03-27T00:23:16Z",
+                "completed_at": "2026-03-27T00:23:16Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2026-03-27T00:23:16Z",
+                "completed_at": "2026-03-27T00:23:16Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2026-03-27T00:23:16Z",
+                "completed_at": "2026-03-27T00:23:16Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-03-27T00:23:16Z",
+                "completed_at": "2026-03-27T00:23:16Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-03-27T00:23:16Z",
+                "completed_at": "2026-03-27T00:23:16Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 68811414077
+          },
+          {
+            "name": "ci (nightly, x86_64-unknown-linux-gnu)",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-org/axfs_crates/actions/runs/23624732857/job/68811414083",
+            "status": "completed",
+            "conclusion": "failure",
+            "created_at": "2026-03-27T00:23:00Z",
+            "started_at": "2026-03-27T00:23:03Z",
+            "completed_at": "2026-03-27T00:23:17Z",
+            "duration_sec": 14,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-27T00:23:03Z",
+                "completed_at": "2026-03-27T00:23:05Z",
+                "duration_sec": 2
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-27T00:23:05Z",
+                "completed_at": "2026-03-27T00:23:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-27T00:23:05Z",
+                "completed_at": "2026-03-27T00:23:15Z",
+                "duration_sec": 10
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-27T00:23:15Z",
+                "completed_at": "2026-03-27T00:23:15Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 5,
+                "started_at": "2026-03-27T00:23:15Z",
+                "completed_at": "2026-03-27T00:23:15Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 6,
+                "started_at": "2026-03-27T00:23:15Z",
+                "completed_at": "2026-03-27T00:23:15Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2026-03-27T00:23:15Z",
+                "completed_at": "2026-03-27T00:23:15Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2026-03-27T00:23:15Z",
+                "completed_at": "2026-03-27T00:23:15Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-03-27T00:23:15Z",
+                "completed_at": "2026-03-27T00:23:15Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-03-27T00:23:15Z",
+                "completed_at": "2026-03-27T00:23:15Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 68811414083
+          },
+          {
+            "name": "ci (nightly, aarch64-unknown-none-softfloat)",
+            "workflow_name": "CI",
+            "html_url": "https://github.com/arceos-org/axfs_crates/actions/runs/23624732857/job/68811414094",
+            "status": "completed",
+            "conclusion": "failure",
+            "created_at": "2026-03-27T00:23:00Z",
+            "started_at": "2026-03-27T00:23:02Z",
+            "completed_at": "2026-03-27T00:23:15Z",
+            "duration_sec": 13,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-27T00:23:03Z",
+                "completed_at": "2026-03-27T00:23:03Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-27T00:23:03Z",
+                "completed_at": "2026-03-27T00:23:04Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-27T00:23:04Z",
+                "completed_at": "2026-03-27T00:23:14Z",
+                "duration_sec": 10
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-27T00:23:14Z",
+                "completed_at": "2026-03-27T00:23:14Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 5,
+                "started_at": "2026-03-27T00:23:14Z",
+                "completed_at": "2026-03-27T00:23:14Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 6,
+                "started_at": "2026-03-27T00:23:14Z",
+                "completed_at": "2026-03-27T00:23:14Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 7,
+                "started_at": "2026-03-27T00:23:14Z",
+                "completed_at": "2026-03-27T00:23:14Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 8,
+                "started_at": "2026-03-27T00:23:14Z",
+                "completed_at": "2026-03-27T00:23:14Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-03-27T00:23:14Z",
+                "completed_at": "2026-03-27T00:23:14Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-03-27T00:23:14Z",
+                "completed_at": "2026-03-27T00:23:14Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 68811414094
+          }
+        ]
+      }
+    },
     {
       "run": {
         "name": "CI",
