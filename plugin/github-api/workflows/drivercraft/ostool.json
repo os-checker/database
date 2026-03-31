@@ -1,8 +1,883 @@
 {
   "user": "drivercraft",
   "repo": "ostool",
-  "runs_total_count": 485,
+  "runs_total_count": 490,
   "workflows": [
+    {
+      "run": {
+        "name": "Quality Check",
+        "head_branch": "dev-server",
+        "head_sha": "707b9d7eea1f930bc9157c433bb3b8d0ad1a74d6",
+        "head_commit": {
+          "message": "refactor: remove unused board editor UI schema and JSON schema validation\n\n- Deleted the boardEditorUiSchema.ts file as it is no longer needed.\n- Removed jsonFormsAjv.ts which contained JSON schema validation logic.\n- Eliminated BoardEditorJsonForms.render.test.ts as it is obsolete.\n- Updated BoardEditorView and BoardEditorView.test.ts to use a new form state management approach.\n- Refactored the BoardEditorView.vue to directly manage form state without JSON Forms.\n- Adjusted BoardsView.vue to remove unnecessary name column from the board table.\n- Modified SessionsView.vue to display board IDs instead of names.\n- Enhanced error handling in the Rust backend for board type not found scenarios.",
+          "timestamp": "2026-03-31T09:46:37Z"
+        },
+        "display_title": "refactor: remove unused board editor UI schema and JSON schema valida…",
+        "html_url": "https://github.com/drivercraft/ostool/actions/runs/23791090504",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "run_started_at": "2026-03-31T09:46:53Z",
+        "created_at": "2026-03-31T09:46:53Z",
+        "updated_at": "2026-03-31T09:48:08Z",
+        "duration_sec": 75,
+        "actor": {
+          "login": "ZR233"
+        },
+        "triggering_actor": {
+          "login": "ZR233"
+        },
+        "id": 23791090504,
+        "jobs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23791090504/jobs",
+        "logs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23791090504/logs"
+      },
+      "jobs": {
+        "total_count": 1,
+        "jobs": [
+          {
+            "name": "check (stable, x86_64-unknown-linux-gnu)",
+            "workflow_name": "Quality Check",
+            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23791090504/job/69326524800",
+            "status": "completed",
+            "conclusion": "failure",
+            "created_at": "2026-03-31T09:46:54Z",
+            "started_at": "2026-03-31T09:46:57Z",
+            "completed_at": "2026-03-31T09:48:07Z",
+            "duration_sec": 70,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-31T09:46:57Z",
+                "completed_at": "2026-03-31T09:46:59Z",
+                "duration_sec": 2
+              },
+              {
+                "name": "Run actions/checkout@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-31T09:46:59Z",
+                "completed_at": "2026-03-31T09:46:59Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-31T09:46:59Z",
+                "completed_at": "2026-03-31T09:47:09Z",
+                "duration_sec": 10
+              },
+              {
+                "name": "Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-31T09:47:09Z",
+                "completed_at": "2026-03-31T09:47:18Z",
+                "duration_sec": 9
+              },
+              {
+                "name": "Install qemu",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-03-31T09:47:18Z",
+                "completed_at": "2026-03-31T09:47:52Z",
+                "duration_sec": 34
+              },
+              {
+                "name": "Install lib libudev-dev",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-03-31T09:47:52Z",
+                "completed_at": "2026-03-31T09:48:05Z",
+                "duration_sec": 13
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-03-31T09:48:05Z",
+                "completed_at": "2026-03-31T09:48:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 8,
+                "started_at": "2026-03-31T09:48:05Z",
+                "completed_at": "2026-03-31T09:48:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 9,
+                "started_at": "2026-03-31T09:48:05Z",
+                "completed_at": "2026-03-31T09:48:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 10,
+                "started_at": "2026-03-31T09:48:05Z",
+                "completed_at": "2026-03-31T09:48:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 11,
+                "started_at": "2026-03-31T09:48:05Z",
+                "completed_at": "2026-03-31T09:48:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 21,
+                "started_at": "2026-03-31T09:48:05Z",
+                "completed_at": "2026-03-31T09:48:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 22,
+                "started_at": "2026-03-31T09:48:05Z",
+                "completed_at": "2026-03-31T09:48:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 23,
+                "started_at": "2026-03-31T09:48:05Z",
+                "completed_at": "2026-03-31T09:48:05Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 69326524800
+          }
+        ]
+      }
+    },
+    {
+      "run": {
+        "name": "Quality Check",
+        "head_branch": "dev-server",
+        "head_sha": "d2c6e50d85804be14df0c4d1c0b061c71b0cda8e",
+        "head_commit": {
+          "message": "feat: 添加数字量输入输出系列操作手册（RS485/RS232版）",
+          "timestamp": "2026-03-31T09:21:33Z"
+        },
+        "display_title": "feat: 添加数字量输入输出系列操作手册（RS485/RS232版）",
+        "html_url": "https://github.com/drivercraft/ostool/actions/runs/23790058834",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "run_started_at": "2026-03-31T09:21:48Z",
+        "created_at": "2026-03-31T09:21:48Z",
+        "updated_at": "2026-03-31T09:23:10Z",
+        "duration_sec": 82,
+        "actor": {
+          "login": "ZR233"
+        },
+        "triggering_actor": {
+          "login": "ZR233"
+        },
+        "id": 23790058834,
+        "jobs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23790058834/jobs",
+        "logs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23790058834/logs"
+      },
+      "jobs": {
+        "total_count": 1,
+        "jobs": [
+          {
+            "name": "check (stable, x86_64-unknown-linux-gnu)",
+            "workflow_name": "Quality Check",
+            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23790058834/job/69322970824",
+            "status": "completed",
+            "conclusion": "failure",
+            "created_at": "2026-03-31T09:21:49Z",
+            "started_at": "2026-03-31T09:21:52Z",
+            "completed_at": "2026-03-31T09:23:10Z",
+            "duration_sec": 78,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-31T09:21:53Z",
+                "completed_at": "2026-03-31T09:21:54Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run actions/checkout@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-31T09:21:54Z",
+                "completed_at": "2026-03-31T09:21:55Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-31T09:21:55Z",
+                "completed_at": "2026-03-31T09:22:04Z",
+                "duration_sec": 9
+              },
+              {
+                "name": "Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-31T09:22:04Z",
+                "completed_at": "2026-03-31T09:22:14Z",
+                "duration_sec": 10
+              },
+              {
+                "name": "Install qemu",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-03-31T09:22:14Z",
+                "completed_at": "2026-03-31T09:22:40Z",
+                "duration_sec": 26
+              },
+              {
+                "name": "Install lib libudev-dev",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-03-31T09:22:40Z",
+                "completed_at": "2026-03-31T09:22:53Z",
+                "duration_sec": 13
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-03-31T09:22:53Z",
+                "completed_at": "2026-03-31T09:22:53Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-03-31T09:22:53Z",
+                "completed_at": "2026-03-31T09:22:54Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 9,
+                "started_at": "2026-03-31T09:22:54Z",
+                "completed_at": "2026-03-31T09:23:08Z",
+                "duration_sec": 14
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 10,
+                "started_at": "2026-03-31T09:23:08Z",
+                "completed_at": "2026-03-31T09:23:08Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 11,
+                "started_at": "2026-03-31T09:23:08Z",
+                "completed_at": "2026-03-31T09:23:08Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 21,
+                "started_at": "2026-03-31T09:23:08Z",
+                "completed_at": "2026-03-31T09:23:08Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 22,
+                "started_at": "2026-03-31T09:23:08Z",
+                "completed_at": "2026-03-31T09:23:08Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 23,
+                "started_at": "2026-03-31T09:23:08Z",
+                "completed_at": "2026-03-31T09:23:08Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 69322970824
+          }
+        ]
+      }
+    },
+    {
+      "run": {
+        "name": "Quality Check",
+        "head_branch": "dev-server",
+        "head_sha": "ad241ab5f02e80c0df05e6b5741f6ce10e71cf39",
+        "head_commit": {
+          "message": "fix: simplify error handling for websocket writer and reader tasks",
+          "timestamp": "2026-03-31T08:45:04Z"
+        },
+        "display_title": "fix: simplify error handling for websocket writer and reader tasks",
+        "html_url": "https://github.com/drivercraft/ostool/actions/runs/23788595324",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "run_started_at": "2026-03-31T08:45:20Z",
+        "created_at": "2026-03-31T08:45:20Z",
+        "updated_at": "2026-03-31T08:46:46Z",
+        "duration_sec": 86,
+        "actor": {
+          "login": "ZR233"
+        },
+        "triggering_actor": {
+          "login": "ZR233"
+        },
+        "id": 23788595324,
+        "jobs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23788595324/jobs",
+        "logs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23788595324/logs"
+      },
+      "jobs": {
+        "total_count": 1,
+        "jobs": [
+          {
+            "name": "check (stable, x86_64-unknown-linux-gnu)",
+            "workflow_name": "Quality Check",
+            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23788595324/job/69317947394",
+            "status": "completed",
+            "conclusion": "failure",
+            "created_at": "2026-03-31T08:45:21Z",
+            "started_at": "2026-03-31T08:45:23Z",
+            "completed_at": "2026-03-31T08:46:45Z",
+            "duration_sec": 82,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-31T08:45:24Z",
+                "completed_at": "2026-03-31T08:45:26Z",
+                "duration_sec": 2
+              },
+              {
+                "name": "Run actions/checkout@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-31T08:45:26Z",
+                "completed_at": "2026-03-31T08:45:26Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-31T08:45:26Z",
+                "completed_at": "2026-03-31T08:45:37Z",
+                "duration_sec": 11
+              },
+              {
+                "name": "Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-31T08:45:37Z",
+                "completed_at": "2026-03-31T08:45:46Z",
+                "duration_sec": 9
+              },
+              {
+                "name": "Install qemu",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-03-31T08:45:46Z",
+                "completed_at": "2026-03-31T08:46:12Z",
+                "duration_sec": 26
+              },
+              {
+                "name": "Install lib libudev-dev",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-03-31T08:46:12Z",
+                "completed_at": "2026-03-31T08:46:29Z",
+                "duration_sec": 17
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-03-31T08:46:29Z",
+                "completed_at": "2026-03-31T08:46:29Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-03-31T08:46:29Z",
+                "completed_at": "2026-03-31T08:46:29Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 9,
+                "started_at": "2026-03-31T08:46:29Z",
+                "completed_at": "2026-03-31T08:46:43Z",
+                "duration_sec": 14
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 10,
+                "started_at": "2026-03-31T08:46:43Z",
+                "completed_at": "2026-03-31T08:46:43Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 11,
+                "started_at": "2026-03-31T08:46:43Z",
+                "completed_at": "2026-03-31T08:46:43Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 21,
+                "started_at": "2026-03-31T08:46:43Z",
+                "completed_at": "2026-03-31T08:46:43Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 22,
+                "started_at": "2026-03-31T08:46:43Z",
+                "completed_at": "2026-03-31T08:46:43Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 23,
+                "started_at": "2026-03-31T08:46:43Z",
+                "completed_at": "2026-03-31T08:46:43Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 69317947394
+          }
+        ]
+      }
+    },
+    {
+      "run": {
+        "name": "Quality Check",
+        "head_branch": "dev-server",
+        "head_sha": "d83695650404564c11515580dc6c05466f50e31f",
+        "head_commit": {
+          "message": "feat: add power management configuration to board settings\n\n- Introduced `power_management` field in `BoardConfig` to support custom and relay-based power management.\n- Implemented `PowerManagementConfig` enum with variants for `CustomPowerManagement` and `ZhongshengRelayPowerManagement`.\n- Added functionality to execute power actions (on/off) based on the configured power management strategy.\n- Updated the WebSocket serial interface to handle automatic power-on and power-off actions.\n- Enhanced the board editor UI to include options for configuring power management settings.\n- Added tests for power management functionality, including command execution and error handling.",
+          "timestamp": "2026-03-31T08:33:45Z"
+        },
+        "display_title": "feat: add power management configuration to board settings",
+        "html_url": "https://github.com/drivercraft/ostool/actions/runs/23788147309",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "run_started_at": "2026-03-31T08:34:03Z",
+        "created_at": "2026-03-31T08:34:03Z",
+        "updated_at": "2026-03-31T08:35:21Z",
+        "duration_sec": 78,
+        "actor": {
+          "login": "ZR233"
+        },
+        "triggering_actor": {
+          "login": "ZR233"
+        },
+        "id": 23788147309,
+        "jobs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23788147309/jobs",
+        "logs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23788147309/logs"
+      },
+      "jobs": {
+        "total_count": 1,
+        "jobs": [
+          {
+            "name": "check (stable, x86_64-unknown-linux-gnu)",
+            "workflow_name": "Quality Check",
+            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23788147309/job/69316412406",
+            "status": "completed",
+            "conclusion": "failure",
+            "created_at": "2026-03-31T08:34:04Z",
+            "started_at": "2026-03-31T08:34:07Z",
+            "completed_at": "2026-03-31T08:35:20Z",
+            "duration_sec": 73,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-31T08:34:08Z",
+                "completed_at": "2026-03-31T08:34:09Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run actions/checkout@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-31T08:34:09Z",
+                "completed_at": "2026-03-31T08:34:10Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-31T08:34:10Z",
+                "completed_at": "2026-03-31T08:34:19Z",
+                "duration_sec": 9
+              },
+              {
+                "name": "Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-31T08:34:19Z",
+                "completed_at": "2026-03-31T08:34:28Z",
+                "duration_sec": 9
+              },
+              {
+                "name": "Install qemu",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-03-31T08:34:28Z",
+                "completed_at": "2026-03-31T08:34:52Z",
+                "duration_sec": 24
+              },
+              {
+                "name": "Install lib libudev-dev",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-03-31T08:34:52Z",
+                "completed_at": "2026-03-31T08:35:05Z",
+                "duration_sec": 13
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-03-31T08:35:05Z",
+                "completed_at": "2026-03-31T08:35:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-03-31T08:35:05Z",
+                "completed_at": "2026-03-31T08:35:05Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 9,
+                "started_at": "2026-03-31T08:35:05Z",
+                "completed_at": "2026-03-31T08:35:18Z",
+                "duration_sec": 13
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 10,
+                "started_at": "2026-03-31T08:35:18Z",
+                "completed_at": "2026-03-31T08:35:18Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 11,
+                "started_at": "2026-03-31T08:35:18Z",
+                "completed_at": "2026-03-31T08:35:18Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 21,
+                "started_at": "2026-03-31T08:35:18Z",
+                "completed_at": "2026-03-31T08:35:18Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 22,
+                "started_at": "2026-03-31T08:35:18Z",
+                "completed_at": "2026-03-31T08:35:19Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 23,
+                "started_at": "2026-03-31T08:35:19Z",
+                "completed_at": "2026-03-31T08:35:19Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 69316412406
+          }
+        ]
+      }
+    },
+    {
+      "run": {
+        "name": "Quality Check",
+        "head_branch": "dev-server",
+        "head_sha": "b30fb29e5876a8baf166220fe4b565387bc0370d",
+        "head_commit": {
+          "message": "feat: refactor uboot-shell for async support and improve dependencies\n\n- Updated Cargo.toml to include async dependencies: futures, tokio, tokio-serial, and tokio-util.\n- Refactored example files (env_var.rs, loady.rs, loady_real.rs) to use async/await syntax.\n- Modified UbootShell implementation to support async I/O operations.\n- Updated YMODEM protocol implementation for async file transfers.\n- Enhanced tests to utilize async functions and ensure compatibility with the new async structure.",
+          "timestamp": "2026-03-31T06:59:37Z"
+        },
+        "display_title": "feat: refactor uboot-shell for async support and improve dependencies",
+        "html_url": "https://github.com/drivercraft/ostool/actions/runs/23785470590",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "run_started_at": "2026-03-31T07:22:04Z",
+        "created_at": "2026-03-31T07:22:04Z",
+        "updated_at": "2026-03-31T07:23:30Z",
+        "duration_sec": 86,
+        "actor": {
+          "login": "ZR233"
+        },
+        "triggering_actor": {
+          "login": "ZR233"
+        },
+        "id": 23785470590,
+        "jobs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23785470590/jobs",
+        "logs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23785470590/logs"
+      },
+      "jobs": {
+        "total_count": 1,
+        "jobs": [
+          {
+            "name": "check (stable, x86_64-unknown-linux-gnu)",
+            "workflow_name": "Quality Check",
+            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23785470590/job/69307517272",
+            "status": "completed",
+            "conclusion": "failure",
+            "created_at": "2026-03-31T07:22:04Z",
+            "started_at": "2026-03-31T07:22:07Z",
+            "completed_at": "2026-03-31T07:23:29Z",
+            "duration_sec": 82,
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-03-31T07:22:08Z",
+                "completed_at": "2026-03-31T07:22:10Z",
+                "duration_sec": 2
+              },
+              {
+                "name": "Run actions/checkout@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-03-31T07:22:10Z",
+                "completed_at": "2026-03-31T07:22:11Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Run dtolnay/rust-toolchain@nightly",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-03-31T07:22:11Z",
+                "completed_at": "2026-03-31T07:22:23Z",
+                "duration_sec": 12
+              },
+              {
+                "name": "Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-03-31T07:22:23Z",
+                "completed_at": "2026-03-31T07:22:35Z",
+                "duration_sec": 12
+              },
+              {
+                "name": "Install qemu",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-03-31T07:22:35Z",
+                "completed_at": "2026-03-31T07:23:02Z",
+                "duration_sec": 27
+              },
+              {
+                "name": "Install lib libudev-dev",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-03-31T07:23:02Z",
+                "completed_at": "2026-03-31T07:23:14Z",
+                "duration_sec": 12
+              },
+              {
+                "name": "Check rust version",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-03-31T07:23:14Z",
+                "completed_at": "2026-03-31T07:23:14Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Check code format",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-03-31T07:23:14Z",
+                "completed_at": "2026-03-31T07:23:15Z",
+                "duration_sec": 1
+              },
+              {
+                "name": "Clippy",
+                "status": "completed",
+                "conclusion": "failure",
+                "number": 9,
+                "started_at": "2026-03-31T07:23:15Z",
+                "completed_at": "2026-03-31T07:23:27Z",
+                "duration_sec": 12
+              },
+              {
+                "name": "Build",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 10,
+                "started_at": "2026-03-31T07:23:27Z",
+                "completed_at": "2026-03-31T07:23:27Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Unit test",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 11,
+                "started_at": "2026-03-31T07:23:27Z",
+                "completed_at": "2026-03-31T07:23:27Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run Swatinem/rust-cache@v2",
+                "status": "completed",
+                "conclusion": "skipped",
+                "number": 21,
+                "started_at": "2026-03-31T07:23:27Z",
+                "completed_at": "2026-03-31T07:23:27Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Post Run actions/checkout@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 22,
+                "started_at": "2026-03-31T07:23:27Z",
+                "completed_at": "2026-03-31T07:23:27Z",
+                "duration_sec": 0
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 23,
+                "started_at": "2026-03-31T07:23:27Z",
+                "completed_at": "2026-03-31T07:23:27Z",
+                "duration_sec": 0
+              }
+            ],
+            "id": 69307517272
+          }
+        ]
+      }
+    },
     {
       "run": {
         "name": "Quality Check",
@@ -4847,1194 +5722,6 @@
               }
             ],
             "id": 68673121821
-          }
-        ]
-      }
-    },
-    {
-      "run": {
-        "name": "pages build and deployment",
-        "head_branch": "main",
-        "head_sha": "4ba637da9234ab0bf4719fa537f55742688716b2",
-        "head_commit": {
-          "message": "feat: 增强 QEMU 运行时参数支持，添加覆盖和追加参数结构 (#60)",
-          "timestamp": "2026-03-26T08:13:17Z"
-        },
-        "display_title": "pages build and deployment",
-        "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584140296",
-        "event": "dynamic",
-        "status": "completed",
-        "conclusion": "success",
-        "run_attempt": 1,
-        "run_started_at": "2026-03-26T08:13:19Z",
-        "created_at": "2026-03-26T08:13:19Z",
-        "updated_at": "2026-03-26T08:13:54Z",
-        "duration_sec": 35,
-        "actor": {
-          "login": "ZR233"
-        },
-        "triggering_actor": {
-          "login": "ZR233"
-        },
-        "id": 23584140296,
-        "jobs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23584140296/jobs",
-        "logs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23584140296/logs"
-      },
-      "jobs": {
-        "total_count": 3,
-        "jobs": [
-          {
-            "name": "build",
-            "workflow_name": "pages build and deployment",
-            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584140296/job/68673122166",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2026-03-26T08:13:21Z",
-            "started_at": "2026-03-26T08:13:24Z",
-            "completed_at": "2026-03-26T08:13:41Z",
-            "duration_sec": 17,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2026-03-26T08:13:24Z",
-                "completed_at": "2026-03-26T08:13:26Z",
-                "duration_sec": 2
-              },
-              {
-                "name": "Pull ghcr.io/actions/jekyll-build-pages:v1.0.13",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2026-03-26T08:13:26Z",
-                "completed_at": "2026-03-26T08:13:35Z",
-                "duration_sec": 9
-              },
-              {
-                "name": "Checkout",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2026-03-26T08:13:35Z",
-                "completed_at": "2026-03-26T08:13:36Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Build with Jekyll",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2026-03-26T08:13:36Z",
-                "completed_at": "2026-03-26T08:13:39Z",
-                "duration_sec": 3
-              },
-              {
-                "name": "Upload artifact",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2026-03-26T08:13:39Z",
-                "completed_at": "2026-03-26T08:13:40Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Post Checkout",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 10,
-                "started_at": "2026-03-26T08:13:40Z",
-                "completed_at": "2026-03-26T08:13:40Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 11,
-                "started_at": "2026-03-26T08:13:40Z",
-                "completed_at": "2026-03-26T08:13:40Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 68673122166
-          },
-          {
-            "name": "report-build-status",
-            "workflow_name": "pages build and deployment",
-            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584140296/job/68673164824",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2026-03-26T08:13:42Z",
-            "started_at": "2026-03-26T08:13:45Z",
-            "completed_at": "2026-03-26T08:13:48Z",
-            "duration_sec": 3,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2026-03-26T08:13:45Z",
-                "completed_at": "2026-03-26T08:13:45Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Report Build Status",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2026-03-26T08:13:46Z",
-                "completed_at": "2026-03-26T08:13:46Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2026-03-26T08:13:46Z",
-                "completed_at": "2026-03-26T08:13:46Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 68673164824
-          },
-          {
-            "name": "deploy",
-            "workflow_name": "pages build and deployment",
-            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584140296/job/68673164841",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2026-03-26T08:13:42Z",
-            "started_at": "2026-03-26T08:13:46Z",
-            "completed_at": "2026-03-26T08:13:54Z",
-            "duration_sec": 8,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2026-03-26T08:13:46Z",
-                "completed_at": "2026-03-26T08:13:47Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Deploy to GitHub Pages",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2026-03-26T08:13:47Z",
-                "completed_at": "2026-03-26T08:13:53Z",
-                "duration_sec": 6
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2026-03-26T08:13:53Z",
-                "completed_at": "2026-03-26T08:13:53Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 68673164841
-          }
-        ]
-      }
-    },
-    {
-      "run": {
-        "name": "Copilot code review",
-        "head_branch": "refs/pull/60/head",
-        "head_sha": "ca983499faa807de7f826a0b49c8f27d2d0e0a8a",
-        "head_commit": {
-          "message": "feat: 增强 QEMU 运行时参数支持，添加覆盖和追加参数结构",
-          "timestamp": "2026-03-26T07:39:34Z"
-        },
-        "display_title": "Copilot code review",
-        "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584061116",
-        "event": "dynamic",
-        "status": "completed",
-        "conclusion": "success",
-        "run_attempt": 1,
-        "run_started_at": "2026-03-26T08:11:08Z",
-        "created_at": "2026-03-26T08:11:08Z",
-        "updated_at": "2026-03-26T08:15:13Z",
-        "duration_sec": 245,
-        "actor": {
-          "login": "Copilot"
-        },
-        "triggering_actor": {
-          "login": "Copilot"
-        },
-        "id": 23584061116,
-        "jobs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23584061116/jobs",
-        "logs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23584061116/logs"
-      },
-      "jobs": {
-        "total_count": 4,
-        "jobs": [
-          {
-            "name": "Prepare",
-            "workflow_name": "Copilot code review",
-            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584061116/job/68672872538",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2026-03-26T08:11:09Z",
-            "started_at": "2026-03-26T08:11:12Z",
-            "completed_at": "2026-03-26T08:11:17Z",
-            "duration_sec": 5,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2026-03-26T08:11:13Z",
-                "completed_at": "2026-03-26T08:11:14Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Set up token environment",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2026-03-26T08:11:14Z",
-                "completed_at": "2026-03-26T08:11:14Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Prepare",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2026-03-26T08:11:14Z",
-                "completed_at": "2026-03-26T08:11:14Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Get pull request details",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2026-03-26T08:11:14Z",
-                "completed_at": "2026-03-26T08:11:15Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2026-03-26T08:11:15Z",
-                "completed_at": "2026-03-26T08:11:15Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 68672872538
-          },
-          {
-            "name": "Agent",
-            "workflow_name": "Copilot code review",
-            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584061116/job/68672889416",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2026-03-26T08:11:18Z",
-            "started_at": "2026-03-26T08:11:21Z",
-            "completed_at": "2026-03-26T08:14:54Z",
-            "duration_sec": 213,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2026-03-26T08:11:21Z",
-                "completed_at": "2026-03-26T08:11:22Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Set up token environment",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2026-03-26T08:11:22Z",
-                "completed_at": "2026-03-26T08:11:22Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Checkout repository",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2026-03-26T08:11:22Z",
-                "completed_at": "2026-03-26T08:11:23Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Prepare",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2026-03-26T08:11:23Z",
-                "completed_at": "2026-03-26T08:11:23Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Setup GH CLI",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2026-03-26T08:11:23Z",
-                "completed_at": "2026-03-26T08:11:23Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Download autofind cli",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 6,
-                "started_at": "2026-03-26T08:11:23Z",
-                "completed_at": "2026-03-26T08:11:24Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Download ccrcli",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 7,
-                "started_at": "2026-03-26T08:11:24Z",
-                "completed_at": "2026-03-26T08:11:25Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Signal workflow started",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 8,
-                "started_at": "2026-03-26T08:11:25Z",
-                "completed_at": "2026-03-26T08:11:25Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Build extra.json",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 9,
-                "started_at": "2026-03-26T08:11:25Z",
-                "completed_at": "2026-03-26T08:11:25Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Retrieve diff from API",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 10,
-                "started_at": "2026-03-26T08:11:25Z",
-                "completed_at": "2026-03-26T08:11:26Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Build repo-custom-instructions.json",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 11,
-                "started_at": "2026-03-26T08:11:26Z",
-                "completed_at": "2026-03-26T08:11:27Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run Autofind Agent",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 12,
-                "started_at": "2026-03-26T08:11:27Z",
-                "completed_at": "2026-03-26T08:14:51Z",
-                "duration_sec": 204
-              },
-              {
-                "name": "Add source to agent results",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 13,
-                "started_at": "2026-03-26T08:14:51Z",
-                "completed_at": "2026-03-26T08:14:51Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Create error result for failed autofind",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 14,
-                "started_at": "2026-03-26T08:14:51Z",
-                "completed_at": "2026-03-26T08:14:51Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Upload results as artifacts",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 15,
-                "started_at": "2026-03-26T08:14:51Z",
-                "completed_at": "2026-03-26T08:14:51Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Post Checkout repository",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 30,
-                "started_at": "2026-03-26T08:14:51Z",
-                "completed_at": "2026-03-26T08:14:51Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 31,
-                "started_at": "2026-03-26T08:14:51Z",
-                "completed_at": "2026-03-26T08:14:52Z",
-                "duration_sec": 1
-              }
-            ],
-            "id": 68672889416
-          },
-          {
-            "name": "Upload results",
-            "workflow_name": "Copilot code review",
-            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584061116/job/68673310048",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2026-03-26T08:14:54Z",
-            "started_at": "2026-03-26T08:14:58Z",
-            "completed_at": "2026-03-26T08:15:05Z",
-            "duration_sec": 7,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2026-03-26T08:14:58Z",
-                "completed_at": "2026-03-26T08:14:59Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Set up token environment",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2026-03-26T08:14:59Z",
-                "completed_at": "2026-03-26T08:14:59Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Prepare",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2026-03-26T08:14:59Z",
-                "completed_at": "2026-03-26T08:14:59Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Setup GH CLI",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2026-03-26T08:14:59Z",
-                "completed_at": "2026-03-26T08:15:00Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Download ccrcli",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2026-03-26T08:15:00Z",
-                "completed_at": "2026-03-26T08:15:00Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Build payload.json",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 6,
-                "started_at": "2026-03-26T08:15:00Z",
-                "completed_at": "2026-03-26T08:15:00Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Create error result for failed prepare job",
-                "status": "completed",
-                "conclusion": "skipped",
-                "number": 7,
-                "started_at": "2026-03-26T08:15:00Z",
-                "completed_at": "2026-03-26T08:15:00Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Download Autofind results",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 8,
-                "started_at": "2026-03-26T08:15:00Z",
-                "completed_at": "2026-03-26T08:15:01Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "List results",
-                "status": "completed",
-                "conclusion": "skipped",
-                "number": 9,
-                "started_at": "2026-03-26T08:15:01Z",
-                "completed_at": "2026-03-26T08:15:01Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Download autofind cli for deduplication and or grouping",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 10,
-                "started_at": "2026-03-26T08:15:01Z",
-                "completed_at": "2026-03-26T08:15:02Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Group results",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 11,
-                "started_at": "2026-03-26T08:15:02Z",
-                "completed_at": "2026-03-26T08:15:03Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Deduplicate results",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 12,
-                "started_at": "2026-03-26T08:15:03Z",
-                "completed_at": "2026-03-26T08:15:04Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Send results to API",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 13,
-                "started_at": "2026-03-26T08:15:04Z",
-                "completed_at": "2026-03-26T08:15:04Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 14,
-                "started_at": "2026-03-26T08:15:04Z",
-                "completed_at": "2026-03-26T08:15:04Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 68673310048
-          },
-          {
-            "name": "Cleanup artifacts",
-            "workflow_name": "Copilot code review",
-            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584061116/job/68673333289",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2026-03-26T08:15:06Z",
-            "started_at": "2026-03-26T08:15:09Z",
-            "completed_at": "2026-03-26T08:15:13Z",
-            "duration_sec": 4,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2026-03-26T08:15:10Z",
-                "completed_at": "2026-03-26T08:15:10Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Set up token environment",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2026-03-26T08:15:10Z",
-                "completed_at": "2026-03-26T08:15:10Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Setup GH CLI",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2026-03-26T08:15:10Z",
-                "completed_at": "2026-03-26T08:15:10Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Get artifact IDs",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2026-03-26T08:15:10Z",
-                "completed_at": "2026-03-26T08:15:10Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Delete artifacts",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2026-03-26T08:15:10Z",
-                "completed_at": "2026-03-26T08:15:11Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 6,
-                "started_at": "2026-03-26T08:15:11Z",
-                "completed_at": "2026-03-26T08:15:11Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 68673333289
-          }
-        ]
-      }
-    },
-    {
-      "run": {
-        "name": "Quality Check",
-        "head_branch": "dev-config",
-        "head_sha": "ca983499faa807de7f826a0b49c8f27d2d0e0a8a",
-        "head_commit": {
-          "message": "feat: 增强 QEMU 运行时参数支持，添加覆盖和追加参数结构",
-          "timestamp": "2026-03-26T07:39:34Z"
-        },
-        "display_title": "feat: 增强 QEMU 运行时参数支持，添加覆盖和追加参数结构",
-        "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584059644",
-        "event": "pull_request",
-        "status": "completed",
-        "conclusion": "success",
-        "run_attempt": 1,
-        "run_started_at": "2026-03-26T08:11:06Z",
-        "created_at": "2026-03-26T08:11:06Z",
-        "updated_at": "2026-03-26T08:12:44Z",
-        "duration_sec": 98,
-        "actor": {
-          "login": "ZR233"
-        },
-        "triggering_actor": {
-          "login": "ZR233"
-        },
-        "id": 23584059644,
-        "jobs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23584059644/jobs",
-        "logs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23584059644/logs"
-      },
-      "jobs": {
-        "total_count": 1,
-        "jobs": [
-          {
-            "name": "check (stable, x86_64-unknown-linux-gnu)",
-            "workflow_name": "Quality Check",
-            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584059644/job/68672867247",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2026-03-26T08:11:06Z",
-            "started_at": "2026-03-26T08:11:09Z",
-            "completed_at": "2026-03-26T08:12:43Z",
-            "duration_sec": 94,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2026-03-26T08:11:10Z",
-                "completed_at": "2026-03-26T08:11:12Z",
-                "duration_sec": 2
-              },
-              {
-                "name": "Run actions/checkout@v5",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2026-03-26T08:11:12Z",
-                "completed_at": "2026-03-26T08:11:13Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run dtolnay/rust-toolchain@nightly",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2026-03-26T08:11:13Z",
-                "completed_at": "2026-03-26T08:11:14Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run Swatinem/rust-cache@v2",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2026-03-26T08:11:14Z",
-                "completed_at": "2026-03-26T08:11:26Z",
-                "duration_sec": 12
-              },
-              {
-                "name": "Install qemu",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2026-03-26T08:11:26Z",
-                "completed_at": "2026-03-26T08:11:54Z",
-                "duration_sec": 28
-              },
-              {
-                "name": "Install lib libudev-dev",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 6,
-                "started_at": "2026-03-26T08:11:54Z",
-                "completed_at": "2026-03-26T08:12:09Z",
-                "duration_sec": 15
-              },
-              {
-                "name": "Check rust version",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 7,
-                "started_at": "2026-03-26T08:12:09Z",
-                "completed_at": "2026-03-26T08:12:09Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Check code format",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 8,
-                "started_at": "2026-03-26T08:12:09Z",
-                "completed_at": "2026-03-26T08:12:11Z",
-                "duration_sec": 2
-              },
-              {
-                "name": "Clippy",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 9,
-                "started_at": "2026-03-26T08:12:11Z",
-                "completed_at": "2026-03-26T08:12:17Z",
-                "duration_sec": 6
-              },
-              {
-                "name": "Build",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 10,
-                "started_at": "2026-03-26T08:12:17Z",
-                "completed_at": "2026-03-26T08:12:23Z",
-                "duration_sec": 6
-              },
-              {
-                "name": "Unit test",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 11,
-                "started_at": "2026-03-26T08:12:23Z",
-                "completed_at": "2026-03-26T08:12:40Z",
-                "duration_sec": 17
-              },
-              {
-                "name": "Post Run Swatinem/rust-cache@v2",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 21,
-                "started_at": "2026-03-26T08:12:40Z",
-                "completed_at": "2026-03-26T08:12:40Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Post Run actions/checkout@v5",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 22,
-                "started_at": "2026-03-26T08:12:40Z",
-                "completed_at": "2026-03-26T08:12:40Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 23,
-                "started_at": "2026-03-26T08:12:40Z",
-                "completed_at": "2026-03-26T08:12:40Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 68672867247
-          }
-        ]
-      }
-    },
-    {
-      "run": {
-        "name": "Quality Check",
-        "head_branch": "dev-config",
-        "head_sha": "ca983499faa807de7f826a0b49c8f27d2d0e0a8a",
-        "head_commit": {
-          "message": "feat: 增强 QEMU 运行时参数支持，添加覆盖和追加参数结构",
-          "timestamp": "2026-03-26T07:39:34Z"
-        },
-        "display_title": "feat: 增强 QEMU 运行时参数支持，添加覆盖和追加参数结构",
-        "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584028712",
-        "event": "push",
-        "status": "completed",
-        "conclusion": "success",
-        "run_attempt": 1,
-        "run_started_at": "2026-03-26T08:10:17Z",
-        "created_at": "2026-03-26T08:10:17Z",
-        "updated_at": "2026-03-26T08:12:03Z",
-        "duration_sec": 106,
-        "actor": {
-          "login": "ZR233"
-        },
-        "triggering_actor": {
-          "login": "ZR233"
-        },
-        "id": 23584028712,
-        "jobs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23584028712/jobs",
-        "logs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23584028712/logs"
-      },
-      "jobs": {
-        "total_count": 1,
-        "jobs": [
-          {
-            "name": "check (stable, x86_64-unknown-linux-gnu)",
-            "workflow_name": "Quality Check",
-            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23584028712/job/68672769578",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2026-03-26T08:10:17Z",
-            "started_at": "2026-03-26T08:10:20Z",
-            "completed_at": "2026-03-26T08:12:02Z",
-            "duration_sec": 102,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2026-03-26T08:10:21Z",
-                "completed_at": "2026-03-26T08:10:24Z",
-                "duration_sec": 3
-              },
-              {
-                "name": "Run actions/checkout@v5",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2026-03-26T08:10:24Z",
-                "completed_at": "2026-03-26T08:10:25Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run dtolnay/rust-toolchain@nightly",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2026-03-26T08:10:25Z",
-                "completed_at": "2026-03-26T08:10:28Z",
-                "duration_sec": 3
-              },
-              {
-                "name": "Run Swatinem/rust-cache@v2",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2026-03-26T08:10:28Z",
-                "completed_at": "2026-03-26T08:10:42Z",
-                "duration_sec": 14
-              },
-              {
-                "name": "Install qemu",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2026-03-26T08:10:42Z",
-                "completed_at": "2026-03-26T08:11:12Z",
-                "duration_sec": 30
-              },
-              {
-                "name": "Install lib libudev-dev",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 6,
-                "started_at": "2026-03-26T08:11:12Z",
-                "completed_at": "2026-03-26T08:11:26Z",
-                "duration_sec": 14
-              },
-              {
-                "name": "Check rust version",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 7,
-                "started_at": "2026-03-26T08:11:26Z",
-                "completed_at": "2026-03-26T08:11:26Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Check code format",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 8,
-                "started_at": "2026-03-26T08:11:26Z",
-                "completed_at": "2026-03-26T08:11:28Z",
-                "duration_sec": 2
-              },
-              {
-                "name": "Clippy",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 9,
-                "started_at": "2026-03-26T08:11:28Z",
-                "completed_at": "2026-03-26T08:11:36Z",
-                "duration_sec": 8
-              },
-              {
-                "name": "Build",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 10,
-                "started_at": "2026-03-26T08:11:36Z",
-                "completed_at": "2026-03-26T08:11:43Z",
-                "duration_sec": 7
-              },
-              {
-                "name": "Unit test",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 11,
-                "started_at": "2026-03-26T08:11:43Z",
-                "completed_at": "2026-03-26T08:11:59Z",
-                "duration_sec": 16
-              },
-              {
-                "name": "Post Run Swatinem/rust-cache@v2",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 21,
-                "started_at": "2026-03-26T08:11:59Z",
-                "completed_at": "2026-03-26T08:11:59Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Post Run actions/checkout@v5",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 22,
-                "started_at": "2026-03-26T08:11:59Z",
-                "completed_at": "2026-03-26T08:12:00Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 23,
-                "started_at": "2026-03-26T08:12:00Z",
-                "completed_at": "2026-03-26T08:12:00Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 68672769578
-          }
-        ]
-      }
-    },
-    {
-      "run": {
-        "name": "Quality Check",
-        "head_branch": "main",
-        "head_sha": "63679c95a48e723691cff1216453f87f418221c2",
-        "head_commit": {
-          "message": "feat: 增加 Riscv64 架构支持",
-          "timestamp": "2026-03-26T07:58:57Z"
-        },
-        "display_title": "feat: 增加 Riscv64 架构支持",
-        "html_url": "https://github.com/drivercraft/ostool/actions/runs/23583644049",
-        "event": "pull_request",
-        "status": "completed",
-        "conclusion": "success",
-        "run_attempt": 1,
-        "run_started_at": "2026-03-26T07:59:35Z",
-        "created_at": "2026-03-26T07:59:35Z",
-        "updated_at": "2026-03-26T08:01:22Z",
-        "duration_sec": 107,
-        "actor": {
-          "login": "Josen-B"
-        },
-        "triggering_actor": {
-          "login": "Josen-B"
-        },
-        "id": 23583644049,
-        "jobs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23583644049/jobs",
-        "logs_url": "https://api.github.com/repos/drivercraft/ostool/actions/runs/23583644049/logs"
-      },
-      "jobs": {
-        "total_count": 1,
-        "jobs": [
-          {
-            "name": "check (stable, x86_64-unknown-linux-gnu)",
-            "workflow_name": "Quality Check",
-            "html_url": "https://github.com/drivercraft/ostool/actions/runs/23583644049/job/68671593027",
-            "status": "completed",
-            "conclusion": "success",
-            "created_at": "2026-03-26T07:59:35Z",
-            "started_at": "2026-03-26T07:59:39Z",
-            "completed_at": "2026-03-26T08:01:22Z",
-            "duration_sec": 103,
-            "steps": [
-              {
-                "name": "Set up job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 1,
-                "started_at": "2026-03-26T07:59:39Z",
-                "completed_at": "2026-03-26T07:59:41Z",
-                "duration_sec": 2
-              },
-              {
-                "name": "Run actions/checkout@v5",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 2,
-                "started_at": "2026-03-26T07:59:41Z",
-                "completed_at": "2026-03-26T07:59:42Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Run dtolnay/rust-toolchain@nightly",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 3,
-                "started_at": "2026-03-26T07:59:42Z",
-                "completed_at": "2026-03-26T07:59:45Z",
-                "duration_sec": 3
-              },
-              {
-                "name": "Run Swatinem/rust-cache@v2",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 4,
-                "started_at": "2026-03-26T07:59:45Z",
-                "completed_at": "2026-03-26T08:00:00Z",
-                "duration_sec": 15
-              },
-              {
-                "name": "Install qemu",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 5,
-                "started_at": "2026-03-26T08:00:00Z",
-                "completed_at": "2026-03-26T08:00:33Z",
-                "duration_sec": 33
-              },
-              {
-                "name": "Install lib libudev-dev",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 6,
-                "started_at": "2026-03-26T08:00:33Z",
-                "completed_at": "2026-03-26T08:00:46Z",
-                "duration_sec": 13
-              },
-              {
-                "name": "Check rust version",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 7,
-                "started_at": "2026-03-26T08:00:46Z",
-                "completed_at": "2026-03-26T08:00:46Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Check code format",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 8,
-                "started_at": "2026-03-26T08:00:46Z",
-                "completed_at": "2026-03-26T08:00:47Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Clippy",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 9,
-                "started_at": "2026-03-26T08:00:47Z",
-                "completed_at": "2026-03-26T08:00:56Z",
-                "duration_sec": 9
-              },
-              {
-                "name": "Build",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 10,
-                "started_at": "2026-03-26T08:00:56Z",
-                "completed_at": "2026-03-26T08:01:03Z",
-                "duration_sec": 7
-              },
-              {
-                "name": "Unit test",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 11,
-                "started_at": "2026-03-26T08:01:03Z",
-                "completed_at": "2026-03-26T08:01:19Z",
-                "duration_sec": 16
-              },
-              {
-                "name": "Post Run Swatinem/rust-cache@v2",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 21,
-                "started_at": "2026-03-26T08:01:19Z",
-                "completed_at": "2026-03-26T08:01:20Z",
-                "duration_sec": 1
-              },
-              {
-                "name": "Post Run actions/checkout@v5",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 22,
-                "started_at": "2026-03-26T08:01:20Z",
-                "completed_at": "2026-03-26T08:01:20Z",
-                "duration_sec": 0
-              },
-              {
-                "name": "Complete job",
-                "status": "completed",
-                "conclusion": "success",
-                "number": 23,
-                "started_at": "2026-03-26T08:01:20Z",
-                "completed_at": "2026-03-26T08:01:20Z",
-                "duration_sec": 0
-              }
-            ],
-            "id": 68671593027
           }
         ]
       }
